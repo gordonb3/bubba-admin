@@ -1,0 +1,14 @@
+Source: bubba-networkmanager
+Section: utils
+Priority: extra
+Maintainer: Tor Krill <tor@excito.com>
+Uploaders: Carl Fürstenberg <carl@excito.com>
+Build-Depends: debhelper (>= 7), libeutils-dev, libglib2.0-dev, libsigc++-2.0-dev
+Standards-Version: 3.8.3
+
+Package: bubba-networkmanager
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: BubbaTwo network manager
+ A worker which handles queries and modification of network related
+ issues on the BubbaTwo platform.

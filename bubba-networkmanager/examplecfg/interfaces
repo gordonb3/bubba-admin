@@ -1,0 +1,15 @@
+iface br0 inet static
+	address 192.168.10.1
+	bridge_maxwait 0
+	bridge_ports eth0 eth1 wlan0
+	netmask 255.255.255.0
+
+iface eth0 inet dhcp
+
+iface eth1 inet static
+	address 192.168.10.1
+	netmask 255.255.255.0
+
+auto lo
+iface lo inet loopback
+

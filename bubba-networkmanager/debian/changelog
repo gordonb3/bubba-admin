@@ -1,0 +1,80 @@
+bubba-networkmanager (0.9) claire; urgency=low
+
+  * Add "native" get wlan interface function 
+
+ -- Tor Krill <tor@excito.com>  Fri, 27 Nov 2009 00:39:40 +0100
+
+bubba-networkmanager (0.8) claire; urgency=low
+
+  * Add ttl option for how long daemon should idle before
+    terminating.
+  * Verify that interface really exists when returning 
+    interface configuration
+  * Add workaround for virtual devices like bridgeifs
+    to allow them to be "enumerated"
+  * Add if up and down methods to interfacecontroller
+  * Add experimental reconfig of interfaces in set lan 
+    interface
+  * Experimental implementation of set raw cfg on bridge  
+  * Do compile with debug info
+
+ -- Tor Krill <tor@excito.com>  Thu, 26 Nov 2009 10:51:20 +0100
+
+bubba-networkmanager (0.7) claire; urgency=low
+
+  * Dont fail on get addr,netmask and broadcast. 
+    Device can be up without any of them.
+
+ -- Tor Krill <tor@excito.com>  Thu, 19 Nov 2009 15:18:49 +0100
+
+bubba-networkmanager (0.6) claire; urgency=low
+
+  * Rewrote testscript to a module 
+  * Add optional type argument to getinterfaces
+    to allow fetching only fx wlan or bridgeifs
+
+ -- Tor Krill <tor@excito.com>  Wed, 18 Nov 2009 14:55:28 +0100
+
+bubba-networkmanager (0.5) claire; urgency=low
+
+  * Add methods for set and get NS config 
+  * Add more interfaces to policies
+  * Fix some typos 
+
+ -- Tor Krill <tor@excito.com>  Wed, 18 Nov 2009 10:06:17 +0100
+
+bubba-networkmanager (0.4) claire; urgency=low
+
+  * Adding minimal commandline client to get/set lan/wan if 
+  * activating check for effective uid (root lockin)
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 09 Nov 2009 16:37:13 +0100
+
+bubba-networkmanager (0.3) claire; urgency=low
+
+  * Added check if application already running. 
+
+ -- Tor Krill <tor@excito.com>  Thu, 22 Oct 2009 15:36:25 +0200
+
+bubba-networkmanager (0.2) claire; urgency=low
+
+  * Added setraw command
+  * Added wlan controller
+  * Added set wlan cfg command
+  * Fixed some more case errors in json
+  * Removed some debug prints 
+  * Added more AP methods
+  * Fixed permissions on wpa keyfile
+ 
+  * Added get interfaces method
+  * Added get wlan attached method
+  * Bugfix in policies
+  * Fixed missing constness in jsonutils 
+
+ -- Tor Krill <tor@excito.com>  Wed, 21 Oct 2009 22:37:35 +0200
+
+bubba-networkmanager (0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 16 Oct 2009 15:14:02 +0200
