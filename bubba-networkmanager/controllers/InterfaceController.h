@@ -49,6 +49,8 @@ public:
 
 	list<string> GetInterfaces(const string& itype="");
 	string GetCurrentWlanInterface();
+	string GetDefaultLanInterface();
+	string GetDefaultWanInterface();
 
 	static bool Up(const string& ifname);
 	static bool Down(const string& ifname);

@@ -137,6 +137,15 @@ static string getwlan(const Json::Value& v, list<string>& wifs){
 	return ret;
 }
 
+string InterfaceController::GetDefaultLanInterface(){
+	return SysConfig::Instance().ValueOrDefault("defaultlan","eth1");
+}
+
+string InterfaceController::GetDefaultWanInterface(){
+	return SysConfig::Instance().ValueOrDefault("defaultwan","eth0");
+}
+
+
 string InterfaceController::GetCurrentWlanInterface(){
 
 	// Try an educated guess on which wlan if is the "right" one.

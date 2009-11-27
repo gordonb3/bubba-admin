@@ -162,7 +162,8 @@ Dispatcher::Result Dispatcher::getlanif(EUtils::UnixClientSocket *con, const Jso
 
 	Json::Value res(Json::objectValue);
 	res["status"]=true;
-	res["lanif"]=SysConfig::Instance().ValueOrDefault("lanif","eth1");
+	res["lanif"]=SysConfig::Instance().ValueOrDefault("lanif",
+			InterfaceController::Instance().GetDefaultLanInterface());
 	this->send_jsonvalue(con,res);
 
 	return Dispatcher::Done;
@@ -211,7 +212,7 @@ Dispatcher::Result Dispatcher::setlanif(EUtils::UnixClientSocket *con, const Jso
 		SysConfig& cfg=SysConfig::Instance();
 
 		// Get old lanif
-		string olf=cfg.ValueOrDefault("lanif","eth1");
+		string olf=cfg.ValueOrDefault("lanif",InterfaceController::Instance().GetDefaultLanInterface());
 		if(olf==newif){
 			// Same interface
 			this->send_jsonvalue(con,res);
@@ -270,9 +271,8 @@ Dispatcher::Result Dispatcher::setlanif(EUtils::UnixClientSocket *con, const Jso
 								v["config"]["bridge_maxwait"]=Json::Value(Json::arrayValue);
 								v["config"]["bridge_maxwait"].append("0");
 								v["config"]["bridge_ports"]=Json::Value(Json::arrayValue);
-								// TODO: Fix this dynamic
-								v["config"]["bridge_ports"].append("eth1");
-								v["config"]["bridge_ports"].append("wlan0");
+								v["config"]["bridge_ports"].append(InterfaceController::Instance().GetDefaultLanInterface());
+								v["config"]["bridge_ports"].append(InterfaceController::Instance().GetCurrentWlanInterface());
 							}
 							if(v["addressing"]=="static"){
 								InterfaceController::Instance().SetStaticCfg(newif,v["config"]);
@@ -336,7 +336,8 @@ Dispatcher::Result Dispatcher::getwanif(EUtils::UnixClientSocket *con, const Jso
 
 	Json::Value res(Json::objectValue);
 	res["status"]=true;
-	res["wanif"]=SysConfig::Instance().ValueOrDefault("wanif","eth0");
+	res["wanif"]=SysConfig::Instance().ValueOrDefault("wanif",
+						InterfaceController::Instance().GetDefaultWanInterface());
 	this->send_jsonvalue(con,res);
 
 	return Dispatcher::Done;

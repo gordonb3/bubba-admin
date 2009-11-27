@@ -55,6 +55,18 @@ PolicyController::PolicyController(){
 	policies["wlan4"]["wan"]=false;
 	policies["br0"]["wan"]=false;
 
+	policies["eth0"]["lan"]=false;
+	policies["eth1"]["lan"]=true;
+	policies["eth2"]["lan"]=true;
+	policies["eth3"]["lan"]=true;
+	policies["eth4"]["lan"]=true;
+	policies["wlan0"]["lan"]=true;
+	policies["wlan1"]["lan"]=true;
+	policies["wlan2"]["lan"]=true;
+	policies["wlan3"]["lan"]=true;
+	policies["wlan4"]["lan"]=true;
+	policies["br0"]["lan"]=true;
+
 	policies["eth0"]["iswlan"]=false;
 	policies["eth1"]["iswlan"]=false;
 	policies["eth2"]["iswlan"]=false;

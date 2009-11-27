@@ -1,3 +1,12 @@
+bubba-networkmanager (0.10) claire; urgency=low
+
+  * Addd lan policies
+  * Add get default laninterface method
+  * Add get default waninterface method
+  * Remove hardcoded interfaces from dispatcher
+
+ -- Tor Krill <tor@excito.com>  Fri, 27 Nov 2009 13:27:04 +0100
+
 bubba-networkmanager (0.9) claire; urgency=low
 
   * Add "native" get wlan interface function 
