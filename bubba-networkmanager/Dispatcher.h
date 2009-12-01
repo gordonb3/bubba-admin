@@ -86,6 +86,7 @@ private:
 
 	// AP functions
 	Result setapcfg(EUtils::UnixClientSocket* con,const Json::Value& v);
+	Result setapif(EUtils::UnixClientSocket* con,const Json::Value& v);
 
 	Result setapssid(EUtils::UnixClientSocket* con,const Json::Value& v);
 	Result setapmode(EUtils::UnixClientSocket* con,const Json::Value& v);

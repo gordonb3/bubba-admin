@@ -1,3 +1,9 @@
+bubba-networkmanager (0.11) jaunty; urgency=low
+
+  * Add set ap-if to bootstrap ap config when no default if used
+
+ -- Tor Krill <tor@excito.com>  Tue, 01 Dec 2009 14:14:47 +0100
+
 bubba-networkmanager (0.10) claire; urgency=low
 
   * Addd lan policies

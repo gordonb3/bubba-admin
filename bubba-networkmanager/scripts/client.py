@@ -82,6 +82,9 @@ def setrawcfg(ifnam, dump=False):
 def haswlan(dump=False):
 	return docall({"cmd":"haswlan"},dump)
 
+def setapif(ifnam, dump=False):
+	return docall({"cmd":"setapif", "ifname":ifnam},dump)
+
 def setapcfg(ifnam, cfg, dump=False):
 	return docall({"cmd":"setapcfg", "ifname":ifnam,"config":cfg},dump)
 

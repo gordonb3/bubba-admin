@@ -27,6 +27,8 @@
 #include "WlanController.h"
 #include "InterfaceController.h"
 #include "PolicyController.h"
+// Used to bootstrap config
+#include "../utils/WlanCfg.h"
 
 WlanController::WlanController() {
 
@@ -49,6 +51,16 @@ bool WlanController::HasWlan(){
 		}
 	}
 	return haswlan;
+}
+
+// Used to bootstrap AP cfg to use right interface
+void WlanController::SetApInterface(const string& ifname){
+	WlanCfg& wcfg=WlanCfg::Instance();
+	Json::Value cfg=wcfg.GetCFG();
+	cfg["interface"]=ifname;
+
+	wcfg.UpdateCFG(cfg);
+	wcfg.Commit();
 }
 
 void WlanController::SetApCfg(const string& ifname, const Json::Value& cfg){

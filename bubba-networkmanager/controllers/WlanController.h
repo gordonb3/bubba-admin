@@ -42,7 +42,7 @@ public:
 
 	bool HasWlan();
 	void SetApCfg(const string& ifname, const Json::Value& cfg);
-
+	void SetApInterface(const string& ifname);
 	void SetApSSID(const string& ifname, const string& ssid);
 	void SetApMode(const string& ifname, const string& mode);
 	void SetAPChannel(const string& ifname, int channel);

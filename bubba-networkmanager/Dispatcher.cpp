@@ -60,6 +60,7 @@ Dispatcher::Dispatcher(const string& sockpath, int timeout):NetDaemon(sockpath,t
 	this->cmds["setdynamiccfg"]=&Dispatcher::setdynamic;
 	this->cmds["setrawcfg"]=&Dispatcher::setraw;
 
+	this->cmds["setapif"]=&Dispatcher::setapif;
 	this->cmds["haswlan"]=&Dispatcher::haswlan;
 	this->cmds["setapcfg"]=&Dispatcher::setapcfg;
 	this->cmds["setapssid"]=&Dispatcher::setapssid;
@@ -567,6 +568,30 @@ Dispatcher::Result Dispatcher::setraw(EUtils::UnixClientSocket* con,const Json::
 	}else{
 		res["status"]=false;
 		res["error"]="Missing parameter";
+		retval=Dispatcher::Failed;
+	}
+
+	this->send_jsonvalue(con,res);
+
+	return retval;
+}
+
+Dispatcher::Result Dispatcher::setapif(EUtils::UnixClientSocket* con,const Json::Value& v){
+	Dispatcher::Result retval=Dispatcher::Done;
+	Json::Value res(Json::objectValue);
+	res["status"]=true;
+
+	try{
+		if(v.isMember("ifname") && v["ifname"].isString()){
+			WlanController::Instance().SetApInterface(v["ifname"].asString());
+		}else{
+			res["status"]=false;
+			res["error"]=string("Missing interface parameter");
+			retval=Dispatcher::Failed;
+		}
+	}catch(std::runtime_error& err){
+		res["status"]=false;
+		res["error"]=string("Operation failed: ")+err.what();
 		retval=Dispatcher::Failed;
 	}
 
