@@ -1,3 +1,9 @@
+bubba-networkmanager (0.12) claire; urgency=low
+
+  * Add depenedencies on crda, iw and hostapd (For wireless)
+
+ -- Tor Krill <tor@excito.com>  Tue, 01 Dec 2009 18:31:10 +0100
+
 bubba-networkmanager (0.11) jaunty; urgency=low
 
   * Add set ap-if to bootstrap ap config when no default if used
