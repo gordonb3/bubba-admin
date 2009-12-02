@@ -23,6 +23,7 @@
 */
 #include "WlanInterface.h"
 #include <libeutils/Services.h>
+#include <libeutils/FileUtils.h>
 
 #include "../utils/WlanCfg.h"
 #include "../utils/InterfacesCfg.h"
@@ -42,8 +43,8 @@ void WlanInterface::read_cfg(){
 }
 
 void WlanInterface::read_wlan_cfg(){
-
-	if(Services::IsEnabled("hostapd")){
+	// Todo replace with define or something a bit smarter
+	if(Stat::FileExists("/etc/hostapd/hostapd.conf")){
 		Json::Value wcfg=WlanCfg::Instance().GetCFG();
 		if(wcfg["interface"]==this->name){
 			Configuration c(WlanAP);
@@ -59,7 +60,6 @@ void WlanInterface::read_wlan_cfg(){
 		c.cfg["type"]="wlan";
 		this->configs[c.profile]=c;
 	}
-
 }
 
 

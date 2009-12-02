@@ -1,3 +1,9 @@
+bubba-networkmanager (0.13) claire; urgency=low
+
+  * Dont require a hostapd service enabled to parse config 
+
+ -- Tor Krill <tor@excito.com>  Wed, 02 Dec 2009 22:28:37 +0100
+
 bubba-networkmanager (0.12) claire; urgency=low
 
   * Add depenedencies on crda, iw and hostapd (For wireless)
