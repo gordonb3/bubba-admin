@@ -1,8 +1,15 @@
+bubba-networkmanager (0.14) claire; urgency=low
+
+  * Add dep on bridge-utils
+
+ -- Tor Krill <tor@excito.com>  Wed,  2 Dec 2009 22:35:53 +0100
+
 bubba-networkmanager (0.13) claire; urgency=low
 
-  * Dont require a hostapd service enabled to parse config 
+  * Dont require a hostapd service enabled to parse config
+  * .i
 
- -- Tor Krill <tor@excito.com>  Wed, 02 Dec 2009 22:28:37 +0100
+ -- Tor Krill <tor@excito.com>  Wed,  2 Dec 2009 22:35:48 +0100
 
 bubba-networkmanager (0.12) claire; urgency=low
 
