@@ -1,3 +1,9 @@
+bubba-networkmanager (0.15) claire; urgency=low
+
+  * Rewrote route-ip reading function to be none endian dependant
+
+ -- Tor Krill <tor@excito.com>  Thu, 03 Dec 2009 14:03:59 +0100
+
 bubba-networkmanager (0.14) claire; urgency=low
 
   * Add dep on bridge-utils

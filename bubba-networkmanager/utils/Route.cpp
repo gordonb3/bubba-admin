@@ -29,14 +29,28 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <ctype.h>
 
 using namespace EUtils;
 namespace NetworkManager{
 
+
+static int hextoval(char a, char b){
+	a=toupper(a)>57?a-55:a-48;
+	b=toupper(b)>57?b-55:b-48;
+	return a*16+b;
+}
+
 string Route::iptostring(const string& ip){
-	long raw=strtol(ip.c_str(),NULL,16);
+
 	char buf[128];
-	sprintf(buf,"%ld.%ld.%ld.%ld",(raw&0xff),(raw>>8)&0xff,(raw>>16)&0xff,(raw>>24)&0xff);
+	sprintf(buf,"%d.%d.%d.%d",
+			hextoval(ip[6],ip[7]),
+			hextoval(ip[4],ip[5]),
+			hextoval(ip[2],ip[3]),
+			hextoval(ip[0],ip[1]));
+
+
 	return string(buf);
 }
 
