@@ -41,14 +41,26 @@ static int hextoval(char a, char b){
 	return a*16+b;
 }
 
+#include <endian.h>
+
 string Route::iptostring(const string& ip){
 
 	char buf[128];
+#if __BYTE_ORDER == __LITTLE_ENDIAN
 	sprintf(buf,"%d.%d.%d.%d",
-			hextoval(ip[6],ip[7]),
-			hextoval(ip[4],ip[5]),
-			hextoval(ip[2],ip[3]),
-			hextoval(ip[0],ip[1]));
+				hextoval(ip[6],ip[7]),
+				hextoval(ip[4],ip[5]),
+				hextoval(ip[2],ip[3]),
+				hextoval(ip[0],ip[1]));
+#elif __BYTE_ORDER == __BIG_ENDIAN
+	sprintf(buf,"%d.%d.%d.%d",
+				hextoval(ip[0],ip[1]),
+				hextoval(ip[2],ip[3]),
+				hextoval(ip[4],ip[5]),
+				hextoval(ip[6],ip[7]));
+#else
+	#error "No endian defined"
+#endif
 
 
 	return string(buf);

@@ -1,3 +1,9 @@
+bubba-networkmanager (0.16) claire; urgency=low
+
+  * Hopefully really solve endian issue
+
+ -- Tor Krill <tor@excito.com>  Thu, 03 Dec 2009 15:03:14 +0100
+
 bubba-networkmanager (0.15) claire; urgency=low
 
   * Rewrote route-ip reading function to be none endian dependant
