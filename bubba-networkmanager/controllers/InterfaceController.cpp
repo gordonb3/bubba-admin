@@ -345,8 +345,8 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 		Hosts h;
 		string hostname=FileUtils::GetContentAsString("/proc/sys/kernel/hostname");
 		Hosts::Entries e=h.Find(hostname);
+		Hosts::UpdateIP(e,ip,hostname);
 		h.Delete(hostname);
-		Hosts::UpdateIP(e,ip);
 		h.Add(e);
 		h.WriteBack();
 	}

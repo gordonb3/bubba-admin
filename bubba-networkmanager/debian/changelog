@@ -1,3 +1,9 @@
+bubba-networkmanager (0.19) claire; urgency=low
+
+  * Add creation of new hosts entries if missing
+
+ -- Tor Krill <tor@excito.com>  Tue, 08 Dec 2009 19:08:08 +0100
+
 bubba-networkmanager (0.18) claire; urgency=low
 
   * Really add Hosts class to svn :( 

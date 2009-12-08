@@ -53,23 +53,46 @@ Hosts::Hosts(){
 	}
 }
 
-void Hosts::UpdateIP(Hosts::Entries& e, const string& ip){
-	for(Hosts::Entries::iterator entry=e.begin();entry!=e.end();entry++){
-		if((*entry)[0].substr(0,3)=="127"){ // Skip loopback
-			continue;
+static void createnewhosts(Hosts::Entries& e, const string& ip, const string& name){
+	Hosts::Entry ent(3);
+	ent[0]="127.0.0.1";
+	ent[1]=name;
+	ent[2]=name+".localdomain";
+	e.push_back(ent);
+
+	if(ip!=""){
+		ent[0]=ip;
+		e.push_back(ent);
+	}
+
+}
+
+void Hosts::UpdateIP(Hosts::Entries& e, const string& ip, const string& name){
+	if(e.size()==0){
+		createnewhosts(e,ip,name);
+	}else{
+		for(Hosts::Entries::iterator entry=e.begin();entry!=e.end();entry++){
+			if((*entry)[0].substr(0,3)=="127"){ // Skip loopback
+				continue;
+			}
+			(*entry)[0]=ip;
 		}
-		(*entry)[0]=ip;
 	}
 }
 
-void Hosts::UpdateHostname(Hosts::Entries& e, const string& name){
-	for(Hosts::Entries::iterator entry=e.begin();entry!=e.end();entry++){
-		(*entry).erase((*entry).begin()+1,(*entry).end());
-		(*entry).insert((*entry).end(),name);
-		(*entry).insert((*entry).end(),name+".localdomain");
+void Hosts::UpdateHostname(Hosts::Entries& e, const string& name, const string& ip){
+	if(e.size()==0){
+		createnewhosts(e,ip,name);
+	}else{
+
+		for(Hosts::Entries::iterator entry=e.begin();entry!=e.end();entry++){
+			(*entry).erase((*entry).begin()+1,(*entry).end());
+			(*entry).insert((*entry).end(),name);
+			(*entry).insert((*entry).end(),name+".localdomain");
+		}
+
 	}
 }
-
 
 static bool SearchLine(const Hosts::Entry& e, const string& term){
 	bool del=false;

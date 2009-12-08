@@ -102,8 +102,9 @@ public:
 	 *
 	 * @param e Entries to substitute IP on
 	 * @param ip IP number to use when changing
+	 * @param name Hostname to use if needed to recreate entries :(
 	 */
-	static void UpdateIP(Hosts::Entries& e, const string& ip);
+	static void UpdateIP(Hosts::Entries& e, const string& ip, const string& name);
 
 	/**
 	 * Helper function, given Entries it replaces hostname on all
@@ -111,8 +112,9 @@ public:
 	 *
 	 * @param e Entries to change name on
 	 * @param name to change to
+	 * @param ip conditional IP to use
 	 */
-	static void UpdateHostname(Hosts::Entries& e, const string& name);
+	static void UpdateHostname(Hosts::Entries& e, const string& name, const string& ip="");
 
 	virtual ~Hosts();
 };
