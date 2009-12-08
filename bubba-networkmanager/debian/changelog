@@ -1,3 +1,12 @@
+bubba-networkmanager (0.17) claire; urgency=low
+
+  * Added new Hosts class to utils (Manages /etc/hosts)
+  * Update hosts file on interface update if aplicable
+  * Kill any dhclients on interface if aplicable
+  * Move get current lan/wan if impelementation to IfController
+
+ -- Tor Krill <tor@excito.com>  Tue, 08 Dec 2009 12:29:21 +0100
+
 bubba-networkmanager (0.16) claire; urgency=low
 
   * Hopefully really solve endian issue

@@ -25,16 +25,24 @@
 #include <stdexcept>
 #include <algorithm>
 
+#include <signal.h>
+
 #include "InterfaceController.h"
 #include "PolicyController.h"
 
 #include "../utils/SysConfig.h"
 #include "../utils/Sockios.h"
+#include "../utils/Hosts.h"
 #include "../utils/JsonUtils.h"
 
 #include "../datamodel/EthernetInterface.h"
 #include "../datamodel/BridgeInterface.h"
 #include "../datamodel/WlanInterface.h"
+
+#include <libeutils/FileUtils.h>
+#include <libeutils/Services.h>
+
+using namespace EUtils;
 
 static int do_call(const string& cmd){
 	int ret=system(cmd.c_str());
@@ -145,6 +153,15 @@ string InterfaceController::GetDefaultWanInterface(){
 	return SysConfig::Instance().ValueOrDefault("defaultwan","eth0");
 }
 
+string InterfaceController::GetCurrentLanInterface(){
+	return SysConfig::Instance().ValueOrDefault("lanif",
+				this->GetDefaultLanInterface());
+}
+
+string InterfaceController::GetCurrentWanInterface(){
+	return SysConfig::Instance().ValueOrDefault("wanif",
+				this->GetDefaultWanInterface());
+}
 
 string InterfaceController::GetCurrentWlanInterface(){
 
@@ -316,6 +333,29 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 		throw std::runtime_error("Cant find config to update");
 	}
 
+	if(ifname==this->GetCurrentLanInterface()){
+		// Update hosts file
+		string ip;
+		if(cfgs.find(EthStatic)!=cfgs.end()){
+			ip=cfgs[EthStatic].cfg["config"]["address"][0u].asString();
+		}else{
+			ip=cfgs[BridgeStatic].cfg["config"]["address"][0u].asString();
+		}
+
+		Hosts h;
+		string hostname=FileUtils::GetContentAsString("/proc/sys/kernel/hostname");
+		Hosts::Entries e=h.Find(hostname);
+		h.Delete(hostname);
+		Hosts::UpdateIP(e,ip);
+		h.Add(e);
+		h.WriteBack();
+	}
+
+	pid_t pid;
+	if((pid=Services::GetPid("dhclient."+ifname))!=0){
+		kill(pid,SIGINT);
+	}
+
 	ifc->SetConfigurations(cfgs);
 }
 
@@ -384,6 +424,14 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 
 	}else{
 		throw std::runtime_error("Cant find config to update");
+	}
+
+	// Remove any entries from hosts
+	if(ifname==this->GetCurrentLanInterface()){
+		Hosts h;
+		string hostname=FileUtils::GetContentAsString("/proc/sys/kernel/hostname");
+		h.Delete(hostname);
+		h.WriteBack();
 	}
 
 	ifc->SetConfigurations(cfgs);
@@ -456,6 +504,19 @@ void InterfaceController::SetRawCfg(const string& ifname, const Json::Value& cfg
 
 	}else{
 		throw std::runtime_error("Cant find config to update");
+	}
+
+	// Remove any entries from hosts
+	if(ifname==this->GetCurrentLanInterface()){
+		Hosts h;
+		string hostname=FileUtils::GetContentAsString("/proc/sys/kernel/hostname");
+		h.Delete(hostname);
+		h.WriteBack();
+	}
+
+	pid_t pid;
+	if((pid=Services::GetPid("dhclient."+ifname))!=0){
+		kill(pid,SIGINT);
 	}
 
 	ifc->SetConfigurations(cfgs);

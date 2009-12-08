@@ -163,8 +163,7 @@ Dispatcher::Result Dispatcher::getlanif(EUtils::UnixClientSocket *con, const Jso
 
 	Json::Value res(Json::objectValue);
 	res["status"]=true;
-	res["lanif"]=SysConfig::Instance().ValueOrDefault("lanif",
-			InterfaceController::Instance().GetDefaultLanInterface());
+	res["lanif"]=InterfaceController::Instance().GetCurrentLanInterface();
 	this->send_jsonvalue(con,res);
 
 	return Dispatcher::Done;
@@ -337,8 +336,7 @@ Dispatcher::Result Dispatcher::getwanif(EUtils::UnixClientSocket *con, const Jso
 
 	Json::Value res(Json::objectValue);
 	res["status"]=true;
-	res["wanif"]=SysConfig::Instance().ValueOrDefault("wanif",
-						InterfaceController::Instance().GetDefaultWanInterface());
+	res["wanif"]=InterfaceController::Instance().GetCurrentWanInterface();
 	this->send_jsonvalue(con,res);
 
 	return Dispatcher::Done;

@@ -49,6 +49,8 @@ public:
 
 	list<string> GetInterfaces(const string& itype="");
 	string GetCurrentWlanInterface();
+	string GetCurrentLanInterface();
+	string GetCurrentWanInterface();
 	string GetDefaultLanInterface();
 	string GetDefaultWanInterface();
 
