@@ -70,6 +70,15 @@ def getmtu(ifnam, dump=False):
 def setmtu(ifnam,mtu, dump=False):
 	return docall({"cmd":"setmtu", "ifname":ifnam,"mtu":mtu},dump)
 
+def ifdown(ifnam, dump=False):
+	return docall({"cmd":"ifdown", "ifname":ifnam},dump)
+
+def ifup(ifnam, dump=False):
+	return docall({"cmd":"ifup", "ifname":ifnam},dump)
+
+def ifrestart(ifnam, dump=False):
+	return docall({"cmd":"ifrestart", "ifname":ifnam},dump)
+
 def setstaticcfg(ifnam, cfg, dump=False):
 	return docall({"cmd":"setstaticcfg", "ifname":ifnam,"config":cfg},dump)
 

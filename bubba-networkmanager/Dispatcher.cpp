@@ -56,6 +56,10 @@ Dispatcher::Dispatcher(const string& sockpath, int timeout):NetDaemon(sockpath,t
 	this->cmds["getmtu"]=&Dispatcher::getmtu;
 	this->cmds["setmtu"]=&Dispatcher::setmtu;
 
+	this->cmds["ifup"]=&Dispatcher::ifup;
+	this->cmds["ifdown"]=&Dispatcher::ifdown;
+	this->cmds["ifrestart"]=&Dispatcher::ifrestart;
+
 	this->cmds["setstaticcfg"]=&Dispatcher::setstatic;
 	this->cmds["setdynamiccfg"]=&Dispatcher::setdynamic;
 	this->cmds["setrawcfg"]=&Dispatcher::setraw;
@@ -375,6 +379,82 @@ Dispatcher::Result Dispatcher::getifcfg(EUtils::UnixClientSocket *con, const Jso
 
 	return retval;
 }
+
+Dispatcher::Result Dispatcher::ifup(EUtils::UnixClientSocket* con,const Json::Value& v){
+	Json::Value res(Json::objectValue);
+	Dispatcher::Result ret=Dispatcher::Done;
+
+	if(v.isMember("ifname") && v["ifname"].isString()){
+
+		if(InterfaceController::Up(v["ifname"].asString())){
+			res["status"]=true;
+		}else{
+			res["status"]=false;
+			ret=Dispatcher::Failed;
+		}
+
+	}else{
+		res["status"]=false;
+		res["error"]="Missing ifname parameter";
+		ret=Dispatcher::Failed;
+	}
+
+	this->send_jsonvalue(con,res);
+
+	return ret;
+}
+
+Dispatcher::Result Dispatcher::ifdown(EUtils::UnixClientSocket* con,const Json::Value& v){
+	Json::Value res(Json::objectValue);
+	Dispatcher::Result ret=Dispatcher::Done;
+
+	if(v.isMember("ifname") && v["ifname"].isString()){
+
+		if(InterfaceController::Down(v["ifname"].asString())){
+			res["status"]=true;
+		}else{
+			res["status"]=false;
+			ret=Dispatcher::Failed;
+		}
+
+	}else{
+		res["status"]=false;
+		res["error"]="Missing ifname parameter";
+		ret=Dispatcher::Failed;
+	}
+
+	this->send_jsonvalue(con,res);
+
+	return ret;
+}
+
+Dispatcher::Result Dispatcher::ifrestart(EUtils::UnixClientSocket* con,const Json::Value& v){
+	Json::Value res(Json::objectValue);
+	Dispatcher::Result ret=Dispatcher::Done;
+
+	if(v.isMember("ifname") && v["ifname"].isString()){
+
+		if(InterfaceController::Down(v["ifname"].asString())
+				&& InterfaceController::Up(v["ifname"].asString())){
+
+			res["status"]=true;
+		}else{
+			res["status"]=false;
+			ret=Dispatcher::Failed;
+		}
+
+	}else{
+		res["status"]=false;
+		res["error"]="Missing ifname parameter";
+		ret=Dispatcher::Failed;
+	}
+
+	this->send_jsonvalue(con,res);
+
+	return ret;
+}
+
+
 Dispatcher::Result Dispatcher::getdefaultroute(EUtils::UnixClientSocket *con, const Json::Value & v){
 	Json::Value res(Json::objectValue);
 	res["status"]=true;

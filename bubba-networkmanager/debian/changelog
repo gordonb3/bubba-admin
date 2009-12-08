@@ -1,3 +1,10 @@
+bubba-networkmanager (0.20) claire; urgency=low
+
+  * Add ifup, ifdown and ifrestart commands
+  * Include client.py in package
+
+ -- Tor Krill <tor@excito.com>  Tue, 08 Dec 2009 22:07:25 +0100
+
 bubba-networkmanager (0.19) claire; urgency=low
 
   * Add creation of new hosts entries if missing

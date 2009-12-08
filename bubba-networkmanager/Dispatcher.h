@@ -84,6 +84,10 @@ private:
 	Result setdynamic(EUtils::UnixClientSocket* con,const Json::Value& v);
 	Result setraw(EUtils::UnixClientSocket* con,const Json::Value& v);
 
+	Result ifup(EUtils::UnixClientSocket* con,const Json::Value& v);
+	Result ifdown(EUtils::UnixClientSocket* con,const Json::Value& v);
+	Result ifrestart(EUtils::UnixClientSocket* con,const Json::Value& v);
+
 	// AP functions
 	Result setapcfg(EUtils::UnixClientSocket* con,const Json::Value& v);
 	Result setapif(EUtils::UnixClientSocket* con,const Json::Value& v);
