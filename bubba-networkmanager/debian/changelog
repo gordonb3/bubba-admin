@@ -1,3 +1,9 @@
+bubba-networkmanager (0.21) claire; urgency=low
+
+  * Workaround for bridgeinterface. (Use same layout as ethdevs)
+
+ -- Tor Krill <tor@excito.com>  Wed, 09 Dec 2009 15:36:58 +0100
+
 bubba-networkmanager (0.20) claire; urgency=low
 
   * Add ifup, ifdown and ifrestart commands

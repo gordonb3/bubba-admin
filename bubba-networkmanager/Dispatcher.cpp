@@ -360,7 +360,13 @@ Dispatcher::Result Dispatcher::getifcfg(EUtils::UnixClientSocket *con, const Jso
 			map<Profile, Configuration> bcfg = in->GetConfigurations();
 			for (map<Profile, Configuration>::iterator cIt = bcfg.begin(); cIt
 					!= bcfg.end(); cIt++) {
-				res["config"][(*cIt).second.cfg["type"].asString()] = (*cIt).second.cfg;
+				string type((*cIt).second.cfg["type"].asString());
+				// TODO: fix higher up
+				// Cludge, bridge is an ethernet device
+				if(type=="bridge"){
+					type="ethernet";
+				}
+				res["config"][type] = (*cIt).second.cfg;
 			}
 
 		}catch(std::runtime_error& err){
