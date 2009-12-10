@@ -1,3 +1,9 @@
+bubba-networkmanager (0.22) claire; urgency=low
+
+  * Dont erase wpa keyfile empty it instead.
+
+ -- Tor Krill <tor@excito.com>  Thu, 10 Dec 2009 15:22:08 +0100
+
 bubba-networkmanager (0.21) claire; urgency=low
 
   * Workaround for bridgeinterface. (Use same layout as ethdevs)

@@ -665,9 +665,8 @@ bool WlanCfg::SyncAuth(){
 				}
 			}else{
 				if(Stat::FileExists(kfile)){
-					if(unlink(kfile.c_str())!=0){
-						cerr << "Failed to remove: "<<kfile<<endl;
-					}
+					// Empty file to remove any keys
+					FileUtils::Write(kfile,"",FileUtils::StatFile(kfile).GetMode());
 				}
 			}
 
