@@ -1,3 +1,9 @@
+bubba-networkmanager (0.23) claire; urgency=low
+
+  * Changed parameters for set*cfg to allow auto to be used 
+
+ -- Tor Krill <tor@excito.com>  Fri, 11 Dec 2009 17:12:47 +0100
+
 bubba-networkmanager (0.22) claire; urgency=low
 
   * Dont erase wpa keyfile empty it instead.
