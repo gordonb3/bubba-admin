@@ -252,10 +252,14 @@ Dispatcher::Result Dispatcher::setlanif(EUtils::UnixClientSocket *con, const Jso
 							if(v["config"].isMember("bridge_ports")){
 								v["config"].removeMember("bridge_ports");
 							}
+
+							Json::Value a(Json::objectValue);
+							a["config"]=v["config"];
+
 							if(v["addressing"]=="static"){
-								InterfaceController::Instance().SetStaticCfg(newif,v["config"]);
+								InterfaceController::Instance().SetStaticCfg(newif,a);
 							}else{
-								InterfaceController::Instance().SetDynamicCfg(newif,v["config"]);
+								InterfaceController::Instance().SetDynamicCfg(newif,a);
 							}
 						}else{
 							if(v["addressing"]=="static"){
@@ -271,17 +275,20 @@ Dispatcher::Result Dispatcher::setlanif(EUtils::UnixClientSocket *con, const Jso
 					{
 						Json::Value v((*cIt).second.cfg);
 						if(v.isMember("config") && !v["config"].isNull()){
+							Json::Value a(Json::objectValue);
+							a["config"]=v["config"];
 							if(newiftype=="bridge"){
-								v["config"]["bridge_maxwait"]=Json::Value(Json::arrayValue);
-								v["config"]["bridge_maxwait"].append("0");
-								v["config"]["bridge_ports"]=Json::Value(Json::arrayValue);
-								v["config"]["bridge_ports"].append(InterfaceController::Instance().GetDefaultLanInterface());
-								v["config"]["bridge_ports"].append(InterfaceController::Instance().GetCurrentWlanInterface());
+								a["auto"]=true;
+								a["config"]["bridge_maxwait"]=Json::Value(Json::arrayValue);
+								a["config"]["bridge_maxwait"].append("0");
+								a["config"]["bridge_ports"]=Json::Value(Json::arrayValue);
+								a["config"]["bridge_ports"].append(InterfaceController::Instance().GetDefaultLanInterface());
+								a["config"]["bridge_ports"].append(InterfaceController::Instance().GetCurrentWlanInterface());
 							}
 							if(v["addressing"]=="static"){
-								InterfaceController::Instance().SetStaticCfg(newif,v["config"]);
+								InterfaceController::Instance().SetStaticCfg(newif,a);
 							}else{
-								InterfaceController::Instance().SetDynamicCfg(newif,v["config"]);
+								InterfaceController::Instance().SetDynamicCfg(newif,a);
 							}
 						}else{
 							if(v["addressing"]=="static"){

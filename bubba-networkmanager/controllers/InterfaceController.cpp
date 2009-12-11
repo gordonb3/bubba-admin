@@ -273,16 +273,19 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 	auto_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
-	validateether(cfg);
+	validateether(cfg["config"]);
 
 	if(cfgs.find(EthRaw)!=cfgs.end()){
 
 		cfgs.erase(EthRaw);
 		Configuration c(EthStatic);
 		c.cfg["addressing"]="static";
-		c.cfg["config"]=cfg;
+		c.cfg["config"]=cfg["config"];
 		c.cfg["name"]=ifname;
 		c.cfg["type"]="ethernet";
+		if(cfg.isMember("auto")){
+			c.cfg["auto"]=true;
+		}
 		cfgs[EthStatic]=c;
 
 	}else if(cfgs.find(EthDynamic)!=cfgs.end()){
@@ -290,43 +293,58 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 		cfgs.erase(EthDynamic);
 		Configuration c(EthStatic);
 		c.cfg["addressing"]="static";
-		c.cfg["config"]=cfg;
+		c.cfg["config"]=cfg["config"];
 		c.cfg["name"]=ifname;
 		c.cfg["type"]="ethernet";
+		if(cfg.isMember("auto")){
+			c.cfg["auto"]=true;
+		}
 		cfgs[EthStatic]=c;
 
 	}else if(cfgs.find(EthStatic)!=cfgs.end()){
 
-		cfgs[EthStatic].cfg["config"]=cfg;
+		cfgs[EthStatic].cfg["config"]=cfg["config"];
+		if(cfg.isMember("auto")){
+			cfgs[EthStatic].cfg["auto"]=true;
+		}
 
 	}else if(cfgs.find(BridgeDynamic)!=cfgs.end()){
 
-		validatebridge(cfg);
+		validatebridge(cfg["config"]);
 
 		cfgs.erase(BridgeDynamic);
 		Configuration c(BridgeStatic);
 		c.cfg["addressing"]="static";
-		c.cfg["config"]=cfg;
+		c.cfg["config"]=cfg["config"];
 		c.cfg["type"]="bridge";
 		c.cfg["name"]=ifname;
+		if(cfg.isMember("auto")){
+			c.cfg["auto"]=true;
+		}		
 		cfgs[BridgeStatic]=c;
 
 	}else if(cfgs.find(BridgeStatic)!=cfgs.end()){
 
-		validatebridge(cfg);
+		validatebridge(cfg["config"]);
 
+		if(cfg.isMember("auto")){
+			cfgs[BridgeStatic].cfg["auto"]=true;
+		}
 		cfgs[BridgeStatic].cfg["config"]=cfg;
 
 	}else if(cfgs.find(BridgeRaw)!=cfgs.end()){
 
-		validatebridge(cfg);
+		validatebridge(cfg["config"]);
 
 		cfgs.erase(BridgeRaw);
 		Configuration c(BridgeStatic);
 		c.cfg["addressing"]="static";
-		c.cfg["config"]=cfg;
+		c.cfg["config"]=cfg["config"];
 		c.cfg["name"]=ifname;
 		c.cfg["type"]="bridge";
+		if(cfg.isMember("auto")){
+			c.cfg["auto"]=true;
+		}				
 		cfgs[BridgeStatic]=c;
 
 	}else{
@@ -369,17 +387,23 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 		Configuration c(EthDynamic);
 		c.cfg["addressing"]="dhcp";
 		if(!cfg.isNull()){
-			c.cfg["config"]=cfg;
+			c.cfg["config"]=cfg["config"];
 		}
 		c.cfg["name"]=ifname;
 		c.cfg["type"]="ethernet";
+		if(cfg.isMember("auto")){
+			c.cfg["auto"]=true;
+		}				
 		cfgs[EthDynamic]=c;
 
 	}else if(cfgs.find(EthDynamic)!=cfgs.end()){
 
 		if(!cfg.isNull()){
-			cfgs[EthDynamic].cfg["config"]=cfg;
+			cfgs[EthDynamic].cfg["config"]=cfg["config"];
 		}
+		if(cfg.isMember("auto")){
+			cfgs[EthDynamic].cfg["auto"]=true;
+		}		
 
 	}else if(cfgs.find(EthStatic)!=cfgs.end()){
 		cfgs.erase(EthStatic);
@@ -387,39 +411,52 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 		Configuration c(EthDynamic);
 		c.cfg["addressing"]="dhcp";
 		if(!cfg.isNull()){
-			c.cfg["config"]=cfg;
+			c.cfg["config"]=cfg["config"];
 		}
 		c.cfg["name"]=ifname;
 		c.cfg["type"]="ethernet";
+		if(cfg.isMember("auto")){
+			c.cfg["auto"]=true;
+		}		
 		cfgs[EthDynamic]=c;
 
 	}else if(cfgs.find(BridgeDynamic)!=cfgs.end()){
 
-		validatebridge(cfg);
-		cfgs[BridgeDynamic].cfg["config"]=cfg;
+		validatebridge(cfg["config"]);
+		cfgs[BridgeDynamic].cfg["config"]=cfg["config"];
+		if(cfg.isMember("auto")){
+			cfgs[BridgeDynamic].cfg["auto"]=true;
+		}		
+
 
 	}else if(cfgs.find(BridgeStatic)!=cfgs.end()){
 
-		validatebridge(cfg);
+		validatebridge(cfg["config"]);
 
 		cfgs.erase(BridgeStatic);
 		Configuration c(BridgeDynamic);
 		c.cfg["addressing"]="dhcp";
-		c.cfg["config"]=cfg;
+		c.cfg["config"]=cfg["config"];
 		c.cfg["name"]=ifname;
 		c.cfg["type"]="bridge";
+		if(cfg.isMember("auto")){
+			c.cfg["auto"]=true;
+		}				
 		cfgs[BridgeDynamic]=c;
 
 	}else if(cfgs.find(BridgeRaw)!=cfgs.end()){
 
-		validatebridge(cfg);
+		validatebridge(cfg["config"]);
 
 		cfgs.erase(BridgeRaw);
 		Configuration c(BridgeDynamic);
 		c.cfg["addressing"]="dhcp";
-		c.cfg["config"]=cfg;
+		c.cfg["config"]=cfg["config"];
 		c.cfg["name"]=ifname;
 		c.cfg["type"]="bridge";
+		if(cfg.isMember("auto")){
+			c.cfg["auto"]=true;
+		}		
 		cfgs[BridgeDynamic]=c;
 
 	}else{
@@ -450,7 +487,7 @@ void InterfaceController::SetRawCfg(const string& ifname, const Json::Value& cfg
 	if(cfgs.find(EthRaw)!=cfgs.end()){
 
 		if(!cfg.isNull()){
-			cfgs[EthRaw].cfg["config"]=cfg;
+			cfgs[EthRaw].cfg["config"]=cfg["config"];
 		}
 
 	}else if(cfgs.find(EthDynamic)!=cfgs.end()){
@@ -459,7 +496,7 @@ void InterfaceController::SetRawCfg(const string& ifname, const Json::Value& cfg
 
 		c.profile=EthRaw;
 		if(!cfg.isNull()){
-			c.cfg["config"]=cfg;
+			c.cfg["config"]=cfg["config"];
 		}
 		c.cfg["type"]="ethernet";
 		cfgs[EthRaw]=c;
@@ -469,7 +506,7 @@ void InterfaceController::SetRawCfg(const string& ifname, const Json::Value& cfg
 
 		c.profile=EthRaw;
 		if(!cfg.isNull()){
-			c.cfg["config"]=cfg;
+			c.cfg["config"]=cfg["config"];
 		}
 		c.cfg["type"]="ethernet";
 		cfgs[EthRaw]=c;
@@ -480,7 +517,7 @@ void InterfaceController::SetRawCfg(const string& ifname, const Json::Value& cfg
 
 		c.profile=BridgeRaw;
 		if(!cfg.isNull()){
-			c.cfg["config"]=cfg;
+			c.cfg["config"]=cfg["config"];
 		}
 		c.cfg["type"]="bridge";
 		cfgs[BridgeRaw]=c;
@@ -491,7 +528,7 @@ void InterfaceController::SetRawCfg(const string& ifname, const Json::Value& cfg
 
 		c.profile=BridgeRaw;
 		if(!cfg.isNull()){
-			c.cfg["config"]=cfg;
+			c.cfg["config"]=cfg["config"];
 		}
 		c.cfg["type"]="bridge";
 		cfgs[BridgeRaw]=c;
@@ -499,7 +536,7 @@ void InterfaceController::SetRawCfg(const string& ifname, const Json::Value& cfg
 	}else if(cfgs.find(BridgeRaw)!=cfgs.end()){
 
 		if(!cfg.isNull()){
-			cfgs[BridgeRaw].cfg["config"]=cfg;
+			cfgs[BridgeRaw].cfg["config"]=cfg["config"];
 		}
 
 	}else{
