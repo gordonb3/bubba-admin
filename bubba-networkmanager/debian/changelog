@@ -1,3 +1,9 @@
+bubba-networkmanager (0.24) jaunty; urgency=low
+
+  * Fixed calling to set[static|dynamic] cfg with wrong params
+
+ -- Tor Krill <tor@excito.com>  Mon, 14 Dec 2009 00:14:43 +0100
+
 bubba-networkmanager (0.23) claire; urgency=low
 
   * Changed parameters for set*cfg to allow auto to be used 

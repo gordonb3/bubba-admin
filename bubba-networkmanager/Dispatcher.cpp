@@ -597,7 +597,9 @@ Dispatcher::Result Dispatcher::setstatic(EUtils::UnixClientSocket* con,const Jso
 
 	if((v.isMember("ifname") && v["ifname"].isString()) && (v.isMember("config")&&v["config"].isObject() )){
 		try{
-			InterfaceController::Instance().SetStaticCfg(v["ifname"].asString(),v["config"]);
+			Json::Value call(Json::objectValue);
+			call["config"]=v["config"];
+			InterfaceController::Instance().SetStaticCfg(v["ifname"].asString(),call);
 		}catch(std::runtime_error& err){
 			res["status"]=false;
 			res["error"]=string("Operation failed: ")+err.what();
@@ -622,7 +624,9 @@ Dispatcher::Result Dispatcher::setdynamic(EUtils::UnixClientSocket* con,const Js
 
 	if((v.isMember("ifname") && v["ifname"].isString()) && (v.isMember("config")&&v["config"].isObject() )){
 		try{
-			InterfaceController::Instance().SetDynamicCfg(v["ifname"].asString(),v["config"]);
+			Json::Value call(Json::objectValue);
+			call["config"]=v["config"];
+			InterfaceController::Instance().SetDynamicCfg(v["ifname"].asString(),call);
 		}catch(std::runtime_error& err){
 			res["status"]=false;
 			res["error"]=string("Operation failed: ")+err.what();
