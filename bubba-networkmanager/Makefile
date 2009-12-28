@@ -28,6 +28,7 @@ UTIL_SRC=utils/Route.cpp \
 		 utils/Sockios.cpp \
 		 utils/JsonUtils.cpp \
 		 utils/SysConfig.cpp \
+		 utils/Nl80211.cpp \
 		 utils/Hosts.cpp
 
 CLIENT = bubba-networkmanager-cli
