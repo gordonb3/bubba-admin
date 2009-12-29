@@ -102,6 +102,9 @@ private:
 	// Todo: this is a kludge...
 	Result haswlan(EUtils::UnixClientSocket* con,const Json::Value& v);
 
+	Result getphycap(EUtils::UnixClientSocket* con,const Json::Value& v);
+	Result getphybands(EUtils::UnixClientSocket* con,const Json::Value& v);
+
 
 	static void sighandler(int sig);
 protected:

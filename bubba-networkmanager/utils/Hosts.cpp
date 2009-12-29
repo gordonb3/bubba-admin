@@ -29,6 +29,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <cstdio>
 
 using namespace std;
 using namespace EUtils;

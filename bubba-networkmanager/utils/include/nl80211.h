@@ -27,6 +27,10 @@
 
 #include <linux/types.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * DOC: Station handling
  *
@@ -1430,5 +1434,9 @@ enum nl80211_key_attributes {
 	__NL80211_KEY_AFTER_LAST,
 	NL80211_KEY_MAX = __NL80211_KEY_AFTER_LAST - 1
 };
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __LINUX_NL80211_H */

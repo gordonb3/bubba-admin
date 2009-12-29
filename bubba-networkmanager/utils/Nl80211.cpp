@@ -19,6 +19,7 @@
 #include <string>
 #include <list>
 #include <map>
+#include <vector>
 
 #include "Nl80211.h"
 #include <cerrno>
@@ -31,16 +32,20 @@
 #include <netlink/attr.h>
 #include <net/if.h>
 #include <sstream>
-#include <ifstream>
+#include <fstream>
+#include <stdexcept>
+
 
 #include "include/nl80211.h"
+//#undef  nla_for_each_nested
+#define nla_for_each_nested_cast(pos, nla, rem, cast ) \
+         for (pos = static_cast<cast>(nla_data(nla)), rem = nla_len(nla); \
+              nla_ok(pos, rem); \
+              pos = nla_next(pos, &(rem)))
 
 using namespace NetworkManager;
 
-Nl80211::Nl80211( std::string phy ) {
-    this->init( phy );
-}
-static int ieee80211_frequency_to_channel(int freq)
+int Nl80211::ieee80211_frequency_to_channel(int freq)
 {
    if (freq == 2484)
        return 14;
@@ -52,40 +57,40 @@ static int ieee80211_frequency_to_channel(int freq)
    return freq/5 - 1000;
 }
 
-static int Nl80211::error_handler( struct sockaddr_nl *nla, struct nlmsgerr *err, void *arg ) {
+int Nl80211::error_handler( struct sockaddr_nl *nla, struct nlmsgerr *err, void *arg ) {
     int *ret = static_cast<int *>(arg);
     *ret = err->error;
     return NL_STOP;
 }
 
-static int Nl80211::finish_handler(struct nl_msg *msg, void *arg) {
+int Nl80211::finish_handler(struct nl_msg *msg, void *arg) {
     int *ret = static_cast<int *>(arg);
     *ret = 0;
     return NL_SKIP;
 }
 
-static int Nl80211::ack_handler(struct nl_msg *msg, void *arg) {
+int Nl80211::ack_handler(struct nl_msg *msg, void *arg) {
     int *ret = static_cast<int *>(arg);
     *ret = 0;
     return NL_STOP;
 }
 
-int Nl80211::valid_handler(struct nl_msg *msg, void *arg) {
+int Nl80211::valid_handler(struct nl_msg *msg) {
     struct nlattr *tb_msg[NL80211_ATTR_MAX + 1];
-    struct genlmsghdr *gnlh = nlmsg_data(nlmsg_hdr(msg));
+    struct genlmsghdr *gnlh = static_cast<genlmsghdr *>(nlmsg_data(nlmsg_hdr(msg)));
 
     struct nlattr *tb_band[NL80211_BAND_ATTR_MAX + 1];
 
     struct nlattr *tb_freq[NL80211_FREQUENCY_ATTR_MAX + 1];
-    static struct nla_policy freq_policy[NL80211_FREQUENCY_ATTR_MAX + 1] = 
-    {
-        [NL80211_FREQUENCY_ATTR_FREQ] = { .type = NLA_U32 },
-        [NL80211_FREQUENCY_ATTR_DISABLED] = { .type = NLA_FLAG },
-        [NL80211_FREQUENCY_ATTR_PASSIVE_SCAN] = { .type = NLA_FLAG },
-        [NL80211_FREQUENCY_ATTR_NO_IBSS] = { .type = NLA_FLAG },
-        [NL80211_FREQUENCY_ATTR_RADAR] = { .type = NLA_FLAG },
-        [NL80211_FREQUENCY_ATTR_MAX_TX_POWER] = { .type = NLA_U32 },
-    };
+
+    std::vector<nla_policy> freq_policy(NL80211_FREQUENCY_ATTR_MAX + 1);
+
+    freq_policy[NL80211_FREQUENCY_ATTR_FREQ].type = NLA_U32;
+    freq_policy[NL80211_FREQUENCY_ATTR_DISABLED].type = NLA_FLAG;
+    freq_policy[NL80211_FREQUENCY_ATTR_PASSIVE_SCAN].type = NLA_FLAG;
+    freq_policy[NL80211_FREQUENCY_ATTR_NO_IBSS].type = NLA_FLAG;
+    freq_policy[NL80211_FREQUENCY_ATTR_RADAR].type = NLA_FLAG;
+    freq_policy[NL80211_FREQUENCY_ATTR_MAX_TX_POWER].type = NLA_U32;
 
     struct nlattr *nl_band;
     struct nlattr *nl_freq;
@@ -100,16 +105,15 @@ int Nl80211::valid_handler(struct nl_msg *msg, void *arg) {
             genlmsg_attrlen(gnlh, 0),
             NULL
             );
+
     if (!tb_msg[NL80211_ATTR_WIPHY_BANDS])  {
         return NL_SKIP;
     }
-
-    nla_for_each_nested(nl_band, tb_msg[NL80211_ATTR_WIPHY_BANDS], rem_band) {
-
+        nla_for_each_nested_cast(nl_band, tb_msg[NL80211_ATTR_WIPHY_BANDS], rem_band, nlattr*) {
         nla_parse(
                 tb_band, 
                 NL80211_BAND_ATTR_MAX, 
-                nla_data(nl_band),
+                static_cast<nlattr*>(nla_data(nl_band)),
                 nla_len(nl_band),
                 NULL
                 );
@@ -121,15 +125,15 @@ int Nl80211::valid_handler(struct nl_msg *msg, void *arg) {
 #endif
         Channels channels;
 
-        nla_for_each_nested(nl_freq, tb_band[NL80211_BAND_ATTR_FREQS], rem_freq) {
+        nla_for_each_nested_cast(nl_freq, tb_band[NL80211_BAND_ATTR_FREQS], rem_freq, nlattr*) {
             Channel channel;
             uint32_t freq;
             nla_parse(
                     tb_freq,
                     NL80211_FREQUENCY_ATTR_MAX,
-                    nla_data(nl_freq),
+                    static_cast<nlattr*>(nla_data(nl_freq)),
                     nla_len(nl_freq),
-                    freq_policy
+                    &freq_policy.front()
                     );
 
             if (!tb_freq[NL80211_FREQUENCY_ATTR_FREQ]) {
@@ -141,7 +145,7 @@ int Nl80211::valid_handler(struct nl_msg *msg, void *arg) {
                 std::ostringstream oss;
                 oss << freq;
 
-                channel["freq"] = freq.str();
+                channel["freq"] = oss.str();
             }
             {
                 std::ostringstream oss;
@@ -184,7 +188,7 @@ int Nl80211::valid_handler(struct nl_msg *msg, void *arg) {
 }
 
 
-static int Nl80211::phy_lookup( std::string phy ) {
+int Nl80211::phy_lookup( std::string phy ) {
     std::ostringstream pathss;
     pathss << "/sys/class/ieee80211/" << phy << "/index";
     std::string path = pathss.str();
@@ -192,20 +196,20 @@ static int Nl80211::phy_lookup( std::string phy ) {
     std::ifstream ifs ( path.c_str() );
 
     if( ifs.fail() ) {
-        throw runtime_error( "Failed to lookup phy " + phy );
+        throw std::runtime_error( "Failed to lookup phy " + phy );
     }
 
     int retval;
     ifs >> retval;
 
     if( ifs.fail() ) {
-        throw runtime_error( "Error in input from sysfs for phy " + phy );
+        throw std::runtime_error( "Error in input from sysfs for phy " + phy );
     }
     ifs.close();
     return retval;
 }
 
-void Nl80211::init( std::string phy ) {
+int Nl80211::init( std::string phy ) {
     struct nl_handle *sock;
     struct nl_msg *msg;
     struct nl_cb *cb;
@@ -216,34 +220,35 @@ void Nl80211::init( std::string phy ) {
 
     sock = nl_handle_alloc();
     if( !sock ) {
-        throw runtime_error( "Failed to allocate netlink socket. " + string(strerror(ENOMEM)) );
+        throw std::runtime_error( "Failed to allocate netlink socket. " + std::string(strerror(ENOMEM)) );
     }
 
     if( genl_connect(sock) ) {
-        nl_socket_free( sock );
-        throw runtime_error( "Failed to connect to generic netlink. " + string(strerror(ENOLINK)) );
+        nl_handle_destroy( sock );
+        throw std::runtime_error( "Failed to connect to generic netlink. " + std::string(strerror(ENOLINK)) );
     }
 
     family = genl_ctrl_resolve(sock, "nl80211");
     if( !family ) {
-        nl_socket_free( sock );
-        throw runtime_error( "nl80211 not found. " + string(strerror(ENOENT)) );
+        nl_handle_destroy( sock );
+        throw std::runtime_error( "nl80211 not found. " + std::string(strerror(ENOENT)) );
     }
     devidx = phy_lookup( phy );
 
     msg = nlmsg_alloc();
     if( !msg ) {
-        throw runtime_error( "Failed to allocate netlink message. " + string(strerror(ENOMEM)) );
+        throw std::runtime_error( "Failed to allocate netlink message. " + std::string(strerror(ENOMEM)) );
     }
 
     cb = nl_cb_alloc(NL_CB_DEFAULT);
     if( !cb ) {
-        throw runtime_error( "Failed to allocate netlink callbacks. " + string(strerror(ENOMEM)) );
+        throw std::runtime_error( "Failed to allocate netlink callbacks. " + std::string(strerror(ENOMEM)) );
     }
 
     genlmsg_put(msg, 0, 0, family, 0, NLM_F_DUMP, NL80211_CMD_GET_WIPHY, 0);
     NLA_PUT_U32(msg, NL80211_ATTR_IFINDEX, devidx);
-    nl_cb_set(cb, NL_CB_VALID, NL_CB_CUSTOM, this->handler, NULL);
+
+    nl_cb_set(cb, NL_CB_VALID, NL_CB_CUSTOM, call_valid_handler, this);
     err = nl_send_auto_complete(sock, msg);
 
     if (err < 0) {
@@ -259,12 +264,14 @@ void Nl80211::init( std::string phy ) {
 
     while (err > 0)
         nl_recvmsgs(sock, cb);
-
+nla_put_failure:
+    return 2;
 }
 
-const Nl80211::Bands Nl80211::bands() const {
+const Nl80211::Bands& Nl80211::bands() const {
     return _bands;
 }
+
 const uint16_t Nl80211::capabilities() const {
     return _cap;
 }

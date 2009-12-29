@@ -37,8 +37,8 @@ CLIENT_SRC = client.cpp
 SOURCES = $(APP_SRC) $(DATAMODEL_SRC) $(CONTROLLER_SRC) $(UTIL_SRC)
 OBJS = $(SOURCES:%.cpp=%.o)
 
-CXXFLAGS += -g -Wall $(shell pkg-config --cflags libeutils) -DPACKAGE_VERSION="\"$(APP_VERSION)\""
-LDFLAGS += $(shell pkg-config --libs libeutils)
+CXXFLAGS += -g -Wall $(shell pkg-config --cflags libeutils libnl-1) -DPACKAGE_VERSION="\"$(APP_VERSION)\""
+LDFLAGS += $(shell pkg-config --libs libeutils libnl-1)
 
 APP_OBJS=$(APP_SRC:%.cpp=%.o)
 DATAMODEL_OBJS=$(DATAMODEL_SRC:%.cpp=%.o)

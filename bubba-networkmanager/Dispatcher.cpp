@@ -25,6 +25,7 @@
 #include "Dispatcher.h"
 #include "utils/SysConfig.h"
 #include "utils/Route.h"
+#include "utils/Nl80211.h"
 #include "utils/JsonUtils.h"
 #include "utils/Resolv.h"
 #include "controllers/InterfaceController.h"
@@ -73,6 +74,9 @@ Dispatcher::Dispatcher(const string& sockpath, int timeout):NetDaemon(sockpath,t
 	this->cmds["setapauthnone"]=&Dispatcher::setapauthnone;
 	this->cmds["setapauthwep"]=&Dispatcher::setapauthwep;
 	this->cmds["setapauthwpa"]=&Dispatcher::setapauthwpa;
+
+	this->cmds["getphycap"]=&Dispatcher::getphycap;
+	this->cmds["getphybands"]=&Dispatcher::getphybands;
 
 	signal(SIGINT, Dispatcher::sighandler);
 	signal(SIGTERM,Dispatcher::sighandler);
@@ -961,5 +965,70 @@ Dispatcher::Result Dispatcher::setapauthwpa(EUtils::UnixClientSocket* con,const 
 	return retval;
 }
 
+Dispatcher::Result Dispatcher::getphycap(EUtils::UnixClientSocket* con,const Json::Value& v){
+	Dispatcher::Result retval=Dispatcher::Done;
+	Json::Value res(Json::objectValue);
+	res["status"]=true;
+
+	if(!v.isMember("phy") || !v["phy"].isString()){
+		res["status"]=false;
+		res["error"]="Missing phy parameter";
+		this->send_jsonvalue(con,res);
+		return Dispatcher::Failed;
+	}
+
+    try{
+	    res["cap"]=Nl80211::Instance(v["phy"].asString()).capabilities();
+	}catch(std::runtime_error& err){
+		res["status"]=false;
+		res["error"]=string("Operation failed: ")+err.what();
+		retval=Dispatcher::Failed;
+	}
+
+
+	this->send_jsonvalue(con,res);
+
+	return retval;
+}
+
+Dispatcher::Result Dispatcher::getphybands(EUtils::UnixClientSocket* con,const Json::Value& v){
+	Dispatcher::Result retval=Dispatcher::Done;
+	Json::Value res(Json::objectValue);
+	res["status"]=true;
+
+	if(!v.isMember("phy") || !v["phy"].isString()){
+		res["status"]=false;
+		res["error"]="Missing phy parameter";
+		this->send_jsonvalue(con,res);
+		return Dispatcher::Failed;
+	}
+
+    try{
+        Json::Value jbands(Json::objectValue);
+        res["bands"] = jbands;
+
+        const Nl80211::Bands& bands=Nl80211::Instance(v["phy"].asString()).bands();
+
+        for(Nl80211::Bands::const_iterator bIt=bands.begin();bIt!=bands.end();bIt++){
+            Json::Value arr(Json::arrayValue);
+            const Nl80211::Channels& c = bIt->second;;
+
+            jbands[bIt->first] = arr;
+            for(Nl80211::Channels::const_iterator cIt=c.begin();cIt!=c.end();cIt++){
+                const Nl80211::Channel& c1 = *cIt;
+                arr.append(JsonUtils::toObject(c1));
+            }
+        }
+	}catch(std::runtime_error& err){
+		res["status"]=false;
+		res["error"]=string("Operation failed: ")+err.what();
+		retval=Dispatcher::Failed;
+	}
+
+
+	this->send_jsonvalue(con,res);
+
+	return retval;
+}
 Dispatcher::~Dispatcher() {
 }
