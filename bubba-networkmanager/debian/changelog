@@ -1,3 +1,9 @@
+bubba-networkmanager (0.26) claire; urgency=low
+
+  * Fixing the bug in Dispatcher relative getphybands 
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 30 Dec 2009 14:15:37 +0100
+
 bubba-networkmanager (0.25) clare; urgency=low
 
   * initial phy band resolver (might not work)

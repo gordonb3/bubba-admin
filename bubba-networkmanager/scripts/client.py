@@ -11,7 +11,9 @@ def request(req):
 	client = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
 	client.connect("/tmp/bubba-networkmanager.sock")
 	client.send(json.dumps(req))
-	ret=json.loads(client.recv(16384))
+	d=client.recv(16384);
+	#print "%s"%d
+	ret=json.loads(d)
 	client.close()
 	
 	return ret
@@ -30,6 +32,12 @@ def docall(req, dump):
 
 # API implementeation
 
+def getphybands(phy, dump=False):
+	return docall({"cmd":"getphybands","phy":phy},dump)
+		
+def getphycap(phy, dump=False):
+	return docall({"cmd":"getphycap","phy":phy},dump)
+		
 def getifcfg(ifnam, dump=False):
 	return docall({"cmd":"getifcfg","ifname":ifnam},dump)
 		
@@ -192,7 +200,9 @@ def setapwpa(ifnam):
 
 if __name__=='__main__':
 
-	getlanif()
+	#getlanif()
+	getphycap("phy0", True)
+	getphybands("phy0", True)
 
 	#getinterfaces()
 	#haswlan()

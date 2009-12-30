@@ -32,6 +32,9 @@
 #include "controllers/WlanController.h"
 #include "controllers/PolicyController.h"
 #include <signal.h>
+#include <string>
+#include <sstream>
+#include <iostream>
 
 #include <libeutils/json/json.h>
 
@@ -1005,7 +1008,6 @@ Dispatcher::Result Dispatcher::getphybands(EUtils::UnixClientSocket* con,const J
 
     try{
         Json::Value jbands(Json::objectValue);
-        res["bands"] = jbands;
 
         const Nl80211::Bands& bands=Nl80211::Instance(v["phy"].asString()).bands();
 
@@ -1013,12 +1015,19 @@ Dispatcher::Result Dispatcher::getphybands(EUtils::UnixClientSocket* con,const J
             Json::Value arr(Json::arrayValue);
             const Nl80211::Channels& c = bIt->second;;
 
-            jbands[bIt->first] = arr;
             for(Nl80211::Channels::const_iterator cIt=c.begin();cIt!=c.end();cIt++){
                 const Nl80211::Channel& c1 = *cIt;
                 arr.append(JsonUtils::toObject(c1));
             }
+
+            std::ostringstream oss;
+            oss << static_cast<int>(bIt->first);
+            std::string s = oss.str();
+
+            jbands[s.c_str()] = arr;
         }
+        res["bands"] = jbands;
+
 	}catch(std::runtime_error& err){
 		res["status"]=false;
 		res["error"]=string("Operation failed: ")+err.what();
