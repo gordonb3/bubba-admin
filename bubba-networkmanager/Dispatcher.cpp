@@ -287,7 +287,7 @@ Dispatcher::Result Dispatcher::setlanif(EUtils::UnixClientSocket *con, const Jso
 							if(newiftype=="bridge"){
 								a["auto"]=true;
 								a["config"]["bridge_maxwait"]=Json::Value(Json::arrayValue);
-								a["config"]["bridge_maxwait"].append("0");
+								a["config"]["bridge_maxwait"].append(SysConfig::Instance().ValueOrDefault("bridge_maxwait","0"));
 								a["config"]["bridge_ports"]=Json::Value(Json::arrayValue);
 								a["config"]["bridge_ports"].append(InterfaceController::Instance().GetDefaultLanInterface());
 								a["config"]["bridge_ports"].append(InterfaceController::Instance().GetCurrentWlanInterface());

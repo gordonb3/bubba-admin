@@ -249,9 +249,10 @@ static void validateether( const Json::Value& cfg){
 	}
 }
 
-static void validatebridge( const Json::Value& cfg){
+static void validatebridge_andsetdefault( Json::Value& cfg){
+
 	if(!cfg.isMember("bridge_maxwait")){
-		throw std::runtime_error("bridge_maxwait parameter missing");
+		cfg["bridge_maxwait"].append(SysConfig::Instance().ValueOrDefault("bridge_maxwait","0"));
 	}
 
 	if(!cfg["bridge_maxwait"].isArray()){
@@ -259,7 +260,9 @@ static void validatebridge( const Json::Value& cfg){
 	}
 
 	if(!cfg.isMember("bridge_ports")){
-		throw std::runtime_error("bridge_ports parameter missing");
+		cfg["bridge_ports"]=Json::Value(Json::arrayValue);
+		cfg["bridge_ports"].append(InterfaceController::Instance().GetDefaultLanInterface());
+		cfg["bridge_ports"].append(InterfaceController::Instance().GetCurrentWlanInterface());
 	}
 
 	if(!cfg["bridge_ports"].isArray()){
@@ -268,8 +271,8 @@ static void validatebridge( const Json::Value& cfg){
 
 }
 
-void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& cfg){
-
+void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& acfg){
+	Json::Value cfg=acfg;
 	auto_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
@@ -310,7 +313,7 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 
 	}else if(cfgs.find(BridgeDynamic)!=cfgs.end()){
 
-		validatebridge(cfg["config"]);
+		validatebridge_andsetdefault(cfg["config"]);
 
 		cfgs.erase(BridgeDynamic);
 		Configuration c(BridgeStatic);
@@ -325,7 +328,7 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 
 	}else if(cfgs.find(BridgeStatic)!=cfgs.end()){
 
-		validatebridge(cfg["config"]);
+		validatebridge_andsetdefault(cfg["config"]);
 
 		if(cfg.isMember("auto")){
 			cfgs[BridgeStatic].cfg["auto"]=true;
@@ -334,7 +337,7 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 
 	}else if(cfgs.find(BridgeRaw)!=cfgs.end()){
 
-		validatebridge(cfg["config"]);
+		validatebridge_andsetdefault(cfg["config"]);
 
 		cfgs.erase(BridgeRaw);
 		Configuration c(BridgeStatic);
@@ -377,7 +380,8 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 	ifc->SetConfigurations(cfgs);
 }
 
-void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value& cfg){
+void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value& acfg){
+	Json::Value cfg=acfg;
 	auto_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
@@ -422,7 +426,7 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 
 	}else if(cfgs.find(BridgeDynamic)!=cfgs.end()){
 
-		validatebridge(cfg["config"]);
+		validatebridge_andsetdefault(cfg["config"]);
 		cfgs[BridgeDynamic].cfg["config"]=cfg["config"];
 		if(cfg.isMember("auto")){
 			cfgs[BridgeDynamic].cfg["auto"]=true;
@@ -431,7 +435,7 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 
 	}else if(cfgs.find(BridgeStatic)!=cfgs.end()){
 
-		validatebridge(cfg["config"]);
+		validatebridge_andsetdefault(cfg["config"]);
 
 		cfgs.erase(BridgeStatic);
 		Configuration c(BridgeDynamic);
@@ -446,7 +450,7 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 
 	}else if(cfgs.find(BridgeRaw)!=cfgs.end()){
 
-		validatebridge(cfg["config"]);
+		validatebridge_andsetdefault(cfg["config"]);
 
 		cfgs.erase(BridgeRaw);
 		Configuration c(BridgeDynamic);
