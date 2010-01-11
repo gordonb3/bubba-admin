@@ -1,8 +1,9 @@
 bubba-networkmanager (0.27) claire estelle; urgency=low
 
   * Make bridge arguments optional to set_static/dynamic
+  * Fix wrong cfgpath in setstatic for bridge interfaces. 
 
- -- Tor Krill <tor@excito.com>  Mon, 11 Jan 2010 17:41:35 +0100
+ -- Tor Krill <tor@excito.com>  Mon, 11 Jan 2010 19:05:28 +0100
 
 bubba-networkmanager (0.26) claire; urgency=low
 

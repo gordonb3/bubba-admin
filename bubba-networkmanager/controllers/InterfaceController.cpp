@@ -333,7 +333,7 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 		if(cfg.isMember("auto")){
 			cfgs[BridgeStatic].cfg["auto"]=true;
 		}
-		cfgs[BridgeStatic].cfg["config"]=cfg;
+		cfgs[BridgeStatic].cfg["config"]=cfg["config"];
 
 	}else if(cfgs.find(BridgeRaw)!=cfgs.end()){
 
