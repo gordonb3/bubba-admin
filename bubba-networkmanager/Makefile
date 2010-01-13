@@ -34,6 +34,9 @@ UTIL_SRC=utils/Route.cpp \
 CLIENT = bubba-networkmanager-cli
 CLIENT_SRC = client.cpp
 
+DHCPPING = dhcpping
+DHCPPING_SRC = dhcp-ping/main.cpp
+
 SOURCES = $(APP_SRC) $(DATAMODEL_SRC) $(CONTROLLER_SRC) $(UTIL_SRC)
 OBJS = $(SOURCES:%.cpp=%.o)
 
@@ -45,9 +48,12 @@ DATAMODEL_OBJS=$(DATAMODEL_SRC:%.cpp=%.o)
 UTIL_OBJS=$(UTIL_SRC:%.cpp=%.o)
 CONTROLLER_OBJS=$(CONTROLLER_SRC:%.cpp=%.o)
 
-all: $(APP) $(CLIENT)
+all: $(APP) $(CLIENT) $(DHCPPING)
 
 $(CLIENT): $(CLIENT_SRC:%.cpp=%.o)
+	$(CXX) $(LDFLAGS) -o $@ $^
+
+$(DHCPPING): $(DHCPPING_SRC:%.cpp=%.o)
 	$(CXX) $(LDFLAGS) -o $@ $^
 
 
@@ -55,12 +61,13 @@ $(APP): $(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $^
 
 clean:                                                                          
-	$(RM) $(APP) $(CLIENT) 
-	$(RM) $(OBJS) $(CLIENT_SRC:%.cpp=%.o)
-	$(RM) $(SOURCES:%.cpp=%.d) $(CLIENT_SRC:%.cpp=%.d)
+	$(RM) $(APP) $(CLIENT) $(DHCPPING)
+	$(RM) $(OBJS) $(CLIENT_SRC:%.cpp=%.o) $(DHCPPING_SRC:%.cpp=%.o)
+	$(RM) $(SOURCES:%.cpp=%.d) $(CLIENT_SRC:%.cpp=%.d) $(DHCPPING_SRC:%.cpp=%.d)
 
-install: $(APP)
+install: all 
 	install -s $(APP) $(DESTDIR)/$(sbindir)/$(APP)
+	install -s $(DHCPPING) $(DESTDIR)/$(sbindir)/$(DHCPPING)
 	install -s $(CLIENT) $(DESTDIR)/$(bindir)/$(CLIENT)
 	install -d $(DESTDIR)/$(datadir)/$(APP)
 	install tz-lc.txt $(DESTDIR)/$(datadir)/$(APP)
