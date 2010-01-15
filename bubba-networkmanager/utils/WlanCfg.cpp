@@ -113,17 +113,38 @@ void WlanCfg::GetDefaultCountry(){
 	}
 }
 
-void WlanCfg::GetHWCapab(){
-	string hw=cfg.ValueOrDefault("hw_capab","");
-	EUtils::Regex r("(\\[.*?\\])");
-	if( r.Match( hw ) ) {
-		EUtils::Regex::Matches m;
-		while(r.NextMatch(m)){
-			string entry = hw.substr( m[0].first, m[0].second );
-			this->hwcapab.push_back( entry );
+void WlanCfg::GetHTCapab(){
+	string hw=cfg.ValueOrDefault("ht_capab","");
+	string _search[] = {
+		"LDPC",
+		"HT40-",
+		"HT40+",
+		"SMPS-STATIC",
+		"SMPS-DYNAMIC",
+		"GF",
+		"SHORT-GI-20",
+		"SHORT-GI-40",
+		"TX-STBC",
+		"RX-STBC1",
+		"RX-STBC12",
+		"RX-STBC123",
+		"DELAYED-BA",
+		"MAX-AMSDU-7935",
+		"DSSS_CCK-40",
+		"PSMP",
+		"LSIG-TXOP-PROT"
+	};
+	list<string> search (_search, _search + sizeof(_search) / sizeof(string) );
+	for( list<string>::iterator it = search.begin(); it != search.end(); it++ ) {
+		string test = "[";
+		test += *it;
+		test += "]";
+		if( hw.find( test ) != string::npos ) {
+			this->htcapab.push_back(*it);
 		}
 	}
 }
+
 void WlanCfg::GetHWMode(){
 	string hw=cfg.ValueOrDefault("hw_mode","");
 
@@ -248,7 +269,7 @@ void WlanCfg::ParseConfig(){
 	this->GetDefaultCountry();
 	this->GetACLMode();
 	this->GetHWMode();
-	this->GetHWCapab();
+	this->GetHTCapab();
 	this->ieee80211n=cfg.ValueOrDefault("ieee80211n","0") == "1";
 	this->channel=atoi(cfg.ValueOrDefault("channel","6").c_str());
 	this->interface=cfg.ValueOrDefault("interface","");
@@ -256,7 +277,7 @@ void WlanCfg::ParseConfig(){
 }
 
 bool WlanCfg::JsonToCapab(const Json::Value& val){
-	this->hwcapab=JsonUtils::ArrayToList(val);
+	this->htcapab=JsonUtils::ArrayToList(val);
 	return true;
 }
 
@@ -368,7 +389,7 @@ Json::Value WlanCfg::GetCFG(){
 	ret["interface"]=this->interface;
 
 	ret["802_11n"]= this->ieee80211n;
-	ret["capab"]=JsonUtils::toArray(this->hwcapab);
+	ret["ht_capab"]=JsonUtils::toArray(this->htcapab);
 	switch(this->hwmode){
 	case MODE_A:
 		ret["mode"]="a";
@@ -483,8 +504,8 @@ bool WlanCfg::UpdateCFG(const Json::Value& val){
 			break;
 		}
 	}
-	if(val.isMember("capab") && val["capab"].isObject()){
-		if(!this->JsonToCapab(val["capab"])){
+	if(val.isMember("ht_capab") && val["ht_capab"].isObject()){
+		if(!this->JsonToCapab(val["ht_capab"])){
 			return false;
 		}
 	}
@@ -592,16 +613,18 @@ bool WlanCfg::SyncHWMode(){
 
 	return true;
 }
-bool WlanCfg::SyncHWCapab(){
+bool WlanCfg::SyncHTCapab(){
 
-	list<string> capab = this->hwcapab;
+	list<string> capab = this->htcapab;
 	if( ! capab.empty() ) {
 		string str;
 		
 		for( list<string>::iterator it = capab.begin(); it != capab.end(); ++it ) {
+			str += "[";
 			str += *it;
+			str += "]";
 		}
-		cfg.Update("hw_capab",str);
+		cfg.Update("ht_capab",str);
 	}
 
 	return true;
@@ -717,7 +740,7 @@ bool WlanCfg::SyncWithCfg(){
 		return false;
 	}
 
-	if(!this->SyncHWCapab()){
+	if(!this->SyncHTCapab()){
 		return false;
 	}
 

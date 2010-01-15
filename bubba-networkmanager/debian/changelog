@@ -1,8 +1,9 @@
 bubba-networkmanager (0.29) claire estelle; urgency=low
 
-  * reworking locig for bands and HT, adding HTcapab 
+  * reworking logic for bands and HT, adding ht_capab 
+  * force auto on bridges
 
- -- Carl Fürstenberg <carl@excito.com>  Fri, 15 Jan 2010 15:38:31 +0100
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 15 Jan 2010 17:14:12 +0100
 
 bubba-networkmanager (0.28) claire estelle; urgency=low
 

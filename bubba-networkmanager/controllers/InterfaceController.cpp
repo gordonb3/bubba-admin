@@ -321,18 +321,15 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 		c.cfg["config"]=cfg["config"];
 		c.cfg["type"]="bridge";
 		c.cfg["name"]=ifname;
-		if(cfg.isMember("auto")){
-			c.cfg["auto"]=true;
-		}		
+		c.cfg["auto"]=true; // Always auto on a bridge
+
 		cfgs[BridgeStatic]=c;
 
 	}else if(cfgs.find(BridgeStatic)!=cfgs.end()){
 
 		validatebridge_andsetdefault(cfg["config"]);
 
-		if(cfg.isMember("auto")){
-			cfgs[BridgeStatic].cfg["auto"]=true;
-		}
+		cfgs[BridgeStatic].cfg["auto"]=true; // Always auto on a bridge
 		cfgs[BridgeStatic].cfg["config"]=cfg["config"];
 
 	}else if(cfgs.find(BridgeRaw)!=cfgs.end()){

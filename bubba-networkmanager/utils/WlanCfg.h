@@ -77,14 +77,14 @@ protected:
 
 	void GetDefaultCountry();
 	void GetHWMode();
-	void GetHWCapab();
+	void GetHTCapab();
 	void GetACLMode();
 	void GetAuth();
 	void ParseConfig();
 	bool WriteAclFiles();
 	bool SyncACL();
 	bool SyncHWMode();
-	bool SyncHWCapab();
+	bool SyncHTCapab();
 	bool SyncAuth();
 	bool SyncWithCfg();
 	bool JsonToCapab(const Json::Value& val);
@@ -104,7 +104,7 @@ private:
 	string langcode;
 	HWMode hwmode;
 	bool ieee80211n;
-	list<string> hwcapab;
+	list<string> htcapab;
 	int channel;
 
 	// ACL
