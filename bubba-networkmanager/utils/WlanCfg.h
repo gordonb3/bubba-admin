@@ -104,6 +104,7 @@ private:
 	string langcode;
 	HWMode hwmode;
 	bool ieee80211n;
+	bool ssidbroadcast;
 	list<string> htcapab;
 	int channel;
 

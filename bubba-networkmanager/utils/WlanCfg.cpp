@@ -271,6 +271,7 @@ void WlanCfg::ParseConfig(){
 	this->GetHWMode();
 	this->GetHTCapab();
 	this->ieee80211n=cfg.ValueOrDefault("ieee80211n","0") == "1";
+	this->ssidbroadcast=cfg.ValueOrDefault("ignore_broadcast_ssid","0") == "0";
 	this->channel=atoi(cfg.ValueOrDefault("channel","6").c_str());
 	this->interface=cfg.ValueOrDefault("interface","");
 	this->GetAuth();
@@ -389,6 +390,7 @@ Json::Value WlanCfg::GetCFG(){
 	ret["interface"]=this->interface;
 
 	ret["80211n"]= this->ieee80211n;
+	ret["ssidbroadcast"]= this->ssidbroadcast;
 	ret["ht_capab"]=JsonUtils::toArray(this->htcapab);
 	switch(this->hwmode){
 	case MODE_A:
@@ -486,6 +488,11 @@ bool WlanCfg::UpdateCFG(const Json::Value& val){
 	if(val.isMember("80211n") && val["80211n"].isBool()){
 		this->ieee80211n = val["80211n"].asBool();
 	}
+
+	if(val.isMember("ssidbroadcast") && val["ssidbroadcast"].isBool()){
+		this->ssidbroadcast = val["ssidbroadcast"].asBool();
+	}
+
 	if(val.isMember("mode") && val["mode"].isString()){
 		char mode=val["mode"].asString()[0];
 		switch(mode){
@@ -743,6 +750,7 @@ bool WlanCfg::SyncWithCfg(){
 	}
 
 	cfg.Update("ieee80211n", this->ieee80211n ? "1" : "0" );
+	cfg.Update("ignore_broadcast_ssid", this->ssidbroadcast ? "0" : "1" );
 
 	stringstream ss;
 	ss << this->channel;

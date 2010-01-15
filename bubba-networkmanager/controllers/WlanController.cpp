@@ -126,6 +126,21 @@ void WlanController::Enable80211n(const string& ifname, const bool enable){
 	}
 
 }
+
+void WlanController::EnableAPSSIDBroadcast(const string& ifname, const bool enable){
+
+	auto_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
+	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
+
+	if(cfgs.find(WlanAP)!=cfgs.end()){
+		cfgs[WlanAP].cfg["config"]["ssidbroadcast"]=enable;
+		ifc->SetConfigurations(cfgs);
+	}else{
+		throw std::runtime_error("Not a wlanAP interface");
+	}
+
+}
+
 void WlanController::SetAPChannel(const string& ifname, int channel){
 
 	auto_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);

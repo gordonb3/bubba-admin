@@ -74,6 +74,7 @@ Dispatcher::Dispatcher(const string& sockpath, int timeout):NetDaemon(sockpath,t
 	this->cmds["setapssid"]=&Dispatcher::setapssid;
 	this->cmds["setapmode"]=&Dispatcher::setapmode;
 	this->cmds["enable80211n"]=&Dispatcher::enable80211n;
+	this->cmds["enableapssidbroadcast"]=&Dispatcher::enableapssidbroadcast;
 	this->cmds["setapchannel"]=&Dispatcher::setapchannel;
 	this->cmds["setapauthnone"]=&Dispatcher::setapauthnone;
 	this->cmds["setapauthwep"]=&Dispatcher::setapauthwep;
@@ -851,6 +852,39 @@ Dispatcher::Result Dispatcher::setapchannel(EUtils::UnixClientSocket* con,const 
 
 	return retval;
 }
+Dispatcher::Result Dispatcher::enableapssidbroadcast(EUtils::UnixClientSocket* con,const Json::Value& v){
+	Dispatcher::Result retval=Dispatcher::Done;
+	Json::Value res(Json::objectValue);
+	res["status"]=true;
+
+	if(!v.isMember("enable") || !v["enable"].isBool()){
+		res["status"]=false;
+		res["error"]="Not an boolean";
+		this->send_jsonvalue(con,res);
+		return Dispatcher::Failed;
+	}
+
+	if(!v.isMember("ifname") || !v["ifname"].isString()){
+		res["status"]=false;
+		res["error"]="Missing mode parameter";
+		this->send_jsonvalue(con,res);
+		return Dispatcher::Failed;
+	}
+
+	try{
+		WlanController::Instance().EnableAPSSIDBroadcast(v["ifname"].asString(),v["enable"].asBool());
+	}catch(std::runtime_error& err){
+		res["status"]=false;
+		res["error"]=string("Operation failed: ")+err.what();
+		retval=Dispatcher::Failed;
+	}
+
+
+	this->send_jsonvalue(con,res);
+
+	return retval;
+}
+
 
 Dispatcher::Result Dispatcher::enable80211n(EUtils::UnixClientSocket* con,const Json::Value& v){
 	Dispatcher::Result retval=Dispatcher::Done;
@@ -884,6 +918,7 @@ Dispatcher::Result Dispatcher::enable80211n(EUtils::UnixClientSocket* con,const 
 
 	return retval;
 }
+
 Dispatcher::Result Dispatcher::setapauthnone(EUtils::UnixClientSocket* con,const Json::Value& v){
 	Dispatcher::Result retval=Dispatcher::Done;
 	Json::Value res(Json::objectValue);

@@ -46,7 +46,8 @@ public:
 	void SetApInterface(const string& ifname);
 	void SetApSSID(const string& ifname, const string& ssid);
 	void SetApMode(const string& ifname, const string& mode);
-	void Enable80211n(const string& ifname, const bool enabled);
+	void Enable80211n(const string& ifname, const bool enable);
+	void EnableAPSSIDBroadcast(const string& ifname, const bool enable);
 	void SetAPChannel(const string& ifname, int channel);
 	void SetAPAuthNone(const string& ifname);
 	void SetAPAuthWep(const string& ifname, const Json::Value& cfg);

@@ -94,6 +94,7 @@ private:
 
 	Result setapssid(EUtils::UnixClientSocket* con,const Json::Value& v);
 	Result enable80211n(EUtils::UnixClientSocket* con,const Json::Value& v);
+	Result enableapssidbroadcast(EUtils::UnixClientSocket* con,const Json::Value& v);
 	Result setapmode(EUtils::UnixClientSocket* con,const Json::Value& v);
 	Result setapchannel(EUtils::UnixClientSocket* con,const Json::Value& v);
 
