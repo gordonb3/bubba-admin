@@ -30,6 +30,7 @@
 #include <list>
 #include <libeutils/json/json.h>
 #include <libeutils/SimpleCfg.h>
+#include <libeutils/Regex.h>
 
 using namespace std;
 
@@ -47,7 +48,6 @@ public:
 		MODE_A,
 		MODE_B,
 		MODE_G,
-		MODE_N
 	} HWMode;
 
 	typedef enum {
@@ -77,14 +77,17 @@ protected:
 
 	void GetDefaultCountry();
 	void GetHWMode();
+	void GetHWCapab();
 	void GetACLMode();
 	void GetAuth();
 	void ParseConfig();
 	bool WriteAclFiles();
 	bool SyncACL();
 	bool SyncHWMode();
+	bool SyncHWCapab();
 	bool SyncAuth();
 	bool SyncWithCfg();
+	bool JsonToCapab(const Json::Value& val);
 	bool JsonToACL(const Json::Value& val);
 	bool JsonToAuth(const Json::Value& val);
 	bool JsonToWep(const Json::Value& val);
@@ -100,7 +103,8 @@ private:
 	string ssid;
 	string langcode;
 	HWMode hwmode;
-	string ieee80211n;
+	bool ieee80211n;
+	list<string> hwcapab;
 	int channel;
 
 	// ACL

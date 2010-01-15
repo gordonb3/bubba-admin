@@ -113,13 +113,21 @@ void WlanCfg::GetDefaultCountry(){
 	}
 }
 
+void WlanCfg::GetHWCapab(){
+	string hw=cfg.ValueOrDefault("hw_capab","");
+	EUtils::Regex r("(\\[.*?\\])");
+	if( r.Match( hw ) ) {
+		EUtils::Regex::Matches m;
+		while(r.NextMatch(m)){
+			string entry = hw.substr( m[0].first, m[0].second );
+			this->hwcapab.push_back( entry );
+		}
+	}
+}
 void WlanCfg::GetHWMode(){
 	string hw=cfg.ValueOrDefault("hw_mode","");
-	string isN=cfg.ValueOrDefault("ieee80211n","0");
 
-	if(isN=="1" && hw=="g"){
-		this->hwmode=MODE_N;
-	}else if(hw=="a"){
+	if(hw=="a"){
 		this->hwmode=MODE_A;
 	}else if(hw=="b"){
 		this->hwmode=MODE_B;
@@ -240,12 +248,17 @@ void WlanCfg::ParseConfig(){
 	this->GetDefaultCountry();
 	this->GetACLMode();
 	this->GetHWMode();
-	this->ieee80211n=cfg.ValueOrDefault("ieee80211n","0");
+	this->GetHWCapab();
+	this->ieee80211n=cfg.ValueOrDefault("ieee80211n","0") == "1";
 	this->channel=atoi(cfg.ValueOrDefault("channel","6").c_str());
 	this->interface=cfg.ValueOrDefault("interface","");
 	this->GetAuth();
 }
 
+bool WlanCfg::JsonToCapab(const Json::Value& val){
+	this->hwcapab=JsonUtils::ArrayToList(val);
+	return true;
+}
 
 
 bool WlanCfg::JsonToACL(const Json::Value& val){
@@ -354,6 +367,8 @@ Json::Value WlanCfg::GetCFG(){
 	ret["channel"]=this->channel;
 	ret["interface"]=this->interface;
 
+	ret["802_11n"]= this->ieee80211n;
+	ret["capab"]=JsonUtils::toArray(this->hwcapab);
 	switch(this->hwmode){
 	case MODE_A:
 		ret["mode"]="a";
@@ -363,9 +378,6 @@ Json::Value WlanCfg::GetCFG(){
 		break;
 	case MODE_G:
 		ret["mode"]="g";
-		break;
-	case MODE_N:
-		ret["mode"]="n";
 		break;
 	default:
 		ret["mode"]="unknown";
@@ -450,6 +462,9 @@ bool WlanCfg::UpdateCFG(const Json::Value& val){
 		this->langcode=val["country"].asString();
 	}
 
+	if(val.isMember("802_11n") && val["802_11n"].isBool()){
+		this->ieee80211n = val["802_11n"].asBool();
+	}
 	if(val.isMember("mode") && val["mode"].isString()){
 		char mode=val["mode"].asString()[0];
 		switch(mode){
@@ -462,17 +477,17 @@ bool WlanCfg::UpdateCFG(const Json::Value& val){
 		case 'g':
 			this->hwmode=MODE_G;
 			break;
-		case 'n':
-			this->hwmode=MODE_N;
-			break;
 		default:
 			cerr << "Illegal hwmode"<<endl;
 			return false;
 			break;
 		}
-
 	}
-
+	if(val.isMember("capab") && val["capab"].isObject()){
+		if(!this->JsonToCapab(val["capab"])){
+			return false;
+		}
+	}
 	if(val.isMember("acl") && val["acl"].isObject()){
 		if(!this->JsonToACL(val["acl"])){
 			return false;
@@ -564,19 +579,12 @@ bool WlanCfg::SyncHWMode(){
 	switch(this->hwmode){
 	case MODE_A:
 		cfg.Update("hw_mode","a");
-		cfg.Update("ieee80211n","0");
 		break;
 	case MODE_B:
 		cfg.Update("hw_mode","b");
-		cfg.Update("ieee80211n","0");
 		break;
 	case MODE_G:
 		cfg.Update("hw_mode","g");
-		cfg.Update("ieee80211n","0");
-		break;
-	case MODE_N:
-		cfg.Update("hw_mode","g");
-		cfg.Update("ieee80211n","1");
 		break;
 	default:
 		return false;
@@ -584,7 +592,20 @@ bool WlanCfg::SyncHWMode(){
 
 	return true;
 }
+bool WlanCfg::SyncHWCapab(){
 
+	list<string> capab = this->hwcapab;
+	if( ! capab.empty() ) {
+		string str;
+		
+		for( list<string>::iterator it = capab.begin(); it != capab.end(); ++it ) {
+			str += *it;
+		}
+		cfg.Update("hw_capab",str);
+	}
+
+	return true;
+}
 
 bool WlanCfg::SyncAuth(){
 
@@ -695,6 +716,12 @@ bool WlanCfg::SyncWithCfg(){
 	if(!this->SyncHWMode()){
 		return false;
 	}
+
+	if(!this->SyncHWCapab()){
+		return false;
+	}
+
+	cfg.Update("ieee80211n", this->ieee80211n ? "1" : "0" );
 
 	stringstream ss;
 	ss << this->channel;
