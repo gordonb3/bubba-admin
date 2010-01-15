@@ -73,10 +73,12 @@ Dispatcher::Dispatcher(const string& sockpath, int timeout):NetDaemon(sockpath,t
 	this->cmds["setapcfg"]=&Dispatcher::setapcfg;
 	this->cmds["setapssid"]=&Dispatcher::setapssid;
 	this->cmds["setapmode"]=&Dispatcher::setapmode;
+	this->cmds["enable80211n"]=&Dispatcher::enable80211n;
 	this->cmds["setapchannel"]=&Dispatcher::setapchannel;
 	this->cmds["setapauthnone"]=&Dispatcher::setapauthnone;
 	this->cmds["setapauthwep"]=&Dispatcher::setapauthwep;
 	this->cmds["setapauthwpa"]=&Dispatcher::setapauthwpa;
+	this->cmds["setaphtcapab"]=&Dispatcher::setaphtcapab;
 
 	this->cmds["getphycap"]=&Dispatcher::getphycap;
 	this->cmds["getphybands"]=&Dispatcher::getphybands;
@@ -849,6 +851,39 @@ Dispatcher::Result Dispatcher::setapchannel(EUtils::UnixClientSocket* con,const 
 
 	return retval;
 }
+
+Dispatcher::Result Dispatcher::enable80211n(EUtils::UnixClientSocket* con,const Json::Value& v){
+	Dispatcher::Result retval=Dispatcher::Done;
+	Json::Value res(Json::objectValue);
+	res["status"]=true;
+
+	if(!v.isMember("enable") || !v["enable"].isBool()){
+		res["status"]=false;
+		res["error"]="Not an boolean";
+		this->send_jsonvalue(con,res);
+		return Dispatcher::Failed;
+	}
+
+	if(!v.isMember("ifname") || !v["ifname"].isString()){
+		res["status"]=false;
+		res["error"]="Missing mode parameter";
+		this->send_jsonvalue(con,res);
+		return Dispatcher::Failed;
+	}
+
+	try{
+		WlanController::Instance().Enable80211n(v["ifname"].asString(),v["enable"].asBool());
+	}catch(std::runtime_error& err){
+		res["status"]=false;
+		res["error"]=string("Operation failed: ")+err.what();
+		retval=Dispatcher::Failed;
+	}
+
+
+	this->send_jsonvalue(con,res);
+
+	return retval;
+}
 Dispatcher::Result Dispatcher::setapauthnone(EUtils::UnixClientSocket* con,const Json::Value& v){
 	Dispatcher::Result retval=Dispatcher::Done;
 	Json::Value res(Json::objectValue);
@@ -956,6 +991,39 @@ Dispatcher::Result Dispatcher::setapauthwpa(EUtils::UnixClientSocket* con,const 
 
 	try{
 		WlanController::Instance().SetAPAuthWpa(v["ifname"].asString(),v["config"]);
+	}catch(std::runtime_error& err){
+		res["status"]=false;
+		res["error"]=string("Operation failed: ")+err.what();
+		retval=Dispatcher::Failed;
+	}
+
+
+	this->send_jsonvalue(con,res);
+
+	return retval;
+}
+
+Dispatcher::Result Dispatcher::setaphtcapab(EUtils::UnixClientSocket* con,const Json::Value& v){
+	Dispatcher::Result retval=Dispatcher::Done;
+	Json::Value res(Json::objectValue);
+	res["status"]=true;
+
+	if(!v.isMember("ifname") || !v["ifname"].isString()){
+		res["status"]=false;
+		res["error"]="Missing ifname parameter";
+		this->send_jsonvalue(con,res);
+		return Dispatcher::Failed;
+	}
+
+	if(!v.isMember("capab") || !v["capab"].isArray()){
+		res["status"]=false;
+		res["error"]="Missing capab parameterblock";
+		this->send_jsonvalue(con,res);
+		return Dispatcher::Failed;
+	}
+
+	try{
+		WlanController::Instance().SetApHTCapab(v["ifname"].asString(),v["capab"]);
 	}catch(std::runtime_error& err){
 		res["status"]=false;
 		res["error"]=string("Operation failed: ")+err.what();

@@ -93,12 +93,14 @@ private:
 	Result setapif(EUtils::UnixClientSocket* con,const Json::Value& v);
 
 	Result setapssid(EUtils::UnixClientSocket* con,const Json::Value& v);
+	Result enable80211n(EUtils::UnixClientSocket* con,const Json::Value& v);
 	Result setapmode(EUtils::UnixClientSocket* con,const Json::Value& v);
 	Result setapchannel(EUtils::UnixClientSocket* con,const Json::Value& v);
 
 	Result setapauthnone(EUtils::UnixClientSocket* con,const Json::Value& v);
 	Result setapauthwep(EUtils::UnixClientSocket* con,const Json::Value& v);
 	Result setapauthwpa(EUtils::UnixClientSocket* con,const Json::Value& v);
+	Result setaphtcapab(EUtils::UnixClientSocket* con,const Json::Value& v);
 	// Todo: this is a kludge...
 	Result haswlan(EUtils::UnixClientSocket* con,const Json::Value& v);
 

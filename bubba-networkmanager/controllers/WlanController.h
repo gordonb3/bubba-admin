@@ -42,9 +42,11 @@ public:
 
 	bool HasWlan();
 	void SetApCfg(const string& ifname, const Json::Value& cfg);
+	void SetApHTCapab(const string& ifname, const Json::Value& capab);
 	void SetApInterface(const string& ifname);
 	void SetApSSID(const string& ifname, const string& ssid);
 	void SetApMode(const string& ifname, const string& mode);
+	void Enable80211n(const string& ifname, const bool enabled);
 	void SetAPChannel(const string& ifname, int channel);
 	void SetAPAuthNone(const string& ifname);
 	void SetAPAuthWep(const string& ifname, const Json::Value& cfg);

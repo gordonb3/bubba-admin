@@ -388,7 +388,7 @@ Json::Value WlanCfg::GetCFG(){
 	ret["channel"]=this->channel;
 	ret["interface"]=this->interface;
 
-	ret["802_11n"]= this->ieee80211n;
+	ret["80211n"]= this->ieee80211n;
 	ret["ht_capab"]=JsonUtils::toArray(this->htcapab);
 	switch(this->hwmode){
 	case MODE_A:
@@ -483,8 +483,8 @@ bool WlanCfg::UpdateCFG(const Json::Value& val){
 		this->langcode=val["country"].asString();
 	}
 
-	if(val.isMember("802_11n") && val["802_11n"].isBool()){
-		this->ieee80211n = val["802_11n"].asBool();
+	if(val.isMember("80211n") && val["80211n"].isBool()){
+		this->ieee80211n = val["80211n"].asBool();
 	}
 	if(val.isMember("mode") && val["mode"].isString()){
 		char mode=val["mode"].asString()[0];
@@ -504,7 +504,7 @@ bool WlanCfg::UpdateCFG(const Json::Value& val){
 			break;
 		}
 	}
-	if(val.isMember("ht_capab") && val["ht_capab"].isObject()){
+	if(val.isMember("ht_capab") && val["ht_capab"].isArray()){
 		if(!this->JsonToCapab(val["ht_capab"])){
 			return false;
 		}
@@ -616,16 +616,14 @@ bool WlanCfg::SyncHWMode(){
 bool WlanCfg::SyncHTCapab(){
 
 	list<string> capab = this->htcapab;
-	if( ! capab.empty() ) {
-		string str;
-		
-		for( list<string>::iterator it = capab.begin(); it != capab.end(); ++it ) {
-			str += "[";
-			str += *it;
-			str += "]";
-		}
-		cfg.Update("ht_capab",str);
+	string str;
+
+	for( list<string>::iterator it = capab.begin(); it != capab.end(); ++it ) {
+		str += "[";
+		str += *it;
+		str += "]";
 	}
+	cfg.Update("ht_capab",str);
 
 	return true;
 }
