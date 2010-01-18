@@ -342,9 +342,8 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 		c.cfg["config"]=cfg["config"];
 		c.cfg["name"]=ifname;
 		c.cfg["type"]="bridge";
-		if(cfg.isMember("auto")){
-			c.cfg["auto"]=true;
-		}				
+		c.cfg["auto"]=true; // always auto
+
 		cfgs[BridgeStatic]=c;
 
 	}else{
@@ -425,9 +424,7 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 
 		validatebridge_andsetdefault(cfg["config"]);
 		cfgs[BridgeDynamic].cfg["config"]=cfg["config"];
-		if(cfg.isMember("auto")){
-			cfgs[BridgeDynamic].cfg["auto"]=true;
-		}		
+		cfgs[BridgeDynamic].cfg["auto"]=true; // always auto
 
 
 	}else if(cfgs.find(BridgeStatic)!=cfgs.end()){
@@ -440,9 +437,8 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 		c.cfg["config"]=cfg["config"];
 		c.cfg["name"]=ifname;
 		c.cfg["type"]="bridge";
-		if(cfg.isMember("auto")){
-			c.cfg["auto"]=true;
-		}				
+		c.cfg["auto"]=true; // always auto
+
 		cfgs[BridgeDynamic]=c;
 
 	}else if(cfgs.find(BridgeRaw)!=cfgs.end()){
@@ -455,9 +451,8 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 		c.cfg["config"]=cfg["config"];
 		c.cfg["name"]=ifname;
 		c.cfg["type"]="bridge";
-		if(cfg.isMember("auto")){
-			c.cfg["auto"]=true;
-		}		
+		c.cfg["auto"]=true; // always auto
+
 		cfgs[BridgeDynamic]=c;
 
 	}else{
