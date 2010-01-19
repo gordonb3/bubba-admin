@@ -1,3 +1,9 @@
+bubba-networkmanager (0.32) claire estelle; urgency=low
+
+  * Set sending address on broadcast socket. 
+
+ -- Tor Krill <tor@excito.com>  Tue, 19 Jan 2010 22:29:38 +0100
+
 bubba-networkmanager (0.31) claire estelle; urgency=low
 
   * Rework dhcpping to use raw listening socket

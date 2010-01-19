@@ -226,7 +226,22 @@ int create_broadcast_socket(const char* iface){
 		close(sock);
 		return -1;
 	}
-		
+
+	// Setup address
+	struct sockaddr_in addr;
+	memset(&addr,0,sizeof(addr));
+	memset(&addr.sin_zero,0,sizeof(addr.sin_zero));
+	addr.sin_family=AF_INET;
+	addr.sin_port=htons(DHCP_CLIENT_PORT);
+	addr.sin_addr.s_addr= INADDR_ANY;
+
+	// Bind socket to address
+	if(bind(sock,(struct sockaddr*)&addr,sizeof(addr))<0){
+		perror("Failed to bind socket to address");
+		close(sock);
+		return -1;
+	}
+
 	return sock;
 }
 
