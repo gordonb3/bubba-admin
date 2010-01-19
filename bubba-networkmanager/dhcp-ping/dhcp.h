@@ -31,7 +31,7 @@
 #define MAX_DHCP_FILE_LENGTH	128
 #define MAX_DHCP_OPTIONS_LENGTH	312
 
-#define DHCP_BROADCAST_FLAG 32768
+#define DHCP_BROADCAST_FLAG 0x8000
 
 typedef struct {
 	u_int8_t	op;
