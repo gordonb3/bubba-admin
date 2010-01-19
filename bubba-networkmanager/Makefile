@@ -5,7 +5,7 @@ datadir ?= $(prefix)/share
 sysconfigdir ?= etc
 
 APP=bubba-networkmanager
-APP_VERSION=0.1
+APP_VERSION=0.2
 
 APP_SRC=main.cpp \
 		Dispatcher.cpp
@@ -35,7 +35,7 @@ CLIENT = bubba-networkmanager-cli
 CLIENT_SRC = client.cpp
 
 DHCPPING = dhcpping
-DHCPPING_SRC = dhcp-ping/main.cpp
+DHCPPING_SRC = dhcp-ping/main.cpp dhcp-ping/dhcp.cpp
 
 SOURCES = $(APP_SRC) $(DATAMODEL_SRC) $(CONTROLLER_SRC) $(UTIL_SRC)
 OBJS = $(SOURCES:%.cpp=%.o)

@@ -3,7 +3,8 @@
 
 #include <sys/types.h>
 
-
+#include <netinet/ip.h>
+#include <netinet/udp.h>
 
 #define BOOTREQUEST		1
 #define BOOTREPLY		2
@@ -33,6 +34,9 @@
 
 #define DHCP_BROADCAST_FLAG 0x8000
 
+#define DHCP_SERVER_PORT 67
+#define DHCP_CLIENT_PORT 68
+
 typedef struct {
 	u_int8_t	op;
 	u_int8_t	htype;
@@ -48,9 +52,20 @@ typedef struct {
 	unsigned char 	chaddr[MAX_DHCP_CHADDR_LENGTH];
 	char	sname[MAX_DHCP_SNAME_LENGTH];
 	char	file[MAX_DHCP_FILE_LENGTH];
-	char	options[MAX_DHCP_OPTIONS_LENGTH];
+	unsigned char	options[MAX_DHCP_OPTIONS_LENGTH];
 
 } __attribute__((__packed__)) dhcp_packet;
 
+typedef struct{
+	struct iphdr ip;
+	struct udphdr udp;
+	dhcp_packet dhcp;	
+} __attribute__((__packed__)) ip_udp_dhcp_packet;
+
+bool read_packet(int sock,dhcp_packet* dp);
+bool wait_offer(int sock, int timeout);
+bool send_discover(int sock, const char* iface);
+int create_broadcast_socket(const char* iface);
+int create_raw_socket(const char* iface);
 
 #endif

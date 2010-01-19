@@ -1,3 +1,9 @@
+bubba-networkmanager (0.31) claire estelle; urgency=low
+
+  * Rework dhcpping to use raw listening socket
+
+ -- Tor Krill <tor@excito.com>  Tue, 19 Jan 2010 14:01:12 +0100
+
 bubba-networkmanager (0.30) claire estelle; urgency=low
 
   * adding force auto on dynamic bridge 
