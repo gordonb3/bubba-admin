@@ -1,3 +1,10 @@
+bubba-networkmanager (0.33) claire estelle; urgency=low
+
+  * add bridge_fd defualt 0 (solves the issue with no bridge available during
+    boot)
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 25 Jan 2010 10:36:59 +0100
+
 bubba-networkmanager (0.32) claire estelle; urgency=low
 
   * Set sending address on broadcast socket. 

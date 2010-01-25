@@ -259,6 +259,14 @@ static void validatebridge_andsetdefault( Json::Value& cfg){
 		throw std::runtime_error("bridge_maxwait parameter not array");
 	}
 
+	if(!cfg.isMember("bridge_fd")){
+		cfg["bridge_fd"].append(SysConfig::Instance().ValueOrDefault("bridge_fd","0"));
+	}
+
+	if(!cfg["bridge_fd"].isArray()){
+		throw std::runtime_error("bridge_fd parameter not array");
+	}
+
 	if(!cfg.isMember("bridge_ports")){
 		cfg["bridge_ports"]=Json::Value(Json::arrayValue);
 		cfg["bridge_ports"].append(InterfaceController::Instance().GetDefaultLanInterface());
