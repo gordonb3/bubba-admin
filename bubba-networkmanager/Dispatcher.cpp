@@ -262,7 +262,9 @@ Dispatcher::Result Dispatcher::setlanif(EUtils::UnixClientSocket *con, const Jso
 							if(v["config"].isMember("bridge_ports")){
 								v["config"].removeMember("bridge_ports");
 							}
-
+							if(v["config"].isMember("bridge_fd")){
+								v["config"].removeMember("bridge_fd");
+							}
 							Json::Value a(Json::objectValue);
 							a["config"]=v["config"];
 
