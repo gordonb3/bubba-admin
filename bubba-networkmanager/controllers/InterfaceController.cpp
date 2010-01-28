@@ -329,15 +329,18 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 		c.cfg["config"]=cfg["config"];
 		c.cfg["type"]="bridge";
 		c.cfg["name"]=ifname;
-		c.cfg["auto"]=true; // Always auto on a bridge
-
+		if(cfg.isMember("auto")){
+			c.cfg["auto"]=true;
+		}		
 		cfgs[BridgeStatic]=c;
 
 	}else if(cfgs.find(BridgeStatic)!=cfgs.end()){
 
 		validatebridge_andsetdefault(cfg["config"]);
 
-		cfgs[BridgeStatic].cfg["auto"]=true; // Always auto on a bridge
+		if(cfg.isMember("auto")){
+			cfgs[BridgeStatic].cfg["auto"]=true;
+		}
 		cfgs[BridgeStatic].cfg["config"]=cfg["config"];
 
 	}else if(cfgs.find(BridgeRaw)!=cfgs.end()){
@@ -350,8 +353,9 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 		c.cfg["config"]=cfg["config"];
 		c.cfg["name"]=ifname;
 		c.cfg["type"]="bridge";
-		c.cfg["auto"]=true; // always auto
-
+		if(cfg.isMember("auto")){
+			c.cfg["auto"]=true;
+		}				
 		cfgs[BridgeStatic]=c;
 
 	}else{
@@ -432,7 +436,9 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 
 		validatebridge_andsetdefault(cfg["config"]);
 		cfgs[BridgeDynamic].cfg["config"]=cfg["config"];
-		cfgs[BridgeDynamic].cfg["auto"]=true; // always auto
+		if(cfg.isMember("auto")){
+			cfgs[BridgeDynamic].cfg["auto"]=true;
+		}		
 
 
 	}else if(cfgs.find(BridgeStatic)!=cfgs.end()){
@@ -445,8 +451,9 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 		c.cfg["config"]=cfg["config"];
 		c.cfg["name"]=ifname;
 		c.cfg["type"]="bridge";
-		c.cfg["auto"]=true; // always auto
-
+		if(cfg.isMember("auto")){
+			c.cfg["auto"]=true;
+		}				
 		cfgs[BridgeDynamic]=c;
 
 	}else if(cfgs.find(BridgeRaw)!=cfgs.end()){
@@ -459,8 +466,9 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 		c.cfg["config"]=cfg["config"];
 		c.cfg["name"]=ifname;
 		c.cfg["type"]="bridge";
-		c.cfg["auto"]=true; // always auto
-
+		if(cfg.isMember("auto")){
+			c.cfg["auto"]=true;
+		}		
 		cfgs[BridgeDynamic]=c;
 
 	}else{
