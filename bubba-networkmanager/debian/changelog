@@ -1,3 +1,9 @@
+bubba-networkmanager (0.36) claire; urgency=low
+
+  * changing Hosts class to allow for any hosts file
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 29 Jan 2010 17:32:03 +0100
+
 bubba-networkmanager (0.35) claire estelle; urgency=medium
 
   * adding hack to remove bridge_fd

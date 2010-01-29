@@ -43,9 +43,12 @@ public:
 private:
 
 	Entries entries;
+	const char* hosts_file;
+	void init();
 
 public:
 	Hosts();
+	Hosts( const char* hosts_file);
 
 	/**
 	 * Find all entries matching (Exactly) term

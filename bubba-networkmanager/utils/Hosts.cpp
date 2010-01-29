@@ -35,8 +35,16 @@ using namespace std;
 using namespace EUtils;
 
 namespace NetworkManager{
-Hosts::Hosts(){
-	list<string> fil=FileUtils::GetContent(HOSTS_FILE);
+
+Hosts::Hosts( const char* hosts_file ): hosts_file( hosts_file ) {
+	init();
+}
+Hosts::Hosts(): hosts_file( HOSTS_FILE ) {
+	init();
+}
+
+void Hosts::init() {
+	list<string> fil=FileUtils::GetContent(hosts_file);
 
 	for(list<string>::iterator fIt=fil.begin();fIt!=fil.end();fIt++){
 		Entry e;
@@ -50,7 +58,6 @@ Hosts::Hosts(){
 		if(e.size()>0){
 			entries.push_back(e);
 		}
-
 	}
 }
 
@@ -149,10 +156,12 @@ bool Hosts::WriteBack(){
 		l<<endl;
 		lines.push_back(l.str());
 	}
-	if(!FileUtils::Write(HOSTS_FILE".new",lines,0644)){
+	string new_file(hosts_file);
+	new_file += ".new";
+	if(!FileUtils::Write(new_file.c_str(),lines,0644)){
 		return false;
 	}
-	if(rename(HOSTS_FILE".new",HOSTS_FILE)!=0){
+	if(rename(new_file.c_str(),hosts_file)!=0){
 		return false;
 	}
 	return true;
