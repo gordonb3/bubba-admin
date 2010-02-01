@@ -179,7 +179,7 @@ bool send_discover(int sock, const char* iface){
 	addr.sin_addr.s_addr=INADDR_BROADCAST;
 	memset(&addr.sin_zero,0,sizeof(&addr.sin_zero));
 	
-	if(sendto(sock,(const char*)&dp,sizeof(dp),0,(const struct sockaddr *) &addr,sizeof(addr))<0){
+	if(sendto(sock,(const char*)&dp,sizeof(dp)-80,0,(const struct sockaddr *) &addr,sizeof(addr))<0){
 		perror("Failed to send dhcp discover packet");
 		return false;
 	}
