@@ -48,7 +48,8 @@ DATAMODEL_OBJS=$(DATAMODEL_SRC:%.cpp=%.o)
 UTIL_OBJS=$(UTIL_SRC:%.cpp=%.o)
 CONTROLLER_OBJS=$(CONTROLLER_SRC:%.cpp=%.o)
 
-all: $(APP) $(CLIENT) $(DHCPPING)
+#all: $(APP) $(CLIENT) $(DHCPPING)
+all: $(APP) $(CLIENT)
 
 $(CLIENT): $(CLIENT_SRC:%.cpp=%.o)
 	$(CXX) $(LDFLAGS) -o $@ $^
@@ -67,7 +68,7 @@ clean:
 
 install: all 
 	install -s $(APP) $(DESTDIR)/$(sbindir)/$(APP)
-	install -s $(DHCPPING) $(DESTDIR)/$(sbindir)/$(DHCPPING)
+	# install -s $(DHCPPING) $(DESTDIR)/$(sbindir)/$(DHCPPING)
 	install -s $(CLIENT) $(DESTDIR)/$(bindir)/$(CLIENT)
 	install -d $(DESTDIR)/$(datadir)/$(APP)
 	install tz-lc.txt $(DESTDIR)/$(datadir)/$(APP)

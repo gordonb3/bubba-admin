@@ -1,3 +1,10 @@
+bubba-networkmanager (0.37) claire estelle; urgency=low
+
+  * Remove "auto" appended on bridge interfaces.
+  * Replace auto with added rc-skript to pick up IF
+
+ -- Tor Krill <tor@excito.com>  Mon, 01 Feb 2010 13:36:57 +0100
+
 bubba-networkmanager (0.36) claire; urgency=low
 
   * changing Hosts class to allow for any hosts file

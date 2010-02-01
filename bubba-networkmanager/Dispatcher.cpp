@@ -37,6 +37,7 @@
 #include <iostream>
 
 #include <libeutils/json/json.h>
+#include <libeutils/Services.h>
 
 using namespace EUtils;
 
@@ -227,6 +228,8 @@ Dispatcher::Result Dispatcher::setlanif(EUtils::UnixClientSocket *con, const Jso
 
 		// Get old lanif
 		string olf=cfg.ValueOrDefault("lanif",InterfaceController::Instance().GetDefaultLanInterface());
+		string olftype=PolicyController::Instance().GetInterfaceType(olf);
+
 		if(olf==newif){
 			// Same interface
 			this->send_jsonvalue(con,res);
@@ -290,7 +293,6 @@ Dispatcher::Result Dispatcher::setlanif(EUtils::UnixClientSocket *con, const Jso
 							Json::Value a(Json::objectValue);
 							a["config"]=v["config"];
 							if(newiftype=="bridge"){
-								a["auto"]=true;
 								a["config"]["bridge_maxwait"]=Json::Value(Json::arrayValue);
 								a["config"]["bridge_maxwait"].append(SysConfig::Instance().ValueOrDefault("bridge_maxwait","0"));
 								a["config"]["bridge_ports"]=Json::Value(Json::arrayValue);
@@ -328,6 +330,16 @@ Dispatcher::Result Dispatcher::setlanif(EUtils::UnixClientSocket *con, const Jso
 				InterfaceController::Down(olf);
 				// Pick up new if
 				InterfaceController::Up(newif);
+
+				// If this was a move from two wlan (bridge) update rc.d
+				if(newiftype=="bridge"){
+					list<int> start,stop;
+					start.push_back(2);
+					Services::Enable("ifup-br0",19,start,0,stop);
+				}else{
+					Services::Disable("ifup-br0");
+				}
+
 			}
 		}catch(runtime_error& err){
 			res["status"]=false;
