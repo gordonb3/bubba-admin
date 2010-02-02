@@ -62,14 +62,12 @@ void Hosts::init() {
 }
 
 static void createnewhosts(Hosts::Entries& e, const string& ip, const string& name){
-	Hosts::Entry ent(3);
-	ent[0]="127.0.0.1";
-	ent[1]=name;
-	ent[2]=name+".localdomain";
-	e.push_back(ent);
 
 	if(ip!=""){
+		Hosts::Entry ent(3);
 		ent[0]=ip;
+		ent[1]=name;
+		ent[2]=name+".localdomain";
 		e.push_back(ent);
 	}
 
