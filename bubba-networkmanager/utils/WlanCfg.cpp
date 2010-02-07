@@ -41,6 +41,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <syslog.h>
 
 using namespace EUtils;
 using namespace std;
@@ -107,7 +108,8 @@ void WlanCfg::GetDefaultCountry(){
 
 	string tzfile=FileUtils::GetContentAsString(SysConfig::Instance().ValueOrDefault("tz_file", TZ_FILE));
 	if(tzinfo.find(tzfile)==tzinfo.end()){
-		cerr << "Timezone not found"<<endl;
+		syslog( LOG_WARNING, "Timezone was not recognized, or UTC was selected. defaulting to world domain (00)" );
+		this->langcode = "00";
 	}else{
 		this->langcode=tzinfo[tzfile];
 	}
