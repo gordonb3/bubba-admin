@@ -46,7 +46,7 @@
 using namespace EUtils;
 using namespace std;
 
-#define TZ_MAP_FILE "tz-lc.txt"
+#define TZ_MAP_FILE "/usr/share/bubba-networkmanager/tz-lc.txt"
 #define TZ_FILE "/etc/timezone"
 
 #if 0
