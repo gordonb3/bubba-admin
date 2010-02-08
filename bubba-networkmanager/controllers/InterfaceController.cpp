@@ -426,7 +426,7 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 	ifc->SetConfigurations(cfgs);
 
 	if(PolicyController::Instance().GetInterfaceType(ifname)=="bridge"){
-		this->SetPromisc(ifname,true);
+		this->SetPromisc(this->GetDefaultLanInterface(),true);
 	}
 
 }
@@ -529,7 +529,7 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 	ifc->SetConfigurations(cfgs);
 
 	if(PolicyController::Instance().GetInterfaceType(ifname)=="bridge"){
-		this->SetPromisc(ifname,true);
+		this->SetPromisc(this->GetDefaultLanInterface(),true);
 	}
 
 }
@@ -619,7 +619,7 @@ void InterfaceController::SetRawCfg(const string& ifname, const Json::Value& cfg
 	ifc->SetConfigurations(cfgs);
 
 	if(PolicyController::Instance().GetInterfaceType(ifname)=="bridge"){
-		this->SetPromisc(ifname,true);
+		this->SetPromisc(this->GetDefaultLanInterface(),true);
 	}
 
 }

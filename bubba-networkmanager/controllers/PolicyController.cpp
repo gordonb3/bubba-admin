@@ -31,6 +31,7 @@
  */
 
 PolicyController::PolicyController(){
+	// Profile types
 	ifprofile["eth0"]="ether";
 	ifprofile["eth1"]="ether";
 	ifprofile["eth2"]="ether";
@@ -78,6 +79,20 @@ PolicyController::PolicyController(){
 	policies["wlan3"]["iswlan"]=true;
 	policies["wlan4"]["iswlan"]=true;
 	policies["br0"]["iswlan"]=false;
+
+
+	policies["eth0"]["promisc"]=false;
+	policies["eth1"]["promisc"]=false;
+	policies["eth2"]["promisc"]=false;
+	policies["eth3"]["promisc"]=false;
+	policies["eth4"]["promisc"]=false;
+	policies["wlan0"]["promisc"]=false;
+	policies["wlan1"]["promisc"]=false;
+	policies["wlan2"]["promisc"]=false;
+	policies["wlan3"]["promisc"]=false;
+	policies["wlan4"]["promisc"]=false;
+	policies["br0"]["promisc"]=true;
+
 
 }
 

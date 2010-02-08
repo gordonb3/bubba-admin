@@ -1,3 +1,9 @@
+bubba-networkmanager (0.42) claire estelle; urgency=low
+
+  * Set ethernet device in promisc instead of bridge if
+
+ -- Tor Krill <tor@excito.com>  Mon, 08 Feb 2010 14:36:26 +0100
+
 bubba-networkmanager (0.41) claire estelle; urgency=low
 
   * Fix default config value for tz lookup table.
