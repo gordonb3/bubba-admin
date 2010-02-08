@@ -61,6 +61,10 @@ Dispatcher::Dispatcher(const string& sockpath, int timeout):NetDaemon(sockpath,t
 	this->cmds["getmtu"]=&Dispatcher::getmtu;
 	this->cmds["setmtu"]=&Dispatcher::setmtu;
 
+	this->cmds["getpromisc"]=&Dispatcher::getpromisc;
+	this->cmds["setpromisc"]=&Dispatcher::setpromisc;
+
+
 	this->cmds["ifup"]=&Dispatcher::ifup;
 	this->cmds["ifdown"]=&Dispatcher::ifdown;
 	this->cmds["ifrestart"]=&Dispatcher::ifrestart;
@@ -598,6 +602,54 @@ Dispatcher::Result Dispatcher::setmtu(EUtils::UnixClientSocket* con,const Json::
 	if((v.isMember("ifname") && v["ifname"].isString()) && (v.isMember("mtu")&&v["mtu"].isInt() )){
 		try{
 			InterfaceController::Instance().SetMtu(v["ifname"].asString(),v["mtu"].asInt());
+		}catch(std::runtime_error& err){
+			res["status"]=false;
+			res["error"]=string("Operation failed: ")+err.what();
+			retval=Dispatcher::Failed;
+		}
+	}else{
+		res["status"]=false;
+		res["error"]="Missing parameter";
+		retval=Dispatcher::Failed;
+	}
+
+	this->send_jsonvalue(con,res);
+
+	return retval;
+}
+
+Dispatcher::Result Dispatcher::getpromisc(EUtils::UnixClientSocket* con,const Json::Value& v){
+	Dispatcher::Result retval=Dispatcher::Done;
+	Json::Value res(Json::objectValue);
+	res["status"]=true;
+
+	if(v.isMember("ifname") && v["ifname"].isString()){
+		try{
+			res["promisc"]=InterfaceController::Instance().GetPromisc(v["ifname"].asString());
+		}catch(std::runtime_error& err){
+			res["status"]=false;
+			res["error"]=string("Operation failed: ")+err.what();
+			retval=Dispatcher::Failed;
+		}
+	}else{
+		res["status"]=false;
+		res["error"]="Missing parameter";
+		retval=Dispatcher::Failed;
+	}
+
+	this->send_jsonvalue(con,res);
+
+	return retval;
+}
+
+Dispatcher::Result Dispatcher::setpromisc(EUtils::UnixClientSocket* con,const Json::Value& v){
+	Dispatcher::Result retval=Dispatcher::Done;
+	Json::Value res(Json::objectValue);
+	res["status"]=true;
+
+	if((v.isMember("ifname") && v["ifname"].isString()) && (v.isMember("promisc")&&v["promisc"].isBool() )){
+		try{
+			InterfaceController::Instance().SetPromisc(v["ifname"].asString(),v["promisc"].asBool());
 		}catch(std::runtime_error& err){
 			res["status"]=false;
 			res["error"]=string("Operation failed: ")+err.what();

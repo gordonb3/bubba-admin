@@ -230,6 +230,44 @@ int InterfaceController::GetMtu(const string & ifname){
 	return mtu;
 }
 
+bool InterfaceController::GetPromisc(const string& ifname){
+	auto_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
+
+	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
+	bool promisc=false;
+	for(map<Profile,Configuration>::iterator cIt=cfgs.begin();cIt!=cfgs.end();cIt++){
+		if((*cIt).second.cfg.isMember("current")){
+			promisc=(*cIt).second.cfg["current"]["flags"]["promisc"].asBool();
+		}
+	}
+	return promisc;
+}
+
+
+bool InterfaceController::SetPromisc(const string& ifname, bool promisc){
+	bool found=false;
+
+	auto_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
+
+	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
+
+	for(map<Profile,Configuration>::iterator cIt=cfgs.begin();cIt!=cfgs.end();cIt++){
+		if((*cIt).second.cfg.isMember("current")){
+			(*cIt).second.cfg["current"]["flags"]["promisc"]=promisc;
+			found=true;
+		}
+	}
+
+	if(found){
+		ifc->SetConfigurations(cfgs);
+	}
+
+	return found;
+
+}
+
+
+
 static void validateether( const Json::Value& cfg){
 	// All configs should have netmask and address
 	if(!cfg.isMember("address")){
@@ -386,6 +424,11 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 	}
 
 	ifc->SetConfigurations(cfgs);
+
+	if(PolicyController::Instance().GetInterfaceType(ifname)=="bridge"){
+		this->SetPromisc(ifname,true);
+	}
+
 }
 
 void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value& acfg){
@@ -484,6 +527,11 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 	}
 
 	ifc->SetConfigurations(cfgs);
+
+	if(PolicyController::Instance().GetInterfaceType(ifname)=="bridge"){
+		this->SetPromisc(ifname,true);
+	}
+
 }
 
 void InterfaceController::SetRawCfg(const string& ifname, const Json::Value& cfg){
@@ -569,6 +617,11 @@ void InterfaceController::SetRawCfg(const string& ifname, const Json::Value& cfg
 	}
 
 	ifc->SetConfigurations(cfgs);
+
+	if(PolicyController::Instance().GetInterfaceType(ifname)=="bridge"){
+		this->SetPromisc(ifname,true);
+	}
+
 }
 
 bool InterfaceController::Up(const string& ifname){

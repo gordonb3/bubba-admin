@@ -79,6 +79,9 @@ private:
 	Result getmtu(EUtils::UnixClientSocket* con,const Json::Value& v);
 	Result setmtu(EUtils::UnixClientSocket* con,const Json::Value& v);
 
+	Result getpromisc(EUtils::UnixClientSocket* con,const Json::Value& v);
+	Result setpromisc(EUtils::UnixClientSocket* con,const Json::Value& v);
+
 	// Ethernet
 	Result setstatic(EUtils::UnixClientSocket* con,const Json::Value& v);
 	Result setdynamic(EUtils::UnixClientSocket* con,const Json::Value& v);

@@ -78,6 +78,12 @@ def getmtu(ifnam, dump=False):
 def setmtu(ifnam,mtu, dump=False):
 	return docall({"cmd":"setmtu", "ifname":ifnam,"mtu":mtu},dump)
 
+def getpromisc(ifnam, dump=False):
+	return docall({"cmd":"getpromisc", "ifname":ifnam},dump)
+
+def setpromisc(ifnam,promisc, dump=False):
+	return docall({"cmd":"setpromisc", "ifname":ifnam,"promisc":promisc},dump)
+
 def ifdown(ifnam, dump=False):
 	return docall({"cmd":"ifdown", "ifname":ifnam},dump)
 

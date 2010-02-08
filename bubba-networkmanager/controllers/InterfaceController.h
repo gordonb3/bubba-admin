@@ -47,6 +47,9 @@ public:
 	int GetMtu(const string& ifname);
 	bool SetMtu(const string& ifname, int mtu);
 
+	bool GetPromisc(const string& ifname);
+	bool SetPromisc(const string& ifname, bool promisc);
+
 	list<string> GetInterfaces(const string& itype="");
 	string GetCurrentWlanInterface();
 	string GetCurrentLanInterface();
