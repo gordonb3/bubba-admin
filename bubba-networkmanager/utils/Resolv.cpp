@@ -94,8 +94,12 @@ void Resolv::SetSearch(const string& search){
 
 void Resolv::Write(){
 	list<string> out;
-	out.push_back("domain "+this->domain+"\n");
-	out.push_back("search "+this->search+"\n");
+	if(this->domain!=""){
+		out.push_back("domain "+this->domain+"\n");
+	}
+	if(this->search!=""){
+		out.push_back("search "+this->search+"\n");
+	}
 	for(list<string>::iterator lIt=ns.begin();lIt!=ns.end();lIt++){
 		out.push_back("nameserver "+(*lIt)+"\n");
 	}

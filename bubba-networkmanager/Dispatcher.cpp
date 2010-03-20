@@ -543,7 +543,7 @@ Dispatcher::Result Dispatcher::setnameservers(EUtils::UnixClientSocket *con, con
 		modified=true;
 	}
 
-	if(v["resolv"].isMember("domain") && v["resolv"]["servers"].isArray()){
+	if(v["resolv"].isMember("servers") && v["resolv"]["servers"].isArray()){
 		r.SetNS(JsonUtils::ArrayToList(v["resolv"]["servers"]));
 		modified=true;
 	}
