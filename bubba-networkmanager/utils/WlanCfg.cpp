@@ -642,6 +642,10 @@ bool WlanCfg::SyncAuth(){
 	switch(this->authmode){
 	case AUTH_NONE:
 		cfg.Remove("wep_default_key");
+		cfg.Remove("wep_key0");
+		cfg.Remove("wep_key1");
+		cfg.Remove("wep_key2");
+		cfg.Remove("wep_key3");
 		cfg.Remove("wpa");
 		cfg.Remove("wpa_passphrase");
 		break;
@@ -683,6 +687,11 @@ bool WlanCfg::SyncAuth(){
 				return false;
 			}
 			cfg.Remove("wep_default_key");
+			cfg.Remove("wep_key0");
+			cfg.Remove("wep_key1");
+			cfg.Remove("wep_key2");
+			cfg.Remove("wep_key3");
+		
 			switch(this->wpa_mode){
 			case WPA1:
 				cfg.Update("wpa","1");

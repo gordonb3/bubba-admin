@@ -27,6 +27,7 @@
 #include <libeutils/FileUtils.h>
 #include <libeutils/StringTools.h>
 
+#include <algorithm>
 #include <iostream>
 #include <sstream>
 #include <cstdio>
@@ -78,9 +79,14 @@ void Hosts::UpdateIP(Hosts::Entries& e, const string& ip, const string& name){
 		createnewhosts(e,ip,name);
 	}else{
 		for(Hosts::Entries::iterator entry=e.begin();entry!=e.end();entry++){
-			if((*entry)[0].substr(0,3)=="127"){ // Skip loopback
-				continue;
-			}
+			if
+				(
+				 (*entry)[0].substr(0,3)=="127" && 
+				  find( ++(entry->begin()), entry->end(), "localhost" ) != entry->end()
+				)
+				{ // Skip real loopback
+					continue;
+				}
 			(*entry)[0]=ip;
 		}
 	}
