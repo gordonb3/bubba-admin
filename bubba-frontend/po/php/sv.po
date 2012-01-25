@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-01-25 15:39+0100\n"
+"POT-Creation-Date: 2012-01-25 17:29+0100\n"
 "PO-Revision-Date: 2012-01-25 16:08+0100\n"
 "Last-Translator: Johannes Book <johannes@excito.com>\n"
 "Language-Team: \n"
@@ -79,8 +79,7 @@ msgstr "<p>Detta kommer att radera all data på den nya, externa enheten. Klicka
 msgid "Access allowed"
 msgstr "Åtkomst tillåten"
 
-#: admin/views/default/login_view.php:56
-#: admin/views/default/login_view.php:61
+#: admin/views/default/login_view.php:56 admin/views/default/login_view.php:61
 #, php-format
 msgid "Access not granted for user '%s'."
 msgstr "Åtkomst tillåts inte för användaren '%s'."
@@ -151,8 +150,7 @@ msgstr "Avancerade trådlösa inställningar"
 msgid "Age of timeline"
 msgstr "Ålder på tidslinjen"
 
-#: admin/models/menu.php:44
-#: admin/models/menu.php:299
+#: admin/models/menu.php:44 admin/models/menu.php:299
 msgctxt "menu"
 msgid "Album"
 msgstr "Album"
@@ -174,8 +172,7 @@ msgstr "Albumnamn"
 msgid "Album updated"
 msgstr "Albumet uppdaterat"
 
-#: admin/models/menu.php:305
-#: admin/models/menu.php:316
+#: admin/models/menu.php:305 admin/models/menu.php:316
 msgctxt "menu"
 msgid "Albums"
 msgstr "Album"
@@ -250,8 +247,7 @@ msgstr "Inkopplade skrivare"
 msgid "Authorization denied"
 msgstr "Behörighet nekades"
 
-#: admin/controllers/mail.php:104
-#: admin/controllers/mail.php:147
+#: admin/controllers/mail.php:104 admin/controllers/mail.php:147
 #: admin/controllers/mail.php:190
 msgid "Authorization failed"
 msgstr "Behörighet misslyckades"
@@ -381,8 +377,7 @@ msgstr "Ändra rättigheter"
 msgid "Change timezone"
 msgstr "Ändra tidszon"
 
-#: admin/controllers/ajax_network.php:41
-#: admin/controllers/ajax_network.php:42
+#: admin/controllers/ajax_network.php:41 admin/controllers/ajax_network.php:42
 #: admin/controllers/ajax_network.php:43
 msgid "Changing network parameters may require a restart of your computer."
 msgstr "Om du ändrar nätverksinställningar kan din dator behöva startas om."
@@ -671,8 +666,7 @@ msgstr "Laddar ner"
 msgid "Downloads"
 msgstr "Nedladdningar"
 
-#: admin/models/menu.php:55
-#: admin/models/menu.php:325
+#: admin/models/menu.php:55 admin/models/menu.php:325
 msgctxt "menu"
 msgid "Downloads"
 msgstr "Nedladdningar"
@@ -685,10 +679,8 @@ msgstr "Drag och släpp för att flytta bilder/album"
 msgid "Each day"
 msgstr "Varje dag"
 
-#: admin/controllers/settings.php:646
-#: admin/controllers/settings.php:667
-#: admin/controllers/wizard.php:154
-#: admin/controllers/wizard.php:166
+#: admin/controllers/settings.php:646 admin/controllers/settings.php:667
+#: admin/controllers/wizard.php:154 admin/controllers/wizard.php:166
 #, php-format
 msgid "Easyfind failed with following error: %s"
 msgstr "Easyfind misslyckades med följande fel: %s"
@@ -715,8 +707,7 @@ msgstr "Antingen har din B3 inget trådlöst nätverk, eller så är tidszon int
 msgid "Email"
 msgstr "Email"
 
-#: admin/models/menu.php:273
-#: admin/models/menu.php:291
+#: admin/models/menu.php:273 admin/models/menu.php:291
 msgctxt "menu"
 msgid "Email"
 msgstr "Email"
@@ -747,7 +738,8 @@ msgid "Enable Tor"
 msgstr "Tor"
 
 #: admin/views/default/wizard_view.php:116
-msgid "Enable Easyfind"
+#, fuzzy
+msgid "Enable easyfind"
 msgstr "Easyfind"
 
 #: admin/views/default/network/network_lan_view.php:340
@@ -918,8 +910,7 @@ msgstr "Misslyckades att skapa fstab-innehåll för %s med %s"
 msgid "Failed to delete following files/folders: %s"
 msgstr "Misslyckades att radera följande filer/mappar. %s"
 
-#: admin/models/disk_model.php:246
-#: admin/models/disk_model.php:298
+#: admin/models/disk_model.php:246 admin/models/disk_model.php:298
 #, php-format
 msgid "Failed to find suitable mount path for partition %s"
 msgstr "Misslyckades att hitta lämplig monteringssökväg för partitionen %s"
@@ -986,8 +977,7 @@ msgstr "Misslyckades att ställa horde-inställningar för användare %s"
 msgid "Fatal error when trying to remove the user %s"
 msgstr "Misslyckades att ta bort användare %s"
 
-#: admin/models/menu.php:25
-#: admin/models/menu.php:104
+#: admin/models/menu.php:25 admin/models/menu.php:104
 msgctxt "menu"
 msgid "File Manager"
 msgstr "Filhanterare"
@@ -1055,8 +1045,7 @@ msgstr "Hantera email för domän"
 msgid "Help"
 msgstr "Hjälp"
 
-#: admin/models/menu.php:351
-#: admin/views/default/main_view.php:278
+#: admin/models/menu.php:351 admin/views/default/main_view.php:278
 msgid "Home"
 msgstr "Hem"
 
@@ -1535,11 +1524,6 @@ msgstr "Utgående emailserver"
 msgid "Owner"
 msgstr "Ägare"
 
-#: admin/models/menu.php:65
-msgctxt "menu"
-msgid "PIM"
-msgstr "PIM"
-
 #: admin/views/default/settings/settings_software_view.php:12
 msgid "Package name"
 msgstr "Paketnamn"
@@ -1583,8 +1567,7 @@ msgstr "Partitioner"
 msgid "Password"
 msgstr "Lösenord"
 
-#: admin/controllers/users.php:307
-#: admin/controllers/filemanager.php:107
+#: admin/controllers/users.php:307 admin/controllers/filemanager.php:107
 #: admin/views/default/backup/backup_view.php:776
 #: admin/views/default/backup/backup_view.php:846
 #: admin/views/default/filemanager/filemanager_index_view.php:17
@@ -1603,8 +1586,7 @@ msgstr "Vänligen läs användarmanualen för råd."
 msgid "Please replace the disk (also press \"Remove\" below to acknowledge the removal of the disk)"
 msgstr "Vänligen byt hårddisk (tryck också \"Ta bort\" nedan för att bekräfta att du tagit bort disken)"
 
-#: admin/controllers/ajax_network.php:41
-#: admin/controllers/ajax_network.php:42
+#: admin/controllers/ajax_network.php:41 admin/controllers/ajax_network.php:42
 #: admin/controllers/ajax_network.php:43
 #, php-format
 msgid "Please see the manual on how to connect your computer to %s."
@@ -1979,7 +1961,8 @@ msgid "Source IP"
 msgstr "Käll-IP"
 
 #: admin/views/default/services/services_view.php:34
-msgid "Squeezebox Server"
+#, fuzzy
+msgid "Squeezebox Server (Logitech)"
 msgstr "Squeezebox server"
 
 #: admin/views/default/settings/settings_view.php:5
@@ -2187,8 +2170,8 @@ msgid "To configure basic functionality of %s, press the button to start the set
 msgstr "För att ställa in de viktigaste delarna på %s, tryck på knappen för att starta Inställningsguiden."
 
 #: admin/views/default/wizard_view.php:111
-#, php-format
-msgid "To locate %s from the Internet, use 'Easyfind' location service"
+#, fuzzy, php-format
+msgid "To locate %s from the internet, use 'Easyfind' location service"
 msgstr "För att hitta %s på Internet, använd 'Easyfind'"
 
 #: admin/views/default/shutdown_view.php:5
@@ -2236,7 +2219,8 @@ msgid "Unable to change name on server."
 msgstr "Lyckades inte ändra namnet på servern."
 
 #: admin/models/networkmanager.php:58
-msgid "Unable to disable 'Easyfind' service."
+#, fuzzy
+msgid "Unable to disable 'easyfind' service."
 msgstr "Lyckades inte visa 'Easyfind'-tjänsten."
 
 #: admin/models/networkmanager.php:70
@@ -2285,8 +2269,7 @@ msgstr "Uppdatera Easyfind"
 msgid "Update hostname and workgroup"
 msgstr "Uppdatera värdnamn och arbetsgrupp"
 
-#: admin/controllers/settings.php:678
-#: admin/controllers/mail.php:223
+#: admin/controllers/settings.php:678 admin/controllers/mail.php:223
 #: admin/controllers/mail.php:252
 msgid "Update successful"
 msgstr "Uppdatering lyckades"
@@ -2363,8 +2346,7 @@ msgstr "Öppna eller vidarebefodrade portar"
 msgid "User information"
 msgstr "Användarinformation"
 
-#: admin/models/menu.php:267
-#: admin/models/menu.php:286
+#: admin/models/menu.php:267 admin/models/menu.php:286
 msgctxt "menu"
 msgid "User information"
 msgstr "Användarinformation"
@@ -2388,13 +2370,11 @@ msgstr "Användarspråk"
 msgid "User name"
 msgstr "Användarnamn"
 
-#: admin/controllers/users.php:147
-#: admin/controllers/wizard.php:134
+#: admin/controllers/users.php:147 admin/controllers/wizard.php:134
 msgid "User name validation failed"
 msgstr "Användarnamn godkändes inte"
 
-#: admin/models/menu.php:76
-#: admin/models/menu.php:261
+#: admin/models/menu.php:76 admin/models/menu.php:261
 #: admin/models/menu.php:280
 msgctxt "menu"
 msgid "User settings"
@@ -2413,8 +2393,7 @@ msgstr "Användarnamnet existerar redan"
 msgid "Users"
 msgstr "Användare"
 
-#: admin/models/menu.php:117
-#: admin/models/menu.php:311
+#: admin/models/menu.php:117 admin/models/menu.php:311
 msgctxt "menu"
 msgid "Users"
 msgstr "Användare"
@@ -2427,8 +2406,7 @@ msgstr "Användarkonto godkändes inte"
 msgid "Validation failed when editing user account"
 msgstr "Användarkonto godkändes inte"
 
-#: admin/controllers/mail.php:112
-#: admin/controllers/mail.php:166
+#: admin/controllers/mail.php:112 admin/controllers/mail.php:166
 #: admin/controllers/mail.php:198
 msgid "Validation of input failed"
 msgstr "Indatan godkändes inte"
@@ -2478,6 +2456,12 @@ msgstr "Varning"
 #, php-format
 msgid "Was unabler to remove the home directory for user %s"
 msgstr "Misslyckades att ta bort hemmappen för %s"
+
+#: admin/models/menu.php:65
+#, fuzzy
+msgctxt "menu"
+msgid "Webmail"
+msgstr "Email"
 
 #: admin/views/default/network/network_tor_view.php:196
 msgctxt "label"
@@ -2572,8 +2556,7 @@ msgstr "filhanterare"
 msgid "half a year"
 msgstr "ett halv år"
 
-#: admin/controllers/settings.php:429
-#: admin/controllers/settings.php:430
+#: admin/controllers/settings.php:429 admin/controllers/settings.php:430
 msgid "n/a"
 msgstr "n/a"
 
@@ -2602,89 +2585,78 @@ msgstr "med"
 msgid "your-easyfind-name"
 msgstr "ditt-easyfind-namn"
 
-#~ msgid        "Add disk to RAID array"
-#~ msgstr       "Lägg till disk till RAID-system"
+#~ msgctxt "menu"
+#~ msgid "PIM"
+#~ msgstr "PIM"
 
-#~ msgid        "Automatically distribute my bridge address"
-#~ msgstr       "Distribuera min brygg-adress automatiskt"
+#~ msgid "Add disk to RAID array"
+#~ msgstr "Lägg till disk till RAID-system"
 
-#~ msgid        "Continue to create RAID?"
-#~ msgstr       "Vill du verkligen skapa RAID?"
+#~ msgid "Automatically distribute my bridge address"
+#~ msgstr "Distribuera min brygg-adress automatiskt"
 
-#~ msgid        "Continue to recover RAID?"
-#~ msgstr       "Vill du verkligen återskapa RAID?"
+#~ msgid "Continue to create RAID?"
+#~ msgstr "Vill du verkligen skapa RAID?"
 
-#~ msgid        "Create RAID"
-#~ msgstr       "Skapa RAID"
+#~ msgid "Continue to recover RAID?"
+#~ msgstr "Vill du verkligen återskapa RAID?"
 
-#~ msgid        "Creating the RAID array will <strong>destroy all content</"
-#~      "strong> on your internal disk (/home&nbsp;-&nbsp;"
-#~      "including&nbsp;'storage') and erase the selected external disk"
-#~ msgstr       "Skapar du RAID kommer <strong>allt innehåll</strong> på din "
-#~      "interna disk (/home&nbsp;-&nbsp;inklusive&nbsp;'storage') att "
-#~      "raderas, tillsammans med den externa disken"
+#~ msgid "Create RAID"
+#~ msgstr "Skapa RAID"
 
-#~ msgid        "Examining existing disks"
-#~ msgstr       "Kontrollerar befintliga diskar"
+#~ msgid "Creating the RAID array will <strong>destroy all content</strong> on your internal disk (/home&nbsp;-&nbsp;including&nbsp;'storage') and erase the selected external disk"
+#~ msgstr "Skapar du RAID kommer <strong>allt innehåll</strong> på din interna disk (/home&nbsp;-&nbsp;inklusive&nbsp;'storage') att raderas, tillsammans med den externa disken"
 
-#~ msgid        "No disks with RAID data found"
-#~ msgstr       "Inga diskar med RAID-data hittade"
+#~ msgid "Examining existing disks"
+#~ msgstr "Kontrollerar befintliga diskar"
 
-#~ msgid        "No usable disk found"
-#~ msgstr       "Ingen användbar disk hittad"
+#~ msgid "No disks with RAID data found"
+#~ msgstr "Inga diskar med RAID-data hittade"
 
-#~ msgid        "Please make sure that you have backup of all files"
-#~ msgstr       "Vänligen säkerställ att du har säkerhetskopia av alla filer"
+#~ msgid "No usable disk found"
+#~ msgstr "Ingen användbar disk hittad"
 
-#~ msgid        "Recover internal disk"
-#~ msgstr       "Återskapa intern disk"
+#~ msgid "Please make sure that you have backup of all files"
+#~ msgstr "Vänligen säkerställ att du har säkerhetskopia av alla filer"
 
-#~ msgid        "Recovering RAID array"
-#~ msgstr       "Återskapar RAID-system"
+#~ msgid "Recover internal disk"
+#~ msgstr "Återskapa intern disk"
 
-#~ msgid        "Recovering external disk in RAID array"
-#~ msgstr       "Återskapar extern disk i RAID-system"
+#~ msgid "Recovering RAID array"
+#~ msgstr "Återskapar RAID-system"
 
-#~ msgid        "Recovering internal disk in RAID array"
-#~ msgstr       "Återskapar intern disk i RAID-system"
+#~ msgid "Recovering external disk in RAID array"
+#~ msgstr "Återskapar extern disk i RAID-system"
 
-#~ msgid        "Recovering the RAID array will <strong>destroy all content</"
-#~      "strong> on the selected extenal disk"
-#~ msgstr       "Återskapande av RAID-systemet kommer att <strong>förstöra "
-#~      "allt innehåll</strong> på den valda externa disken"
+#~ msgid "Recovering internal disk in RAID array"
+#~ msgstr "Återskapar intern disk i RAID-system"
 
-#~ msgid        "Recovering the RAID array will <strong>destroy all content</"
-#~      "strong> on your internal disk (/home&nbsp;-&nbsp;"
-#~      "including&nbsp;'storage')"
-#~ msgstr       "Återskapande av RAID-systemet kommer att <strong>förstöra "
-#~      "allt innehåll</strong> på din interna disk (/home&nbsp;-&nbsp;"
-#~      "inklusive&nbsp;'storage')"
+#~ msgid "Recovering the RAID array will <strong>destroy all content</strong> on the selected extenal disk"
+#~ msgstr "Återskapande av RAID-systemet kommer att <strong>förstöra allt innehåll</strong> på den valda externa disken"
 
-#~ msgid        "Select external disk to add to RAID array"
-#~ msgstr       "Välj extern disk att lägga till RAID-systemet"
+#~ msgid "Recovering the RAID array will <strong>destroy all content</strong> on your internal disk (/home&nbsp;-&nbsp;including&nbsp;'storage')"
+#~ msgstr "Återskapande av RAID-systemet kommer att <strong>förstöra allt innehåll</strong> på din interna disk (/home&nbsp;-&nbsp;inklusive&nbsp;'storage')"
 
-#~ msgid        "Select which external disk to include in the array. An "
-#~      "external disk with the same size is recommended"
-#~ msgstr       "Välj vilken externa disk du vill lägga till i RAID-systemet. "
-#~      "En extern disk med samma storlek rekommenderas"
+#~ msgid "Select external disk to add to RAID array"
+#~ msgstr "Välj extern disk att lägga till RAID-systemet"
 
-#~ msgid        "Select which external disk to recover RAID data from"
-#~ msgstr       "Välj vilken extern disk du vill återskapa data från"
+#~ msgid "Select which external disk to include in the array. An external disk with the same size is recommended"
+#~ msgstr "Välj vilken externa disk du vill lägga till i RAID-systemet. En extern disk med samma storlek rekommenderas"
 
-#~ msgid        "Squeezebox server isn't installed, please click"
-#~ msgstr       "Squeezebox-servern är inte installerad, vänligen klicka"
+#~ msgid "Select which external disk to recover RAID data from"
+#~ msgstr "Välj vilken extern disk du vill återskapa data från"
 
-#~ msgid        "There are no usable external disks attached, please add an "
-#~      "external e-SATA disk and try again"
-#~ msgstr       "Där finns inga användbara diskar inkopplade, vänligen koppla "
-#~      "in en extern eSATA-disk och försök igen"
+#~ msgid "Squeezebox server isn't installed, please click"
+#~ msgstr "Squeezebox-servern är inte installerad, vänligen klicka"
 
-#~ msgid        "Your B3 can be either a bridge, non-exit relay or exit relay"
-#~ msgstr       "Din B3 kan vara antingen en brygga, ett icke-exit-relä eller "
-#~      "ett exit-relä"
+#~ msgid "There are no usable external disks attached, please add an external e-SATA disk and try again"
+#~ msgstr "Där finns inga användbara diskar inkopplade, vänligen koppla in en extern eSATA-disk och försök igen"
 
-#~ msgid        "here"
-#~ msgstr       "här"
+#~ msgid "Your B3 can be either a bridge, non-exit relay or exit relay"
+#~ msgstr "Din B3 kan vara antingen en brygga, ett icke-exit-relä eller ett exit-relä"
 
-#~ msgid        "to install squeezecenter"
-#~ msgstr       "för att installera squeezecenter"
+#~ msgid "here"
+#~ msgstr "här"
+
+#~ msgid "to install squeezecenter"
+#~ msgstr "för att installera squeezecenter"

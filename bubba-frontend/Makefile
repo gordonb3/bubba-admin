@@ -15,8 +15,7 @@ update_po: $(po_files)
 
 $(po_files):
 	msgmerge \
-		--sort-output \
-		--indent \
+		--no-wrap \
 		--update \
 		--verbose \
 		--multi-domain \
@@ -31,7 +30,6 @@ po/php/bubba.pot: $(shell cat po/php/POTFILES)
 		--default-domain=bubba \
 		--output=$@ \
 		--from-code=UTF-8 \
-		--sort-output \
 		--package-name=bubba-frontend \
 		--package-version=$(VERSION) \
 		--msgid-bugs-address=info@excito.com \
@@ -45,7 +43,6 @@ po/js/bubba.pot: $(shell cat po/js/POTFILES)
 		--output=$@ \
 		--from-code=UTF-8 \
 		--force-po \
-		--sort-output \
 		--package-name=bubba-frontend \
 		--package-version=$(VERSION) \
 		--msgid-bugs-address=info@excito.com \

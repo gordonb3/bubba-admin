@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-01-25 15:39+0100\n"
+"POT-Creation-Date: 2012-01-25 17:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1538,11 +1538,6 @@ msgstr ""
 msgid "Owner"
 msgstr ""
 
-#: admin/models/menu.php:65
-msgctxt "menu"
-msgid "PIM"
-msgstr ""
-
 #: admin/views/default/settings/settings_software_view.php:12
 msgid "Package name"
 msgstr ""
@@ -1984,7 +1979,7 @@ msgid "Source IP"
 msgstr ""
 
 #: admin/views/default/services/services_view.php:34
-msgid "Squeezebox Server"
+msgid "Squeezebox Server (Logitech)"
 msgstr ""
 
 #: admin/views/default/settings/settings_view.php:5
@@ -2490,6 +2485,11 @@ msgstr ""
 #: admin/controllers/users.php:295
 #, php-format
 msgid "Was unabler to remove the home directory for user %s"
+msgstr ""
+
+#: admin/models/menu.php:65
+msgctxt "menu"
+msgid "Webmail"
 msgstr ""
 
 #: admin/views/default/network/network_tor_view.php:196

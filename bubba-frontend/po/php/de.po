@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3.0.2-8-g99845c1\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-01-25 15:39+0100\n"
+"POT-Creation-Date: 2012-01-25 17:29+0100\n"
 "PO-Revision-Date: 2012-01-25 16:11+0100\n"
 "Last-Translator: Johannes Book <johannes@excito.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,8 +75,7 @@ msgstr "<p>Hierdurch werden sämtliche Daten auf dem neuen, externen Gerät gel�
 msgid "Access allowed"
 msgstr "Zugriff erlaubt"
 
-#: admin/views/default/login_view.php:56
-#: admin/views/default/login_view.php:61
+#: admin/views/default/login_view.php:56 admin/views/default/login_view.php:61
 #, php-format
 msgid "Access not granted for user '%s'."
 msgstr "Zugang für Benutzer '%s' nicht erteilt."
@@ -147,8 +146,7 @@ msgstr "Erweiterte Wireless-Einstellungen"
 msgid "Age of timeline"
 msgstr "Age of timeline"
 
-#: admin/models/menu.php:44
-#: admin/models/menu.php:299
+#: admin/models/menu.php:44 admin/models/menu.php:299
 msgctxt "menu"
 msgid "Album"
 msgstr "Fotoalbum"
@@ -170,8 +168,7 @@ msgstr "Albumname"
 msgid "Album updated"
 msgstr "Album aktualisiert"
 
-#: admin/models/menu.php:305
-#: admin/models/menu.php:316
+#: admin/models/menu.php:305 admin/models/menu.php:316
 msgctxt "menu"
 msgid "Albums"
 msgstr "Alben"
@@ -246,8 +243,7 @@ msgstr "Angeschlossene Drucker"
 msgid "Authorization denied"
 msgstr "Autorisierung verweigert"
 
-#: admin/controllers/mail.php:104
-#: admin/controllers/mail.php:147
+#: admin/controllers/mail.php:104 admin/controllers/mail.php:147
 #: admin/controllers/mail.php:190
 msgid "Authorization failed"
 msgstr "Autorisierung fehlgeschlagen"
@@ -377,8 +373,7 @@ msgstr "Berechtigungen ändern"
 msgid "Change timezone"
 msgstr "Zeitzone ändern"
 
-#: admin/controllers/ajax_network.php:41
-#: admin/controllers/ajax_network.php:42
+#: admin/controllers/ajax_network.php:41 admin/controllers/ajax_network.php:42
 #: admin/controllers/ajax_network.php:43
 msgid "Changing network parameters may require a restart of your computer."
 msgstr "Änderung der Netzwerkeinstellungen kann einen Neustart Ihres Computers erfordern."
@@ -667,8 +662,7 @@ msgstr "Herunterladen"
 msgid "Downloads"
 msgstr "Downloads"
 
-#: admin/models/menu.php:55
-#: admin/models/menu.php:325
+#: admin/models/menu.php:55 admin/models/menu.php:325
 msgctxt "menu"
 msgid "Downloads"
 msgstr "Downloads"
@@ -681,10 +675,8 @@ msgstr "Verwenden Sie die Drag und Drop-Funktion, um Foton/Alben zu verschieben"
 msgid "Each day"
 msgstr "Täglich"
 
-#: admin/controllers/settings.php:646
-#: admin/controllers/settings.php:667
-#: admin/controllers/wizard.php:154
-#: admin/controllers/wizard.php:166
+#: admin/controllers/settings.php:646 admin/controllers/settings.php:667
+#: admin/controllers/wizard.php:154 admin/controllers/wizard.php:166
 #, php-format
 msgid "Easyfind failed with following error: %s"
 msgstr "Easyfind fehlgeschlagen mit folgendem Fehler: %s"
@@ -711,8 +703,7 @@ msgstr "Entweder keine Karte für ein wireless Netzwerk verfügbar oder es ist k
 msgid "Email"
 msgstr "E-Mail"
 
-#: admin/models/menu.php:273
-#: admin/models/menu.php:291
+#: admin/models/menu.php:273 admin/models/menu.php:291
 msgctxt "menu"
 msgid "Email"
 msgstr "E-Mail"
@@ -914,8 +905,7 @@ msgstr "Erstellen eines fstab Eintrages für %s mit %s fehlgeschlagen"
 msgid "Failed to delete following files/folders: %s"
 msgstr "Das Löschen der folgenden Dateien/Ordner ist fehlgeschlagen: %s"
 
-#: admin/models/disk_model.php:246
-#: admin/models/disk_model.php:298
+#: admin/models/disk_model.php:246 admin/models/disk_model.php:298
 #, php-format
 msgid "Failed to find suitable mount path for partition %s"
 msgstr "Finden eines geeigneten Einhängepfades für Partition %s fehlgeschlagen"
@@ -982,8 +972,7 @@ msgstr "Schwerwiegender Fehler beim Versuch, die Horde Konfigurationen für Benu
 msgid "Fatal error when trying to remove the user %s"
 msgstr "Schwerwiegender Fehler beim Versuch, den Benutzer %s zu entfernen"
 
-#: admin/models/menu.php:25
-#: admin/models/menu.php:104
+#: admin/models/menu.php:25 admin/models/menu.php:104
 msgctxt "menu"
 msgid "File Manager"
 msgstr "Dateimanager"
@@ -1051,8 +1040,7 @@ msgstr "E-Mail für Domäne verarbeiten"
 msgid "Help"
 msgstr "Hilfe"
 
-#: admin/models/menu.php:351
-#: admin/views/default/main_view.php:278
+#: admin/models/menu.php:351 admin/views/default/main_view.php:278
 msgid "Home"
 msgstr "Home"
 
@@ -1531,11 +1519,6 @@ msgstr "Ausgehender E-Mail-Server"
 msgid "Owner"
 msgstr "Eigentümer"
 
-#: admin/models/menu.php:65
-msgctxt "menu"
-msgid "PIM"
-msgstr "PIM"
-
 #: admin/views/default/settings/settings_software_view.php:12
 msgid "Package name"
 msgstr "Paketname"
@@ -1579,8 +1562,7 @@ msgstr "Partitionen"
 msgid "Password"
 msgstr "Password"
 
-#: admin/controllers/users.php:307
-#: admin/controllers/filemanager.php:107
+#: admin/controllers/users.php:307 admin/controllers/filemanager.php:107
 #: admin/views/default/backup/backup_view.php:776
 #: admin/views/default/backup/backup_view.php:846
 #: admin/views/default/filemanager/filemanager_index_view.php:17
@@ -1599,8 +1581,7 @@ msgstr "Bitte die Benutzeranleitung für Hinweise lesen."
 msgid "Please replace the disk (also press \"Remove\" below to acknowledge the removal of the disk)"
 msgstr "Die Festplatte bitte ersetzen (ebenfalls unten \"Entfernen\" drücken, um das Entfernen des Datenträgers zu bestätigen)"
 
-#: admin/controllers/ajax_network.php:41
-#: admin/controllers/ajax_network.php:42
+#: admin/controllers/ajax_network.php:41 admin/controllers/ajax_network.php:42
 #: admin/controllers/ajax_network.php:43
 #, php-format
 msgid "Please see the manual on how to connect your computer to %s."
@@ -1975,7 +1956,8 @@ msgid "Source IP"
 msgstr "Quellen-IP"
 
 #: admin/views/default/services/services_view.php:34
-msgid "Squeezebox Server"
+#, fuzzy
+msgid "Squeezebox Server (Logitech)"
 msgstr "Squeezebox Server"
 
 #: admin/views/default/settings/settings_view.php:5
@@ -2281,8 +2263,7 @@ msgstr "Easyfind aktualisieren"
 msgid "Update hostname and workgroup"
 msgstr "Hostname und Arbeitsgruppe aktualisieren"
 
-#: admin/controllers/settings.php:678
-#: admin/controllers/mail.php:223
+#: admin/controllers/settings.php:678 admin/controllers/mail.php:223
 #: admin/controllers/mail.php:252
 msgid "Update successful"
 msgstr "Aktualisierung erfolgreich"
@@ -2359,8 +2340,7 @@ msgstr "Vom Benutzer definierte offene / weitergeleitete Ports"
 msgid "User information"
 msgstr "Benutzerinformation"
 
-#: admin/models/menu.php:267
-#: admin/models/menu.php:286
+#: admin/models/menu.php:267 admin/models/menu.php:286
 msgctxt "menu"
 msgid "User information"
 msgstr "Benutzerinformation"
@@ -2384,13 +2364,11 @@ msgstr "Sprache"
 msgid "User name"
 msgstr "Benutzername"
 
-#: admin/controllers/users.php:147
-#: admin/controllers/wizard.php:134
+#: admin/controllers/users.php:147 admin/controllers/wizard.php:134
 msgid "User name validation failed"
 msgstr "Überprüfung des Benutzernamens fehlgeschlagen"
 
-#: admin/models/menu.php:76
-#: admin/models/menu.php:261
+#: admin/models/menu.php:76 admin/models/menu.php:261
 #: admin/models/menu.php:280
 msgctxt "menu"
 msgid "User settings"
@@ -2409,8 +2387,7 @@ msgstr "Benutzername bereits vorhanden"
 msgid "Users"
 msgstr "Benutzer"
 
-#: admin/models/menu.php:117
-#: admin/models/menu.php:311
+#: admin/models/menu.php:117 admin/models/menu.php:311
 msgctxt "menu"
 msgid "Users"
 msgstr "Benutzer"
@@ -2423,8 +2400,7 @@ msgstr "Überprüfung beim Hinzufügen des Benutzerkontos fehlgeschlagen"
 msgid "Validation failed when editing user account"
 msgstr "Überprüfung beim Bearbeiten des Benutzerkontos fehlgeschlagen"
 
-#: admin/controllers/mail.php:112
-#: admin/controllers/mail.php:166
+#: admin/controllers/mail.php:112 admin/controllers/mail.php:166
 #: admin/controllers/mail.php:198
 msgid "Validation of input failed"
 msgstr "Prüfung des Eingangs fehlgeschlagen"
@@ -2474,6 +2450,12 @@ msgstr "Warnung"
 #, php-format
 msgid "Was unabler to remove the home directory for user %s"
 msgstr "Entfernen des Home Verzeichnisses für Benutzer %s war nicht möglich"
+
+#: admin/models/menu.php:65
+#, fuzzy
+msgctxt "menu"
+msgid "Webmail"
+msgstr "E-Mail"
 
 #: admin/views/default/network/network_tor_view.php:196
 msgctxt "label"
@@ -2568,8 +2550,7 @@ msgstr "Dateimanager"
 msgid "half a year"
 msgstr "Halbjährlich"
 
-#: admin/controllers/settings.php:429
-#: admin/controllers/settings.php:430
+#: admin/controllers/settings.php:429 admin/controllers/settings.php:430
 msgid "n/a"
 msgstr "n/a"
 
@@ -2598,146 +2579,126 @@ msgstr "mit"
 msgid "your-easyfind-name"
 msgstr "Ihr-easyfind-Name"
 
-#~ msgid        "Add disk to RAID array"
-#~ msgstr       "Festplatte zur RAID-Array hinzufügen"
+#~ msgctxt "menu"
+#~ msgid "PIM"
+#~ msgstr "PIM"
 
-#~ msgid        "Add user"
-#~ msgstr       "Benutzer hinzufügen"
+#~ msgid "Add disk to RAID array"
+#~ msgstr "Festplatte zur RAID-Array hinzufügen"
 
-#~ msgid        "Automatically distribute my bridge address"
-#~ msgstr       "Meine Bridge Adresse automatisch bekanntmachen"
+#~ msgid "Add user"
+#~ msgstr "Benutzer hinzufügen"
 
-#~ msgid        "Continue to create RAID?"
-#~ msgstr       "Mit der Erstellung von RAID fortfahren?"
+#~ msgid "Automatically distribute my bridge address"
+#~ msgstr "Meine Bridge Adresse automatisch bekanntmachen"
 
-#~ msgid        "Continue to recover RAID?"
-#~ msgstr       "Mit der Wiederherstellung von RAID fortfahren?"
+#~ msgid "Continue to create RAID?"
+#~ msgstr "Mit der Erstellung von RAID fortfahren?"
 
-#~ msgid        "Create RAID"
-#~ msgstr       "RAID erstellen"
+#~ msgid "Continue to recover RAID?"
+#~ msgstr "Mit der Wiederherstellung von RAID fortfahren?"
 
-#~ msgid        "Creating the RAID array will <strong>destroy all content</"
-#~      "strong> on your internal disk (/home&nbsp;-&nbsp;"
-#~      "including&nbsp;'storage') and erase the selected external disk"
-#~ msgstr       "Die Erstellung der RAID-Array wird <strong>sämtliche Daten</"
-#~      "strong> auf Ihrer internen Festplatte <strong>zerstören</strong> (/"
-#~      "home - einschließlich 'storage') und die ausgewählte externe "
-#~      "Festplatte löschen"
+#~ msgid "Create RAID"
+#~ msgstr "RAID erstellen"
 
-#~ msgid        "Empty name not allowed"
-#~ msgstr       "Leerer Name ist nicht erlaubt"
+#~ msgid "Creating the RAID array will <strong>destroy all content</strong> on your internal disk (/home&nbsp;-&nbsp;including&nbsp;'storage') and erase the selected external disk"
+#~ msgstr "Die Erstellung der RAID-Array wird <strong>sämtliche Daten</strong> auf Ihrer internen Festplatte <strong>zerstören</strong> (/home - einschließlich 'storage') und die ausgewählte externe Festplatte löschen"
 
-#~ msgid        "Enjoy %s"
-#~ msgstr       "Viel Spaß mit Ihrem %s"
+#~ msgid "Empty name not allowed"
+#~ msgstr "Leerer Name ist nicht erlaubt"
 
-#~ msgid        "Examining existing disks"
-#~ msgstr       "Vorhandene Festplatten untersuchen"
+#~ msgid "Enjoy %s"
+#~ msgstr "Viel Spaß mit Ihrem %s"
 
-#~ msgid        "Existing users"
-#~ msgstr       "Vorhandene Benutzer"
+#~ msgid "Examining existing disks"
+#~ msgstr "Vorhandene Festplatten untersuchen"
 
-#~ msgid        "Exit setup"
-#~ msgstr       "Setup beenden"
+#~ msgid "Existing users"
+#~ msgstr "Vorhandene Benutzer"
 
-#~ msgid        "Finish setup"
-#~ msgstr       "Setup fertig stellen"
+#~ msgid "Exit setup"
+#~ msgstr "Setup beenden"
 
-#~ msgid        "Language"
-#~ msgstr       "System sprache"
+#~ msgid "Finish setup"
+#~ msgstr "Setup fertig stellen"
 
-#~ msgid        "New user"
-#~ msgstr       "Neuer Benutzer"
+#~ msgid "Language"
+#~ msgstr "System sprache"
 
-#~ msgid        "Next"
-#~ msgstr       "Nächste"
+#~ msgid "New user"
+#~ msgstr "Neuer Benutzer"
 
-#~ msgid        "No disks with RAID data found"
-#~ msgstr       "Keine Festplatten mit RAID-Daten gefunden"
+#~ msgid "Next"
+#~ msgstr "Nächste"
 
-#~ msgid        "No usable disk found"
-#~ msgstr       "Keine geeignete Festplatte gefunden"
+#~ msgid "No disks with RAID data found"
+#~ msgstr "Keine Festplatten mit RAID-Daten gefunden"
 
-#~ msgid        "Please make sure that you have backup of all files"
-#~ msgstr       "Bitte stellen Sie sicher, dass Sie eine Sicherungskopie "
-#~      "aller Dateien haben"
+#~ msgid "No usable disk found"
+#~ msgstr "Keine geeignete Festplatte gefunden"
 
-#~ msgid        "Recover internal disk"
-#~ msgstr       "Interne Festplatte wiederherstellen"
+#~ msgid "Please make sure that you have backup of all files"
+#~ msgstr "Bitte stellen Sie sicher, dass Sie eine Sicherungskopie aller Dateien haben"
 
-#~ msgid        "Recovering RAID array"
-#~ msgstr       "RAID-Array wird wiederherstellt"
+#~ msgid "Recover internal disk"
+#~ msgstr "Interne Festplatte wiederherstellen"
 
-#~ msgid        "Recovering external disk in RAID array"
-#~ msgstr       "Die externe Festplatte in der RAID-Array wird "
-#~      "wiederhergestellt"
+#~ msgid "Recovering RAID array"
+#~ msgstr "RAID-Array wird wiederherstellt"
 
-#~ msgid        "Recovering internal disk in RAID array"
-#~ msgstr       "Die interne Festplatte in der RAID-Array wird "
-#~      "wiederhergestellt"
+#~ msgid "Recovering external disk in RAID array"
+#~ msgstr "Die externe Festplatte in der RAID-Array wird wiederhergestellt"
 
-#~ msgid        "Recovering the RAID array will <strong>destroy all content</"
-#~      "strong> on the selected extenal disk"
-#~ msgstr       "Wiederherstellung der RAID-Array wird <strong>sämtliche "
-#~      "Daten</strong> auf der ausgewählten externen Festplatte "
-#~      "<strong>zerstören</strong>"
+#~ msgid "Recovering internal disk in RAID array"
+#~ msgstr "Die interne Festplatte in der RAID-Array wird wiederhergestellt"
 
-#~ msgid        "Recovering the RAID array will <strong>destroy all content</"
-#~      "strong> on your internal disk (/home&nbsp;-&nbsp;"
-#~      "including&nbsp;'storage')"
-#~ msgstr       "Die Wiederherstellung der RAID-Array wird <strong>sämtliche "
-#~      "Daten</strong> auf Ihrer internen Festplatte <strong>zerstören</"
-#~      "strong> (/home - einschließlich 'storage')"
+#~ msgid "Recovering the RAID array will <strong>destroy all content</strong> on the selected extenal disk"
+#~ msgstr "Wiederherstellung der RAID-Array wird <strong>sämtliche Daten</strong> auf der ausgewählten externen Festplatte <strong>zerstören</strong>"
 
-#~ msgid        "Select external disk to add to RAID array"
-#~ msgstr       "Externe Festplatte auswählen, die zur RAID-Array hinzugefügt "
-#~      "werden soll"
+#~ msgid "Recovering the RAID array will <strong>destroy all content</strong> on your internal disk (/home&nbsp;-&nbsp;including&nbsp;'storage')"
+#~ msgstr "Die Wiederherstellung der RAID-Array wird <strong>sämtliche Daten</strong> auf Ihrer internen Festplatte <strong>zerstören</strong> (/home - einschließlich 'storage')"
 
-#~ msgid        "Select which external disk to include in the array. An "
-#~      "external disk with the same size is recommended"
-#~ msgstr       "Wählen Sie bitte welche externe Festplatte in der Array "
-#~      "inbegriffen werden soll. Eine externe Festplatte mit der gleichen "
-#~      "Größe wird empfohlen"
+#~ msgid "Select external disk to add to RAID array"
+#~ msgstr "Externe Festplatte auswählen, die zur RAID-Array hinzugefügt werden soll"
 
-#~ msgid        "Select which external disk to recover RAID data from"
-#~ msgstr       "Wählen Sie die externe Festplatte aus, von der die RAID-"
-#~      "Daten wiederhergestellt werden sollen"
+#~ msgid "Select which external disk to include in the array. An external disk with the same size is recommended"
+#~ msgstr "Wählen Sie bitte welche externe Festplatte in der Array inbegriffen werden soll. Eine externe Festplatte mit der gleichen Größe wird empfohlen"
 
-#~ msgid        "Setup complete"
-#~ msgstr       "Setup abgeschlossen"
+#~ msgid "Select which external disk to recover RAID data from"
+#~ msgstr "Wählen Sie die externe Festplatte aus, von der die RAID-Daten wiederhergestellt werden sollen"
 
-#~ msgid        "Squeezebox server isn't installed, please click"
-#~ msgstr       "Squeezebox Server ist nicht installiert, bitte klicken auf"
+#~ msgid "Setup complete"
+#~ msgstr "Setup abgeschlossen"
 
-#~ msgid        "Step 1/4: Select default language"
-#~ msgstr       "Schritt 1/4: System sprache"
+#~ msgid "Squeezebox server isn't installed, please click"
+#~ msgstr "Squeezebox Server ist nicht installiert, bitte klicken auf"
 
-#~ msgid        "Step 2/4: Set time and date"
-#~ msgstr       "Schritt 2/4: Datum und Uhrzeit"
+#~ msgid "Step 1/4: Select default language"
+#~ msgstr "Schritt 1/4: System sprache"
 
-#~ msgid        "Step 3/4: Create users"
-#~ msgstr       "Schritt 3/4: Benutzer erstellen"
+#~ msgid "Step 2/4: Set time and date"
+#~ msgstr "Schritt 2/4: Datum und Uhrzeit"
 
-#~ msgid        "Step 4/4: Network setup"
-#~ msgstr       "Schritt 4/4: Netzwerk-Setup"
+#~ msgid "Step 3/4: Create users"
+#~ msgstr "Schritt 3/4: Benutzer erstellen"
 
-#~ msgid        "There are no usable external disks attached, please add an "
-#~      "external e-SATA disk and try again"
-#~ msgstr       "Es sind keine geeigneten externen Festplatten angeschlossen. "
-#~      "Bitte schließen Sie eine externe e-SATA Festplatte an und versuchen "
-#~      "Sie es erneut"
+#~ msgid "Step 4/4: Network setup"
+#~ msgstr "Schritt 4/4: Netzwerk-Setup"
 
-#~ msgid        "Time and language"
-#~ msgstr       "Datum und Sprache"
+#~ msgid "There are no usable external disks attached, please add an external e-SATA disk and try again"
+#~ msgstr "Es sind keine geeigneten externen Festplatten angeschlossen. Bitte schließen Sie eine externe e-SATA Festplatte an und versuchen Sie es erneut"
 
-#~ msgid        "Timezone"
-#~ msgstr       "Zeitzone"
+#~ msgid "Time and language"
+#~ msgstr "Datum und Sprache"
 
-#~ msgid        "Your B3 can be either a bridge, non-exit relay or exit relay"
-#~ msgstr       "Ihr B3 kann entweder als Brücke, Nicht-Ausgangsrelay oder "
-#~      "Ausgangsrelay eingesetzt werden"
+#~ msgid "Timezone"
+#~ msgstr "Zeitzone"
 
-#~ msgid        "here"
-#~ msgstr       "hier"
+#~ msgid "Your B3 can be either a bridge, non-exit relay or exit relay"
+#~ msgstr "Ihr B3 kann entweder als Brücke, Nicht-Ausgangsrelay oder Ausgangsrelay eingesetzt werden"
 
-#~ msgid        "to install squeezecenter"
-#~ msgstr       "zur Installation von Squeezecenter"
+#~ msgid "here"
+#~ msgstr "hier"
+
+#~ msgid "to install squeezecenter"
+#~ msgstr "zur Installation von Squeezecenter"
