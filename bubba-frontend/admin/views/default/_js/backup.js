@@ -383,7 +383,7 @@ $(function(){
 				},
 				'messages': {
 					'name': {
-						'remote': jQuery.format("{0} is already in use")
+						'remote': jQuery.format(pgettext('validation message', "{0} is already in use"))
 					}
 				}
 			},
@@ -490,7 +490,7 @@ $(function(){
 				},
 				'messages': {
 					'name': {
-						'remote': jQuery.format(_("{0} is already in use"))
+						'remote': jQuery.format(pgettext('validation message', "{0} is already in use"))
 					}
 				}
 			},
