@@ -310,27 +310,6 @@ $(function(){
 			textBack: _("Back"),
 			textSubmit: _("Complete"),
 			showBackOnFirstStep: true,
-			afterNext: function(wizardData) {
-				switch( wizardData.currentStep ) {
-				case "fn-backup-create-form-step-2":
-					$("#fn-backup-create-selection-custom-browse").button('disable');
-					break;
-				case "fn-backup-create-form-step-3":
-					$('#fn-backup-create-protocol').change();
-					break;
-				case "fn-backup-create-form-step-4":
-					$('.fn-backup-schedule').change();
-					break;
-				case "fn-backup-create-form-step-5":
-					$("#fn-backup-create-security-enable").change();
-					break;
-				}
-			},
-			afterBack: function(wizardData) {
-				if( wizardData.currentStep === "fn-backup-create-form-step-4" ) {
-					$('.fn-backup-schedule').change();
-				}
-			},
 			validationOptions: {
 				'rules': {
 					'name': {
@@ -412,7 +391,29 @@ $(function(){
 				}
 			}
 		}
-    );
+		).bind('step_shown', function(event, data) {
+			if(data.isBackNavigation) {
+				if( data.currentStep === "fn-backup-create-form-step-4" ) {
+					$('.fn-backup-schedule').change();
+				}
+			} else {
+				switch( data.currentStep ) {
+				case "fn-backup-create-form-step-2":
+					$("#fn-backup-create-selection-custom-browse").button('disable');
+					break;
+				case "fn-backup-create-form-step-3":
+					$('#fn-backup-create-protocol').change();
+					break;
+				case "fn-backup-create-form-step-4":
+					$('.fn-backup-schedule').change();
+					break;
+				case "fn-backup-create-form-step-5":
+					$("#fn-backup-create-security-enable").change();
+					break;
+				}
+			}
+		}
+	);
 
     $("#fn-backup-edit").formwizard(
 		{
@@ -425,27 +426,6 @@ $(function(){
 			textBack: _("Back"),
 			textSubmit: _("Complete"),
 			showBackOnFirstStep: true,
-			afterNext: function(wizardData) {
-				switch( wizardData.currentStep ) {
-				case "fn-backup-edit-form-step-2":
-					$("#fn-backup-edit-selection-custom-browse").button('disable');
-					break;
-				case "fn-backup-edit-form-step-3":
-					$('#fn-backup-edit-protocol').change();
-					break;
-				case "fn-backup-edit-form-step-4":
-					$('.fn-backup-schedule').change();
-					break;
-				case "fn-backup-edit-form-step-5":
-					$("#fn-backup-edit-security-enable").change();
-					break;
-				}
-			},
-			afterBack: function(wizardData) {
-				if( wizardData.currentStep ===  "fn-backup-edit-form-step-4" ) {
-					$('.fn-backup-schedule').change();
-				}
-			},
 			validationOptions: {
 				'rules': {
 					'target-device': {
@@ -519,7 +499,29 @@ $(function(){
 				}
 			}
 		}
-    );
+		).bind('step_shown', function(event, data) {
+			if(data.isBackNavigation) {
+				if( data.currentStep ===  "fn-backup-edit-form-step-4" ) {
+					$('.fn-backup-schedule').change();
+				}
+			} else {
+				switch( data.currentStep ) {
+				case "fn-backup-edit-form-step-2":
+					$("#fn-backup-edit-selection-custom-browse").button('disable');
+					break;
+				case "fn-backup-edit-form-step-3":
+					$('#fn-backup-edit-protocol').change();
+					break;
+				case "fn-backup-edit-form-step-4":
+					$('.fn-backup-schedule').change();
+					break;
+				case "fn-backup-edit-form-step-5":
+					$("#fn-backup-edit-security-enable").change();
+					break;
+				}
+			}
+		}
+	);
 
 
     $("#fn-backup-job-add").click(function(){

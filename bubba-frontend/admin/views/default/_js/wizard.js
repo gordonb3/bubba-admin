@@ -97,11 +97,6 @@ function do_run_wizard(){
 					textNext: _("Next"),
 					textBack: _("Back"),
 					textSubmit: _("Complete"),
-					afterNext: function(wizardData) {
-						if( wizardData.currentStep == "fn-wizard-step-5" ) {
-							wizard_element.find('#fn-wizard-enable-easyfind').change();
-						}
-					},
 					validationOptions: {
 						rules: {
 							'admin_password1': {
@@ -177,7 +172,11 @@ function do_run_wizard(){
 						}
 					}
 				}
-			);
+				).bind('step_shown', function(event,data) {
+					if( data.currentStep == "fn-wizard-step-5" ) {
+						wizard_element.find('#fn-wizard-enable-easyfind').change();
+					}
+				});
 
 			buttons.eq(0).click(function(){ // when Next is clicked
 				if(wizard.formwizard("option", "validationEnabled") && !wizard.validate().numberOfInvalids()){ // if statement needed if validation is enabled
