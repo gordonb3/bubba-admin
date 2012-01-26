@@ -157,26 +157,9 @@ $(window).load(function() {
 	$('.jclock').jclock();
 });
 
+
 $(document).ready( function() {
-	$.extend($.validator.messages,{
-		required: pgettext('validation message', "This field is required."),
-		remote: pgettext('validation message', "Please fix this field."),
-		email: pgettext('validation message', "Please enter a valid email address."),
-		url: pgettext('validation message', "Please enter a valid URL."),
-		date: pgettext('validation message', "Please enter a valid date."),
-		dateISO: pgettext('validation message', "Please enter a valid date (ISO)."),
-		number: pgettext('validation message', "Please enter a valid number."),
-		digits: pgettext('validation message', "Please enter only digits."),
-		creditcard: pgettext('validation message', "Please enter a valid credit card number."),
-		equalTo: pgettext('validation message', "Please enter the same value again."),
-		accept: pgettext('validation message', "Please enter a value with a valid extension."),
-		maxlength: $.validator.format(pgettext('validation message', "Please enter no more than {0} characters.")),
-		minlength: $.validator.format(pgettext('validation message', "Please enter at least {0} characters.")),
-		rangelength: $.validator.format(pgettext('validation message', "Please enter a value between {0} and {1} characters long.")),
-		range: $.validator.format(pgettext('validation message', "Please enter a value between {0} and {1}.")),
-		max: $.validator.format(pgettext('validation message', "Please enter a value less than or equal to {0}.")),
-		min: $.validator.format(pgettext('validation message', "Please enter a value greater than or equal to {0}."))
-	});
+
 	// prohobit submit with no action set.
 	$("*:has(input[type=text])").submit( function(e) {
 			if(!$(e.target).closest('form').attr("action")) {
