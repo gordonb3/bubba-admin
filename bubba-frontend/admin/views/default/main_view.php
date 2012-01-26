@@ -14,17 +14,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title><?=NAME?> - <?=$this->menu->resolve($this->uri->segment(1))?> (<?=php_uname("n")?>)</title>
 
-<!--[if IE]><link rel="shortcut icon" href="<?=FORMPREFIX.'/views/'.THEME?>/favicon_ie.ico"><![endif]-->
-<link rel="icon" type="image/png" href="<?=FORMPREFIX.'/views/'.THEME?>/favicon_64px.png" />
+<!--[if IE]><link rel="shortcut icon" href="<?=FORMPREFIX.'/views/'.THEME?>/favicon_ie.ico?v=<?=$this->session->userdata('version')?>"><![endif]-->
+<link rel="icon" type="image/png" href="<?=FORMPREFIX.'/views/'.THEME?>/favicon_64px.png?v=<?=$this->session->userdata('version')?>" />
 
-
-<? /* <link rel="stylesheet" type="text/css" href="<?=FORMPREFIX.'/views/'.THEME?>/_css/jquery.ui.css?v='<?=$this->session->userdata('version')?>'" /> */ ?>
 <link rel="stylesheet" type="text/css" href="<?=FORMPREFIX.'/views/'.THEME?>/_css/jquery.ui.theme.default.css?v='<?=$this->session->userdata('version')?>'" />
 <link rel="stylesheet" type="text/css" href="<?=FORMPREFIX.'/views/'.THEME?>/_css/admin.css?v='<?=$this->session->userdata('version')?>'" />
-<!--[if IE 7]><link rel="stylesheet" type="text/css" href="<?=FORMPREFIX.'/views/'.THEME?>/_css/IE7styles.css" /><![endif]-->  
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="<?=FORMPREFIX.'/views/'.THEME?>/_css/IE7styles.css?v=<?=$this->session->userdata('version')?>" /><![endif]-->
 
 <?if($browser['Browser'] === 'Safari'):?>
-<link rel="stylesheet" type="text/css" href="<?=FORMPREFIX.'/views/'.THEME?>/_css/Safaristyles.css" />
+<link rel="stylesheet" type="text/css" href="<?=FORMPREFIX.'/views/'.THEME?>/_css/Safaristyles.css?v=<?=$this->session->userdata('version')?>" />
 <?endif?>
 
 <!-- jQuery and jQueryUI javascript libraries -->
@@ -58,16 +56,16 @@ config = <?=json_encode(
 <meta http-equiv=”content-language” content=”<?=LANGUAGE?>” />
 
 <!-- Sideboard gadgets -->
-<!--[if IE]><script type="text/javascript" src="<?=FORMPREFIX.'/views/'.THEME?>/_js/excanvas.compiled.js"></script><![endif]-->
-<script type="text/javascript" src="<?=FORMPREFIX.'/views/'.THEME?>/_js/coolclock.js"></script>
-<script type="text/javascript" src="<?=FORMPREFIX.'/views/'.THEME?>/_js/jquery.jclock.js"></script>
+<!--[if IE]><script type="text/javascript" src="<?=FORMPREFIX.'/views/'.THEME?>/_js/excanvas.compiled.js?v=<?=$this->session->userdata('version')?>"></script><![endif]-->
+<script type="text/javascript" src="<?=FORMPREFIX.'/views/'.THEME?>/_js/coolclock.js?v=<?=$this->session->userdata('version')?>"></script>
+<script type="text/javascript" src="<?=FORMPREFIX.'/views/'.THEME?>/_js/jquery.jclock.js?v=<?=$this->session->userdata('version')?>"></script>
 
 <?if(false):?>
 <!-- jQuery lint debug -->
 <script type="text/javascript" src="<?=FORMPREFIX.'/views/'.THEME?>/_js/jquery.lint.js?v='<?=$this->session->userdata('version')?>'"></script>
 <?endif?>
 
-<script type="text/javascript" src="<?=FORMPREFIX.'/views/'.THEME?>/_js/jquery.iCheckbox.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?=FORMPREFIX.'/views/'.THEME?>/_js/jquery.iCheckbox.js?v=<?=$this->session->userdata('version')?>" type="text/javascript"></script>
 <script type="text/javascript" src="<?=FORMPREFIX.'/views/'.THEME?>/_js/main.js?v='<?=$this->session->userdata('version')?>'"></script>
 
 

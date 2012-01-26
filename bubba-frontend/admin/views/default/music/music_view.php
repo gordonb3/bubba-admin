@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>FirePlay</title>
 <script language="javascript">AC_FL_RunContent = 0;</script>
-<script src="<?=FORMPREFIX.'/views/'.THEME?>/_js/AC_RunActiveContent.js" language="javascript"></script>
+<script src="<?=FORMPREFIX.'/views/'.THEME?>/_js/AC_RunActiveContent.js?v=<?=$this->session->userdata('version')?>" language="javascript"></script>
 </head>
 <body bgcolor="#ffffff">
 <script language="javascript">

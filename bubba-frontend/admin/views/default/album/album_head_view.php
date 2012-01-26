@@ -1,4 +1,4 @@
-<link href="<?=FORMPREFIX.'/views/'.THEME?>/_css/jqueryFileTree.css" rel="stylesheet" type="text/css" />
+<link href="<?=FORMPREFIX.'/views/'.THEME?>/_css/jqueryFileTree.css?v=<?=$this->session->userdata('version')?>" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<?=FORMPREFIX.'/views/'.THEME?>/_js/jqueryFileTree.js?v='<?=$this->session->userdata('version')?>'"></script>
 <script type="text/javascript" src="<?=FORMPREFIX.'/views/'.THEME?>/_js/jquery.event.drag.js?v='<?=$this->session->userdata('version')?>'"></script>
 <script type="text/javascript" src="<?=FORMPREFIX.'/views/'.THEME?>/_js/jquery.event.drop.js?v='<?=$this->session->userdata('version')?>'"></script>
