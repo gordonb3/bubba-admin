@@ -47,6 +47,10 @@ $(document).ready(function() {
             },
         'json');
     });
+    $.validator.addMethod('valid_password', function(value, element, params) {
+        return /^\w*$/.test(value);
+    },
+    jQuery.format(_("not a valid password")));
 
     edit_validator = $('form', source_edit_dialog).validate({
         rules: {
@@ -54,7 +58,7 @@ $(document).ready(function() {
                 'required': true
             },
             'password1': {
-                'required': true
+                'valid_password': true
             },
             'password2': {
                 'equalTo': $('form input[name=password1]', source_edit_dialog)
@@ -319,11 +323,11 @@ $(document).ready(function() {
     $.validator.addMethod('valid_username', function(value, element, params) {
         return /^[^-][a-z0-9 _-]+$/.test(value) && value != 'web' && value != 'storage';
     },
-    jQuery.format("not a valid username"));
+    jQuery.format(_("not a valid username")));
     $.validator.addMethod('valid_password', function(value, element, params) {
         return /^\w*$/.test(value);
     },
-    jQuery.format("not a valid password"));
+    jQuery.format(_("not a valid password")));
 
     edit_validator = $('form', edit_source_edit_dialog).validate({
         rules: {
