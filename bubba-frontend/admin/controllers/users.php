@@ -64,18 +64,10 @@ class Users extends Controller{
 			// Passwords dont match
 			$result["mismatch"]=true;
 		} else {
-			if(set_unix_password($uname,$pass1)==0){
-				if(set_samba_password($uname,$pass1,$pass2)==0){
-					// Success
-					$result["success"]=true;				
-				}else{
-					// Samba fail
-					$result["sambafail"]=true;		
-				}
-			}else{
-				// passwd fail
-				$result["passwdfail"]=true;
-			}
+			# FIXME Need to fix checking for errors when changing password
+			set_unix_password($uname,$pass1);
+			set_samba_password($uname,$pass1,$pass2);
+			$result["success"]=true;
 		}
 		return $result;
 	}
