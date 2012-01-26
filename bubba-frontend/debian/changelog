@@ -1,3 +1,31 @@
+bubba-frontend (2.4~pre36) hugo vincent; urgency=low
+
+  [ johannesbook ]
+  * Changed PIM icon hoover text to 'Webmail'
+
+  [ Johannes Book ]
+  * Added note about Squeezeboxserver
+
+  [ Carl Fürstenberg ]
+  * update pot and po files (Closes: #1870)
+
+  [ Johannes Book ]
+  * Updated swedish and german translations
+  * Updated translations
+  * Fixed numerous spelling errors
+  * Fixed some spelling errors
+
+  [ Carl Fürstenberg ]
+  * update translation files and config
+  * Adding override for translations of validation messages
+  * update makefile with better gettext logic
+  * update translation files
+  * Fix password validation of users (Closes: #1872)
+  * Add missing version specifier to includes (Closes: #1879)
+  * Update the backup wizard navigation triggers (Closes: #1880)
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 26 Jan 2012 16:53:50 +0100
+
 bubba-frontend (2.4~pre35) hugo vincent; urgency=low
 
   [ Johannes Book ]
