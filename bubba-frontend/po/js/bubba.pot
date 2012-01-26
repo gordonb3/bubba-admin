@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-01-25 15:39+0100\n"
+"POT-Creation-Date: 2012-01-26 16:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,15 +18,225 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: admin/views/default/_js/tor.js:172
+#: admin/views/default/_js/album_users.js:30
+#: admin/views/default/_js/backup.js:221
+#: admin/views/default/_js/mail_retrieve.js:150
+#: admin/views/default/_js/user.js:99
+msgid "Edit"
+msgstr ""
+
+#: admin/views/default/_js/album_users.js:44
+msgid "Edit album viewer"
+msgstr ""
+
+#: admin/views/default/_js/album_users.js:65
+msgid "Viewer added"
+msgstr ""
+
+#: admin/views/default/_js/album_users.js:90
+msgid "Viewer updated"
+msgstr ""
+
+#: admin/views/default/_js/album_users.js:112
+msgid "Delete this photo album viewer?"
+msgstr ""
+
+#: admin/views/default/_js/album_users.js:113
+msgid "Delete photo album viewer"
+msgstr ""
+
+#: admin/views/default/_js/album_users.js:116
+#: admin/views/default/_js/album_users.js:178
+msgid "Delete viewer"
+msgstr ""
+
+#: admin/views/default/_js/album_users.js:133
+msgid "Viewer deleted"
+msgstr ""
+
+#: admin/views/default/_js/album_users.js:156
+msgid "Add new viewer"
+msgstr ""
+
+#: admin/views/default/_js/album_users.js:169
+msgid "Update viewer"
+msgstr ""
+
+#: admin/views/default/_js/album_users.js:245
+msgid "Add new viewer to the photo album"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:26 admin/views/default/_js/backup.js:46
+#: admin/views/default/_js/backup.js:309 admin/views/default/_js/backup.js:425
+#: admin/views/default/_js/wizard.js:20 admin/views/default/_js/wizard.js:97
+msgid "Next"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:35 admin/views/default/_js/backup.js:55
+#: admin/views/default/_js/backup.js:310 admin/views/default/_js/backup.js:426
+#: admin/views/default/_js/wizard.js:29 admin/views/default/_js/wizard.js:98
+msgid "Back"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:68
+msgctxt "button"
+msgid "Create"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:69
+msgctxt "button"
+msgid "edit"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:167
+msgid "Restore"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:193
+msgid "Failed"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:196
+msgid "why?"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:201
+#, javascript-format
+msgid "Backup job %s failed"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:217
+msgid "Remove"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:225
+msgid "Run now"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:294
+msgid "Only alphanumreric values are allowed for the name"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:300
+msgid "Please enter a valid hostname or IPv4 address"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:311 admin/views/default/_js/backup.js:427
+#: admin/views/default/_js/wizard.js:99
+msgid "Complete"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:365 admin/views/default/_js/backup.js:473
+msgctxt "validation message"
+msgid "{0} is already in use"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:596
+msgid "Are you sure you want to permanently remove this backup job?"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:597 admin/views/default/_js/backup.js:600
+msgid "Remove backup job"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:613
+msgid "Backup job was removed from the system"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:634
+msgid "Are you sure you want to run this backup job now?"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:635
+msgid "Run backup job now"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:638
+msgid "Run backup job"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:651
 msgid ""
-"<p>Enabling Tor means that your B3 will be a part of the Tor anonymizing "
-"network. This will allow users all over the world to use your B3 to protect "
-"their privacy and reach a free and open Internet. To read more about Tor, "
-"please visit https://www.torproject.org/.</p><p>Also note that enabling this "
-"service does not make your traffic anonymous.</p><p>Before enabling Tor, it "
-"is recommended that you read the Terms of Service from your Internet Service "
-"Provider. <strong>Don't enable this service if you are hesitant</strong>.</p>"
+"Backup job has been initialized to be executed at this particlular moment in "
+"time."
+msgstr ""
+
+#: admin/views/default/_js/backup.js:698
+msgid "Restore backed up data"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:701
+msgid "Restore selected files and directories"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:714
+msgid "Are you sure? Any existing files will be overwritten."
+msgstr ""
+
+#: admin/views/default/_js/backup.js:715
+msgid "Confirm restore"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:718
+#: admin/views/default/_js/mail_retrieve.js:142
+#: admin/views/default/_js/mail_retrieve.js:143
+#: admin/views/default/_js/user.js:95
+msgid "Yes"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:738
+#: admin/views/default/_js/mail_retrieve.js:142
+#: admin/views/default/_js/mail_retrieve.js:143
+#: admin/views/default/_js/user.js:95
+msgid "No"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:811
+msgid "File/Directory selector"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:814
+msgctxt "button"
+msgid "Select"
+msgstr ""
+
+#: admin/views/default/_js/disk_progress.js:41
+#: admin/views/default/_js/filemanager.js:128
+msgid "Close"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:57
+msgid "Successfully created a folder"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:73
+msgid "Successfully renamed the file/folder"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:88
+msgid "Successfully changed permission on the given files/folders"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:105
+msgid "Successfully deleted the files/folders"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:121
+msgid "Sucessfully added pictures to the album"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:128
+#, javascript-format
+msgid "Sucessfully added %d pictures to the album"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:128
+msgid "Pictures added"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:140
+msgctxt "button"
+msgid "Move"
 msgstr ""
 
 #: admin/views/default/_js/filemanager.js:141
@@ -35,115 +245,9 @@ msgctxt "button"
 msgid "Abort"
 msgstr ""
 
-#: admin/views/default/_js/mail_retrieve.js:167
-msgid "Add email account"
-msgstr ""
-
-#: admin/views/default/_js/mail_retrieve.js:232
-msgid "Add new email account"
-msgstr ""
-
-#: admin/views/default/_js/user.js:293
-msgid "Add new user"
-msgstr ""
-
-#: admin/views/default/_js/user.js:375
-msgid "Add new user to the system"
-msgstr ""
-
-#: admin/views/default/_js/album_users.js:156
-msgid "Add new viewer"
-msgstr ""
-
-#: admin/views/default/_js/album_users.js:245
-msgid "Add new viewer to the photo album"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:364
-msgid "Add to album"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:147
-msgctxt "button"
-msgid "Add to album"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:594
-msgid "Are you sure you want to permanently remove this backup job?"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:632
-msgid "Are you sure you want to run this backup job now?"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:712
-msgid "Are you sure? Any existing files will be overwritten."
-msgstr ""
-
-#: admin/views/default/_js/backup.js:35 admin/views/default/_js/backup.js:55
-#: admin/views/default/_js/backup.js:310 admin/views/default/_js/backup.js:425
-#: admin/views/default/_js/wizard.js:29 admin/views/default/_js/wizard.js:98
-msgid "Back"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:201
-#, javascript-format
-msgid "Backup job %s failed"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:649
-msgid ""
-"Backup job has been initialized to be executed at this particlular moment in "
-"time."
-msgstr ""
-
-#: admin/views/default/_js/backup.js:611
-msgid "Backup job was removed from the system"
-msgstr ""
-
-#: admin/views/default/_js/mail_server.js:14
-msgid "Cancel"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:354
-msgid "Change permissions"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:148
-msgctxt "button"
-msgid "Change permissions"
-msgstr ""
-
-#: admin/views/default/_js/disk_progress.js:41
-#: admin/views/default/_js/filemanager.js:128
-msgid "Close"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:311 admin/views/default/_js/backup.js:426
-#: admin/views/default/_js/wizard.js:99
-msgid "Complete"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:713
-msgid "Confirm restore"
-msgstr ""
-
 #: admin/views/default/_js/filemanager.js:142
 msgctxt "button"
 msgid "Copy"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:334
-msgid "Copy files"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:68
-msgctxt "button"
-msgid "Create"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:272
-msgid "Create folder"
 msgstr ""
 
 #: admin/views/default/_js/filemanager.js:144
@@ -151,213 +255,9 @@ msgctxt "button"
 msgid "Create folder"
 msgstr ""
 
-#: admin/views/default/_js/filemanager.js:374
-#: admin/views/default/_js/mail_retrieve.js:123
-#: admin/views/default/_js/mail_retrieve.js:185
-msgid "Delete"
-msgstr ""
-
 #: admin/views/default/_js/filemanager.js:145
 msgctxt "button"
 msgid "Delete"
-msgstr ""
-
-#: admin/views/default/_js/mail_server.js:13
-msgid "Delete account"
-msgstr ""
-
-#: admin/views/default/_js/mail_server.js:21
-#, javascript-format
-msgid ""
-"Delete account for user <strong>%s</strong> on server <strong>%s</strong>?"
-msgstr ""
-
-#: admin/views/default/_js/mail_retrieve.js:120
-msgid "Delete email account?"
-msgstr ""
-
-#: admin/views/default/_js/mail_server.js:25
-msgctxt "confirmation button"
-msgid "Delete mail account"
-msgstr ""
-
-#: admin/views/default/_js/album_users.js:113
-msgid "Delete photo album viewer"
-msgstr ""
-
-#: admin/views/default/_js/album_users.js:112
-msgid "Delete this photo album viewer?"
-msgstr ""
-
-#: admin/views/default/_js/user.js:240
-msgid "Delete this user from the system?"
-msgstr ""
-
-#: admin/views/default/_js/user.js:252 admin/views/default/_js/user.js:253
-#: admin/views/default/_js/user.js:311
-msgid "Delete user"
-msgstr ""
-
-#: admin/views/default/_js/user.js:249
-msgid "Delete userdata?"
-msgstr ""
-
-#: admin/views/default/_js/album_users.js:116
-#: admin/views/default/_js/album_users.js:178
-msgid "Delete viewer"
-msgstr ""
-
-#: admin/views/default/_js/tor.js:58
-msgctxt "validation message"
-msgid "Directory port is required"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:292
-msgid "Download as zip"
-msgstr ""
-
-#: admin/views/default/_js/album_users.js:30
-#: admin/views/default/_js/backup.js:221
-#: admin/views/default/_js/mail_retrieve.js:150
-#: admin/views/default/_js/user.js:95
-msgid "Edit"
-msgstr ""
-
-#: admin/views/default/_js/album_users.js:44
-msgid "Edit album viewer"
-msgstr ""
-
-#: admin/views/default/_js/mail_retrieve.js:14
-#, javascript-format
-msgid "Edit email account information for host <em>%s</em>"
-msgstr ""
-
-#: admin/views/default/_js/user.js:107
-msgid "Edit user"
-msgstr ""
-
-#: admin/views/default/_js/mail_retrieve.js:69
-msgid "Email account updated"
-msgstr ""
-
-#: admin/views/default/_js/wizard.js:162
-msgid "Error applying changes"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:193
-msgid "Failed"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:809
-msgid "File/Directory selector"
-msgstr ""
-
-#: admin/views/default/_js/wizard.js:161
-msgid "Following errors where encountered when trying to apply the changes: "
-msgstr ""
-
-#: admin/views/default/_js/tor.js:77
-msgid ""
-"It might take up to 20 minutes for Tor to self-test if the configuration is "
-"fully functional, please inspect the log file (Settings→Logs→tor) for "
-"verification\""
-msgstr ""
-
-#: admin/views/default/_js/login.js:55 admin/views/default/_js/login.js:119
-msgid "Login"
-msgstr ""
-
-#: admin/views/default/_js/main.js:143
-msgid "Logout"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:140
-msgctxt "button"
-msgid "Move"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:324
-msgid "Move files"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:26 admin/views/default/_js/backup.js:46
-#: admin/views/default/_js/backup.js:309 admin/views/default/_js/backup.js:424
-#: admin/views/default/_js/wizard.js:20 admin/views/default/_js/wizard.js:97
-msgid "Next"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:736
-#: admin/views/default/_js/mail_retrieve.js:142
-#: admin/views/default/_js/mail_retrieve.js:143
-#: admin/views/default/_js/user.js:91
-msgid "No"
-msgstr ""
-
-#: admin/views/default/_js/stat.js:79
-msgid "No more system messages available"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:294
-msgid "Only alphanumreric values are allowed for the name"
-msgstr ""
-
-#: admin/views/default/_js/tor.js:53 admin/views/default/_js/tor.js:59
-msgctxt "validation message"
-msgid "Only digits are allowed"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:128
-msgid "Pictures added"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:300
-msgid "Please enter a valid hostname or IPv4 address"
-msgstr ""
-
-#: admin/views/default/_js/tor.js:175
-msgid "Please note"
-msgstr ""
-
-#: admin/views/default/_js/tor.js:55
-msgctxt "validation message"
-msgid "Port is out of range"
-msgstr ""
-
-#: admin/views/default/_js/tor.js:54 admin/views/default/_js/tor.js:60
-msgctxt "validation message"
-msgid "Port {0} is not valid for usage"
-msgstr ""
-
-#: admin/views/default/_js/tor.js:61
-msgctxt "validation message"
-msgid "Port {0} is out of range"
-msgstr ""
-
-#: admin/views/default/_js/stat.js:100
-#, javascript-format
-msgid "Proceed to restart %s?"
-msgstr ""
-
-#: admin/views/default/_js/stat.js:96
-#, javascript-format
-msgid "Proceed to shut down %s?"
-msgstr ""
-
-#: admin/views/default/_js/main.js:151
-msgid "Proceed with logout?"
-msgstr ""
-
-#: admin/views/default/_js/tor.js:52
-msgctxt "validation message"
-msgid "Relay port is required"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:217
-msgid "Remove"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:595 admin/views/default/_js/backup.js:598
-msgid "Remove backup job"
 msgstr ""
 
 #: admin/views/default/_js/filemanager.js:146
@@ -365,59 +265,14 @@ msgctxt "button"
 msgid "Rename"
 msgstr ""
 
-#: admin/views/default/_js/filemanager.js:344
-msgid "Rename files"
-msgstr ""
-
-#: admin/views/default/_js/stat.js:101
-msgid "Restart"
-msgstr ""
-
-#: admin/views/default/_js/stat.js:99
-msgctxt "confirmation button"
-msgid "Restart"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:167
-msgid "Restore"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:696
-msgid "Restore backed up data"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:699
-msgid "Restore selected files and directories"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:636
-msgid "Run backup job"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:633
-msgid "Run backup job now"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:225
-msgid "Run now"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:812
+#: admin/views/default/_js/filemanager.js:147
 msgctxt "button"
-msgid "Select"
+msgid "Add to album"
 msgstr ""
 
-#: admin/views/default/_js/wizard.js:168
-msgid "Setup complete. Enjoy!"
-msgstr ""
-
-#: admin/views/default/_js/stat.js:97
-msgid "Shut down"
-msgstr ""
-
-#: admin/views/default/_js/stat.js:95
-msgctxt "confirmation button"
-msgid "Shut down"
+#: admin/views/default/_js/filemanager.js:148
+msgctxt "button"
+msgid "Change permissions"
 msgstr ""
 
 #: admin/views/default/_js/filemanager.js:210
@@ -432,86 +287,16 @@ msgid_plural "Succeeded to move the files and folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/views/default/_js/mail_retrieve.js:43
-msgid "Successfully added new email account"
-msgstr ""
-
-#: admin/views/default/_js/user.js:176
-msgid "Successfully added new user"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:88
-msgid "Successfully changed permission on the given files/folders"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:57
-msgid "Successfully created a folder"
-msgstr ""
-
-#: admin/views/default/_js/mail_retrieve.js:93
-msgid "Successfully deleted email account"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:105
-msgid "Successfully deleted the files/folders"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:73
-msgid "Successfully renamed the file/folder"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:128
+#: admin/views/default/_js/filemanager.js:251
 #, javascript-format
-msgid "Sucessfully added %d pictures to the album"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:121
-msgid "Sucessfully added pictures to the album"
-msgstr ""
-
-#: admin/views/default/_js/mail_retrieve.js:180
-#: admin/views/default/_js/user.js:304
-msgid "Update"
-msgstr ""
-
-#: admin/views/default/_js/user.js:21
-msgid "Update settings"
-msgstr ""
-
-#: admin/views/default/_js/album_users.js:169
-msgid "Update viewer"
-msgstr ""
-
-#: admin/views/default/_js/filemanager.js:282
-msgid "Upload file"
-msgstr ""
-
-#: admin/views/default/_js/user.js:273
-msgid "User deleted"
-msgstr ""
-
-#: admin/views/default/_js/user.js:217
-msgid "User information updated"
-msgstr ""
-
-#: admin/views/default/_js/album_users.js:65
-msgid "Viewer added"
-msgstr ""
-
-#: admin/views/default/_js/album_users.js:133
-msgid "Viewer deleted"
-msgstr ""
-
-#: admin/views/default/_js/album_users.js:90
-msgid "Viewer updated"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:716
-#: admin/views/default/_js/mail_retrieve.js:142
-#: admin/views/default/_js/mail_retrieve.js:143
-#: admin/views/default/_js/user.js:91
-msgid "Yes"
-msgstr ""
+msgid ""
+"You are about to move one item. Go to the desired folder and press <span "
+"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
+msgid_plural ""
+"You are about to move %d items. Go to the desired folder and press <span "
+"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
+msgstr[0] ""
+msgstr[1] ""
 
 #: admin/views/default/_js/filemanager.js:255
 #, javascript-format
@@ -524,16 +309,274 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/views/default/_js/filemanager.js:251
+#: admin/views/default/_js/filemanager.js:272
+msgid "Create folder"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:282
+msgid "Upload file"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:292
+msgid "Download as zip"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:324
+msgid "Move files"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:334
+msgid "Copy files"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:344
+msgid "Rename files"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:354
+msgid "Change permissions"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:364
+msgid "Add to album"
+msgstr ""
+
+#: admin/views/default/_js/filemanager.js:374
+#: admin/views/default/_js/mail_retrieve.js:123
+#: admin/views/default/_js/mail_retrieve.js:185
+msgid "Delete"
+msgstr ""
+
+#: admin/views/default/_js/login.js:55 admin/views/default/_js/login.js:119
+msgid "Login"
+msgstr ""
+
+#: admin/views/default/_js/mail_retrieve.js:14
+#, javascript-format
+msgid "Edit email account information for host <em>%s</em>"
+msgstr ""
+
+#: admin/views/default/_js/mail_retrieve.js:43
+msgid "Successfully added new email account"
+msgstr ""
+
+#: admin/views/default/_js/mail_retrieve.js:69
+msgid "Email account updated"
+msgstr ""
+
+#: admin/views/default/_js/mail_retrieve.js:93
+msgid "Successfully deleted email account"
+msgstr ""
+
+#: admin/views/default/_js/mail_retrieve.js:120
+msgid "Delete email account?"
+msgstr ""
+
+#: admin/views/default/_js/mail_retrieve.js:167
+msgid "Add email account"
+msgstr ""
+
+#: admin/views/default/_js/mail_retrieve.js:180
+#: admin/views/default/_js/user.js:308
+msgid "Update"
+msgstr ""
+
+#: admin/views/default/_js/mail_retrieve.js:232
+msgid "Add new email account"
+msgstr ""
+
+#: admin/views/default/_js/mail_server.js:13
+msgid "Delete account"
+msgstr ""
+
+#: admin/views/default/_js/mail_server.js:14
+msgid "Cancel"
+msgstr ""
+
+#: admin/views/default/_js/mail_server.js:21
 #, javascript-format
 msgid ""
-"You are about to move one item. Go to the desired folder and press <span "
-"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
-msgid_plural ""
-"You are about to move %d items. Go to the desired folder and press <span "
-"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
-msgstr[0] ""
-msgstr[1] ""
+"Delete account for user <strong>%s</strong> on server <strong>%s</strong>?"
+msgstr ""
+
+#: admin/views/default/_js/mail_server.js:25
+msgctxt "confirmation button"
+msgid "Delete mail account"
+msgstr ""
+
+#: admin/views/default/_js/stat.js:79
+msgid "No more system messages available"
+msgstr ""
+
+#: admin/views/default/_js/stat.js:95
+msgctxt "confirmation button"
+msgid "Shut down"
+msgstr ""
+
+#: admin/views/default/_js/stat.js:96
+#, javascript-format
+msgid "Proceed to shut down %s?"
+msgstr ""
+
+#: admin/views/default/_js/stat.js:97
+msgid "Shut down"
+msgstr ""
+
+#: admin/views/default/_js/stat.js:99
+msgctxt "confirmation button"
+msgid "Restart"
+msgstr ""
+
+#: admin/views/default/_js/stat.js:100
+#, javascript-format
+msgid "Proceed to restart %s?"
+msgstr ""
+
+#: admin/views/default/_js/stat.js:101
+msgid "Restart"
+msgstr ""
+
+#: admin/views/default/_js/main.js:143
+msgid "Logout"
+msgstr ""
+
+#: admin/views/default/_js/main.js:151
+msgid "Proceed with logout?"
+msgstr ""
+
+#: admin/views/default/_js/main.js:162
+msgctxt "validation message"
+msgid "This field is required."
+msgstr ""
+
+#: admin/views/default/_js/main.js:163
+msgctxt "validation message"
+msgid "Please fix this field."
+msgstr ""
+
+#: admin/views/default/_js/main.js:164
+msgctxt "validation message"
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: admin/views/default/_js/main.js:165
+msgctxt "validation message"
+msgid "Please enter a valid URL."
+msgstr ""
+
+#: admin/views/default/_js/main.js:166
+msgctxt "validation message"
+msgid "Please enter a valid date."
+msgstr ""
+
+#: admin/views/default/_js/main.js:167
+msgctxt "validation message"
+msgid "Please enter a valid date (ISO)."
+msgstr ""
+
+#: admin/views/default/_js/main.js:168
+msgctxt "validation message"
+msgid "Please enter a valid number."
+msgstr ""
+
+#: admin/views/default/_js/main.js:169
+msgctxt "validation message"
+msgid "Please enter only digits."
+msgstr ""
+
+#: admin/views/default/_js/main.js:170
+msgctxt "validation message"
+msgid "Please enter a valid credit card number."
+msgstr ""
+
+#: admin/views/default/_js/main.js:171
+msgctxt "validation message"
+msgid "Please enter the same value again."
+msgstr ""
+
+#: admin/views/default/_js/main.js:172
+msgctxt "validation message"
+msgid "Please enter a value with a valid extension."
+msgstr ""
+
+#: admin/views/default/_js/main.js:173
+msgctxt "validation message"
+msgid "Please enter no more than {0} characters."
+msgstr ""
+
+#: admin/views/default/_js/main.js:174
+msgctxt "validation message"
+msgid "Please enter at least {0} characters."
+msgstr ""
+
+#: admin/views/default/_js/main.js:175
+msgctxt "validation message"
+msgid "Please enter a value between {0} and {1} characters long."
+msgstr ""
+
+#: admin/views/default/_js/main.js:176
+msgctxt "validation message"
+msgid "Please enter a value between {0} and {1}."
+msgstr ""
+
+#: admin/views/default/_js/main.js:177
+msgctxt "validation message"
+msgid "Please enter a value less than or equal to {0}."
+msgstr ""
+
+#: admin/views/default/_js/main.js:178
+msgctxt "validation message"
+msgid "Please enter a value greater than or equal to {0}."
+msgstr ""
+
+#: admin/views/default/_js/user.js:21
+msgid "Update settings"
+msgstr ""
+
+#: admin/views/default/_js/user.js:53 admin/views/default/_js/user.js:330
+msgid "not a valid password"
+msgstr ""
+
+#: admin/views/default/_js/user.js:111
+msgid "Edit user"
+msgstr ""
+
+#: admin/views/default/_js/user.js:180
+msgid "Successfully added new user"
+msgstr ""
+
+#: admin/views/default/_js/user.js:221
+msgid "User information updated"
+msgstr ""
+
+#: admin/views/default/_js/user.js:244
+msgid "Delete this user from the system?"
+msgstr ""
+
+#: admin/views/default/_js/user.js:253
+msgid "Delete userdata?"
+msgstr ""
+
+#: admin/views/default/_js/user.js:256 admin/views/default/_js/user.js:257
+#: admin/views/default/_js/user.js:315
+msgid "Delete user"
+msgstr ""
+
+#: admin/views/default/_js/user.js:277
+msgid "User deleted"
+msgstr ""
+
+#: admin/views/default/_js/user.js:297
+msgid "Add new user"
+msgstr ""
+
+#: admin/views/default/_js/user.js:326
+msgid "not a valid username"
+msgstr ""
+
+#: admin/views/default/_js/user.js:379
+msgid "Add new user to the system"
+msgstr ""
 
 #: admin/views/default/_js/tor.js:46
 msgctxt "validation message"
@@ -545,19 +588,70 @@ msgctxt "validation message"
 msgid "You need to specify contact information"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:69
-msgctxt "button"
-msgid "edit"
+#: admin/views/default/_js/tor.js:52
+msgctxt "validation message"
+msgid "Relay port is required"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:196
-msgid "why?"
+#: admin/views/default/_js/tor.js:53 admin/views/default/_js/tor.js:59
+msgctxt "validation message"
+msgid "Only digits are allowed"
+msgstr ""
+
+#: admin/views/default/_js/tor.js:54 admin/views/default/_js/tor.js:60
+msgctxt "validation message"
+msgid "Port {0} is not valid for usage"
+msgstr ""
+
+#: admin/views/default/_js/tor.js:55
+msgctxt "validation message"
+msgid "Port is out of range"
+msgstr ""
+
+#: admin/views/default/_js/tor.js:58
+msgctxt "validation message"
+msgid "Directory port is required"
+msgstr ""
+
+#: admin/views/default/_js/tor.js:61
+msgctxt "validation message"
+msgid "Port {0} is out of range"
+msgstr ""
+
+#: admin/views/default/_js/tor.js:77
+msgid ""
+"It might take up to 20 minutes for Tor to self-test if the configuration is "
+"fully functional, please inspect the log file (Settings→Logs→tor) for "
+"verification\""
+msgstr ""
+
+#: admin/views/default/_js/tor.js:172
+msgid ""
+"<p>Enabling Tor means that your B3 will be a part of the Tor anonymizing "
+"network. This will allow users all over the world to use your B3 to protect "
+"their privacy and reach a free and open Internet. To read more about Tor, "
+"please visit https://www.torproject.org/.</p><p>Also note that enabling this "
+"service does not make your traffic anonymous.</p><p>Before enabling Tor, it "
+"is recommended that you read the Terms of Service from your Internet Service "
+"Provider. <strong>Don't enable this service if you are hesitant</strong>.</p>"
+msgstr ""
+
+#: admin/views/default/_js/tor.js:175
+msgid "Please note"
 msgstr ""
 
 #: admin/views/default/_js/wizard.js:12
 msgid "your-easyfind-name"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:493
-msgid "{0} is already in use"
+#: admin/views/default/_js/wizard.js:156
+msgid "Following errors where encountered when trying to apply the changes: "
+msgstr ""
+
+#: admin/views/default/_js/wizard.js:157
+msgid "Error applying changes"
+msgstr ""
+
+#: admin/views/default/_js/wizard.js:163
+msgid "Setup complete. Enjoy!"
 msgstr ""
