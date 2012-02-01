@@ -306,6 +306,7 @@ $(function(){
 			validationEnabled: true,
 			formPluginEnabled: true,
 			disableUIStyles: true,
+			next: false,
 			textNext: _("Next"),
 			textBack: _("Back"),
 			textSubmit: _("Complete"),
@@ -422,6 +423,7 @@ $(function(){
 			validationEnabled: true,
 			formPluginEnabled: true,
 			disableUIStyles: true,
+			next: false,
 			textNext: _("Next"),
 			textBack: _("Back"),
 			textSubmit: _("Complete"),
@@ -822,8 +824,8 @@ $(function(){
                     'width': 600,
                     'Height': 400,
                     'resizable': false,
-                    'position': ['center',200],
-                    modal: false,
+                    'position': ['center',600],
+                    modal: !true,
                     autoOpen: true,
                     open: function() {
 
@@ -835,18 +837,21 @@ $(function(){
                         });
 
 
-                        dialogs.create.dialog('widget').hide();
+                        dialogs[value].dialog('disable');
+                       dialogs[value].dialog('widget').hide();
                         return true;
                     },
                     close: function() {
                         var selected = $filemanager.filemanager('getSelected');
                         $filemanager.filemanager("destroy");
                         $('#fn-backup-'+value+'-selection-custom-selection').text(selected.join(', ')).data('selection', selected);
-                        dialogs.create.dialog('widget').show();
+                        dialogs[value].dialog('enable');
+                        dialogs[value].dialog('widget').show();
                         return true;
                     }
                 }
             );
+	return false;
         });
         // Custom browse for selection button
         $('#fn-backup-'+value+'-selection-custom-browse').button({'disabled': true});
