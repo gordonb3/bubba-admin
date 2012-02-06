@@ -56,6 +56,36 @@ class Ajax_status extends Controller {
         $this->json_data = $this->disk_model->list_fstab();
     }
 
+    function uptime($raw='') {
+        $this->load->model('system');
+        if($raw == 'raw') {
+            $this->json_data = array(
+                'uptime' => $this->system->get_raw_uptime()
+            );
+        } else {
+            $this->json_data = array(
+                'uptime' => $this->system->get_uptime()->format(_("%d days, %H:%M:%S")),
+            );
+        }
+    }
+
+    function version() {
+        $this->load->model('system');
+        $this->json_data = array(
+            'version' => $this->system->get_system_version()
+        );
+    }
+
+    function hardware() {
+        $this->load->model('system');
+        /*
+         * hwtype is 10 for B1, 20 for B2, and 30 for B3 and so on.
+         */
+        $this->json_data = array(
+            'hwtype' => $this->system->get_hardware_id()
+        );
+    }
+
     function _output($output) {
         echo json_encode($this->json_data);
     }

@@ -1,6 +1,7 @@
 <?php
 
 class System extends Model {
+    private $version;
 	public function __construct() {
 		parent::Model();
 	}
@@ -33,5 +34,37 @@ class System extends Model {
 		}
 		ksort($timezones);
 		return $timezones;
-	}
+    }
+
+    public function get_raw_uptime() {
+        $upt=file("/proc/uptime");
+        sscanf($upt[0],"%d",$secs_tot);
+        return $secs_tot;
+    }
+
+    public function get_uptime() {
+        define("MIN",60);
+        define("HOUR",3600);
+        define("DAY",86400);
+
+        $secs_tot = $this->get_raw_uptime();
+        $days = intval($secs_tot/DAY);
+        $hours = intval(($secs_tot%DAY)/HOUR);
+        $minutes = intval(($secs_tot%HOUR)/MIN);
+        $secs = intval($secs_tot%MIN);
+
+        return new DateInterval("P{$days}DT{$hours}H{$minutes}M{$secs}S");
+    }
+
+    public function get_system_version() {
+        if(!$this->version) {
+            $this->version = file_get_contents(BUBBA_VERSION);
+        }
+        return $this->version;
+    }
+
+    public function get_hardware_id() {
+        return getHWType();
+    }
+
 }
