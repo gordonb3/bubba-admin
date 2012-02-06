@@ -19,8 +19,8 @@ class Ajax_status extends Controller {
 	}
 
     function printers() {
-        $json =  _system('cups-list-printers');
-        $this->json_data = json_decode(implode($json),true);
+        $this->load->model('system');
+        $this->json_data = $this->system->list_printers();
     }
 
     function disks() {

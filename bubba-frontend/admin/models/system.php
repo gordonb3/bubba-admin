@@ -67,4 +67,8 @@ class System extends Model {
         return getHWType();
     }
 
+    public function list_printers() {
+        $json =  _system('cups-list-printers');
+        return json_decode(implode($json),true);
+    }
 }
