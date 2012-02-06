@@ -1,3 +1,11 @@
+bubba-frontend (2.4.0.3) vincent hugo; urgency=low
+
+  * Lousy hack to fix custom selection dialog (Closes: #1888)
+  * Add more function for the ajax_status (Closes: #1889)
+  * Move printer listing code into model
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 06 Feb 2012 14:46:35 +0100
+
 bubba-frontend (2.4.0.2) hugo vincent; urgency=low
 
   * Remove the broken error check when changing password
