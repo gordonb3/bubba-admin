@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-01-26 16:49+0100\n"
+"POT-Creation-Date: 2012-02-16 13:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,53 +67,53 @@ msgstr ""
 msgid "Download not found"
 msgstr ""
 
-#: admin/controllers/users.php:147 admin/controllers/wizard.php:134
+#: admin/controllers/users.php:139 admin/controllers/wizard.php:134
 msgid "User name validation failed"
 msgstr ""
 
-#: admin/controllers/users.php:150
+#: admin/controllers/users.php:142
 msgid "Fatal error when adding user"
 msgstr ""
 
-#: admin/controllers/users.php:157
+#: admin/controllers/users.php:149
 msgid "Authorization denied"
 msgstr ""
 
-#: admin/controllers/users.php:250
+#: admin/controllers/users.php:242
 msgid "Authorization failure"
 msgstr ""
 
-#: admin/controllers/users.php:263
+#: admin/controllers/users.php:255
 msgid "User information updated"
 msgstr ""
 
-#: admin/controllers/users.php:286
+#: admin/controllers/users.php:278
 msgid "Bad username"
 msgstr ""
 
-#: admin/controllers/users.php:295
+#: admin/controllers/users.php:287
 #, php-format
 msgid "Was unabler to remove the home directory for user %s"
 msgstr ""
 
-#: admin/controllers/users.php:300
+#: admin/controllers/users.php:292
 #, php-format
 msgid "Fatal error when trying to purge horde configurations for user %s"
 msgstr ""
 
-#: admin/controllers/users.php:304
+#: admin/controllers/users.php:296
 #, php-format
 msgid "Fatal error when trying to remove the user %s"
 msgstr ""
 
-#: admin/controllers/users.php:307 admin/controllers/filemanager.php:107
+#: admin/controllers/users.php:299 admin/controllers/filemanager.php:107
 #: admin/views/default/backup/backup_view.php:776
 #: admin/views/default/backup/backup_view.php:846
 #: admin/views/default/filemanager/filemanager_index_view.php:17
 msgid "Permission denied"
 msgstr ""
 
-#: admin/controllers/users.php:343
+#: admin/controllers/users.php:335
 msgid "System default"
 msgstr ""
 
@@ -2006,34 +2006,38 @@ msgid "days"
 msgstr ""
 
 #: admin/views/default/stat/stat_view.php:34
+msgid "Disk temperature"
+msgstr ""
+
+#: admin/views/default/stat/stat_view.php:38
 msgid "Attached printers"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:47
+#: admin/views/default/stat/stat_view.php:51
 msgid "Software version"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:52
+#: admin/views/default/stat/stat_view.php:56
 msgid "Software update"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:60
+#: admin/views/default/stat/stat_view.php:64
 msgid "System messages"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:79
+#: admin/views/default/stat/stat_view.php:83
 msgid "Acknowledge"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:85
+#: admin/views/default/stat/stat_view.php:89
 msgid "No system messages available"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:92
+#: admin/views/default/stat/stat_view.php:96
 msgid "Shutdown"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:93
+#: admin/views/default/stat/stat_view.php:97
 msgid "Restart"
 msgstr ""
 

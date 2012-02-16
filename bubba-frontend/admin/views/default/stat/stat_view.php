@@ -30,6 +30,10 @@
 						<? printf("%02d",$uptime[1])?>:<? printf("%02d",$uptime[2])?>:<? printf("%02d",$uptime[3])?>
                     </td>
                 </tr>
+				<tr>
+					<td class="ui-stat-list-col1"><?=_("Disk temperature")?></td>
+					<td><?=$temperature?> °C</td>
+				</tr>
                 <tr>
                     <td class="ui-stat-list-col1"><?=_("Attached printers")?></td>
 					<td>

@@ -56,6 +56,7 @@ class Stat extends Controller{
 	function index($strip=""){
 
 		$this->load->model( 'notify' );
+		$this->load->model( 'disk_model' )
 
 		if($strip=="json"){
 			$this->info();
@@ -78,6 +79,7 @@ class Stat extends Controller{
 		$sdata['percentused']=intval(100*(($totalspace-$freespace)/$totalspace));
 		$sdata['notifications'] = $this->notify->list_all();
         $sdata['printers'] = $this->_getprinters();
+		$sdata['temperature'] = $this->disk_model->get_hddtemp( '/dev/sda' );
 
 		if($strip){
 			$this->load->view(THEME.'/stat/stat_view',$sdata);
