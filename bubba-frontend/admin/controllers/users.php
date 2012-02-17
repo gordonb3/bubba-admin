@@ -143,7 +143,7 @@ class Users extends Controller{
 					}
 				}
 				if(!$error) {
-					$this->update_cfg("language",$lang,$username);
+					$this->set_language($username,$lang);
 				}
 			} else {
 				$error = _('Authorization denied');
@@ -159,7 +159,19 @@ class Users extends Controller{
 			
 		}
 	}
+	private function set_language($username, $language){
+		$languages = $this->gettext->get_languages();
+		if(isset($languages[$language])) {
+			$this->update_cfg("language",$language,$username);
 
+			$locale = $languages[$language]['locale'];
+			$this->update_cfg("locale",$locale,$username);
+			if($this->session->userdata("user") == $username) {
+				$this->session->set_userdata('language',$language);
+				$this->session->set_userdata('locale',$locale);
+			}
+		}
+	}
 	public function edit_user_account($strip=""){
 		if( $strip == 'json' ) {
 			require_once(APPPATH."/legacy/user_auth.php");
@@ -224,7 +236,7 @@ class Users extends Controller{
 				}
 				
 				if( !$error ) {
-					$this->update_cfg("language",$lang,$username);
+					$this->set_language($username, $lang);
 					if($this->session->userdata("user") == $username) {
 						$data['redraw'] = true;
 					}

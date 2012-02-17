@@ -32,7 +32,7 @@ $(document).ready(function() {
                 realname:  form.find('input[name=realname]').val(),
                 password1: form.find('input[name=password1]').val(),
                 password2: form.find('input[name=password2]').val(),
-                lang:      form.find('input[name=lang]').val(),
+                lang:      form.find('select[name=lang]').val(),
                 remote:    form.find('input[name=remote]').is(':checked') ? 'on' : '',
                 shell:     form.find('input[name=shell]').is(':checked') ? 'on' : '',
                 flashdata: 'on'
