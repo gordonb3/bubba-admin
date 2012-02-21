@@ -1,3 +1,10 @@
+bubba-frontend (2.4.0.4) vincent hugo; urgency=low
+
+  * Backporting new hddtemp function into models
+  * Use new hddtemp disk model method instead of backend one
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 21 Feb 2012 13:11:12 +0100
+
 bubba-frontend (2.4.0.3) vincent hugo; urgency=low
 
   * Lousy hack to fix custom selection dialog (Closes: #1888)
