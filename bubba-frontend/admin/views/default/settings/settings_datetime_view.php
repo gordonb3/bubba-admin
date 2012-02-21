@@ -40,7 +40,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Date:</td>
+                <td><?=_('Date')?>:</td>
 				<td><input 
 						type="text" 
 						class="timedate" 
@@ -53,7 +53,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Time:</td>
+                <td><?=_('Time')?>:</td>
 				<td><input
 						type="text"
 						class="timedate" 
