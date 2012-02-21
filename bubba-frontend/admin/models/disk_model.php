@@ -613,5 +613,9 @@ class Disk_model extends Model {
 		return json_decode( $ret, true );
 	}
 
+	function get_hddtemp( $dev ) {
+		return trim($this->_raw_system( "hddtemp", "-n", $dev ));
+	}
+
 }
 
