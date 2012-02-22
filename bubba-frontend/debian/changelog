@@ -1,3 +1,9 @@
+bubba-frontend (2.4.0.5) vincent hugo; urgency=low
+
+  * Adding free space function for bubbamon (Closes: #1889)
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 22 Feb 2012 14:51:05 +0100
+
 bubba-frontend (2.4.0.4) vincent hugo; urgency=low
 
   * Backporting new hddtemp function into models
