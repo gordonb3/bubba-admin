@@ -1,3 +1,9 @@
+bubba-frontend (2.4.0.6) vincent hugo; urgency=low
+
+  * Only show printer state if there is a state (Closes: #1899)
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 22 Feb 2012 15:23:02 +0100
+
 bubba-frontend (2.4.0.5) vincent hugo; urgency=low
 
   * Adding free space function for bubbamon (Closes: #1889)
