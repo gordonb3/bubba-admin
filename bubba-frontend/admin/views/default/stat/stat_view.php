@@ -36,7 +36,9 @@
 						<?=implode(', ', array_map(function($a){
 							$info = $a['info'];
 							if(!$a['enabled']) {
-								$info .= " ("._($a['state']).")";
+								if($a['state']) {
+									$info .= " (".$a['state'].")";
+								}
 								$info = "<span class=\"ui-printer-unplugged\">$info</span>";
 							}
 							return $info;
