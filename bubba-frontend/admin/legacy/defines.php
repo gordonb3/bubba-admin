@@ -26,7 +26,7 @@ if(isB3()) {
     define("EASYFIND", "myownb3.com");
     define("DEFAULT_HOST", "b3");
 } else {
-    define("EASYFIND", "bubbaserver.com");
+    define("EASYFIND", "myownb2.com");
 	define("NAME","Bubba|2");
     define("DEFAULT_HOST", "bubba");
 }

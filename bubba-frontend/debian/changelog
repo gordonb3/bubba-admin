@@ -1,3 +1,9 @@
+bubba-frontend (2.4.0.7) vincent hugo; urgency=low
+
+  * Change bubbaserver.com to myownb2.com
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 23 Feb 2012 14:46:19 +0100
+
 bubba-frontend (2.4.0.6) vincent hugo; urgency=low
 
   * Only show printer state if there is a state (Closes: #1899)
