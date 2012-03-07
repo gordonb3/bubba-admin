@@ -13,7 +13,7 @@ VERSION=2.3
 generate_mo: $(mo_files)
 
 %.mo: %.po
-	/usr/local/bin/msgfmt --output-file $@ --statistics --check --verbose $<
+	msgfmt --output-file $@ --statistics --check --verbose $<
 
 update_po: update_po_files=1
 update_po: $(po_files)
