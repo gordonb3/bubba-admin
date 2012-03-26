@@ -79,6 +79,11 @@ class Ajax_Settings extends Controller {
       $this->json_data = $versions;
     }
 
+  function identify() {
+	  $this->json_data = true;
+	  exec("identify_box &>/dev/null &");
+  }
+
   function update(){
       $this->load->helper('bubba_socket');
       try {
