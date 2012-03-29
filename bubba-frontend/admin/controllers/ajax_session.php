@@ -20,7 +20,11 @@ class Ajax_session extends Controller {
 	public function get_language() {
 		$this->json_data['language'] = LANGUAGE;
 	}
-	
+
+    public function get_locale() {
+        $this->json_data['locale'] = CURRENT_LOCALE;
+    }
+
 	public function get_userinfo() {
 		$this->load->model('auth_model');
 		$this->json_data['logged_in'] = $this->Auth_model->CheckAuth();
