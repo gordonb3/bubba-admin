@@ -1,6 +1,6 @@
 
 <div class="ui-state-default ui-widget-header ui-div-header"><?=_("Current version")?></div>
-<div class="ui-div-header"><?=$version?></div>
+<div class="ui-div-header" id="fn_system_version"><?=$version?></div>
 
 <div class="ui-indent-margin">
     <div class="ui-expandable ui-div-small-header"><?=_("Detailed information")?></div>

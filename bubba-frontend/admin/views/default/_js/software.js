@@ -4,6 +4,9 @@ function print_versions() {
 
         $("#package_versions_body").empty();
         jQuery.each(data, function(package_name, package_version) {
+            if(package_name == "bubba") {
+                $('#system_version').text(package_version);
+            }
 
             var tr = $("<tr />").addClass("package_row");
             tr.append(
