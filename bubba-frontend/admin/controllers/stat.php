@@ -56,7 +56,7 @@ class Stat extends Controller{
 	function index($strip=""){
 
 		$this->load->model( 'notify' );
-		$this->load->model( 'disk_model' )
+		$this->load->model( 'disk_model' );
 
 		if($strip=="json"){
 			$this->info();
