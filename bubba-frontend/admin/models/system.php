@@ -43,17 +43,9 @@ class System extends Model {
     }
 
     public function get_uptime() {
-        define("MIN",60);
-        define("HOUR",3600);
-        define("DAY",86400);
-
-        $secs_tot = $this->get_raw_uptime();
-        $days = intval($secs_tot/DAY);
-        $hours = intval(($secs_tot%DAY)/HOUR);
-        $minutes = intval(($secs_tot%HOUR)/MIN);
-        $secs = intval($secs_tot%MIN);
-
-        return new DateInterval("P{$days}DT{$hours}H{$minutes}M{$secs}S");
+        $start = new DateTime();
+        $start->sub(DateInterval::createFromDateString("{$this->get_raw_uptime()} seconds"));
+        return $start->diff(new DateTime());
     }
 
     public function get_system_version() {
