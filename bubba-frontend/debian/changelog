@@ -1,3 +1,10 @@
+bubba-frontend (2.5~pre1) vincent; urgency=low
+
+  * Update po-files
+  * Fix update minutes display
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 09 May 2012 18:10:36 +0200
+
 bubba-frontend (2.4.0.7) vincent hugo; urgency=low
 
   * Change bubbaserver.com to myownb2.com
