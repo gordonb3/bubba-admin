@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-02-16 13:25+0100\n"
+"POT-Creation-Date: 2012-05-09 15:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,7 +67,7 @@ msgstr ""
 msgid "Download not found"
 msgstr ""
 
-#: admin/controllers/users.php:139 admin/controllers/wizard.php:134
+#: admin/controllers/users.php:139 admin/controllers/wizard.php:135
 msgid "User name validation failed"
 msgstr ""
 
@@ -79,41 +79,41 @@ msgstr ""
 msgid "Authorization denied"
 msgstr ""
 
-#: admin/controllers/users.php:242
+#: admin/controllers/users.php:254
 msgid "Authorization failure"
 msgstr ""
 
-#: admin/controllers/users.php:255
+#: admin/controllers/users.php:267
 msgid "User information updated"
 msgstr ""
 
-#: admin/controllers/users.php:278
+#: admin/controllers/users.php:290
 msgid "Bad username"
 msgstr ""
 
-#: admin/controllers/users.php:287
+#: admin/controllers/users.php:299
 #, php-format
 msgid "Was unabler to remove the home directory for user %s"
 msgstr ""
 
-#: admin/controllers/users.php:292
+#: admin/controllers/users.php:304
 #, php-format
 msgid "Fatal error when trying to purge horde configurations for user %s"
 msgstr ""
 
-#: admin/controllers/users.php:296
+#: admin/controllers/users.php:308
 #, php-format
 msgid "Fatal error when trying to remove the user %s"
 msgstr ""
 
-#: admin/controllers/users.php:299 admin/controllers/filemanager.php:107
+#: admin/controllers/users.php:311 admin/controllers/filemanager.php:107
 #: admin/views/default/backup/backup_view.php:776
 #: admin/views/default/backup/backup_view.php:846
 #: admin/views/default/filemanager/filemanager_index_view.php:17
 msgid "Permission denied"
 msgstr ""
 
-#: admin/controllers/users.php:335
+#: admin/controllers/users.php:347
 msgid "System default"
 msgstr ""
 
@@ -217,7 +217,7 @@ msgid ""
 msgstr ""
 
 #: admin/controllers/settings.php:646 admin/controllers/settings.php:667
-#: admin/controllers/wizard.php:154 admin/controllers/wizard.php:166
+#: admin/controllers/wizard.php:155 admin/controllers/wizard.php:167
 #, php-format
 msgid "Easyfind failed with following error: %s"
 msgstr ""
@@ -321,12 +321,12 @@ msgid ""
 "network on %s."
 msgstr ""
 
-#: admin/controllers/wizard.php:56
+#: admin/controllers/wizard.php:57
 #: admin/views/default/settings/settings_identity_view.php:75
 msgid "your-easyfind-name"
 msgstr ""
 
-#: admin/controllers/wizard.php:157
+#: admin/controllers/wizard.php:158
 msgid "Name is not valid"
 msgstr ""
 
@@ -921,8 +921,20 @@ msgstr ""
 msgid "Auto adjust date and time"
 msgstr ""
 
+#: admin/views/default/settings/settings_datetime_view.php:43
+#: admin/views/default/backup/backup_view.php:30
+#: admin/views/default/backup/backup_view.php:765
+#: admin/views/default/backup/backup_view.php:834
+#: admin/views/default/filemanager/filemanager_index_view.php:9
+msgid "Date"
+msgstr ""
+
 #: admin/views/default/settings/settings_datetime_view.php:52
 msgid "YYYYMMDD"
+msgstr ""
+
+#: admin/views/default/settings/settings_datetime_view.php:56
+msgid "Time"
 msgstr ""
 
 #: admin/views/default/settings/settings_datetime_view.php:65
@@ -1116,13 +1128,6 @@ msgstr ""
 
 #: admin/views/default/backup/backup_view.php:27
 msgid "Timeline"
-msgstr ""
-
-#: admin/views/default/backup/backup_view.php:30
-#: admin/views/default/backup/backup_view.php:765
-#: admin/views/default/backup/backup_view.php:834
-#: admin/views/default/filemanager/filemanager_index_view.php:9
-msgid "Date"
 msgstr ""
 
 #: admin/views/default/backup/backup_view.php:48
@@ -2013,31 +2018,31 @@ msgstr ""
 msgid "Attached printers"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:51
+#: admin/views/default/stat/stat_view.php:53
 msgid "Software version"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:56
+#: admin/views/default/stat/stat_view.php:58
 msgid "Software update"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:64
+#: admin/views/default/stat/stat_view.php:66
 msgid "System messages"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:83
+#: admin/views/default/stat/stat_view.php:85
 msgid "Acknowledge"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:89
+#: admin/views/default/stat/stat_view.php:91
 msgid "No system messages available"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:96
+#: admin/views/default/stat/stat_view.php:98
 msgid "Shutdown"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:97
+#: admin/views/default/stat/stat_view.php:99
 msgid "Restart"
 msgstr ""
 
