@@ -56,6 +56,21 @@ class Ajax_status extends Controller {
 		$this->json_data = $data;
 	}
 
+	function total_space() {
+        $this->load->model('disk_model');
+		$fstab = $this->disk_model->list_fstab();
+		$data = array();
+		foreach($fstab as $entry) {
+			if(
+				preg_match("#^/(home.*)?$#", $entry['mount']) &&
+				$this->disk_model->is_mounted($entry['mount'])
+			) {
+				$data[$entry['mount']] = disk_total_space($entry['mount']);
+			}
+		}
+		$this->json_data = $data;
+	}
+
     function vgs() {
         $this->load->model('disk_model');
         $this->json_data = $this->disk_model->list_vgs();
