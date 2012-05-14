@@ -1,3 +1,15 @@
+bubba-frontend (2.5~pre2) hugo vincent; urgency=low
+
+  [ Johannes Book ]
+  * corrected misspelling
+
+  [ Carl Fürstenberg ]
+  * Adding total_space ajax query to retrieve mounted total space values
+  * update helptext pot:s
+  * Update helptext regarding hotfixes (closes: #42)
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 14 May 2012 19:01:42 +0200
+
 bubba-frontend (2.5~pre1) vincent; urgency=low
 
   * Update po-files
