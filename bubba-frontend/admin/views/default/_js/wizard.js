@@ -2,10 +2,6 @@ $.validator.addMethod('valid_username', function(value, element, params) {
     return value.length === 0 || (/^[^\-][a-z0-9 _\-]+$/.test(value) && value != 'web' && value != 'storage' && value != 'root');
 },
 jQuery.format("not a valid username"));
-$.validator.addMethod('valid_password', function(value, element, params) {
-    return (/^\w*$/).test(value);
-},
-jQuery.format("not a valid password"));
 $('#fn-wizard-easyfind-name').live('keyup',function(){
     $('#fn-current-easyfind-name').text($(this).val());
 }).live('focus', function(){
@@ -100,8 +96,7 @@ function do_run_wizard(){
 					validationOptions: {
 						rules: {
 							'admin_password1': {
-								'minlength': 2,
-								'valid_password': true
+								'minlength': 2
 							},
 
 							'admin_password2': {
@@ -122,7 +117,6 @@ function do_run_wizard(){
 
 							'password1': {
 								'minlength': 2,
-								'valid_password': true,
 								'required': function() {
 									return $('#fn-wizard-user-username').val().length > 0;
 								}

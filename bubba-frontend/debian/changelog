@@ -1,3 +1,9 @@
+bubba-frontend (2.5~pre3) hugo vincent; urgency=low
+
+  * Remove all limitations of content in user passwords (Closes: #28)
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 15 May 2012 16:07:31 +0200
+
 bubba-frontend (2.5~pre2) hugo vincent; urgency=low
 
   [ Johannes Book ]
