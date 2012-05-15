@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2011-12-07 19:02+0100\n"
-"PO-Revision-Date: 2012-01-01 23:31+0100\n"
-"Last-Translator: Johannes Book <johannes@excito.com>\n"
+"PO-Revision-Date: 2012-05-15 17:16+0100\n"
+"Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
 "Language-Team: \n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -69,10 +69,8 @@ msgstr "Avancerade brandväggsinställningar"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/network_fw.html:33
-#, fuzzy
-#| msgid "Choose 'Port forward to internal network' or 'Open {PLATFORM}|2 port' with the radio buttons. The first will open a port from Internet (WAN) to a network device in your internal network (LAN). The later one will open a port from Internet (WAN) to {PLATFORM}."
 msgid "Choose 'Port forward to internal network' or 'Open {PLATFORM} port' with the radio buttons. The first will open a port from Internet (WAN) to a network device in your internal network (LAN). The later one will open a port from Internet (WAN) to {PLATFORM}."
-msgstr "Välj 'Portvidarebefordring till internt nätverk' eller 'Öppna {PLATFORM} port' med knapparna. Den första öppnar en port från internet (WAN) till någon enhet på ditt lokala nätverk. Den adnra öppnar en port till en tjänst i {PLATFORM}. "
+msgstr "Välj 'Portvidarebefordring till internt nätverk' eller 'Öppna {PLATFORM} port' med knapparna. Den första öppnar en port från internet (WAN) till någon enhet på ditt lokala nätverk. Den andra öppnar en port från internet (WAN) till {PLATFORM}. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/network_fw.html:37
@@ -116,18 +114,5 @@ msgstr "Detta visar portvidarebefordringar. Klicka på pennan för att redigera.
 #: admin/views/default/help/en/network_wan.html:19
 #: admin/views/default/help/en/network_wlan.html:41
 #: admin/views/default/help/en/settings_trafficsettings.html:15
-#, fuzzy
 msgid "<i>Update</i> saves your changes."
-msgstr ""
-"#-#-#-#-#  network_wan.html.po (bubba-frontend 2.3)  #-#-#-#-#\n"
-"<i>Uppdatera</i> sparar dina ändringar.\n"
-"#-#-#-#-#  network_lan.html.po (bubba-frontend 2.3)  #-#-#-#-#\n"
-"<i>Uppdatera</i> sparar dina ändringar.\n"
-"#-#-#-#-#  network_wlan.html.po (bubba-frontend 2.3)  #-#-#-#-#\n"
-"<i>Uppdatera</i> sparar dina ändringar.\n"
-"#-#-#-#-#  settings_trafficsettings.html.po (bubba-frontend 2.3)  #-#-#-#-#\n"
-"<i>Uppdatera</i> sparar dina ändringar.\n"
-"#-#-#-#-#  network.html.po (bubba-frontend 2.3)  #-#-#-#-#\n"
-"<i>Uppdatera</i> sparar dina ändringar.\n"
-"#-#-#-#-#  network_fw.html.po (bubba-frontend 2.3)  #-#-#-#-#\n"
-"<i>Uppdatera</i> sparar dina ändringar. "
+msgstr "<i>Uppdatera</i> sparar dina ändringar. "

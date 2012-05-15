@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2011-08-22 21:04+0300\n"
-"PO-Revision-Date: 2012-01-01 23:17+0100\n"
-"Last-Translator: Johannes Book <johannes@excito.com>\n"
+"PO-Revision-Date: 2012-05-15 17:15+0100\n"
+"Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
 "Language-Team: \n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -24,21 +24,8 @@ msgstr ""
 #: admin/views/default/help/en/network_wan.html:19
 #: admin/views/default/help/en/network.html:21
 #: admin/views/default/help/en/settings_trafficsettings.html:15
-#, fuzzy
 msgid "<i>Update</i> saves your changes."
-msgstr ""
-"#-#-#-#-#  network_wan.html.po (bubba-frontend 2.3)  #-#-#-#-#\n"
-"<i>Uppdatera</i> sparar dina ändringar.\n"
-"#-#-#-#-#  network_lan.html.po (bubba-frontend 2.3)  #-#-#-#-#\n"
-"<i>Uppdatera</i> sparar dina ändringar.\n"
-"#-#-#-#-#  network_wlan.html.po (bubba-frontend 2.3)  #-#-#-#-#\n"
-"<i>Uppdatera</i> sparar dina ändringar.\n"
-"#-#-#-#-#  settings_trafficsettings.html.po (bubba-frontend 2.3)  #-#-#-#-#\n"
-"<i>Uppdatera</i> sparar dina ändringar.\n"
-"#-#-#-#-#  network.html.po (bubba-frontend 2.3)  #-#-#-#-#\n"
-"<i>Uppdatera</i> sparar dina ändringar.\n"
-"#-#-#-#-#  network_fw.html.po (bubba-frontend 2.3)  #-#-#-#-#\n"
-"<i>Uppdatera</i> sparar dina ändringar. "
+msgstr "<i>Uppdatera</i> sparar dina ändringar. "
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/network.html:2

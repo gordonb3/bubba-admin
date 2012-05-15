@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2011-12-07 18:58+0100\n"
-"PO-Revision-Date: 2012-01-01 22:54+0100\n"
-"Last-Translator: Johannes Book <johannes@excito.com>\n"
+"PO-Revision-Date: 2012-05-15 17:39+0100\n"
+"Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
 "Language-Team: \n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -79,22 +79,18 @@ msgstr "Välj vilken externa disk som ska inkluderas i RAID-systemet."
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/disk_raid.html:34
-#, fuzzy
-#| msgid "Click 'Create RAID array'"
 msgid "Click 'Create RAID'."
 msgstr "Klicka 'Skapa ett RAID-system'"
 
 #. type: Content of: <ol><li><p>
 #: admin/views/default/help/en/disk_raid.html:35
 msgid "<strong>Warning!</strong> Nothing may access /home while doing this operation. Make sure to exit any open ssh connections, shut down any samba/AFP connections and shut off all other services that may access /home."
-msgstr ""
+msgstr "<strong>Varning!</strong> Ingenting får vara anslutet till /home sålänge vi utför denna åtgärd. Var noga med att stänga ner alla SSH-anslutningar, alla samba/AFP anslutningar, samt övrigt som ansluter till /home."
 
 #. type: Content of: <ol><li><p>
 #: admin/views/default/help/en/disk_raid.html:36
-#, fuzzy
-#| msgid "Warning! All data on both disks will be erased. Click 'Create RAID'."
 msgid "<strong>Warning!</strong> All data on both disks will be erased."
-msgstr "Varning! All data på båda diskarna kommer att raderas. Klicka 'Skapa RAID'. "
+msgstr "<strong>Varning!</strong> All data på båda diskarna kommer att raderas."
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/disk_raid.html:38

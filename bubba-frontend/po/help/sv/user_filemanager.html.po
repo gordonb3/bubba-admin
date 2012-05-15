@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2011-10-07 14:43+0300\n"
-"PO-Revision-Date: 2012-01-04 23:32+0100\n"
-"Last-Translator: Johannes Book <johannes@excito.com>\n"
+"PO-Revision-Date: 2012-05-15 17:36+0100\n"
+"Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
 "Language-Team: \n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -32,13 +32,8 @@ msgstr "Fil- och katalogoperationer"
 #. type: Content of: <p>
 #: admin/views/default/help/en/filemanager.html:14
 #: admin/views/default/help/en/user_filemanager.html:14
-#, fuzzy
 msgid "Click files or folders and use the icons in the file function bar to perform different actions. The functions from left to right are:"
-msgstr ""
-"#-#-#-#-#  user_filemanager.html.po (bubba-frontend 2.3)  #-#-#-#-#\n"
-"Klicka på filer eller kataloger och använd ikonerna i funktionslisten för att göra olika operationer. Funktionerna är, från vänster till höger:\n"
-"#-#-#-#-#  filemanager.html.po (bubba-frontend 2.3)  #-#-#-#-#\n"
-"Klicka på filer eller kataloger och använd ikonerna i funktionslisten för att utföra olika operationer. Funktionerna, från vänster till höger, är:"
+msgstr "Klicka på filer eller kataloger och använd ikonerna i funktionslisten för att göra olika operationer. Funktionerna är, från vänster till höger:"
 
 #. type: Content of: <ul><li>
 #: admin/views/default/help/en/filemanager.html:17

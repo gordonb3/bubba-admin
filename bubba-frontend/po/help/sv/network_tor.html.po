@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2011-12-07 18:58+0100\n"
-"PO-Revision-Date: 2012-01-02 23:06+0100\n"
-"Last-Translator: Johannes Book <johannes@excito.com>\n"
+"POT-Creation-Date: 2012-04-16 15:51+0300\n"
+"PO-Revision-Date: 2012-05-15 17:18+0100\n"
+"Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
 "Language-Team: \n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -74,10 +74,8 @@ msgstr "Smeknamn"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/network_tor.html:43
-#, fuzzy
-#| msgid "The name which your relay will be known as in the Tor network.  Example: \\\"MyB3Relay\\\"."
 msgid "The name which your relay will be known as in the Tor network.  Example: \"My{PLATFORM}Relay\"."
-msgstr "Detta är namnet som din {PLATFORM} kommer att ha på Tor-nätverket. "
+msgstr "Det namn ditt relä vill bli känd som på Tor-nätverket. Exempelvis \"My{PLATFORM}Relay\"."
 
 #. type: Content of: <h4>
 #: admin/views/default/help/en/network_tor.html:46

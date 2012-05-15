@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2012-05-14 18:38+0300\n"
-"PO-Revision-Date: 2012-01-04 23:42+0100\n"
-"Last-Translator: Johannes Book <johannes@excito.com>\n"
+"PO-Revision-Date: 2012-05-15 17:30+0100\n"
+"Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
 "Language-Team: \n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -29,10 +29,8 @@ msgstr "Här ser du alla användare som finns på din {PLATFORM}. Klicka på 'Ä
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/users.html:8
-#, fuzzy
-#| msgid "To allow the administrator to lok in remote (via the WAN port) edit the adminitrator user and click '<strong>Allow remote access to system settings</strong>'."
 msgid "To allow the administrator to log in remote (via the WAN port) edit the adminitrator user and click '<strong>Allow remote access to system settings</strong>'."
-msgstr "För att låta administratören logga in utifrån (via WAN-porten), redigera administratörsanvändaren och klicka '<strong>Tillåt fjärråtkomst till systeminställningarna</stron>'."
+msgstr "För att låta administratören logga in utifrån (via WAN-porten), redigera administratörsanvändaren och klicka '<strong>Tillåt fjärråtkomst till systeminställningarna</strong>'."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/users.html:11

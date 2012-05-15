@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2011-08-22 21:04+0300\n"
-"PO-Revision-Date: 2012-01-02 23:22+0100\n"
-"Last-Translator: Johannes Book <johannes@excito.com>\n"
+"PO-Revision-Date: 2012-05-15 17:19+0100\n"
+"Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
 "Language-Team: \n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr "Skapa en användare. Click 'Next' to continue."
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings.html:27
 msgid "<strong>Step 4 - Network setup</strong>"
-msgstr ""
+msgstr "<strong>Steg 4 - Nätverksinställningar</strong>"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings.html:30
