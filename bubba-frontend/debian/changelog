@@ -1,3 +1,10 @@
+bubba-frontend (2.5~pre4) hugo vincent; urgency=low
+
+  * update pot due to removed password error string
+  * update swedish translations (closes: #84)
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 15 May 2012 17:40:17 +0200
+
 bubba-frontend (2.5~pre3) hugo vincent; urgency=low
 
   * Remove all limitations of content in user passwords (Closes: #28)
