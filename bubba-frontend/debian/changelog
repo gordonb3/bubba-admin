@@ -1,3 +1,9 @@
+bubba-frontend (2.5~pre5) vincent; urgency=low
+
+  * Check for precedence for the opcode parameter (Closes: #23)
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 21 May 2012 15:37:53 +0200
+
 bubba-frontend (2.5~pre4) hugo vincent; urgency=low
 
   * update pot due to removed password error string
