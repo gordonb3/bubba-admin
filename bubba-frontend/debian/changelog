@@ -1,8 +1,9 @@
 bubba-frontend (2.5.1) UNRELEASED; urgency=low
 
   * Check for precedence for the opcode parameter (Closes: #23)
+  * Adding is_array guards to disk controller (Closes: #77)
 
- -- Carl Fürstenberg <carl@excito.com>  Mon, 21 May 2012 15:39:36 +0200
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 21 May 2012 16:59:48 +0200
 
 bubba-frontend (2.5~pre4) hugo vincent; urgency=low
 

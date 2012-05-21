@@ -223,131 +223,140 @@ class Disk extends Controller{
 		$devices = array();
 		$legend = array();
 
-		foreach( $indevices as $dev ) {
-			switch( $dev['dev'] ) {
-			case '/dev/sda1':
-			case '/dev/sda3':
-				continue 2;
-			}
+        if(is_array($indevices)) {
+            foreach( $indevices as $dev ) {
+                switch( $dev['dev'] ) {
+                case '/dev/sda1':
+                case '/dev/sda3':
+                    continue 2;
+                }
 
-			switch( $dev['usage'] ) {
-			case 'pv':
-			case 'array':
-			case 'swap':
-				continue 2;
-			}
+                switch( $dev['usage'] ) {
+                case 'pv':
+                case 'array':
+                case 'swap':
+                    continue 2;
+                }
 
-			$c_cid = ++$cid;
-			$legend[] = array(
-				'cid' => $c_cid,
-				'name' => $dev['dev'],
-				'size' => $dev['size'] * 512  # TODO fix diskmanager
-			);
-			$cid_devices[$dev['dev']] = $c_cid;
-			$devices[$dev['dev']] = array(
-				"mounted" => $this->disk_model->is_mounted( $dev['dev'] ),
-				"mountpath" => array_key_exists( 'mountpath', $dev ) ? $dev['mountpath'] : '',
-				"label" => array_key_exists( 'label', $dev ) ? $dev['label'] : '',
-			);
-		}
+                $c_cid = ++$cid;
+                $legend[] = array(
+                    'cid' => $c_cid,
+                    'name' => $dev['dev'],
+                    'size' => $dev['size'] * 512  # TODO fix diskmanager
+                );
+                $cid_devices[$dev['dev']] = $c_cid;
+                $devices[$dev['dev']] = array(
+                    "mounted" => $this->disk_model->is_mounted( $dev['dev'] ),
+                    "mountpath" => array_key_exists( 'mountpath', $dev ) ? $dev['mountpath'] : '',
+                    "label" => array_key_exists( 'label', $dev ) ? $dev['label'] : '',
+                );
+            }
+        }
+
 
 		$cid = 7;
 
 
-		foreach($vgs as $vg) {
-			if(array_key_exists( 'lvs', $vg ) )
-				foreach( $vg['lvs'] as $lv) {
-					$c_cid = ++$cid;
-					$legend[] = array(
-						'cid' => $c_cid,
-						'name' => "$vg[name]-$lv[name]",
-						'size' => $lv['size']
-					);
-					if( "$vg[name]-$lv[name]" != "bubba-storage" ) {
-						$devices["$vg[name]-$lv[name]"] = array(
-							"mounted" =>
-							$this->disk_model->is_mounted( "/dev/$vg[name]/$lv[name]" ) or
-							$this->disk_model->is_mounted( "/dev/mapper/$vg[name]-$lv[name]" )
-							,
-							"mountpath" => $lv['mountpath'],
-						);
-					}
+        if(is_array($vgs)) {
+            foreach($vgs as $vg) {
+                if(array_key_exists( 'lvs', $vg ) )
+                    foreach( $vg['lvs'] as $lv) {
+                        $c_cid = ++$cid;
+                        $legend[] = array(
+                            'cid' => $c_cid,
+                            'name' => "$vg[name]-$lv[name]",
+                            'size' => $lv['size']
+                        );
+                        if( "$vg[name]-$lv[name]" != "bubba-storage" ) {
+                            $devices["$vg[name]-$lv[name]"] = array(
+                                "mounted" =>
+                                $this->disk_model->is_mounted( "/dev/$vg[name]/$lv[name]" ) or
+                                $this->disk_model->is_mounted( "/dev/mapper/$vg[name]-$lv[name]" )
+                                ,
+                                "mountpath" => $lv['mountpath'],
+                            );
+                        }
 
-					foreach( $lv['devices'] as $device ) {
-						preg_match( '#/dev/sd\w\d*#', $device, $matches );
-						if( $matches ) {
-							$cid_devices[$matches[0]] = $c_cid;
-						} else {
-							$cid_devices[$device] = $c_cid;
-						}
-					}
-				}
-		}
+                        foreach( $lv['devices'] as $device ) {
+                            preg_match( '#/dev/sd\w\d*#', $device, $matches );
+                            if( $matches ) {
+                                $cid_devices[$matches[0]] = $c_cid;
+                            } else {
+                                $cid_devices[$device] = $c_cid;
+                            }
+                        }
+                    }
+            }
+        }
 		
 		$cid = 14;
 
-		foreach($mds as $md) {
-			$c_cid = ++$cid;
-			$legend[] = array(
-				'cid' => $c_cid,
-				'name' => $md['dev'],
-				'size' => $md['size'] * 512 # TODO fix diskmanager
-			);
-			foreach( $md['disks'] as $disk ) {
-				$cid_devices[$disk['dev']] = $c_cid;
-			}
-		}
+        if(is_array($mds)) {
+            foreach($mds as $md) {
+                $c_cid = ++$cid;
+                $legend[] = array(
+                    'cid' => $c_cid,
+                    'name' => $md['dev'],
+                    'size' => $md['size'] * 512 # TODO fix diskmanager
+                );
+                foreach( $md['disks'] as $disk ) {
+                    $cid_devices[$disk['dev']] = $c_cid;
+                }
+            }
+        }
 
-		foreach( $disks as &$disk ) {
-			$disk['formatable'] = true;
-			if( array_key_exists( 'partitions', $disk ) ) {
-				$disk['partitions'] = $this->disk_model->array_sort( $disk['partitions'], 'dev' );
-				foreach( $disk['partitions'] as &$partition ) {
-					switch( $partition['dev'] ) {
-					case '/dev/sda1':
-					case '/dev/sda3':
-						$disk['formatable'] = false;
-						$partition['system'] = true;
-						break;
-					default:
-						$partition['cid'] =  isset($cid_devices[$partition['dev']]) ? $cid_devices[$partition['dev']] : "e";
-					}
-					switch( $partition['usage'] ) {
-					case 'pv':
-					case 'array':
-					case 'swap':
-						if(isset($cid_devices[$partition['dev']])) {
-							# broken RAID should be formattable
-							$disk['formatable'] = false;
-						}
-					}
-					if( isset($devices[$partition['dev']]) && $devices[$partition['dev']]['mounted']) {
-						$disk['formatable'] = false;
-					}
-				}
-			} else {
-						$disk['cid'] =  isset($cid_devices[$disk['dev']]) ? $cid_devices[$disk['dev']] : "e";
-			}
+        if(is_array($disks)) {
+            foreach( $disks as &$disk ) {
+                $disk['formatable'] = true;
+                if( array_key_exists( 'partitions', $disk ) ) {
+                    $disk['partitions'] = $this->disk_model->array_sort( $disk['partitions'], 'dev' );
+                    foreach( $disk['partitions'] as &$partition ) {
+                        switch( $partition['dev'] ) {
+                        case '/dev/sda1':
+                        case '/dev/sda3':
+                            $disk['formatable'] = false;
+                            $partition['system'] = true;
+                            break;
+                        default:
+                            $partition['cid'] =  isset($cid_devices[$partition['dev']]) ? $cid_devices[$partition['dev']] : "e";
+                        }
+                        switch( $partition['usage'] ) {
+                        case 'pv':
+                        case 'array':
+                        case 'swap':
+                            if(isset($cid_devices[$partition['dev']])) {
+                                # broken RAID should be formattable
+                                $disk['formatable'] = false;
+                            }
+                        }
+                        if( isset($devices[$partition['dev']]) && $devices[$partition['dev']]['mounted']) {
+                            $disk['formatable'] = false;
+                        }
+                    }
+                } else {
+                    $disk['cid'] =  isset($cid_devices[$disk['dev']]) ? $cid_devices[$disk['dev']] : "e";
+                }
 
-			# Assume sda is SATA and all other scsi are eSATA.
-			switch( $disk['bus'] ) {
-			case 'ata':
-			case 'scsi':
-				if( $disk['dev'] == '/dev/sda' ) {
-					$type = 'SATA';
-				} else {
-					$type = 'eSATA';
-				}
-				break;
-			case 'usb':
-				$type = 'USB';
-				break;
-			default:
-				$type = 'N/A';
-				break;
-			}
-			$disk['type'] = $type;
-		}
+                # Assume sda is SATA and all other scsi are eSATA.
+                switch( $disk['bus'] ) {
+                case 'ata':
+                case 'scsi':
+                    if( $disk['dev'] == '/dev/sda' ) {
+                        $type = 'SATA';
+                    } else {
+                        $type = 'eSATA';
+                    }
+                    break;
+                case 'usb':
+                    $type = 'USB';
+                    break;
+                default:
+                    $type = 'N/A';
+                    break;
+                }
+                $disk['type'] = $type;
+            }
+        }
 
 		unset( $partition );
 		unset( $disk );
