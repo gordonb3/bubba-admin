@@ -38,38 +38,42 @@ class NetworkManager extends Model {
 		define("CHANGENAME", 0x11);
 		define("GETRECORD", 0x12);
 
-		switch ($server_response['opcode']) {
-			case DBCONNECT:
-				$msg = _("Failed to connect to database.");
-				break;
-			case UPDATE:
-				$msg = _("Unable to update IP on server.");
-				break;
+        if(isset($server_response['opcode'])) {
+            switch ($server_response['opcode']) {
+            case DBCONNECT:
+                $msg = _("Failed to connect to database.");
+                break;
+            case UPDATE:
+                $msg = _("Unable to update IP on server.");
+                break;
 
-			case SETNAME:
-				$msg = _("Unable to set name on server.");
-				break;
+            case SETNAME:
+                $msg = _("Unable to set name on server.");
+                break;
 
-			case CHECKNAME:
-				$msg = _("Name not available.");
-				break;
+            case CHECKNAME:
+                $msg = _("Name not available.");
+                break;
 
-			case DISABLE:
-				$msg = _("Unable to disable 'easyfind' service.");
-				break;
+            case DISABLE:
+                $msg = _("Unable to disable 'easyfind' service.");
+                break;
 
-			case VALIDATE:
-				$msg = _("Name is not valid.");
-				break;
+            case VALIDATE:
+                $msg = _("Name is not valid.");
+                break;
 
-			case CHANGENAME:
-				$msg = _("Unable to change name on server.");
-				break;
+            case CHANGENAME:
+                $msg = _("Unable to change name on server.");
+                break;
 
-			case GETRECORD:
-				$msg = _("Unable to get record data from server.");
-				break;
-		}
+            case GETRECORD:
+                $msg = _("Unable to get record data from server.");
+                break;
+            }
+        } else {
+            $msg = _("No opcode available in the response.");
+        }
 		if(isset($server_response['msg']) && $server_response['msg']) {
 			$msg .= "<br>"._("Server responded: ") . $server_response['msg'];
 		}
