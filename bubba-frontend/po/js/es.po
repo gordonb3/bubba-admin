@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3.0.2-8-g99845c1\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-05-09 15:18+0200\n"
+"POT-Creation-Date: 2012-05-15 17:37+0200\n"
 "PO-Revision-Date: 2011-10-06 17:54+0100\n"
 "Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: admin/views/default/_js/album_users.js:30
 #: admin/views/default/_js/backup.js:221
 #: admin/views/default/_js/mail_retrieve.js:150
-#: admin/views/default/_js/user.js:99
+#: admin/views/default/_js/user.js:94
 msgid "Edit"
 msgstr "Editar"
 
@@ -61,19 +61,19 @@ msgstr "Añadir nuevo invitado"
 msgid "Update viewer"
 msgstr "Actualizar invitado"
 
-#: admin/views/default/_js/album_users.js:245
+#: admin/views/default/_js/album_users.js:239
 msgid "Add new viewer to the photo album"
 msgstr "Añadir nuevo invitado al álbum de fotos"
 
 #: admin/views/default/_js/backup.js:26 admin/views/default/_js/backup.js:46
 #: admin/views/default/_js/backup.js:310 admin/views/default/_js/backup.js:427
-#: admin/views/default/_js/wizard.js:20 admin/views/default/_js/wizard.js:97
+#: admin/views/default/_js/wizard.js:16 admin/views/default/_js/wizard.js:93
 msgid "Next"
 msgstr ""
 
 #: admin/views/default/_js/backup.js:35 admin/views/default/_js/backup.js:55
 #: admin/views/default/_js/backup.js:311 admin/views/default/_js/backup.js:428
-#: admin/views/default/_js/wizard.js:29 admin/views/default/_js/wizard.js:98
+#: admin/views/default/_js/wizard.js:25 admin/views/default/_js/wizard.js:94
 msgid "Back"
 msgstr ""
 
@@ -121,7 +121,7 @@ msgid "Please enter a valid hostname or IPv4 address"
 msgstr ""
 
 #: admin/views/default/_js/backup.js:312 admin/views/default/_js/backup.js:429
-#: admin/views/default/_js/wizard.js:99
+#: admin/views/default/_js/wizard.js:95
 msgid "Complete"
 msgstr ""
 
@@ -176,14 +176,14 @@ msgstr ""
 #: admin/views/default/_js/backup.js:720
 #: admin/views/default/_js/mail_retrieve.js:142
 #: admin/views/default/_js/mail_retrieve.js:143
-#: admin/views/default/_js/user.js:95
+#: admin/views/default/_js/user.js:90
 msgid "Yes"
 msgstr "Si"
 
 #: admin/views/default/_js/backup.js:740
 #: admin/views/default/_js/mail_retrieve.js:142
 #: admin/views/default/_js/mail_retrieve.js:143
-#: admin/views/default/_js/user.js:95
+#: admin/views/default/_js/user.js:90
 msgid "No"
 msgstr "No"
 
@@ -365,7 +365,7 @@ msgid "Add email account"
 msgstr "Añadir cuenta de correo"
 
 #: admin/views/default/_js/mail_retrieve.js:180
-#: admin/views/default/_js/user.js:308
+#: admin/views/default/_js/user.js:303
 msgid "Update"
 msgstr "Actualizar"
 
@@ -435,48 +435,44 @@ msgstr "¿Seguir con la desconexión?"
 msgid "Update settings"
 msgstr "Actualizar configuración"
 
-#: admin/views/default/_js/user.js:53 admin/views/default/_js/user.js:330
-msgid "not a valid password"
-msgstr ""
-
-#: admin/views/default/_js/user.js:111
+#: admin/views/default/_js/user.js:106
 msgid "Edit user"
 msgstr "Editar usuario"
 
-#: admin/views/default/_js/user.js:180
+#: admin/views/default/_js/user.js:175
 msgid "Successfully added new user"
 msgstr "Nuevo usuario añadido correctamente"
 
-#: admin/views/default/_js/user.js:221
+#: admin/views/default/_js/user.js:216
 msgid "User information updated"
 msgstr "Información de usuario actualizada"
 
-#: admin/views/default/_js/user.js:244
+#: admin/views/default/_js/user.js:239
 msgid "Delete this user from the system?"
 msgstr "¿Borrar este usuario del sistema?"
 
-#: admin/views/default/_js/user.js:253
+#: admin/views/default/_js/user.js:248
 msgid "Delete userdata?"
 msgstr "¿Borrar datos de usuario?"
 
-#: admin/views/default/_js/user.js:256 admin/views/default/_js/user.js:257
-#: admin/views/default/_js/user.js:315
+#: admin/views/default/_js/user.js:251 admin/views/default/_js/user.js:252
+#: admin/views/default/_js/user.js:310
 msgid "Delete user"
 msgstr "Borrar usuario"
 
-#: admin/views/default/_js/user.js:277
+#: admin/views/default/_js/user.js:272
 msgid "User deleted"
 msgstr "Usuario borrado"
 
-#: admin/views/default/_js/user.js:297
+#: admin/views/default/_js/user.js:292
 msgid "Add new user"
 msgstr "Añadir nuevo usuario"
 
-#: admin/views/default/_js/user.js:326
+#: admin/views/default/_js/user.js:321
 msgid "not a valid username"
 msgstr ""
 
-#: admin/views/default/_js/user.js:379
+#: admin/views/default/_js/user.js:368
 msgid "Add new user to the system"
 msgstr "Añadir nuevo usuario al sistema"
 
@@ -532,19 +528,19 @@ msgstr ""
 msgid "Please note"
 msgstr ""
 
-#: admin/views/default/_js/wizard.js:12
+#: admin/views/default/_js/wizard.js:8
 msgid "your-easyfind-name"
 msgstr ""
 
-#: admin/views/default/_js/wizard.js:156
+#: admin/views/default/_js/wizard.js:150
 msgid "Following errors where encountered when trying to apply the changes: "
 msgstr ""
 
-#: admin/views/default/_js/wizard.js:157
+#: admin/views/default/_js/wizard.js:151
 msgid "Error applying changes"
 msgstr ""
 
-#: admin/views/default/_js/wizard.js:163
+#: admin/views/default/_js/wizard.js:157
 msgid "Setup complete. Enjoy!"
 msgstr ""
 

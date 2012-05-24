@@ -111,4 +111,3 @@ msgstr "Detta ger dig ett sätt att välja vilken typ av trafik som du vill att 
 #: admin/views/default/help/en/network_tor.html:64
 msgid "Please read the users manual for more detailed information on this."
 msgstr "Vänligen läs användarmanualen för vidare infromation om detta. "
-

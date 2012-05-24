@@ -78,7 +78,6 @@ msgstr "Wählen Sie, welche externe Disk in das Array aufgenommen werden soll."
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/disk_raid.html:34
-#| msgid "Click 'Create RAID array'"
 msgid "Click 'Create RAID'."
 msgstr "Klicken Sie auf 'RAID erstellen'"
 
@@ -89,7 +88,6 @@ msgstr "<strong>Achtung!</strong> Unterbinden Sie alle Zugriffe auf /home währe
 
 #. type: Content of: <ol><li><p>
 #: admin/views/default/help/en/disk_raid.html:36
-#| msgid "Warning! All data on both disks will be erased. Click 'Create RAID'."
 msgid "<strong>Warning!</strong> All data on both disks will be erased."
 msgstr "<strong>Achtung!</strong> Alle Daten auf beiden Festplatten werden gelöscht."
 
@@ -184,4 +182,3 @@ msgstr "Wählen Sie, welche externe RAID-Disk in das Array aufgenommen werden so
 #: admin/views/default/help/en/disk_raid.html:85
 msgid "Warning! All user data and the storage area will be erased from the internal disk. Click 'Recover array'."
 msgstr "Warnung! Alle Benutzerdaten und der Speicherbereich auf der internen Disk werden gelöscht. Klicken Sie auf 'Array wiederherstellen'."
-

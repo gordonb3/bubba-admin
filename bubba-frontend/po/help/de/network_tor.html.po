@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2011-12-07 18:58+0100\n"
+"POT-Creation-Date: 2012-04-16 15:51+0300\n"
 "PO-Revision-Date: 2012-05-23 23:44+0100\n"
 "Last-Translator: Johannes Book <johannes@excito.com>\n"
 "Language-Team: none\n"
@@ -74,7 +74,6 @@ msgstr "Nickname"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/network_tor.html:43
-#| msgid "The name which your relay will be known as in the Tor network.  Example: \\\"MyB3Relay\\\"."
 msgid "The name which your relay will be known as in the Tor network.  Example: \"My{PLATFORM}Relay\"."
 msgstr "Der Name, unter welchem Ihr Relay im Tor Netzwerk bekannt sein wird.  Beispiel: \"MeinB3Relay\"."
 
@@ -112,4 +111,3 @@ msgstr "Ausgangsregeln (Engl. Exit policies) erlauben Ihnen, festzulegen, auf we
 #: admin/views/default/help/en/network_tor.html:64
 msgid "Please read the users manual for more detailed information on this."
 msgstr "Bitte konsultieren Sie das Benutzerhandbuch, um weitere Informationen hierzu zu erhalten."
-

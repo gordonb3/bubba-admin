@@ -43,7 +43,6 @@ msgstr "Außer dem Administrator kann jeder, der bei {PLATFORM} registriert ist,
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/user_album_albums.html:17
-#| msgid "Copy the folders containing your pictures to \\{PLATFORM}\\storage\\pictures, with for example the built in Filemanager or Windows Explorer."
 msgid "Copy the folders containing your pictures to \\{PLATFORM}\\storage\\pictures, with for example the built in File Manager or Windows Explorer."
 msgstr "Kopiere die Ordner mit Ihren Fotos zu \\{PLATFORM}\\storage\\pictures, mit z..B. den Dateimanager oder Windows Explorer"
 
@@ -54,7 +53,6 @@ msgstr "Melden Sie sich als Standardbenutzer bei {PLATFORM} an."
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/user_album_albums.html:21
-#| msgid "Click 'Filemanager'."
 msgid "Click 'File Manager'."
 msgstr "Klicken Sie auf 'Dateimanager'."
 
@@ -127,4 +125,3 @@ msgstr "Um ein Bild zu löschen, markieren Sie das Bild und klicken dann auf 'Au
 #: admin/views/default/help/en/user_album_albums.html:57
 msgid "Your photo albums will be visible by browsing to <a href='http://{DEFAULT_HOST}/album' target='_blank'>http://{DEFAULT_HOST}/album</a> (<a href='http://{DEFAULT_HOST}.local/album' target='_blank'>http://{DEFAULT_HOST}.local/album</a> if using Mac) from inside your home network, or by browsing to www.-your easyfind name-.{EASYFIND} from outside your network."
 msgstr "Betrachten Sie Ihre Fotoalben, indem Sie die Adresse <a href='http://{DEFAULT_HOST}/album' target='_blank'>http://{DEFAULT_HOST}/album</a> (<a href='http://{DEFAULT_HOST}.local/album' target='_blank'>http://{DEFAULT_HOST}.local/album</a> unter Mac Geräten) innerhalb Ihres Heimnetzwerks, oder www.-Ihr Easyfind Name-.{EASYFIND} ausserhalb Ihres Netzwerks aufrufen."
-

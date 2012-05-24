@@ -68,7 +68,6 @@ msgstr "Erweiterte Firewall-Einstellungen"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/network_fw.html:33
-#| msgid "Choose 'Port forward to internal network' or 'Open {PLATFORM}|2 port' with the radio buttons. The first will open a port from Internet (WAN) to a network device in your internal network (LAN). The later one will open a port from Internet (WAN) to {PLATFORM}."
 msgid "Choose 'Port forward to internal network' or 'Open {PLATFORM} port' with the radio buttons. The first will open a port from Internet (WAN) to a network device in your internal network (LAN). The later one will open a port from Internet (WAN) to {PLATFORM}."
 msgstr "Wähle ‘Port Weiterleitung zu internen Netzwerk', dies öffnet einen Internetport (WAN) zu einem Netzwerkgerät in Ihrem internen Netzwerk. Oder klicken Sie auf den Button '{PLATFORM} Port öffnen‘, dies öffnet einen Internetport (WAN) zum {PLATFORM}."
 
@@ -116,4 +115,3 @@ msgstr "Dies zeigt die aktivierten Portweiterleitungen an. Drücken Sie das Stif
 #: admin/views/default/help/en/settings_trafficsettings.html:15
 msgid "<i>Update</i> saves your changes."
 msgstr "<i>Aktualisieren</i> speichert Ihre Änderungen."
-

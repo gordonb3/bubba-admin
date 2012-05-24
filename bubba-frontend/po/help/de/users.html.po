@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2011-08-22 21:04+0300\n"
+"POT-Creation-Date: 2012-05-14 18:38+0300\n"
 "PO-Revision-Date: 2011-12-26 22:23+0100\n"
 "Last-Translator: René Jaun <translationservice@jaunscorner.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,9 @@ msgstr "Hier finden Sie alle Benutzer, die für Ihr {PLATFORM} registriert sind.
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/users.html:8
-msgid "To allow the administrator to lok in remote (via the WAN port) edit the adminitrator user and click '<strong>Allow remote access to system settings</strong>'."
+#, fuzzy
+#| msgid "To allow the administrator to lok in remote (via the WAN port) edit the adminitrator user and click '<strong>Allow remote access to system settings</strong>'."
+msgid "To allow the administrator to log in remote (via the WAN port) edit the adminitrator user and click '<strong>Allow remote access to system settings</strong>'."
 msgstr "Damit der Administrator sich extern einloggen kann (über den WAN-Port), bearbeiten Sie den Administrator-Benutzer und klicken auf '<strong>Remote-Zugriff auf die Systemeinstellungen erlauben</strong>'."
 
 #. type: Content of: <p>

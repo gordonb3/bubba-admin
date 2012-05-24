@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-05-15 17:37+0200\n"
+"POT-Creation-Date: 2012-05-24 14:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -559,39 +559,43 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: admin/models/networkmanager.php:43
+#: admin/models/networkmanager.php:44
 msgid "Failed to connect to database."
 msgstr ""
 
-#: admin/models/networkmanager.php:46
+#: admin/models/networkmanager.php:47
 msgid "Unable to update IP on server."
 msgstr ""
 
-#: admin/models/networkmanager.php:50
+#: admin/models/networkmanager.php:51
 msgid "Unable to set name on server."
 msgstr ""
 
-#: admin/models/networkmanager.php:54
+#: admin/models/networkmanager.php:55
 msgid "Name not available."
 msgstr ""
 
-#: admin/models/networkmanager.php:58
+#: admin/models/networkmanager.php:59
 msgid "Unable to disable 'easyfind' service."
 msgstr ""
 
-#: admin/models/networkmanager.php:62
+#: admin/models/networkmanager.php:63
 msgid "Name is not valid."
 msgstr ""
 
-#: admin/models/networkmanager.php:66
+#: admin/models/networkmanager.php:67
 msgid "Unable to change name on server."
 msgstr ""
 
-#: admin/models/networkmanager.php:70
+#: admin/models/networkmanager.php:71
 msgid "Unable to get record data from server."
 msgstr ""
 
-#: admin/models/networkmanager.php:74
+#: admin/models/networkmanager.php:75
+msgid "No opcode available in the response."
+msgstr ""
+
+#: admin/models/networkmanager.php:78
 msgid "Server responded: "
 msgstr ""
 
