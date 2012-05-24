@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2011-12-07 18:58+0100\n"
-"PO-Revision-Date: 2011-10-05 14:18+0100\n"
-"Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
+"PO-Revision-Date: 2012-05-23 23:36+0100\n"
+"Last-Translator: Johannes Book <johannes@excito.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -78,22 +78,20 @@ msgstr "Wählen Sie, welche externe Disk in das Array aufgenommen werden soll."
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/disk_raid.html:34
-#, fuzzy
 #| msgid "Click 'Create RAID array'"
 msgid "Click 'Create RAID'."
-msgstr "Klicken Sie auf 'RAID-Array erstellen'"
+msgstr "Klicken Sie auf 'RAID erstellen'"
 
 #. type: Content of: <ol><li><p>
 #: admin/views/default/help/en/disk_raid.html:35
 msgid "<strong>Warning!</strong> Nothing may access /home while doing this operation. Make sure to exit any open ssh connections, shut down any samba/AFP connections and shut off all other services that may access /home."
-msgstr ""
+msgstr "<strong>Achtung!</strong> Unterbinden Sie alle Zugriffe auf /home während der Prozess läuft. Stellen Sie sicher, dass eine evtl. aufgebaute SSH Verbindung beendet ist, ebenso alle Samba/AFP Verbindungen und beenden Sie alle Prozesse, die auf /home zugreifen könnten."
 
 #. type: Content of: <ol><li><p>
 #: admin/views/default/help/en/disk_raid.html:36
-#, fuzzy
 #| msgid "Warning! All data on both disks will be erased. Click 'Create RAID'."
 msgid "<strong>Warning!</strong> All data on both disks will be erased."
-msgstr "Warnung! Auf beiden Disks werden alle Daten gelöscht. Klicken Sie auf 'RAID erstellen'."
+msgstr "<strong>Achtung!</strong> Alle Daten auf beiden Festplatten werden gelöscht."
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/disk_raid.html:38
@@ -186,3 +184,4 @@ msgstr "Wählen Sie, welche externe RAID-Disk in das Array aufgenommen werden so
 #: admin/views/default/help/en/disk_raid.html:85
 msgid "Warning! All user data and the storage area will be erased from the internal disk. Click 'Recover array'."
 msgstr "Warnung! Alle Benutzerdaten und der Speicherbereich auf der internen Disk werden gelöscht. Klicken Sie auf 'Array wiederherstellen'."
+

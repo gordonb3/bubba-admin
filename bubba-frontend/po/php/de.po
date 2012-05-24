@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3.0.2-8-g99845c1\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2012-01-25 17:29+0100\n"
-"PO-Revision-Date: 2012-01-25 16:11+0100\n"
+"PO-Revision-Date: 2012-05-24 10:23+0100\n"
 "Last-Translator: Johannes Book <johannes@excito.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
@@ -75,7 +75,8 @@ msgstr "<p>Hierdurch werden sämtliche Daten auf dem neuen, externen Gerät gel�
 msgid "Access allowed"
 msgstr "Zugriff erlaubt"
 
-#: admin/views/default/login_view.php:56 admin/views/default/login_view.php:61
+#: admin/views/default/login_view.php:56
+#: admin/views/default/login_view.php:61
 #, php-format
 msgid "Access not granted for user '%s'."
 msgstr "Zugang für Benutzer '%s' nicht erteilt."
@@ -146,7 +147,8 @@ msgstr "Erweiterte Wireless-Einstellungen"
 msgid "Age of timeline"
 msgstr "Age of timeline"
 
-#: admin/models/menu.php:44 admin/models/menu.php:299
+#: admin/models/menu.php:44
+#: admin/models/menu.php:299
 msgctxt "menu"
 msgid "Album"
 msgstr "Fotoalbum"
@@ -168,7 +170,8 @@ msgstr "Albumname"
 msgid "Album updated"
 msgstr "Album aktualisiert"
 
-#: admin/models/menu.php:305 admin/models/menu.php:316
+#: admin/models/menu.php:305
+#: admin/models/menu.php:316
 msgctxt "menu"
 msgid "Albums"
 msgstr "Alben"
@@ -243,7 +246,8 @@ msgstr "Angeschlossene Drucker"
 msgid "Authorization denied"
 msgstr "Autorisierung verweigert"
 
-#: admin/controllers/mail.php:104 admin/controllers/mail.php:147
+#: admin/controllers/mail.php:104
+#: admin/controllers/mail.php:147
 #: admin/controllers/mail.php:190
 msgid "Authorization failed"
 msgstr "Autorisierung fehlgeschlagen"
@@ -373,7 +377,8 @@ msgstr "Berechtigungen ändern"
 msgid "Change timezone"
 msgstr "Zeitzone ändern"
 
-#: admin/controllers/ajax_network.php:41 admin/controllers/ajax_network.php:42
+#: admin/controllers/ajax_network.php:41
+#: admin/controllers/ajax_network.php:42
 #: admin/controllers/ajax_network.php:43
 msgid "Changing network parameters may require a restart of your computer."
 msgstr "Änderung der Netzwerkeinstellungen kann einen Neustart Ihres Computers erfordern."
@@ -662,7 +667,8 @@ msgstr "Herunterladen"
 msgid "Downloads"
 msgstr "Downloads"
 
-#: admin/models/menu.php:55 admin/models/menu.php:325
+#: admin/models/menu.php:55
+#: admin/models/menu.php:325
 msgctxt "menu"
 msgid "Downloads"
 msgstr "Downloads"
@@ -675,8 +681,10 @@ msgstr "Verwenden Sie die Drag und Drop-Funktion, um Foton/Alben zu verschieben"
 msgid "Each day"
 msgstr "Täglich"
 
-#: admin/controllers/settings.php:646 admin/controllers/settings.php:667
-#: admin/controllers/wizard.php:154 admin/controllers/wizard.php:166
+#: admin/controllers/settings.php:646
+#: admin/controllers/settings.php:667
+#: admin/controllers/wizard.php:154
+#: admin/controllers/wizard.php:166
 #, php-format
 msgid "Easyfind failed with following error: %s"
 msgstr "Easyfind fehlgeschlagen mit folgendem Fehler: %s"
@@ -703,7 +711,8 @@ msgstr "Entweder keine Karte für ein wireless Netzwerk verfügbar oder es ist k
 msgid "Email"
 msgstr "E-Mail"
 
-#: admin/models/menu.php:273 admin/models/menu.php:291
+#: admin/models/menu.php:273
+#: admin/models/menu.php:291
 msgctxt "menu"
 msgid "Email"
 msgstr "E-Mail"
@@ -905,7 +914,8 @@ msgstr "Erstellen eines fstab Eintrages für %s mit %s fehlgeschlagen"
 msgid "Failed to delete following files/folders: %s"
 msgstr "Das Löschen der folgenden Dateien/Ordner ist fehlgeschlagen: %s"
 
-#: admin/models/disk_model.php:246 admin/models/disk_model.php:298
+#: admin/models/disk_model.php:246
+#: admin/models/disk_model.php:298
 #, php-format
 msgid "Failed to find suitable mount path for partition %s"
 msgstr "Finden eines geeigneten Einhängepfades für Partition %s fehlgeschlagen"
@@ -972,7 +982,8 @@ msgstr "Schwerwiegender Fehler beim Versuch, die Horde Konfigurationen für Benu
 msgid "Fatal error when trying to remove the user %s"
 msgstr "Schwerwiegender Fehler beim Versuch, den Benutzer %s zu entfernen"
 
-#: admin/models/menu.php:25 admin/models/menu.php:104
+#: admin/models/menu.php:25
+#: admin/models/menu.php:104
 msgctxt "menu"
 msgid "File Manager"
 msgstr "Dateimanager"
@@ -1040,7 +1051,8 @@ msgstr "E-Mail für Domäne verarbeiten"
 msgid "Help"
 msgstr "Hilfe"
 
-#: admin/models/menu.php:351 admin/views/default/main_view.php:278
+#: admin/models/menu.php:351
+#: admin/views/default/main_view.php:278
 msgid "Home"
 msgstr "Home"
 
@@ -1562,7 +1574,8 @@ msgstr "Partitionen"
 msgid "Password"
 msgstr "Password"
 
-#: admin/controllers/users.php:307 admin/controllers/filemanager.php:107
+#: admin/controllers/users.php:307
+#: admin/controllers/filemanager.php:107
 #: admin/views/default/backup/backup_view.php:776
 #: admin/views/default/backup/backup_view.php:846
 #: admin/views/default/filemanager/filemanager_index_view.php:17
@@ -1581,7 +1594,8 @@ msgstr "Bitte die Benutzeranleitung für Hinweise lesen."
 msgid "Please replace the disk (also press \"Remove\" below to acknowledge the removal of the disk)"
 msgstr "Die Festplatte bitte ersetzen (ebenfalls unten \"Entfernen\" drücken, um das Entfernen des Datenträgers zu bestätigen)"
 
-#: admin/controllers/ajax_network.php:41 admin/controllers/ajax_network.php:42
+#: admin/controllers/ajax_network.php:41
+#: admin/controllers/ajax_network.php:42
 #: admin/controllers/ajax_network.php:43
 #, php-format
 msgid "Please see the manual on how to connect your computer to %s."
@@ -1602,7 +1616,7 @@ msgstr "Bitte warten..."
 
 #: admin/views/default/network/network_fw_view.php:187
 msgid "Port forward to internal network"
-msgstr "Vorwärts an internes Netzwerk übertragen"
+msgstr "Portweiterleitung an internes Netzwerk"
 
 #: admin/views/default/network/network_wan_view.php:79
 #: admin/views/default/network/network_lan_view.php:177
@@ -1956,9 +1970,8 @@ msgid "Source IP"
 msgstr "Quellen-IP"
 
 #: admin/views/default/services/services_view.php:34
-#, fuzzy
 msgid "Squeezebox Server (Logitech)"
-msgstr "Squeezebox Server"
+msgstr "Squeezebox Server (Logitech)"
 
 #: admin/views/default/settings/settings_view.php:5
 msgid "Start setup wizard"
@@ -2263,7 +2276,8 @@ msgstr "Easyfind aktualisieren"
 msgid "Update hostname and workgroup"
 msgstr "Hostname und Arbeitsgruppe aktualisieren"
 
-#: admin/controllers/settings.php:678 admin/controllers/mail.php:223
+#: admin/controllers/settings.php:678
+#: admin/controllers/mail.php:223
 #: admin/controllers/mail.php:252
 msgid "Update successful"
 msgstr "Aktualisierung erfolgreich"
@@ -2340,7 +2354,8 @@ msgstr "Vom Benutzer definierte offene / weitergeleitete Ports"
 msgid "User information"
 msgstr "Benutzerinformation"
 
-#: admin/models/menu.php:267 admin/models/menu.php:286
+#: admin/models/menu.php:267
+#: admin/models/menu.php:286
 msgctxt "menu"
 msgid "User information"
 msgstr "Benutzerinformation"
@@ -2364,11 +2379,13 @@ msgstr "Sprache"
 msgid "User name"
 msgstr "Benutzername"
 
-#: admin/controllers/users.php:147 admin/controllers/wizard.php:134
+#: admin/controllers/users.php:147
+#: admin/controllers/wizard.php:134
 msgid "User name validation failed"
 msgstr "Überprüfung des Benutzernamens fehlgeschlagen"
 
-#: admin/models/menu.php:76 admin/models/menu.php:261
+#: admin/models/menu.php:76
+#: admin/models/menu.php:261
 #: admin/models/menu.php:280
 msgctxt "menu"
 msgid "User settings"
@@ -2387,7 +2404,8 @@ msgstr "Benutzername bereits vorhanden"
 msgid "Users"
 msgstr "Benutzer"
 
-#: admin/models/menu.php:117 admin/models/menu.php:311
+#: admin/models/menu.php:117
+#: admin/models/menu.php:311
 msgctxt "menu"
 msgid "Users"
 msgstr "Benutzer"
@@ -2400,7 +2418,8 @@ msgstr "Überprüfung beim Hinzufügen des Benutzerkontos fehlgeschlagen"
 msgid "Validation failed when editing user account"
 msgstr "Überprüfung beim Bearbeiten des Benutzerkontos fehlgeschlagen"
 
-#: admin/controllers/mail.php:112 admin/controllers/mail.php:166
+#: admin/controllers/mail.php:112
+#: admin/controllers/mail.php:166
 #: admin/controllers/mail.php:198
 msgid "Validation of input failed"
 msgstr "Prüfung des Eingangs fehlgeschlagen"
@@ -2452,10 +2471,9 @@ msgid "Was unabler to remove the home directory for user %s"
 msgstr "Entfernen des Home Verzeichnisses für Benutzer %s war nicht möglich"
 
 #: admin/models/menu.php:65
-#, fuzzy
 msgctxt "menu"
 msgid "Webmail"
-msgstr "E-Mail"
+msgstr "Webmail"
 
 #: admin/views/default/network/network_tor_view.php:196
 msgctxt "label"
@@ -2550,7 +2568,8 @@ msgstr "Dateimanager"
 msgid "half a year"
 msgstr "Halbjährlich"
 
-#: admin/controllers/settings.php:429 admin/controllers/settings.php:430
+#: admin/controllers/settings.php:429
+#: admin/controllers/settings.php:430
 msgid "n/a"
 msgstr "n/a"
 
@@ -2580,6 +2599,7 @@ msgid "your-easyfind-name"
 msgstr "Ihr-easyfind-Name"
 
 #~ msgctxt "menu"
+
 #~ msgid "PIM"
 #~ msgstr "PIM"
 
