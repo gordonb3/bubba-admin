@@ -1,8 +1,9 @@
 bubba-frontend (2.5~pre6) hugo vincent; urgency=low
 
   * Fix update of main version (Closes: #105)
+  * Flush translation files and templates
 
- -- Carl Fürstenberg <carl@excito.com>  Thu, 24 May 2012 14:14:02 +0200
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 24 May 2012 14:24:31 +0200
 
 bubba-frontend (2.5~pre5) vincent; urgency=low
 
