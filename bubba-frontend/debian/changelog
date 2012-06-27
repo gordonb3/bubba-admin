@@ -1,3 +1,9 @@
+bubba-frontend (2.5.1~pre1) hugo vincent; urgency=low
+
+  * Implementing dynamic querying of backups (Closes: #129, #38)
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 27 Jun 2012 13:05:08 +0200
+
 bubba-frontend (2.5~pre6) hugo vincent; urgency=low
 
   * Fix update of main version (Closes: #105)

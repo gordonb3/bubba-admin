@@ -28,24 +28,24 @@
             .appendTo( 'body' ) // force to be in body
             .addClass('ui-throbber');
 
-            self.throbber = $('<div/>',
-                {
+            self.throbber = $('<div/>', 
+                { 
                     'class': 'ui-throbber-image'
                 }
                 )
                 .appendTo( self.element );
 
-            self.overlay = $('<div/>',
-                {
+            self.overlay = $('<div/>', 
+                { 
                     'class': 'ui-throbber-overlay'
                 }
                 )
                 .hide()
             .appendTo( 'body' );
 
-            self.lb = $('<div/>',
+            self.lb = $('<div/>', 
                 {
-                    'html': "",
+                    'html': "", 
                     'class': "ui-throbber-label ui-corner-all"
                 }
                 )
@@ -54,8 +54,8 @@
 
 
             if (self.options.hidden) {
-                self.element.hide();
-                self.overlay.hide();
+                self.element.hide(); 
+                self.overlay.hide(); 
             } else {
                 self.element.fadeIn('fast');
                 if(self.options.showlabel) {
@@ -134,7 +134,7 @@
                 if( self.options.overlay ) {
                     self.overlay.hide();
                 }
-            }
+            }	   
         },
         destroy: function() {
             $.Widget.prototype.destroy.apply(this, arguments); // default destroy
