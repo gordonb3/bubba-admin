@@ -81,6 +81,9 @@ class Backup extends Model {
 
     public function old_list_backups($job) {
         $settings = $this->get_settings($job);
+        if(xcache_isset("backup_collection:$job")) {
+            return xcache_get("backup_collection:$job");
+        }
 
         $data = $this->_run_duplicity($job, 'collection-status', '--num-retries', 2);
         $collection_status = $this->_grep_duplicity_log($data, 'INFO', 3);
@@ -94,6 +97,7 @@ class Backup extends Model {
                 );
 
             }, $m);
+            xcache_set("backup_collection:$job", $m, 3600);
 
             return $m;
         } else {
@@ -189,15 +193,15 @@ class Backup extends Model {
         }
 
         if(
-            $settings["target_protocol"] == 'scp' ||
-            $settings["target_protocol"] == 'FTP'
+            strtolower($settings["target_protocol"] == 'ssh') ||
+            strtolower($settings["target_protocol"]) == 'ftp'
         ){
             if(isset($settings["target_keypath"])) {
                 $ret['cmd'][] = '--ssh-options';
                 $ret['cmd'][] = "-oIdentityFile='$settings[target_keypath]'";
             } else {
                 $ret['env']['FTP_PASSWORD'] = $settings['target_FTPpasswd'];
-                if( $settings['target_protocol'] == 'ssh' ) {
+                if( strtolower($settings['target_protocol'] == 'ssh') ) {
                     $ret['cmd'][] = '--ssh-askpass';
                     $ret['cmd'][] = '--ssh-options';
                     $ret['cmd'][] = "-oStrictHostKeyChecking='no' -oConnectTimeout='5'";
@@ -340,6 +344,42 @@ class Backup extends Model {
             }
         }
         return $settings;
+    }
+    public function old_get_restore_data_list($job, $date) {
+        $dupdate = date_create($date)->format("c");
+        if(xcache_isset("backup_file_list:$job:$dupdate")) {
+            $ret = xcache_get("backup_file_list:$job:$dupdate");
+            return $ret;
+        }
+        $settings = $this->get_settings($job);
+        $data = $this->_run_duplicity($job, 'list-current-files', '--num-retries', 2, '--time', $dupdate );
+        $list = $this->_grep_duplicity_log($data, 'INFO', 10);
+        $ret = array();
+        if( count( $list ) ) {
+            $non_backup_found = false;
+            $ret = array_filter(array_map(function($a) {
+                if(preg_match("#(?P<datetime>.+) '(?P<path>.+)'#m", $a, $m)) {
+                    if(preg_match("#\sadmin/(?!\.backup).*#", $m['path'])) {
+                        $non_backup_found = true;
+                    }
+                    return array(
+                        'date' => date_create($m['datetime'])->format("r"),
+                        'path' => $m['path']
+                    );
+                }
+            }, $list));
+            $ret = array_filter($ret, function($a){
+                return $a['path'] != '.';
+                });
+
+            if(!$non_backup_found) {
+                $ret = array_filter($ret, function($a){
+                    return !preg_match('#^admin#', $a['path']);
+                });
+            }
+        }
+        xcache_set("backup_file_list:$job:$dupdate", $ret, 3600);
+        return $ret;
     }
 
     public function get_restore_data_list($job, $date) {
@@ -552,6 +592,7 @@ class Backup extends Model {
     }
 
     public function run($jobname) {
+        xcache_unset("backup_collection:$jobname");
         $cmd = array(BACKUP, "backup", 'admin', $jobname);
 
         $proc = proc_open(escapeshellargs($cmd)." &", array(), $pipes, '/');

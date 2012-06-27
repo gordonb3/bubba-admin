@@ -1869,6 +1869,16 @@ table.ui-table-two-col tbody td, table.ui-table-two-col tbody th {
 	z-index: 9999;
 }
 
+.ui-throbber-label {
+	position: fixed;
+	margin: 0;
+	padding: 0.5em;
+	border: 0;
+	z-index: 9999;
+    background-color: #333;
+    color: #ddd;
+
+}
 .ui-throbber-overlay {
 	position: fixed;
 	z-index: 99999;

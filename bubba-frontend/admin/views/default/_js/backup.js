@@ -792,11 +792,13 @@ $(function(){
 		$('.fn-backup-job-entry').removeClass('ui-filemanager-state-selected');
 		$(this).addClass('ui-filemanager-state-selected');
         var name = $(this).data('job');
+        $.throbber.show(_("Retrieving data for selected backup job. Please stand by"));
         $.post(
             config.prefix + "/ajax_backup/get_backup_job_information",
             {'name': name},
             function(data) {
                 update_backup_job_information(name, data);
+                $.throbber.hide();
             },
             "json"
         );

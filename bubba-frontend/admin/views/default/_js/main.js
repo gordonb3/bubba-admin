@@ -70,11 +70,17 @@ function update_status($success,$msg) {
 var globalThrobber = null;
 
 $.throbber = {
-	show: function() {
+	show: function(text) {
 		if( ! globalThrobber ) {
 			globalThrobber = $('<div />').appendTo( 'body' );
 			globalThrobber.throbber();
-		}
+        }
+        if( text ) {
+            globalThrobber.throbber('option', 'showlabel', true);
+            globalThrobber.throbber('option', 'label', text);
+        } else {
+            globalThrobber.throbber('option', 'showlabel', false);
+        }
 		globalThrobber.throbber('show');
 	},
 	hide: function() {

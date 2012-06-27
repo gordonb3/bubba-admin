@@ -105,7 +105,7 @@ class Ajax_backup extends Controller {
 
     function get_backup_job_information() {
         $name = $this->input->post("name");
-        $this->json_data = $this->backup->list_backups($name);
+        $this->json_data = $this->backup->old_list_backups($name);
     }
 
     public function get_restore_data() {
@@ -125,7 +125,7 @@ class Ajax_backup extends Controller {
 
         $map = array();
 
-        foreach( $this->backup->get_restore_data_list($name, $date) as $entry ) {
+        foreach( $this->backup->old_get_restore_data_list($name, $date) as $entry ) {
             if( preg_match("#^".preg_quote($subpath, "#")."(?P<given>.*)#", $entry['path'], $m) && $m['given'] != '' ) {
                 $map[$m['given']] = $entry['date'];
             }
