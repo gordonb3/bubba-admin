@@ -317,7 +317,7 @@ jQuery.widget("ui.filemanager", {
                     jQuery("<span/>", {
                         text: "",
                         'class': 'ui-filemanager-next-arrow ui-icon ' + self.options.nextDirIcon
-                    })).data('path', path).bind('click.filemanager', function() {
+                    })).data('path', path).unbind('click.filemanager').bind('click.filemanager', function() {
                         self._dirCallback.apply(self, [this, {
                             path: path
                         }]);
@@ -328,7 +328,7 @@ jQuery.widget("ui.filemanager", {
                     jQuery("<span/>", {
                         text: "",
                         'class': 'ui-filemanager-next-arrow ui-icon ' + self.options.fileDownloadIcon
-                    })).data('path', path).bind('click.filemanager', function() {
+                    })).data('path', path).unbind('click.filemanager').bind('click.filemanager', function() {
                         self._fileCallback.apply(self, [this, {
                             path: path
                         }]);
