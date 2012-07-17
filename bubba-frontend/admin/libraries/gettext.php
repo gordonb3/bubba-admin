@@ -11,8 +11,8 @@ class Gettext {
 		$this->core =& get_instance();
 		$this->domain = $this->core->config->item('textdomain');
 		$this->path = $this->core->config->item('lang_path');
-		setlocale(LC_MESSAGES, CURRENT_LOCALE);
-		setlocale(LC_TIME, CURRENT_LOCALE);
+		setlocale(LC_MESSAGES, CURRENT_LOCALE.".UTF8");
+		setlocale(LC_TIME, CURRENT_LOCALE.".UTF8");
 		bindtextdomain($this->domain, $this->path);
 		textdomain($this->domain);
 		bind_textdomain_codeset($this->domain, 'UTF-8');

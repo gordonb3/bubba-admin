@@ -42,8 +42,8 @@ class wizard extends Controller {
         } else {
             $locale = "en_US";
         }
-        setlocale(LC_MESSAGES, $locale);
-        setlocale(LC_TIME, $locale);
+        setlocale(LC_MESSAGES, $locale.".UTF8");
+        setlocale(LC_TIME, $locale.".UTF8");
 
         # Timezones
 
