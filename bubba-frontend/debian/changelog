@@ -1,3 +1,12 @@
+bubba-frontend (2.5.1~pre2) hugo vincent; urgency=low
+
+  * beautifying filemanager js code
+  * unbind click.filemanager before binding it (Closes: #145)
+  * update jquery.dataTables.js to latest release
+  * Add character encoding information to setlocale (Closes: #136)
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 17 Jul 2012 17:02:26 +0200
+
 bubba-frontend (2.5.1~pre1) hugo vincent; urgency=low
 
   * Implementing dynamic querying of backups (Closes: #129, #38)
