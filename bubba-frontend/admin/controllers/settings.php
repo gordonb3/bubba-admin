@@ -600,7 +600,7 @@ class Settings extends Controller{
 					# Hostname is updated
 					if(preg_match("/^[A-Za-z0-9-]+$/",$hostname)){
 						# Valid hostname given
-						if(change_hostname($hostname)){
+            if($this->networkmanager->set_hostname($hostname)){
 							# we failed to update hostname
 							throw new Exception(_("Failed to change hostname"));
 						}

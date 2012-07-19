@@ -134,7 +134,45 @@ class NetworkManager extends Model {
 
 	public function get_easyfind() {
 		return get_easyfind();
-	}
+  }
+
+  private function _get_ip($if) {
+    $ip = _system('ip', '-4', '-o', 'addr', 'show', 'dev', $if);
+    if(preg_match("#inet (?P<ip>\d+\.\d+\.\d+\.\d+)/24#", $ip[0], $m)) {
+      return $m['ip'];
+    } else {
+      return '127.0.0.1';
+    }
+  }
+
+  public function set_hostname($name) {
+    file_put_contents('/etc/hostname', $name);
+    file_put_contents('/etc/mailname', "$name.localdomain");
+    _system('hostname', '-F', '/etc/hostname');
+
+    $lanip = $this->_get_ip($this->get_lan_interface());
+
+    $hosts = file_get_contents('/usr/share/bubba-backend/hosts.in');
+    str_replace(
+      array('@LANIP@', '@NAME@'),
+      array($lanip, $name),
+      $hosts
+    );
+    file_put_contents('/etc/hosts', $hosts);
+
+    $dhclient = explode("\n", file_get_contents('/etc/dhcp/dhclient.conf'));
+    $dhclient = preg_grep("#send host-name#", $dhclient, PREG_GREP_INVERT);
+    $dhclient[] = "send host-name \"$name\";";
+
+    file_put_contents('/etc/dhcp/dhclient.conf', implode( "\n", $dhclient));
+    $this->ifrestart($this->get_lan_interface());
+    $this->ifrestart($this->get_wan_interface());
+
+    $proftpd = file_get_contents("/etc/proftpd/proftpd.conf");
+    $proftpd = preg_replace("#ServerName\s*\"[\w-]*\"#", "ServerName\t\t\t\"$name\"", $proftpd);
+    file_put_contents("/etc/proftpd/proftpd.conf", $proftpd);
+    $this->_restart_services($this->get_lan_interface());
+  }
 
 	function set_auto($restart_lan = true, $restart_wan = true) {
 		$this->setdynamic($this->get_wan_interface());
