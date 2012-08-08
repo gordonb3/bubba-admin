@@ -1,3 +1,12 @@
+bubba-frontend (2.5.1~pre3) vincent hugo; urgency=low
+
+  * Check for precedence for the opcode parameter (Closes: #23)
+  * Adding is_array guards to disk controller (Closes: #77)
+  * Do only display temperature if temperature for disk is available (Closes: #115)
+  * rewrite of hostname update code (Closes: #31)
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 08 Aug 2012 16:26:35 +0200
+
 bubba-frontend (2.5.1~pre2) hugo vincent; urgency=low
 
   * beautifying filemanager js code
