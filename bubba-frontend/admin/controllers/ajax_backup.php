@@ -361,7 +361,7 @@ class Ajax_backup extends Controller {
                 throw new Exception("file protocol without target disk");
             }
 
-            if( !in_array($selection, array('data', 'email', 'music', 'photo', 'video', 'storage', 'custom')) ) {
+            if( !in_array($selection, array('data', 'email', 'music', 'pictures', 'video', 'storage', 'custom')) ) {
                 throw new Exception("invalid schedule type");
             }
 
@@ -452,8 +452,8 @@ class Ajax_backup extends Controller {
             case 'music':
                 $include[] = '/home/storage/music';
                 break;
-            case 'photo':
-                $include[] = '/home/storage/photo';
+            case 'pictures':
+                $include[] = '/home/storage/pictures';
                 break;
             case 'video':
                 $include[] = '/home/storage/video';

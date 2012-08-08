@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-05-15 17:37+0200\n"
+"POT-Creation-Date: 2012-08-08 17:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -190,11 +190,15 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:813
+#: admin/views/default/_js/backup.js:795
+msgid "Retrieving data for selected backup job. Please stand by"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:815
 msgid "File/Directory selector"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:816
+#: admin/views/default/_js/backup.js:818
 msgctxt "button"
 msgid "Select"
 msgstr ""
@@ -435,11 +439,11 @@ msgstr ""
 msgid "Restart"
 msgstr ""
 
-#: admin/views/default/_js/main.js:143
+#: admin/views/default/_js/main.js:149
 msgid "Logout"
 msgstr ""
 
-#: admin/views/default/_js/main.js:151
+#: admin/views/default/_js/main.js:157
 msgid "Proceed with logout?"
 msgstr ""
 

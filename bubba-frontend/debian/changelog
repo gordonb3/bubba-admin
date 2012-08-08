@@ -1,3 +1,9 @@
+bubba-frontend (2.5.1~pre4) vincent hugo; urgency=low
+
+  * Change photo(s) to pictures (Closes: #159)
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 08 Aug 2012 17:22:44 +0200
+
 bubba-frontend (2.5.1~pre3) vincent hugo; urgency=low
 
   * Check for precedence for the opcode parameter (Closes: #23)

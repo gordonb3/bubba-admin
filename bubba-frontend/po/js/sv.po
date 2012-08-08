@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-05-09 15:18+0200\n"
+"POT-Creation-Date: 2012-08-08 17:19+0200\n"
 "PO-Revision-Date: 2012-05-24 11:03+0100\n"
 "Last-Translator: Johannes Book <johannes@excito.com>\n"
 "Language-Team: \n"
@@ -21,7 +21,7 @@ msgstr ""
 #: admin/views/default/_js/album_users.js:30
 #: admin/views/default/_js/backup.js:221
 #: admin/views/default/_js/mail_retrieve.js:150
-#: admin/views/default/_js/user.js:99
+#: admin/views/default/_js/user.js:94
 msgid "Edit"
 msgstr "Ändra"
 
@@ -62,25 +62,19 @@ msgstr "Lägg till ny användare"
 msgid "Update viewer"
 msgstr "Uppdatera albumanvändare"
 
-#: admin/views/default/_js/album_users.js:245
+#: admin/views/default/_js/album_users.js:239
 msgid "Add new viewer to the photo album"
 msgstr "Lägg till ny användare till fotoalbumet"
 
-#: admin/views/default/_js/backup.js:26
-#: admin/views/default/_js/backup.js:46
-#: admin/views/default/_js/backup.js:310
-#: admin/views/default/_js/backup.js:427
-#: admin/views/default/_js/wizard.js:20
-#: admin/views/default/_js/wizard.js:97
+#: admin/views/default/_js/backup.js:26 admin/views/default/_js/backup.js:46
+#: admin/views/default/_js/backup.js:310 admin/views/default/_js/backup.js:427
+#: admin/views/default/_js/wizard.js:16 admin/views/default/_js/wizard.js:93
 msgid "Next"
 msgstr "Nästa"
 
-#: admin/views/default/_js/backup.js:35
-#: admin/views/default/_js/backup.js:55
-#: admin/views/default/_js/backup.js:311
-#: admin/views/default/_js/backup.js:428
-#: admin/views/default/_js/wizard.js:29
-#: admin/views/default/_js/wizard.js:98
+#: admin/views/default/_js/backup.js:35 admin/views/default/_js/backup.js:55
+#: admin/views/default/_js/backup.js:311 admin/views/default/_js/backup.js:428
+#: admin/views/default/_js/wizard.js:25 admin/views/default/_js/wizard.js:94
 msgid "Back"
 msgstr "Tillbaka"
 
@@ -127,9 +121,8 @@ msgstr "Endast bokstäver och siffror är tillåtna i namnet"
 msgid "Please enter a valid hostname or IPv4 address"
 msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
-#: admin/views/default/_js/backup.js:312
-#: admin/views/default/_js/backup.js:429
-#: admin/views/default/_js/wizard.js:99
+#: admin/views/default/_js/backup.js:312 admin/views/default/_js/backup.js:429
+#: admin/views/default/_js/wizard.js:95
 msgid "Complete"
 msgstr "Slutför"
 
@@ -141,8 +134,7 @@ msgstr "{0} är tyvärr upptaget"
 msgid "Are you sure you want to permanently remove this backup job?"
 msgstr "Vill du verkligen ta bort detta backup-jobb?"
 
-#: admin/views/default/_js/backup.js:599
-#: admin/views/default/_js/backup.js:602
+#: admin/views/default/_js/backup.js:599 admin/views/default/_js/backup.js:602
 msgid "Remove backup job"
 msgstr "Ta bort backup-jobb"
 
@@ -185,22 +177,26 @@ msgstr "Bekräfta återställning"
 #: admin/views/default/_js/backup.js:720
 #: admin/views/default/_js/mail_retrieve.js:142
 #: admin/views/default/_js/mail_retrieve.js:143
-#: admin/views/default/_js/user.js:95
+#: admin/views/default/_js/user.js:90
 msgid "Yes"
 msgstr "Ja"
 
 #: admin/views/default/_js/backup.js:740
 #: admin/views/default/_js/mail_retrieve.js:142
 #: admin/views/default/_js/mail_retrieve.js:143
-#: admin/views/default/_js/user.js:95
+#: admin/views/default/_js/user.js:90
 msgid "No"
 msgstr "Nej"
 
-#: admin/views/default/_js/backup.js:813
+#: admin/views/default/_js/backup.js:795
+msgid "Retrieving data for selected backup job. Please stand by"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:815
 msgid "File/Directory selector"
 msgstr "Fil/katalogväljare"
 
-#: admin/views/default/_js/backup.js:816
+#: admin/views/default/_js/backup.js:818
 msgctxt "button"
 msgid "Select"
 msgstr "Välj"
@@ -344,8 +340,7 @@ msgstr "Lägg till till album"
 msgid "Delete"
 msgstr "Radera"
 
-#: admin/views/default/_js/login.js:55
-#: admin/views/default/_js/login.js:119
+#: admin/views/default/_js/login.js:55 admin/views/default/_js/login.js:119
 msgid "Login"
 msgstr "Logga in"
 
@@ -375,7 +370,7 @@ msgid "Add email account"
 msgstr "Lägg till email-konto"
 
 #: admin/views/default/_js/mail_retrieve.js:180
-#: admin/views/default/_js/user.js:308
+#: admin/views/default/_js/user.js:303
 msgid "Update"
 msgstr "Uppdatera"
 
@@ -433,11 +428,11 @@ msgstr "Vill du starta om %s?"
 msgid "Restart"
 msgstr "Starta om"
 
-#: admin/views/default/_js/main.js:143
+#: admin/views/default/_js/main.js:149
 msgid "Logout"
 msgstr "Logga ut"
 
-#: admin/views/default/_js/main.js:151
+#: admin/views/default/_js/main.js:157
 msgid "Proceed with logout?"
 msgstr "Vill du logga ut?"
 
@@ -445,50 +440,44 @@ msgstr "Vill du logga ut?"
 msgid "Update settings"
 msgstr "Uppdatera inställningar"
 
-#: admin/views/default/_js/user.js:53
-#: admin/views/default/_js/user.js:330
-msgid "not a valid password"
-msgstr "inte ett giltigt lösenord"
-
-#: admin/views/default/_js/user.js:111
+#: admin/views/default/_js/user.js:106
 msgid "Edit user"
 msgstr "Ändra användare"
 
-#: admin/views/default/_js/user.js:180
+#: admin/views/default/_js/user.js:175
 msgid "Successfully added new user"
 msgstr "Ny användare tillagd"
 
-#: admin/views/default/_js/user.js:221
+#: admin/views/default/_js/user.js:216
 msgid "User information updated"
 msgstr "Användarinformation uppdaterad"
 
-#: admin/views/default/_js/user.js:244
+#: admin/views/default/_js/user.js:239
 msgid "Delete this user from the system?"
 msgstr "Radera denna användare från systemet?"
 
-#: admin/views/default/_js/user.js:253
+#: admin/views/default/_js/user.js:248
 msgid "Delete userdata?"
 msgstr "Radera användardata"
 
-#: admin/views/default/_js/user.js:256
-#: admin/views/default/_js/user.js:257
-#: admin/views/default/_js/user.js:315
+#: admin/views/default/_js/user.js:251 admin/views/default/_js/user.js:252
+#: admin/views/default/_js/user.js:310
 msgid "Delete user"
 msgstr "Radera användare"
 
-#: admin/views/default/_js/user.js:277
+#: admin/views/default/_js/user.js:272
 msgid "User deleted"
 msgstr "Användare raderad"
 
-#: admin/views/default/_js/user.js:297
+#: admin/views/default/_js/user.js:292
 msgid "Add new user"
 msgstr "Lägg till ny användare"
 
-#: admin/views/default/_js/user.js:326
+#: admin/views/default/_js/user.js:321
 msgid "not a valid username"
 msgstr "inte ett giltigt användarnamn"
 
-#: admin/views/default/_js/user.js:379
+#: admin/views/default/_js/user.js:368
 msgid "Add new user to the system"
 msgstr "Lägg till ny användare"
 
@@ -507,14 +496,12 @@ msgctxt "validation message"
 msgid "Relay port is required"
 msgstr "\"Relay port\" krävs"
 
-#: admin/views/default/_js/tor.js:53
-#: admin/views/default/_js/tor.js:59
+#: admin/views/default/_js/tor.js:53 admin/views/default/_js/tor.js:59
 msgctxt "validation message"
 msgid "Only digits are allowed"
 msgstr "Endast siffror är tillåtna"
 
-#: admin/views/default/_js/tor.js:54
-#: admin/views/default/_js/tor.js:60
+#: admin/views/default/_js/tor.js:54 admin/views/default/_js/tor.js:60
 msgctxt "validation message"
 msgid "Port {0} is not valid for usage"
 msgstr "Port {0} är inte tillåten"
@@ -546,109 +533,97 @@ msgstr "<p>Att starta Tor innebär att din Excito B3 kommer att bli en del av an
 msgid "Please note"
 msgstr "Vänligen notera"
 
-#: admin/views/default/_js/wizard.js:12
+#: admin/views/default/_js/wizard.js:8
 msgid "your-easyfind-name"
 msgstr "ditt-easyfind-namn"
 
-#: admin/views/default/_js/wizard.js:156
+#: admin/views/default/_js/wizard.js:150
 msgid "Following errors where encountered when trying to apply the changes: "
 msgstr "När inställningarna skulle sparas inträffade följande fel:"
 
-#: admin/views/default/_js/wizard.js:157
+#: admin/views/default/_js/wizard.js:151
 msgid "Error applying changes"
 msgstr "Misslyckades att spara ändringarna"
 
-#: admin/views/default/_js/wizard.js:163
+#: admin/views/default/_js/wizard.js:157
 msgid "Setup complete. Enjoy!"
 msgstr "Dina inställningar är nu sparade. Välkommen! "
 
+#~ msgid "not a valid password"
+#~ msgstr "inte ett giltigt lösenord"
+
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "This field is required."
 #~ msgstr "\"Relay port\" krävs"
 
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "Please enter a valid email address."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "Please enter a valid URL."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "Please enter a valid date."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "Please enter a valid date (ISO)."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "Please enter a valid number."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "Please enter only digits."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "Please enter a valid credit card number."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "Please enter the same value again."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "Please enter a value with a valid extension."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "Please enter at least {0} characters."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "Please enter a value between {0} and {1} characters long."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "Please enter a value between {0} and {1}."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "Please enter a value less than or equal to {0}."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
-
 #~ msgid "Please enter a value greater than or equal to {0}."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 

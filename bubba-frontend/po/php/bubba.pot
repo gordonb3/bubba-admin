@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-05-24 14:22+0200\n"
+"POT-Creation-Date: 2012-08-08 17:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1163,7 +1163,7 @@ msgstr ""
 
 #: admin/views/default/backup/backup_view.php:80
 #: admin/views/default/backup/backup_view.php:427
-msgid "All photos (/home/storage/photos)"
+msgid "All pictures (/home/storage/pictures)"
 msgstr ""
 
 #: admin/views/default/backup/backup_view.php:83
@@ -2014,39 +2014,39 @@ msgstr ""
 msgid "days"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:34
+#: admin/views/default/stat/stat_view.php:35
 msgid "Disk temperature"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:38
+#: admin/views/default/stat/stat_view.php:40
 msgid "Attached printers"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:53
+#: admin/views/default/stat/stat_view.php:55
 msgid "Software version"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:58
+#: admin/views/default/stat/stat_view.php:60
 msgid "Software update"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:66
+#: admin/views/default/stat/stat_view.php:68
 msgid "System messages"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:85
+#: admin/views/default/stat/stat_view.php:87
 msgid "Acknowledge"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:91
+#: admin/views/default/stat/stat_view.php:93
 msgid "No system messages available"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:98
+#: admin/views/default/stat/stat_view.php:100
 msgid "Shutdown"
 msgstr ""
 
-#: admin/views/default/stat/stat_view.php:99
+#: admin/views/default/stat/stat_view.php:101
 msgid "Restart"
 msgstr ""
 

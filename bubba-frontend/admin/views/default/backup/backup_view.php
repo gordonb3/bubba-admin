@@ -65,7 +65,7 @@
 				<div id="fn-backup-create-form-step-2" class="step">
 					<h3><?=_("Select what you want to backup (step 2 of 5)")?></h3>
 					<table>
-<?foreach(array('data', 'email', 'music', 'photo', 'video', 'storage', 'custom' ) as $key):?>
+<?foreach(array('data', 'email', 'music', 'pictures', 'video', 'storage', 'custom' ) as $key):?>
 <?switch($key) {
 case 'data':
 	$label=_('All user\'s data (/home/&lt;all users&gt;)');
@@ -76,8 +76,8 @@ case 'email':
 case 'music':
 	$label=_('All music (/home/storage/music)');
 	break;
-case 'photo':
-	$label=_('All photos (/home/storage/photos)');
+case 'pictures':
+	$label=_('All pictures (/home/storage/pictures)');
 	break;
 case 'video':
 	$label=_('All videos (/home/storage/video)');
@@ -412,7 +412,7 @@ default:
 				<div id="fn-backup-edit-form-step-2" class="step">
 					<h3><?=_("Files to backup (step 1 of 4)")?></h3>
 					<table>
-						<?foreach(array('data', 'email', 'music', 'photo', 'video', 'storage', 'custom' ) as $key):?>
+						<?foreach(array('data', 'email', 'music', 'pictures', 'video', 'storage', 'custom' ) as $key):?>
 <?switch($key) {
 case 'data':
 	$label=_('All user\'s data (/home/&lt;all users&gt;)');
@@ -423,8 +423,8 @@ case 'email':
 case 'music':
 	$label=_('All music (/home/storage/music)');
 	break;
-case 'photo':
-	$label=_('All photos (/home/storage/photos)');
+case 'pictures':
+	$label=_('All pictures (/home/storage/pictures)');
 	break;
 case 'video':
 	$label=_('All videos (/home/storage/video)');
