@@ -91,6 +91,19 @@ function do_run_wizard() {
                     textNext: _("Next"),
                     textBack: _("Back"),
                     textSubmit: _("Complete"),
+                    remoteAjax : {"fn-wizard-step-5" : { // add a remote ajax call when moving next from the second step
+                      url :  config.prefix + "/wizard/validate_easyfind",
+                      dataType : 'json',
+                      type: 'POST',
+                      success : function(is_valid){
+                        if(!is_valid && $('#fn-wizard-enable-easyfind').is(':checked')){ // change this value to false in validate.html to simulate successful validation
+                          $.alert(_("Selected Easyfind identifier is not available, please select a different one."));
+                          buttons.button("enable"); // enable the dialog buttons
+                          return false; //return false to stop the wizard from going forward to the next step (this will always happen)
+                        }
+                        return true; //return true to make the wizard move to the next step
+                      }
+                    }},
                     validationOptions: {
                         rules: {
                             'admin_password1': {
@@ -123,14 +136,14 @@ function do_run_wizard() {
 
                             'password2': {
                                 'equalTo': wizard_element.find('form input[name=password1]')
-                            },
+                            },/*
 
                             'easyfind_name': {
                                 'remote': {
                                     url: config.prefix + "/wizard/validate_easyfind",
                                     type: "post"
                                 }
-                            }
+                            }*/
 
                         }
 
