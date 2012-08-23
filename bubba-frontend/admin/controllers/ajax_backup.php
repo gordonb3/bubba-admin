@@ -332,8 +332,10 @@ class Ajax_backup extends Controller {
         $schedule_monthday = $this->input->post("schedule-monthday");
         $schedule_timeline = $this->input->post("schedule-timeline");
 
-        $security_password = $this->input->post("security-password");
-        $security_password2 = $this->input->post("security-password2");
+        if($create) {
+          $security_password = $this->input->post("security-password");
+          $security_password2 = $this->input->post("security-password2");
+        }
 
         $settings = array(
             'local_user' => 'admin'
@@ -381,7 +383,7 @@ class Ajax_backup extends Controller {
                 throw new Exception("missing timeline");
             }
 
-            if( $security && (!$security_password || $security_password != $security_password2) ) {
+            if( $create && $security && (!$security_password || $security_password != $security_password2) ) {
                 throw new Exception("choosen security setting without specifying password, or password missmatch");
             }
 
@@ -427,7 +429,7 @@ class Ajax_backup extends Controller {
             $settings['full_expiretime'] = $schedule_timeline;
 
 
-            if( $security ) {
+            if( $create && $security ) {
                 $settings['GPG_key'] = $security_password;
             }
 

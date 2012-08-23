@@ -549,7 +549,7 @@ default:
 					</table>
 				</div>
 
-				<div id="fn-backup-edit-form-step-4" class="step">
+				<div id="fn-backup-edit-form-step-4" class="step submit_step">
 					<h3><?=_("Backup schedule (step 3 of 4)")?></h3>
 					<table>
 						<tr>
@@ -698,48 +698,6 @@ default:
 								<span class="ui-text-comment">(<?=_("The longer timeline the more space will be required on target")?>)</span>
 							</td>
 						</tr>
-					</table>
-				</div>
-
-				<div id="fn-backup-edit-form-step-5" class="step submit_step">
-					<h3><?=_("Security (step 4 of 4)")?></h3>
-					<table>
-						<tr>
-							<td>
-								<input
-								type="checkbox"
-								id="fn-backup-edit-security-enable"
-								name="security"
-								value="yes"
-								/>
-								<label for="fn-backup-edit-security-enable"><?=_("Encrypt the backup on target for increased security")?></label>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<label for="fn-backup-edit-security-password"><?=_("Password")?>:</label>
-								<input
-								type="password"
-								id="fn-backup-edit-security-password"
-								name="security-password"
-								class="ui-input-text"
-								value=""
-								/>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<label for="fn-backup-edit-security-password2"><?=_("Repeat password")?>:</label>
-								<input
-								type="password"
-								id="fn-backup-edit-security-password2"
-								name="security-password2"
-								class="ui-input-text"
-								value=""
-								/>
-							</td>
-						</tr>
-
 					</table>
 				</div>
 

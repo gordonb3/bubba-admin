@@ -459,14 +459,6 @@ $(function(){
 					},
 					'schedule-type': {
 						'required': true
-					},
-					'security-password': {
-						'required': function(element) {
-							return $('#fn-backup-edit-security-enable').is(':checked');
-						}
-					},
-					'security-password2': {
-						'equalTo': '#fn-backup-edit-security-password'
 					}
 
 				},
@@ -516,9 +508,6 @@ $(function(){
 					break;
 				case "fn-backup-edit-form-step-4":
 					$('.fn-backup-schedule').change();
-					break;
-				case "fn-backup-edit-form-step-5":
-					$("#fn-backup-edit-security-enable").change();
 					break;
 				}
 			}
