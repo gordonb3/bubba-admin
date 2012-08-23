@@ -1,3 +1,12 @@
+bubba-frontend (2.5.1~pre5) vincent; urgency=low
+
+  * beautify wizard.js
+  * Change easyfine name validation (Closes: #150)
+  * Remove posibility to edit password (Closes: #39)
+  * Exclude extern if doing backup on storage (Closes: #173)
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 23 Aug 2012 15:05:03 +0200
+
 bubba-frontend (2.5.1~pre4) vincent hugo; urgency=low
 
   * Change photo(s) to pictures (Closes: #159)
