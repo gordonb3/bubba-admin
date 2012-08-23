@@ -462,6 +462,7 @@ class Ajax_backup extends Controller {
                 break;
             case 'storage':
                 $include[] = '/home/storage';
+                $exclude[] = '/home/storage/extern';
                 break;
             case 'custom':
                 $include = $this->input->post('dirs');
