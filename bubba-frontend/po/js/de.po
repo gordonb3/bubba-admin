@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3.0.2-8-g99845c1\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-08-08 17:19+0200\n"
+"POT-Creation-Date: 2012-08-27 11:38+0200\n"
 "PO-Revision-Date: 2012-05-23 23:48+0100\n"
 "Last-Translator: Johannes Book <johannes@excito.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -68,13 +68,13 @@ msgstr "Neuen Viewer an das Fotoalbum hinzufügen"
 
 #: admin/views/default/_js/backup.js:26 admin/views/default/_js/backup.js:46
 #: admin/views/default/_js/backup.js:310 admin/views/default/_js/backup.js:427
-#: admin/views/default/_js/wizard.js:16 admin/views/default/_js/wizard.js:93
+#: admin/views/default/_js/wizard.js:15 admin/views/default/_js/wizard.js:91
 msgid "Next"
 msgstr "Weiter"
 
 #: admin/views/default/_js/backup.js:35 admin/views/default/_js/backup.js:55
 #: admin/views/default/_js/backup.js:311 admin/views/default/_js/backup.js:428
-#: admin/views/default/_js/wizard.js:25 admin/views/default/_js/wizard.js:94
+#: admin/views/default/_js/wizard.js:24 admin/views/default/_js/wizard.js:92
 msgid "Back"
 msgstr "Zurück"
 
@@ -122,81 +122,81 @@ msgid "Please enter a valid hostname or IPv4 address"
 msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #: admin/views/default/_js/backup.js:312 admin/views/default/_js/backup.js:429
-#: admin/views/default/_js/wizard.js:95
+#: admin/views/default/_js/wizard.js:93
 msgid "Complete"
 msgstr "Fertigstellen"
 
-#: admin/views/default/_js/backup.js:475
+#: admin/views/default/_js/backup.js:467
 msgid "{0} is already in use"
 msgstr "{0} wird bereits verwendet"
 
-#: admin/views/default/_js/backup.js:598
+#: admin/views/default/_js/backup.js:587
 msgid "Are you sure you want to permanently remove this backup job?"
 msgstr "Sind Sie sicher, dass Sie die Ausführung dieses Backups entfernen wollen?"
 
-#: admin/views/default/_js/backup.js:599 admin/views/default/_js/backup.js:602
+#: admin/views/default/_js/backup.js:588 admin/views/default/_js/backup.js:591
 msgid "Remove backup job"
 msgstr "Backup-Ausführung entfernen"
 
-#: admin/views/default/_js/backup.js:615
+#: admin/views/default/_js/backup.js:604
 msgid "Backup job was removed from the system"
 msgstr "Die Ausführung des Backups wurde verworfen"
 
-#: admin/views/default/_js/backup.js:636
+#: admin/views/default/_js/backup.js:625
 msgid "Are you sure you want to run this backup job now?"
 msgstr "Sind Sie sicher, dass Sie das Backup nun starten wollen?"
 
-#: admin/views/default/_js/backup.js:637
+#: admin/views/default/_js/backup.js:626
 msgid "Run backup job now"
 msgstr "Backup starten"
 
-#: admin/views/default/_js/backup.js:640
+#: admin/views/default/_js/backup.js:629
 msgid "Run backup job"
 msgstr "Backup starten"
 
-#: admin/views/default/_js/backup.js:653
+#: admin/views/default/_js/backup.js:642
 msgid "Backup job has been initialized to be executed at this particlular moment in time."
 msgstr "Die Ausführung des Backups wurde entsprechend terminiert."
 
-#: admin/views/default/_js/backup.js:700
+#: admin/views/default/_js/backup.js:689
 msgid "Restore backed up data"
 msgstr "Daten des Backups wiederherstellen"
 
-#: admin/views/default/_js/backup.js:703
+#: admin/views/default/_js/backup.js:692
 msgid "Restore selected files and directories"
 msgstr "Ausgewählte Daten und Ordner wiederherstellen"
 
-#: admin/views/default/_js/backup.js:716
+#: admin/views/default/_js/backup.js:705
 msgid "Are you sure? Any existing files will be overwritten."
 msgstr "Sind Sie sicher, dass Sie die Daten wiederherstellen wollen? Dies wird die aktuellen Daten mit denen des Backups überschreiben"
 
-#: admin/views/default/_js/backup.js:717
+#: admin/views/default/_js/backup.js:706
 msgid "Confirm restore"
 msgstr "Wiederherstellen bestätigen"
 
-#: admin/views/default/_js/backup.js:720
+#: admin/views/default/_js/backup.js:709
 #: admin/views/default/_js/mail_retrieve.js:142
 #: admin/views/default/_js/mail_retrieve.js:143
 #: admin/views/default/_js/user.js:90
 msgid "Yes"
 msgstr "Ja"
 
-#: admin/views/default/_js/backup.js:740
+#: admin/views/default/_js/backup.js:729
 #: admin/views/default/_js/mail_retrieve.js:142
 #: admin/views/default/_js/mail_retrieve.js:143
 #: admin/views/default/_js/user.js:90
 msgid "No"
 msgstr "Nein"
 
-#: admin/views/default/_js/backup.js:795
+#: admin/views/default/_js/backup.js:784
 msgid "Retrieving data for selected backup job. Please stand by"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:815
+#: admin/views/default/_js/backup.js:804
 msgid "File/Directory selector"
 msgstr "Datei/Verzeichnis auswahl"
 
-#: admin/views/default/_js/backup.js:818
+#: admin/views/default/_js/backup.js:807
 msgctxt "button"
 msgid "Select"
 msgstr "Auswählen"
@@ -537,15 +537,19 @@ msgstr "Bitte beachten Sie"
 msgid "your-easyfind-name"
 msgstr "ihr-easyfind-name"
 
-#: admin/views/default/_js/wizard.js:150
+#: admin/views/default/_js/wizard.js:100
+msgid "Selected Easyfind identifier is not available, please select a different one."
+msgstr ""
+
+#: admin/views/default/_js/wizard.js:161
 msgid "Following errors where encountered when trying to apply the changes: "
 msgstr "Die folgenden Fehler traten beim Übernehmen der Änderungen auf"
 
-#: admin/views/default/_js/wizard.js:151
+#: admin/views/default/_js/wizard.js:161
 msgid "Error applying changes"
 msgstr "Fehler beim Übernehmen der Änderungen"
 
-#: admin/views/default/_js/wizard.js:157
+#: admin/views/default/_js/wizard.js:165
 msgid "Setup complete. Enjoy!"
 msgstr "Einrichten abgeschlossen. Viel Spass!"
 

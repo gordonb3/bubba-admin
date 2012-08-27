@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-08-08 17:19+0200\n"
+"POT-Creation-Date: 2012-08-27 11:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,8 +107,8 @@ msgid "Fatal error when trying to remove the user %s"
 msgstr ""
 
 #: admin/controllers/users.php:311 admin/controllers/filemanager.php:107
-#: admin/views/default/backup/backup_view.php:776
-#: admin/views/default/backup/backup_view.php:846
+#: admin/views/default/backup/backup_view.php:734
+#: admin/views/default/backup/backup_view.php:804
 #: admin/views/default/filemanager/filemanager_index_view.php:17
 msgid "Permission denied"
 msgstr ""
@@ -648,7 +648,6 @@ msgstr ""
 #: admin/views/default/mail/mail_retrieve_view.php:60
 #: admin/views/default/mail/mail_server_view.php:70
 #: admin/views/default/backup/backup_view.php:373
-#: admin/views/default/backup/backup_view.php:720
 #: admin/views/default/network/network_wlan_view.php:54
 #: admin/views/default/login_view.php:35
 #: admin/views/default/wizard_view.php:36
@@ -927,8 +926,8 @@ msgstr ""
 
 #: admin/views/default/settings/settings_datetime_view.php:43
 #: admin/views/default/backup/backup_view.php:30
-#: admin/views/default/backup/backup_view.php:765
-#: admin/views/default/backup/backup_view.php:834
+#: admin/views/default/backup/backup_view.php:723
+#: admin/views/default/backup/backup_view.php:792
 #: admin/views/default/filemanager/filemanager_index_view.php:9
 msgid "Date"
 msgstr ""
@@ -1104,8 +1103,8 @@ msgid "Backup jobs"
 msgstr ""
 
 #: admin/views/default/backup/backup_view.php:8
-#: admin/views/default/backup/backup_view.php:764
-#: admin/views/default/backup/backup_view.php:833
+#: admin/views/default/backup/backup_view.php:722
+#: admin/views/default/backup/backup_view.php:791
 #: admin/views/default/filemanager/filemanager_index_view.php:8
 #: admin/views/default/filemanager/filemanager_index_view.php:70
 #: admin/views/default/filemanager/filemanager_index_view.php:83
@@ -1334,17 +1333,15 @@ msgid "Security (step 5 of 5)"
 msgstr ""
 
 #: admin/views/default/backup/backup_view.php:368
-#: admin/views/default/backup/backup_view.php:715
 msgid "Encrypt the backup on target for increased security"
 msgstr ""
 
 #: admin/views/default/backup/backup_view.php:385
-#: admin/views/default/backup/backup_view.php:732
 msgid "Repeat password"
 msgstr ""
 
 #: admin/views/default/backup/backup_view.php:405
-#: admin/views/default/backup/backup_view.php:752
+#: admin/views/default/backup/backup_view.php:710
 msgid "Edit backup job"
 msgstr ""
 
@@ -1360,19 +1357,15 @@ msgstr ""
 msgid "Backup schedule (step 3 of 4)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:705
-msgid "Security (step 4 of 4)"
-msgstr ""
-
-#: admin/views/default/backup/backup_view.php:798
+#: admin/views/default/backup/backup_view.php:756
 msgid "Restore file to it’s original place"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:811
+#: admin/views/default/backup/backup_view.php:769
 msgid "Restore to other place"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:835
+#: admin/views/default/backup/backup_view.php:793
 #: admin/views/default/disk/disk_raid_view.php:98
 #: admin/views/default/disk/disk_raid_view.php:119
 #: admin/views/default/filemanager/filemanager_index_view.php:10

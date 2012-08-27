@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-08-08 17:19+0200\n"
+"POT-Creation-Date: 2012-08-27 11:38+0200\n"
 "PO-Revision-Date: 2012-05-24 11:03+0100\n"
 "Last-Translator: Johannes Book <johannes@excito.com>\n"
 "Language-Team: \n"
@@ -68,13 +68,13 @@ msgstr "Lägg till ny användare till fotoalbumet"
 
 #: admin/views/default/_js/backup.js:26 admin/views/default/_js/backup.js:46
 #: admin/views/default/_js/backup.js:310 admin/views/default/_js/backup.js:427
-#: admin/views/default/_js/wizard.js:16 admin/views/default/_js/wizard.js:93
+#: admin/views/default/_js/wizard.js:15 admin/views/default/_js/wizard.js:91
 msgid "Next"
 msgstr "Nästa"
 
 #: admin/views/default/_js/backup.js:35 admin/views/default/_js/backup.js:55
 #: admin/views/default/_js/backup.js:311 admin/views/default/_js/backup.js:428
-#: admin/views/default/_js/wizard.js:25 admin/views/default/_js/wizard.js:94
+#: admin/views/default/_js/wizard.js:24 admin/views/default/_js/wizard.js:92
 msgid "Back"
 msgstr "Tillbaka"
 
@@ -122,81 +122,81 @@ msgid "Please enter a valid hostname or IPv4 address"
 msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #: admin/views/default/_js/backup.js:312 admin/views/default/_js/backup.js:429
-#: admin/views/default/_js/wizard.js:95
+#: admin/views/default/_js/wizard.js:93
 msgid "Complete"
 msgstr "Slutför"
 
-#: admin/views/default/_js/backup.js:475
+#: admin/views/default/_js/backup.js:467
 msgid "{0} is already in use"
 msgstr "{0} är tyvärr upptaget"
 
-#: admin/views/default/_js/backup.js:598
+#: admin/views/default/_js/backup.js:587
 msgid "Are you sure you want to permanently remove this backup job?"
 msgstr "Vill du verkligen ta bort detta backup-jobb?"
 
-#: admin/views/default/_js/backup.js:599 admin/views/default/_js/backup.js:602
+#: admin/views/default/_js/backup.js:588 admin/views/default/_js/backup.js:591
 msgid "Remove backup job"
 msgstr "Ta bort backup-jobb"
 
-#: admin/views/default/_js/backup.js:615
+#: admin/views/default/_js/backup.js:604
 msgid "Backup job was removed from the system"
 msgstr "Backup-jobbet raderades"
 
-#: admin/views/default/_js/backup.js:636
+#: admin/views/default/_js/backup.js:625
 msgid "Are you sure you want to run this backup job now?"
 msgstr "Vill du verkligen köra detta backup-jobb nu?"
 
-#: admin/views/default/_js/backup.js:637
+#: admin/views/default/_js/backup.js:626
 msgid "Run backup job now"
 msgstr "Kör backupjobb nu"
 
-#: admin/views/default/_js/backup.js:640
+#: admin/views/default/_js/backup.js:629
 msgid "Run backup job"
 msgstr "Kör backupjobb"
 
-#: admin/views/default/_js/backup.js:653
+#: admin/views/default/_js/backup.js:642
 msgid "Backup job has been initialized to be executed at this particlular moment in time."
 msgstr "Backup-jobbet startat."
 
-#: admin/views/default/_js/backup.js:700
+#: admin/views/default/_js/backup.js:689
 msgid "Restore backed up data"
 msgstr "Återställ uppbackad data"
 
-#: admin/views/default/_js/backup.js:703
+#: admin/views/default/_js/backup.js:692
 msgid "Restore selected files and directories"
 msgstr "Återställ valda filer och kataloger"
 
-#: admin/views/default/_js/backup.js:716
+#: admin/views/default/_js/backup.js:705
 msgid "Are you sure? Any existing files will be overwritten."
 msgstr "Är du säker? Alla existerande filer kommer att skrivas över. "
 
-#: admin/views/default/_js/backup.js:717
+#: admin/views/default/_js/backup.js:706
 msgid "Confirm restore"
 msgstr "Bekräfta återställning"
 
-#: admin/views/default/_js/backup.js:720
+#: admin/views/default/_js/backup.js:709
 #: admin/views/default/_js/mail_retrieve.js:142
 #: admin/views/default/_js/mail_retrieve.js:143
 #: admin/views/default/_js/user.js:90
 msgid "Yes"
 msgstr "Ja"
 
-#: admin/views/default/_js/backup.js:740
+#: admin/views/default/_js/backup.js:729
 #: admin/views/default/_js/mail_retrieve.js:142
 #: admin/views/default/_js/mail_retrieve.js:143
 #: admin/views/default/_js/user.js:90
 msgid "No"
 msgstr "Nej"
 
-#: admin/views/default/_js/backup.js:795
+#: admin/views/default/_js/backup.js:784
 msgid "Retrieving data for selected backup job. Please stand by"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:815
+#: admin/views/default/_js/backup.js:804
 msgid "File/Directory selector"
 msgstr "Fil/katalogväljare"
 
-#: admin/views/default/_js/backup.js:818
+#: admin/views/default/_js/backup.js:807
 msgctxt "button"
 msgid "Select"
 msgstr "Välj"
@@ -537,15 +537,19 @@ msgstr "Vänligen notera"
 msgid "your-easyfind-name"
 msgstr "ditt-easyfind-namn"
 
-#: admin/views/default/_js/wizard.js:150
+#: admin/views/default/_js/wizard.js:100
+msgid "Selected Easyfind identifier is not available, please select a different one."
+msgstr ""
+
+#: admin/views/default/_js/wizard.js:161
 msgid "Following errors where encountered when trying to apply the changes: "
 msgstr "När inställningarna skulle sparas inträffade följande fel:"
 
-#: admin/views/default/_js/wizard.js:151
+#: admin/views/default/_js/wizard.js:161
 msgid "Error applying changes"
 msgstr "Misslyckades att spara ändringarna"
 
-#: admin/views/default/_js/wizard.js:157
+#: admin/views/default/_js/wizard.js:165
 msgid "Setup complete. Enjoy!"
 msgstr "Dina inställningar är nu sparade. Välkommen! "
 
