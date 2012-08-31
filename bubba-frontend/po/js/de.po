@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3.0.2-8-g99845c1\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2012-08-27 11:38+0200\n"
-"PO-Revision-Date: 2012-05-23 23:48+0100\n"
+"PO-Revision-Date: 2012-08-31 15:19+0100\n"
 "Last-Translator: Johannes Book <johannes@excito.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
 "Language: de\n"
@@ -66,15 +66,21 @@ msgstr "Viewer aktualisieren"
 msgid "Add new viewer to the photo album"
 msgstr "Neuen Viewer an das Fotoalbum hinzufügen"
 
-#: admin/views/default/_js/backup.js:26 admin/views/default/_js/backup.js:46
-#: admin/views/default/_js/backup.js:310 admin/views/default/_js/backup.js:427
-#: admin/views/default/_js/wizard.js:15 admin/views/default/_js/wizard.js:91
+#: admin/views/default/_js/backup.js:26
+#: admin/views/default/_js/backup.js:46
+#: admin/views/default/_js/backup.js:310
+#: admin/views/default/_js/backup.js:427
+#: admin/views/default/_js/wizard.js:15
+#: admin/views/default/_js/wizard.js:91
 msgid "Next"
 msgstr "Weiter"
 
-#: admin/views/default/_js/backup.js:35 admin/views/default/_js/backup.js:55
-#: admin/views/default/_js/backup.js:311 admin/views/default/_js/backup.js:428
-#: admin/views/default/_js/wizard.js:24 admin/views/default/_js/wizard.js:92
+#: admin/views/default/_js/backup.js:35
+#: admin/views/default/_js/backup.js:55
+#: admin/views/default/_js/backup.js:311
+#: admin/views/default/_js/backup.js:428
+#: admin/views/default/_js/wizard.js:24
+#: admin/views/default/_js/wizard.js:92
 msgid "Back"
 msgstr "Zurück"
 
@@ -121,7 +127,8 @@ msgstr "Für den Namen sind nur alphanumerische Werte erlaubt"
 msgid "Please enter a valid hostname or IPv4 address"
 msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
-#: admin/views/default/_js/backup.js:312 admin/views/default/_js/backup.js:429
+#: admin/views/default/_js/backup.js:312
+#: admin/views/default/_js/backup.js:429
 #: admin/views/default/_js/wizard.js:93
 msgid "Complete"
 msgstr "Fertigstellen"
@@ -134,7 +141,8 @@ msgstr "{0} wird bereits verwendet"
 msgid "Are you sure you want to permanently remove this backup job?"
 msgstr "Sind Sie sicher, dass Sie die Ausführung dieses Backups entfernen wollen?"
 
-#: admin/views/default/_js/backup.js:588 admin/views/default/_js/backup.js:591
+#: admin/views/default/_js/backup.js:588
+#: admin/views/default/_js/backup.js:591
 msgid "Remove backup job"
 msgstr "Backup-Ausführung entfernen"
 
@@ -190,7 +198,7 @@ msgstr "Nein"
 
 #: admin/views/default/_js/backup.js:784
 msgid "Retrieving data for selected backup job. Please stand by"
-msgstr ""
+msgstr "Datenabruf für gewählten Backup job. Bitte warten"
 
 #: admin/views/default/_js/backup.js:804
 msgid "File/Directory selector"
@@ -340,7 +348,8 @@ msgstr "Zu Fotoalben hinzufügen"
 msgid "Delete"
 msgstr "Löschen"
 
-#: admin/views/default/_js/login.js:55 admin/views/default/_js/login.js:119
+#: admin/views/default/_js/login.js:55
+#: admin/views/default/_js/login.js:119
 msgid "Login"
 msgstr "Anmelden"
 
@@ -460,7 +469,8 @@ msgstr "Diesen Benutzer aus dem System löschen?"
 msgid "Delete userdata?"
 msgstr "Benutzerdaten löschen?"
 
-#: admin/views/default/_js/user.js:251 admin/views/default/_js/user.js:252
+#: admin/views/default/_js/user.js:251
+#: admin/views/default/_js/user.js:252
 #: admin/views/default/_js/user.js:310
 msgid "Delete user"
 msgstr "Benutzer löschen"
@@ -496,12 +506,14 @@ msgctxt "validation message"
 msgid "Relay port is required"
 msgstr "Relay Port ist erforderlich"
 
-#: admin/views/default/_js/tor.js:53 admin/views/default/_js/tor.js:59
+#: admin/views/default/_js/tor.js:53
+#: admin/views/default/_js/tor.js:59
 msgctxt "validation message"
 msgid "Only digits are allowed"
 msgstr "Es sind nur Zahlen erlaubt"
 
-#: admin/views/default/_js/tor.js:54 admin/views/default/_js/tor.js:60
+#: admin/views/default/_js/tor.js:54
+#: admin/views/default/_js/tor.js:60
 msgctxt "validation message"
 msgid "Port {0} is not valid for usage"
 msgstr "Port {0} ist für die Nutzung nicht gültig"
@@ -539,7 +551,7 @@ msgstr "ihr-easyfind-name"
 
 #: admin/views/default/_js/wizard.js:100
 msgid "Selected Easyfind identifier is not available, please select a different one."
-msgstr ""
+msgstr "Der gewählte Easyfindname ist nicht verfügbar, bitte wählen sie einen anderen."
 
 #: admin/views/default/_js/wizard.js:161
 msgid "Following errors where encountered when trying to apply the changes: "
@@ -558,76 +570,91 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "This field is required."
 #~ msgstr "Relay Port ist erforderlich"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a valid email address."
 #~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a valid URL."
 #~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a valid date."
 #~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a valid date (ISO)."
 #~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a valid number."
 #~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter only digits."
 #~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a valid credit card number."
 #~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter the same value again."
 #~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a value with a valid extension."
 #~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter at least {0} characters."
 #~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a value between {0} and {1} characters long."
 #~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a value between {0} and {1}."
 #~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a value less than or equal to {0}."
 #~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a value greater than or equal to {0}."
 #~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
@@ -653,6 +680,7 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 
 #, fuzzy
 #~ msgctxt "menu"
+
 #~ msgid "Backup"
 #~ msgstr "Zurück"
 
@@ -681,6 +709,7 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 
 #, fuzzy
 #~ msgctxt "menu"
+
 #~ msgid "Disk information"
 #~ msgstr "Die Benutzerinformation wurde aktualisiert"
 
@@ -706,6 +735,7 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 
 #, fuzzy
 #~ msgctxt "menu"
+
 #~ msgid "Downloads"
 #~ msgstr "Als ZIP herunterladen"
 
@@ -763,11 +793,13 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 
 #, fuzzy
 #~ msgctxt "menu"
+
 #~ msgid "Server settings"
 #~ msgstr "Einstellungen aktualisieren"
 
 #, fuzzy
 #~ msgctxt "menu"
+
 #~ msgid "Settings"
 #~ msgstr "Einstellungen aktualisieren"
 
@@ -777,6 +809,7 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 
 #, fuzzy
 #~ msgctxt "menu"
+
 #~ msgid "Software update"
 #~ msgstr "Viewer aktualisiert"
 
@@ -785,11 +818,13 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 
 #, fuzzy
 #~ msgctxt "menu"
+
 #~ msgid "System backup"
 #~ msgstr "Yea"
 
 #, fuzzy
 #~ msgctxt "menu"
+
 #~ msgid "System settings"
 #~ msgstr "Einstellungen aktualisieren"
 
@@ -827,6 +862,7 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 
 #, fuzzy
 #~ msgctxt "menu"
+
 #~ msgid "User information"
 #~ msgstr "Die Benutzerinformation wurde aktualisiert"
 

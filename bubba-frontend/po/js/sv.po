@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2012-08-27 11:38+0200\n"
-"PO-Revision-Date: 2012-05-24 11:03+0100\n"
+"PO-Revision-Date: 2012-08-27 13:11+0100\n"
 "Last-Translator: Johannes Book <johannes@excito.com>\n"
 "Language-Team: \n"
 "Language: Swedish\n"
@@ -66,15 +66,21 @@ msgstr "Uppdatera albumanvändare"
 msgid "Add new viewer to the photo album"
 msgstr "Lägg till ny användare till fotoalbumet"
 
-#: admin/views/default/_js/backup.js:26 admin/views/default/_js/backup.js:46
-#: admin/views/default/_js/backup.js:310 admin/views/default/_js/backup.js:427
-#: admin/views/default/_js/wizard.js:15 admin/views/default/_js/wizard.js:91
+#: admin/views/default/_js/backup.js:26
+#: admin/views/default/_js/backup.js:46
+#: admin/views/default/_js/backup.js:310
+#: admin/views/default/_js/backup.js:427
+#: admin/views/default/_js/wizard.js:15
+#: admin/views/default/_js/wizard.js:91
 msgid "Next"
 msgstr "Nästa"
 
-#: admin/views/default/_js/backup.js:35 admin/views/default/_js/backup.js:55
-#: admin/views/default/_js/backup.js:311 admin/views/default/_js/backup.js:428
-#: admin/views/default/_js/wizard.js:24 admin/views/default/_js/wizard.js:92
+#: admin/views/default/_js/backup.js:35
+#: admin/views/default/_js/backup.js:55
+#: admin/views/default/_js/backup.js:311
+#: admin/views/default/_js/backup.js:428
+#: admin/views/default/_js/wizard.js:24
+#: admin/views/default/_js/wizard.js:92
 msgid "Back"
 msgstr "Tillbaka"
 
@@ -121,7 +127,8 @@ msgstr "Endast bokstäver och siffror är tillåtna i namnet"
 msgid "Please enter a valid hostname or IPv4 address"
 msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
-#: admin/views/default/_js/backup.js:312 admin/views/default/_js/backup.js:429
+#: admin/views/default/_js/backup.js:312
+#: admin/views/default/_js/backup.js:429
 #: admin/views/default/_js/wizard.js:93
 msgid "Complete"
 msgstr "Slutför"
@@ -134,7 +141,8 @@ msgstr "{0} är tyvärr upptaget"
 msgid "Are you sure you want to permanently remove this backup job?"
 msgstr "Vill du verkligen ta bort detta backup-jobb?"
 
-#: admin/views/default/_js/backup.js:588 admin/views/default/_js/backup.js:591
+#: admin/views/default/_js/backup.js:588
+#: admin/views/default/_js/backup.js:591
 msgid "Remove backup job"
 msgstr "Ta bort backup-jobb"
 
@@ -190,7 +198,7 @@ msgstr "Nej"
 
 #: admin/views/default/_js/backup.js:784
 msgid "Retrieving data for selected backup job. Please stand by"
-msgstr ""
+msgstr "Hämtar data för backupjobbet. Vänligen vänta"
 
 #: admin/views/default/_js/backup.js:804
 msgid "File/Directory selector"
@@ -340,7 +348,8 @@ msgstr "Lägg till till album"
 msgid "Delete"
 msgstr "Radera"
 
-#: admin/views/default/_js/login.js:55 admin/views/default/_js/login.js:119
+#: admin/views/default/_js/login.js:55
+#: admin/views/default/_js/login.js:119
 msgid "Login"
 msgstr "Logga in"
 
@@ -460,7 +469,8 @@ msgstr "Radera denna användare från systemet?"
 msgid "Delete userdata?"
 msgstr "Radera användardata"
 
-#: admin/views/default/_js/user.js:251 admin/views/default/_js/user.js:252
+#: admin/views/default/_js/user.js:251
+#: admin/views/default/_js/user.js:252
 #: admin/views/default/_js/user.js:310
 msgid "Delete user"
 msgstr "Radera användare"
@@ -496,12 +506,14 @@ msgctxt "validation message"
 msgid "Relay port is required"
 msgstr "\"Relay port\" krävs"
 
-#: admin/views/default/_js/tor.js:53 admin/views/default/_js/tor.js:59
+#: admin/views/default/_js/tor.js:53
+#: admin/views/default/_js/tor.js:59
 msgctxt "validation message"
 msgid "Only digits are allowed"
 msgstr "Endast siffror är tillåtna"
 
-#: admin/views/default/_js/tor.js:54 admin/views/default/_js/tor.js:60
+#: admin/views/default/_js/tor.js:54
+#: admin/views/default/_js/tor.js:60
 msgctxt "validation message"
 msgid "Port {0} is not valid for usage"
 msgstr "Port {0} är inte tillåten"
@@ -539,7 +551,7 @@ msgstr "ditt-easyfind-namn"
 
 #: admin/views/default/_js/wizard.js:100
 msgid "Selected Easyfind identifier is not available, please select a different one."
-msgstr ""
+msgstr "Easyfind-namnet är upptaget, vänligen välj ett annat."
 
 #: admin/views/default/_js/wizard.js:161
 msgid "Following errors where encountered when trying to apply the changes: "
@@ -558,76 +570,91 @@ msgstr "Dina inställningar är nu sparade. Välkommen! "
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "This field is required."
 #~ msgstr "\"Relay port\" krävs"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a valid email address."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a valid URL."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a valid date."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a valid date (ISO)."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a valid number."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter only digits."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a valid credit card number."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter the same value again."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a value with a valid extension."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter at least {0} characters."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a value between {0} and {1} characters long."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a value between {0} and {1}."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a value less than or equal to {0}."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
 #, fuzzy
 #~ msgctxt "validation message"
+
 #~ msgid "Please enter a value greater than or equal to {0}."
 #~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
 
