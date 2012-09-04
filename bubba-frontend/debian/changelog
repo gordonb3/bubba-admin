@@ -1,3 +1,13 @@
+bubba-frontend (2.5.1) vincent hugo; urgency=low
+
+  [ Carl Fürstenberg ]
+  * flush translation files
+
+  [ johannes ]
+  * translated some new strings
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 04 Sep 2012 10:33:21 +0200
+
 bubba-frontend (2.5.1~pre5) vincent; urgency=low
 
   * beautify wizard.js
