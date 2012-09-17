@@ -1,3 +1,9 @@
+bubba-frontend (2.5.1.1) vincent hugo; urgency=low
+
+  * send out total number of days for uptime (Closes: #176)
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 17 Sep 2012 16:39:41 +0200
+
 bubba-frontend (2.5.1) vincent hugo; urgency=low
 
   [ Carl Fürstenberg ]
