@@ -94,7 +94,7 @@ class Ajax_status extends Controller {
             );
         } else {
             $this->json_data = array(
-                'uptime' => $this->system->get_uptime()->format(_("%d days, %H:%I:%S")),
+                'uptime' => $this->system->get_uptime()->format(_("%a days, %H:%I:%S")),
             );
         }
     }
