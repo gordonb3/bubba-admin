@@ -179,26 +179,35 @@ class wizard extends Controller {
     }
 
     public function validate_easyfind() {
-        $this->load->model('networkmanager');
+      $this->load->model('networkmanager');
 
-        $name = $this->input->post("easyfind_name");
-        $this->output->set_header('Last-Modified: '.gmdate('D, d M Y H:i:s', time()).' GMT');
-        $this->output->set_header('Expires: '.gmdate('D, d M Y H:i:s', time()).' GMT');
-        $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0");
-        $this->output->set_header("Pragma: no-cache");
+      $name = $this->input->post("easyfind_name");
+      $this->output->set_header('Last-Modified: '.gmdate('D, d M Y H:i:s', time()).' GMT');
+      $this->output->set_header('Expires: '.gmdate('D, d M Y H:i:s', time()).' GMT');
+      $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0");
+      $this->output->set_header("Pragma: no-cache");
+      $has_interwebs = $this->networkmanager->has_interwebs();
+      $out = array();
 
-        if(!$this->networkmanager->easyfind_validate($name)) {
-            $this->output->set_output("false");
-            return;
-        }
-        $wanif = $this->networkmanager->get_wan_interface();
-        $mac = $this->networkmanager->get_mac($wanif);
-        try {
+      $out['has_interwebs'] = $has_interwebs;
+
+      if($has_interwebs) {
+
+        $is_valid =  $this->networkmanager->easyfind_validate($name);
+        $out['is_valid'] = $is_valid;
+        if($is_valid) {
+
+          $wanif = $this->networkmanager->get_wan_interface();
+          $mac = $this->networkmanager->get_mac($wanif);
+          try {
             $available = $this->networkmanager->easyfind_available($name, $mac);
-        } catch( Exception $e ) {
-            $available = false;
+            $out['is_available'] = $available === true;
+          } catch( Exception $e ) {
+            $out['is_available'] = false;
+          }
         }
-        $this->output->set_output(json_encode($available === true));
+      }
+      $this->output->set_output(json_encode($out));
     }
 
     public function username_is_available() {

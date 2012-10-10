@@ -145,6 +145,16 @@ class NetworkManager extends Model {
     }
   }
 
+  public function has_interwebs() {
+    $fp = fsockopen('b3.update.excito.org', 80, $errno, $errstr, 5);
+    if(!$fp) {
+      return false;
+    } else {
+      fclose($fp);
+      return true;
+    }
+  }
+
   public function set_hostname($name) {
     file_put_contents('/etc/hostname', $name);
     file_put_contents('/etc/mailname', "$name.localdomain");

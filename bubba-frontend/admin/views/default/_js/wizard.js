@@ -95,11 +95,21 @@ function do_run_wizard() {
                       url :  config.prefix + "/wizard/validate_easyfind",
                       dataType : 'json',
                       type: 'POST',
-                      success : function(is_valid){
-                        if(!is_valid && $('#fn-wizard-enable-easyfind').is(':checked')){ // change this value to false in validate.html to simulate successful validation
-                          $.alert(_("Selected Easyfind identifier is not available, please select a different one."));
-                          buttons.button("enable"); // enable the dialog buttons
-                          return false; //return false to stop the wizard from going forward to the next step (this will always happen)
+                      success : function(data){
+                        if($('#fn-wizard-enable-easyfind').is(':checked')){
+                          if(!data.is_valid) {
+                            $.alert(_("Selected Easyfind identifier is not valid, please select a different one."));
+                            buttons.button("enable"); // enable the dialog buttons
+                            return false; //return false to stop the wizard from going forward to the next step (this will always happen)
+                          } else if(!data.is_available) {
+                            $.alert(_("Selected Easyfind identifier is not valid, please select a different one."));
+                            buttons.button("enable"); // enable the dialog buttons
+                            return false; //return false to stop the wizard from going forward to the next step (this will always happen)
+                          } else if(!data.has_interwebs) {
+                            $.alert(_("It seems that you doesn't have any functional internet connection available to your unit. Please either connect a functional ethernet cable to your WAN port interface accessor or deactivate the easyfind option."));
+                            buttons.button("enable"); // enable the dialog buttons
+                            return false; //return false to stop the wizard from going forward to the next step (this will always happen)
+                          }
                         }
                         return true; //return true to make the wizard move to the next step
                       }
