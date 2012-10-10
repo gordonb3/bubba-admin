@@ -1,3 +1,9 @@
+bubba-frontend (2.5.1.2) vincent hugo; urgency=low
+
+  * Add more fine grained easyfind validation checks (Closes: #252)
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 10 Oct 2012 16:01:54 +0200
+
 bubba-frontend (2.5.1.1) vincent hugo; urgency=low
 
   * send out total number of days for uptime (Closes: #176)
