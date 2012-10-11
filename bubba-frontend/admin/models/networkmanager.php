@@ -146,7 +146,7 @@ class NetworkManager extends Model {
   }
 
   public function has_interwebs() {
-    $fp = fsockopen('b3.update.excito.org', 80, $errno, $errstr, 5);
+    $fp = @fsockopen('b3.update.excito.org', 80, $errno, $errstr, 5);
     if(!$fp) {
       return false;
     } else {
