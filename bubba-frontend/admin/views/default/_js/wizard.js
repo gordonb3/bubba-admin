@@ -97,16 +97,16 @@ function do_run_wizard() {
                       type: 'POST',
                       success : function(data){
                         if($('#fn-wizard-enable-easyfind').is(':checked')){
-                          if(!data.is_valid) {
+                          if(!data.has_interwebs) {
+                            $.alert(_("It seems that you doesn't have any functional internet connection available to your unit. Please either connect a functional ethernet cable to your WAN port interface accessor or deactivate the easyfind option."));
+                            buttons.button("enable"); // enable the dialog buttons
+                            return false; //return false to stop the wizard from going forward to the next step (this will always happen)
+                          } else if(!data.is_valid) {
                             $.alert(_("Selected Easyfind identifier is not valid, please select a different one."));
                             buttons.button("enable"); // enable the dialog buttons
                             return false; //return false to stop the wizard from going forward to the next step (this will always happen)
                           } else if(!data.is_available) {
-                            $.alert(_("Selected Easyfind identifier is not valid, please select a different one."));
-                            buttons.button("enable"); // enable the dialog buttons
-                            return false; //return false to stop the wizard from going forward to the next step (this will always happen)
-                          } else if(!data.has_interwebs) {
-                            $.alert(_("It seems that you doesn't have any functional internet connection available to your unit. Please either connect a functional ethernet cable to your WAN port interface accessor or deactivate the easyfind option."));
+                            $.alert(_("Selected Easyfind identifier is not available, please select a different one."));
                             buttons.button("enable"); // enable the dialog buttons
                             return false; //return false to stop the wizard from going forward to the next step (this will always happen)
                           }
