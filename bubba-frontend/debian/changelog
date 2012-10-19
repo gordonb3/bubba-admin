@@ -1,3 +1,11 @@
+bubba-frontend (2.5.1.5) vincent hugo; urgency=low
+
+  * Fix fsockopen and make sure easyfind is not run when no internet is available
+  * update easyfind messages to be more human friendly
+  * update translation templates
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 19 Oct 2012 14:38:03 +0200
+
 bubba-frontend (2.5.1.4) vincent hugo; urgency=low
 
   * change order of easyfind checks
