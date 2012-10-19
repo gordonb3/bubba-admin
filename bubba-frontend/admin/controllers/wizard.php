@@ -141,34 +141,36 @@ class wizard extends Controller {
             $errors[] = $e->getMessage();
         }
 
-        try {
+        if($this->networkmanager->has_interwebs()){
+          try {
             // Grabbed from settings.php mostly
             if( $enable_easyfind ) {
-                $current_easyfind = $this->networkmanager->get_easyfind();
-                if(isset($easyfind_name) && ( $easyfind_name  != $current_easyfind['name'])) {
-                    $valid = $this->networkmanager->easyfind_validate($easyfind_name);
-                    if($valid) {
-                        $server_response = $this->networkmanager->easyfind_setname($easyfind_name.".".EASYFIND);
-                        $this->networkmanager->enable_igd_easyfind(true);
-                        if($server_response['error']) {
-                            $msg = $this->networkmanager->decode_easyfindmsg($server_response);
-                            throw new Exception(sprintf(_("Easyfind failed with following error: %s"), $msg));
-                        }
-                    } else {
-                        throw new Exception(_("Name is not valid"));
-                    }
-
-                }
-            } else {
-                $server_response = $this->networkmanager->easyfind_setname("");
-                $this->networkmanager->enable_igd_easyfind(false);
-                if($server_response['error']) {
+              $current_easyfind = $this->networkmanager->get_easyfind();
+              if(isset($easyfind_name) && ( $easyfind_name  != $current_easyfind['name'])) {
+                $valid = $this->networkmanager->easyfind_validate($easyfind_name);
+                if($valid) {
+                  $server_response = $this->networkmanager->easyfind_setname($easyfind_name.".".EASYFIND);
+                  $this->networkmanager->enable_igd_easyfind(true);
+                  if($server_response['error']) {
                     $msg = $this->networkmanager->decode_easyfindmsg($server_response);
                     throw new Exception(sprintf(_("Easyfind failed with following error: %s"), $msg));
+                  }
+                } else {
+                  throw new Exception(_("Name is not valid"));
                 }
+
+              }
+            } else {
+              $server_response = $this->networkmanager->easyfind_setname("");
+              $this->networkmanager->enable_igd_easyfind(false);
+              if($server_response['error']) {
+                $msg = $this->networkmanager->decode_easyfindmsg($server_response);
+                throw new Exception(sprintf(_("Easyfind failed with following error: %s"), $msg));
+              }
             }
-        } catch( Exception $e ) {
+          } catch( Exception $e ) {
             $errors[] = $e->getMessage();
+          }
         }
 
         if(!empty($errors)) {
@@ -186,6 +188,11 @@ class wizard extends Controller {
       $this->output->set_header('Expires: '.gmdate('D, d M Y H:i:s', time()).' GMT');
       $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0");
       $this->output->set_header("Pragma: no-cache");
+      if(!$name) {
+        $this->output->set_output(json_encode(array('ignored' => true)));
+        return;
+
+      }
       $has_interwebs = $this->networkmanager->has_interwebs();
       $out = array();
 

@@ -96,6 +96,9 @@ function do_run_wizard() {
                       dataType : 'json',
                       type: 'POST',
                       success : function(data){
+                        if(data.ignored) {
+                          return true;
+                        }
                         if($('#fn-wizard-enable-easyfind').is(':checked')){
                           if(!data.has_interwebs) {
                             $.alert(_("It seems that you doesn't have any functional internet connection available to your unit. Please either connect a functional ethernet cable to your WAN port interface accessor or deactivate the easyfind option."));
