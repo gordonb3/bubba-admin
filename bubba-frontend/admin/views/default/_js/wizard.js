@@ -101,15 +101,15 @@ function do_run_wizard() {
                         }
                         if($('#fn-wizard-enable-easyfind').is(':checked')){
                           if(!data.has_interwebs) {
-                            $.alert(_("It seems that you doesn't have any functional internet connection available to your unit. Please either connect a functional ethernet cable to your WAN port interface accessor or deactivate the easyfind option."));
+                            $.alert(_("Connection to internet is not available. Please disable easyfind, or connect to internet and try again."));
                             buttons.button("enable"); // enable the dialog buttons
                             return false; //return false to stop the wizard from going forward to the next step (this will always happen)
                           } else if(!data.is_valid) {
-                            $.alert(_("Selected Easyfind identifier is not valid, please select a different one."));
+                            $.alert(_("The easyfind name you selected contains invalid characters. Please only include letters, numbers, or dashes ."));
                             buttons.button("enable"); // enable the dialog buttons
                             return false; //return false to stop the wizard from going forward to the next step (this will always happen)
                           } else if(!data.is_available) {
-                            $.alert(_("Selected Easyfind identifier is not available, please select a different one."));
+                            $.alert(_("The easyfind name you selected is already taken, please try another one."));
                             buttons.button("enable"); // enable the dialog buttons
                             return false; //return false to stop the wizard from going forward to the next step (this will always happen)
                           }
