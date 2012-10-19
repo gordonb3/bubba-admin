@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-08-27 11:38+0200\n"
+"POT-Creation-Date: 2012-10-19 14:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -558,19 +558,31 @@ msgstr ""
 msgid "your-easyfind-name"
 msgstr ""
 
-#: admin/views/default/_js/wizard.js:100
+#: admin/views/default/_js/wizard.js:104
 msgid ""
-"Selected Easyfind identifier is not available, please select a different one."
+"Connection to internet is not available. Please disable easyfind, or connect "
+"to internet and try again."
 msgstr ""
 
-#: admin/views/default/_js/wizard.js:161
+#: admin/views/default/_js/wizard.js:108
+msgid ""
+"The easyfind name you selected contains invalid characters. Please only "
+"include letters, numbers, or dashes ."
+msgstr ""
+
+#: admin/views/default/_js/wizard.js:112
+msgid ""
+"The easyfind name you selected is already taken, please try another one."
+msgstr ""
+
+#: admin/views/default/_js/wizard.js:174
 msgid "Following errors where encountered when trying to apply the changes: "
 msgstr ""
 
-#: admin/views/default/_js/wizard.js:161
+#: admin/views/default/_js/wizard.js:174
 msgid "Error applying changes"
 msgstr ""
 
-#: admin/views/default/_js/wizard.js:165
+#: admin/views/default/_js/wizard.js:178
 msgid "Setup complete. Enjoy!"
 msgstr ""

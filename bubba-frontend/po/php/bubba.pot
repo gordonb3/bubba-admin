@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-08-27 11:38+0200\n"
+"POT-Creation-Date: 2012-10-19 14:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -217,7 +217,7 @@ msgid ""
 msgstr ""
 
 #: admin/controllers/settings.php:646 admin/controllers/settings.php:667
-#: admin/controllers/wizard.php:155 admin/controllers/wizard.php:167
+#: admin/controllers/wizard.php:156 admin/controllers/wizard.php:168
 #, php-format
 msgid "Easyfind failed with following error: %s"
 msgstr ""
@@ -326,7 +326,7 @@ msgstr ""
 msgid "your-easyfind-name"
 msgstr ""
 
-#: admin/controllers/wizard.php:158
+#: admin/controllers/wizard.php:159
 msgid "Name is not valid"
 msgstr ""
 
