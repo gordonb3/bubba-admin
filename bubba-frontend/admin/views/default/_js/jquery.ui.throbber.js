@@ -103,9 +103,9 @@
                 if( self.options.overlay ) {
                     self.overlay.show();
                 }
-                self.lb.fadeIn('fast');
+                self.element.fadeIn('fast');
                 if(self.options.showlabel) {
-                    self.element.fadeIn('fast');
+                  self.lb.fadeIn('fast');
                 }
                 var throbberWidth = self.throbber.width();
                 var throbberContainerWidth = self.element.width();

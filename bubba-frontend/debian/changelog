@@ -1,3 +1,9 @@
+bubba-frontend (2.5.1.6) vincent hugo; urgency=low
+
+  * Fix bug in throbber (closes: 293)
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 24 Oct 2012 14:56:07 +0200
+
 bubba-frontend (2.5.1.5) vincent hugo; urgency=low
 
   * Fix fsockopen and make sure easyfind is not run when no internet is available
