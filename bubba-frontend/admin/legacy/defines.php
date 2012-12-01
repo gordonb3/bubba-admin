@@ -17,7 +17,7 @@ define("UINFOFILE","/etc/passwd");
 define("VERSION","BUBBA_VERSION");
 define("FORMPREFIX","/admin");
 define("FALLBACKIP","192.168.10.1");
-define("BUBBA_VERSION","/etc/bubba.version");
+define("BUBBA_VERSION","/usr/share/bubba/bubba.version");
 define("USER_CONFIG",".bubbacfg");
 define("ADMINCONFIG","/home/admin/".USER_CONFIG);
 
