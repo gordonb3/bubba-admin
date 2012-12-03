@@ -14,7 +14,9 @@ $(document).ready(function() {
         $('input[name=username]', source_edit_dialog).val(account.username);
         $('#input_username', source_edit_dialog).html(account.username);
         $('input[name=realname]', source_edit_dialog).val(account.realname);
-        $('#option_' + account.user_config.language, source_edit_dialog).attr("selected", "selected");
+        if(account.user_config && account.user_config.language) {
+          $('#option_' + account.user_config.language, source_edit_dialog).attr("selected", "selected");
+        }
 
         var update_button = $('<button/>', {
             'class': 'submit',
