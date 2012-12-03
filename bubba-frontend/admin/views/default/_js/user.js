@@ -134,8 +134,7 @@ $(document).ready(function() {
                 $('#option_', this).attr("selected", "selected");
             }
         } else {
-            // If this is not set, then prior to language support -> en.
-            $('#option_en', this).attr("selected", "selected");
+            $('#option_', this).attr("selected", "selected");
         }
 
         if (data.username == 'admin') { // TODO MOVE THIS AWAY FROM HERE!!!
