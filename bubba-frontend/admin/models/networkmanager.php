@@ -565,7 +565,7 @@ class NetworkManager extends Model {
 		if( isset( $data['config']['wlan']['config']['ssid'] ) ) {
 			return $data['config']['wlan']['config']['ssid'];
 		}
-		return 'bubba';
+		return 'b3';
 	}
 
 	public function enable_wlan_broadcast_ssid() {
