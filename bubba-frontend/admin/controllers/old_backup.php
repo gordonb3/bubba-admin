@@ -1,6 +1,6 @@
 <?php
 
-class Backup extends Controller {
+class OldBackup extends Controller {
     public function __construct() {
         parent::Controller();
         require_once(APPPATH."/legacy/defines.php");
@@ -13,7 +13,7 @@ class Backup extends Controller {
     function _renderfull($content, $head=true){
         if(!is_null($head)) {
             if( $head === true ) {
-                $mdata["head"] = $this->load->view(THEME.'/backup/backup_head_view','',true);
+                $mdata["head"] = $this->load->view(THEME.'/old_backup/backup_head_view','',true);
             } else {
                 $mdata['head'] = $head;
             }
@@ -29,9 +29,9 @@ class Backup extends Controller {
         }
         $data = array();
         if($strip){
-            $this->load->view(THEME.'/backup/backup_view',$data);
+            $this->load->view(THEME.'/old_backup/backup_view',$data);
         }else{
-            $this->_renderfull($this->load->view(THEME.'/backup/backup_view',$data,true));
+            $this->_renderfull($this->load->view(THEME.'/old_backup/backup_view',$data,true));
         }
     }
 }
