@@ -49,7 +49,7 @@ class BackupPLException extends Exception {
     }
 }
 
-class Backup extends Model {
+class Oldbackup extends Model {
 	private $diskmanager = "/usr/sbin/diskmanager";
 
     public function list_backups($job) {

@@ -1,5 +1,5 @@
 <?php
-class Ajax_backup extends Controller {
+class Ajax_oldbackup extends Controller {
 
     var $json_data=Array(
         'error' => 1,
@@ -8,7 +8,7 @@ class Ajax_backup extends Controller {
 
     function __construct() {
         parent::Controller();
-        $this->load->model("backup");
+        $this->load->model("oldbackup");
         require_once(APPPATH."/legacy/defines.php");
         require_once(ADMINFUNCS);
 
