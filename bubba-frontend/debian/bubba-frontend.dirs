@@ -15,3 +15,5 @@
 /etc/lighttpd/conf-available
 
 /etc/php5/cgi/conf.d
+
+/var/lib/bubba

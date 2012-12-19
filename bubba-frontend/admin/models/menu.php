@@ -226,7 +226,11 @@ class Menu extends Model {
                         'id' => 'settings-identity',
                         'uri' => 'settings/identity',
                     ),
-
+                    array(
+                        'label' => pgettext('menu',"Remote accounts"),
+                        'id' => 'remote-accounts',
+                        'uri' => 'settings/remote_accounts',
+                    ),
                     array(
                         'label' => pgettext('menu',"Torrent throttle"),
                         'id' => 'settings-traffic',

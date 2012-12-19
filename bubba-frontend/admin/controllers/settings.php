@@ -701,5 +701,15 @@ class Settings extends Controller{
 		
 	}
 
+  public function remote_accounts() {
+    $data = array();
+    $this->_renderfull(
+      $this->load->view(THEME.'/settings/settings_remote_accounts_view',$data,true),
+      $this->load->view(THEME.'/settings/settings_remote_accounts_head_view',$data,true),
+      $data
+    );
+
+  }
+
 }
 

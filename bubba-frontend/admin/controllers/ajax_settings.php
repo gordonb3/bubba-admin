@@ -122,6 +122,34 @@ class Ajax_Settings extends Controller {
       }
 
   }
+
+  public function new_remote_account() {
+    $this->load->model('system');
+    $type = $this->input->post('type');
+    $username = $this->input->post('username');
+    $password = $this->input->post('password');
+    $sshkey = $this->input->post('sshkey');
+    try {
+      $key = $this->system->add_remote_account($type, $username, $password, $sshkey);
+      $this->json_data = array( 'key' => $key );
+    } catch(Exception $e) {
+      $this->json_data['html'] = $e->getMessage();
+    }
+  }
+
+  public function remove_remote_account() {
+    $this->load->model('system');
+    $type = $this->input->post('type');
+    $username = $this->input->post('username');
+    $this->system->remove_remote_account($type, $username);
+    $this->json_data = true;
+  }
+
+  public function get_remote_accounts() {
+    $this->load->model('system');
+    $this->json_data = $this->system->get_remote_accounts();
+  }
+
   function _output($output) {
   	if(isset($this->json_data) && sizeof($this->json_data)) {
     	echo json_encode($this->json_data);
