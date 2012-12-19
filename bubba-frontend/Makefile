@@ -1,5 +1,5 @@
 
-all: help_texts generate_mo json
+all: help_texts generate_mo json gen_js
 
 languages = en de es sv
 base_po_files = $(addsuffix .po,$(languages))
@@ -7,6 +7,8 @@ php_po_files = $(addprefix po/php/,$(base_po_files))
 js_po_files = $(addprefix po/js/,$(base_po_files))
 po_files = $(php_po_files) $(js_po_files)
 mo_files = $(patsubst %.po,%.mo,$(po_files))
+coffee_files = $(wildcard admin/views/default/_js/*.coffee)
+js_files = $(patsubst %.coffee,%.js,$(coffee_files))
 
 VERSION=2.3
 
@@ -95,6 +97,11 @@ po/js/%.json: po/js/%.po
 		$^
 
 
+gen_js: $(js_files)
+
+%.js: %.coffee
+	coffee --compile --bare $^
+
 clean:
 	rm -f po/php/*.mo po/js/*.mo
 	rm -f po/php/en.* po/js/en.*
@@ -124,4 +131,4 @@ install:
 		install -m 0644 -D  po/js/$(ll).json $(locale_dir)/$(ll)/LC_MESSAGES/bubba.json;\
 	)
 
-.PHONY: update_po update_pot help_texts all clean
+.PHONY: update_po update_pot help_texts all clean gen_js
