@@ -103,6 +103,7 @@ gen_js: $(js_files)
 	coffee --compile --bare $^
 
 clean:
+	rm -f $(js_files)
 	rm -f po/php/*.mo po/js/*.mo
 	rm -f po/php/en.* po/js/en.*
 	rm -f po/js/*.json
