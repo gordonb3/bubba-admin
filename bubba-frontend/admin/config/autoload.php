@@ -39,7 +39,7 @@
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array( 'session', 'gettext' );
+$autoload['libraries'] = array( 'session', 'gettext', 'spyc' );
 
 
 /*
