@@ -131,6 +131,7 @@ class Ajax_Settings extends Controller {
     $sshkey = $this->input->post('sshkey');
     try {
       $key = $this->system->add_remote_account($type, $username, $password, $sshkey);
+      $this->system->add_webdav($type, $username, $password);
       $this->json_data = array( 'key' => $key );
     } catch(Exception $e) {
       $this->json_data['html'] = $e->getMessage();
@@ -142,6 +143,7 @@ class Ajax_Settings extends Controller {
     $type = $this->input->post('type');
     $username = $this->input->post('username');
     $this->system->remove_remote_account($type, $username);
+    $this->system->remove_webdav($type, $username);
     $this->json_data = true;
   }
 

@@ -65,6 +65,8 @@ class System extends Model {
   }
 
   const accounts_file = '/etc/bubba/remote_accounts.yml';
+  const fstab_file = '/etc/fstab';
+  const webdav_secrets_file  = '/etc/davfs2/secrets';
 
   public function add_remote_account($type, $username, $password, $sshkey) {
     $accounts = spyc_load_file(self::accounts_file);
@@ -107,4 +109,79 @@ class System extends Model {
     }
     return $targets;
   }
- }
+
+  public function get_webdav_path($type, $username) {
+    return "/home/admin/$type/$username";
+  }
+
+  public function create_webdav_path($type, $username) {
+    $path = "/home/admin/$type";
+    if(! file_exists($path) ) {
+      mkdir($path, 0700);
+      chown($path, 'admin');
+      chgrp($path, 'admin');
+    }
+    $path = "/home/admin/$type/$username";
+    if(! file_exists($path) ) {
+      mkdir($path, 0700);
+      chown($path, 'admin');
+      chgrp($path, 'admin');
+    }
+  }
+
+  public function get_webdav_url($type) {
+    switch($type) {
+    case 'HiDrive':
+      return 'http://webdav.hidrive.strato.com';
+    }
+  }
+
+  public function add_webdav($type, $username, $password) {
+    $url = $this->get_webdav_url($type);
+    $path = $this->get_webdav_path($type, $username);
+    $oldsecrets = file_get_contents(self::webdav_secrets_file);
+
+    # Remove old path if allready there
+    $secrets = preg_replace("#^".preg_quote($path).".*#m", "", $oldsecrets);
+
+    $secrets .= sprintf("\n%s\t\"%s\"\t\"%s\"\n", addslashes($path), addslashes($username), addslashes($password));
+
+    if($oldsecrets != $secrets) {
+      file_put_contents(self::webdav_secrets_file, $secrets);
+    }
+
+    $oldfstab = file_get_contents(self::fstab_file);
+    $fstab = preg_replace("#^".preg_quote($url)."\s+".preg_quote($path).".*#m", "", $oldfstab);
+
+    $fstab .= "\n$url $path davfs defaults,gid=users,dir_mode=775,file_mode=664 0 0\n";
+
+    if(! file_exists($path) ) {
+      $this->create_webdav_path($type, $username);
+    }
+
+    if($fstab != $oldfstab) {
+      file_put_contents(self::fstab_file, $fstab);
+      _system("mount", "-a");
+    }
+
+  }
+
+  public function remove_webdav($type, $username) {
+    $url = $this->get_webdav_url($type);
+    $path = $this->get_webdav_path($type, $username);
+
+    _system('umount', '-f', $path);
+    $oldsecrets = file_get_contents(self::webdav_secrets_file);
+
+    # Remove old path if allready there
+    $secrets = preg_replace("#^".preg_quote($path)."#m", "", $oldsecrets);
+    file_put_contents(self::webdav_secrets_file, $secrets);
+
+    $oldfstab = file_get_contents(self::fstab_file);
+    $fstab = preg_replace("#^".preg_quote($url)."\s+".preg_quote($path)."#m", "", $oldfstab);
+    file_put_contents(self::webdav_secrets_file, $secrets);
+    if( file_exists($path) ) {
+      @rmdir($path);
+    }
+  }
+}
