@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-10-19 14:36+0200\n"
+"POT-Creation-Date: 2012-12-19 18:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,8 +107,8 @@ msgid "Fatal error when trying to remove the user %s"
 msgstr ""
 
 #: admin/controllers/users.php:311 admin/controllers/filemanager.php:107
-#: admin/views/default/backup/backup_view.php:734
-#: admin/views/default/backup/backup_view.php:804
+#: admin/views/default/old_backup/backup_view.php:734
+#: admin/views/default/old_backup/backup_view.php:804
 #: admin/views/default/filemanager/filemanager_index_view.php:17
 msgid "Permission denied"
 msgstr ""
@@ -237,42 +237,18 @@ msgstr ""
 msgid "Failed to aquire an RAID array containing the disk %s"
 msgstr ""
 
-#: admin/controllers/ajax_backup.php:45
-#: admin/views/default/backup/backup_view.php:327
-#: admin/views/default/backup/backup_view.php:674
-msgid "Hourly"
+#: admin/controllers/ajax_backup.php:79 admin/controllers/ajax_backup.php:106
+msgid "Unknown"
 msgstr ""
 
-#: admin/controllers/ajax_backup.php:48
-msgid "Each day"
+#: admin/controllers/ajax_backup.php:81
+#, php-format
+msgid "Backup of %s made %s for %s on %s"
 msgstr ""
 
-#: admin/controllers/ajax_backup.php:51
-msgid "Once a week"
-msgstr ""
-
-#: admin/controllers/ajax_backup.php:54
-msgid "Every month"
-msgstr ""
-
-#: admin/controllers/ajax_backup.php:57
-msgid "Never"
-msgstr ""
-
-#: admin/controllers/ajax_backup.php:60
-msgid "Once in a while"
-msgstr ""
-
-#: admin/controllers/ajax_backup.php:87
-msgid "Running"
-msgstr ""
-
-#: admin/controllers/ajax_backup.php:93
-msgid "OK"
-msgstr ""
-
-#: admin/controllers/ajax_backup.php:95
-msgid "Not run"
+#: admin/controllers/ajax_backup.php:108
+#, php-format
+msgid "Backup of %s made %s to External disk %s"
 msgstr ""
 
 #: admin/controllers/mail.php:104 admin/controllers/mail.php:147
@@ -389,12 +365,12 @@ msgctxt "menu"
 msgid "Music"
 msgstr ""
 
-#: admin/models/menu.php:44 admin/models/menu.php:299
+#: admin/models/menu.php:44 admin/models/menu.php:303
 msgctxt "menu"
 msgid "Album"
 msgstr ""
 
-#: admin/models/menu.php:55 admin/models/menu.php:325
+#: admin/models/menu.php:55 admin/models/menu.php:329
 msgctxt "menu"
 msgid "Downloads"
 msgstr ""
@@ -404,8 +380,8 @@ msgctxt "menu"
 msgid "Webmail"
 msgstr ""
 
-#: admin/models/menu.php:76 admin/models/menu.php:261
-#: admin/models/menu.php:280
+#: admin/models/menu.php:76 admin/models/menu.php:265
+#: admin/models/menu.php:284
 msgctxt "menu"
 msgid "User settings"
 msgstr ""
@@ -420,7 +396,7 @@ msgctxt "menu"
 msgid "Backup"
 msgstr ""
 
-#: admin/models/menu.php:117 admin/models/menu.php:311
+#: admin/models/menu.php:117 admin/models/menu.php:315
 msgctxt "menu"
 msgid "Users"
 msgstr ""
@@ -515,47 +491,52 @@ msgctxt "menu"
 msgid "Identity"
 msgstr ""
 
-#: admin/models/menu.php:231
+#: admin/models/menu.php:230
+msgctxt "menu"
+msgid "Remote accounts"
+msgstr ""
+
+#: admin/models/menu.php:235
 msgctxt "menu"
 msgid "Torrent throttle"
 msgstr ""
 
-#: admin/models/menu.php:237
+#: admin/models/menu.php:241
 msgctxt "menu"
 msgid "Time and language"
 msgstr ""
 
-#: admin/models/menu.php:243
+#: admin/models/menu.php:247
 msgctxt "menu"
 msgid "System backup"
 msgstr ""
 
-#: admin/models/menu.php:249
+#: admin/models/menu.php:253
 msgctxt "menu"
 msgid "Software update"
 msgstr ""
 
-#: admin/models/menu.php:254
+#: admin/models/menu.php:258
 msgctxt "menu"
 msgid "Logs"
 msgstr ""
 
-#: admin/models/menu.php:267 admin/models/menu.php:286
+#: admin/models/menu.php:271 admin/models/menu.php:290
 msgctxt "menu"
 msgid "User information"
 msgstr ""
 
-#: admin/models/menu.php:273 admin/models/menu.php:291
+#: admin/models/menu.php:277 admin/models/menu.php:295
 msgctxt "menu"
 msgid "Email"
 msgstr ""
 
-#: admin/models/menu.php:305 admin/models/menu.php:316
+#: admin/models/menu.php:309 admin/models/menu.php:320
 msgctxt "menu"
 msgid "Albums"
 msgstr ""
 
-#: admin/models/menu.php:351 admin/views/default/main_view.php:276
+#: admin/models/menu.php:355 admin/views/default/main_view.php:276
 msgid "Home"
 msgstr ""
 
@@ -610,16 +591,17 @@ msgstr ""
 
 #: admin/views/default/mail/mail_retrieve_view.php:8
 #: admin/views/default/mail/mail_retrieve_view.php:43
-#: admin/views/default/backup/backup_view.php:125
-#: admin/views/default/backup/backup_view.php:129
-#: admin/views/default/backup/backup_view.php:472
-#: admin/views/default/backup/backup_view.php:476
+#: admin/views/default/old_backup/backup_view.php:125
+#: admin/views/default/old_backup/backup_view.php:129
+#: admin/views/default/old_backup/backup_view.php:472
+#: admin/views/default/old_backup/backup_view.php:476
 #: admin/views/default/network/network_fw_view.php:218
 #: admin/views/default/network/network_fw_view.php:290
 msgid "Protocol"
 msgstr ""
 
 #: admin/views/default/mail/mail_retrieve_view.php:9
+#: admin/views/default/settings/settings_remote_accounts_view.php:8
 #: admin/views/default/login_view.php:23
 msgid "Username"
 msgstr ""
@@ -647,7 +629,7 @@ msgstr ""
 
 #: admin/views/default/mail/mail_retrieve_view.php:60
 #: admin/views/default/mail/mail_server_view.php:70
-#: admin/views/default/backup/backup_view.php:373
+#: admin/views/default/old_backup/backup_view.php:373
 #: admin/views/default/network/network_wlan_view.php:54
 #: admin/views/default/login_view.php:35
 #: admin/views/default/wizard_view.php:36
@@ -925,9 +907,9 @@ msgid "Auto adjust date and time"
 msgstr ""
 
 #: admin/views/default/settings/settings_datetime_view.php:43
-#: admin/views/default/backup/backup_view.php:30
-#: admin/views/default/backup/backup_view.php:723
-#: admin/views/default/backup/backup_view.php:792
+#: admin/views/default/old_backup/backup_view.php:30
+#: admin/views/default/old_backup/backup_view.php:723
+#: admin/views/default/old_backup/backup_view.php:792
 #: admin/views/default/filemanager/filemanager_index_view.php:9
 msgid "Date"
 msgstr ""
@@ -1078,6 +1060,39 @@ msgstr ""
 msgid "Install %s"
 msgstr ""
 
+#: admin/views/default/settings/settings_remote_accounts_view.php:4
+msgid "Remote accounts"
+msgstr ""
+
+#: admin/views/default/settings/settings_remote_accounts_view.php:7
+#: admin/views/default/disk/disk_view.php:9
+msgid "Type"
+msgstr ""
+
+#: admin/views/default/settings/settings_remote_accounts_view.php:17
+msgid "Add new remote account"
+msgstr ""
+
+#: admin/views/default/settings/settings_remote_accounts_view.php:26
+msgid "Define a new remote target"
+msgstr ""
+
+#: admin/views/default/settings/settings_remote_accounts_view.php:39
+msgid "Username)"
+msgstr ""
+
+#: admin/views/default/settings/settings_remote_accounts_view.php:45
+msgid "Password)"
+msgstr ""
+
+#: admin/views/default/settings/settings_remote_accounts_view.php:51
+msgid "OpenSSH key)"
+msgstr ""
+
+#: admin/views/default/settings/settings_remote_accounts_view.php:57
+msgid "Create target"
+msgstr ""
+
 #: admin/views/default/settings/settings_traffic_view.php:4
 msgid "Traffic"
 msgstr ""
@@ -1098,274 +1113,279 @@ msgstr ""
 msgid "Max download speed"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:5
+#: admin/views/default/old_backup/backup_view.php:5
 msgid "Backup jobs"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:8
-#: admin/views/default/backup/backup_view.php:722
-#: admin/views/default/backup/backup_view.php:791
+#: admin/views/default/old_backup/backup_view.php:8
+#: admin/views/default/old_backup/backup_view.php:722
+#: admin/views/default/old_backup/backup_view.php:791
 #: admin/views/default/filemanager/filemanager_index_view.php:8
 #: admin/views/default/filemanager/filemanager_index_view.php:70
 #: admin/views/default/filemanager/filemanager_index_view.php:83
 msgid "Name"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:9
+#: admin/views/default/old_backup/backup_view.php:9
 msgid "Target"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:10
+#: admin/views/default/old_backup/backup_view.php:10
 msgid "Schedule"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:11
+#: admin/views/default/old_backup/backup_view.php:11
 #: admin/views/default/stat/stat_view.php:4
 msgid "Status"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:19
-#: admin/views/default/backup/backup_view.php:41
+#: admin/views/default/old_backup/backup_view.php:19
+#: admin/views/default/old_backup/backup_view.php:41
 msgid "Add new backup job"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:27
+#: admin/views/default/old_backup/backup_view.php:27
 msgid "Timeline"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:48
+#: admin/views/default/old_backup/backup_view.php:48
 msgid "Choose a name for this job (step 1 of 5)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:52
+#: admin/views/default/old_backup/backup_view.php:52
 msgid "Job name"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:66
+#: admin/views/default/old_backup/backup_view.php:66
 msgid "Select what you want to backup (step 2 of 5)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:71
-#: admin/views/default/backup/backup_view.php:418
+#: admin/views/default/old_backup/backup_view.php:71
+#: admin/views/default/old_backup/backup_view.php:418
 msgid "All user's data (/home/&lt;all users&gt;)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:74
-#: admin/views/default/backup/backup_view.php:421
+#: admin/views/default/old_backup/backup_view.php:74
+#: admin/views/default/old_backup/backup_view.php:421
 msgid "All user's email (/home/&lt;all users&gt;/Mail)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:77
-#: admin/views/default/backup/backup_view.php:424
+#: admin/views/default/old_backup/backup_view.php:77
+#: admin/views/default/old_backup/backup_view.php:424
 msgid "All music (/home/storage/music)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:80
-#: admin/views/default/backup/backup_view.php:427
+#: admin/views/default/old_backup/backup_view.php:80
+#: admin/views/default/old_backup/backup_view.php:427
 msgid "All pictures (/home/storage/pictures)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:83
-#: admin/views/default/backup/backup_view.php:430
+#: admin/views/default/old_backup/backup_view.php:83
+#: admin/views/default/old_backup/backup_view.php:430
 msgid "All videos (/home/storage/video)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:86
-#: admin/views/default/backup/backup_view.php:433
+#: admin/views/default/old_backup/backup_view.php:86
+#: admin/views/default/old_backup/backup_view.php:433
 msgid "Storage (/home/storage)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:89
-#: admin/views/default/backup/backup_view.php:436
+#: admin/views/default/old_backup/backup_view.php:89
+#: admin/views/default/old_backup/backup_view.php:436
 msgid "Custom selection"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:110
-#: admin/views/default/backup/backup_view.php:457
+#: admin/views/default/old_backup/backup_view.php:110
+#: admin/views/default/old_backup/backup_view.php:457
 msgid "Browse"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:121
+#: admin/views/default/old_backup/backup_view.php:121
 msgid "Choose backup destination (step 3 of 5)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:131
+#: admin/views/default/old_backup/backup_view.php:131
 #: admin/views/default/network/network_fw_view.php:144
 msgid "FTP"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:132
+#: admin/views/default/old_backup/backup_view.php:132
 #: admin/views/default/network/network_fw_view.php:112
 msgid "SSH"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:133
+#: admin/views/default/old_backup/backup_view.php:133
 msgid "Local (USB/eSATA)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:140
-#: admin/views/default/backup/backup_view.php:487
+#: admin/views/default/old_backup/backup_view.php:140
+#: admin/views/default/old_backup/backup_view.php:487
 msgid "Target device"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:145
-#: admin/views/default/backup/backup_view.php:492
+#: admin/views/default/old_backup/backup_view.php:145
+#: admin/views/default/old_backup/backup_view.php:492
 msgid "Device to use as target for the backup"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:152
-#: admin/views/default/backup/backup_view.php:499
+#: admin/views/default/old_backup/backup_view.php:152
+#: admin/views/default/old_backup/backup_view.php:499
 msgid "Target server"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:165
-#: admin/views/default/backup/backup_view.php:512
+#: admin/views/default/old_backup/backup_view.php:165
+#: admin/views/default/old_backup/backup_view.php:512
 msgid "Target server username"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:178
-#: admin/views/default/backup/backup_view.php:525
+#: admin/views/default/old_backup/backup_view.php:178
+#: admin/views/default/old_backup/backup_view.php:525
 msgid "Target server password"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:191
-#: admin/views/default/backup/backup_view.php:538
+#: admin/views/default/old_backup/backup_view.php:191
+#: admin/views/default/old_backup/backup_view.php:538
 msgid "Target directory"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:206
+#: admin/views/default/old_backup/backup_view.php:206
 msgid "Select backup schedule (step 4 of 5)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:218
-#: admin/views/default/backup/backup_view.php:565
+#: admin/views/default/old_backup/backup_view.php:218
+#: admin/views/default/old_backup/backup_view.php:565
 msgid "Disabled (manually run by pressing \"Run now\")"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:231
-#: admin/views/default/backup/backup_view.php:578
+#: admin/views/default/old_backup/backup_view.php:231
+#: admin/views/default/old_backup/backup_view.php:578
 msgid "Monthly on the"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:236
-#: admin/views/default/backup/backup_view.php:583
+#: admin/views/default/old_backup/backup_view.php:236
+#: admin/views/default/old_backup/backup_view.php:583
 msgid "Day of the month"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:242
-#: admin/views/default/backup/backup_view.php:278
-#: admin/views/default/backup/backup_view.php:589
-#: admin/views/default/backup/backup_view.php:625
+#: admin/views/default/old_backup/backup_view.php:242
+#: admin/views/default/old_backup/backup_view.php:278
+#: admin/views/default/old_backup/backup_view.php:589
+#: admin/views/default/old_backup/backup_view.php:625
 msgid "at"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:247
-#: admin/views/default/backup/backup_view.php:283
-#: admin/views/default/backup/backup_view.php:307
-#: admin/views/default/backup/backup_view.php:594
-#: admin/views/default/backup/backup_view.php:630
-#: admin/views/default/backup/backup_view.php:654
+#: admin/views/default/old_backup/backup_view.php:247
+#: admin/views/default/old_backup/backup_view.php:283
+#: admin/views/default/old_backup/backup_view.php:307
+#: admin/views/default/old_backup/backup_view.php:594
+#: admin/views/default/old_backup/backup_view.php:630
+#: admin/views/default/old_backup/backup_view.php:654
 msgid "Hour of the day"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:266
-#: admin/views/default/backup/backup_view.php:613
+#: admin/views/default/old_backup/backup_view.php:266
+#: admin/views/default/old_backup/backup_view.php:613
 msgid "Weekly each"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:271
-#: admin/views/default/backup/backup_view.php:618
+#: admin/views/default/old_backup/backup_view.php:271
+#: admin/views/default/old_backup/backup_view.php:618
 msgid "Day of the week"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:302
-#: admin/views/default/backup/backup_view.php:649
+#: admin/views/default/old_backup/backup_view.php:302
+#: admin/views/default/old_backup/backup_view.php:649
 msgid "Daily at"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:336
-#: admin/views/default/backup/backup_view.php:683
+#: admin/views/default/old_backup/backup_view.php:327
+#: admin/views/default/old_backup/backup_view.php:674
+msgid "Hourly"
+msgstr ""
+
+#: admin/views/default/old_backup/backup_view.php:336
+#: admin/views/default/old_backup/backup_view.php:683
 msgid "Keep timeline length of"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:342
-#: admin/views/default/backup/backup_view.php:689
+#: admin/views/default/old_backup/backup_view.php:342
+#: admin/views/default/old_backup/backup_view.php:689
 msgid "Age of timeline"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:344
-#: admin/views/default/backup/backup_view.php:691
+#: admin/views/default/old_backup/backup_view.php:344
+#: admin/views/default/old_backup/backup_view.php:691
 msgid "a day"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:345
-#: admin/views/default/backup/backup_view.php:692
+#: admin/views/default/old_backup/backup_view.php:345
+#: admin/views/default/old_backup/backup_view.php:692
 msgid "a week"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:346
-#: admin/views/default/backup/backup_view.php:693
+#: admin/views/default/old_backup/backup_view.php:346
+#: admin/views/default/old_backup/backup_view.php:693
 msgid "a month"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:347
-#: admin/views/default/backup/backup_view.php:694
+#: admin/views/default/old_backup/backup_view.php:347
+#: admin/views/default/old_backup/backup_view.php:694
 msgid "half a year"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:348
-#: admin/views/default/backup/backup_view.php:695
+#: admin/views/default/old_backup/backup_view.php:348
+#: admin/views/default/old_backup/backup_view.php:695
 msgid "a year"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:349
-#: admin/views/default/backup/backup_view.php:696
+#: admin/views/default/old_backup/backup_view.php:349
+#: admin/views/default/old_backup/backup_view.php:696
 msgid "a decade"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:351
-#: admin/views/default/backup/backup_view.php:698
+#: admin/views/default/old_backup/backup_view.php:351
+#: admin/views/default/old_backup/backup_view.php:698
 msgid "The longer timeline the more space will be required on target"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:358
+#: admin/views/default/old_backup/backup_view.php:358
 msgid "Security (step 5 of 5)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:368
+#: admin/views/default/old_backup/backup_view.php:368
 msgid "Encrypt the backup on target for increased security"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:385
+#: admin/views/default/old_backup/backup_view.php:385
 msgid "Repeat password"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:405
-#: admin/views/default/backup/backup_view.php:710
+#: admin/views/default/old_backup/backup_view.php:405
+#: admin/views/default/old_backup/backup_view.php:710
 msgid "Edit backup job"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:413
+#: admin/views/default/old_backup/backup_view.php:413
 msgid "Files to backup (step 1 of 4)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:468
+#: admin/views/default/old_backup/backup_view.php:468
 msgid "Backup destination (step 2 of 4)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:553
+#: admin/views/default/old_backup/backup_view.php:553
 msgid "Backup schedule (step 3 of 4)"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:756
+#: admin/views/default/old_backup/backup_view.php:756
 msgid "Restore file to it’s original place"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:769
+#: admin/views/default/old_backup/backup_view.php:769
 msgid "Restore to other place"
 msgstr ""
 
-#: admin/views/default/backup/backup_view.php:793
+#: admin/views/default/old_backup/backup_view.php:793
 #: admin/views/default/disk/disk_raid_view.php:98
 #: admin/views/default/disk/disk_raid_view.php:119
 #: admin/views/default/filemanager/filemanager_index_view.php:10
@@ -2058,10 +2078,6 @@ msgstr ""
 
 #: admin/views/default/disk/disk_view.php:8
 msgid "Disk size"
-msgstr ""
-
-#: admin/views/default/disk/disk_view.php:9
-msgid "Type"
 msgstr ""
 
 #: admin/views/default/disk/disk_view.php:10

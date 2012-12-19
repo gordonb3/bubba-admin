@@ -11,11 +11,13 @@ admin/controllers/ajax_backup.php
 admin/controllers/mail.php
 admin/controllers/ajax_network.php
 admin/controllers/wizard.php
+admin/controllers/settings.php
 
 admin/models/album_model.php
 admin/models/disk_model.php
 admin/models/menu.php
 admin/models/networkmanager.php
+admin/models/system.php
 
 admin/views/default/mail/mail_retrieve_head_view.php
 admin/views/default/mail/mail_server_head_view.php
@@ -32,15 +34,17 @@ admin/views/default/settings/settings_datetime_head_view.php
 admin/views/default/settings/settings_software_head_view.php
 admin/views/default/settings/settings_datetime_view.php
 admin/views/default/settings/settings_netupdate_view.php
+admin/views/default/settings/settings_remote_accounts_head_view.php
 admin/views/default/settings/settings_logs_view.php
 admin/views/default/settings/settings_identity_view.php
 admin/views/default/settings/settings_software_view.php
 admin/views/default/settings/settings_identity_head_view.php
 admin/views/default/settings/settings_head_view.php
 admin/views/default/settings/settings_backuprestore_head_view.php
+admin/views/default/settings/settings_remote_accounts_view.php
 admin/views/default/settings/settings_traffic_view.php
-admin/views/default/backup/backup_head_view.php
-admin/views/default/backup/backup_view.php
+admin/views/default/old_backup/backup_head_view.php
+admin/views/default/old_backup/backup_view.php
 admin/views/default/network/network_wlan_head_view.php
 admin/views/default/network/network_tor_view.php
 admin/views/default/network/network_profile_view.php
