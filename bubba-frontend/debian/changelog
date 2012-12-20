@@ -1,3 +1,21 @@
+bubba-frontend (2.5.1.6+backup1) unstable; urgency=low
+
+  * change BUBBA_VERION to use /usr instead
+  * don't bail on bad session_start (closes: #552)
+  * make it possible to change language for users
+  * select "default" per default for edit user (closes: #509)
+  * Show correct default ssid (closes: #511)
+  * move old backup to old_backup
+  * compile coffeescript on the fly
+  * adding yaml parsing capabilites
+  * rename old backups to oldbackup
+  * Adding rsync backup functionality
+  * Adding webdav connection for remote accounts
+  * update POTFILES and update translation files
+  * remove generated js files on clean
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 20 Dec 2012 14:25:33 +0100
+
 bubba-frontend (2.5.1.6) vincent hugo; urgency=low
 
   * Fix bug in throbber (closes: 293)
