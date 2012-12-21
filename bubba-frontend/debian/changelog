@@ -1,3 +1,9 @@
+bubba-frontend (2.5.1.6+backup2) unstable; urgency=low
+
+  * update to create ssh key
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 21 Dec 2012 16:25:04 +0100
+
 bubba-frontend (2.5.1.6+backup1) unstable; urgency=low
 
   * change BUBBA_VERION to use /usr instead
