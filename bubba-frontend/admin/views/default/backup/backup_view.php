@@ -24,32 +24,33 @@
 
   <div id="create-target">
     <h3><?=_("Define a new remote target")?></h3>
-    <form action="<?=FORMPREFIX?>/ajax_settings/new_remote_target" method="post">
+    <form action="<?=FORMPREFIX?>/ajax_settings/new_remote_account" method="post">
       <table>
         <tr>
           <td>
             <select id="type" name="type">
               <option value="HiDrive">HiDrive</option>
-              <option value="Google Drive">Google Drive</option>
+              <option disabled="disabled" value="Google Drive">Google Drive</option>
+              <option value="ssh">SSH</option>
             </select>
           </td>
         </tr>
         <tr>
           <td>
-            <label for="username"><?=_("Username)")?></label>
+            <label for="username"><?=_("Username")?></label>
             <input type="text" id="username" name="username"/>
           </td>
         </tr>
         <tr>
           <td>
-            <label for="password"><?=_("Password)")?></label>
+            <label for="password"><?=_("Password")?></label>
             <input type="password" id="password" name="password"/>
           </td>
         </tr>
         <tr>
           <td>
-            <label for="sshkey"><?=_("OpenSSH key)")?></label>
-            <textarea id="sshkey" name="sshkey"></textarea>
+            <label for="host"><?=_("Host")?></label>
+            <input type="text" id="host" name="host"></textarea>
           </td>
         </tr>
         <tr>

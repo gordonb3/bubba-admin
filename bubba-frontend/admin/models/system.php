@@ -67,30 +67,91 @@ class System extends Model {
   const accounts_file = '/etc/bubba/remote_accounts.yml';
   const fstab_file = '/etc/fstab';
   const webdav_secrets_file  = '/etc/davfs2/secrets';
+  const ssh_keydir = '/etc/bubba/ssh-keys';
 
-  public function add_remote_account($type, $username, $password, $sshkey) {
-    $accounts = spyc_load_file(self::accounts_file);
+  # faithfully stolen from http://stackoverflow.com/questions/2040240/php-function-to-generate-v4-uuid
+  private function gen_uuid() {
+    return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+      // 32 bits for "time_low"
+      mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ),
+
+      // 16 bits for "time_mid"
+      mt_rand( 0, 0xffff ),
+
+      // 16 bits for "time_hi_and_version",
+      // four most significant bits holds version number 4
+      mt_rand( 0, 0x0fff ) | 0x4000,
+
+      // 16 bits, 8 bits for "clk_seq_hi_res",
+      // 8 bits for "clk_seq_low",
+      // two most significant bits holds zero and one for variant DCE1.1
+      mt_rand( 0, 0x3fff ) | 0x8000,
+
+      // 48 bits for "node"
+      mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff )
+    );
+  }
+  private function create_ssh_key($uuid) {
+    $priv_path = implode(DIRECTORY_SEPARATOR, array(self::ssh_keydir, $uuid));
+    if(file_exists($priv_path)) {
+      # XXX forcefully removing old key
+      @unlink($priv_path);
+      @unlink($priv_path.".pub");
+    }
+    _system("ssh-keygen", '-f', $priv_path, '-N', '', '-q');
+    $pubkey = file_get_contents($priv_path.'.pub');
+    return $pubkey;
+  }
+
+  private function get_pubkey($uuid) {
+    $priv_path = implode(DIRECTORY_SEPARATOR, array(self::ssh_keydir, $uuid));
+    $pub_path = $priv_path.'.pub';
+    $pubkey = file_get_contents($pub_path);
+    return $pubkey;
+  }
+
+
+  public function add_remote_account($type, $username, $password, $host) {
+    $accounts = array();
+    if(file_exists(self::accounts_file)) {
+      $accounts = spyc_load_file(self::accounts_file);
+    }
+
 
     $arr = array(
       'type' => $type,
       'username' => $username,
-      'password' => $password,
-      'openssh' => $sshkey
+      'password' => $password
     );
+    if($host) {
+      $arr['host'] = $host;
+      $key = "$type|$host|$username";
+    } else {
+      $key = "$type|$username";
+    }
+    $uuid = $this->gen_uuid();
+    $pubkey = $this->create_ssh_key($uuid);
+    $arr['uuid'] = $uuid;
 
-    $key = "$type|$username";
     if(isset($accounts[$key])) {
       throw new Exception('Account allready defined');
     } else {
       $accounts[$key] = $arr;
       file_put_contents(self::accounts_file,Spyc::YAMLDump($accounts));
-      return $key;
+      return array('key' => $key, 'uuid' => $uuid, 'pubkey' => $pubkey);
     }
   }
 
-  public function remove_remote_account($type, $username) {
-    $accounts = spyc_load_file(self::accounts_file);
-    unset($accounts["$type|$username"]);
+  public function remove_remote_account($type, $username, $host) {
+    $accounts = array();
+    if(file_exists(self::accounts_file)) {
+      $accounts = spyc_load_file(self::accounts_file);
+    }
+    if($host) {
+      unset($accounts["$type|$host|$username"]);
+    } else {
+      unset($accounts["$type|$username"]);
+    }
     file_put_contents(self::accounts_file,Spyc::YAMLDump($accounts));
     return true;
   }
@@ -100,11 +161,16 @@ class System extends Model {
     if(file_exists(self::accounts_file)) {
       $accounts = spyc_load_file(self::accounts_file);
       foreach($accounts as $id => $account) {
-        $targets[] = array(
+        $target = array(
           'id' => $id,
           'type' => $account['type'],
           'username' => $account['username'],
+          'pubkey' => $this->get_pubkey($account['uuid']),
         );
+        if(isset($account['host'])) {
+          $target['host'] = $account['host'];
+        }
+        $targets[] = $target;
       }
     }
     return $targets;
@@ -174,11 +240,11 @@ class System extends Model {
     $oldsecrets = file_get_contents(self::webdav_secrets_file);
 
     # Remove old path if allready there
-    $secrets = preg_replace("#^".preg_quote($path)."#m", "", $oldsecrets);
+    $secrets = preg_replace("#^".preg_quote($path).".*#m", "", $oldsecrets);
     file_put_contents(self::webdav_secrets_file, $secrets);
 
     $oldfstab = file_get_contents(self::fstab_file);
-    $fstab = preg_replace("#^".preg_quote($url)."\s+".preg_quote($path)."#m", "", $oldfstab);
+    $fstab = preg_replace("#^".preg_quote($url)."\s+".preg_quote($path).".*#m", "", $oldfstab);
     file_put_contents(self::webdav_secrets_file, $secrets);
     if( file_exists($path) ) {
       @rmdir($path);

@@ -161,6 +161,13 @@ $ ->
         dialogs.create.dialog "close"
         update_backup_jobs_table()
 
+  $('select[name=type]').live 'change', ->
+    switch $(@).val()
+      when 'ssh'
+        $('input[name=host]').closest('tr').show()
+      else
+        $('input[name=host]').closest('tr').hide()
+
   $("#backup-job-add").click ->
     $form.formwizard "reset"
     dialogs.create.dialog "open"
@@ -168,6 +175,7 @@ $ ->
   $('#add-new-target').live 'click', ->
     $dialog = $('#create-target').clone().removeAttr 'id'
     open_cb = =>
+      $dialog.find('select[name=type]').change()
       $dialog.find('form').ajaxForm
         dataType: 'json'
         success: (data) ->
@@ -175,7 +183,9 @@ $ ->
             alert data.html
             return
           reload_possible_targets(data.key)
-          $dialog.dialog 'close'
+          $dia.dialog 'close'
+          if data.pubkey
+            $.alert data.pubkey, _("Please upload this public key to relevant places")
 
     options =
       width: 600

@@ -123,16 +123,23 @@ class Ajax_Settings extends Controller {
 
   }
 
+  private static $account_can_webdav = array(
+    'HiDrive'
+  );
+
   public function new_remote_account() {
     $this->load->model('system');
     $type = $this->input->post('type');
     $username = $this->input->post('username');
     $password = $this->input->post('password');
     $sshkey = $this->input->post('sshkey');
+    $host = $this->input->post('host');
     try {
-      $key = $this->system->add_remote_account($type, $username, $password, $sshkey);
-      $this->system->add_webdav($type, $username, $password);
-      $this->json_data = array( 'key' => $key );
+      $account = $this->system->add_remote_account($type, $username, $password, $sshkey, $host);
+      if(in_array($type, self::$account_can_webdav)) {
+        $this->system->add_webdav($type, $username, $password);
+      }
+      $this->json_data = array( 'key' => $account['key'], 'pubkey' => $account['pubkey']);
     } catch(Exception $e) {
       $this->json_data['html'] = $e->getMessage();
     }
@@ -142,8 +149,11 @@ class Ajax_Settings extends Controller {
     $this->load->model('system');
     $type = $this->input->post('type');
     $username = $this->input->post('username');
-    $this->system->remove_remote_account($type, $username);
-    $this->system->remove_webdav($type, $username);
+    $host = $this->input->post('host');
+    $this->system->remove_remote_account($type, $username, $host);
+    if(in_array($type, self::$account_can_webdav)) {
+      $this->system->remove_webdav($type, $username);
+    }
     $this->json_data = true;
   }
 

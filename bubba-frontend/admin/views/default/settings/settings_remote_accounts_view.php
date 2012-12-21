@@ -6,6 +6,7 @@
     <tr class="ui-header">
       <th><?=_("Type")?></th>
       <th><?=_("Username")?></th>
+      <th><?=_("Public key")?></th>
       <th>&nbsp;</th>
     </tr>
   </thead>
@@ -30,26 +31,27 @@
           <td>
             <select id="type" name="type">
               <option value="HiDrive">HiDrive</option>
-              <option value="Google Drive">Google Drive</option>
+              <option disabled="disabled" value="Google Drive">Google Drive</option>
+              <option value="ssh">SSH</option>
             </select>
           </td>
         </tr>
         <tr>
           <td>
-            <label for="username"><?=_("Username)")?></label>
+            <label for="username"><?=_("Username")?></label>
             <input type="text" id="username" name="username"/>
           </td>
         </tr>
         <tr>
           <td>
-            <label for="password"><?=_("Password)")?></label>
-            <input type="password" id="password" name="password"/>
+            <label for="host"><?=_("Host")?></label>
+            <input type="text" id="host" name="host"></textarea>
           </td>
         </tr>
         <tr>
           <td>
-            <label for="sshkey"><?=_("OpenSSH key)")?></label>
-            <textarea id="sshkey" name="sshkey"></textarea>
+            <label for="password"><?=_("Password")?></label>
+            <input type="password" id="password" name="password"/>
           </td>
         </tr>
         <tr>
