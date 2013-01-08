@@ -1,8 +1,8 @@
 <?php
-class Services extends Controller{
+class Services extends CI_Controller{
 	
 	function Services(){
-		parent::Controller();
+		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);

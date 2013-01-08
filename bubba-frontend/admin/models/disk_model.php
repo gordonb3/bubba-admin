@@ -1,9 +1,9 @@
 <?php
 
-class Disk_model extends Model {
+class Disk_model extends CI_Model {
 	private $manager = "/usr/sbin/diskmanager";
 	function __construct() {
-		parent::Model();
+		parent::__construct();
 		$this->load->helper('bubba_socket');		
 	}
 	private function _system( /* $command, $args... */ ) {

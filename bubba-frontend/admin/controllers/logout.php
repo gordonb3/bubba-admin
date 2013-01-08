@@ -1,9 +1,9 @@
 <?php
 
-class Logout extends Controller{
+class Logout extends CI_Controller{
 
 	function Logout(){
-		parent::Controller();
+		parent::__construct();
 	}
 	
 	function index(){

@@ -1,6 +1,6 @@
 <?php
 
-class Help extends Controller{
+class Help extends CI_Controller{
 
     /* A couple of pages contains the same content and/or the same help text */
     private $index_map = array(
@@ -17,7 +17,7 @@ class Help extends Controller{
     );
 
     function help(){
-        parent::Controller();
+        parent::__construct();
         require_once(APPPATH."/legacy/defines.php");
     }
 

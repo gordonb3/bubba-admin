@@ -1,9 +1,9 @@
 <?php
 
-class Users extends Controller{
+class Users extends CI_Controller{
 
 	function Users(){
-		parent::Controller();
+		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);

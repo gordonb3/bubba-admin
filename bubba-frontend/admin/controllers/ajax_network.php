@@ -1,12 +1,12 @@
 <?php
-class Ajax_network extends Controller {
+class Ajax_network extends CI_Controller {
 
 	var $json_data=Array(
 		'error' => true,
 		'html' => 'Ajax Error: Invalid Request'
 	);
 	function __construct() {
-		parent::Controller();
+		parent::__construct();
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);
 

@@ -1,8 +1,8 @@
 <?php
-class Shutdown extends Controller{
+class Shutdown extends CI_Controller{
 
 	function Shutdown(){
-		parent::Controller();
+		parent::__construct();
 		
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);

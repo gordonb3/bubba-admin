@@ -1,6 +1,6 @@
 <?php
 require_once 'HTTP/Request2.php';
-class NetworkManager extends Model {
+class NetworkManager extends CI_Model {
 	private $htcap;
 	private $ifcfg;
 	private $lanif;
@@ -8,7 +8,7 @@ class NetworkManager extends Model {
 	private $wlanif;
 
 	public function __construct() {
-		parent::Model();
+		parent::__construct();
 		$this->load->helper('bubba_socket');
 		$this->load->helper('ini');
 		$this->ifcfg = array();

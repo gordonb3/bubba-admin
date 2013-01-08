@@ -1,9 +1,9 @@
 <?php
 
-class Upload extends Controller{
+class Upload extends CI_Controller{
 	
 	function Upload(){
-		parent::Controller();
+		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);

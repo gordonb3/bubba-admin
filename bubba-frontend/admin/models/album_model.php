@@ -1,5 +1,5 @@
 <?php
-class Album_model extends Model {
+class Album_model extends CI_Model {
 	private $DB;
 	private $mime_types = array(
 		'image/png' => false,
@@ -8,7 +8,7 @@ class Album_model extends Model {
 		'image/jpeg' => true,
 	);
 	function __construct() {
-		parent::Model();
+		parent::__construct();
 		$this->DB = $this->load->database('album', true);
 		$this->load->helper('bubba_socket');
 

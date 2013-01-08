@@ -1,9 +1,9 @@
 <?php
 
-class System extends Model {
+class System extends CI_Model {
   private $version;
   public function __construct() {
-    parent::Model();
+    parent::__construct();
   }
 
   public function set_timezone($timezone) {

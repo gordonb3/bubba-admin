@@ -1,6 +1,6 @@
 <?php
 
-class Auth_model extends Model{
+class Auth_model extends CI_Model{
 
 	private $policies = array(
 		"userdata" 		=> array(
@@ -84,7 +84,7 @@ class Auth_model extends Model{
 	private $_lock_file = "/var/lock/bubba_auth.lock";
 
 	function Auth_model(){
-		parent::Model();
+		parent::__construct();
 		$this->_dom = new DOMDocument();
 		$this->_dom->formatOutput = true;
 		$this->_dom->preserveWhiteSpace = false;

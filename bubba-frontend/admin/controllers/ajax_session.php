@@ -1,9 +1,9 @@
 <?php
 
-class Ajax_session extends Controller {
+class Ajax_session extends CI_Controller {
 	public  $json_data = array();
 	public function __construct() {
-		parent::Controller();
+		parent::__construct();
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);
 

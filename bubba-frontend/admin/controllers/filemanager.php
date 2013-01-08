@@ -1,6 +1,6 @@
 <?php
 
-class Filemanager extends Controller{
+class Filemanager extends CI_Controller{
 
 	var $sortarray=false;
 	var $lspath=false;
@@ -19,7 +19,7 @@ class Filemanager extends Controller{
 
 	function Filemanager(){
 
-		parent::Controller();
+		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);

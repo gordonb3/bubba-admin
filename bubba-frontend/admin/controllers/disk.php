@@ -1,9 +1,9 @@
 <?php
 
-class Disk extends Controller{
+class Disk extends CI_Controller{
 
 	function __construct(){
-		parent::Controller();
+		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);

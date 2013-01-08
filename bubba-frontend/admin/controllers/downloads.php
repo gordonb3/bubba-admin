@@ -1,12 +1,12 @@
 <?php
 
-class Downloads extends Controller{
+class Downloads extends CI_Controller{
 
 	var $sorted=false;
 	var $dl=false;
 	
 	function Downloads(){
-		parent::Controller();
+		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);

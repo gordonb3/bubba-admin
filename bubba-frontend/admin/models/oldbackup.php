@@ -49,7 +49,7 @@ class BackupPLException extends Exception {
     }
 }
 
-class Oldbackup extends Model {
+class Oldbackup extends CI_Model {
 	private $diskmanager = "/usr/sbin/diskmanager";
 
     public function list_backups($job) {
@@ -73,7 +73,7 @@ class Oldbackup extends Model {
     }
 
     public function __construct() {
-        parent::Model();
+        parent::__construct();
         require_once(APPPATH."/legacy/defines.php");
         $this->load->model("disk_model");
     }

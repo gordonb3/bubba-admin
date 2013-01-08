@@ -1,5 +1,5 @@
 <?php
-class Ajax_backup extends Controller {
+class Ajax_backup extends CI_Controller {
   const accounts_file = '/etc/bubba/remote_accounts.yml';
   const local_jobs_file = '/etc/bubba/local_backup_jobs.yml';
   const remote_jobs_file = '/etc/bubba/remote_backup_jobs.yml';
@@ -11,7 +11,7 @@ class Ajax_backup extends Controller {
   );
 
   function __construct() {
-    parent::Controller();
+    parent::__construct();
     require_once(APPPATH."/legacy/defines.php");
     require_once(ADMINFUNCS);
 

@@ -1,10 +1,10 @@
 <?php
-class Menu extends Model {
+class Menu extends CI_Model {
 
     private $bubba_systembar, $bubba_menubar, $bubba_menu, $resolver_list;
 
     public function __construct() {
-        parent::Model();
+        parent::__construct();
         require_once(APPPATH."/legacy/defines.php");
 
         $this->bubba_systembar = array(

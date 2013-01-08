@@ -1,5 +1,5 @@
 <?php
-class Ajax_upload extends Controller {
+class Ajax_upload extends CI_Controller {
 
 	var $json_data=Array(
 		'error' => 1,
@@ -7,7 +7,7 @@ class Ajax_upload extends Controller {
 	);
 
 	function __construct() {
-		parent::Controller();
+		parent::__construct();
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);
 

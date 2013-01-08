@@ -1,9 +1,9 @@
 <?php
 
-class Mail extends Controller{
+class Mail extends CI_Controller{
 
 	function Mail(){
-		parent::Controller();
+		parent::__construct();
 		
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);

@@ -1,12 +1,12 @@
 <?php
-class Notify extends Model {
+class Notify extends CI_Model {
 
 	const ERR = 1;
 	const WARN = 2;
 	const INFO = 3;
 
 	public function __construct() {
-		parent::Model();
+		parent::__construct();
 	}
 
 	public function ack( $UUID ) {

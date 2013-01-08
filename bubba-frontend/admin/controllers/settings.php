@@ -1,9 +1,9 @@
 <?php
 
-class Settings extends Controller{
+class Settings extends CI_Controller{
 
 	function Settings(){
-		parent::Controller();
+		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);

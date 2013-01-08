@@ -1,9 +1,9 @@
 <?php
 
-class Music extends Controller{
+class Music extends CI_Controller{
 
 	function Music(){
-		parent::Controller();
+		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);

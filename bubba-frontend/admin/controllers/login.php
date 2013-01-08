@@ -1,5 +1,5 @@
 <?php
-class Login extends Controller{
+class Login extends CI_Controller{
 	function index($strip=""){
 	
 		require_once(APPPATH."/legacy/defines.php");

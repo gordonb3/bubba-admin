@@ -56,18 +56,6 @@ $autoload['helper'] = array('url', 'html', 'exec', 'gettext', 'model_load_model'
 
 /*
 | -------------------------------------------------------------------
-|  Auto-load Plugins
-| -------------------------------------------------------------------
-| Prototype:
-|
-|	$autoload['plugin'] = array('captcha', 'js_calendar');
-*/
-
-$autoload['plugin'] = array();
-
-
-/*
-| -------------------------------------------------------------------
 |  Auto-load Config files
 | -------------------------------------------------------------------
 | Prototype:

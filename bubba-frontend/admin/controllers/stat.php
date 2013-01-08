@@ -1,9 +1,9 @@
 <?php
 
-class Stat extends Controller{
+class Stat extends CI_Controller{
 
 	function stat(){
-		parent::Controller();
+		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);

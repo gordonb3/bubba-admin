@@ -1,12 +1,12 @@
 <?php
-class Ajax_notify extends Controller {
+class Ajax_notify extends CI_Controller {
 
 	var $json_data=Array(
 		'error' => 1,
 		'html' => 'Ajax Error: Invalid Request'
 	);
 	function __construct() {
-		parent::Controller();
+		parent::__construct();
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);
 
