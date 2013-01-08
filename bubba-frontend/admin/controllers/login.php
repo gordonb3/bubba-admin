@@ -82,7 +82,7 @@ class Login extends CI_Controller{
 			// is there a redirect uri? Then show the login-page.
 			if($caller) {
 				$data["show_login"] = true;
-				$data["redirect_uri"] = FORMPREFIX.$caller;
+				$data["redirect_uri"] = FORMPREFIX."/$caller";
 				$data["redirect_user"] = $this->session->userdata('user');
 				if($required_user) {
 					$data["required_user"] = $required_user;
