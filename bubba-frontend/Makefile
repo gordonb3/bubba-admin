@@ -55,6 +55,7 @@ po/php/bubba.pot: $(shell cat po/php/POTFILES)
 		--copyright-holder="Excito Electronics AB" \
 	)
 
+po/js/bubba.pot: gen_js
 po/js/bubba.pot: $(shell cat po/js/POTFILES)
 	$(if $(update_pot_files),\
 	xgettext \
