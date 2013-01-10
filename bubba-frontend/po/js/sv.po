@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-12-19 18:12+0100\n"
+"POT-Creation-Date: 2013-01-10 15:41+0100\n"
 "PO-Revision-Date: 2012-08-27 13:11+0100\n"
 "Last-Translator: Johannes Book <johannes@excito.com>\n"
 "Language-Team: \n"
@@ -101,15 +101,20 @@ msgstr "Tillbaka"
 msgid "Complete"
 msgstr "Slutför"
 
-#: admin/views/default/_js/backup.js:223
+#: admin/views/default/_js/backup.js:216
+#: admin/views/default/_js/remote_accounts.js:42
+msgid "Please upload this public key to relevant places"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:235
 msgid "Are you sure you want to permanently remove this backup job?"
 msgstr "Vill du verkligen ta bort detta backup-jobb?"
 
-#: admin/views/default/_js/backup.js:223 admin/views/default/_js/backup.js:225
+#: admin/views/default/_js/backup.js:235 admin/views/default/_js/backup.js:237
 msgid "Remove backup job"
 msgstr "Ta bort backup-jobb"
 
-#: admin/views/default/_js/backup.js:233
+#: admin/views/default/_js/backup.js:245
 msgid "Backup job was removed from the system"
 msgstr "Backup-jobbet raderades"
 
@@ -320,13 +325,17 @@ msgctxt "confirmation button"
 msgid "Delete mail account"
 msgstr "Radera email-konto"
 
-#: admin/views/default/_js/remote_accounts.js:57
+#: admin/views/default/_js/remote_accounts.js:16
+msgid "public key"
+msgstr ""
+
+#: admin/views/default/_js/remote_accounts.js:61
 #, fuzzy
 msgid "Are you sure you want to permanently remove this remote account?"
 msgstr "Vill du verkligen ta bort detta backup-jobb?"
 
-#: admin/views/default/_js/remote_accounts.js:57
-#: admin/views/default/_js/remote_accounts.js:59
+#: admin/views/default/_js/remote_accounts.js:61
+#: admin/views/default/_js/remote_accounts.js:63
 #, fuzzy
 msgid "Remove remote account"
 msgstr "Radera konto"

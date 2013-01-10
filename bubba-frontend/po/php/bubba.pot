@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2012-12-19 18:12+0100\n"
+"POT-Creation-Date: 2013-01-10 15:42+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -237,16 +237,16 @@ msgstr ""
 msgid "Failed to aquire an RAID array containing the disk %s"
 msgstr ""
 
-#: admin/controllers/ajax_backup.php:79 admin/controllers/ajax_backup.php:106
+#: admin/controllers/ajax_backup.php:78 admin/controllers/ajax_backup.php:105
 msgid "Unknown"
 msgstr ""
 
-#: admin/controllers/ajax_backup.php:81
+#: admin/controllers/ajax_backup.php:80
 #, php-format
 msgid "Backup of %s made %s for %s on %s"
 msgstr ""
 
-#: admin/controllers/ajax_backup.php:108
+#: admin/controllers/ajax_backup.php:107
 #, php-format
 msgid "Backup of %s made %s to External disk %s"
 msgstr ""
@@ -586,6 +586,7 @@ msgstr ""
 
 #: admin/views/default/mail/mail_retrieve_view.php:7
 #: admin/views/default/mail/mail_retrieve_view.php:39
+#: admin/views/default/settings/settings_remote_accounts_view.php:47
 msgid "Host"
 msgstr ""
 
@@ -602,6 +603,7 @@ msgstr ""
 
 #: admin/views/default/mail/mail_retrieve_view.php:9
 #: admin/views/default/settings/settings_remote_accounts_view.php:8
+#: admin/views/default/settings/settings_remote_accounts_view.php:41
 #: admin/views/default/login_view.php:23
 msgid "Username"
 msgstr ""
@@ -629,6 +631,7 @@ msgstr ""
 
 #: admin/views/default/mail/mail_retrieve_view.php:60
 #: admin/views/default/mail/mail_server_view.php:70
+#: admin/views/default/settings/settings_remote_accounts_view.php:53
 #: admin/views/default/old_backup/backup_view.php:373
 #: admin/views/default/network/network_wlan_view.php:54
 #: admin/views/default/login_view.php:35
@@ -1069,27 +1072,19 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: admin/views/default/settings/settings_remote_accounts_view.php:17
+#: admin/views/default/settings/settings_remote_accounts_view.php:9
+msgid "Public key"
+msgstr ""
+
+#: admin/views/default/settings/settings_remote_accounts_view.php:18
 msgid "Add new remote account"
 msgstr ""
 
-#: admin/views/default/settings/settings_remote_accounts_view.php:26
+#: admin/views/default/settings/settings_remote_accounts_view.php:27
 msgid "Define a new remote target"
 msgstr ""
 
-#: admin/views/default/settings/settings_remote_accounts_view.php:39
-msgid "Username)"
-msgstr ""
-
-#: admin/views/default/settings/settings_remote_accounts_view.php:45
-msgid "Password)"
-msgstr ""
-
-#: admin/views/default/settings/settings_remote_accounts_view.php:51
-msgid "OpenSSH key)"
-msgstr ""
-
-#: admin/views/default/settings/settings_remote_accounts_view.php:57
+#: admin/views/default/settings/settings_remote_accounts_view.php:59
 msgid "Create target"
 msgstr ""
 
