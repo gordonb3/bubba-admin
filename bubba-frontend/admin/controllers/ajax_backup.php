@@ -75,7 +75,8 @@ class Ajax_backup extends Controller {
           if(isset($status[$job][$schedule][$selection])) {
             $cur['status'] = $status[$job][$schedule][$selection];
           } else {
-            $cur['status'] = _('Unknown');
+            // We'll assume job has not been yet run
+            $cur['status'] = _('Not yet run');
           }
           $cur['label'] = sprintf(_("Backup of %s made %s for %s on %s"), $selection, $schedule, $account['username'], $account['type']);
           $data[] = $cur;
@@ -102,7 +103,8 @@ class Ajax_backup extends Controller {
           if(isset($status[$job][$schedule][$selection])) {
             $cur['status'] = $status[$job][$schedule][$selection];
           } else {
-            $cur['status'] = _('Unknown');
+            // We'll assume job has not been yet run
+            $cur['status'] = _('Not yet run');
           }
           $cur['label'] = sprintf(_("Backup of %s made %s to External disk %s"), $selection, $schedule, $job);
           $data[] = $cur;
