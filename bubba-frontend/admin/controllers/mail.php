@@ -211,6 +211,7 @@ class Mail extends CI_Controller{
 
 	function mc_update($strip="") {
 
+    $data = array();
 		$domain=$this->input->post('domain');
 		$current_mc = $this->_parse_mailcfg(get_mailcfg());
 		$update_postfix = false;
