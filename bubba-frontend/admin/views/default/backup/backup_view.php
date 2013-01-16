@@ -137,7 +137,7 @@
             <tr>
               <td>
                 <input type="radio" id="schedule-daily" name="schedule" value="daily">
-                <label for="schedule-daily"><?=_("Daily (every night at two a clock")?></label>
+                <label for="schedule-daily"><?=_("Daily (every night at two a clock)")?></label>
               </td>
             </tr>
           </table>
