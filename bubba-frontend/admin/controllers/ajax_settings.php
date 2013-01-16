@@ -139,7 +139,14 @@ class Ajax_Settings extends Controller {
       if(in_array($type, self::$account_can_webdav)) {
         $this->system->add_webdav($type, $username, $password);
       }
-      $this->json_data = array( 'key' => $account['key'], 'pubkey' => $account['pubkey']);
+      $this->json_data = array(
+        'uuid' => $account['uuid'],
+        'key' => $account['key'],
+        'pubkey' => $account['pubkey'],
+        'type' => $type,
+        'username' => $username,
+        'host' => $host
+      );
     } catch(Exception $e) {
       $this->json_data['html'] = $e->getMessage();
     }
@@ -160,6 +167,16 @@ class Ajax_Settings extends Controller {
   public function get_remote_accounts() {
     $this->load->model('system');
     $this->json_data = $this->system->get_remote_accounts();
+  }
+
+  public function get_remote_account_pubkey($uuid) {
+    $this->load->model('system');
+    $this->load->helper('download');
+    $this->json_data = null;
+    $pubkey = $this->system->get_pubkey($uuid);
+    if($pubkey) {
+      force_download(_("public key.txt"), $pubkey);
+    }
   }
 
   function _output($output) {

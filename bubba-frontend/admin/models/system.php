@@ -103,7 +103,7 @@ class System extends Model {
     return $pubkey;
   }
 
-  private function get_pubkey($uuid) {
+  public function get_pubkey($uuid) {
     $priv_path = implode(DIRECTORY_SEPARATOR, array(self::ssh_keydir, $uuid));
     $pub_path = $priv_path.'.pub';
     $pubkey = file_get_contents($pub_path);
@@ -163,9 +163,9 @@ class System extends Model {
       foreach($accounts as $id => $account) {
         $target = array(
           'id' => $id,
+          'uuid' => $account['uuid'],
           'type' => $account['type'],
           'username' => $account['username'],
-          'pubkey' => $this->get_pubkey($account['uuid']),
         );
         if(isset($account['host'])) {
           $target['host'] = $account['host'];
@@ -174,6 +174,28 @@ class System extends Model {
       }
     }
     return $targets;
+  }
+
+  public function get_remote_account($key) {
+    $target = array();
+    if(file_exists(self::accounts_file)) {
+      $accounts = spyc_load_file(self::accounts_file);
+      foreach($accounts as $id => $account) {
+        if($id != $key) {
+          continue;
+        }
+        $target = array(
+          'id' => $id,
+          'type' => $account['type'],
+          'username' => $account['username'],
+          'uuid' => $account['uuid'],
+        );
+        if(isset($account['host'])) {
+          $target['host'] = $account['host'];
+        }
+      }
+    }
+    return $target;
   }
 
   public function get_webdav_path($type, $username) {

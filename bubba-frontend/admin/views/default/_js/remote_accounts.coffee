@@ -8,7 +8,7 @@ $ ->
         <tr>
           <td>#{account.type}</td>
           <td>#{account.username}</td>
-          <td><a href="#" class="pubkey">#{_("public key")}</a></td>
+          <td><a href="#{config.prefix}/ajax_settings/get_remote_account_pubkey/#{account.uuid}" class="pubkey">#{_("public key")}</a></td>
           <td>
             <button class="submit account-remove">#{_("Remove")}</button>
           </td>
@@ -37,7 +37,13 @@ $ ->
           reload()
           $dia.dialog 'close'
           if data.pubkey
-            $.alert data.pubkey, _("Please upload this public key to relevant places")
+            txt = switch data.type
+              when 'HiDrive'
+                _ """Please click <a href="%s/ajax_settings/get_remote_account_pubkey/%s">here</a> to download the openssh key needed for backup. Upload it to <a target="_blank" href="https://hidrive.strato.com/">HiDrive</a> under Account → Settings → Account management → OpenSSH key"""
+              else
+                _ """Please click <a href="%s/ajax_settings/get_remote_account_pubkey/%s">here</a> to download the openssh key needed for backup"""
+            html = $.sprintf txt, config.prefix, data.uuid
+            $.alert html
 
 
     options =
@@ -75,7 +81,3 @@ $ ->
         $('input[name=host]').closest('tr').show()
       else
         $('input[name=host]').closest('tr').hide()
-
-  $('.pubkey').live 'click', ->
-    account = $(@).closest("tr").data("account_data")
-    $.alert account.pubkey
