@@ -244,6 +244,7 @@ class System extends Model {
   public function add_webdav($type, $username, $password) {
     $url = $this->get_webdav_url($type);
     $path = $this->get_webdav_path($type, $username);
+    _system("umount", $path);
     $oldsecrets = file_get_contents(self::webdav_secrets_file);
 
     # Remove old path if allready there
@@ -258,7 +259,7 @@ class System extends Model {
     $oldfstab = file_get_contents(self::fstab_file);
     $fstab = preg_replace("#^".preg_quote($url)."\s+".preg_quote($path).".*#m", "", $oldfstab);
 
-    $fstab .= "\n$url $path davfs defaults,gid=users,dir_mode=775,file_mode=664 0 0\n";
+    $fstab .= "$url $path davfs defaults,gid=users,dir_mode=775,file_mode=664 0 0\n";
 
     if(! file_exists($path) ) {
       $this->create_webdav_path($type, $username);
@@ -274,6 +275,7 @@ class System extends Model {
   public function remove_webdav($type, $username) {
     $url = $this->get_webdav_url($type);
     $path = $this->get_webdav_path($type, $username);
+    _system("umount", $path);
 
     _system('umount', '-f', $path);
     $oldsecrets = file_get_contents(self::webdav_secrets_file);
