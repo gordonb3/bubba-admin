@@ -31,7 +31,7 @@
             <select id="type" name="type">
               <option value="HiDrive">HiDrive</option>
               <option disabled="disabled" value="Google Drive">Google Drive</option>
-              <option value="ssh">SSH</option>
+              <option value="ssh">Other B3 (SSH)</option>
             </select>
           </td>
         </tr>
