@@ -29,7 +29,10 @@ $ ->
       $dialog.find('select[name=type]').change()
       $dialog.find('form').ajaxForm
         dataType: 'json'
+        beforeSubmit: (arr, $form, options) ->
+          $.throbber.show()
         success: (data) ->
+          $.throbber.hide()
           if data.error == 1
             alert data.html
             return

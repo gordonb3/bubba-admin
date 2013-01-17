@@ -156,6 +156,8 @@ $ ->
       type: "post"
       dataType: "json"
       reset: true
+      beforeSubmit: ->
+        $.throbber.show()
       success: (data) ->
         $.throbber.hide()
         dialogs.create.dialog "close"
@@ -178,7 +180,10 @@ $ ->
       $dialog.find('select[name=type]').change()
       $dialog.find('form').ajaxForm
         dataType: 'json'
+        beforeSubmit: ->
+          $.throbber.show()
         success: (data) ->
+          $.throbber.hide()
           if data.error == 1
             alert data.html
             return
