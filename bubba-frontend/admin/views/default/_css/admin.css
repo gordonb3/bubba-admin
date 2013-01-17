@@ -1960,3 +1960,8 @@ td.ui-cell-table {
 .ro-text-field {
     padding: .3em;
 }
+
+
+#destinations-table {
+  margin-bottom: 1.5em;
+}

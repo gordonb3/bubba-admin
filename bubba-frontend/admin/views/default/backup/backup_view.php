@@ -76,7 +76,9 @@
           </tbody>
         </table>
         <div>
-          <button id="add-new-target"><?=_("Add new target")?>
+        <div>
+          <button id="add-new-target" class="submit"><?=_("Add new target")?>
+        </div>
 
           </button>
         </div>
