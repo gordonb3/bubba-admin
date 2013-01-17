@@ -137,6 +137,8 @@ class Ajax_Settings extends Controller {
       $account = $this->system->add_remote_account($type, $username, $password, $host);
       if(in_array($type, self::$account_can_webdav)) {
         $this->system->add_webdav($type, $username, $password);
+      } elseif($type == 'ssh') {
+        $this->system->add_sshfs($host, $username, $account['uuid']);
       }
       $this->json_data = array(
         'uuid' => $account['uuid'],
@@ -158,6 +160,8 @@ class Ajax_Settings extends Controller {
     $this->system->remove_remote_account($type, $username, $host);
     if(in_array($type, self::$account_can_webdav)) {
       $this->system->remove_webdav($type, $username);
+    } elseif($type == 'ssh') {
+      $this->system->remove_sshfs($host, $username);
     }
     $this->json_data = true;
   }

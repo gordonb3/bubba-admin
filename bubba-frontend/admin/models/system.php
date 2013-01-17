@@ -284,7 +284,73 @@ class System extends Model {
 
     $oldfstab = file_get_contents(self::fstab_file);
     $fstab = preg_replace("#^".preg_quote($url)."\s+".preg_quote($path).".*#m", "", $oldfstab);
-    file_put_contents(self::webdav_secrets_file, $secrets);
+    if($fstab != $oldfstab) {
+      file_put_contents(self::fstab_file, $fstab);
+      _system("mount", "-a");
+    }
+
+    if( file_exists($path) ) {
+      @rmdir($path);
+    }
+  }
+
+
+
+  public function get_sshfs_path($host, $username) {
+    return "/home/admin/ssh/${username}@${host}";
+  }
+    public function get_sshfs_remotepath() {
+    return "backup/" . gethostname();
+  }
+
+  public function create_sshfs_path($host, $username) {
+    $path = "/home/admin/ssh";
+    if(! file_exists($path) ) {
+      @mkdir($path, 0700);
+      chown($path, 'admin');
+      chgrp($path, 'admin');
+    }
+    $path = $this->get_sshfs_path($host,$username);
+    if(! file_exists($path) ) {
+      @mkdir($path, 0700);
+      chown($path, 'admin');
+      chgrp($path, 'admin');
+    }
+  }
+
+  public function add_sshfs($host, $username, $uuid) {
+    $sshkey = implode(DIRECTORY_SEPARATOR, array(self::ssh_keydir, $uuid));
+
+    $oldfstab = file_get_contents(self::fstab_file);
+    $fstab = preg_replace("#^sshfs\#".preg_quote($username)."@".preg_quote($host).".*#m", "", $oldfstab);
+    $remotepath = $this->get_sshfs_remotepath();
+    $path = $this->get_sshfs_path($host, $username);
+    _system("umount", $path);
+
+    $fstab .= "sshfs#$username@$host: $path fuse identityfile=$sshkey,defaults,allow_other,_netdev,gid=users 0 0\n";
+
+    if(! file_exists($path) ) {
+      $this->create_sshfs_path($host, $username);
+    }
+
+    if($fstab != $oldfstab) {
+      file_put_contents(self::fstab_file, $fstab);
+      sleep(5);
+      _system("mount", "-a");
+    }
+
+  }
+
+  public function remove_sshfs($host, $username) {
+    $path = $this->get_sshfs_path($host, $username);
+    _system("umount", $path);
+
+    $oldfstab = file_get_contents(self::fstab_file);
+    $fstab = preg_replace("#^sshfs\#".preg_quote($username)."@".preg_quote($host).".*#m", "", $oldfstab);
+    if($fstab != $oldfstab) {
+      file_put_contents(self::fstab_file, $fstab);
+      _system("mount", "-a");
+    }
     if( file_exists($path) ) {
       @rmdir($path);
     }
