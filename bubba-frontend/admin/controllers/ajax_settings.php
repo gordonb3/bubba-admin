@@ -141,7 +141,6 @@ class Ajax_Settings extends Controller {
       $this->json_data = array(
         'uuid' => $account['uuid'],
         'key' => $account['key'],
-        'pubkey' => $account['pubkey'],
         'type' => $type,
         'username' => $username,
         'host' => $host

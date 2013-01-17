@@ -110,6 +110,20 @@ class System extends Model {
     return $pubkey;
   }
 
+  private function upload_sshkey($host, $username, $password, $uuid) {
+    $priv_path = implode(DIRECTORY_SEPARATOR, array(self::ssh_keydir, $uuid));
+    $pub_path = $priv_path.'.pub';
+    $descriptorspec = array(
+      13 => array('pipe', 'r')
+    );
+
+    $process = proc_open("sshpass-copy-id -i $pub_path $username@$host", $descriptorspec, $pipes);
+    fwrite($pipes[13], $password);
+    fclose($pipes[13]);
+    $ret = proc_close($process);
+    error_log("sshpass-copy-id returned $ret!");
+  }
+
 
   public function add_remote_account($type, $username, $password, $host) {
     $accounts = array();
@@ -129,17 +143,20 @@ class System extends Model {
     } else {
       $key = "$type|$username";
     }
+
+    if(isset($accounts[$key])) {
+      throw new Exception('Account allready defined');
+    }
     $uuid = $this->gen_uuid();
     $pubkey = $this->create_ssh_key($uuid);
     $arr['uuid'] = $uuid;
 
-    if(isset($accounts[$key])) {
-      throw new Exception('Account allready defined');
-    } else {
-      $accounts[$key] = $arr;
-      file_put_contents(self::accounts_file,Spyc::YAMLDump($accounts));
-      return array('key' => $key, 'uuid' => $uuid, 'pubkey' => $pubkey);
+    $accounts[$key] = $arr;
+    file_put_contents(self::accounts_file,Spyc::YAMLDump($accounts));
+    if($type == 'ssh') {
+      $this->upload_sshkey($host, $username, $password, $uuid);
     }
+    return array('key' => $key, 'uuid' => $uuid, 'pubkey' => $pubkey);
   }
 
   public function remove_remote_account($type, $username, $host) {
