@@ -132,10 +132,9 @@ class Ajax_Settings extends Controller {
     $type = $this->input->post('type');
     $username = $this->input->post('username');
     $password = $this->input->post('password');
-    $sshkey = $this->input->post('sshkey');
     $host = $this->input->post('host');
     try {
-      $account = $this->system->add_remote_account($type, $username, $password, $sshkey, $host);
+      $account = $this->system->add_remote_account($type, $username, $password, $host);
       if(in_array($type, self::$account_can_webdav)) {
         $this->system->add_webdav($type, $username, $password);
       }
