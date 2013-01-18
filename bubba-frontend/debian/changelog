@@ -1,3 +1,23 @@
+bubba-frontend (2.5.1.6+backup3) unstable; urgency=low
+
+  * generate js_files before trying to update pot files
+  * update po and pot files
+  * Add missing closing parantehesis
+  * change unknown to not yet run
+  * add pubkey download
+  * Rename SSH ot Other B3 (SSH)
+  * update backup context sensitive help
+  * remove input of sshkey in new remote account
+  * Fixup playout on add new target button
+  * Add automatic upload of ssh key
+  * enable mounting of ssh remote accounts
+  * add umount to webdav shares
+  * add throbbers
+  * update layout to make fields aligned
+  * update pot and po files
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 18 Jan 2013 11:54:25 +0100
+
 bubba-frontend (2.5.1.6+backup2) unstable; urgency=low
 
   * update to create ssh key
