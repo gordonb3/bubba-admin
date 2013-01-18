@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2013-01-10 15:41+0100\n"
+"POT-Creation-Date: 2013-01-18 11:53+0100\n"
 "PO-Revision-Date: 2012-08-27 13:11+0100\n"
 "Last-Translator: Johannes Book <johannes@excito.com>\n"
 "Language-Team: \n"
@@ -101,20 +101,27 @@ msgstr "Tillbaka"
 msgid "Complete"
 msgstr "Slutför"
 
-#: admin/views/default/_js/backup.js:216
-#: admin/views/default/_js/remote_accounts.js:42
-msgid "Please upload this public key to relevant places"
+#: admin/views/default/_js/backup.js:227
+#: admin/views/default/_js/remote_accounts.js:50
+#, javascript-format
+msgid "Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</a> to download the openssh key needed for backup. Upload it to <a target=\"_blank\" href=\"https://hidrive.strato.com/\">HiDrive</a> under Account → Settings → Account management → OpenSSH key"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:235
+#: admin/views/default/_js/backup.js:229
+#: admin/views/default/_js/remote_accounts.js:52
+#, javascript-format
+msgid "Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</a> to download the openssh key needed for backup"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:252
 msgid "Are you sure you want to permanently remove this backup job?"
 msgstr "Vill du verkligen ta bort detta backup-jobb?"
 
-#: admin/views/default/_js/backup.js:235 admin/views/default/_js/backup.js:237
+#: admin/views/default/_js/backup.js:252 admin/views/default/_js/backup.js:254
 msgid "Remove backup job"
 msgstr "Ta bort backup-jobb"
 
-#: admin/views/default/_js/backup.js:245
+#: admin/views/default/_js/backup.js:262
 msgid "Backup job was removed from the system"
 msgstr "Backup-jobbet raderades"
 
@@ -329,13 +336,13 @@ msgstr "Radera email-konto"
 msgid "public key"
 msgstr ""
 
-#: admin/views/default/_js/remote_accounts.js:61
+#: admin/views/default/_js/remote_accounts.js:75
 #, fuzzy
 msgid "Are you sure you want to permanently remove this remote account?"
 msgstr "Vill du verkligen ta bort detta backup-jobb?"
 
-#: admin/views/default/_js/remote_accounts.js:61
-#: admin/views/default/_js/remote_accounts.js:63
+#: admin/views/default/_js/remote_accounts.js:75
+#: admin/views/default/_js/remote_accounts.js:77
 #, fuzzy
 msgid "Remove remote account"
 msgstr "Radera konto"

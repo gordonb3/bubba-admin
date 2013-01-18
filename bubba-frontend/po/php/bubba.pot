@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2013-01-10 15:42+0100\n"
+"POT-Creation-Date: 2013-01-18 11:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -237,16 +237,16 @@ msgstr ""
 msgid "Failed to aquire an RAID array containing the disk %s"
 msgstr ""
 
-#: admin/controllers/ajax_backup.php:78 admin/controllers/ajax_backup.php:105
-msgid "Unknown"
+#: admin/controllers/ajax_backup.php:79 admin/controllers/ajax_backup.php:107
+msgid "Not yet run"
 msgstr ""
 
-#: admin/controllers/ajax_backup.php:80
+#: admin/controllers/ajax_backup.php:81
 #, php-format
 msgid "Backup of %s made %s for %s on %s"
 msgstr ""
 
-#: admin/controllers/ajax_backup.php:107
+#: admin/controllers/ajax_backup.php:109
 #, php-format
 msgid "Backup of %s made %s to External disk %s"
 msgstr ""
@@ -586,7 +586,7 @@ msgstr ""
 
 #: admin/views/default/mail/mail_retrieve_view.php:7
 #: admin/views/default/mail/mail_retrieve_view.php:39
-#: admin/views/default/settings/settings_remote_accounts_view.php:47
+#: admin/views/default/settings/settings_remote_accounts_view.php:49
 msgid "Host"
 msgstr ""
 
@@ -631,7 +631,7 @@ msgstr ""
 
 #: admin/views/default/mail/mail_retrieve_view.php:60
 #: admin/views/default/mail/mail_server_view.php:70
-#: admin/views/default/settings/settings_remote_accounts_view.php:53
+#: admin/views/default/settings/settings_remote_accounts_view.php:57
 #: admin/views/default/old_backup/backup_view.php:373
 #: admin/views/default/network/network_wlan_view.php:54
 #: admin/views/default/login_view.php:35
@@ -1084,7 +1084,7 @@ msgstr ""
 msgid "Define a new remote target"
 msgstr ""
 
-#: admin/views/default/settings/settings_remote_accounts_view.php:59
+#: admin/views/default/settings/settings_remote_accounts_view.php:65
 msgid "Create target"
 msgstr ""
 
