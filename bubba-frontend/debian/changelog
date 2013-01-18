@@ -1,3 +1,9 @@
+bubba-frontend (2.5.1.6+backup5) unstable; urgency=low
+
+  * adding remote accounts help text
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 18 Jan 2013 15:45:14 +0100
+
 bubba-frontend (2.5.1.6+backup4) unstable; urgency=low
 
   * updating codeigniter
