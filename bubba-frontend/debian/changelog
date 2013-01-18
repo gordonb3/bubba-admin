@@ -1,3 +1,10 @@
+bubba-frontend (2.5.1.6+backup4) unstable; urgency=low
+
+  * updating codeigniter
+  * no slash in $caller anymore
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 18 Jan 2013 13:29:03 +0100
+
 bubba-frontend (2.5.1.6+backup3) unstable; urgency=low
 
   * generate js_files before trying to update pot files
