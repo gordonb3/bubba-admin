@@ -65,6 +65,7 @@ class System extends CI_Model {
   }
 
   const accounts_file = '/etc/bubba/remote_accounts.yml';
+  const remote_jobs_file = '/etc/bubba/remote_backup_jobs.yml';
   const fstab_file = '/etc/fstab';
   const webdav_secrets_file  = '/etc/davfs2/secrets';
   const ssh_keydir = '/etc/bubba/ssh-keys';
@@ -160,15 +161,24 @@ class System extends CI_Model {
   }
 
   public function remove_remote_account($type, $username, $host) {
+    if($host) {
+      $target = "$type|$host|$username";
+    } else {
+      $target = "$type|$username";
+    }
+
+    $jobs = array();
+    if(file_exists(self::remote_jobs_file)) {
+      $jobs = spyc_load_file(self::remote_jobs_file);
+    }
+    unset($jobs[$target]);
+    file_put_contents(self::remote_jobs_file,Spyc::YAMLDump($jobs));
+
     $accounts = array();
     if(file_exists(self::accounts_file)) {
       $accounts = spyc_load_file(self::accounts_file);
     }
-    if($host) {
-      unset($accounts["$type|$host|$username"]);
-    } else {
-      unset($accounts["$type|$username"]);
-    }
+    unset($accounts[$target]);
     file_put_contents(self::accounts_file,Spyc::YAMLDump($accounts));
     return true;
   }
