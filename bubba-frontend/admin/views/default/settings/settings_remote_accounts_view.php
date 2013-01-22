@@ -4,7 +4,7 @@
       <th colspan="4" class="ui-state-default ui-widget-header"><?=_("Remote accounts")?></th>
     </tr>
     <tr class="ui-header">
-      <th><?=_("Type")?></th>
+      <th><?=_("Target")?></th>
       <th><?=_("Username")?></th>
       <th><?=_("Public key")?></th>
       <th>&nbsp;</th>

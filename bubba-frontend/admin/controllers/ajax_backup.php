@@ -29,11 +29,15 @@ class Ajax_backup extends CI_Controller {
     if(file_exists(self::accounts_file)) {
       $accounts = spyc_load_file(self::accounts_file);
       foreach($accounts as $id => $account) {
-        $targets[] = array(
+        $target = array(
           'id' => $id,
           'type' => $account['type'],
           'username' => $account['username'],
         );
+        if(isset($account['host'])) {
+          $target['host'] = $account['host'];
+        }
+        $targets[] = $target;
       }
     }
     $devs = $this->get_available_devices();

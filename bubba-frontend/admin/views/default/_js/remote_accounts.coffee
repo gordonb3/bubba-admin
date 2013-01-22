@@ -6,7 +6,7 @@ $ ->
       for account in accounts
         html = """
         <tr>
-          <td>#{account.type}</td>
+          <td>#{if account.type is 'ssh' then "ssh://#{account.host}" else account.type}</td>
           <td>#{account.username}</td>
           <td><a href="#{config.prefix}/ajax_settings/get_remote_account_pubkey/#{account.uuid}" class="pubkey">#{_("public key")}</a></td>
           <td>

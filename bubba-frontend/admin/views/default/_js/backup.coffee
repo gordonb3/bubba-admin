@@ -51,12 +51,12 @@ $ ->
   reload_possible_targets = (cur) ->
     cb = (targets) ->
       $('#destinations-table tbody tr').remove()
-      for {id, type, username} in targets.remote
+      for {id, type, username, host} in targets.remote
         html = """
         <tr>
           <td>
           <input type="radio" name="destination" id="destination-remote-#{id}" value="remote-#{id}"/>
-          <label for="destination-remote-#{id}">#{type} (#{username})</label>
+          <label for="destination-remote-#{id}">#{if type is 'ssh' then "ssh://#{host}" else type} (#{username})</label>
           </td>
         </tr>
         """
