@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2013-01-18 11:53+0100\n"
+"POT-Creation-Date: 2013-01-23 11:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,42 +66,129 @@ msgid "Add new viewer to the photo album"
 msgstr ""
 
 #: admin/views/default/_js/backup.js:34
-msgid "Failed"
+msgid "Syntax or usage error"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:37
-msgid "why?"
+#: admin/views/default/_js/backup.js:36
+msgid "Protocol incompatibility"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:38
+msgid "Errors selecting input/output files, dirs"
 msgstr ""
 
 #: admin/views/default/_js/backup.js:40
+msgid ""
+"Requested action not supported: an attempt was made to manipulate 64-bit "
+"files on a platform that cannot support them; or an option was specified "
+"that is supported by the client and not by the server."
+msgstr ""
+
+#: admin/views/default/_js/backup.js:42
+msgid "Error starting client-server protocol"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:44
+msgid "Daemon unable to append to log-file"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:46
+msgid "Error in socket I/O"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:48
+msgid "Error in file I/O"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:50
+msgid "Error in rsync protocol data stream"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:52
+msgid "Errors with program diagnostics"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:54
+msgid "Error in IPC code"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:56
+msgid "Received SIGUSR1 or SIGINT"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:58
+msgid "Some error returned by waitpid()"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:60
+msgid "Error allocating core memory buffers"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:62
+msgid "Partial transfer due to error"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:64
+msgid "Partial transfer due to vanished source files"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:66
+msgid "The --max-delete limit stopped deletions"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:68
+msgid "Timeout in data send/receive"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:70
+msgid "Timeout waiting for daemon connection"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:76
+msgid "Failed"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:79
+msgid "why?"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:82
 #, javascript-format
 msgid "Backup job for %s on %s failed"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:56
+#: admin/views/default/_js/backup.js:92
+msgid "Completed"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:92
+msgid "Not yet run"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:98
 #: admin/views/default/_js/remote_accounts.js:16
 msgid "Remove"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:79
+#: admin/views/default/_js/backup.js:121
 msgid "External disk"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:133 admin/views/default/_js/backup.js:159
+#: admin/views/default/_js/backup.js:175 admin/views/default/_js/backup.js:201
 #: admin/views/default/_js/wizard.js:15 admin/views/default/_js/wizard.js:91
 msgid "Next"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:139 admin/views/default/_js/backup.js:160
+#: admin/views/default/_js/backup.js:181 admin/views/default/_js/backup.js:202
 #: admin/views/default/_js/wizard.js:24 admin/views/default/_js/wizard.js:92
 msgid "Back"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:161 admin/views/default/_js/wizard.js:93
+#: admin/views/default/_js/backup.js:203 admin/views/default/_js/wizard.js:93
 msgid "Complete"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:227
+#: admin/views/default/_js/backup.js:269
 #: admin/views/default/_js/remote_accounts.js:50
 #, javascript-format
 msgid ""
@@ -111,7 +198,7 @@ msgid ""
 "Settings → Account management → OpenSSH key"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:229
+#: admin/views/default/_js/backup.js:271
 #: admin/views/default/_js/remote_accounts.js:52
 #, javascript-format
 msgid ""
@@ -119,15 +206,15 @@ msgid ""
 "a> to download the openssh key needed for backup"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:252
+#: admin/views/default/_js/backup.js:294
 msgid "Are you sure you want to permanently remove this backup job?"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:252 admin/views/default/_js/backup.js:254
+#: admin/views/default/_js/backup.js:294 admin/views/default/_js/backup.js:296
 msgid "Remove backup job"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:262
+#: admin/views/default/_js/backup.js:304
 msgid "Backup job was removed from the system"
 msgstr ""
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2013-01-18 11:52+0100\n"
+"POT-Creation-Date: 2013-01-23 11:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -237,16 +237,12 @@ msgstr ""
 msgid "Failed to aquire an RAID array containing the disk %s"
 msgstr ""
 
-#: admin/controllers/ajax_backup.php:79 admin/controllers/ajax_backup.php:107
-msgid "Not yet run"
-msgstr ""
-
-#: admin/controllers/ajax_backup.php:81
+#: admin/controllers/ajax_backup.php:84
 #, php-format
 msgid "Backup of %s made %s for %s on %s"
 msgstr ""
 
-#: admin/controllers/ajax_backup.php:109
+#: admin/controllers/ajax_backup.php:111
 #, php-format
 msgid "Backup of %s made %s to External disk %s"
 msgstr ""
@@ -1068,8 +1064,8 @@ msgid "Remote accounts"
 msgstr ""
 
 #: admin/views/default/settings/settings_remote_accounts_view.php:7
-#: admin/views/default/disk/disk_view.php:9
-msgid "Type"
+#: admin/views/default/old_backup/backup_view.php:9
+msgid "Target"
 msgstr ""
 
 #: admin/views/default/settings/settings_remote_accounts_view.php:9
@@ -1119,10 +1115,6 @@ msgstr ""
 #: admin/views/default/filemanager/filemanager_index_view.php:70
 #: admin/views/default/filemanager/filemanager_index_view.php:83
 msgid "Name"
-msgstr ""
-
-#: admin/views/default/old_backup/backup_view.php:9
-msgid "Target"
 msgstr ""
 
 #: admin/views/default/old_backup/backup_view.php:10
@@ -2073,6 +2065,10 @@ msgstr ""
 
 #: admin/views/default/disk/disk_view.php:8
 msgid "Disk size"
+msgstr ""
+
+#: admin/views/default/disk/disk_view.php:9
+msgid "Type"
 msgstr ""
 
 #: admin/views/default/disk/disk_view.php:10
