@@ -18,7 +18,31 @@ $ ->
         $cur.append $('<td/>', text: data.label)
         $cur.append $('<td/>', text: data.schedule)
 
-        if data.failed
+        if data.hasrun and data.status isnt 0
+          msg = "Rsync returned error #{data.status}: #{switch data.status
+            when 1 then _ "Syntax or usage error"
+            when 2 then _ "Protocol incompatibility"
+            when 3 then _ "Errors selecting input/output files, dirs"
+            when 4 then _ "Requested action not supported: an attempt was made to manipulate
+ 64-bit files on a platform that cannot support them; or an option was specified
+ that is supported by the client and not by the server."
+            when 5 then _ "Error starting client-server protocol"
+            when 6 then _ "Daemon unable to append to log-file"
+            when 10 then _ "Error in socket I/O"
+            when 11 then _ "Error in file I/O"
+            when 12 then _ "Error in rsync protocol data stream"
+            when 13 then _ "Errors with program diagnostics"
+            when 14 then _ "Error in IPC code"
+            when 20 then _ "Received SIGUSR1 or SIGINT"
+            when 21 then _ "Some error returned by waitpid()"
+            when 22 then _ "Error allocating core memory buffers"
+            when 23 then _ "Partial transfer due to error"
+            when 24 then _ "Partial transfer due to vanished source files"
+            when 25 then _ "The --max-delete limit stopped deletions"
+            when 30 then _ "Timeout in data send/receive"
+            when 35 then _ "Timeout waiting for daemon connection"
+          }"
+
           $node = $("<td/>",
             class: "ui-backup-job-failed"
           ).appendTo $cur
@@ -29,7 +53,7 @@ $ ->
             html: _("why?")
             click: (e) ->
               e.preventDefault()
-              $.alert data.status, $.sprintf(_("Backup job for %s on %s failed"), data.username, data.type), null, null,
+              $.alert msg, $.sprintf(_("Backup job for %s on %s failed"), data.username, data.type), null, null,
                 width: 500
                 height: 300
 
@@ -38,7 +62,7 @@ $ ->
           $node.append ")"
         else
           $cur.append $("<td/>",
-            text: data.status
+            text: if data.hasrun then _("Completed") else _("Not yet run")
           )
 
         $cur.append $('<td/>', html: $('<button/>', class: "submit backup-job-remove",html: _("Remove") ))

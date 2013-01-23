@@ -76,11 +76,10 @@ class Ajax_backup extends CI_Controller {
             'username' => $account['username'],
           );
 
+          $cur['hasrun'] = false;
           if(isset($status[$job][$schedule][$selection])) {
+            $cur['hasrun'] = true;
             $cur['status'] = $status[$job][$schedule][$selection];
-          } else {
-            // We'll assume job has not been yet run
-            $cur['status'] = _('Not yet run');
           }
           $cur['label'] = sprintf(_("Backup of %s made %s for %s on %s"), $selection, $schedule, $account['username'], $account['type']);
           $data[] = $cur;
@@ -104,11 +103,10 @@ class Ajax_backup extends CI_Controller {
             'type' => 'local',
           );
 
+          $cur['hasrun'] = false;
           if(isset($status[$job][$schedule][$selection])) {
+            $cur['hasrun'] = true;
             $cur['status'] = $status[$job][$schedule][$selection];
-          } else {
-            // We'll assume job has not been yet run
-            $cur['status'] = _('Not yet run');
           }
           $cur['label'] = sprintf(_("Backup of %s made %s to External disk %s"), $selection, $schedule, $job);
           $data[] = $cur;
