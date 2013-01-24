@@ -8,13 +8,14 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2012-05-14 18:49+0300\n"
-"PO-Revision-Date: 2011-10-05 15:19+0100\n"
+"PO-Revision-Date: 2013-01-24 15:38+0100\n"
 "Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/settings_software.html:2
@@ -23,13 +24,24 @@ msgstr "Software-Aktualisierung"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:5
-msgid "{PLATFORM}'s software can easily be updated to gain new functionality. Press 'Update system', and the update is automatically performed. Please have patient, it might take a while to perform an update."
-msgstr "Für neue Funktionalität haben Sie die Möglichkeit, die {PLATFORM}-Software zu aktualisieren. Drücken Sie einfach auf 'System aktualisieren', um die Aktualisierung automatisch durchzuführen. Die Aktualisierung kann einige Zeit in Anspruch nehmen - bitte seien Sie geduldig."
+msgid ""
+"{PLATFORM}'s software can easily be updated to gain new functionality. Press "
+"'Update system', and the update is automatically performed. Please have "
+"patient, it might take a while to perform an update."
+msgstr ""
+"Für neue Funktionalität haben Sie die Möglichkeit, die {PLATFORM}-Software "
+"zu aktualisieren. Drücken Sie einfach auf 'System aktualisieren', um die "
+"Aktualisierung automatisch durchzuführen. Die Aktualisierung kann einige "
+"Zeit in Anspruch nehmen - bitte seien Sie geduldig."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:8
-msgid "After an update, status information is shown. Press the '+' sign to show the complete message."
-msgstr "Nach der Aktualisierung werden Statusinformationen angezeigt. Drücken Sie das '+' Zeichen, um die Fertigstellungsmeldung anzuzeigen."
+msgid ""
+"After an update, status information is shown. Press the '+' sign to show the "
+"complete message."
+msgstr ""
+"Nach der Aktualisierung werden Statusinformationen angezeigt. Drücken Sie "
+"das '+' Zeichen, um die Fertigstellungsmeldung anzuzeigen."
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/settings_software.html:11
@@ -38,30 +50,72 @@ msgstr "Hotfixes"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:14
-msgid "Before an update, the software will communicate and exchange information to an Excito controlled server for an automatied analyzis."
+msgid ""
+"Before an update, the software will communicate and exchange information to "
+"an Excito controlled server for an automatied analyzis."
 msgstr ""
+"Die Software sendet vor einem Update grundlegende Informationen zum Excito "
+"Server um eine automatische Analyse durchzuführen."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:17
-msgid "This system, which is called \"hotfixes\", will send information regarding your {PLATFORM} for an automatic analysis, and based upon this information, appropriate actions can be issued to your {PLATFORM} to be taken before the main upgrade is initiated."
+msgid ""
+"This system, which is called \"hotfixes\", will send information regarding "
+"your {PLATFORM} for an automatic analysis, and based upon this information, "
+"appropriate actions can be issued to your {PLATFORM} to be taken before the "
+"main upgrade is initiated."
 msgstr ""
+"Diese System, auch bekannt als \"hotfixes\", wird einige Informationen "
+"bezüglich deines {PLATFORM}s zur automatischen Analyse an Excito senden. "
+"Darauf basierend können vor dem eigentlichen Update entsprechende Aktionen "
+"auf deinem {PLATFORM} ausgeführt werden um einen stets problemlosen "
+"Updateprozess zu gewährleisten."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:21
 #, fuzzy
-#| msgid "This feature collects status information from your {PLATFORM} and sends to Excito for automated analysis. The update server can then take appropriate actions if your system has problems. The system information is sent to Excito via an encrypted connection, and server responses are GPG signed to ensure the security and that the content is distributed by Excito."
-msgid "All this information is sent to Excito via an encrypted connection, and all server responses are signed using GPG to ensure the security that the content is distributed by Excito."
-msgstr "Diese Funktion erfasst Statusinformationen von Ihrem {PLATFORM} und sendet sie für eine automatische Analyse an Excito. Der Aktualisierungsserver kann dann ggf. die erforderlichen Maßnahmen durchführen, wenn es auf Ihrem System Probleme gibt. Die Systeminformationen werden über eine verschlüsselte Verbindung gesendet und die Antworten des Servers sind GPG-signiert, um die Sicherheit zu gewährleisten und zu bestätigen, dass die Inhalte von Excito stammen."
+#| msgid ""
+#| "This feature collects status information from your {PLATFORM} and sends "
+#| "to Excito for automated analysis. The update server can then take "
+#| "appropriate actions if your system has problems. The system information "
+#| "is sent to Excito via an encrypted connection, and server responses are "
+#| "GPG signed to ensure the security and that the content is distributed by "
+#| "Excito."
+msgid ""
+"All this information is sent to Excito via an encrypted connection, and all "
+"server responses are signed using GPG to ensure the security that the "
+"content is distributed by Excito."
+msgstr ""
+"Diese Funktion erfasst Statusinformationen von Ihrem {PLATFORM} und sendet "
+"sie für eine automatische Analyse an Excito. Der Aktualisierungsserver kann "
+"dann ggf. die erforderlichen Maßnahmen durchführen, wenn es auf Ihrem System "
+"Probleme gibt. Die Systeminformationen werden über eine verschlüsselte "
+"Verbindung gesendet und die Antworten des Servers sind GPG-signiert, um die "
+"Sicherheit zu gewährleisten und zu bestätigen, dass die Inhalte von Excito "
+"stammen."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:24
-msgid "This feature cannot be disabled from the user interface. If you wish to opt out, We refer to the user manual how to proceed with an manual upgrade from the command line interface."
+msgid ""
+"This feature cannot be disabled from the user interface. If you wish to opt "
+"out, We refer to the user manual how to proceed with an manual upgrade from "
+"the command line interface."
 msgstr ""
+"Diese Funktion kann in der Bnutzeroberfläche nicht deaktiviert werden. Um "
+"diese zu umgehen können Sie ein manuelles Update von der Kommandozeile aus "
+"ausführen, Details entnehmen Sie bitte dem Benutzerhandbuch."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:27
-msgid "<strong>Any information collected by Excito will never be exposed to any other party than Excito. The information will only be used to pin point errors and perform the best matched updates for your {PLATFORM}.</strong>"
-msgstr "<strong>Von Excito erfasste Informationen werden auf keinen Fall an Dritte weitergegeben. Die Informationen werden nur verwendet, um Fehler aufzuspüren und die am besten geeigneten Aktualisierungen für Ihr {PLATFORM} durchzuführen.</strong>"
+msgid ""
+"<strong>Any information collected by Excito will never be exposed to any "
+"other party than Excito. The information will only be used to pin point "
+"errors and perform the best matched updates for your {PLATFORM}.</strong>"
+msgstr ""
+"<strong>Von Excito erfasste Informationen werden auf keinen Fall an Dritte "
+"weitergegeben. Die Informationen werden nur verwendet, um Fehler aufzuspüren "
+"und die am besten geeigneten Aktualisierungen für Ihr {PLATFORM} "
+"durchzuführen.</strong>"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:31
@@ -131,4 +185,6 @@ msgstr "Aktuelle Paketversionen"
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:61
 msgid "Detailed information about {PLATFORM} software versions is shown here."
-msgstr "Detaillierte Informationen über die {PLATFORM}-Software-Versionen werden hier angezeigt."
+msgstr ""
+"Detaillierte Informationen über die {PLATFORM}-Software-Versionen werden "
+"hier angezeigt."

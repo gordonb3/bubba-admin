@@ -8,13 +8,14 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2011-08-22 21:04+0300\n"
-"PO-Revision-Date: 2011-10-05 15:21+0100\n"
+"PO-Revision-Date: 2013-01-24 15:07+0100\n"
 "Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/stat.html:2
@@ -23,8 +24,13 @@ msgstr "Status"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/stat.html:5
-msgid "Here you find information about the installed hard drive size and remaining disk space, {PLATFORM} uptime and the installed software revision number."
-msgstr "Hier finden Sie Informationen über die installierte Festplatte und den verbleibenden Speicherplatz, die Aktivitätszeit von {PLATFORM} und die installierte Software-Version."
+msgid ""
+"Here you find information about the installed hard drive size and remaining "
+"disk space, {PLATFORM} uptime and the installed software revision number."
+msgstr ""
+"Hier finden Sie Informationen über die installierte Festplatte und den "
+"verbleibenden Speicherplatz, die Aktivitätszeit von {PLATFORM} und die "
+"installierte Software-Version."
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/stat.html:8
@@ -38,10 +44,17 @@ msgstr "Hier werden wichtige Meldungen des Systems angezeigt."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/stat.html:14
-msgid "The '<strong>Shutdown</strong>' button powers off {PLATFORM} in the same way as pressing the button on the backside of the unit. To start up again, press the button on the backside."
-msgstr "Die Taste '<strong>Ausschalten</strong>'  schaltet {PLATFORM} auf die gleiche Weise aus wie die Taste auf der Rückseite des Gerätes. Um {PLATFORM} wieder zu starten, drücken Sie die Taste auf der Rückseite."
+msgid ""
+"The '<strong>Shutdown</strong>' button powers off {PLATFORM} in the same way "
+"as pressing the button on the backside of the unit. To start up again, press "
+"the button on the backside."
+msgstr ""
+"Die Taste '<strong>Ausschalten</strong>'  schaltet {PLATFORM} auf die "
+"gleiche Weise aus wie die Taste auf der Rückseite des Gerätes. Um {PLATFORM} "
+"wieder zu starten, drücken Sie die Taste auf der Rückseite."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/stat.html:17
 msgid "The '<strong>Restart</strong>' button reboots {PLATFORM}."
-msgstr "Mit der Taste '<strong>Neu starten</strong>' wird{PLATFORM} neu gestartet."
+msgstr ""
+"Mit der Taste '<strong>Neu starten</strong>' wird{PLATFORM} neu gestartet."

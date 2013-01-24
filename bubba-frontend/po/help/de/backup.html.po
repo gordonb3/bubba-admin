@@ -8,18 +8,27 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2013-01-18 11:56+0100\n"
-"PO-Revision-Date: 2011-12-27 03:55+0100\n"
+"PO-Revision-Date: 2013-01-24 15:28+0100\n"
 "Last-Translator: René Jaun <translationservice@jaunscorner.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/backup.html:2
-msgid "This backup service allows you to backup any data on your {PLATFORM} to a USB disk, to any other {PLATFORM}, or to a paid account on HiDrive (https://www.free-hidrive.com/). Also any other server supporting ssh and rsync can be used."
+msgid ""
+"This backup service allows you to backup any data on your {PLATFORM} to a "
+"USB disk, to any other {PLATFORM}, or to a paid account on HiDrive (https://"
+"www.free-hidrive.com/). Also any other server supporting ssh and rsync can "
+"be used."
 msgstr ""
+"Der Sicherungsservice erlaubt es alle Daten deines {PLATFORM}s auf einen USB "
+"Stick oder Festplatte, auf jedem anderen {PLATFORM} oder auf Strato HiDrive "
+"(https://www.free-hidrive.com/) zu sichern. Jeder andere Server welcher ssh "
+"und rsync unterstützt, kann dazu verwendet werden."
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/backup.html:6
@@ -29,12 +38,19 @@ msgstr "Datensicherung erstellen"
 #. type: Content of: <p>
 #: admin/views/default/help/en/backup.html:10
 msgid "Click the button “Add new backup job” and follow the wizard"
-msgstr "Wählen Sie die Funktion „Neue Datensicherung erstellen“ und folgen Sie dem Ablauf"
+msgstr ""
+"Wählen Sie die Funktion „Neue Datensicherung erstellen“ und folgen Sie dem "
+"Ablauf"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/backup.html:14
-msgid "<em>Note: If you choose HiDrive as target you need a paid account since the free accounts does not support rsync</em>"
+msgid ""
+"<em>Note: If you choose HiDrive as target you need a paid account since the "
+"free accounts does not support rsync</em>"
 msgstr ""
+"<em>Notiz: Wenn Sie Strato HiDrive als Sicherungsziel auswählen, benötigen "
+"Sie dort einen bezahlten Account, da die Free Version nicht über rsync "
+"Unterstützung verfügt.</em>"
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/backup.html:17
@@ -44,8 +60,14 @@ msgstr "Datensicherung wiederherstellen"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/backup.html:20
-msgid "Go to “File Manager” and browse to /home/admin/ and you will find a folder there for each target device, where the target data is mounted. You can there manually copy the files from target."
+msgid ""
+"Go to “File Manager” and browse to /home/admin/ and you will find a folder "
+"there for each target device, where the target data is mounted. You can "
+"there manually copy the files from target."
 msgstr ""
+"Wählen Sie zu \"Datei-Manager\" und gehen Sie zu /hom/admin und Sie werden "
+"dort für jedes Sicherungsziel einen Ordner finden, mit dem entsprechenden "
+"Ziel gemountet. Sie können die Dateien manuell vom Sicherungsziel kopieren."
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/backup.html:23
@@ -54,5 +76,13 @@ msgstr "Datensicherungen ohne {PLATFORM} wiederherstellen"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/backup.html:26
-msgid "If you in the future would like to restore a backup not using B3, this is of course possible, you simply can log in to the target device and copy the files from there. No encryption or compression is used to make sure this is possible."
+msgid ""
+"If you in the future would like to restore a backup not using B3, this is of "
+"course possible, you simply can log in to the target device and copy the "
+"files from there. No encryption or compression is used to make sure this is "
+"possible."
 msgstr ""
+"Falls Sie in der Zukunft Ihre Daten ohne ein B3 wieder herstellen möchten, "
+"ist dies natürlich möglich. Sie können sich in das Sicherungsziel einloggen "
+"und die Dateien von dort kopieren. Es ist keine Entschlüsselung oder "
+"Entpackung erforderlich."
