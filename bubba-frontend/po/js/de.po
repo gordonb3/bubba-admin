@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3.0.2-8-g99845c1\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2013-02-14 14:54+0100\n"
-"PO-Revision-Date: 2012-08-31 15:19+0100\n"
+"POT-Creation-Date: 2013-01-23 11:45+0100\n"
+"PO-Revision-Date: 2013-02-18 15:02+0100\n"
 "Last-Translator: Johannes Book <johannes@excito.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
 "Language: de\n"
@@ -16,12 +16,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: admin/views/default/_js/album_users.js:30
-#: admin/views/default/_js/backup.js:151
 #: admin/views/default/_js/mail_retrieve.js:150
-#: admin/views/default/_js/remote_accounts.js:16
 #: admin/views/default/_js/user.js:96
 msgid "Edit"
 msgstr "Bearbeiten"
@@ -67,206 +65,170 @@ msgstr "Viewer aktualisieren"
 msgid "Add new viewer to the photo album"
 msgstr "Neuen Viewer an das Fotoalbum hinzufügen"
 
-#: admin/views/default/_js/backup.js:45
-msgid "All user's data (/home/<all users>)"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:47
-msgid "All music (/home/storage/music)"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:49
-msgid "All pictures (/home/storage/pictures)"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:51
-msgid "All videos (/home/storage/video)"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:53
-msgid "Storage (/home/storage)"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:63
-msgid "Daily (every night at two a clock)"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:65
-msgid "Twice a week (every wednesday and sunday night)"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:67
-msgid "Weekly (every sunday night)"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:74
-msgid "Currently running"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:78
-msgid "Not yet run"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:82
-#, fuzzy
-msgid "Completed"
-msgstr "Fertigstellen"
-
-#: admin/views/default/_js/backup.js:88
+#: admin/views/default/_js/backup.js:34
 msgid "Syntax or usage error"
-msgstr ""
+msgstr "Syntaxfehler oder Benutzerfehler"
 
-#: admin/views/default/_js/backup.js:90
+#: admin/views/default/_js/backup.js:36
 msgid "Protocol incompatibility"
-msgstr ""
+msgstr "Protokollinkompatibilität"
 
-#: admin/views/default/_js/backup.js:92
+#: admin/views/default/_js/backup.js:38
 msgid "Errors selecting input/output files, dirs"
-msgstr ""
+msgstr "Fehler bei der Auswahl von Eingangs/Ausgangs Dateien und Ordnern"
 
-#: admin/views/default/_js/backup.js:94
-msgid "Requested action not supported: an attempt was made to manipulate 64-bit files on a platform that cannot support them; or an option was specified that is supported by the client and not by the server."
+#: admin/views/default/_js/backup.js:40
+msgid ""
+"Requested action not supported: an attempt was made to manipulate 64-bit "
+"files on a platform that cannot support them; or an option was specified "
+"that is supported by the client and not by the server."
 msgstr ""
+"Die angeforderte Aktion wird leider nicht unterstützt: Entweder Server oder "
+"Client unterstützen eine Option nicht oder es wurde versucht eine Datei zu "
+"manipulieren deren größe die maximale Größe auf Server oder Client "
+"übersteigt."
 
-#: admin/views/default/_js/backup.js:96
+#: admin/views/default/_js/backup.js:42
 msgid "Error starting client-server protocol"
-msgstr ""
+msgstr "Fehler beim Starten des Client-Server-Protokolls"
 
-#: admin/views/default/_js/backup.js:98
+#: admin/views/default/_js/backup.js:44
 msgid "Daemon unable to append to log-file"
-msgstr ""
+msgstr "Daemon kann Log-Dateien nicht anfügen"
 
-#: admin/views/default/_js/backup.js:100
+#: admin/views/default/_js/backup.js:46
 msgid "Error in socket I/O"
-msgstr ""
+msgstr "Fehler bei Socket I/O"
 
-#: admin/views/default/_js/backup.js:102
+#: admin/views/default/_js/backup.js:48
 msgid "Error in file I/O"
-msgstr ""
+msgstr "Fehler bei Datei I/O"
 
-#: admin/views/default/_js/backup.js:104
+#: admin/views/default/_js/backup.js:50
 msgid "Error in rsync protocol data stream"
-msgstr ""
+msgstr "Fehler im rsync Datenstrom"
 
-#: admin/views/default/_js/backup.js:106
+#: admin/views/default/_js/backup.js:52
 msgid "Errors with program diagnostics"
-msgstr ""
+msgstr "Fehler bei der Diagnose"
 
-#: admin/views/default/_js/backup.js:108
+#: admin/views/default/_js/backup.js:54
 msgid "Error in IPC code"
-msgstr ""
+msgstr "Fehler bei der Inter-Prozess-Kommunikation (IPC)"
 
-#: admin/views/default/_js/backup.js:110
+#: admin/views/default/_js/backup.js:56
 msgid "Received SIGUSR1 or SIGINT"
-msgstr ""
+msgstr "Signal SIGUSR1 oder SIGINT erhalten"
 
-#: admin/views/default/_js/backup.js:112
+#: admin/views/default/_js/backup.js:58
 msgid "Some error returned by waitpid()"
-msgstr ""
+msgstr "waitpid() hat einen Fehler zurückgegeben"
 
-#: admin/views/default/_js/backup.js:114
+#: admin/views/default/_js/backup.js:60
 msgid "Error allocating core memory buffers"
-msgstr ""
+msgstr "Fehler bei der Pufferallokation"
 
-#: admin/views/default/_js/backup.js:116
+#: admin/views/default/_js/backup.js:62
 msgid "Partial transfer due to error"
-msgstr ""
+msgstr "Teilweiser Transfer, fehlerbegründet"
 
-#: admin/views/default/_js/backup.js:118
+#: admin/views/default/_js/backup.js:64
 msgid "Partial transfer due to vanished source files"
-msgstr ""
+msgstr "Teilweiser Transfer, Quelldateien sind teilweise verschwunden"
 
-#: admin/views/default/_js/backup.js:120
+#: admin/views/default/_js/backup.js:66
 msgid "The --max-delete limit stopped deletions"
 msgstr ""
+"Die maximale Anzahl Löschungen wurde überschritten. Weitere Löschungen "
+"wurden gestoppt. Siehe --max-delete Argument."
 
-#: admin/views/default/_js/backup.js:122
+#: admin/views/default/_js/backup.js:68
 msgid "Timeout in data send/receive"
-msgstr ""
+msgstr "Timeout beim Senden und/oder Empfangen"
 
-#: admin/views/default/_js/backup.js:124
+#: admin/views/default/_js/backup.js:70
 msgid "Timeout waiting for daemon connection"
-msgstr ""
+msgstr "Timeout beim Verbindungsaufbau"
 
-#: admin/views/default/_js/backup.js:130
+#: admin/views/default/_js/backup.js:76
 msgid "Failed"
 msgstr "Fehler"
 
-#: admin/views/default/_js/backup.js:133
+#: admin/views/default/_js/backup.js:79
 msgid "why?"
 msgstr "Warum?"
 
-#: admin/views/default/_js/backup.js:136
-#, fuzzy, javascript-format
+#: admin/views/default/_js/backup.js:82
 msgid "Backup job for %s on %s failed"
-msgstr "Backup-Ausführung %s fehlgeschlagen"
+msgstr "Sicherung %s (%s) fehlgeschlagen"
 
-#: admin/views/default/_js/backup.js:147
+#: admin/views/default/_js/backup.js:92
+msgid "Completed"
+msgstr "Abgeschlossen"
+
+#: admin/views/default/_js/backup.js:92
+msgid "Not yet run"
+msgstr "Ausstehend"
+
+#: admin/views/default/_js/backup.js:98
 #: admin/views/default/_js/remote_accounts.js:16
 msgid "Remove"
 msgstr "Entfernen"
 
-#: admin/views/default/_js/backup.js:176
+#: admin/views/default/_js/backup.js:121
 msgid "External disk"
-msgstr ""
+msgstr "Externe Festplatte"
 
-#: admin/views/default/_js/backup.js:230 admin/views/default/_js/backup.js:256
+#: admin/views/default/_js/backup.js:175 admin/views/default/_js/backup.js:201
 #: admin/views/default/_js/wizard.js:15 admin/views/default/_js/wizard.js:91
 msgid "Next"
 msgstr "Weiter"
 
-#: admin/views/default/_js/backup.js:236 admin/views/default/_js/backup.js:257
+#: admin/views/default/_js/backup.js:181 admin/views/default/_js/backup.js:202
 #: admin/views/default/_js/wizard.js:24 admin/views/default/_js/wizard.js:92
 msgid "Back"
 msgstr "Zurück"
 
-#: admin/views/default/_js/backup.js:258 admin/views/default/_js/wizard.js:93
+#: admin/views/default/_js/backup.js:203 admin/views/default/_js/wizard.js:93
 msgid "Complete"
 msgstr "Fertigstellen"
 
-#: admin/views/default/_js/backup.js:336
-#: admin/views/default/_js/remote_accounts.js:62
-#, javascript-format
-msgid "Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</a> to download the openssh key needed for backup. Upload it to <a target=\"_blank\" href=\"https://hidrive.strato.com/\">HiDrive</a> under Account → Settings → Account management → OpenSSH key"
+#: admin/views/default/_js/backup.js:269
+#: admin/views/default/_js/remote_accounts.js:50
+msgid ""
+"Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</"
+"a> to download the openssh key needed for backup. Upload it to <a target="
+"\"_blank\" href=\"https://hidrive.strato.com/\">HiDrive</a> under Account → "
+"Settings → Account management → OpenSSH key"
 msgstr ""
+"Sie müssen Ihren SSH Schlüssel <a href=\"%s/ajax_settings/"
+"get_remote_account_pubkey/%s\">herunterladen</a> welcher zum erstellen von "
+"Sicherungen benötigt wird. Er kann über <a target=\"_blank\" href=\"https://"
+"hidrive.strato.com/\">HiDrive</a> unter Account → Settings → Account "
+"management → OpenSSH hochgeladen werden."
 
-#: admin/views/default/_js/backup.js:338
-#: admin/views/default/_js/remote_accounts.js:64
-#, javascript-format
-msgid "Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</a> to download the openssh key needed for backup"
+#: admin/views/default/_js/backup.js:271
+#: admin/views/default/_js/remote_accounts.js:52
+msgid ""
+"Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</"
+"a> to download the openssh key needed for backup"
 msgstr ""
+"Sie müssen ihren SSH Schlüssel <a href=\"%s/ajax_settings/"
+"get_remote_account_pubkey/%s\">herunterladen</a> welcher zum erstellen von "
+"Sicherungen benötigt wird."
 
-#: admin/views/default/_js/backup.js:361
+#: admin/views/default/_js/backup.js:294
 msgid "Are you sure you want to permanently remove this backup job?"
-msgstr "Sind Sie sicher, dass Sie die Ausführung dieses Backups entfernen wollen?"
+msgstr ""
+"Sind Sie sicher, dass Sie die Ausführung dieses Backups entfernen wollen?"
 
-#: admin/views/default/_js/backup.js:361 admin/views/default/_js/backup.js:363
+#: admin/views/default/_js/backup.js:294 admin/views/default/_js/backup.js:296
 msgid "Remove backup job"
 msgstr "Backup-Ausführung entfernen"
 
-#: admin/views/default/_js/backup.js:371
+#: admin/views/default/_js/backup.js:304
 msgid "Backup job was removed from the system"
 msgstr "Die Ausführung des Backups wurde verworfen"
-
-#: admin/views/default/_js/backup.js:402
-#, fuzzy
-msgid "Edit your backup job here"
-msgstr "Backup starten"
-
-#: admin/views/default/_js/backup.js:406
-#, fuzzy
-msgid "Selection"
-msgstr "Auswählen"
-
-#: admin/views/default/_js/backup.js:418
-msgid "Schedule"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:427
-#: admin/views/default/_js/mail_retrieve.js:180
-#: admin/views/default/_js/user.js:304
-msgid "Update"
-msgstr "Aktualisieren"
 
 #: admin/views/default/_js/disk_progress.js:41
 #: admin/views/default/_js/filemanager.js:128
@@ -283,7 +245,8 @@ msgstr "Datei/Ordner erfolgreich umbenannt"
 
 #: admin/views/default/_js/filemanager.js:88
 msgid "Successfully changed permission on the given files/folders"
-msgstr "Die Berechtigung zu den angegebenen Dateien/Ordner wurde erfolgreich geändert"
+msgstr ""
+"Die Berechtigung zu den angegebenen Dateien/Ordner wurde erfolgreich geändert"
 
 #: admin/views/default/_js/filemanager.js:105
 msgid "Successfully deleted the files/folders"
@@ -294,7 +257,6 @@ msgid "Sucessfully added pictures to the album"
 msgstr "Bilder wurden erfolgreich zum Album hinzugefügt"
 
 #: admin/views/default/_js/filemanager.js:128
-#, javascript-format
 msgid "Sucessfully added %d pictures to the album"
 msgstr "%d Bilder wurden erfolgreich zum Album hinzugefügt"
 
@@ -356,18 +318,36 @@ msgstr[0] "Die Datei oder der Ordner wurde erfolgreich verschoben"
 msgstr[1] "Die Dateien und Ordner wurden erfolgreich verschoben"
 
 #: admin/views/default/_js/filemanager.js:251
-#, javascript-format
-msgid "You are about to move one item. Go to the desired folder and press <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
-msgid_plural "You are about to move %d items. Go to the desired folder and press <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
-msgstr[0] "Sie sind dabei, ein Element zu verschieben. Gehen sie zum gewünschten Zielordner und klicken Sie auf <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span>, um das Verschieben zu bestätigen."
-msgstr[1] "Sie sind dabei, %d Elemente zu verschieben. Gehen Sie zum gewünschten Zielordner und klicken sie auf <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span>, um das Verschieben zu bestätigen"
+msgid ""
+"You are about to move one item. Go to the desired folder and press <span "
+"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
+msgid_plural ""
+"You are about to move %d items. Go to the desired folder and press <span "
+"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
+msgstr[0] ""
+"Sie sind dabei, ein Element zu verschieben. Gehen sie zum gewünschten "
+"Zielordner und klicken Sie auf <span class=\"ui-icon ui-icon-check ui-helper-"
+"inline\"></span>, um das Verschieben zu bestätigen."
+msgstr[1] ""
+"Sie sind dabei, %d Elemente zu verschieben. Gehen Sie zum gewünschten "
+"Zielordner und klicken sie auf <span class=\"ui-icon ui-icon-check ui-helper-"
+"inline\"></span>, um das Verschieben zu bestätigen"
 
 #: admin/views/default/_js/filemanager.js:255
-#, javascript-format
-msgid "You are about to copy one item. Go to the desired folder and press <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm copy"
-msgid_plural "You are about to copy %d items. Go to the desired folder and press <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm copy"
-msgstr[0] "Sie sind dabei, ein Element zu verschieben. Gehen Sie zum gewünschten Zielordner und klicken sie auf <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span>, um das Kopieren zu bestätigen"
-msgstr[1] "Sie sind dabei, %d Elemente zu kopieren. Gehen Sie zum gewünschten Zielordner und klicken sie auf <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span>, um das Kopieren zu bestätigen"
+msgid ""
+"You are about to copy one item. Go to the desired folder and press <span "
+"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm copy"
+msgid_plural ""
+"You are about to copy %d items. Go to the desired folder and press <span "
+"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm copy"
+msgstr[0] ""
+"Sie sind dabei, ein Element zu verschieben. Gehen Sie zum gewünschten "
+"Zielordner und klicken sie auf <span class=\"ui-icon ui-icon-check ui-helper-"
+"inline\"></span>, um das Kopieren zu bestätigen"
+msgstr[1] ""
+"Sie sind dabei, %d Elemente zu kopieren. Gehen Sie zum gewünschten "
+"Zielordner und klicken sie auf <span class=\"ui-icon ui-icon-check ui-helper-"
+"inline\"></span>, um das Kopieren zu bestätigen"
 
 #: admin/views/default/_js/filemanager.js:272
 msgid "Create folder"
@@ -412,7 +392,6 @@ msgid "Login"
 msgstr "Anmelden"
 
 #: admin/views/default/_js/mail_retrieve.js:14
-#, javascript-format
 msgid "Edit email account information for host <em>%s</em>"
 msgstr "E-Mail-Kontoinformation für Host <em>%s</em> bearbeiten"
 
@@ -448,6 +427,11 @@ msgstr "Nein"
 msgid "Add email account"
 msgstr "E-Mail-Konto hinzufügen"
 
+#: admin/views/default/_js/mail_retrieve.js:180
+#: admin/views/default/_js/user.js:304
+msgid "Update"
+msgstr "Aktualisieren"
+
 #: admin/views/default/_js/mail_retrieve.js:232
 msgid "Add new email account"
 msgstr "Neues E-Mail-Konto hinzufügen"
@@ -461,9 +445,11 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 #: admin/views/default/_js/mail_server.js:21
-#, javascript-format
-msgid "Delete account for user <strong>%s</strong> on server <strong>%s</strong>?"
-msgstr "Konto für Benutzer <strong>%s</strong> auf Server <strong>%s</strong> löschen?"
+msgid ""
+"Delete account for user <strong>%s</strong> on server <strong>%s</strong>?"
+msgstr ""
+"Konto für Benutzer <strong>%s</strong> auf Server <strong>%s</strong> "
+"löschen?"
 
 #: admin/views/default/_js/mail_server.js:25
 msgctxt "confirmation button"
@@ -472,18 +458,17 @@ msgstr "Mail Konto löschen"
 
 #: admin/views/default/_js/remote_accounts.js:16
 msgid "public key"
-msgstr ""
+msgstr "Öffentlicher Schlüssel"
 
-#: admin/views/default/_js/remote_accounts.js:154
-#, fuzzy
+#: admin/views/default/_js/remote_accounts.js:75
 msgid "Are you sure you want to permanently remove this remote account?"
-msgstr "Sind Sie sicher, dass Sie die Ausführung dieses Backups entfernen wollen?"
+msgstr ""
+"Sind Sie sicher, dass Sie diesen Remote-Konto permanent entfernen wollen?"
 
-#: admin/views/default/_js/remote_accounts.js:154
-#: admin/views/default/_js/remote_accounts.js:156
-#, fuzzy
+#: admin/views/default/_js/remote_accounts.js:75
+#: admin/views/default/_js/remote_accounts.js:77
 msgid "Remove remote account"
-msgstr "Konto löschen"
+msgstr "Remote-Konto löschen"
 
 #: admin/views/default/_js/stat.js:79
 msgid "No more system messages available"
@@ -495,7 +480,6 @@ msgid "Shut down"
 msgstr "Herunterfahren"
 
 #: admin/views/default/_js/stat.js:96
-#, javascript-format
 msgid "Proceed to shut down %s?"
 msgstr "%s jetzt herunterfahren?"
 
@@ -509,7 +493,6 @@ msgid "Restart"
 msgstr "Neustart"
 
 #: admin/views/default/_js/stat.js:100
-#, javascript-format
 msgid "Proceed to restart %s?"
 msgstr "%s jetzt neu starten?"
 
@@ -611,12 +594,34 @@ msgid "Port {0} is out of range"
 msgstr "Port {0} ist ausserhalb des erlaubten Bereichs"
 
 #: admin/views/default/_js/tor.js:77
-msgid "It might take up to 20 minutes for Tor to self-test if the configuration is fully functional, please inspect the log file (Settings→Logs→tor) for verification\""
-msgstr "Tor kann bis zu 20 Minuten benötigen, um den Selbst-Test der Konfiguration auf volle Funktionsfähigkeit abzuschliessen. Bitte überprüfen Sie die Logdatei (Settings→Logs→tor) für die Ergebnisse\""
+msgid ""
+"It might take up to 20 minutes for Tor to self-test if the configuration is "
+"fully functional, please inspect the log file (Settings→Logs→tor) for "
+"verification\""
+msgstr ""
+"Tor kann bis zu 20 Minuten benötigen, um den Selbst-Test der Konfiguration "
+"auf volle Funktionsfähigkeit abzuschliessen. Bitte überprüfen Sie die "
+"Logdatei (Settings→Logs→tor) für die Ergebnisse\""
 
 #: admin/views/default/_js/tor.js:172
-msgid "<p>Enabling Tor means that your B3 will be a part of the Tor anonymizing network. This will allow users all over the world to use your B3 to protect their privacy and reach a free and open Internet. To read more about Tor, please visit https://www.torproject.org/.</p><p>Also note that enabling this service does not make your traffic anonymous.</p><p>Before enabling Tor, it is recommended that you read the Terms of Service from your Internet Service Provider. <strong>Don't enable this service if you are hesitant</strong>.</p>"
-msgstr "<p>Wenn Sie Tor aktivieren, wird Ihr B3 zu einem Teil des Tor Anonymisierungs-Netzwerks. Dieses erlaubt es Nutzern überall auf der Welt, Ihren B3 zu verwenden, um ihre Privatsphäre zu schützen und ein freies und offenes Internet zu erreichen. Für weitere Informationen zu Tor, besuchen Sie bitte https://www.torproject.org/.</p><p>Bitte beachten Sie, dass die Aktivierung dieses Services nicht Ihren eigenen Traffic anonymisiert.</p><p>Bevor Sie Tor aktivieren, sollten Sie die Nutzungsbedingungen Ihres Internet-dienstanbieters lesen. <strong>Aktivieren Sie diesen Service nicht, wenn Sie sich unsicher sind</strong>.</p>"
+msgid ""
+"<p>Enabling Tor means that your B3 will be a part of the Tor anonymizing "
+"network. This will allow users all over the world to use your B3 to protect "
+"their privacy and reach a free and open Internet. To read more about Tor, "
+"please visit https://www.torproject.org/.</p><p>Also note that enabling this "
+"service does not make your traffic anonymous.</p><p>Before enabling Tor, it "
+"is recommended that you read the Terms of Service from your Internet Service "
+"Provider. <strong>Don't enable this service if you are hesitant</strong>.</p>"
+msgstr ""
+"<p>Wenn Sie Tor aktivieren, wird Ihr B3 zu einem Teil des Tor "
+"Anonymisierungs-Netzwerks. Dieses erlaubt es Nutzern überall auf der Welt, "
+"Ihren B3 zu verwenden, um ihre Privatsphäre zu schützen und ein freies und "
+"offenes Internet zu erreichen. Für weitere Informationen zu Tor, besuchen "
+"Sie bitte https://www.torproject.org/.</p><p>Bitte beachten Sie, dass die "
+"Aktivierung dieses Services nicht Ihren eigenen Traffic anonymisiert.</"
+"p><p>Bevor Sie Tor aktivieren, sollten Sie die Nutzungsbedingungen Ihres "
+"Internet-dienstanbieters lesen. <strong>Aktivieren Sie diesen Service nicht, "
+"wenn Sie sich unsicher sind</strong>.</p>"
 
 #: admin/views/default/_js/tor.js:175
 msgid "Please note"
@@ -627,20 +632,31 @@ msgid "your-easyfind-name"
 msgstr "ihr-easyfind-name"
 
 #: admin/views/default/_js/wizard.js:104
-msgid "Connection to internet is not available. Please disable easyfind, or connect to internet and try again."
+msgid ""
+"Connection to internet is not available. Please disable easyfind, or connect "
+"to internet and try again."
 msgstr ""
+"Es ist keine Internetverbindung verfügbar. Bitte deaktivieren Sie easyfind "
+"oder stellen Sie eine Internetverbindung her und versuchen es erneut."
 
 #: admin/views/default/_js/wizard.js:108
-msgid "The easyfind name you selected contains invalid characters. Please only include letters, numbers, or dashes ."
+msgid ""
+"The easyfind name you selected contains invalid characters. Please only "
+"include letters, numbers, or dashes ."
 msgstr ""
+"Der gewünschte easyfind Name enthält ungültige Zeichen. Erlaubte Zeichen "
+"sind -, _ , A bis Z, a bis z sowie 0-9"
 
 #: admin/views/default/_js/wizard.js:112
-msgid "The easyfind name you selected is already taken, please try another one."
+msgid ""
+"The easyfind name you selected is already taken, please try another one."
 msgstr ""
+"Der gewünschte easyfind Name ist bereits vergeben, bitte wählen Sie einen "
+"anderen."
 
 #: admin/views/default/_js/wizard.js:174
 msgid "Following errors where encountered when trying to apply the changes: "
-msgstr "Die folgenden Fehler traten beim Übernehmen der Änderungen auf"
+msgstr "Die folgenden Fehler traten beim Übernehmen der Änderungen auf:"
 
 #: admin/views/default/_js/wizard.js:174
 msgid "Error applying changes"
@@ -668,7 +684,8 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 #~ msgstr "Für den Namen sind nur alphanumerische Werte erlaubt"
 
 #~ msgid "Please enter a valid hostname or IPv4 address"
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #~ msgid "{0} is already in use"
 #~ msgstr "{0} wird bereits verwendet"
@@ -679,7 +696,12 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 #~ msgid "Run backup job now"
 #~ msgstr "Backup starten"
 
-#~ msgid "Backup job has been initialized to be executed at this particlular moment in time."
+#~ msgid "Run backup job"
+#~ msgstr "Backup starten"
+
+#~ msgid ""
+#~ "Backup job has been initialized to be executed at this particlular moment "
+#~ "in time."
 #~ msgstr "Die Ausführung des Backups wurde entsprechend terminiert."
 
 #~ msgid "Restore backed up data"
@@ -689,7 +711,9 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 #~ msgstr "Ausgewählte Daten und Ordner wiederherstellen"
 
 #~ msgid "Are you sure? Any existing files will be overwritten."
-#~ msgstr "Sind Sie sicher, dass Sie die Daten wiederherstellen wollen? Dies wird die aktuellen Daten mit denen des Backups überschreiben"
+#~ msgstr ""
+#~ "Sind Sie sicher, dass Sie die Daten wiederherstellen wollen? Dies wird "
+#~ "die aktuellen Daten mit denen des Backups überschreiben"
 
 #~ msgid "Confirm restore"
 #~ msgstr "Wiederherstellen bestätigen"
@@ -700,8 +724,16 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 #~ msgid "File/Directory selector"
 #~ msgstr "Datei/Verzeichnis auswahl"
 
-#~ msgid "Selected Easyfind identifier is not available, please select a different one."
-#~ msgstr "Der gewählte Easyfindname ist nicht verfügbar, bitte wählen sie einen anderen."
+#~ msgctxt "button"
+#~ msgid "Select"
+#~ msgstr "Auswählen"
+
+#~ msgid ""
+#~ "Selected Easyfind identifier is not available, please select a different "
+#~ "one."
+#~ msgstr ""
+#~ "Der gewählte Easyfindname ist nicht verfügbar, bitte wählen sie einen "
+#~ "anderen."
 
 #~ msgid "not a valid password"
 #~ msgstr "kein gültiges Passwort"
@@ -714,72 +746,86 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 #, fuzzy
 #~ msgctxt "validation message"
 #~ msgid "Please enter a valid email address."
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
 #~ msgid "Please enter a valid URL."
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
 #~ msgid "Please enter a valid date."
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
 #~ msgid "Please enter a valid date (ISO)."
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
 #~ msgid "Please enter a valid number."
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
 #~ msgid "Please enter only digits."
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
 #~ msgid "Please enter a valid credit card number."
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
 #~ msgid "Please enter the same value again."
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
 #~ msgid "Please enter a value with a valid extension."
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
 #~ msgid "Please enter at least {0} characters."
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
 #~ msgid "Please enter a value between {0} and {1} characters long."
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
 #~ msgid "Please enter a value between {0} and {1}."
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
 #~ msgid "Please enter a value less than or equal to {0}."
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgctxt "validation message"
 #~ msgid "Please enter a value greater than or equal to {0}."
-#~ msgstr "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
+#~ msgstr ""
+#~ "Bitte geben Sie einen gültigen Hostnamen oder eine gültige IPv4 Adresse an"
 
 #, fuzzy
 #~ msgid "Add new backup job"
@@ -869,7 +915,9 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 
 #, fuzzy
 #~ msgid "Failed to change permission for following files and folders: %s"
-#~ msgstr "Die Berechtigung zu den angegebenen Dateien/Ordner wurde erfolgreich geändert"
+#~ msgstr ""
+#~ "Die Berechtigung zu den angegebenen Dateien/Ordner wurde erfolgreich "
+#~ "geändert"
 
 #, fuzzy
 #~ msgid "Failed to create folder"
