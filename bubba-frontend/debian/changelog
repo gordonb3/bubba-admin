@@ -1,3 +1,14 @@
+bubba-frontend (2.5.1.6+backup7) unstable; urgency=low
+
+  * adding gitreview
+  * remove all affected backup jobs when removing a remote account
+  * display ssh targets better in the UI
+  * Do not display a popup when ssh is selected
+  * show new status messages and eventual errors
+  * update translation templates
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 24 Jan 2013 11:40:46 +0100
+
 bubba-frontend (2.5.1.6+backup6) unstable testing; urgency=low
 
   * pubkey is not transmitted anymore, use uuid instead as trigger
