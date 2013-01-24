@@ -1,0 +1,40 @@
+# Swedish translations for bubba-frontend package
+# Copyright (C) 2013 Excito Electronics AB
+# This file is distributed under the same license as the bubba-frontend package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bubba-frontend 2.3\n"
+"Report-Msgid-Bugs-To: info@excito.com\n"
+"POT-Creation-Date: 2013-01-24 14:56+0100\n"
+"PO-Revision-Date: 2013-01-24 14:56+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. type: Content of: <h3>
+#: admin/views/default/help/en/settings_remote_accounts.html:1
+msgid "Remote accounts"
+msgstr ""
+
+#. type: Content of: <p>
+#: admin/views/default/help/en/settings_remote_accounts.html:3
+msgid ""
+"This page holds settings for remote accounts used mainly for the backup "
+"feature. Accounts that are added here will be available as targets in the "
+"backup feature, and also be available under /home/admin in the file manager, "
+"for direct access."
+msgstr ""
+
+#. type: Content of: <p>
+#: admin/views/default/help/en/settings_remote_accounts.html:7
+msgid ""
+"The public key - where available - has to be stored on the target in order "
+"for the B3 to log on automatically. For ssh this is done automatically, but "
+"for HiDrive this has to be done manually, in HiDrive web portals settings."
+msgstr ""
