@@ -1,3 +1,10 @@
+bubba-frontend (2.5.1.6+backup8) unstable testing; urgency=low
+
+  * adding settings remote accounts help file to translation matrix
+  * Display missing alert window for HiDrive creation
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 25 Jan 2013 13:18:38 +0100
+
 bubba-frontend (2.5.1.6+backup7) unstable; urgency=low
 
   * adding gitreview
