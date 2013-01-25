@@ -214,7 +214,7 @@ $ ->
 
           reload_possible_targets(data.key)
           $dia.dialog 'close'
-          if data.uuid and data.type is not 'ssh'
+          if data.uuid and data.type isnt 'ssh'
             txt = switch data.type
               when 'HiDrive'
                 _ """Please click <a href="%s/ajax_settings/get_remote_account_pubkey/%s">here</a> to download the openssh key needed for backup. Upload it to <a target="_blank" href="https://hidrive.strato.com/">HiDrive</a> under Account → Settings → Account management → OpenSSH key"""
