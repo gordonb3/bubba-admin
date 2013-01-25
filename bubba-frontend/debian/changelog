@@ -1,3 +1,13 @@
+bubba-frontend (2.5.1.6+backup10) testing unstable; urgency=low
+
+  [ Bernhard Schuster ]
+  * Update german translations
+
+  [ Carl Fürstenberg ]
+  * reformat po files; no changes
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 25 Jan 2013 14:36:13 +0100
+
 bubba-frontend (2.5.1.6+backup9) unstable testing; urgency=low
 
   * update help text files, no changes
