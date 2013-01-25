@@ -26,16 +26,9 @@ msgstr "Remote Account"
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_remote_accounts.html:3
 msgid "This page holds settings for remote accounts used mainly for the backup feature. Accounts that are added here will be available as targets in the backup feature, and also be available under /home/admin in the file manager, for direct access."
-msgstr ""
-"Diese Seite enthält Ihre Zugangsdaten für Remote Accounts, welche "
-"hauptsächlich für die Sicherungsfunktion benutzt werden. Remote Accounts die "
-"hier hinzugefügt werden, erscheinen als Backupziele und sind auch unter /"
-"home/admin zum direkten Zugriff verfügbar."
+msgstr "Diese Seite enthält Ihre Zugangsdaten für Remote Accounts, welche hauptsächlich für die Sicherungsfunktion benutzt werden. Remote Accounts die hier hinzugefügt werden, erscheinen als Backupziele und sind auch unter /home/admin zum direkten Zugriff verfügbar."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_remote_accounts.html:7
 msgid "The public key - where available - has to be stored on the target in order for the B3 to log on automatically. For ssh this is done automatically, but for HiDrive this has to be done manually, in HiDrive web portals settings."
-msgstr ""
-"Der Öffentliche Schlüssel (public key) muss - wo verfügbar - auf dem B3 "
-"gespeichert werden. Für ssh geschieht dies automatisch, für Strato HiDrive "
-"muss dieser manuel im HiDrive Web Portal gesetzt werden."
+msgstr "Der Öffentliche Schlüssel (public key) muss - wo verfügbar - auf dem B3 gespeichert werden. Für ssh geschieht dies automatisch, für Strato HiDrive muss dieser manuel im HiDrive Web Portal gesetzt werden."
