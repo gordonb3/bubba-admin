@@ -1,3 +1,9 @@
+bubba-frontend (2.5.1.6+backup9) unstable testing; urgency=low
+
+  * update help text files, no changes
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 25 Jan 2013 13:28:41 +0100
+
 bubba-frontend (2.5.1.6+backup8) unstable testing; urgency=low
 
   * adding settings remote accounts help file to translation matrix
