@@ -1,3 +1,9 @@
+bubba-frontend (2.5.1.6+backup11) testing unstable; urgency=low
+
+  * adding _netdev flag to HiDrive mount
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 04 Feb 2013 11:36:00 +0100
+
 bubba-frontend (2.5.1.6+backup10) testing unstable; urgency=low
 
   [ Bernhard Schuster ]
