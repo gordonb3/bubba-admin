@@ -269,7 +269,7 @@ class System extends CI_Model {
     $oldfstab = file_get_contents(self::fstab_file);
     $fstab = preg_replace("#^".preg_quote($url)."\s+".preg_quote($path).".*#m", "", $oldfstab);
 
-    $fstab .= "$url $path davfs defaults,gid=users,dir_mode=775,file_mode=664 0 0\n";
+    $fstab .= "$url $path davfs defaults,gid=users,dir_mode=775,file_mode=664,_netdev 0 0\n";
 
     if(! file_exists($path) ) {
       $this->create_webdav_path($type, $username);
