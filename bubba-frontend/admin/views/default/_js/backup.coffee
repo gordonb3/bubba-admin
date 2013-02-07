@@ -18,7 +18,16 @@ $ ->
         $cur.append $('<td/>', text: data.label)
         $cur.append $('<td/>', text: data.schedule)
 
-        if data.hasrun and data.status isnt 0
+        if data.running
+          $cur.append $("<td/>", text: _("Currently running"))
+
+        else unless data.hasrun
+          $cur.append $("<td/>", text: _("Not yet run"))
+
+        else if data.status is 0
+          $cur.append $("<td/>", text: _("Completed"))
+
+        else
           msg = "Rsync returned error #{data.status}: #{switch data.status
             when 1 then _ "Syntax or usage error"
             when 2 then _ "Protocol incompatibility"
@@ -60,10 +69,6 @@ $ ->
               false
           ).appendTo $node
           $node.append ")"
-        else
-          $cur.append $("<td/>",
-            text: if data.hasrun then _("Completed") else _("Not yet run")
-          )
 
         $cur.append $('<td/>', html: $('<button/>', class: "submit backup-job-remove",html: _("Remove") ))
       $(".backup-job-entry").first().trigger "click"
