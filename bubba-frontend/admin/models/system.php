@@ -146,7 +146,7 @@ class System extends CI_Model {
     }
 
     if(isset($accounts[$key])) {
-      throw new Exception('Account allready defined');
+      throw new Exception(_('Account allready defined'));
     }
     $uuid = $this->gen_uuid();
     $pubkey = $this->create_ssh_key($uuid);
