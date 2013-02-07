@@ -27,7 +27,14 @@ $ ->
     $dialog = $('#create-account').clone().removeAttr 'id'
     open_cb = =>
       $dialog.find('select[name=type]').change()
-      $dialog.find('form').ajaxForm
+      form = $dialog.find('form')
+      form.validate
+        rules:
+          username:
+            required: true
+          password:
+            required: true
+      form.ajaxForm
         dataType: 'json'
         beforeSubmit: (arr, $form, options) ->
           $.throbber.show()
