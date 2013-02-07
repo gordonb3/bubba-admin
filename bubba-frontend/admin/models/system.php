@@ -125,8 +125,72 @@ class System extends CI_Model {
     error_log("sshpass-copy-id returned $ret!");
   }
 
+  private $hidrive_token = null;
+  private $hidrive_api = 'https://api.hidrive.strato.com/1.0/';
+
+  public function get_hidrive_token($username, $password, $force = false) {
+    if($this->hidrive_token && !$force) {
+      return $this->hidrive_token;
+    }
+
+    $request = new HTTP_Request2($this->hidrive_api."auth.getToken", HTTP_Request2::METHOD_GET, array('ssl_verify_peer' => false));
+    $request->setAuth($username, $password);
+
+    $response = $request->send();
+    if($response->getStatus() == 200) {
+      $data = json_decode($response->getBody(), true);
+      if(isset($data['status']['code']) && $data['status']['code'] == 0) {
+        $this->hidrive_token =  $data['data']['token'];
+        return $this->hidrive_token;
+      } else {
+        return false;
+      }
+    }
+  }
+
+  public function verify_hidrive_protocols($token) {
+    $request = new HTTP_Request2($this->hidrive_api."space.getFeatures", HTTP_Request2::METHOD_GET, array('ssl_verify_peer' => false));
+    $request->setHeader('X-Auth-Token', $token);
+
+    $response = $request->send();
+    if($response->getStatus() == 200) {
+      $data = json_decode($response->getBody(), true);
+      if(isset($data['status']['code']) && $data['status']['code'] == 0) {
+        $protocols = $data['data']['protocols'];
+        return $protocols['rsync'] && $protocols['webdav'];
+      }
+    }
+  }
+
+  public function verify_hidrive_space($token, $required) {
+    $request = new HTTP_Request2($this->hidrive_api."quota.list", HTTP_Request2::METHOD_GET, array('ssl_verify_peer' => false));
+    $request->setHeader('X-Auth-Token', $token);
+
+    $response = $request->send();
+    if($response->getStatus() == 200) {
+      $data = json_decode($response->getBody(), true);
+      if(isset($data['status']['code']) && $data['status']['code'] == 0) {
+        $root = $data['data']['root'];
+        return $required < $root['available'];
+      }
+    }
+  }
+
 
   public function add_remote_account($type, $username, $password, $host) {
+
+    # Check HiDrive for permissions
+    # https://api.freemium.stg.rzone.de/ contains incomplete api spec
+    if($type == 'HiDrive') {
+      $token = $this->get_hidrive_token($username, $password);
+      if(!$token) {
+        throw new Exception(_("Unable to verify credentials"));
+      }
+      if(!$this->verify_hidrive_protocols($token)) {
+        throw new Exception(_("Selected HiDrive account doesn't have the stuff required for this system"));
+      }
+    }
+
     $accounts = array();
     if(file_exists(self::accounts_file)) {
       $accounts = spyc_load_file(self::accounts_file);
