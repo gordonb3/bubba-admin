@@ -420,9 +420,6 @@ class System extends CI_Model {
   public function get_sshfs_path($host, $username) {
     return "/home/admin/ssh/${username}@${host}";
   }
-    public function get_sshfs_remotepath() {
-    return "backup/" . gethostname();
-  }
 
   public function create_sshfs_path($host, $username) {
     $path = "/home/admin/ssh";
@@ -452,7 +449,6 @@ class System extends CI_Model {
 
     $oldfstab = file_get_contents(self::fstab_file);
     $fstab = preg_replace("#^sshfs\#".preg_quote($username)."@".preg_quote($host).".*#m", "", $oldfstab);
-    $remotepath = $this->get_sshfs_remotepath();
     $path = $this->get_sshfs_path($host, $username);
     if($this->is_mounted($path)) {
       _system("umount", '-f', $path);
