@@ -247,6 +247,40 @@ class System extends CI_Model {
     return true;
   }
 
+
+  public function ssh_edit_remote_account($key, $username, $host) {
+
+    $jobs = array();
+    if(file_exists(self::remote_jobs_file)) {
+      $jobs = spyc_load_file(self::remote_jobs_file);
+    }
+    $job = $jobs[$key];
+    unset($jobs[$key]);
+
+
+    $accounts = array();
+    if(file_exists(self::accounts_file)) {
+      $accounts = spyc_load_file(self::accounts_file);
+    }
+    $account = $accounts[$key];
+    unset($accounts[$key]);
+
+    $account['username'] = $username;
+    $account['host'] = $host;
+
+    $newkey = "ssh|$host|$username";
+    $accounts[$newkey] = $account;
+
+    $jobs[$newkey] = $job;
+
+    file_put_contents(self::accounts_file,Spyc::YAMLDump($accounts));
+
+    file_put_contents(self::remote_jobs_file,Spyc::YAMLDump($jobs));
+
+    return $newkey;
+
+  }
+
   public function get_remote_accounts() {
     $targets = array();
     if(file_exists(self::accounts_file)) {
@@ -377,6 +411,10 @@ class System extends CI_Model {
     }
   }
 
+  public function edit_webdav($type, $username, $password) {
+    $this->remove_webdav($type, $username);
+    $this->add_webdav($type, $username, $password);
+  }
 
 
   public function get_sshfs_path($host, $username) {
@@ -399,6 +437,14 @@ class System extends CI_Model {
       chown($path, 'admin');
       chgrp($path, 'admin');
     }
+  }
+
+  public function move_sshfs($old_host, $old_username, $new_host, $new_username, $uuid) {
+    if( $old_host == $new_host && $old_username == $new_username ) {
+      return;
+    }
+    $this->remove_sshfs($old_hostm, $old_username);
+    $this->add_sshfs($new_username, $new_host, $uuid);
   }
 
   public function add_sshfs($host, $username, $uuid) {

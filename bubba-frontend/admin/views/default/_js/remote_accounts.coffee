@@ -11,6 +11,7 @@ $ ->
           <td><a href="#{config.prefix}/ajax_settings/get_remote_account_pubkey/#{account.uuid}" class="pubkey">#{_("public key")}</a></td>
           <td>
             <button class="submit account-remove">#{_("Remove")}</button>
+            <button class="submit account-edit">#{_("Edit")}</button>
           </td>
         </tr>
         """
@@ -55,6 +56,62 @@ $ ->
             html = $.sprintf txt, config.prefix, data.uuid
             $.alert html
 
+
+    options =
+      width: 600
+      minWidth: 600
+      minHeight: 300
+      resizable: true
+      position: ["center", 200]
+      open: open_cb
+    $dia = $.dialog($dialog, "", null, options)
+
+
+  $('.account-edit').live 'click', (e) ->
+
+    e.stopPropagation()
+    account = $(@).closest("tr").data("account_data")
+
+    $dialog = $('#edit-account').clone().removeAttr 'id'
+
+    open_cb = =>
+      form = $dialog.find('form')
+
+      form.find('input.username').val(account.username)
+
+      if account.type is 'ssh'
+        form.find('input[name=host]').val(account.host)
+        form.find('input[name=username]').val(account.username)
+        form.find('input[name=password]').attr('disabled', 'disabled').closest('tr').hide()
+        form.validate
+          rules:
+            username:
+              required: true
+            host:
+              required: true
+      else if account.type is 'HiDrive'
+        form.find('input[name=username]').attr('disabled', 'disabled').closest('tr').hide()
+        form.find('input[name=host]').attr('disabled', 'disabled').closest('tr').hide()
+        form.validate
+          rules:
+            password:
+              required: true
+
+      form.ajaxForm
+        data:
+          id: account.id
+        dataType: 'json'
+        beforeSubmit: (arr, $form, options) ->
+          return false unless form.valid()
+          $.throbber.show()
+        success: (data) ->
+          $.throbber.hide()
+          if data.error == 1
+            alert data.html
+            return
+
+          reload()
+          $dia.dialog 'close'
 
     options =
       width: 600

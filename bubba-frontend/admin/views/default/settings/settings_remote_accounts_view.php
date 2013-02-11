@@ -68,4 +68,50 @@
       </table>
     </form>
   </div>
+
+  <div id="edit-account">
+    <h3><?=_("Edit a currently existing remote target")?></h3>
+    <form action="<?=FORMPREFIX?>/ajax_settings/edit_remote_account" method="post">
+      <table class="ui-table-outline">
+        <tr>
+          <td colspan="2">
+            <select id="type" name="type" disabled="disabled">
+              <option value="HiDrive">HiDrive</option>
+              <option disabled="disabled" value="Google Drive">Google Drive</option>
+              <option value="ssh">Other B3 (SSH)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="username"><?=_("Username")?></label>
+          </td>
+          <td>
+            <input type="text" id="username" name="username"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="host"><?=_("Host")?></label>
+          </td>
+          <td>
+            <input type="text" id="host" name="host"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="password"><?=_("Password")?></label>
+          </td>
+          <td>
+            <input type="password" id="password" name="password"/>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="submit" value="<?=_("Edit target")?>" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
  </div>

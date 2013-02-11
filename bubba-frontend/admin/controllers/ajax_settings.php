@@ -152,6 +152,39 @@ class Ajax_Settings extends CI_Controller {
     }
   }
 
+  public function edit_remote_account() {
+    $this->load->model('system');
+    $key = trim($this->input->post('id'));
+    $username = trim($this->input->post('username'));
+    $password = trim($this->input->post('password'));
+    $host = trim($this->input->post('host'));
+
+    try {
+      $account = $this->system->get_remote_account($key);
+      $type = $account['type'];
+
+      if(in_array($type, self::$account_can_webdav)) {
+        if($password == '') {
+          throw new Exception(_("You can't submit a empty password"));
+        }
+        $this->system->edit_webdav($type, $account['username'], $password);
+      } elseif( $type == 'ssh' && ($username != $account['username'] || $host != $account['host'])) {
+        $newkey = $this->system->ssh_edit_remote_account($key, $username, $host);
+        $this->system->move_sshfs($account['host'], $account['username'], $host, $username, $account['uuid']);
+      }
+
+      $this->json_data = array(
+        'uuid' => $account['uuid'],
+        'key' => $newkey,
+        'type' => $type,
+        'username' => $username,
+        'host' => $host
+      );
+    } catch(Exception $e) {
+      $this->json_data['html'] = $e->getMessage();
+    }
+  }
+
   public function remove_remote_account() {
     $this->load->model('system');
     $type = $this->input->post('type');
