@@ -315,10 +315,17 @@ class System extends CI_Model {
     }
   }
 
+  private function is_mounted($path) {
+    exec("mountpoint -q " . escapeshellarg($path), $out, $ret);
+    return $ret == 0;
+  }
   public function add_webdav($type, $username, $password) {
     $url = $this->get_webdav_url($type);
     $path = $this->get_webdav_path($type, $username);
-    _system("umount", $path);
+
+    if($this->is_mounted($path)) {
+      _system("umount", '-f', $path);
+    }
     $oldsecrets = file_get_contents(self::webdav_secrets_file);
 
     # Remove old path if allready there
@@ -349,9 +356,9 @@ class System extends CI_Model {
   public function remove_webdav($type, $username) {
     $url = $this->get_webdav_url($type);
     $path = $this->get_webdav_path($type, $username);
-    _system("umount", $path);
-
-    _system('umount', '-f', $path);
+    if($this->is_mounted($path)) {
+      _system("umount", '-f', $path);
+    }
     $oldsecrets = file_get_contents(self::webdav_secrets_file);
 
     # Remove old path if allready there
@@ -401,7 +408,9 @@ class System extends CI_Model {
     $fstab = preg_replace("#^sshfs\#".preg_quote($username)."@".preg_quote($host).".*#m", "", $oldfstab);
     $remotepath = $this->get_sshfs_remotepath();
     $path = $this->get_sshfs_path($host, $username);
-    _system("umount", $path);
+    if($this->is_mounted($path)) {
+      _system("umount", '-f', $path);
+    }
 
     $fstab .= "sshfs#$username@$host: $path fuse identityfile=$sshkey,defaults,allow_other,_netdev,gid=users 0 0\n";
 
@@ -419,7 +428,9 @@ class System extends CI_Model {
 
   public function remove_sshfs($host, $username) {
     $path = $this->get_sshfs_path($host, $username);
-    _system("umount", $path);
+    if($this->is_mounted($path)) {
+      _system("umount", '-f', $path);
+    }
 
     $oldfstab = file_get_contents(self::fstab_file);
     $fstab = preg_replace("#^sshfs\#".preg_quote($username)."@".preg_quote($host).".*#m", "", $oldfstab);
