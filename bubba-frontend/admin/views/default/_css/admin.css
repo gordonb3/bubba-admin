@@ -1965,3 +1965,11 @@ td.ui-cell-table {
 #destinations-table {
   margin-bottom: 1.5em;
 }
+
+.editable {
+  cursor: pointer;
+}
+
+.editable:hover {
+  background-color: #fecfaa;
+}

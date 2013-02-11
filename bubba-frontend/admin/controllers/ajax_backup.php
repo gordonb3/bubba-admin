@@ -230,7 +230,49 @@ class Ajax_backup extends CI_Controller {
     return $usable_disks;
   }
 
+  public function update_job() {
 
+    $key = $this->input->post('target');
+    $new_selection = $this->input->post('selection');
+    $new_schedule = $this->input->post('schedule');
+    $old_selection = $this->input->post('oldselection');
+    $old_schedule = $this->input->post('oldschedule');
+
+    $keys = explode('|', $key);
+    $type = $host = $username = '';
+
+    if(count($keys) == 3) {
+      list($type, $host, $username) = $keys;
+    } elseif(count($keys) == 2) {
+      list($type, $username) = $keys;
+      $host = $type;
+    } else {
+      $type = 'local';
+    }
+
+    if( $type == 'local' ) {
+      $jobs_file = self::local_jobs_file;
+    } else {
+      $jobs_file = self::remote_jobs_file;
+    }
+
+    $jobs = array();
+    if(file_exists($jobs_file)) {
+      $jobs = spyc_load_file($jobs_file);
+    }
+
+    if(isset($jobs[$key][$new_schedule][$new_selection]) && $jobs[$key][$new_schedule][$new_selection])  {
+      $this->json_data['html'] = _("Choosen configuration for backup job is already taken by another backup job");
+      return;
+    }
+    unset($jobs[$key][$old_schedule][$old_selection]);
+    $jobs[$key][$new_schedule][$new_selection] = true;
+
+    $yaml = Spyc::YAMLDump($jobs);
+    file_put_contents($jobs_file, $yaml);
+
+    $this->json_data = true;
+  }
 
   function err($what) {
     $this->json_data['html'] = $what;

@@ -16,7 +16,31 @@ $ ->
         $cur = row.clone().appendTo table
         $cur.data 'job_info', data
         $cur.append $('<td/>', text: data.label)
-        $cur.append $('<td/>', text: data.schedule)
+        selection_label = switch data.selection
+          when "data" then "All user's data (/home/<all users>)"
+          when "music" then "All music (/home/storage/music)"
+          when "pictures" then "All pictures (/home/storage/pictures)"
+          when "video" then "All videos (/home/storage/video)"
+          when "storage" then "Storage (/home/storage)"
+
+        $selection = $('<td/>',
+          text: switch data.selection
+            when "data" then _ "All user's data (/home/<all users>)"
+            when "music" then _ "All music (/home/storage/music)"
+            when "pictures" then _ "All pictures (/home/storage/pictures)"
+            when "video" then _ "All videos (/home/storage/video)"
+            when "storage" then _ "Storage (/home/storage)"
+          id: "#{data.target}+selection"
+          class: 'editable'
+        ).appendTo $cur
+
+        $schedule = $('<td/>',
+          text: switch data.schedule
+            when 'daily' then _ 'Daily (every night at two a clock)'
+            when 'halfweekly' then _ 'Twice a week (every wednesday and sunday night)'
+            when 'weekly' then _ 'Weekly (every sunday night)'
+          id: "#{data.target}+schedule"
+        ).appendTo $cur
 
         if data.running
           $cur.append $("<td/>", text: _("Currently running"))
@@ -70,7 +94,9 @@ $ ->
           ).appendTo $node
           $node.append ")"
 
-        $cur.append $('<td/>', html: $('<button/>', class: "submit backup-job-remove",html: _("Remove") ))
+        buttons = $('<button/>', class: "submit backup-job-remove",html: _("Remove") )
+        buttons = buttons.add $('<button/>', class: "submit backup-job-edit",html: _("Edit") )
+        $cur.append $('<td/>', html: buttons )
       $(".backup-job-entry").first().trigger "click"
 
     $.post "#{config.prefix}/ajax_backup/get_backup_jobs", {}, cb, 'json'
@@ -265,3 +291,66 @@ $ ->
       id: "backup-job-dialog-remove-confirm-button"
     ]
     false
+
+  $(".backup-job-edit").live 'click', (e) ->
+    e.stopPropagation()
+    data = $(this).closest("tr").data("job_info")
+    $form = $('<form/>')
+
+    $form.dform
+      action: "#{config.prefix}/ajax_backup/update_job"
+      method: 'post'
+      html:
+        [
+          type: 'h3'
+          html: _ 'Edit your backup job here'
+        ,
+          name: 'selection'
+          id: 'selection'
+          caption: _ 'Selection'
+          type: 'select'
+          options:
+            "data": "All user's data (/home/<all users>)"
+            "music": "All music (/home/storage/music)"
+            "pictures": "All pictures (/home/storage/pictures)"
+            "video": "All videos (/home/storage/video)"
+            "storage": "Storage (/home/storage)"
+        ,
+          name: 'schedule'
+          id: 'schedule'
+          caption: _ 'Schedule'
+          type: 'select'
+          options:
+            'daily': 'Daily (every night at two a clock)'
+            'halfweekly': 'Twice a week (every wednesday and sunday night)'
+            'weekly': 'Weekly (every sunday night)'
+        ,
+          type: 'submit'
+          value: _ 'Update'
+        ]
+    options =
+      width: 600
+      minWidth: 600
+      minHeight: 300
+      resizable: true
+      position: ["center", 200]
+      open: =>
+        $form.find('#selection').val(data.selection)
+        $form.find('#schedule').val(data.schedule)
+        $form.ajaxForm
+          data:
+            target: data.target
+            oldschedule: data.schedule
+            oldselection: data.selection
+          dataType: 'json'
+          beforeSubmit: ->
+            $.throbber.show()
+          success: (data) ->
+            $.throbber.hide()
+            if data.error == 1
+              alert data.html
+              return
+            update_backup_jobs_table()
+            $dia.dialog "close"
+
+    $dia = $.dialog($form, "", null, options)

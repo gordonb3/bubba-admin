@@ -2,10 +2,11 @@
 <table id="backup-jobs" class="ui-table-outline">
   <thead>
     <tr>
-      <th colspan="4" class="ui-state-default ui-widget-header"><?=_("Backup jobs")?></th>
+      <th colspan="5" class="ui-state-default ui-widget-header"><?=_("Backup jobs")?></th>
     </tr>
     <tr class="ui-filemanager-state-header">
       <th><?=_("Backup job")?></th>
+      <th><?=_('Selection')?></th>
       <th><?=_('Schedule')?></th>
       <th><?=_("Status")?></th>
       <th>&nbsp;</th>
@@ -14,7 +15,7 @@
   <tbody>
   </tbody>
   <tfoot>
-    <tr><td colspan="4">
+    <tr><td colspan="5">
         <button class="submit" id="backup-job-add"><?=_("Add new backup job")?></button>
     </td></tr>
   </tfoot>
