@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2013-01-23 11:45+0100\n"
+"POT-Creation-Date: 2013-02-14 14:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,9 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: admin/views/default/_js/album_users.js:30
+#: admin/views/default/_js/backup.js:151
 #: admin/views/default/_js/mail_retrieve.js:150
+#: admin/views/default/_js/remote_accounts.js:16
 #: admin/views/default/_js/user.js:96
 msgid "Edit"
 msgstr ""
@@ -65,131 +67,167 @@ msgstr ""
 msgid "Add new viewer to the photo album"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:34
+#: admin/views/default/_js/backup.js:45
+msgid "All user's data (/home/<all users>)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:47
+msgid "All music (/home/storage/music)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:49
+msgid "All pictures (/home/storage/pictures)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:51
+msgid "All videos (/home/storage/video)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:53
+msgid "Storage (/home/storage)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:63
+msgid "Daily (every night at two a clock)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:65
+msgid "Twice a week (every wednesday and sunday night)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:67
+msgid "Weekly (every sunday night)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:74
+msgid "Currently running"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:78
+msgid "Not yet run"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:82
+msgid "Completed"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:88
 msgid "Syntax or usage error"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:36
+#: admin/views/default/_js/backup.js:90
 msgid "Protocol incompatibility"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:38
+#: admin/views/default/_js/backup.js:92
 msgid "Errors selecting input/output files, dirs"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:40
+#: admin/views/default/_js/backup.js:94
 msgid ""
 "Requested action not supported: an attempt was made to manipulate 64-bit "
 "files on a platform that cannot support them; or an option was specified "
 "that is supported by the client and not by the server."
 msgstr ""
 
-#: admin/views/default/_js/backup.js:42
+#: admin/views/default/_js/backup.js:96
 msgid "Error starting client-server protocol"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:44
+#: admin/views/default/_js/backup.js:98
 msgid "Daemon unable to append to log-file"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:46
+#: admin/views/default/_js/backup.js:100
 msgid "Error in socket I/O"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:48
+#: admin/views/default/_js/backup.js:102
 msgid "Error in file I/O"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:50
+#: admin/views/default/_js/backup.js:104
 msgid "Error in rsync protocol data stream"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:52
+#: admin/views/default/_js/backup.js:106
 msgid "Errors with program diagnostics"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:54
+#: admin/views/default/_js/backup.js:108
 msgid "Error in IPC code"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:56
+#: admin/views/default/_js/backup.js:110
 msgid "Received SIGUSR1 or SIGINT"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:58
+#: admin/views/default/_js/backup.js:112
 msgid "Some error returned by waitpid()"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:60
+#: admin/views/default/_js/backup.js:114
 msgid "Error allocating core memory buffers"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:62
+#: admin/views/default/_js/backup.js:116
 msgid "Partial transfer due to error"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:64
+#: admin/views/default/_js/backup.js:118
 msgid "Partial transfer due to vanished source files"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:66
+#: admin/views/default/_js/backup.js:120
 msgid "The --max-delete limit stopped deletions"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:68
+#: admin/views/default/_js/backup.js:122
 msgid "Timeout in data send/receive"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:70
+#: admin/views/default/_js/backup.js:124
 msgid "Timeout waiting for daemon connection"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:76
+#: admin/views/default/_js/backup.js:130
 msgid "Failed"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:79
+#: admin/views/default/_js/backup.js:133
 msgid "why?"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:82
+#: admin/views/default/_js/backup.js:136
 #, javascript-format
 msgid "Backup job for %s on %s failed"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:92
-msgid "Completed"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:92
-msgid "Not yet run"
-msgstr ""
-
-#: admin/views/default/_js/backup.js:98
+#: admin/views/default/_js/backup.js:147
 #: admin/views/default/_js/remote_accounts.js:16
 msgid "Remove"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:121
+#: admin/views/default/_js/backup.js:176
 msgid "External disk"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:175 admin/views/default/_js/backup.js:201
+#: admin/views/default/_js/backup.js:230 admin/views/default/_js/backup.js:256
 #: admin/views/default/_js/wizard.js:15 admin/views/default/_js/wizard.js:91
 msgid "Next"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:181 admin/views/default/_js/backup.js:202
+#: admin/views/default/_js/backup.js:236 admin/views/default/_js/backup.js:257
 #: admin/views/default/_js/wizard.js:24 admin/views/default/_js/wizard.js:92
 msgid "Back"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:203 admin/views/default/_js/wizard.js:93
+#: admin/views/default/_js/backup.js:258 admin/views/default/_js/wizard.js:93
 msgid "Complete"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:269
-#: admin/views/default/_js/remote_accounts.js:50
+#: admin/views/default/_js/backup.js:336
+#: admin/views/default/_js/remote_accounts.js:62
 #, javascript-format
 msgid ""
 "Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</"
@@ -198,24 +236,42 @@ msgid ""
 "Settings → Account management → OpenSSH key"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:271
-#: admin/views/default/_js/remote_accounts.js:52
+#: admin/views/default/_js/backup.js:338
+#: admin/views/default/_js/remote_accounts.js:64
 #, javascript-format
 msgid ""
 "Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</"
 "a> to download the openssh key needed for backup"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:294
+#: admin/views/default/_js/backup.js:361
 msgid "Are you sure you want to permanently remove this backup job?"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:294 admin/views/default/_js/backup.js:296
+#: admin/views/default/_js/backup.js:361 admin/views/default/_js/backup.js:363
 msgid "Remove backup job"
 msgstr ""
 
-#: admin/views/default/_js/backup.js:304
+#: admin/views/default/_js/backup.js:371
 msgid "Backup job was removed from the system"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:402
+msgid "Edit your backup job here"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:406
+msgid "Selection"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:418
+msgid "Schedule"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:427
+#: admin/views/default/_js/mail_retrieve.js:180
+#: admin/views/default/_js/user.js:304
+msgid "Update"
 msgstr ""
 
 #: admin/views/default/_js/disk_progress.js:41
@@ -406,11 +462,6 @@ msgstr ""
 msgid "Add email account"
 msgstr ""
 
-#: admin/views/default/_js/mail_retrieve.js:180
-#: admin/views/default/_js/user.js:304
-msgid "Update"
-msgstr ""
-
 #: admin/views/default/_js/mail_retrieve.js:232
 msgid "Add new email account"
 msgstr ""
@@ -438,12 +489,12 @@ msgstr ""
 msgid "public key"
 msgstr ""
 
-#: admin/views/default/_js/remote_accounts.js:75
+#: admin/views/default/_js/remote_accounts.js:154
 msgid "Are you sure you want to permanently remove this remote account?"
 msgstr ""
 
-#: admin/views/default/_js/remote_accounts.js:75
-#: admin/views/default/_js/remote_accounts.js:77
+#: admin/views/default/_js/remote_accounts.js:154
+#: admin/views/default/_js/remote_accounts.js:156
 msgid "Remove remote account"
 msgstr ""
 

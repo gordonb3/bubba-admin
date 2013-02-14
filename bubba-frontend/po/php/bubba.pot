@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2013-01-23 11:45+0100\n"
+"POT-Creation-Date: 2013-02-14 14:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -227,8 +227,8 @@ msgstr ""
 msgid "Name '%s' is not valid"
 msgstr ""
 
-#: admin/controllers/settings.php:678 admin/controllers/mail.php:223
-#: admin/controllers/mail.php:252
+#: admin/controllers/settings.php:678 admin/controllers/mail.php:224
+#: admin/controllers/mail.php:253
 msgid "Update successful"
 msgstr ""
 
@@ -237,14 +237,25 @@ msgstr ""
 msgid "Failed to aquire an RAID array containing the disk %s"
 msgstr ""
 
-#: admin/controllers/ajax_backup.php:84
+#: admin/controllers/ajax_backup.php:88
 #, php-format
 msgid "Backup of %s made %s for %s on %s"
 msgstr ""
 
-#: admin/controllers/ajax_backup.php:111
+#: admin/controllers/ajax_backup.php:119
 #, php-format
 msgid "Backup of %s made %s to External disk %s"
+msgstr ""
+
+#: admin/controllers/ajax_backup.php:260
+#, php-format
+msgid ""
+"Selection %s for schedule %s for user %s on remote %s is already defined"
+msgstr ""
+
+#: admin/controllers/ajax_backup.php:274
+#, php-format
+msgid "Selection %s for schedule %s to external disk %s is already defined"
 msgstr ""
 
 #: admin/controllers/mail.php:104 admin/controllers/mail.php:147
@@ -257,7 +268,7 @@ msgstr ""
 msgid "Validation of input failed"
 msgstr ""
 
-#: admin/controllers/mail.php:266
+#: admin/controllers/mail.php:267
 msgid "Missing mail server password"
 msgstr ""
 
@@ -576,6 +587,19 @@ msgstr ""
 msgid "Server responded: "
 msgstr ""
 
+#: admin/models/system.php:187
+msgid "Unable to verify credentials"
+msgstr ""
+
+#: admin/models/system.php:190
+msgid ""
+"Selected HiDrive account doesn't have the stuff required for this system"
+msgstr ""
+
+#: admin/models/system.php:213
+msgid "Account allready defined"
+msgstr ""
+
 #: admin/views/default/mail/mail_retrieve_view.php:4
 msgid "Retrieve email"
 msgstr ""
@@ -583,6 +607,7 @@ msgstr ""
 #: admin/views/default/mail/mail_retrieve_view.php:7
 #: admin/views/default/mail/mail_retrieve_view.php:39
 #: admin/views/default/settings/settings_remote_accounts_view.php:49
+#: admin/views/default/settings/settings_remote_accounts_view.php:95
 msgid "Host"
 msgstr ""
 
@@ -600,6 +625,7 @@ msgstr ""
 #: admin/views/default/mail/mail_retrieve_view.php:9
 #: admin/views/default/settings/settings_remote_accounts_view.php:8
 #: admin/views/default/settings/settings_remote_accounts_view.php:41
+#: admin/views/default/settings/settings_remote_accounts_view.php:87
 #: admin/views/default/login_view.php:23
 msgid "Username"
 msgstr ""
@@ -628,6 +654,7 @@ msgstr ""
 #: admin/views/default/mail/mail_retrieve_view.php:60
 #: admin/views/default/mail/mail_server_view.php:70
 #: admin/views/default/settings/settings_remote_accounts_view.php:57
+#: admin/views/default/settings/settings_remote_accounts_view.php:103
 #: admin/views/default/old_backup/backup_view.php:373
 #: admin/views/default/network/network_wlan_view.php:54
 #: admin/views/default/login_view.php:35
@@ -1082,6 +1109,14 @@ msgstr ""
 
 #: admin/views/default/settings/settings_remote_accounts_view.php:65
 msgid "Create target"
+msgstr ""
+
+#: admin/views/default/settings/settings_remote_accounts_view.php:73
+msgid "Edit a currently existing remote target"
+msgstr ""
+
+#: admin/views/default/settings/settings_remote_accounts_view.php:111
+msgid "Edit target"
 msgstr ""
 
 #: admin/views/default/settings/settings_traffic_view.php:4
