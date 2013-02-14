@@ -31,7 +31,6 @@
           <td colspan="2">
             <select id="type" name="type">
               <option value="HiDrive">HiDrive</option>
-              <option disabled="disabled" value="Google Drive">Google Drive</option>
               <option value="ssh">Other B3 (SSH)</option>
             </select>
           </td>
@@ -77,7 +76,6 @@
           <td colspan="2">
             <select id="type" name="type" disabled="disabled">
               <option value="HiDrive">HiDrive</option>
-              <option disabled="disabled" value="Google Drive">Google Drive</option>
               <option value="ssh">Other B3 (SSH)</option>
             </select>
           </td>
