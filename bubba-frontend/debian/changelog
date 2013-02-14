@@ -1,3 +1,19 @@
+bubba-frontend (2.5.1.6+backup12) unstable; urgency=low
+
+  * Marking a string as translatable
+  * adding special permissions check for HiDrive
+  * adding minimal validation on remote account creation
+  * Indicate if backupjob is currently running
+  * Fix "Handle email for domain" (closes: 513)
+  * Check if path is unmounted before trying to unmount
+  * Adding posibility to edit remote account
+  * remove unneeded remote path function
+  * make backupjobs editable
+  * update translation templates
+  * remove google drive option
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 14 Feb 2013 16:44:49 +0100
+
 bubba-frontend (2.5.1.6+backup11) testing unstable; urgency=low
 
   * adding _netdev flag to HiDrive mount
