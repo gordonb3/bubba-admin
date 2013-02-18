@@ -1,4 +1,5 @@
 <?php
+require_once 'HTTP/Request2.php';
 
 class System extends CI_Model {
   private $version;
