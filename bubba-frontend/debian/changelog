@@ -1,3 +1,9 @@
+bubba-frontend (2.5.1.6+backup13) testing unstable; urgency=low
+
+  * adding HTTP_Request2 include statement
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 19 Feb 2013 17:00:14 +0100
+
 bubba-frontend (2.5.1.6+backup12) unstable; urgency=low
 
   * Marking a string as translatable
