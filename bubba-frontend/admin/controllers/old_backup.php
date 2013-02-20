@@ -1,8 +1,8 @@
 <?php
 
-class OldBackup extends Controller {
+class Old_Backup extends CI_Controller {
     public function __construct() {
-        parent::Controller();
+        parent::__construct();
         require_once(APPPATH."/legacy/defines.php");
         require_once(ADMINFUNCS);
 

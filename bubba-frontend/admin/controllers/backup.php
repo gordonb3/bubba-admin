@@ -24,10 +24,26 @@ class Backup extends CI_Controller {
         $mdata["content"]=$content;
         $this->load->view(THEME.'/main_view',$mdata);
     }
+    private function has_old_jobs() {
+        $dir = "/home/admin/.backup";
+        $jobs = array();
+		if(!is_dir($dir)) {
+			return $jobs;
+		}
+        foreach( scandir($dir) as $file ) {
+            if( !is_dir( "$dir/$file" ) || $file == "." || $file == ".." ) {
+                continue;
+            }
+            $jobs[] = $file;
+        }
+        return count($jobs) > 0;
+    }
     public function index($strip="") {
         if( $strip == 'json' ) {
         }
-        $data = array();
+        $data = array(
+'has_old_jobs' => $this->has_old_jobs()
+);
         if($strip){
             $this->load->view(THEME.'/backup/backup_view',$data);
         }else{

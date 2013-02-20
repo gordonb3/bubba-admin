@@ -1,5 +1,5 @@
 <?php
-class Ajax_oldbackup extends Controller {
+class Ajax_oldbackup extends CI_Controller {
 
     var $json_data=Array(
         'error' => 1,
@@ -7,7 +7,7 @@ class Ajax_oldbackup extends Controller {
     );
 
     function __construct() {
-        parent::Controller();
+        parent::__construct();
         $this->load->model("oldbackup");
         require_once(APPPATH."/legacy/defines.php");
         require_once(ADMINFUNCS);
@@ -23,22 +23,22 @@ class Ajax_oldbackup extends Controller {
 
     function get_backup_jobs() {
         $data = array();
-        foreach( $this->backup->get_jobs() as $job ) {
+        foreach( $this->oldbackup->get_jobs() as $job ) {
             try {
-                $settings = $this->backup->get_settings($job);
+                $settings = $this->oldbackup->get_settings($job);
 
             } catch( NoSettingsException $e ) {
                 # as we might have bad data, ignore the job for now
                 continue;
             }
             try {
-                $schedule = $this->backup->get_schedule($job);
+                $schedule = $this->oldbackup->get_schedule($job);
             } catch( NoScheduleException $e ) {
                 $schedule = array(
                     "type" => "disabled",
                 );
             }
-            $status = $this->backup->get_status($job);
+            $status = $this->oldbackup->get_status($job);
             $date = "";
             switch($schedule["type"]) {
             case "hourly":
@@ -105,7 +105,7 @@ class Ajax_oldbackup extends Controller {
 
     function get_backup_job_information() {
         $name = $this->input->post("name");
-        $this->json_data = $this->backup->old_list_backups($name);
+        $this->json_data = $this->oldbackup->old_list_backups($name);
     }
 
     public function get_restore_data() {
@@ -125,7 +125,7 @@ class Ajax_oldbackup extends Controller {
 
         $map = array();
 
-        foreach( $this->backup->old_get_restore_data_list($name, $date) as $entry ) {
+        foreach( $this->oldbackup->old_get_restore_data_list($name, $date) as $entry ) {
             if( preg_match("#^".preg_quote($subpath, "#")."(?P<given>.*)#", $entry['path'], $m) && $m['given'] != '' ) {
                 $map[$m['given']] = $entry['date'];
             }
@@ -251,10 +251,10 @@ class Ajax_oldbackup extends Controller {
             throw new Exception("Required parameter name not given");
         }
 
-        $settings = $this->backup->get_settings($name);
+        $settings = $this->oldbackup->get_settings($name);
         if( !array_key_exists('selection_type', $settings) || $settings['selection_type'] == 'custom' ) {
             $settings['selection_type'] = 'custom';
-            $backupfiles = $this->backup->get_backupfiles($name);
+            $backupfiles = $this->oldbackup->get_backupfiles($name);
             $settings['files'] = $backupfiles['include'];
         }
 
@@ -267,7 +267,7 @@ class Ajax_oldbackup extends Controller {
         if(!$name) {
             throw new Exception("Required parameter name not given");
         }
-        $this->backup->remove($name);
+        $this->oldbackup->remove($name);
         $this->json_data = array('error' => false);
 
     }
@@ -278,7 +278,7 @@ class Ajax_oldbackup extends Controller {
             throw new Exception("Required parameter name not given");
         }
         try {
-            $this->backup->run($name);
+            $this->oldbackup->run($name);
             $this->json_data = array('error' => false);
         } catch( Exception $e ) {
             $this->json_data['html'] = $e->getMessage();
@@ -300,7 +300,7 @@ class Ajax_oldbackup extends Controller {
 
         $target = preg_replace('#(^|/)\.\./#', '/', $target);
         try {
-            $this->backup->restore($name, $date, $action, $target, $selection);
+            $this->oldbackup->restore($name, $date, $action, $target, $selection);
             $this->json_data = array('error' => false);
         } catch( Exception $e ) {
             $this->json_data['html'] = $e->getMessage();
@@ -389,7 +389,7 @@ class Ajax_oldbackup extends Controller {
 
             if( $create ) {
                 /* Backup job name */
-                $this->backup->create_job($name);
+                $this->oldbackup->create_job($name);
             }
 
             $settings['jobname'] = $name;
@@ -409,7 +409,7 @@ class Ajax_oldbackup extends Controller {
             /* Backup schedule */
 
             $settings['schedule_type'] = $schedule_type;
-            $this->backup->set_schedule(
+            $this->oldbackup->set_schedule(
                 $name,
                 $schedule_type,
                 $schedule_monthday,
@@ -472,7 +472,7 @@ class Ajax_oldbackup extends Controller {
                 return;
             }
 
-            $this->backup->set_backup_files($name, $include, $exclude);
+            $this->oldbackup->set_backup_files($name, $include, $exclude);
             $this->json_data = true;
         } catch ( Exception $e ) {
             $this->json_data = array(
@@ -486,7 +486,7 @@ class Ajax_oldbackup extends Controller {
 
     public function validate() {
         if($name = $this->input->post('name')) {
-            if( in_array( $name, $this->backup->get_jobs() ) ) {
+            if( in_array( $name, $this->oldbackup->get_jobs() ) ) {
                 $this->json_data = false;
             } else {
                 $this->json_data = true;

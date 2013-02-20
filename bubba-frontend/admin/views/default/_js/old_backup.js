@@ -135,7 +135,7 @@ $(function(){
         var $select = $('.fn-backup-target-device');
         $select.empty();
         $.post(
-            config.prefix + "/ajax_backup/get_available_devices",
+            config.prefix + "/ajax_oldbackup/get_available_devices",
             {},
             function(data) {
                 $.each(data.disks, function(label, partitions) {
@@ -174,7 +174,7 @@ $(function(){
     };
 
     var update_backup_jobs_table = function() {
-        $.post( config.prefix + "/ajax_backup/get_backup_jobs", {},
+        $.post( config.prefix + "/ajax_oldbackup/get_backup_jobs", {},
             function(jobs) {
                 var table = $("#fn-backup-jobs tbody");
                 table.empty();
@@ -318,7 +318,7 @@ $(function(){
 						'required': true,
 						'remote': {
 							'type': 'POST',
-							'url': config.prefix + "/ajax_backup/validate"
+							'url': config.prefix + "/ajax_oldbackup/validate"
 						}
 					},
 					'target-device': {
@@ -368,7 +368,7 @@ $(function(){
 				}
 			},
 			formOptions: {
-				'url': config.prefix + "/ajax_backup/create",
+				'url': config.prefix + "/ajax_oldbackup/create",
 				'type': 'post',
 				'dataType': 'json',
 				'beforeSubmit': function(arr, $form, options) {
@@ -469,7 +469,7 @@ $(function(){
 				}
 			},
 			formOptions: {
-				'url': config.prefix + "/ajax_backup/edit",
+				'url': config.prefix + "/ajax_oldbackup/edit",
 				'type': 'post',
 				'dataType': 'json',
 				'beforeSubmit': function(arr, $form, options) {
@@ -523,7 +523,7 @@ $(function(){
     });
 
     $(".fn-job-edit").live('click', function(e){
-        $.post(config.prefix + '/ajax_backup/get_job_info', { 'name': $(this).closest('tr').data('job') },
+        $.post(config.prefix + '/ajax_oldbackup/get_job_info', { 'name': $(this).closest('tr').data('job') },
         function(data){
             e.stopPropagation();
             data = $.extend({
@@ -593,7 +593,7 @@ $(function(){
                         var confirm_dialog = $(this);
                         $.throbber.show();
                         $.post(
-                            config.prefix + "/ajax_backup/remove",
+                            config.prefix + "/ajax_oldbackup/remove",
                             { 'name': job },
                             function(data){
                                 if( data.error ) {
@@ -631,7 +631,7 @@ $(function(){
                         var confirm_dialog = $(this);
                         $.throbber.show();
                         $.post(
-                            config.prefix + "/ajax_backup/run",
+                            config.prefix + "/ajax_oldbackup/run",
                             { 'name': job },
                             function(data){
                                 if( data.error ) {
@@ -710,7 +710,7 @@ $(function(){
                                     'click': function(e) {
                                         $.throbber.show();
 										var self = this;
-                                        $.post(config.prefix + "/ajax_backup/restore",
+                                        $.post(config.prefix + "/ajax_oldbackup/restore",
                                             {
                                                 'name': job,
                                                 'date': date,
@@ -750,7 +750,7 @@ $(function(){
                         root: '/home',
                         animate: false,
                         dirPostOpenCallback: function(){},
-                        ajaxSource: config.prefix + "/ajax_backup/get_restore_data",
+                        ajaxSource: config.prefix + "/ajax_oldbackup/get_restore_data",
                         ajaxExtraData: {'name': job, 'date': date},
 						multiSelect: false,
 						mouseDownCallback: function() {
@@ -783,7 +783,7 @@ $(function(){
         var name = $(this).data('job');
         $.throbber.show(_("Retrieving data for selected backup job. Please stand by"));
         $.post(
-            config.prefix + "/ajax_backup/get_backup_job_information",
+            config.prefix + "/ajax_oldbackup/get_backup_job_information",
             {'name': name},
             function(data) {
                 update_backup_job_information(name, data);
@@ -824,7 +824,7 @@ $(function(){
                             root: '/home/',
                             animate: false,
                             dirPostOpenCallback: function(){},
-                            ajaxSource: config.prefix + "/ajax_backup/dirs"
+                            ajaxSource: config.prefix + "/ajax_oldbackup/dirs"
                         });
 
 

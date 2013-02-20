@@ -1,4 +1,11 @@
-<?$this->load->helper("ordinal")?>
+<?if($has_old_jobs):?>
+<div class="ui-state-highlight ui-border-all" style="padding: 0 .7em;">
+<p>
+<span class="ui-icon ui-icon-info" style="float:left;margin-right: .3em;"></span>
+<?=_("<strong>Notice: </strong> Backup jobs from the old back system can be found <a href=\"old_backup\">here</a>!")?>
+</p>
+</div>
+<?endif?>
 <table id="backup-jobs" class="ui-table-outline">
   <thead>
     <tr>
