@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2013-02-14 14:54+0100\n"
-"PO-Revision-Date: 2012-08-27 13:11+0100\n"
-"Last-Translator: Johannes Book <johannes@excito.com>\n"
+"PO-Revision-Date: 2013-03-08 11:58+0100\n"
+"Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
 "Language-Team: \n"
 "Language: Swedish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-Language: Swedish\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: admin/views/default/_js/album_users.js:30
 #: admin/views/default/_js/backup.js:151
@@ -125,7 +125,10 @@ msgid "Errors selecting input/output files, dirs"
 msgstr ""
 
 #: admin/views/default/_js/backup.js:94
-msgid "Requested action not supported: an attempt was made to manipulate 64-bit files on a platform that cannot support them; or an option was specified that is supported by the client and not by the server."
+msgid ""
+"Requested action not supported: an attempt was made to manipulate 64-bit "
+"files on a platform that cannot support them; or an option was specified "
+"that is supported by the client and not by the server."
 msgstr ""
 
 #: admin/views/default/_js/backup.js:96
@@ -227,13 +230,19 @@ msgstr "Slutför"
 #: admin/views/default/_js/backup.js:336
 #: admin/views/default/_js/remote_accounts.js:62
 #, javascript-format
-msgid "Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</a> to download the openssh key needed for backup. Upload it to <a target=\"_blank\" href=\"https://hidrive.strato.com/\">HiDrive</a> under Account → Settings → Account management → OpenSSH key"
+msgid ""
+"Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</"
+"a> to download the openssh key needed for backup. Upload it to <a target="
+"\"_blank\" href=\"https://hidrive.strato.com/\">HiDrive</a> under Account → "
+"Settings → Account management → OpenSSH key"
 msgstr ""
 
 #: admin/views/default/_js/backup.js:338
 #: admin/views/default/_js/remote_accounts.js:64
 #, javascript-format
-msgid "Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</a> to download the openssh key needed for backup"
+msgid ""
+"Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</"
+"a> to download the openssh key needed for backup"
 msgstr ""
 
 #: admin/views/default/_js/backup.js:361
@@ -357,17 +366,37 @@ msgstr[1] "Flytten av filerna eller katalogerna lyckades"
 
 #: admin/views/default/_js/filemanager.js:251
 #, javascript-format
-msgid "You are about to move one item. Go to the desired folder and press <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
-msgid_plural "You are about to move %d items. Go to the desired folder and press <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
-msgstr[0] "Du håller på att flytta en fil. Gå till den önskade destinationen och klicka <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> för att slutföra förflyttningen"
-msgstr[1] "Du håller på att flytta %d filer. Gå till den önskade destinationen och klicka <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> för att slutföra förflyttningen"
+msgid ""
+"You are about to move one item. Go to the desired folder and press <span "
+"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
+msgid_plural ""
+"You are about to move %d items. Go to the desired folder and press <span "
+"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
+msgstr[0] ""
+"Du håller på att flytta en fil. Gå till den önskade destinationen och klicka "
+"<span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> för att "
+"slutföra förflyttningen"
+msgstr[1] ""
+"Du håller på att flytta %d filer. Gå till den önskade destinationen och "
+"klicka <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> för "
+"att slutföra förflyttningen"
 
 #: admin/views/default/_js/filemanager.js:255
 #, javascript-format
-msgid "You are about to copy one item. Go to the desired folder and press <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm copy"
-msgid_plural "You are about to copy %d items. Go to the desired folder and press <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm copy"
-msgstr[0] "Du håller på att kopiera en fil. Gå till den önskade destinationen och klicka <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> för att slutföra kopieringen"
-msgstr[1] "Du håller på att kopiera %d filer. Gå till den önskade destinationen och klicka <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> för att slutföra kopieringen"
+msgid ""
+"You are about to copy one item. Go to the desired folder and press <span "
+"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm copy"
+msgid_plural ""
+"You are about to copy %d items. Go to the desired folder and press <span "
+"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm copy"
+msgstr[0] ""
+"Du håller på att kopiera en fil. Gå till den önskade destinationen och "
+"klicka <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> för "
+"att slutföra kopieringen"
+msgstr[1] ""
+"Du håller på att kopiera %d filer. Gå till den önskade destinationen och "
+"klicka <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> för "
+"att slutföra kopieringen"
 
 #: admin/views/default/_js/filemanager.js:272
 msgid "Create folder"
@@ -462,8 +491,11 @@ msgstr "Avbryt"
 
 #: admin/views/default/_js/mail_server.js:21
 #, javascript-format
-msgid "Delete account for user <strong>%s</strong> on server <strong>%s</strong>?"
-msgstr "Radera konto för användaren <strong>%s</strong> på servern <strong>%s</strong>?"
+msgid ""
+"Delete account for user <strong>%s</strong> on server <strong>%s</strong>?"
+msgstr ""
+"Radera konto för användaren <strong>%s</strong> på servern <strong>%s</"
+"strong>?"
 
 #: admin/views/default/_js/mail_server.js:25
 msgctxt "confirmation button"
@@ -611,12 +643,32 @@ msgid "Port {0} is out of range"
 msgstr "Port {0} är utanför tillåtet område"
 
 #: admin/views/default/_js/tor.js:77
-msgid "It might take up to 20 minutes for Tor to self-test if the configuration is fully functional, please inspect the log file (Settings→Logs→tor) for verification\""
-msgstr "Det kan ta upp till 20 minuter för Tor att köra sin självtest. Vänligen se i logg-filen (settings -> logs -> Tor) för bekräftelse\""
+msgid ""
+"It might take up to 20 minutes for Tor to self-test if the configuration is "
+"fully functional, please inspect the log file (Settings→Logs→tor) for "
+"verification\""
+msgstr ""
+"Det kan ta upp till 20 minuter för Tor att köra sin självtest. Vänligen se i "
+"logg-filen (settings -> logs -> Tor) för bekräftelse\""
 
 #: admin/views/default/_js/tor.js:172
-msgid "<p>Enabling Tor means that your B3 will be a part of the Tor anonymizing network. This will allow users all over the world to use your B3 to protect their privacy and reach a free and open Internet. To read more about Tor, please visit https://www.torproject.org/.</p><p>Also note that enabling this service does not make your traffic anonymous.</p><p>Before enabling Tor, it is recommended that you read the Terms of Service from your Internet Service Provider. <strong>Don't enable this service if you are hesitant</strong>.</p>"
-msgstr "<p>Att starta Tor innebär att din Excito B3 kommer att bli en del av anonymiseringsnätverket Tor. Detta låter användare över hela världen använda din Excito B3 för att skydda sitt privatliv och att nå ett fritt och öppet internet. För att läsa mer om Tor, besök https://www.torproject.org/. </p><p>Notera att denna tjänst inte gör din internettrafik anonym. </p><p>Innan du startar denna tjänst rekommenderar vi att du läser användarvillkoren från din internetleverantör. <strong>Använd inte denna tjänst om du är tveksam. </strong>.</p>"
+msgid ""
+"<p>Enabling Tor means that your B3 will be a part of the Tor anonymizing "
+"network. This will allow users all over the world to use your B3 to protect "
+"their privacy and reach a free and open Internet. To read more about Tor, "
+"please visit https://www.torproject.org/.</p><p>Also note that enabling this "
+"service does not make your traffic anonymous.</p><p>Before enabling Tor, it "
+"is recommended that you read the Terms of Service from your Internet Service "
+"Provider. <strong>Don't enable this service if you are hesitant</strong>.</p>"
+msgstr ""
+"<p>Att starta Tor innebär att din Excito B3 kommer att bli en del av "
+"anonymiseringsnätverket Tor. Detta låter användare över hela världen använda "
+"din Excito B3 för att skydda sitt privatliv och att nå ett fritt och öppet "
+"internet. För att läsa mer om Tor, besök https://www.torproject.org/. </"
+"p><p>Notera att denna tjänst inte gör din internettrafik anonym. </"
+"p><p>Innan du startar denna tjänst rekommenderar vi att du läser "
+"användarvillkoren från din internetleverantör. <strong>Använd inte denna "
+"tjänst om du är tveksam. </strong>.</p>"
 
 #: admin/views/default/_js/tor.js:175
 msgid "Please note"
@@ -627,15 +679,20 @@ msgid "your-easyfind-name"
 msgstr "ditt-easyfind-namn"
 
 #: admin/views/default/_js/wizard.js:104
-msgid "Connection to internet is not available. Please disable easyfind, or connect to internet and try again."
+msgid ""
+"Connection to internet is not available. Please disable easyfind, or connect "
+"to internet and try again."
 msgstr ""
 
 #: admin/views/default/_js/wizard.js:108
-msgid "The easyfind name you selected contains invalid characters. Please only include letters, numbers, or dashes ."
+msgid ""
+"The easyfind name you selected contains invalid characters. Please only "
+"include letters, numbers, or dashes ."
 msgstr ""
 
 #: admin/views/default/_js/wizard.js:112
-msgid "The easyfind name you selected is already taken, please try another one."
+msgid ""
+"The easyfind name you selected is already taken, please try another one."
 msgstr ""
 
 #: admin/views/default/_js/wizard.js:174
@@ -679,7 +736,9 @@ msgstr "Dina inställningar är nu sparade. Välkommen! "
 #~ msgid "Run backup job now"
 #~ msgstr "Kör backupjobb nu"
 
-#~ msgid "Backup job has been initialized to be executed at this particlular moment in time."
+#~ msgid ""
+#~ "Backup job has been initialized to be executed at this particlular moment "
+#~ "in time."
 #~ msgstr "Backup-jobbet startat."
 
 #~ msgid "Restore backed up data"
@@ -700,7 +759,9 @@ msgstr "Dina inställningar är nu sparade. Välkommen! "
 #~ msgid "File/Directory selector"
 #~ msgstr "Fil/katalogväljare"
 
-#~ msgid "Selected Easyfind identifier is not available, please select a different one."
+#~ msgid ""
+#~ "Selected Easyfind identifier is not available, please select a different "
+#~ "one."
 #~ msgstr "Easyfind-namnet är upptaget, vänligen välj ett annat."
 
 #~ msgid "not a valid password"
