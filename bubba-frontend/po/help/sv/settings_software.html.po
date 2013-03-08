@@ -24,13 +24,23 @@ msgstr "Mjukvaruuppdatering"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:5
-msgid "{PLATFORM}'s software can easily be updated to gain new functionality. Press 'Update system', and the update is automatically performed. Please have patient, it might take a while to perform an update."
-msgstr "{PLATFORM}'s mjukvara kan enkelt uppdateras för att få nya funktioner. Klicka på knappen så sker uppdateringen automatiskt. Observera att en uppdatering ibland kan ta lång tid. "
+msgid ""
+"{PLATFORM}'s software can easily be updated to gain new functionality. Press "
+"'Update system', and the update is automatically performed. Please have "
+"patient, it might take a while to perform an update."
+msgstr ""
+"{PLATFORM}'s mjukvara kan enkelt uppdateras för att få nya funktioner. "
+"Klicka på knappen så sker uppdateringen automatiskt. Observera att en "
+"uppdatering ibland kan ta lång tid. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:8
-msgid "After an update, status information is shown. Press the '+' sign to show the complete message."
-msgstr "Efter en uppdatering visas statusinformation. Klicka på plustecknet för att visa det fullständiga meddelandet. "
+msgid ""
+"After an update, status information is shown. Press the '+' sign to show the "
+"complete message."
+msgstr ""
+"Efter en uppdatering visas statusinformation. Klicka på plustecknet för att "
+"visa det fullständiga meddelandet. "
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/settings_software.html:11
@@ -39,28 +49,58 @@ msgstr "Hotfixes"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:14
-msgid "Before an update, the software will communicate and exchange information to an Excito controlled server for an automatied analyzis."
-msgstr "Innan en uppdatering, så kommer mjukvaran att kommunicera och utbyta information till en Excito-kontrollerad server för en automatisk analys."
+msgid ""
+"Before an update, the software will communicate and exchange information to "
+"an Excito controlled server for an automatied analyzis."
+msgstr ""
+"Innan en uppdatering, så kommer mjukvaran att kommunicera och utbyta "
+"information till en Excito-kontrollerad server för en automatisk analys."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:17
-msgid "This system, which is called \"hotfixes\", will send information regarding your {PLATFORM} for an automatic analysis, and based upon this information, appropriate actions can be issued to your {PLATFORM} to be taken before the main upgrade is initiated."
-msgstr "Detta system, vilket kallas för \"hotfixes\", kommer att sända information om din {PLATFORM} för en automatisk analys, och baserat på denna information kan lämpliga åtgärder utfärdas till ditt {PLATTFORM} som skall vidtas före den huvudsakliga uppgraderingen påbörjas."
+msgid ""
+"This system, which is called \"hotfixes\", will send information regarding "
+"your {PLATFORM} for an automatic analysis, and based upon this information, "
+"appropriate actions can be issued to your {PLATFORM} to be taken before the "
+"main upgrade is initiated."
+msgstr ""
+"Detta system, vilket kallas för \"hotfixes\", kommer att sända information "
+"om din {PLATFORM} för en automatisk analys, och baserat på denna information "
+"kan lämpliga åtgärder utfärdas till ditt {PLATTFORM} som skall vidtas före "
+"den huvudsakliga uppgraderingen påbörjas."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:21
-msgid "All this information is sent to Excito via an encrypted connection, and all server responses are signed using GPG to ensure the security that the content is distributed by Excito."
-msgstr "All denna information skickas till Excito via en krypterad anslutning, och alla svar från servern undertecknas med en GPG-signatur för att garantera säkerheten att innehållet distribueras av Excito."
+msgid ""
+"All this information is sent to Excito via an encrypted connection, and all "
+"server responses are signed using GPG to ensure the security that the "
+"content is distributed by Excito."
+msgstr ""
+"All denna information skickas till Excito via en krypterad anslutning, och "
+"alla svar från servern undertecknas med en GPG-signatur för att garantera "
+"säkerheten att innehållet distribueras av Excito."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:24
-msgid "This feature cannot be disabled from the user interface. If you wish to opt out, We refer to the user manual how to proceed with an manual upgrade from the command line interface."
-msgstr "Denna funktion kan inte inaktiveras från användargränssnittet. Om du inte vill ha detta utfört så hänvisar vi till bruksanvisning hur man ska gå vidare med en manuell uppgradering från kommandoraden."
+msgid ""
+"This feature cannot be disabled from the user interface. If you wish to opt "
+"out, We refer to the user manual how to proceed with an manual upgrade from "
+"the command line interface."
+msgstr ""
+"Denna funktion kan inte inaktiveras från användargränssnittet. Om du inte "
+"vill ha detta utfört så hänvisar vi till bruksanvisning hur man ska gå "
+"vidare med en manuell uppgradering från kommandoraden."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:27
-msgid "<strong>Any information collected by Excito will never be exposed to any other party than Excito. The information will only be used to pin point errors and perform the best matched updates for your {PLATFORM}.</strong>"
-msgstr "<strong>Any information collected by Excito will never be exposed to any other party than Excito. The information will only be used to pin point errors and perform the best matched updates for your {PLATFORM}.</strong>"
+msgid ""
+"<strong>Any information collected by Excito will never be exposed to any "
+"other party than Excito. The information will only be used to pin point "
+"errors and perform the best matched updates for your {PLATFORM}.</strong>"
+msgstr ""
+"<strong>Any information collected by Excito will never be exposed to any "
+"other party than Excito. The information will only be used to pin point "
+"errors and perform the best matched updates for your {PLATFORM}.</strong>"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:31

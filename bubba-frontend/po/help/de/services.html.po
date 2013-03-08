@@ -36,18 +36,31 @@ msgstr "<strong>FTP</strong> - Der FTP-Server von {PLATFORM}."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/services.html:8
-msgid "<strong>Anonymous FTP access</strong> - Allow users to log in to FTP server without a password."
-msgstr "<strong>Anonymer FTP-Zugang</strong> - Erlaubt Benutzern die Anmeldung am FTP-Server ohne Passwort."
+msgid ""
+"<strong>Anonymous FTP access</strong> - Allow users to log in to FTP server "
+"without a password."
+msgstr ""
+"<strong>Anonymer FTP-Zugang</strong> - Erlaubt Benutzern die Anmeldung am "
+"FTP-Server ohne Passwort."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/services.html:11
-msgid "<strong>AFP</strong> - The Apple Filing Protocol (AFP) is a network protocol that offers file services for Mac OS X and original Mac OS."
-msgstr "<strong>AFP</strong> - Das Apple Filing Protocol (AFP) ist ein Netzwerkprotokoll, das Dateidienste für Mac OS X- und Original Mac-Betriebssysteme anbietet."
+msgid ""
+"<strong>AFP</strong> - The Apple Filing Protocol (AFP) is a network protocol "
+"that offers file services for Mac OS X and original Mac OS."
+msgstr ""
+"<strong>AFP</strong> - Das Apple Filing Protocol (AFP) ist ein "
+"Netzwerkprotokoll, das Dateidienste für Mac OS X- und Original Mac-"
+"Betriebssysteme anbietet."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/services.html:14
-msgid "<strong>Windows file share</strong> - Windows file share (Samba) is used to share files and printerns in a Windows network."
-msgstr "<strong>Windows Dateifreigabe</strong> - Windows Dateifreigabe (Samba) wird verwendet, um Dateien und Drucker in Netzwerken freizugeben."
+msgid ""
+"<strong>Windows file share</strong> - Windows file share (Samba) is used to "
+"share files and printerns in a Windows network."
+msgstr ""
+"<strong>Windows Dateifreigabe</strong> - Windows Dateifreigabe (Samba) wird "
+"verwendet, um Dateien und Drucker in Netzwerken freizugeben."
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/services.html:17
@@ -56,33 +69,67 @@ msgstr "Streaming"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/services.html:20
-msgid "<strong>DLNA streaming</strong> - Media streaming server.  The server shares/streams media data like audio/video/picture/files to DLNA-clients on the network.  Many modern media products are DLNA compatible, such as Samsung smart TV's, XBOX 360, Playstation 3, Windows Media Center, DLink Boxee Box, Western Digital TV Live etc.  Having this service enabled means that these products automatically can play content stored on your B3."
-msgstr "<strong>DLNA streaming</strong> - Media streaming server.  Der Server stellt Mediendaten, also Audio/Videos/Bilder/Dateien für DLNA-Geräte im Netzwerk bereit.  Viele moderne Medienprodukte sind mit DLNA kompatibel, beispielsweise Samsung smart TV's, XBOX 360, Playstation 3, Windows Media Center, DLink Boxee Box, Western Digital TV Live usw.  Wenn Sie diesen Dienst aktivieren, können kompatible Geräte automatisch die auf Ihrem B3 gespeicherten Inhalte abspielen."
+msgid ""
+"<strong>DLNA streaming</strong> - Media streaming server.  The server shares/"
+"streams media data like audio/video/picture/files to DLNA-clients on the "
+"network.  Many modern media products are DLNA compatible, such as Samsung "
+"smart TV's, XBOX 360, Playstation 3, Windows Media Center, DLink Boxee Box, "
+"Western Digital TV Live etc.  Having this service enabled means that these "
+"products automatically can play content stored on your B3."
+msgstr ""
+"<strong>DLNA streaming</strong> - Media streaming server.  Der Server stellt "
+"Mediendaten, also Audio/Videos/Bilder/Dateien für DLNA-Geräte im Netzwerk "
+"bereit.  Viele moderne Medienprodukte sind mit DLNA kompatibel, "
+"beispielsweise Samsung smart TV's, XBOX 360, Playstation 3, Windows Media "
+"Center, DLink Boxee Box, Western Digital TV Live usw.  Wenn Sie diesen "
+"Dienst aktivieren, können kompatible Geräte automatisch die auf Ihrem B3 "
+"gespeicherten Inhalte abspielen."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/services.html:26
-msgid "<strong>DAAP streaming</strong> - Digital Audio Access Protocol (DAAP) server. Media server for the Roku SoundBridge and iTunes."
-msgstr "<strong>DAAP Streaming</strong> - Digital Audio Access Protocol (DAAP)-Server. Medienserver für Roku SoundBridge und iTunes."
+msgid ""
+"<strong>DAAP streaming</strong> - Digital Audio Access Protocol (DAAP) "
+"server. Media server for the Roku SoundBridge and iTunes."
+msgstr ""
+"<strong>DAAP Streaming</strong> - Digital Audio Access Protocol (DAAP)-"
+"Server. Medienserver für Roku SoundBridge und iTunes."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/services.html:29
-msgid "<strong>Squeezebox Server</strong> - is a streaming audio server supported by Logitech that streams music to The Squeezebox product line."
-msgstr "<strong>Squeezebox Server</strong> - ein Streaming Audio-Server, der von Logitech unterstützt wird und Musik zur Squeezebox-Produktlinie streamt."
+msgid ""
+"<strong>Squeezebox Server</strong> - is a streaming audio server supported "
+"by Logitech that streams music to The Squeezebox product line."
+msgstr ""
+"<strong>Squeezebox Server</strong> - ein Streaming Audio-Server, der von "
+"Logitech unterstützt wird und Musik zur Squeezebox-Produktlinie streamt."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/services.html:35
-msgid "<strong>Send and receive</strong> - This is for postfix the smtp server: Sending and receiving emails."
-msgstr "<strong>Senden und Empfangen</strong> - Postfix als SMTP-Server: Senden und Empfangen von E-Mails."
+msgid ""
+"<strong>Send and receive</strong> - This is for postfix the smtp server: "
+"Sending and receiving emails."
+msgstr ""
+"<strong>Senden und Empfangen</strong> - Postfix als SMTP-Server: Senden und "
+"Empfangen von E-Mails."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/services.html:38
-msgid "<strong>IMAP (Required for webmail access)</strong> - This is for dovecot the IMAP server. This service is required for the webmail access to be functional."
-msgstr "<strong>IMAP (für Webmail-Zugang)</strong> - Dovecot als IMAP-Server. Dieser Dienst ist für den Zugriff auf Webmail erforderlich."
+msgid ""
+"<strong>IMAP (Required for webmail access)</strong> - This is for dovecot "
+"the IMAP server. This service is required for the webmail access to be "
+"functional."
+msgstr ""
+"<strong>IMAP (für Webmail-Zugang)</strong> - Dovecot als IMAP-Server. Dieser "
+"Dienst ist für den Zugriff auf Webmail erforderlich."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/services.html:41
-msgid "<strong>Email retrieval</strong> - This is for fetchmail, a daemon that collects emails to {PLATFORM}"
-msgstr "<strong>E-Mail-Abruf</strong> - Für Fetchmail, wenn E-Mails im Daemon-Modus zu {PLATFORM} abgerufen werden"
+msgid ""
+"<strong>Email retrieval</strong> - This is for fetchmail, a daemon that "
+"collects emails to {PLATFORM}"
+msgstr ""
+"<strong>E-Mail-Abruf</strong> - Für Fetchmail, wenn E-Mails im Daemon-Modus "
+"zu {PLATFORM} abgerufen werden"
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/services.html:44
@@ -96,10 +143,18 @@ msgstr "<strong>Drucken</strong> - Der Druckserver von {PLATFORM}."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/services.html:50
-msgid "<strong>Up and downloads</strong> - possibility to up / download files on {PLATFORM}, i.e. filemanager and torrents."
-msgstr "<strong>Uploads/Downloads</strong> - Möglichkeit zum Hoch- und Herunterladen von Dateien auf bzw. von {PLATFORM}, z. B. Dateimanager und torrents."
+msgid ""
+"<strong>Up and downloads</strong> - possibility to up / download files on "
+"{PLATFORM}, i.e. filemanager and torrents."
+msgstr ""
+"<strong>Uploads/Downloads</strong> - Möglichkeit zum Hoch- und Herunterladen "
+"von Dateien auf bzw. von {PLATFORM}, z. B. Dateimanager und torrents."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/services.html:53
-msgid "<strong>Remote access through other router</strong> - tries to open web ports (80 and 443) through your router, to allow for remote access."
-msgstr "<strong>Fernzugriff durch anderen Router</strong> - versucht die Web Ports (80 and 443) durch Ihren Router zu öffnen, um Fernzugriff zu erlauben."
+msgid ""
+"<strong>Remote access through other router</strong> - tries to open web "
+"ports (80 and 443) through your router, to allow for remote access."
+msgstr ""
+"<strong>Fernzugriff durch anderen Router</strong> - versucht die Web Ports "
+"(80 and 443) durch Ihren Router zu öffnen, um Fernzugriff zu erlauben."

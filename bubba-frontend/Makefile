@@ -24,7 +24,6 @@ $(filter-out %en.po,$(php_po_files)): po/php/bubba.pot
 $(filter-out %en.po,$(js_po_files)): po/js/bubba.pot
 	$(if $(update_po_files),\
 	msgmerge \
-		--no-wrap \
 		--update \
 		--verbose \
 		--multi-domain \
@@ -81,7 +80,6 @@ po4a.stamp: $(wildcard admin/views/default/help/en/*)
 		--package-version=$(VERSION) \
 		--master-charset=UTF-8 \
 		--localized-charset=UTF-8 \
-		--msgmerge-opt "--no-wrap" \
 		--keep=80 \
 		--rm-backups \
 		po4a.conf
@@ -116,7 +114,6 @@ clean:
 		--package-version=$(VERSION) \
 		--master-charset=UTF-8 \
 		--localized-charset=UTF-8 \
-		--msgmerge-opt "--no-wrap" \
 		--keep=80 \
 		--rm-backups \
 		--rm-translations \

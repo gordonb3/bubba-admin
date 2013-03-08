@@ -24,5 +24,9 @@ msgstr "Välkommen till {PLATFORM}!"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/user_login.html:5
-msgid "Listen to music, look at your photos, and access your emails and files. You have all your important information and fun just a mouse click away!"
-msgstr "Lyssna på musik, se dina bilder och nå din email och dina filer. Allt du behöver, när som helst, var som helst! "
+msgid ""
+"Listen to music, look at your photos, and access your emails and files. You "
+"have all your important information and fun just a mouse click away!"
+msgstr ""
+"Lyssna på musik, se dina bilder och nå din email och dina filer. Allt du "
+"behöver, när som helst, var som helst! "

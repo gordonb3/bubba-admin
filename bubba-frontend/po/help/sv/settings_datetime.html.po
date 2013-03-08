@@ -29,13 +29,19 @@ msgstr "<strong>Nuvarande tidszon är</strong> - Visar nuvarande tidszon"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_datetime.html:8
-msgid "<strong>Select timezone</strong> - Select your timezone in the drop down list."
+msgid ""
+"<strong>Select timezone</strong> - Select your timezone in the drop down "
+"list."
 msgstr "<strong>Välj tidszon</strong> - Välj din tidszon i listan. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_datetime.html:11
-msgid "<strong>Set time automatically</strong> - This enables {PLATFORM} to set the date and time automatically via an internet server."
-msgstr "<strong>Ställ in tid automatiskt</strong> - Detta låter {PLATFORM} ställa in tiden automatiskt från en tidsserver på internet. "
+msgid ""
+"<strong>Set time automatically</strong> - This enables {PLATFORM} to set the "
+"date and time automatically via an internet server."
+msgstr ""
+"<strong>Ställ in tid automatiskt</strong> - Detta låter {PLATFORM} ställa in "
+"tiden automatiskt från en tidsserver på internet. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_datetime.html:14
@@ -54,5 +60,6 @@ msgstr "Standardspråk"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_datetime.html:23
-msgid "<strong>System language</strong> - Select language for the user interface."
+msgid ""
+"<strong>System language</strong> - Select language for the user interface."
 msgstr "<strong>Systemspråk</strong> - Välj språk för användarinterfacet. "

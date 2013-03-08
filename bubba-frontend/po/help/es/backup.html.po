@@ -18,7 +18,11 @@ msgstr ""
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/backup.html:2
-msgid "This backup service allows you to backup any data on your {PLATFORM} to a USB disk, to any other {PLATFORM}, or to a paid account on HiDrive (https://www.free-hidrive.com/). Also any other server supporting ssh and rsync can be used."
+msgid ""
+"This backup service allows you to backup any data on your {PLATFORM} to a "
+"USB disk, to any other {PLATFORM}, or to a paid account on HiDrive (https://"
+"www.free-hidrive.com/). Also any other server supporting ssh and rsync can "
+"be used."
 msgstr ""
 
 #. type: Content of: <h3>
@@ -33,7 +37,9 @@ msgstr ""
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/backup.html:14
-msgid "<em>Note: If you choose HiDrive as target you need a paid account since the free accounts does not support rsync</em>"
+msgid ""
+"<em>Note: If you choose HiDrive as target you need a paid account since the "
+"free accounts does not support rsync</em>"
 msgstr ""
 
 #. type: Content of: <h3>
@@ -44,7 +50,10 @@ msgstr "Restaurar un respaldo"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/backup.html:20
-msgid "Go to “File Manager” and browse to /home/admin/ and you will find a folder there for each target device, where the target data is mounted. You can there manually copy the files from target."
+msgid ""
+"Go to “File Manager” and browse to /home/admin/ and you will find a folder "
+"there for each target device, where the target data is mounted. You can "
+"there manually copy the files from target."
 msgstr ""
 
 #. type: Content of: <h3>
@@ -54,5 +63,9 @@ msgstr ""
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/backup.html:26
-msgid "If you in the future would like to restore a backup not using B3, this is of course possible, you simply can log in to the target device and copy the files from there. No encryption or compression is used to make sure this is possible."
+msgid ""
+"If you in the future would like to restore a backup not using B3, this is of "
+"course possible, you simply can log in to the target device and copy the "
+"files from there. No encryption or compression is used to make sure this is "
+"possible."
 msgstr ""

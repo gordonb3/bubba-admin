@@ -19,8 +19,13 @@ msgstr ""
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/user_album_albums.html:2
-msgid "Share your digital photos with friends and family! With {PLATFORM} you get easy to use, out of the box photo album! All you need is your digital pictures!"
-msgstr "Dela dina foton med släkt och vänner! Med {PLATFORM} får du ett lättanvänt fotoalbum! "
+msgid ""
+"Share your digital photos with friends and family! With {PLATFORM} you get "
+"easy to use, out of the box photo album! All you need is your digital "
+"pictures!"
+msgstr ""
+"Dela dina foton med släkt och vänner! Med {PLATFORM} får du ett lättanvänt "
+"fotoalbum! "
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/user_album_albums.html:5
@@ -29,8 +34,12 @@ msgstr "Lägg till albumanvändare"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/user_album_albums.html:8
-msgid "Click the menu item <b>Album viewers</b> to add users for private viewing of photo albums."
-msgstr "Klicka på menyknappen <strong>Album viewers</b> för att lägga till användare för privat visning av fotoalbum. "
+msgid ""
+"Click the menu item <b>Album viewers</b> to add users for private viewing of "
+"photo albums."
+msgstr ""
+"Klicka på menyknappen <strong>Album viewers</b> för att lägga till användare "
+"för privat visning av fotoalbum. "
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/user_album_albums.html:11
@@ -39,13 +48,22 @@ msgstr "Lägg till album"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/user_album_albums.html:14
-msgid "Every user on {PLATFORM} can create and publish photo albums, except for the administrator."
-msgstr "Alla användare på {PLATFORM} kan skapa och publicera fotoalbum, förutom administratören. "
+msgid ""
+"Every user on {PLATFORM} can create and publish photo albums, except for the "
+"administrator."
+msgstr ""
+"Alla användare på {PLATFORM} kan skapa och publicera fotoalbum, förutom "
+"administratören. "
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/user_album_albums.html:17
-msgid "Copy the folders containing your pictures to \\{PLATFORM}\\storage\\pictures, with for example the built in File Manager or Windows Explorer."
-msgstr "Kopiera kataloger som innehåller dina bilder till \\{PLATFORM}\\storage\\pictures, t.ex. med din dators filhanterare, FTP eller någon annan valfri metod du föredrar. "
+msgid ""
+"Copy the folders containing your pictures to \\{PLATFORM}\\storage"
+"\\pictures, with for example the built in File Manager or Windows Explorer."
+msgstr ""
+"Kopiera kataloger som innehåller dina bilder till \\{PLATFORM}\\storage"
+"\\pictures, t.ex. med din dators filhanterare, FTP eller någon annan valfri "
+"metod du föredrar. "
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/user_album_albums.html:19
@@ -69,13 +87,18 @@ msgstr "Välj kataloger eller bilder du vill lägga till i fotoalbumet. "
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/user_album_albums.html:27
-msgid "Select the <strong>'Add to album'</strong> icon in the file function bar."
+msgid ""
+"Select the <strong>'Add to album'</strong> icon in the file function bar."
 msgstr "Väl <strong>'Lägg till i album'</strong>-ikonen i funktionslisten."
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/user_album_albums.html:29
-msgid "Open the <strong>Album manager</strong>. Decide if the added albums should be public or private. By default all added albums are private."
-msgstr "Öppna <strong>Albumhanteraren</strong. Välj om albumen ska vara publika eller privata. Standardinställningen är att alla album blir privata. "
+msgid ""
+"Open the <strong>Album manager</strong>. Decide if the added albums should "
+"be public or private. By default all added albums are private."
+msgstr ""
+"Öppna <strong>Albumhanteraren</strong. Välj om albumen ska vara publika "
+"eller privata. Standardinställningen är att alla album blir privata. "
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/user_album_albums.html:31
@@ -84,13 +107,20 @@ msgstr "Klicka på ditt album till vänster på skärmen. "
 
 #. type: Content of: <ol><li><ul><li>
 #: admin/views/default/help/en/user_album_albums.html:33
-msgid "Ether select the users who you would like to share the album with, then click Update."
-msgstr "Välj användarna som du ska dela ditt album med, klicka sedan på Uppdatera. "
+msgid ""
+"Ether select the users who you would like to share the album with, then "
+"click Update."
+msgstr ""
+"Välj användarna som du ska dela ditt album med, klicka sedan på Uppdatera. "
 
 #. type: Content of: <ol><li><ul><li>
 #: admin/views/default/help/en/user_album_albums.html:35
-msgid "Or click 'Public' if you want the album to be open to anyone who can access your {PLATFORM}, then click Update."
-msgstr "Eller klicka 'Publik' om du vill att albumet ska vara öppet för alla som kan nå din {PLATFORM}. Klicka sedan Update. "
+msgid ""
+"Or click 'Public' if you want the album to be open to anyone who can access "
+"your {PLATFORM}, then click Update."
+msgstr ""
+"Eller klicka 'Publik' om du vill att albumet ska vara öppet för alla som kan "
+"nå din {PLATFORM}. Klicka sedan Update. "
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/user_album_albums.html:39
@@ -109,8 +139,12 @@ msgstr "Klicka på albumet du önskar ändra. "
 
 #. type: Content of: <ul><li>
 #: admin/views/default/help/en/user_album_albums.html:49
-msgid "To edit album- or picture caption select the object, enter text and click 'Update'."
-msgstr "För att ändra ett album eller en bild, välj objektet, gör dina ändringar och klicka på 'Update'. "
+msgid ""
+"To edit album- or picture caption select the object, enter text and click "
+"'Update'."
+msgstr ""
+"För att ändra ett album eller en bild, välj objektet, gör dina ändringar och "
+"klicka på 'Update'. "
 
 #. type: Content of: <ul><li>
 #: admin/views/default/help/en/user_album_albums.html:51
@@ -124,5 +158,13 @@ msgstr "För att radera en bild, välj bilden och klicka 'Radera'. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/user_album_albums.html:57
-msgid "Your photo albums will be visible by browsing to <a href='http://{DEFAULT_HOST}/album' target='_blank'>http://{DEFAULT_HOST}/album</a> (<a href='http://{DEFAULT_HOST}.local/album' target='_blank'>http://{DEFAULT_HOST}.local/album</a> if using Mac) from inside your home network, or by browsing to www.-your easyfind name-.{EASYFIND} from outside your network."
-msgstr "Dina fotoalbum kommer att finnas bakom foto-knappen på {PLATFORM}'s förstasida. "
+msgid ""
+"Your photo albums will be visible by browsing to <a href='http://"
+"{DEFAULT_HOST}/album' target='_blank'>http://{DEFAULT_HOST}/album</a> (<a "
+"href='http://{DEFAULT_HOST}.local/album' target='_blank'>http://"
+"{DEFAULT_HOST}.local/album</a> if using Mac) from inside your home network, "
+"or by browsing to www.-your easyfind name-.{EASYFIND} from outside your "
+"network."
+msgstr ""
+"Dina fotoalbum kommer att finnas bakom foto-knappen på {PLATFORM}'s "
+"förstasida. "

@@ -34,20 +34,45 @@ msgstr "WAN"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/network_wan.html:5
-msgid "Here you configure how your {PLATFORM} will handle your Wide Area Network (WAN) port. The default setting is to Obtain an IP address."
-msgstr "Här kan du ställa in hur din {PLATFORM} hanterar ditt WAN (din koppling mot internet). Standardinställningen är att automatiskt ta emot en IP-adress. "
+msgid ""
+"Here you configure how your {PLATFORM} will handle your Wide Area Network "
+"(WAN) port. The default setting is to Obtain an IP address."
+msgstr ""
+"Här kan du ställa in hur din {PLATFORM} hanterar ditt WAN (din koppling mot "
+"internet). Standardinställningen är att automatiskt ta emot en IP-adress. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/network_wan.html:8
-msgid "<strong>Obtain IP-address automatically (DHCP)</strong> - The Dynamic Host Configuration Protocol (DHCP) automates the assignment of IP address, Netmask, Default gateway, and other IP parameters.  Use this option if your internet provider requires you to use DHCP. This is the default and most common option."
-msgstr "<strong>Ta emot IP-adress automatiskt (DHCP)</strong> - DHCP är ett protokoll som automatiskt ber om IP address, nätmask, standardgateway, och andra parametrar.  Detta är standardinställningen och den vanligaste hos internetleverantörer. "
+msgid ""
+"<strong>Obtain IP-address automatically (DHCP)</strong> - The Dynamic Host "
+"Configuration Protocol (DHCP) automates the assignment of IP address, "
+"Netmask, Default gateway, and other IP parameters.  Use this option if your "
+"internet provider requires you to use DHCP. This is the default and most "
+"common option."
+msgstr ""
+"<strong>Ta emot IP-adress automatiskt (DHCP)</strong> - DHCP är ett "
+"protokoll som automatiskt ber om IP address, nätmask, standardgateway, och "
+"andra parametrar.  Detta är standardinställningen och den vanligaste hos "
+"internetleverantörer. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/network_wan.html:12
-msgid "<strong>Use static IP address settings</strong> - Static IP address, Netmask, Default gateway and Primary DNS are manually assigned to {PLATFORM} by the administrator. Use this option if your internet provider requires you to manually enter the values."
-msgstr "<strong>Använd fast IP-adress</strong> - Fast IP-adress, nätmask, standardgateway och primär DNS ställs manuellt in på {PLATFORM} av administratören. Använd bara denna inställning om din internetleverantör kräver det. "
+msgid ""
+"<strong>Use static IP address settings</strong> - Static IP address, "
+"Netmask, Default gateway and Primary DNS are manually assigned to {PLATFORM} "
+"by the administrator. Use this option if your internet provider requires you "
+"to manually enter the values."
+msgstr ""
+"<strong>Använd fast IP-adress</strong> - Fast IP-adress, nätmask, "
+"standardgateway och primär DNS ställs manuellt in på {PLATFORM} av "
+"administratören. Använd bara denna inställning om din internetleverantör "
+"kräver det. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/network_wan.html:16
-msgid "Please notice that the WAN settings are not editable in the profile 'Automatic network settings', shown for information only."
-msgstr "Vänligen notera att WAN-inställningarna inte kan ändras i profilen 'Automatiska nätverksinställningar', utan visas endast för information. "
+msgid ""
+"Please notice that the WAN settings are not editable in the profile "
+"'Automatic network settings', shown for information only."
+msgstr ""
+"Vänligen notera att WAN-inställningarna inte kan ändras i profilen "
+"'Automatiska nätverksinställningar', utan visas endast för information. "

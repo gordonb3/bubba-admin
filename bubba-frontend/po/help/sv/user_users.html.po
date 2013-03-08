@@ -24,13 +24,19 @@ msgstr "Användarinformation"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/user_users.html:5
-msgid "Here users can change personal information such as 'Real name' and password."
+msgid ""
+"Here users can change personal information such as 'Real name' and password."
 msgstr "Här kan användare ändra sin personliga information. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/user_users.html:8
-msgid "Changing the user name (login name) is not possible. To achieve this you will have to delete the user via the administrator login and add a new user with the correct name."
-msgstr "Det går inte att ändra användarnamn. För att göra detta måste du ta bort användaren och sedan lägga till en ny. "
+msgid ""
+"Changing the user name (login name) is not possible. To achieve this you "
+"will have to delete the user via the administrator login and add a new user "
+"with the correct name."
+msgstr ""
+"Det går inte att ändra användarnamn. För att göra detta måste du ta bort "
+"användaren och sedan lägga till en ny. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/user_users.html:11

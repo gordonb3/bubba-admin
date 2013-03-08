@@ -19,8 +19,12 @@ msgstr ""
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/filemanager.html:2
-msgid "From the File manager you are able to reach your files on {PLATFORM} even if you are away from home."
-msgstr "Från filhanteraren kan du nå dina filer på {PLATFORM} även om du är hemifrån. "
+msgid ""
+"From the File manager you are able to reach your files on {PLATFORM} even if "
+"you are away from home."
+msgstr ""
+"Från filhanteraren kan du nå dina filer på {PLATFORM} även om du är "
+"hemifrån. "
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/filemanager.html:5
@@ -30,8 +34,14 @@ msgstr "Navigation"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/filemanager.html:8
-msgid "Navigate into a folder by clicking the arrow to the right of the folder name or double clicking it, navigate up one level by clicking the left arrow or click the /home/username/ line."
-msgstr "Navigera in i en katalog genom att klicka på pilen till höger om katalognamnet, eller genom att dubbelklicka på den. Navigera upp en nivå genom att klicka på vänsterpilen eller klicka på /home/användarnamn/-raden. "
+msgid ""
+"Navigate into a folder by clicking the arrow to the right of the folder name "
+"or double clicking it, navigate up one level by clicking the left arrow or "
+"click the /home/username/ line."
+msgstr ""
+"Navigera in i en katalog genom att klicka på pilen till höger om "
+"katalognamnet, eller genom att dubbelklicka på den. Navigera upp en nivå "
+"genom att klicka på vänsterpilen eller klicka på /home/användarnamn/-raden. "
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/filemanager.html:11
@@ -42,8 +52,12 @@ msgstr "Fil- och katalogoperationer"
 #. type: Content of: <p>
 #: admin/views/default/help/en/filemanager.html:14
 #: admin/views/default/help/en/user_filemanager.html:14
-msgid "Click files or folders and use the icons in the file function bar to perform different actions. The functions from left to right are:"
-msgstr "Klicka på filer eller kataloger och använd ikonerna i funktionslisten för att göra olika operationer. Funktionerna är, från vänster till höger:"
+msgid ""
+"Click files or folders and use the icons in the file function bar to perform "
+"different actions. The functions from left to right are:"
+msgstr ""
+"Klicka på filer eller kataloger och använd ikonerna i funktionslisten för "
+"att göra olika operationer. Funktionerna är, från vänster till höger:"
 
 #. type: Content of: <ul><li>
 #: admin/views/default/help/en/filemanager.html:17
@@ -107,5 +121,10 @@ msgstr "Fotoalbum"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/filemanager.html:40
-msgid "Logged in as administrator you are not able to add photos to the {PLATFORM} photo album. Log in with your standard user to add and manage photos and your albums."
-msgstr "Inloggad som administratör kan du inte lägga till foton till fotoalbum. Logga in med ditt vanliga användarnamn för att göra detta. "
+msgid ""
+"Logged in as administrator you are not able to add photos to the {PLATFORM} "
+"photo album. Log in with your standard user to add and manage photos and "
+"your albums."
+msgstr ""
+"Inloggad som administratör kan du inte lägga till foton till fotoalbum. "
+"Logga in med ditt vanliga användarnamn för att göra detta. "

@@ -24,8 +24,11 @@ msgstr "Lägg till albumanvändare"
 
 #. type: Content of: <ul><li>
 #: admin/views/default/help/en/user_album_users.html:5
-msgid "Public album can be seen by anyone, you do not have to add any album users."
-msgstr "Publika album kan ses av alla, du behöver då inte lägga till några albumanvändare. "
+msgid ""
+"Public album can be seen by anyone, you do not have to add any album users."
+msgstr ""
+"Publika album kan ses av alla, du behöver då inte lägga till några "
+"albumanvändare. "
 
 #. type: Content of: <ul><li>
 #: admin/views/default/help/en/user_album_users.html:7
@@ -34,8 +37,11 @@ msgstr "Privata album är lösenordsskyddade, lägg till användare här. "
 
 #. type: Content of: <ul><li>
 #: admin/views/default/help/en/user_album_users.html:9
-msgid "Remember that the {PLATFORM} users and photo album viewers are not the same."
-msgstr "Glöm inte att {PLATFORM}-användare och albumanvändare inte är samma sak. Albumanvändare har bara tillgång till fotoalbumen. "
+msgid ""
+"Remember that the {PLATFORM} users and photo album viewers are not the same."
+msgstr ""
+"Glöm inte att {PLATFORM}-användare och albumanvändare inte är samma sak. "
+"Albumanvändare har bara tillgång till fotoalbumen. "
 
 #. type: Content of: <ul><li><ol><li>
 #: admin/views/default/help/en/user_album_users.html:13

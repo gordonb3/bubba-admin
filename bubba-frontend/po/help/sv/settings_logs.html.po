@@ -24,5 +24,10 @@ msgstr "Loggar"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_logs.html:5
-msgid "To fault trace on your {PLATFORM} without logging in with SSH use the Logs function. Select the desired log file in the drop down menu and click 'Show'."
-msgstr "Att inspektera loggarna är ett bra sätt att hitta fel på din {PLATFORM} och kan användas när du felanmäler något till Excito's support. Välj önskad loggfil i listan och klicka på 'Show'. "
+msgid ""
+"To fault trace on your {PLATFORM} without logging in with SSH use the Logs "
+"function. Select the desired log file in the drop down menu and click 'Show'."
+msgstr ""
+"Att inspektera loggarna är ett bra sätt att hitta fel på din {PLATFORM} och "
+"kan användas när du felanmäler något till Excito's support. Välj önskad "
+"loggfil i listan och klicka på 'Show'. "

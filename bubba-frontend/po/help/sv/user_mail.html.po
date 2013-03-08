@@ -27,8 +27,14 @@ msgstr "Epost"
 #. type: Content of: <p>
 #: admin/views/default/help/en/mail.html:5
 #: admin/views/default/help/en/user_mail.html:5
-msgid "{PLATFORM} will fetch your email from all your different external email accounts you may have. The email will be stored on {PLATFORM} and available via IMAP or webmail, wherever you are."
-msgstr "{PLATFORM} kommer att hämta epost från olika externa konton du har. Eposten kommer att lagras på {PLATFORM} och vara tillgängliga via IMAP eller via web-mail, varthän du än är."
+msgid ""
+"{PLATFORM} will fetch your email from all your different external email "
+"accounts you may have. The email will be stored on {PLATFORM} and available "
+"via IMAP or webmail, wherever you are."
+msgstr ""
+"{PLATFORM} kommer att hämta epost från olika externa konton du har. Eposten "
+"kommer att lagras på {PLATFORM} och vara tillgängliga via IMAP eller via web-"
+"mail, varthän du än är."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/mail.html:8
@@ -45,5 +51,11 @@ msgstr "Konfigurera {PLATFORM} för att hämta epost"
 #. type: Content of: <p>
 #: admin/views/default/help/en/mail.html:14
 #: admin/views/default/help/en/user_mail.html:14
-msgid "<strong>Add new email account</strong> - To start fetching email from an external account, click here. Fill in the information given to you by your email account provider."
-msgstr "<strong>Lägg till ett epostkonto</strong> - För att börja hämta epost från ett externt konto, klicka här. Fyll i informationen du fått från din epostleverantör. "
+msgid ""
+"<strong>Add new email account</strong> - To start fetching email from an "
+"external account, click here. Fill in the information given to you by your "
+"email account provider."
+msgstr ""
+"<strong>Lägg till ett epostkonto</strong> - För att börja hämta epost från "
+"ett externt konto, klicka här. Fyll i informationen du fått från din "
+"epostleverantör. "

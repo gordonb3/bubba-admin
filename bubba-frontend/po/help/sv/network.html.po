@@ -34,25 +34,52 @@ msgstr "Nätverksprofil"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/network.html:5
-msgid "Automatic settings will work in most cases, you do probably not need to change this. Read the technical manual if you need further information."
-msgstr "Automatiska inställningar fungerar i de flesta fall, du behöver normalt inte ändra detta. Vänligen läs användarmanualen om du behöver ytterligare information. "
+msgid ""
+"Automatic settings will work in most cases, you do probably not need to "
+"change this. Read the technical manual if you need further information."
+msgstr ""
+"Automatiska inställningar fungerar i de flesta fall, du behöver normalt inte "
+"ändra detta. Vänligen läs användarmanualen om du behöver ytterligare "
+"information. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/network.html:8
-msgid "<strong>Automatic network settings</strong> - {PLATFORM} will automatically try to set an appropriate network configuration."
-msgstr "<strong>Automatiska nätverksinställningar</strong> - {PLATFORM} kommer automatiskt att känna av och ställa in lämpliga inställningar. "
+msgid ""
+"<strong>Automatic network settings</strong> - {PLATFORM} will automatically "
+"try to set an appropriate network configuration."
+msgstr ""
+"<strong>Automatiska nätverksinställningar</strong> - {PLATFORM} kommer "
+"automatiskt att känna av och ställa in lämpliga inställningar. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/network.html:11
-msgid "<strong>Router + Firewall + Server</strong> - {PLATFORM} will automatically try to retrieve network settings on WAN (internet), and use fixed network settings on the local network providing other computers with network information."
-msgstr "<strong>Router + Brandvägg + Server</strong> - {PLATFORM} kommer automatiskt att få inställningar på WAN-porten (internet), och använda en fast IP på LAN-porten och låta klienter på LAN få nätverksinställningar automatiskt från {PLATFORM}."
+msgid ""
+"<strong>Router + Firewall + Server</strong> - {PLATFORM} will automatically "
+"try to retrieve network settings on WAN (internet), and use fixed network "
+"settings on the local network providing other computers with network "
+"information."
+msgstr ""
+"<strong>Router + Brandvägg + Server</strong> - {PLATFORM} kommer automatiskt "
+"att få inställningar på WAN-porten (internet), och använda en fast IP på LAN-"
+"porten och låta klienter på LAN få nätverksinställningar automatiskt från "
+"{PLATFORM}."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/network.html:15
-msgid "<strong>Server only</strong> - {PLATFORM} will automatically try to retreive network settings on LAN (local network) and the WAN port should be left unconnected."
-msgstr "<strong>Endast server</strong> - {PLATFORM} kommer automatiskt att be om nätverksinställningar på LAN (lokala nätverket). WAN-porten bör inte användas i detta läge. "
+msgid ""
+"<strong>Server only</strong> - {PLATFORM} will automatically try to retreive "
+"network settings on LAN (local network) and the WAN port should be left "
+"unconnected."
+msgstr ""
+"<strong>Endast server</strong> - {PLATFORM} kommer automatiskt att be om "
+"nätverksinställningar på LAN (lokala nätverket). WAN-porten bör inte "
+"användas i detta läge. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/network.html:18
-msgid "After editing the network settings you might need to reboot your computers and other network devices in your LAN."
-msgstr "Efter att du ändrat nätverksinställningarna kan du behöva starta om din dator och andra nätverksenheter på ditt lokala nätverk. "
+msgid ""
+"After editing the network settings you might need to reboot your computers "
+"and other network devices in your LAN."
+msgstr ""
+"Efter att du ändrat nätverksinställningarna kan du behöva starta om din "
+"dator och andra nätverksenheter på ditt lokala nätverk. "

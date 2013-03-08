@@ -30,13 +30,23 @@ msgstr "Säkerhetskopiera och återställ inställningar"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_backuprestore.html:5
-msgid "'Backup settings' will backup all your {PLATFORM} settings, nice to have in case you reinstall {PLATFORM} or move the settings to another {PLATFORM} unit. The following settings will be saved :"
-msgstr "Detta kommer att säkerhetskopiera alla inställningar på din {PLATFORM}, vilket kan vara bra om du någon gång behöver installera om din {PLATFORM} eller flytta inställningarna till en ny. Följande inställningar kommer att sparas: "
+msgid ""
+"'Backup settings' will backup all your {PLATFORM} settings, nice to have in "
+"case you reinstall {PLATFORM} or move the settings to another {PLATFORM} "
+"unit. The following settings will be saved :"
+msgstr ""
+"Detta kommer att säkerhetskopiera alla inställningar på din {PLATFORM}, "
+"vilket kan vara bra om du någon gång behöver installera om din {PLATFORM} "
+"eller flytta inställningarna till en ny. Följande inställningar kommer att "
+"sparas: "
 
 #. type: Content of: <ul><li>
 #: admin/views/default/help/en/settings_backuprestore.html:8
-msgid "User accounts (including admin login via WAN setting, passwords) but no user data"
-msgstr "Användarkonton (inklusive inställningar och lösenord, men ingen användardata)"
+msgid ""
+"User accounts (including admin login via WAN setting, passwords) but no user "
+"data"
+msgstr ""
+"Användarkonton (inklusive inställningar och lösenord, men ingen användardata)"
 
 #. type: Content of: <ul><li>
 #: admin/views/default/help/en/settings_backuprestore.html:10
@@ -55,7 +65,9 @@ msgstr "Epostkontoinställningar"
 
 #. type: Content of: <ul><li>
 #: admin/views/default/help/en/settings_backuprestore.html:16
-msgid "Network setup (all settings i.e. profile, hostname, wireless settings, firewall rules etc)"
+msgid ""
+"Network setup (all settings i.e. profile, hostname, wireless settings, "
+"firewall rules etc)"
 msgstr "Nätverksinställningar"
 
 #. type: Content of: <ul><li>
@@ -70,8 +82,10 @@ msgstr "Utför en säkerhetskopia"
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/settings_backuprestore.html:25
-msgid "Insert an external storage device (USB memory or USB disk) into {PLATFORM}."
-msgstr "Sätt i en externt lagringsenhet (USB-minne eller USB-disk) i {PLATFORM}. "
+msgid ""
+"Insert an external storage device (USB memory or USB disk) into {PLATFORM}."
+msgstr ""
+"Sätt i en externt lagringsenhet (USB-minne eller USB-disk) i {PLATFORM}. "
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/settings_backuprestore.html:27
@@ -80,18 +94,28 @@ msgstr "Välj källa / destination och tryck Säkerhetskopiera. "
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/settings_backuprestore.html:29
-msgid "All settings are now saved on a file on the chosen external storage device."
+msgid ""
+"All settings are now saved on a file on the chosen external storage device."
 msgstr "Alla inställningar sparas nu i en fil på din externa lagringsenhet. "
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/settings_backuprestore.html:36
 msgid "Insert the storage device containing the backup file into {PLATFORM}."
-msgstr "Sätt i lagringsenheten som innehåller din säkerhetskopia i {PLATFORM}. "
+msgstr ""
+"Sätt i lagringsenheten som innehåller din säkerhetskopia i {PLATFORM}. "
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/settings_backuprestore.html:38
-msgid "Observe that the current users on {PLATFORM} will be removed and the users stored in the backup file will be restored. Although the user data from current users on {PLATFORM} will be left intact in the /home/[user] catalogue."
-msgstr "Notera att användare på din {PLATFORM} kommer att tas bort och att användare lagrade i din säkerhetskopia kommer att återställas. All data från nuvarande användare på din {PLATFORM} kommer att lämnas intakt under /home/[användare]. "
+msgid ""
+"Observe that the current users on {PLATFORM} will be removed and the users "
+"stored in the backup file will be restored. Although the user data from "
+"current users on {PLATFORM} will be left intact in the /home/[user] "
+"catalogue."
+msgstr ""
+"Notera att användare på din {PLATFORM} kommer att tas bort och att användare "
+"lagrade i din säkerhetskopia kommer att återställas. All data från nuvarande "
+"användare på din {PLATFORM} kommer att lämnas intakt under /home/"
+"[användare]. "
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/settings_backuprestore.html:41
@@ -100,5 +124,9 @@ msgstr "Tryck återställ."
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/settings_backuprestore.html:43
-msgid "You might need to reconnect your {PLATFORM} depending on how your restored network settings are configured."
-msgstr "Du kan behöva återansluta till din {PLATFORM} beroende på hur dina nätverksinställningar ser ut efter återställningen. "
+msgid ""
+"You might need to reconnect your {PLATFORM} depending on how your restored "
+"network settings are configured."
+msgstr ""
+"Du kan behöva återansluta till din {PLATFORM} beroende på hur dina "
+"nätverksinställningar ser ut efter återställningen. "

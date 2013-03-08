@@ -24,13 +24,23 @@ msgstr "Systemnamn"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_identity.html:5
-msgid "<strong>Hostname</strong> - is the unique name by which a network-attached device is known on a network."
-msgstr "<strong>Servernamn</strong> - detta är namnet som din {PLATFORM} syns som i ditt lokala nätverk. "
+msgid ""
+"<strong>Hostname</strong> - is the unique name by which a network-attached "
+"device is known on a network."
+msgstr ""
+"<strong>Servernamn</strong> - detta är namnet som din {PLATFORM} syns som i "
+"ditt lokala nätverk. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_identity.html:8
-msgid "<strong>Workgroup</strong> - Devices in the same Workgroup may allow each other access to their files, printers, or Internet connection. Use the same workgroup name on {PLATFORM} as on your computer."
-msgstr "<strong>Arbetsgrupp</strong> - Enheter under samma arbetsgrupp kan dela filer och skrivare med varandra. Använd samma arbetsgrupp här som du använder på dina datorer. "
+msgid ""
+"<strong>Workgroup</strong> - Devices in the same Workgroup may allow each "
+"other access to their files, printers, or Internet connection. Use the same "
+"workgroup name on {PLATFORM} as on your computer."
+msgstr ""
+"<strong>Arbetsgrupp</strong> - Enheter under samma arbetsgrupp kan dela "
+"filer och skrivare med varandra. Använd samma arbetsgrupp här som du "
+"använder på dina datorer. "
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/settings_identity.html:11
@@ -39,10 +49,21 @@ msgstr "Easyfindinställningar"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_identity.html:14
-msgid "<strong>Use 'Easyfind' to locate your {PLATFORM}</strong> - Using our free service Easyfind you will be able to reach your {PLATFORM} wherever you are. You will be able to find your {PLATFORM} wherever you are typing www.-your easyfind name-.{EASYFIND}."
-msgstr "<strong>Använd 'Easyfind' för att nå din {PLATFORM}</strong> - Du kan nå din {PLATFORM} var du än är genom att skriva www.-your easyfind name-.{EASYFIND} i en webbläsare. "
+msgid ""
+"<strong>Use 'Easyfind' to locate your {PLATFORM}</strong> - Using our free "
+"service Easyfind you will be able to reach your {PLATFORM} wherever you are. "
+"You will be able to find your {PLATFORM} wherever you are typing www.-your "
+"easyfind name-.{EASYFIND}."
+msgstr ""
+"<strong>Använd 'Easyfind' för att nå din {PLATFORM}</strong> - Du kan nå din "
+"{PLATFORM} var du än är genom att skriva www.-your easyfind name-.{EASYFIND} "
+"i en webbläsare. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_identity.html:18
-msgid "<strong>Easyfind name</strong> - Choose a name for your {PLATFORM} on the Easyfind network."
-msgstr "<strong>Easyfindnamn</strong> - Välj ett unikt namn för din {PLATFORM} för Easyfind-funktionen."
+msgid ""
+"<strong>Easyfind name</strong> - Choose a name for your {PLATFORM} on the "
+"Easyfind network."
+msgstr ""
+"<strong>Easyfindnamn</strong> - Välj ett unikt namn för din {PLATFORM} för "
+"Easyfind-funktionen."

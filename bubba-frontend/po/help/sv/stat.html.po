@@ -24,7 +24,9 @@ msgstr "Status"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/stat.html:5
-msgid "Here you find information about the installed hard drive size and remaining disk space, {PLATFORM} uptime and the installed software revision number."
+msgid ""
+"Here you find information about the installed hard drive size and remaining "
+"disk space, {PLATFORM} uptime and the installed software revision number."
 msgstr "Här finns diverse information om statusen på din {PLATFORM}. "
 
 #. type: Content of: <h3>
@@ -39,8 +41,14 @@ msgstr "Viktiga notifieringar från systemet kommer att visas här"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/stat.html:14
-msgid "The '<strong>Shutdown</strong>' button powers off {PLATFORM} in the same way as pressing the button on the backside of the unit. To start up again, press the button on the backside."
-msgstr "'<strong>Stäng av</strong>' -knappen stänger ner din {PLATFORM} på samma sätt som om du håller in knappen på baksidan av din {PLATFORM}. För att starta igen, tryck in knappen på baksidan. "
+msgid ""
+"The '<strong>Shutdown</strong>' button powers off {PLATFORM} in the same way "
+"as pressing the button on the backside of the unit. To start up again, press "
+"the button on the backside."
+msgstr ""
+"'<strong>Stäng av</strong>' -knappen stänger ner din {PLATFORM} på samma "
+"sätt som om du håller in knappen på baksidan av din {PLATFORM}. För att "
+"starta igen, tryck in knappen på baksidan. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/stat.html:17

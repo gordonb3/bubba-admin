@@ -24,10 +24,18 @@ msgstr "{PLATFORM} administration"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/login.html:5
-msgid "Logged in as administrator you have access to the system settings. Click the <strong>gear wheel</strong> to administrate your {PLATFORM}."
-msgstr "Inloggad som administratör har du tillgång till systeminställningar. Klicka på <strong>kugghjulet</strong> för att administrera din {PLATFORM}. "
+msgid ""
+"Logged in as administrator you have access to the system settings. Click the "
+"<strong>gear wheel</strong> to administrate your {PLATFORM}."
+msgstr ""
+"Inloggad som administratör har du tillgång till systeminställningar. Klicka "
+"på <strong>kugghjulet</strong> för att administrera din {PLATFORM}. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/login.html:8
-msgid "Only use the administrator login to manage {PLATFORM}'s settings. Your everyday use should be done with another user."
-msgstr "Använd bara administratören för att hantera {PLATFORM}'s inställningar. Vanliga operationer bör göras med en annan användare. "
+msgid ""
+"Only use the administrator login to manage {PLATFORM}'s settings. Your "
+"everyday use should be done with another user."
+msgstr ""
+"Använd bara administratören för att hantera {PLATFORM}'s inställningar. "
+"Vanliga operationer bör göras med en annan användare. "

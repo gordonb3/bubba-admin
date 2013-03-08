@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2013-02-14 14:54+0100\n"
+"POT-Creation-Date: 2013-03-08 10:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -247,15 +247,9 @@ msgstr ""
 msgid "Backup of %s made %s to External disk %s"
 msgstr ""
 
-#: admin/controllers/ajax_backup.php:260
-#, php-format
+#: admin/controllers/ajax_backup.php:265
 msgid ""
-"Selection %s for schedule %s for user %s on remote %s is already defined"
-msgstr ""
-
-#: admin/controllers/ajax_backup.php:274
-#, php-format
-msgid "Selection %s for schedule %s to external disk %s is already defined"
+"Choosen configuration for backup job is already taken by another backup job"
 msgstr ""
 
 #: admin/controllers/mail.php:104 admin/controllers/mail.php:147
@@ -587,16 +581,16 @@ msgstr ""
 msgid "Server responded: "
 msgstr ""
 
-#: admin/models/system.php:187
+#: admin/models/system.php:188
 msgid "Unable to verify credentials"
 msgstr ""
 
-#: admin/models/system.php:190
+#: admin/models/system.php:191
 msgid ""
 "Selected HiDrive account doesn't have the stuff required for this system"
 msgstr ""
 
-#: admin/models/system.php:213
+#: admin/models/system.php:214
 msgid "Account allready defined"
 msgstr ""
 
@@ -606,8 +600,8 @@ msgstr ""
 
 #: admin/views/default/mail/mail_retrieve_view.php:7
 #: admin/views/default/mail/mail_retrieve_view.php:39
-#: admin/views/default/settings/settings_remote_accounts_view.php:49
-#: admin/views/default/settings/settings_remote_accounts_view.php:95
+#: admin/views/default/settings/settings_remote_accounts_view.php:48
+#: admin/views/default/settings/settings_remote_accounts_view.php:93
 msgid "Host"
 msgstr ""
 
@@ -624,8 +618,8 @@ msgstr ""
 
 #: admin/views/default/mail/mail_retrieve_view.php:9
 #: admin/views/default/settings/settings_remote_accounts_view.php:8
-#: admin/views/default/settings/settings_remote_accounts_view.php:41
-#: admin/views/default/settings/settings_remote_accounts_view.php:87
+#: admin/views/default/settings/settings_remote_accounts_view.php:40
+#: admin/views/default/settings/settings_remote_accounts_view.php:85
 #: admin/views/default/login_view.php:23
 msgid "Username"
 msgstr ""
@@ -653,8 +647,8 @@ msgstr ""
 
 #: admin/views/default/mail/mail_retrieve_view.php:60
 #: admin/views/default/mail/mail_server_view.php:70
-#: admin/views/default/settings/settings_remote_accounts_view.php:57
-#: admin/views/default/settings/settings_remote_accounts_view.php:103
+#: admin/views/default/settings/settings_remote_accounts_view.php:56
+#: admin/views/default/settings/settings_remote_accounts_view.php:101
 #: admin/views/default/old_backup/backup_view.php:373
 #: admin/views/default/network/network_wlan_view.php:54
 #: admin/views/default/login_view.php:35
@@ -1107,15 +1101,15 @@ msgstr ""
 msgid "Define a new remote target"
 msgstr ""
 
-#: admin/views/default/settings/settings_remote_accounts_view.php:65
+#: admin/views/default/settings/settings_remote_accounts_view.php:64
 msgid "Create target"
 msgstr ""
 
-#: admin/views/default/settings/settings_remote_accounts_view.php:73
+#: admin/views/default/settings/settings_remote_accounts_view.php:72
 msgid "Edit a currently existing remote target"
 msgstr ""
 
-#: admin/views/default/settings/settings_remote_accounts_view.php:111
+#: admin/views/default/settings/settings_remote_accounts_view.php:109
 msgid "Edit target"
 msgstr ""
 

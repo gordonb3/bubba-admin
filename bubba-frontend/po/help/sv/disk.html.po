@@ -23,18 +23,30 @@ msgstr "Disk"
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/disk.html:5
-msgid "Here you find the status of internal and external disks and storage devices. When a new device is attached you must press 'Connect' to be able to use the device."
-msgstr "Här hittar du statusen på interna och externa diskar och lagringsenheter. När en ny enhet kopplas in måste du trycka 'Anslut' för att kunna använda enheten. "
+msgid ""
+"Here you find the status of internal and external disks and storage devices. "
+"When a new device is attached you must press 'Connect' to be able to use the "
+"device."
+msgstr ""
+"Här hittar du statusen på interna och externa diskar och lagringsenheter. "
+"När en ny enhet kopplas in måste du trycka 'Anslut' för att kunna använda "
+"enheten. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/disk.html:8
-msgid "<strong>Disk information</strong> - Shows disk name, size, disk type and a graphical overview of the partitions."
-msgstr "<strong>Diskinformation</stron> - Visar diskens namn, storlek, disktyp och en grafisk översikt över partitionerna. "
+msgid ""
+"<strong>Disk information</strong> - Shows disk name, size, disk type and a "
+"graphical overview of the partitions."
+msgstr ""
+"<strong>Diskinformation</stron> - Visar diskens namn, storlek, disktyp och "
+"en grafisk översikt över partitionerna. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/disk.html:11
 msgid "<strong>Partition information</strong> - Description of the partitions."
-msgstr "<strong>Partitionsinformation</strong> - Visar en beskrivning av partitionerna"
+msgstr ""
+"<strong>Partitionsinformation</strong> - Visar en beskrivning av "
+"partitionerna"
 
 #. type: Content of: <h3>
 #: admin/views/default/help/en/disk.html:14
@@ -53,13 +65,21 @@ msgstr "Lägg till en extern disk, USB eller eSATA-enhet."
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/disk.html:22
-msgid "Press '<strong>Connect</strong>' to the right of the partition you which to connect"
-msgstr "Klicka '<strong>Anslut</strong>' till höger om partitionen du vill ansluta till"
+msgid ""
+"Press '<strong>Connect</strong>' to the right of the partition you which to "
+"connect"
+msgstr ""
+"Klicka '<strong>Anslut</strong>' till höger om partitionen du vill ansluta "
+"till"
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/disk.html:24
-msgid "Now you will reach your files in the 'storage/extern' catalogue or by using for example Windows explorer."
-msgstr "Nu kan du nå dina filer i 'storage/extern'-katalogen eller genom att använda t.ex. windows utforskaren."
+msgid ""
+"Now you will reach your files in the 'storage/extern' catalogue or by using "
+"for example Windows explorer."
+msgstr ""
+"Nu kan du nå dina filer i 'storage/extern'-katalogen eller genom att använda "
+"t.ex. windows utforskaren."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/disk.html:28
@@ -68,8 +88,12 @@ msgstr "<strong>Kopplar från</strong>"
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/disk.html:31
-msgid "When you want to unplug the external disk, USB or eSATA drive you must click 'Disconnect' first to ensure that it is safe to unplug the device."
-msgstr "När du vill koppla ur din externa disk, USB eller eSATA, måste du trycka 'Koppla från' först, annars riskerar du att förlora data. "
+msgid ""
+"When you want to unplug the external disk, USB or eSATA drive you must click "
+"'Disconnect' first to ensure that it is safe to unplug the device."
+msgstr ""
+"När du vill koppla ur din externa disk, USB eller eSATA, måste du trycka "
+"'Koppla från' först, annars riskerar du att förlora data. "
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/disk.html:33
