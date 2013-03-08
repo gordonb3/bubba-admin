@@ -1,3 +1,17 @@
+bubba-frontend (2.5.1.6+backup14) testing unstable; urgency=low
+
+  [ Carl Fürstenberg ]
+  * Add information link to old backup
+  * remove --no-wrap to gettext and flush all translations
+
+  [ Bernhard Schuster ]
+  * Update german translations
+
+  [ Carl Fürstenberg ]
+  * flush swedish translations
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 08 Mar 2013 15:44:30 +0100
+
 bubba-frontend (2.5.1.6+backup13) testing unstable; urgency=low
 
   * adding HTTP_Request2 include statement
