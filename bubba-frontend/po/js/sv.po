@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2013-02-14 14:54+0100\n"
-"PO-Revision-Date: 2013-03-08 11:58+0100\n"
+"PO-Revision-Date: 2013-03-11 13:24+0100\n"
 "Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
 "Language-Team: \n"
 "Language: Swedish\n"
@@ -69,60 +69,59 @@ msgstr "Lägg till ny användare till fotoalbumet"
 
 #: admin/views/default/_js/backup.js:45
 msgid "All user's data (/home/<all users>)"
-msgstr ""
+msgstr "All användardata (/home/<alla användare>)"
 
 #: admin/views/default/_js/backup.js:47
 msgid "All music (/home/storage/music)"
-msgstr ""
+msgstr "All musik  (/home/storage/music)"
 
 #: admin/views/default/_js/backup.js:49
 msgid "All pictures (/home/storage/pictures)"
-msgstr ""
+msgstr "Alla bilder (/home/storage/pictures)"
 
 #: admin/views/default/_js/backup.js:51
 msgid "All videos (/home/storage/video)"
-msgstr ""
+msgstr "Alla videofilmer (/home/storage/video)"
 
 #: admin/views/default/_js/backup.js:53
 msgid "Storage (/home/storage)"
-msgstr ""
+msgstr "Lagring (/home/storage)"
 
 #: admin/views/default/_js/backup.js:63
 msgid "Daily (every night at two a clock)"
-msgstr ""
+msgstr "Dagligen (varje natt runt klockan två)"
 
 #: admin/views/default/_js/backup.js:65
 msgid "Twice a week (every wednesday and sunday night)"
-msgstr ""
+msgstr "Två gånger i veckan (varje onsdags- och söndagsnatt)"
 
 #: admin/views/default/_js/backup.js:67
 msgid "Weekly (every sunday night)"
-msgstr ""
+msgstr "Veckovis (varje söndagsnatt)"
 
 #: admin/views/default/_js/backup.js:74
 msgid "Currently running"
-msgstr ""
+msgstr "Körs för närvarande"
 
 #: admin/views/default/_js/backup.js:78
 msgid "Not yet run"
-msgstr ""
+msgstr "Har inte körts ännu"
 
 #: admin/views/default/_js/backup.js:82
-#, fuzzy
 msgid "Completed"
-msgstr "Slutför"
+msgstr "Slutförd"
 
 #: admin/views/default/_js/backup.js:88
 msgid "Syntax or usage error"
-msgstr ""
+msgstr "Syntax eller användarfel"
 
 #: admin/views/default/_js/backup.js:90
 msgid "Protocol incompatibility"
-msgstr ""
+msgstr "Protokollsinkompabilitet"
 
 #: admin/views/default/_js/backup.js:92
 msgid "Errors selecting input/output files, dirs"
-msgstr ""
+msgstr "Fel vid val av input/output-filer, kataloger"
 
 #: admin/views/default/_js/backup.js:94
 msgid ""
@@ -130,66 +129,69 @@ msgid ""
 "files on a platform that cannot support them; or an option was specified "
 "that is supported by the client and not by the server."
 msgstr ""
+"Begärda åtgärden stöds inte: ett försök gjordes att manipulera 64-bitars "
+"filer på en plattform som inte kan stödja dem, eller ett alternativ angavs "
+"som stöds av klienten och inte av servern."
 
 #: admin/views/default/_js/backup.js:96
 msgid "Error starting client-server protocol"
-msgstr ""
+msgstr "Fel vid start av klient-server-protokoll"
 
 #: admin/views/default/_js/backup.js:98
 msgid "Daemon unable to append to log-file"
-msgstr ""
+msgstr "Daemonen var oförmögen att lägga till i loggfilen"
 
 #: admin/views/default/_js/backup.js:100
 msgid "Error in socket I/O"
-msgstr ""
+msgstr "Fel i socket I/O"
 
 #: admin/views/default/_js/backup.js:102
 msgid "Error in file I/O"
-msgstr ""
+msgstr "Fel i fil I/O"
 
 #: admin/views/default/_js/backup.js:104
 msgid "Error in rsync protocol data stream"
-msgstr ""
+msgstr "Fel i rsync-protokollsdataströmmen"
 
 #: admin/views/default/_js/backup.js:106
 msgid "Errors with program diagnostics"
-msgstr ""
+msgstr "Fel i programdiagnostik"
 
 #: admin/views/default/_js/backup.js:108
 msgid "Error in IPC code"
-msgstr ""
+msgstr "Fel i IPC-kod"
 
 #: admin/views/default/_js/backup.js:110
 msgid "Received SIGUSR1 or SIGINT"
-msgstr ""
+msgstr "Mottog SIGUSR1 eller SIGINT"
 
 #: admin/views/default/_js/backup.js:112
 msgid "Some error returned by waitpid()"
-msgstr ""
+msgstr "Något fel returnerades av waitpid()"
 
 #: admin/views/default/_js/backup.js:114
 msgid "Error allocating core memory buffers"
-msgstr ""
+msgstr "Fel  vid allokering av centrala buffrar"
 
 #: admin/views/default/_js/backup.js:116
 msgid "Partial transfer due to error"
-msgstr ""
+msgstr "Partiell överföring på grund av fel"
 
 #: admin/views/default/_js/backup.js:118
 msgid "Partial transfer due to vanished source files"
-msgstr ""
+msgstr "Partiell överföring på grund av försvunna källfiler"
 
 #: admin/views/default/_js/backup.js:120
 msgid "The --max-delete limit stopped deletions"
-msgstr ""
+msgstr "--max-delete begränsningen stoppade raderingen"
 
 #: admin/views/default/_js/backup.js:122
 msgid "Timeout in data send/receive"
-msgstr ""
+msgstr "Timeout i skickad eller mottagen data"
 
 #: admin/views/default/_js/backup.js:124
 msgid "Timeout waiting for daemon connection"
-msgstr ""
+msgstr "Timeout i väntan på daemonanslutning"
 
 #: admin/views/default/_js/backup.js:130
 msgid "Failed"
@@ -200,9 +202,9 @@ msgid "why?"
 msgstr "varför?"
 
 #: admin/views/default/_js/backup.js:136
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Backup job for %s on %s failed"
-msgstr "Backup-jobb %s misslyckades"
+msgstr "Backupjobb för %s på %s misslyckades"
 
 #: admin/views/default/_js/backup.js:147
 #: admin/views/default/_js/remote_accounts.js:16
@@ -211,7 +213,7 @@ msgstr "Ta bort"
 
 #: admin/views/default/_js/backup.js:176
 msgid "External disk"
-msgstr ""
+msgstr "Extern disk"
 
 #: admin/views/default/_js/backup.js:230 admin/views/default/_js/backup.js:256
 #: admin/views/default/_js/wizard.js:15 admin/views/default/_js/wizard.js:91
@@ -236,6 +238,10 @@ msgid ""
 "\"_blank\" href=\"https://hidrive.strato.com/\">HiDrive</a> under Account → "
 "Settings → Account management → OpenSSH key"
 msgstr ""
+"Klicka <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">här</ a> "
+"för att ladda ner OpenSSH-nyckeln som behövs för säkerhetskopiering. Ladda "
+"upp den till <a target=\"_blank\" href=\"https://hidrive.strato.com/"
+"\">HiDrive</a> under Account → Settings → Account management → OpenSSH key"
 
 #: admin/views/default/_js/backup.js:338
 #: admin/views/default/_js/remote_accounts.js:64
@@ -244,6 +250,8 @@ msgid ""
 "Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</"
 "a> to download the openssh key needed for backup"
 msgstr ""
+"Klicka <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">här</ a> "
+"för att ladda ner OpenSSH-nyckeln som behövs för säkerhetskopiering."
 
 #: admin/views/default/_js/backup.js:361
 msgid "Are you sure you want to permanently remove this backup job?"
@@ -258,18 +266,16 @@ msgid "Backup job was removed from the system"
 msgstr "Backup-jobbet raderades"
 
 #: admin/views/default/_js/backup.js:402
-#, fuzzy
 msgid "Edit your backup job here"
-msgstr "Kör backupjobb"
+msgstr "Redigera ditt backupjobb här"
 
 #: admin/views/default/_js/backup.js:406
-#, fuzzy
 msgid "Selection"
-msgstr "Välj"
+msgstr "Urval"
 
 #: admin/views/default/_js/backup.js:418
 msgid "Schedule"
-msgstr ""
+msgstr "Schemaläggning"
 
 #: admin/views/default/_js/backup.js:427
 #: admin/views/default/_js/mail_retrieve.js:180
@@ -504,18 +510,16 @@ msgstr "Radera email-konto"
 
 #: admin/views/default/_js/remote_accounts.js:16
 msgid "public key"
-msgstr ""
+msgstr "publik nyckel"
 
 #: admin/views/default/_js/remote_accounts.js:154
-#, fuzzy
 msgid "Are you sure you want to permanently remove this remote account?"
-msgstr "Vill du verkligen ta bort detta backup-jobb?"
+msgstr "Är du säker på att du vill ta bort detta fjärrkonto?"
 
 #: admin/views/default/_js/remote_accounts.js:154
 #: admin/views/default/_js/remote_accounts.js:156
-#, fuzzy
 msgid "Remove remote account"
-msgstr "Radera konto"
+msgstr "Radera fjärrkonto"
 
 #: admin/views/default/_js/stat.js:79
 msgid "No more system messages available"
@@ -683,17 +687,22 @@ msgid ""
 "Connection to internet is not available. Please disable easyfind, or connect "
 "to internet and try again."
 msgstr ""
+"Anslutning till internet finns inte tillgänglig. Var vänlig avaktivera "
+"easyfind, eller anslut till internet och försök igen."
 
 #: admin/views/default/_js/wizard.js:108
 msgid ""
 "The easyfind name you selected contains invalid characters. Please only "
 "include letters, numbers, or dashes ."
 msgstr ""
+"Det easyfind-namn du valt innehåller ogiltiga tecken. Vänligen välj bara "
+"bokstäver, siffror eller bindestreck."
 
 #: admin/views/default/_js/wizard.js:112
 msgid ""
 "The easyfind name you selected is already taken, please try another one."
 msgstr ""
+"Det easyfindnamn du valt är redan taget, var vänlig välj ett annat namn."
 
 #: admin/views/default/_js/wizard.js:174
 msgid "Following errors where encountered when trying to apply the changes: "
