@@ -256,6 +256,8 @@ class Oldbackup extends CI_Model {
         if( file_exists( BACKUP_LOCKFILE ) ) {
             $data = file_get_contents( BACKUP_LOCKFILE );
             list($user, $jobname,) = explode( " ", $data );
+            # Unset the cache if job is running still
+            xcache_unset("backup_collection:$jobname");
             return array(
                 "running" => true,
                 "user" => $user,
