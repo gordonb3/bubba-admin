@@ -31,7 +31,7 @@ class Backup extends CI_Controller {
 			return $jobs;
 		}
         foreach( scandir($dir) as $file ) {
-            if( !is_dir( "$dir/$file" ) || $file == "." || $file == ".." ) {
+            if( !is_dir( "$dir/$file" ) || $file == "." || $file == ".." || $file == 'partials' || $file == 'tmp' ) {
                 continue;
             }
             $jobs[] = $file;
