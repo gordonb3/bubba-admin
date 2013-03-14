@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bubba-frontend 2.3.0.2-8-g99845c1\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
-"POT-Creation-Date: 2013-01-23 11:45+0100\n"
+"POT-Creation-Date: 2013-03-08 10:40+0100\n"
 "PO-Revision-Date: 2013-02-18 15:02+0100\n"
 "Last-Translator: Johannes Book <johannes@excito.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -19,7 +19,9 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #: admin/views/default/_js/album_users.js:30
+#: admin/views/default/_js/backup.js:151
 #: admin/views/default/_js/mail_retrieve.js:150
+#: admin/views/default/_js/remote_accounts.js:16
 #: admin/views/default/_js/user.js:96
 msgid "Edit"
 msgstr "Bearbeiten"
@@ -65,19 +67,63 @@ msgstr "Viewer aktualisieren"
 msgid "Add new viewer to the photo album"
 msgstr "Neuen Viewer an das Fotoalbum hinzufügen"
 
-#: admin/views/default/_js/backup.js:34
+#: admin/views/default/_js/backup.js:45
+msgid "All user's data (/home/<all users>)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:47
+msgid "All music (/home/storage/music)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:49
+msgid "All pictures (/home/storage/pictures)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:51
+msgid "All videos (/home/storage/video)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:53
+msgid "Storage (/home/storage)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:63
+msgid "Daily (every night at two a clock)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:65
+msgid "Twice a week (every wednesday and sunday night)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:67
+msgid "Weekly (every sunday night)"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:74
+msgid "Currently running"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:78
+msgid "Not yet run"
+msgstr "Ausstehend"
+
+#: admin/views/default/_js/backup.js:82
+msgid "Completed"
+msgstr "Abgeschlossen"
+
+#: admin/views/default/_js/backup.js:88
 msgid "Syntax or usage error"
 msgstr "Syntaxfehler oder Benutzerfehler"
 
-#: admin/views/default/_js/backup.js:36
+#: admin/views/default/_js/backup.js:90
 msgid "Protocol incompatibility"
 msgstr "Protokollinkompatibilität"
 
-#: admin/views/default/_js/backup.js:38
+#: admin/views/default/_js/backup.js:92
 msgid "Errors selecting input/output files, dirs"
 msgstr "Fehler bei der Auswahl von Eingangs/Ausgangs Dateien und Ordnern"
 
-#: admin/views/default/_js/backup.js:40
+#: admin/views/default/_js/backup.js:94
 msgid ""
 "Requested action not supported: an attempt was made to manipulate 64-bit "
 "files on a platform that cannot support them; or an option was specified "
@@ -88,113 +134,107 @@ msgstr ""
 "manipulieren deren größe die maximale Größe auf Server oder Client "
 "übersteigt."
 
-#: admin/views/default/_js/backup.js:42
+#: admin/views/default/_js/backup.js:96
 msgid "Error starting client-server protocol"
 msgstr "Fehler beim Starten des Client-Server-Protokolls"
 
-#: admin/views/default/_js/backup.js:44
+#: admin/views/default/_js/backup.js:98
 msgid "Daemon unable to append to log-file"
 msgstr "Daemon kann Log-Dateien nicht anfügen"
 
-#: admin/views/default/_js/backup.js:46
+#: admin/views/default/_js/backup.js:100
 msgid "Error in socket I/O"
 msgstr "Fehler bei Socket I/O"
 
-#: admin/views/default/_js/backup.js:48
+#: admin/views/default/_js/backup.js:102
 msgid "Error in file I/O"
 msgstr "Fehler bei Datei I/O"
 
-#: admin/views/default/_js/backup.js:50
+#: admin/views/default/_js/backup.js:104
 msgid "Error in rsync protocol data stream"
 msgstr "Fehler im rsync Datenstrom"
 
-#: admin/views/default/_js/backup.js:52
+#: admin/views/default/_js/backup.js:106
 msgid "Errors with program diagnostics"
 msgstr "Fehler bei der Diagnose"
 
-#: admin/views/default/_js/backup.js:54
+#: admin/views/default/_js/backup.js:108
 msgid "Error in IPC code"
 msgstr "Fehler bei der Inter-Prozess-Kommunikation (IPC)"
 
-#: admin/views/default/_js/backup.js:56
+#: admin/views/default/_js/backup.js:110
 msgid "Received SIGUSR1 or SIGINT"
 msgstr "Signal SIGUSR1 oder SIGINT erhalten"
 
-#: admin/views/default/_js/backup.js:58
+#: admin/views/default/_js/backup.js:112
 msgid "Some error returned by waitpid()"
 msgstr "waitpid() hat einen Fehler zurückgegeben"
 
-#: admin/views/default/_js/backup.js:60
+#: admin/views/default/_js/backup.js:114
 msgid "Error allocating core memory buffers"
 msgstr "Fehler bei der Pufferallokation"
 
-#: admin/views/default/_js/backup.js:62
+#: admin/views/default/_js/backup.js:116
 msgid "Partial transfer due to error"
 msgstr "Teilweiser Transfer, fehlerbegründet"
 
-#: admin/views/default/_js/backup.js:64
+#: admin/views/default/_js/backup.js:118
 msgid "Partial transfer due to vanished source files"
 msgstr "Teilweiser Transfer, Quelldateien sind teilweise verschwunden"
 
-#: admin/views/default/_js/backup.js:66
+#: admin/views/default/_js/backup.js:120
 msgid "The --max-delete limit stopped deletions"
 msgstr ""
 "Die maximale Anzahl Löschungen wurde überschritten. Weitere Löschungen "
 "wurden gestoppt. Siehe --max-delete Argument."
 
-#: admin/views/default/_js/backup.js:68
+#: admin/views/default/_js/backup.js:122
 msgid "Timeout in data send/receive"
 msgstr "Timeout beim Senden und/oder Empfangen"
 
-#: admin/views/default/_js/backup.js:70
+#: admin/views/default/_js/backup.js:124
 msgid "Timeout waiting for daemon connection"
 msgstr "Timeout beim Verbindungsaufbau"
 
-#: admin/views/default/_js/backup.js:76
+#: admin/views/default/_js/backup.js:130
 msgid "Failed"
 msgstr "Fehler"
 
-#: admin/views/default/_js/backup.js:79
+#: admin/views/default/_js/backup.js:133
 msgid "why?"
 msgstr "Warum?"
 
-#: admin/views/default/_js/backup.js:82
+#: admin/views/default/_js/backup.js:136
+#, javascript-format
 msgid "Backup job for %s on %s failed"
 msgstr "Sicherung %s (%s) fehlgeschlagen"
 
-#: admin/views/default/_js/backup.js:92
-msgid "Completed"
-msgstr "Abgeschlossen"
-
-#: admin/views/default/_js/backup.js:92
-msgid "Not yet run"
-msgstr "Ausstehend"
-
-#: admin/views/default/_js/backup.js:98
+#: admin/views/default/_js/backup.js:147
 #: admin/views/default/_js/remote_accounts.js:16
 msgid "Remove"
 msgstr "Entfernen"
 
-#: admin/views/default/_js/backup.js:121
+#: admin/views/default/_js/backup.js:176
 msgid "External disk"
 msgstr "Externe Festplatte"
 
-#: admin/views/default/_js/backup.js:175 admin/views/default/_js/backup.js:201
+#: admin/views/default/_js/backup.js:230 admin/views/default/_js/backup.js:256
 #: admin/views/default/_js/wizard.js:15 admin/views/default/_js/wizard.js:91
 msgid "Next"
 msgstr "Weiter"
 
-#: admin/views/default/_js/backup.js:181 admin/views/default/_js/backup.js:202
+#: admin/views/default/_js/backup.js:236 admin/views/default/_js/backup.js:257
 #: admin/views/default/_js/wizard.js:24 admin/views/default/_js/wizard.js:92
 msgid "Back"
 msgstr "Zurück"
 
-#: admin/views/default/_js/backup.js:203 admin/views/default/_js/wizard.js:93
+#: admin/views/default/_js/backup.js:258 admin/views/default/_js/wizard.js:93
 msgid "Complete"
 msgstr "Fertigstellen"
 
-#: admin/views/default/_js/backup.js:269
-#: admin/views/default/_js/remote_accounts.js:50
+#: admin/views/default/_js/backup.js:336
+#: admin/views/default/_js/remote_accounts.js:62
+#, javascript-format
 msgid ""
 "Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</"
 "a> to download the openssh key needed for backup. Upload it to <a target="
@@ -207,8 +247,9 @@ msgstr ""
 "hidrive.strato.com/\">HiDrive</a> unter Account → Settings → Account "
 "management → OpenSSH hochgeladen werden."
 
-#: admin/views/default/_js/backup.js:271
-#: admin/views/default/_js/remote_accounts.js:52
+#: admin/views/default/_js/backup.js:338
+#: admin/views/default/_js/remote_accounts.js:64
+#, javascript-format
 msgid ""
 "Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</"
 "a> to download the openssh key needed for backup"
@@ -217,18 +258,38 @@ msgstr ""
 "get_remote_account_pubkey/%s\">herunterladen</a> welcher zum erstellen von "
 "Sicherungen benötigt wird."
 
-#: admin/views/default/_js/backup.js:294
+#: admin/views/default/_js/backup.js:361
 msgid "Are you sure you want to permanently remove this backup job?"
 msgstr ""
 "Sind Sie sicher, dass Sie die Ausführung dieses Backups entfernen wollen?"
 
-#: admin/views/default/_js/backup.js:294 admin/views/default/_js/backup.js:296
+#: admin/views/default/_js/backup.js:361 admin/views/default/_js/backup.js:363
 msgid "Remove backup job"
 msgstr "Backup-Ausführung entfernen"
 
-#: admin/views/default/_js/backup.js:304
+#: admin/views/default/_js/backup.js:371
 msgid "Backup job was removed from the system"
 msgstr "Die Ausführung des Backups wurde verworfen"
+
+#: admin/views/default/_js/backup.js:402
+#, fuzzy
+msgid "Edit your backup job here"
+msgstr "Backup starten"
+
+#: admin/views/default/_js/backup.js:406
+#, fuzzy
+msgid "Selection"
+msgstr "Auswählen"
+
+#: admin/views/default/_js/backup.js:418
+msgid "Schedule"
+msgstr ""
+
+#: admin/views/default/_js/backup.js:427
+#: admin/views/default/_js/mail_retrieve.js:180
+#: admin/views/default/_js/user.js:304
+msgid "Update"
+msgstr "Aktualisieren"
 
 #: admin/views/default/_js/disk_progress.js:41
 #: admin/views/default/_js/filemanager.js:128
@@ -257,6 +318,7 @@ msgid "Sucessfully added pictures to the album"
 msgstr "Bilder wurden erfolgreich zum Album hinzugefügt"
 
 #: admin/views/default/_js/filemanager.js:128
+#, javascript-format
 msgid "Sucessfully added %d pictures to the album"
 msgstr "%d Bilder wurden erfolgreich zum Album hinzugefügt"
 
@@ -318,6 +380,7 @@ msgstr[0] "Die Datei oder der Ordner wurde erfolgreich verschoben"
 msgstr[1] "Die Dateien und Ordner wurden erfolgreich verschoben"
 
 #: admin/views/default/_js/filemanager.js:251
+#, javascript-format
 msgid ""
 "You are about to move one item. Go to the desired folder and press <span "
 "class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
@@ -334,6 +397,7 @@ msgstr[1] ""
 "inline\"></span>, um das Verschieben zu bestätigen"
 
 #: admin/views/default/_js/filemanager.js:255
+#, javascript-format
 msgid ""
 "You are about to copy one item. Go to the desired folder and press <span "
 "class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm copy"
@@ -392,6 +456,7 @@ msgid "Login"
 msgstr "Anmelden"
 
 #: admin/views/default/_js/mail_retrieve.js:14
+#, javascript-format
 msgid "Edit email account information for host <em>%s</em>"
 msgstr "E-Mail-Kontoinformation für Host <em>%s</em> bearbeiten"
 
@@ -427,11 +492,6 @@ msgstr "Nein"
 msgid "Add email account"
 msgstr "E-Mail-Konto hinzufügen"
 
-#: admin/views/default/_js/mail_retrieve.js:180
-#: admin/views/default/_js/user.js:304
-msgid "Update"
-msgstr "Aktualisieren"
-
 #: admin/views/default/_js/mail_retrieve.js:232
 msgid "Add new email account"
 msgstr "Neues E-Mail-Konto hinzufügen"
@@ -445,6 +505,7 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 #: admin/views/default/_js/mail_server.js:21
+#, javascript-format
 msgid ""
 "Delete account for user <strong>%s</strong> on server <strong>%s</strong>?"
 msgstr ""
@@ -460,13 +521,13 @@ msgstr "Mail Konto löschen"
 msgid "public key"
 msgstr "Öffentlicher Schlüssel"
 
-#: admin/views/default/_js/remote_accounts.js:75
+#: admin/views/default/_js/remote_accounts.js:154
 msgid "Are you sure you want to permanently remove this remote account?"
 msgstr ""
 "Sind Sie sicher, dass Sie diesen Remote-Konto permanent entfernen wollen?"
 
-#: admin/views/default/_js/remote_accounts.js:75
-#: admin/views/default/_js/remote_accounts.js:77
+#: admin/views/default/_js/remote_accounts.js:154
+#: admin/views/default/_js/remote_accounts.js:156
 msgid "Remove remote account"
 msgstr "Remote-Konto löschen"
 
@@ -480,6 +541,7 @@ msgid "Shut down"
 msgstr "Herunterfahren"
 
 #: admin/views/default/_js/stat.js:96
+#, javascript-format
 msgid "Proceed to shut down %s?"
 msgstr "%s jetzt herunterfahren?"
 
@@ -493,6 +555,7 @@ msgid "Restart"
 msgstr "Neustart"
 
 #: admin/views/default/_js/stat.js:100
+#, javascript-format
 msgid "Proceed to restart %s?"
 msgstr "%s jetzt neu starten?"
 
@@ -696,9 +759,6 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 #~ msgid "Run backup job now"
 #~ msgstr "Backup starten"
 
-#~ msgid "Run backup job"
-#~ msgstr "Backup starten"
-
 #~ msgid ""
 #~ "Backup job has been initialized to be executed at this particlular moment "
 #~ "in time."
@@ -723,10 +783,6 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 
 #~ msgid "File/Directory selector"
 #~ msgstr "Datei/Verzeichnis auswahl"
-
-#~ msgctxt "button"
-#~ msgid "Select"
-#~ msgstr "Auswählen"
 
 #~ msgid ""
 #~ "Selected Easyfind identifier is not available, please select a different "
