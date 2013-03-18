@@ -1,3 +1,9 @@
+bubba-frontend (2.6~rc3) unstable testing; urgency=low
+
+  * missing colon...
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 18 Mar 2013 15:59:34 +0100
+
 bubba-frontend (2.6~rc2) unstable testing; urgency=low
 
   * list bubba backup log in log view
