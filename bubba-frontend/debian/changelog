@@ -1,3 +1,10 @@
+bubba-frontend (2.6~rc2) unstable testing; urgency=low
+
+  * list bubba backup log in log view
+  * add aditional logs files to log view
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 18 Mar 2013 14:52:03 +0100
+
 bubba-frontend (2.6~rc1) unstable testing; urgency=low
 
   * flush translations
