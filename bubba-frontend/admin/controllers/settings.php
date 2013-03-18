@@ -506,7 +506,7 @@ class Settings extends CI_Controller{
 			'minidlna.log' => 'minidlna.log',
 			'user.log' => 'user.log',
       'bubba-backup.log' => 'bubba-backup.log',
-      'forked-daapd.log' => 'forked-daapd.log'
+      'forked-daapd.log' => 'forked-daapd.log',
       'fsck' => array(
         'checkfs' => 'fsck/checkfs'.
         'checkroot' => 'fsck/checkroot',
