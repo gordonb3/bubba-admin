@@ -497,7 +497,8 @@ class Settings extends CI_Controller{
 			'syslog' => 'syslog',
 			'auth.log' => 'auth.log',
 			'daemon.log' => 'daemon.log',
-			'debug' => 'debug',
+      'debug' => 'debug',
+      'dmesg' => 'dmesg',
 			'dpkg.log' => 'dpkg.log',
 			'faillog' => 'faillog',
 			'kern.log' => 'kern.log',
@@ -505,6 +506,11 @@ class Settings extends CI_Controller{
 			'minidlna.log' => 'minidlna.log',
 			'user.log' => 'user.log',
       'bubba-backup.log' => 'bubba-backup.log',
+      'forked-daapd.log' => 'forked-daapd.log'
+      'fsck' => array(
+        'checkfs' => 'fsck/checkfs'.
+        'checkroot' => 'fsck/checkroot',
+      ),
 			'horde' => array(
 				'horde' => 'horde/horde3.log',
 			),
@@ -527,9 +533,11 @@ class Settings extends CI_Controller{
 				'xferlog' => 'proftpd/xferlog',
 				'xferreport' => 'proftpd/xferreport',
 			),
-            'tor' => 'tor/notices.log'
-
-
+      'tor' => 'tor/notices.log',
+      'Logitech mediaserver' => array(
+        'server.log' => 'squeezeboxserver/server.log',
+        'perfmon.log' => 'squeezeboxserver/perfmon.log',
+      ),
 		);
 		
 		function array_values_recursive($array) {
