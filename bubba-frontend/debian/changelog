@@ -1,3 +1,9 @@
+bubba-frontend (2.6~rc4) unstable testing; urgency=low
+
+  * dot should be comma
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 18 Mar 2013 16:03:52 +0100
+
 bubba-frontend (2.6~rc3) unstable testing; urgency=low
 
   * missing colon...
