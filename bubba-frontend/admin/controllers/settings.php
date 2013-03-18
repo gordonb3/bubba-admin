@@ -504,6 +504,7 @@ class Settings extends CI_Controller{
 			'mail.log' => 'mail.log',
 			'minidlna.log' => 'minidlna.log',
 			'user.log' => 'user.log',
+      'bubba-backup.log' => 'bubba-backup.log',
 			'horde' => array(
 				'horde' => 'horde/horde3.log',
 			),
