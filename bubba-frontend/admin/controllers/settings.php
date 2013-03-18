@@ -508,7 +508,7 @@ class Settings extends CI_Controller{
       'bubba-backup.log' => 'bubba-backup.log',
       'forked-daapd.log' => 'forked-daapd.log',
       'fsck' => array(
-        'checkfs' => 'fsck/checkfs'.
+        'checkfs' => 'fsck/checkfs',
         'checkroot' => 'fsck/checkroot',
       ),
 			'horde' => array(
