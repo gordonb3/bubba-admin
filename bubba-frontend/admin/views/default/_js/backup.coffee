@@ -31,7 +31,6 @@ $ ->
             when "video" then _ "All videos (/home/storage/video)"
             when "storage" then _ "Storage (/home/storage)"
           id: "#{data.target}+selection"
-          class: 'editable'
         ).appendTo $cur
 
         $schedule = $('<td/>',
