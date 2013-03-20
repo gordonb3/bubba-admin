@@ -1017,6 +1017,10 @@ class NetworkManager extends CI_Model {
 	# Include various functions to check if Tor is running, stop and
 	# start the service etc
 
+  private function tor_running() {
+      return invoke_rc_d('tor', 'status');
+  }
+
 	# Check if Tor is running
 	public function tor_enabled() {
 
@@ -1029,7 +1033,7 @@ class NetworkManager extends CI_Model {
 		# returns false, we'll do another check with a more
 		# hack-ish method to confirm whether Tor is actually
 		# running or not.
-		if(service_running('tor')) {
+    if($this->tor_running()) {
 			return $enabled = true;
 		} else {
 			$cmd = 'ps aux | grep "/usr/sbin/tor" | grep -v "grep"';
@@ -1042,26 +1046,26 @@ class NetworkManager extends CI_Model {
 
 	public function enable_tor() {
 		# Do not enable if Tor is already running
-		if(query_service('tor') && service_running('tor')) {
+    if(query_service('tor') && $this->tor_running()) {
 			return;
 		}
 
 		if(!query_service('tor')) {
-			add_service('tor');
+      update_rc_d('tor', 'enable');
 		}
 
-		if(!service_running('tor')) {
-			start_service('tor');
+    if(!$this->tor_running()) {
+      invoke_rc_d('tor', 'start');
 		}
 	}
 
 	public function disable_tor() {
-		if(service_running('tor')) {
-			stop_service('tor');
+    if($this->tor_running()) {
+      invoke_rc_d('tor', 'stop');
 		}
 
 		if(query_service('tor')) {
-			remove_service('tor');
+      update_rc_d('tor', 'disable');
 		}
 	}
 
