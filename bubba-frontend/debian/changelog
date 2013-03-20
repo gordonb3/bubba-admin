@@ -1,3 +1,10 @@
+bubba-frontend (2.6~rc6) unstable testing; urgency=low
+
+  * remove editable from selection
+  * iuse standard invoke-rc.d commands for tor init scripts
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 20 Mar 2013 14:56:34 +0100
+
 bubba-frontend (2.6~rc5) unstable testing; urgency=low
 
   * shield against non-existent files
