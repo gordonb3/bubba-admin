@@ -79,7 +79,7 @@ class Ajax_backup extends CI_Controller {
           $cur['hasrun'] = false;
           if(isset($status[$job][$schedule][$selection])) {
             $val = $status[$job][$schedule][$selection];
-            if($val > 0)
+            if($val >= 0)
               $cur['hasrun'] = true;
             else
               $cur['running'] = true;
@@ -110,7 +110,7 @@ class Ajax_backup extends CI_Controller {
           $cur['hasrun'] = false;
           if(isset($status[$job][$schedule][$selection])) {
             $val = $status[$job][$schedule][$selection];
-            if($val > 0)
+            if($val >= 0)
               $cur['hasrun'] = true;
             else
               $cur['running'] = true;
