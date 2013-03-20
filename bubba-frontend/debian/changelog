@@ -1,3 +1,10 @@
+bubba-frontend (2.6~rc5) unstable testing; urgency=low
+
+  * shield against non-existent files
+  * Need to check for over or equals zero
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 20 Mar 2013 12:39:55 +0100
+
 bubba-frontend (2.6~rc4) unstable testing; urgency=low
 
   * dot should be comma
