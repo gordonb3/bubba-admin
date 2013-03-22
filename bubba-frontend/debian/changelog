@@ -1,3 +1,10 @@
+bubba-frontend (2.6~rc7) unstable testing; urgency=low
+
+  * need to explode to be able to see
+  * reindent, no code change
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 22 Mar 2013 14:33:11 +0100
+
 bubba-frontend (2.6~rc6) unstable testing; urgency=low
 
   * remove editable from selection
