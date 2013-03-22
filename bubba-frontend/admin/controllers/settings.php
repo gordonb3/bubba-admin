@@ -557,7 +557,8 @@ class Settings extends CI_Controller{
 			$current_log = $this->input->post('log');
 			if( in_array( $current_log, array_values_recursive($logs) )  && file_exists($base_path.$current_log) ) {
 				$data['log_name'] = $current_log;
-				$data['content'] = file_get_contents($base_path.$current_log);
+        $code = file_get_contents("/var/log/$current_log");
+				$data['content'] = explode("\n", $code);
 			}
 		}
 		$data['logs']=$logs;
