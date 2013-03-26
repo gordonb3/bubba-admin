@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: bubba-frontend 2.3\n"
 "Report-Msgid-Bugs-To: info@excito.com\n"
 "POT-Creation-Date: 2012-05-14 18:49+0300\n"
-"PO-Revision-Date: 2013-01-24 15:38+0100\n"
+"PO-Revision-Date: 2013-03-26 12:00+0100\n"
 "Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
@@ -73,26 +73,14 @@ msgstr ""
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:21
-#, fuzzy
-#| msgid ""
-#| "This feature collects status information from your {PLATFORM} and sends "
-#| "to Excito for automated analysis. The update server can then take "
-#| "appropriate actions if your system has problems. The system information "
-#| "is sent to Excito via an encrypted connection, and server responses are "
-#| "GPG signed to ensure the security and that the content is distributed by "
-#| "Excito."
 msgid ""
 "All this information is sent to Excito via an encrypted connection, and all "
 "server responses are signed using GPG to ensure the security that the "
 "content is distributed by Excito."
 msgstr ""
-"Diese Funktion erfasst Statusinformationen von Ihrem {PLATFORM} und sendet "
-"sie für eine automatische Analyse an Excito. Der Aktualisierungsserver kann "
-"dann ggf. die erforderlichen Maßnahmen durchführen, wenn es auf Ihrem System "
-"Probleme gibt. Die Systeminformationen werden über eine verschlüsselte "
-"Verbindung gesendet und die Antworten des Servers sind GPG-signiert, um die "
-"Sicherheit zu gewährleisten und zu bestätigen, dass die Inhalte von Excito "
-"stammen."
+"Diese Informationen werden über eine verschlüsselte Verbindung an Excito  "
+"gesendet, alle Antworten des Servers sind GPG signiert um diese zu "
+"authentifizieren."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings_software.html:24
