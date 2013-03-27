@@ -8,6 +8,7 @@ Build-Depends: debhelper (>= 7.2),
  libgetopt-long-descriptive-perl,
  libfile-slurp-perl,
  liblocale-po-perl,
+ libjson-perl,
  gettext,
  po4a,
  coffeescript
