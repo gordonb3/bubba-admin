@@ -66,7 +66,7 @@ class Spyc {
    * 
    * @var bool
    */
-  public $setting_dump_force_quotes = false;
+  public $setting_dump_force_quotes = true;
 
   /**
    * Setting this to true will forse YAMLLoad to use syck_load function when
