@@ -1,3 +1,9 @@
+bubba-frontend (2.6) hugo vincent; urgency=low
+
+  * Release of version 2.6
+
+ -- neira <neira.pasic@excito.com>  Wed, 26 Jun 2013 11:39:01 +0100
+
 bubba-frontend (2.6~rc8) unstable testing; urgency=low
 
   * bugfixes for backup functionality
