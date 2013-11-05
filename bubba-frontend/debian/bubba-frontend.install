@@ -5,5 +5,6 @@ php5-cgi.conf /usr/share/bubba-frontend
 php5-apache.conf /usr/share/bubba-frontend
 php5-xcache.ini /usr/share/bubba-frontend
 lite_php_browscap.ini /usr/share/bubba-frontend
+php5-wrapper /usr/lib/cgi-bin
 spawn-php /usr/sbin
 admin/* /usr/share/web-admin/admin

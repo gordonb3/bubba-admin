@@ -103,6 +103,10 @@ case "$1" in
 		install --directory --group=root   --owner=root  --mode=0755 /var/log/web-admin
 		install --directory --group=root   --owner=root  --mode=0755 /var/cache/web-admin
 
+                # Replace /usr/lib/cgi-bin/php5 with the wrapper
+                mv /usr/lib/cgi-bin/php5 /usr/lib/cgi-bin/php5.orig
+                mv /usr/lib/cgi-bin/php5-wrapper /usr/lib/cgi-bin/php5
+
 		if [ ! -e /etc/apache2/mods-enabled/proxy.load ]; then
 			a2enmod proxy
 		fi	
