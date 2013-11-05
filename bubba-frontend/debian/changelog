@@ -1,3 +1,9 @@
+bubba-frontend (2.6.0.1+security1) unstable testing; urgency=low
+
+  * Security fix for php5 remote access
+
+ -- Andreas Lestréus <andreas.lestreus@excito.com>  Tue, 05 Nov 2013 13:33:01 +0100
+
 bubba-frontend (2.6) hugo vincent; urgency=low
 
   * Release of version 2.6
