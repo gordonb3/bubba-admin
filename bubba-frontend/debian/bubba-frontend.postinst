@@ -103,12 +103,26 @@ case "$1" in
 		install --directory --group=root   --owner=root  --mode=0755 /var/log/web-admin
 		install --directory --group=root   --owner=root  --mode=0755 /var/cache/web-admin
 
-		if dpkg --compare-versions "$2" lt 2.6.0.1+security1; then
+		if dpkg --compare-versions "$2" lt 2.6.0.2; then
 			# remove temporary wrapper
 			if [ -x /usr/lib/cgi-bin/php5.orig ]; then
 				mv -f /usr/lib/cgi-bin/php5.orig /usr/lib/cgi-bin/php5
 			fi
-	fi
+
+			# purge www-data crontab
+			crontab -u www-data -r 2>/dev/null
+
+			# remove eventual flood bot dir
+			rm -rf /var/tmp/.m
+
+			rm -f rm /var/tmp/playd.jpg*
+
+			cat >>/tmp/bubba-apt.log << End-of-Message
+Code: WARN
+Desc: Restart highly recommended
+Data: Security updated have been made to php5, and to be safe we recommend you to restart your unit.
+End-of-Message
+fi
 
 		if [ ! -e /etc/apache2/mods-enabled/proxy.load ]; then
 			a2enmod proxy

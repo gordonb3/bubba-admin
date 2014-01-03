@@ -1,8 +1,10 @@
 bubba-frontend (2.6.0.2) vincent hugo; urgency=medium
 
   * Undo the emergency security fix
+  * add upgrade notice recommending restart
+  * remove eventual haxx
 
- -- Carl Fürstenberg <carl@excito.com>  Fri, 03 Jan 2014 13:22:43 +0100
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 03 Jan 2014 13:39:51 +0100
 
 bubba-frontend (2.6.0.1+security1) unstable testing; urgency=low
 
