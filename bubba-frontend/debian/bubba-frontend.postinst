@@ -106,7 +106,7 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt 2.6.0.2; then
 			# remove temporary wrapper
 			if [ -x /usr/lib/cgi-bin/php5.orig ]; then
-				mv -f /usr/lib/cgi-bin/php5.orig /usr/lib/cgi-bin/php5
+				rm -f /usr/lib/cgi-bin/php5.orig
 			fi
 
 			# purge www-data crontab
