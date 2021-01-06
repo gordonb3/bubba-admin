@@ -15,8 +15,8 @@ endif
 APP=diskmanager
 APP_SRC=parse.cpp Disks.cpp RaidDevs.cpp LVM.cpp DiskUtils.cpp CmdApp.cpp StatusNotifier.cpp Utils.cpp $(CMD_SRC)
 CMD_SRC=FsTabCmd.cpp CmdDevs.cpp UserUmount.cpp UserMount.cpp CmdMD.cpp CmdLV.cpp DiskCmd.cpp
-CXXFLAGS_EXTRA = -g -Wall -Wextra -Wold-style-cast -Woverloaded-virtual -Wsign-promo $(UDEVPRG)  $(shell pkg-config --cflags libeutils)
-LDFLAGS_EXTRA+= /usr/lib/libparted.so.2 $(shell pkg-config --libs libparted blkid devmapper sigc++-2.0 libeutils)
+CXXFLAGS_EXTRA = -g -Wall -Wextra -Wold-style-cast -Woverloaded-virtual -Wsign-promo $(UDEVPRG)  $(shell pkg-config --cflags glib-2.0) -I$(CURDIR)/include
+LDFLAGS_EXTRA+= libeutils.a libsigc-2.0.a -lpthread -lexpect $(shell pkg-config --libs libparted blkid devmapper glib-2.0)
 
 OBJS=$(APP_SRC:%.cpp=%.o)
 DEPDIR = .deps

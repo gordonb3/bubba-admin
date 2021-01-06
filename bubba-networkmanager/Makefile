@@ -40,8 +40,8 @@ DHCPPING_SRC = dhcp-ping/main.cpp dhcp-ping/dhcp.cpp
 SOURCES = $(APP_SRC) $(DATAMODEL_SRC) $(CONTROLLER_SRC) $(UTIL_SRC)
 OBJS = $(SOURCES:%.cpp=%.o)
 
-CXXFLAGS += -g -Wall $(shell pkg-config --cflags libeutils libnl-3.0 libnl-genl-3.0) -DPACKAGE_VERSION="\"$(APP_VERSION)\""
-LDFLAGS = $(shell pkg-config --libs libeutils libnl-3.0 libnl-genl-3.0)
+CXXFLAGS += -g -Wall -I$(CURDIR)/include $(shell pkg-config --cflags glib-2.0 libnl-3.0 libnl-genl-3.0) -DPACKAGE_VERSION="\"$(APP_VERSION)\""
+LDFLAGS = libeutils.a libsigc-2.0.a -lpopt -lpthread -lexpect $(shell pkg-config --libs glib-2.0 libnl-3.0 libnl-genl-3.0)
 
 APP_OBJS=$(APP_SRC:%.cpp=%.o)
 DATAMODEL_OBJS=$(DATAMODEL_SRC:%.cpp=%.o)
@@ -52,14 +52,14 @@ CONTROLLER_OBJS=$(CONTROLLER_SRC:%.cpp=%.o)
 all: $(APP) $(CLIENT)
 
 $(CLIENT): $(CLIENT_SRC:%.cpp=%.o)
-	$(CXX) $(LDFLAGS) -o $@ $^
+	$(CXX) $^ $(LDFLAGS) -o $@
 
 $(DHCPPING): $(DHCPPING_SRC:%.cpp=%.o)
-	$(CXX) $(LDFLAGS) -o $@ $^
+	$(CXX) $^ $(LDFLAGS) -o $@
 
 
 $(APP): $(OBJS)
-	$(CXX) $(LDFLAGS) -o $@ $^
+	$(CXX) $^ $(LDFLAGS) -o $@
 
 clean:                                                                          
 	$(RM) $(APP) $(CLIENT) $(DHCPPING)
