@@ -70,7 +70,7 @@ bool IsRunning(const string& service){
 }
 
 bool IsEnabled(const string& service){
-	list<string> res=FileUtils::Glob("/etc/rc2.d/S??"+service);
+	list<string> res=FileUtils::Glob("/etc/runlevels/default/"+service);
 	return res.size()>0;
 }
 
@@ -79,55 +79,23 @@ bool Start(const string& service){
 }
 
 bool Stop(const string& service){
-	return do_call("/etc/init.d/"+service+" stop >/dev/null")==0;
+	return do_call("/etc/init.d/"+service+" -D stop >/dev/null")==0;
 }
 
 bool Reload(const string& service){
-	return do_call("/etc/init.d/"+service+" reload >/dev/null")==0;
+	return do_call("/etc/init.d/"+service+" -D reload >/dev/null")==0;
 }
 
 bool Enable(const string& service, int slevel, int klevel){
-	stringstream ss;
-	ss << "/usr/sbin/update-rc.d "<<service<<" defaults ";
-
-	if(slevel>0){
-		ss << slevel;
-		if(klevel>0){
-			ss << " "<<klevel;
-		}
-	}else{
-		if(klevel>0){
-			return false;
-		}
-	}
-
-	return do_call(ss.str())==0;
+	return do_call("/sbin/rc-update add "+service+" default >/dev/null")==0;
 }
 
 bool Enable(const string& service, int sprio,const list<int>& slev, int kprio, const list<int>& klev){
-	stringstream ss;
-	ss << "/usr/sbin/update-rc.d "<<service;
-
-	if(sprio>0){
-		ss <<" start "<< sprio;
-		for(list<int>::const_iterator slIt=slev.begin();slIt!=slev.end();slIt++){
-			ss << " "<<*slIt;
-		}
-		ss << " . ";
-	}
-
-	if(kprio>0){
-		ss << " stop " << kprio;
-		for(list<int>::const_iterator klIt=klev.begin();klIt!=klev.end();klIt++){
-			ss << " "<<*klIt;
-		}
-		ss << " . ";
-	}
-	return do_call(ss.str())==0;
+	return do_call("/sbin/rc-update add "+service+" default >/dev/null")==0;
 }
 
 bool Disable(const string& service){
-	return do_call("/usr/sbin/update-rc.d -f "+service+" remove >/dev/null")==0;
+	return do_call("/sbin/rc-update del "+service+" default >/dev/null")==0;
 }
 
 }

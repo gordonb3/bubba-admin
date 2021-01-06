@@ -29,9 +29,7 @@ if( NOT TCL_FOUND )
 	message( FATAL_ERROR "tcl was not found" )
 endif()
 
-STRING(REGEX REPLACE "^.*tcl([0-9]\\.*[0-9]).*$" "\\1" TCL_VERSION "${TCL_LIBRARY}")
-
-check_include_file( tcl${TCL_VERSION}/expect.h HAVE_EXPECT_H )
+check_include_file( expect.h HAVE_EXPECT_H )
 
 if( NOT HAVE_EXPECT_H )
 	message( FATAL_ERROR "expect was not found" )
@@ -40,7 +38,7 @@ endif( NOT HAVE_EXPECT_H )
 check_include_file( popt.h HAVE_POPT_H )
 
 if( NOT HAVE_POPT_H )
-	message( FATAL_ERROR "expect was not found" )
+	message( FATAL_ERROR "popt was not found" )
 endif( NOT HAVE_POPT_H )
 
 pkg_check_modules ( SIGC++ sigc++-2.0>=2.0 )
