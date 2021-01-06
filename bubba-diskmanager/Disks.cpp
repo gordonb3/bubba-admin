@@ -79,7 +79,7 @@ string Disks::get_bus(const string& dev){
 #ifdef USE_OLD_UDEV
 		list<string> env=EUtils::FileUtils::ProcessRead("/usr/bin/udevinfo --query=env --name=/dev/"+dev+" 2>/dev/null", true);
 #else
-		list<string> env=EUtils::FileUtils::ProcessRead("/sbin/udevadm info --query=env --name=/dev/"+dev+" 2>/dev/null", true);
+		list<string> env=EUtils::FileUtils::ProcessRead("/bin/udevadm info --query=env --name=/dev/"+dev+" 2>/dev/null", true);
 #endif
 		list<string>::iterator eIt;
 		for(eIt=env.begin();eIt!=env.end();eIt++){
