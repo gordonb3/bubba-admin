@@ -43,6 +43,9 @@ PolicyController::PolicyController(){
 	ifprofile["wlan3"]="wlan";
 	ifprofile["wlan4"]="wlan";
 	ifprofile["br0"]="bridge";
+	ifprofile["ppp0"]="ether";
+	ifprofile["ppp1"]="ether";
+	ifprofile["ppp2"]="ether";
 
 	policies["eth0"]["wan"]=true;
 	policies["eth1"]["wan"]=false;
@@ -55,6 +58,9 @@ PolicyController::PolicyController(){
 	policies["wlan3"]["wan"]=false;
 	policies["wlan4"]["wan"]=false;
 	policies["br0"]["wan"]=false;
+	policies["ppp0"]["wan"]=true;
+	policies["ppp1"]["wan"]=true;
+	policies["ppp2"]["wan"]=true;
 
 	policies["eth0"]["lan"]=false;
 	policies["eth1"]["lan"]=true;
@@ -67,6 +73,9 @@ PolicyController::PolicyController(){
 	policies["wlan3"]["lan"]=true;
 	policies["wlan4"]["lan"]=true;
 	policies["br0"]["lan"]=true;
+	policies["ppp0"]["lan"]=false;
+	policies["ppp1"]["lan"]=false;
+	policies["ppp2"]["lan"]=false;
 
 	policies["eth0"]["iswlan"]=false;
 	policies["eth1"]["iswlan"]=false;
@@ -79,6 +88,9 @@ PolicyController::PolicyController(){
 	policies["wlan3"]["iswlan"]=true;
 	policies["wlan4"]["iswlan"]=true;
 	policies["br0"]["iswlan"]=false;
+	policies["ppp0"]["iswlan"]=false;
+	policies["ppp1"]["iswlan"]=false;
+	policies["ppp2"]["iswlan"]=false;
 
 
 	policies["eth0"]["promisc"]=false;
@@ -92,6 +104,9 @@ PolicyController::PolicyController(){
 	policies["wlan3"]["promisc"]=false;
 	policies["wlan4"]["promisc"]=false;
 	policies["br0"]["promisc"]=true;
+	policies["ppp0"]["promisc"]=false;
+	policies["ppp1"]["promisc"]=false;
+	policies["ppp2"]["promisc"]=false;
 
 
 }

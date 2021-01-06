@@ -43,7 +43,7 @@ bool WlanController::HasWlan(){
 	bool haswlan=false;
 	PolicyController& pc=PolicyController::Instance();
 
-	list<string> ifs=InterfaceController::Instance().GetInterfaces();
+	list<string> ifs=InterfaceController::Instance().GetInterfaces("wlan");
 	for(list<string>::iterator iIt=ifs.begin();iIt!=ifs.end();iIt++){
 		if(pc.Allowed(*iIt,"iswlan")){
 			haswlan=true;

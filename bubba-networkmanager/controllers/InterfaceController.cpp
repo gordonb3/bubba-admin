@@ -107,19 +107,15 @@ list<string> InterfaceController::GetInterfaces(const string& itype){
 			continue;
 		}
 
+		if((*iIt).substr(0,2)=="lo"){
+			continue;
+		}
 		if((*iIt).substr(0,2)=="br"){
 			add_virtual_bridge=false;
 			ret.push_back(*iIt);
 			continue;
 		}
-		if((*iIt).substr(0,3)=="eth"){
-			ret.push_back(*iIt);
-			continue;
-		}
-		if((*iIt).substr(0,4)=="wlan"){
-			ret.push_back(*iIt);
-			continue;
-		}
+		ret.push_back(*iIt);
 	}
 
 	if(add_virtual_bridge){
