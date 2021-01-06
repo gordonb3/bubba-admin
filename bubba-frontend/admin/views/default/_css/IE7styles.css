@@ -1,0 +1,33 @@
+#network #firewall select {
+	width: 70px !important;
+
+}
+.ui-dialog select {
+  width: 70%;
+}
+.msie fieldset.fld_settings legend {
+	margin-top : 0px;
+}
+
+input[type=submit],input[type=button],button.submit {
+  min-width : 0;
+}
+
+#header li a {
+  margin-left: 3px;
+}
+
+table.ui-table-outline td {
+	border-top : 1px solid #bbb;
+}
+
+#ui-downloads-list {
+	width : 98%;
+}
+#ui-downloads-list table.ui-downloads-listitem td {
+	border : none;
+	line-height : 16px;
+}
+#fn-filemanager-perm-dialog select {
+	width : 140px!important;
+}

@@ -1,0 +1,39 @@
+Source: bubba-frontend
+Section: web
+Priority: standard
+Maintainer: Tor Krill <tor@excito.com>
+Uploaders: Carl Fürstenberg <carl@excito.com>
+Build-Depends: debhelper (>= 7.2),
+ libphp-codeigniter-dev (>= 2.1),
+ libgetopt-long-descriptive-perl,
+ libfile-slurp-perl,
+ liblocale-po-perl,
+ libjson-perl,
+ gettext,
+ po4a,
+ coffeescript
+Standards-Version: 3.8.4
+Homepage: http://www.excito.com
+
+Package: bubba-frontend
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ bubba-backend (>=1.0.19),
+ bubba-manual (>=1.0.0),
+ bubba-album (>=0.99.1),
+ bubba-networkmanager,
+ libapache2-mod-fastcgi,
+ apache2.2-common,
+ apache2-utils,
+ apache2-mpm-prefork (>= 2.2.9),
+ libapache2-mod-php5,
+ php5-cgi,
+ lighttpd-spawnfcgi,
+ libjs-jquery (>= 1.4.2),
+ libjs-jquery-ui (>= 1.8),
+ libxml-libxml-perl (>= 1.66-1),
+ libbubba-info-php,
+ php5-intl,
+ php-http-request2
+Description: The codeigniter based frontend for the Bubba web-admin
+ The frontend consists of a codeigniter based admin-interface

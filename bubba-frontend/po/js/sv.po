@@ -1,0 +1,855 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Excito Electronics AB
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bubba-frontend 2.3\n"
+"Report-Msgid-Bugs-To: info@excito.com\n"
+"POT-Creation-Date: 2013-02-14 14:54+0100\n"
+"PO-Revision-Date: 2013-03-11 13:24+0100\n"
+"Last-Translator: Carl Fürstenberg <carl@excito.com>\n"
+"Language-Team: \n"
+"Language: Swedish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: admin/views/default/_js/album_users.js:30
+#: admin/views/default/_js/backup.js:151
+#: admin/views/default/_js/mail_retrieve.js:150
+#: admin/views/default/_js/remote_accounts.js:16
+#: admin/views/default/_js/user.js:96
+msgid "Edit"
+msgstr "Ändra"
+
+#: admin/views/default/_js/album_users.js:44
+msgid "Edit album viewer"
+msgstr "Ändra albumanvändare"
+
+#: admin/views/default/_js/album_users.js:65
+msgid "Viewer added"
+msgstr "Albumanvändare tillagd"
+
+#: admin/views/default/_js/album_users.js:90
+msgid "Viewer updated"
+msgstr "Albumanvändare uppdaterad"
+
+#: admin/views/default/_js/album_users.js:112
+msgid "Delete this photo album viewer?"
+msgstr "Radera denna fotoalbum-användare?"
+
+#: admin/views/default/_js/album_users.js:113
+msgid "Delete photo album viewer"
+msgstr "Radera fotoalbum-användare?"
+
+#: admin/views/default/_js/album_users.js:116
+#: admin/views/default/_js/album_users.js:178
+msgid "Delete viewer"
+msgstr "Radera albumanvändare"
+
+#: admin/views/default/_js/album_users.js:133
+msgid "Viewer deleted"
+msgstr "Albumanvändare raderad"
+
+#: admin/views/default/_js/album_users.js:156
+msgid "Add new viewer"
+msgstr "Lägg till ny användare"
+
+#: admin/views/default/_js/album_users.js:169
+msgid "Update viewer"
+msgstr "Uppdatera albumanvändare"
+
+#: admin/views/default/_js/album_users.js:239
+msgid "Add new viewer to the photo album"
+msgstr "Lägg till ny användare till fotoalbumet"
+
+#: admin/views/default/_js/backup.js:45
+msgid "All user's data (/home/<all users>)"
+msgstr "All användardata (/home/<alla användare>)"
+
+#: admin/views/default/_js/backup.js:47
+msgid "All music (/home/storage/music)"
+msgstr "All musik  (/home/storage/music)"
+
+#: admin/views/default/_js/backup.js:49
+msgid "All pictures (/home/storage/pictures)"
+msgstr "Alla bilder (/home/storage/pictures)"
+
+#: admin/views/default/_js/backup.js:51
+msgid "All videos (/home/storage/video)"
+msgstr "Alla videofilmer (/home/storage/video)"
+
+#: admin/views/default/_js/backup.js:53
+msgid "Storage (/home/storage)"
+msgstr "Lagring (/home/storage)"
+
+#: admin/views/default/_js/backup.js:63
+msgid "Daily (every night at two a clock)"
+msgstr "Dagligen (varje natt runt klockan två)"
+
+#: admin/views/default/_js/backup.js:65
+msgid "Twice a week (every wednesday and sunday night)"
+msgstr "Två gånger i veckan (varje onsdags- och söndagsnatt)"
+
+#: admin/views/default/_js/backup.js:67
+msgid "Weekly (every sunday night)"
+msgstr "Veckovis (varje söndagsnatt)"
+
+#: admin/views/default/_js/backup.js:74
+msgid "Currently running"
+msgstr "Körs för närvarande"
+
+#: admin/views/default/_js/backup.js:78
+msgid "Not yet run"
+msgstr "Har inte körts ännu"
+
+#: admin/views/default/_js/backup.js:82
+msgid "Completed"
+msgstr "Slutförd"
+
+#: admin/views/default/_js/backup.js:88
+msgid "Syntax or usage error"
+msgstr "Syntax eller användarfel"
+
+#: admin/views/default/_js/backup.js:90
+msgid "Protocol incompatibility"
+msgstr "Protokollsinkompabilitet"
+
+#: admin/views/default/_js/backup.js:92
+msgid "Errors selecting input/output files, dirs"
+msgstr "Fel vid val av input/output-filer, kataloger"
+
+#: admin/views/default/_js/backup.js:94
+msgid ""
+"Requested action not supported: an attempt was made to manipulate 64-bit "
+"files on a platform that cannot support them; or an option was specified "
+"that is supported by the client and not by the server."
+msgstr ""
+"Begärda åtgärden stöds inte: ett försök gjordes att manipulera 64-bitars "
+"filer på en plattform som inte kan stödja dem, eller ett alternativ angavs "
+"som stöds av klienten och inte av servern."
+
+#: admin/views/default/_js/backup.js:96
+msgid "Error starting client-server protocol"
+msgstr "Fel vid start av klient-server-protokoll"
+
+#: admin/views/default/_js/backup.js:98
+msgid "Daemon unable to append to log-file"
+msgstr "Daemonen var oförmögen att lägga till i loggfilen"
+
+#: admin/views/default/_js/backup.js:100
+msgid "Error in socket I/O"
+msgstr "Fel i socket I/O"
+
+#: admin/views/default/_js/backup.js:102
+msgid "Error in file I/O"
+msgstr "Fel i fil I/O"
+
+#: admin/views/default/_js/backup.js:104
+msgid "Error in rsync protocol data stream"
+msgstr "Fel i rsync-protokollsdataströmmen"
+
+#: admin/views/default/_js/backup.js:106
+msgid "Errors with program diagnostics"
+msgstr "Fel i programdiagnostik"
+
+#: admin/views/default/_js/backup.js:108
+msgid "Error in IPC code"
+msgstr "Fel i IPC-kod"
+
+#: admin/views/default/_js/backup.js:110
+msgid "Received SIGUSR1 or SIGINT"
+msgstr "Mottog SIGUSR1 eller SIGINT"
+
+#: admin/views/default/_js/backup.js:112
+msgid "Some error returned by waitpid()"
+msgstr "Något fel returnerades av waitpid()"
+
+#: admin/views/default/_js/backup.js:114
+msgid "Error allocating core memory buffers"
+msgstr "Fel  vid allokering av centrala buffrar"
+
+#: admin/views/default/_js/backup.js:116
+msgid "Partial transfer due to error"
+msgstr "Partiell överföring på grund av fel"
+
+#: admin/views/default/_js/backup.js:118
+msgid "Partial transfer due to vanished source files"
+msgstr "Partiell överföring på grund av försvunna källfiler"
+
+#: admin/views/default/_js/backup.js:120
+msgid "The --max-delete limit stopped deletions"
+msgstr "--max-delete begränsningen stoppade raderingen"
+
+#: admin/views/default/_js/backup.js:122
+msgid "Timeout in data send/receive"
+msgstr "Timeout i skickad eller mottagen data"
+
+#: admin/views/default/_js/backup.js:124
+msgid "Timeout waiting for daemon connection"
+msgstr "Timeout i väntan på daemonanslutning"
+
+#: admin/views/default/_js/backup.js:130
+msgid "Failed"
+msgstr "Misslyckades"
+
+#: admin/views/default/_js/backup.js:133
+msgid "why?"
+msgstr "varför?"
+
+#: admin/views/default/_js/backup.js:136
+#, javascript-format
+msgid "Backup job for %s on %s failed"
+msgstr "Backupjobb för %s på %s misslyckades"
+
+#: admin/views/default/_js/backup.js:147
+#: admin/views/default/_js/remote_accounts.js:16
+msgid "Remove"
+msgstr "Ta bort"
+
+#: admin/views/default/_js/backup.js:176
+msgid "External disk"
+msgstr "Extern disk"
+
+#: admin/views/default/_js/backup.js:230 admin/views/default/_js/backup.js:256
+#: admin/views/default/_js/wizard.js:15 admin/views/default/_js/wizard.js:91
+msgid "Next"
+msgstr "Nästa"
+
+#: admin/views/default/_js/backup.js:236 admin/views/default/_js/backup.js:257
+#: admin/views/default/_js/wizard.js:24 admin/views/default/_js/wizard.js:92
+msgid "Back"
+msgstr "Tillbaka"
+
+#: admin/views/default/_js/backup.js:258 admin/views/default/_js/wizard.js:93
+msgid "Complete"
+msgstr "Slutför"
+
+#: admin/views/default/_js/backup.js:336
+#: admin/views/default/_js/remote_accounts.js:62
+#, javascript-format
+msgid ""
+"Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</"
+"a> to download the openssh key needed for backup. Upload it to <a target="
+"\"_blank\" href=\"https://hidrive.strato.com/\">HiDrive</a> under Account → "
+"Settings → Account management → OpenSSH key"
+msgstr ""
+"Klicka <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">här</ a> "
+"för att ladda ner OpenSSH-nyckeln som behövs för säkerhetskopiering. Ladda "
+"upp den till <a target=\"_blank\" href=\"https://hidrive.strato.com/"
+"\">HiDrive</a> under Account → Settings → Account management → OpenSSH key"
+
+#: admin/views/default/_js/backup.js:338
+#: admin/views/default/_js/remote_accounts.js:64
+#, javascript-format
+msgid ""
+"Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</"
+"a> to download the openssh key needed for backup"
+msgstr ""
+"Klicka <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">här</ a> "
+"för att ladda ner OpenSSH-nyckeln som behövs för säkerhetskopiering."
+
+#: admin/views/default/_js/backup.js:361
+msgid "Are you sure you want to permanently remove this backup job?"
+msgstr "Vill du verkligen ta bort detta backup-jobb?"
+
+#: admin/views/default/_js/backup.js:361 admin/views/default/_js/backup.js:363
+msgid "Remove backup job"
+msgstr "Ta bort backup-jobb"
+
+#: admin/views/default/_js/backup.js:371
+msgid "Backup job was removed from the system"
+msgstr "Backup-jobbet raderades"
+
+#: admin/views/default/_js/backup.js:402
+msgid "Edit your backup job here"
+msgstr "Redigera ditt backupjobb här"
+
+#: admin/views/default/_js/backup.js:406
+msgid "Selection"
+msgstr "Urval"
+
+#: admin/views/default/_js/backup.js:418
+msgid "Schedule"
+msgstr "Schemaläggning"
+
+#: admin/views/default/_js/backup.js:427
+#: admin/views/default/_js/mail_retrieve.js:180
+#: admin/views/default/_js/user.js:304
+msgid "Update"
+msgstr "Uppdatera"
+
+#: admin/views/default/_js/disk_progress.js:41
+#: admin/views/default/_js/filemanager.js:128
+msgid "Close"
+msgstr "Stäng"
+
+#: admin/views/default/_js/filemanager.js:57
+msgid "Successfully created a folder"
+msgstr "Katalog skapad"
+
+#: admin/views/default/_js/filemanager.js:73
+msgid "Successfully renamed the file/folder"
+msgstr "Filen/katalogen omdöpt"
+
+#: admin/views/default/_js/filemanager.js:88
+msgid "Successfully changed permission on the given files/folders"
+msgstr "Rättigheter för filerna eller katalogerna ändrade"
+
+#: admin/views/default/_js/filemanager.js:105
+msgid "Successfully deleted the files/folders"
+msgstr "Filer/kataloger raderade"
+
+#: admin/views/default/_js/filemanager.js:121
+msgid "Sucessfully added pictures to the album"
+msgstr "Bilderna tillagda till albumet"
+
+#: admin/views/default/_js/filemanager.js:128
+#, javascript-format
+msgid "Sucessfully added %d pictures to the album"
+msgstr "%d bilder tillagda till albumet"
+
+#: admin/views/default/_js/filemanager.js:128
+msgid "Pictures added"
+msgstr "Bilderna tillagda"
+
+#: admin/views/default/_js/filemanager.js:140
+msgctxt "button"
+msgid "Move"
+msgstr "Flytta"
+
+#: admin/views/default/_js/filemanager.js:141
+#: admin/views/default/_js/filemanager.js:143
+msgctxt "button"
+msgid "Abort"
+msgstr "Avbryt"
+
+#: admin/views/default/_js/filemanager.js:142
+msgctxt "button"
+msgid "Copy"
+msgstr "Kopiera"
+
+#: admin/views/default/_js/filemanager.js:144
+msgctxt "button"
+msgid "Create folder"
+msgstr "Skapa katalog"
+
+#: admin/views/default/_js/filemanager.js:145
+msgctxt "button"
+msgid "Delete"
+msgstr "Radera"
+
+#: admin/views/default/_js/filemanager.js:146
+msgctxt "button"
+msgid "Rename"
+msgstr "Byt namn"
+
+#: admin/views/default/_js/filemanager.js:147
+msgctxt "button"
+msgid "Add to album"
+msgstr "Lägg till till album"
+
+#: admin/views/default/_js/filemanager.js:148
+msgctxt "button"
+msgid "Change permissions"
+msgstr "Ändra rättigheter"
+
+#: admin/views/default/_js/filemanager.js:210
+msgid "Succeeded to copy the file or folder"
+msgid_plural "Succeeded to copy the files and folders"
+msgstr[0] "Kopiering av filen eller katalogen lyckades"
+msgstr[1] "Kopiering av filerna eller katalogerna lyckades"
+
+#: admin/views/default/_js/filemanager.js:212
+msgid "Succeeded to move the file or folder"
+msgid_plural "Succeeded to move the files and folders"
+msgstr[0] "Flytten av filen eller katalogen lyckades"
+msgstr[1] "Flytten av filerna eller katalogerna lyckades"
+
+#: admin/views/default/_js/filemanager.js:251
+#, javascript-format
+msgid ""
+"You are about to move one item. Go to the desired folder and press <span "
+"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
+msgid_plural ""
+"You are about to move %d items. Go to the desired folder and press <span "
+"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm move"
+msgstr[0] ""
+"Du håller på att flytta en fil. Gå till den önskade destinationen och klicka "
+"<span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> för att "
+"slutföra förflyttningen"
+msgstr[1] ""
+"Du håller på att flytta %d filer. Gå till den önskade destinationen och "
+"klicka <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> för "
+"att slutföra förflyttningen"
+
+#: admin/views/default/_js/filemanager.js:255
+#, javascript-format
+msgid ""
+"You are about to copy one item. Go to the desired folder and press <span "
+"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm copy"
+msgid_plural ""
+"You are about to copy %d items. Go to the desired folder and press <span "
+"class=\"ui-icon ui-icon-check ui-helper-inline\"></span> to confirm copy"
+msgstr[0] ""
+"Du håller på att kopiera en fil. Gå till den önskade destinationen och "
+"klicka <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> för "
+"att slutföra kopieringen"
+msgstr[1] ""
+"Du håller på att kopiera %d filer. Gå till den önskade destinationen och "
+"klicka <span class=\"ui-icon ui-icon-check ui-helper-inline\"></span> för "
+"att slutföra kopieringen"
+
+#: admin/views/default/_js/filemanager.js:272
+msgid "Create folder"
+msgstr "Skapa katalog"
+
+#: admin/views/default/_js/filemanager.js:282
+msgid "Upload file"
+msgstr "Ladda upp fil"
+
+#: admin/views/default/_js/filemanager.js:292
+msgid "Download as zip"
+msgstr "Ladda ner som zip"
+
+#: admin/views/default/_js/filemanager.js:324
+msgid "Move files"
+msgstr "Flytta filer"
+
+#: admin/views/default/_js/filemanager.js:334
+msgid "Copy files"
+msgstr "Kopiera filer"
+
+#: admin/views/default/_js/filemanager.js:344
+msgid "Rename files"
+msgstr "Byt namn på filer"
+
+#: admin/views/default/_js/filemanager.js:354
+msgid "Change permissions"
+msgstr "Ändra rättigheter"
+
+#: admin/views/default/_js/filemanager.js:364
+msgid "Add to album"
+msgstr "Lägg till till album"
+
+#: admin/views/default/_js/filemanager.js:374
+#: admin/views/default/_js/mail_retrieve.js:123
+#: admin/views/default/_js/mail_retrieve.js:185
+msgid "Delete"
+msgstr "Radera"
+
+#: admin/views/default/_js/login.js:55 admin/views/default/_js/login.js:119
+msgid "Login"
+msgstr "Logga in"
+
+#: admin/views/default/_js/mail_retrieve.js:14
+#, javascript-format
+msgid "Edit email account information for host <em>%s</em>"
+msgstr "Ändra emailkontoinformation för värden <em>%s</em>"
+
+#: admin/views/default/_js/mail_retrieve.js:43
+msgid "Successfully added new email account"
+msgstr "Nytt emailkonto tillagt"
+
+#: admin/views/default/_js/mail_retrieve.js:69
+msgid "Email account updated"
+msgstr "Email-kontoinformation uppdaterad"
+
+#: admin/views/default/_js/mail_retrieve.js:93
+msgid "Successfully deleted email account"
+msgstr "Emailkontot raderat"
+
+#: admin/views/default/_js/mail_retrieve.js:120
+msgid "Delete email account?"
+msgstr "Radera email-konto?"
+
+#: admin/views/default/_js/mail_retrieve.js:142
+#: admin/views/default/_js/mail_retrieve.js:143
+#: admin/views/default/_js/user.js:92
+msgid "Yes"
+msgstr "Ja"
+
+#: admin/views/default/_js/mail_retrieve.js:142
+#: admin/views/default/_js/mail_retrieve.js:143
+#: admin/views/default/_js/user.js:92
+msgid "No"
+msgstr "Nej"
+
+#: admin/views/default/_js/mail_retrieve.js:167
+msgid "Add email account"
+msgstr "Lägg till email-konto"
+
+#: admin/views/default/_js/mail_retrieve.js:232
+msgid "Add new email account"
+msgstr "Lägg till nytt email-konto"
+
+#: admin/views/default/_js/mail_server.js:13
+msgid "Delete account"
+msgstr "Radera konto"
+
+#: admin/views/default/_js/mail_server.js:14
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: admin/views/default/_js/mail_server.js:21
+#, javascript-format
+msgid ""
+"Delete account for user <strong>%s</strong> on server <strong>%s</strong>?"
+msgstr ""
+"Radera konto för användaren <strong>%s</strong> på servern <strong>%s</"
+"strong>?"
+
+#: admin/views/default/_js/mail_server.js:25
+msgctxt "confirmation button"
+msgid "Delete mail account"
+msgstr "Radera email-konto"
+
+#: admin/views/default/_js/remote_accounts.js:16
+msgid "public key"
+msgstr "publik nyckel"
+
+#: admin/views/default/_js/remote_accounts.js:154
+msgid "Are you sure you want to permanently remove this remote account?"
+msgstr "Är du säker på att du vill ta bort detta fjärrkonto?"
+
+#: admin/views/default/_js/remote_accounts.js:154
+#: admin/views/default/_js/remote_accounts.js:156
+msgid "Remove remote account"
+msgstr "Radera fjärrkonto"
+
+#: admin/views/default/_js/stat.js:79
+msgid "No more system messages available"
+msgstr "Inga fler systemmeddelanden tillgängliga"
+
+#: admin/views/default/_js/stat.js:95
+msgctxt "confirmation button"
+msgid "Shut down"
+msgstr "Stäng av"
+
+#: admin/views/default/_js/stat.js:96
+#, javascript-format
+msgid "Proceed to shut down %s?"
+msgstr "Vill du stänga av %s?"
+
+#: admin/views/default/_js/stat.js:97
+msgid "Shut down"
+msgstr "Stäng av"
+
+#: admin/views/default/_js/stat.js:99
+msgctxt "confirmation button"
+msgid "Restart"
+msgstr "Starta om"
+
+#: admin/views/default/_js/stat.js:100
+#, javascript-format
+msgid "Proceed to restart %s?"
+msgstr "Vill du starta om %s?"
+
+#: admin/views/default/_js/stat.js:101
+msgid "Restart"
+msgstr "Starta om"
+
+#: admin/views/default/_js/main.js:149
+msgid "Logout"
+msgstr "Logga ut"
+
+#: admin/views/default/_js/main.js:157
+msgid "Proceed with logout?"
+msgstr "Vill du logga ut?"
+
+#: admin/views/default/_js/user.js:23
+msgid "Update settings"
+msgstr "Uppdatera inställningar"
+
+#: admin/views/default/_js/user.js:108
+msgid "Edit user"
+msgstr "Ändra användare"
+
+#: admin/views/default/_js/user.js:176
+msgid "Successfully added new user"
+msgstr "Ny användare tillagd"
+
+#: admin/views/default/_js/user.js:217
+msgid "User information updated"
+msgstr "Användarinformation uppdaterad"
+
+#: admin/views/default/_js/user.js:240
+msgid "Delete this user from the system?"
+msgstr "Radera denna användare från systemet?"
+
+#: admin/views/default/_js/user.js:249
+msgid "Delete userdata?"
+msgstr "Radera användardata"
+
+#: admin/views/default/_js/user.js:252 admin/views/default/_js/user.js:253
+#: admin/views/default/_js/user.js:311
+msgid "Delete user"
+msgstr "Radera användare"
+
+#: admin/views/default/_js/user.js:273
+msgid "User deleted"
+msgstr "Användare raderad"
+
+#: admin/views/default/_js/user.js:293
+msgid "Add new user"
+msgstr "Lägg till ny användare"
+
+#: admin/views/default/_js/user.js:322
+msgid "not a valid username"
+msgstr "inte ett giltigt användarnamn"
+
+#: admin/views/default/_js/user.js:369
+msgid "Add new user to the system"
+msgstr "Lägg till ny användare"
+
+#: admin/views/default/_js/tor.js:46
+msgctxt "validation message"
+msgid "You need to specify a nickname"
+msgstr "Du måste välja ett smeknamn"
+
+#: admin/views/default/_js/tor.js:49
+msgctxt "validation message"
+msgid "You need to specify contact information"
+msgstr "Du måste ange kontaktinformation"
+
+#: admin/views/default/_js/tor.js:52
+msgctxt "validation message"
+msgid "Relay port is required"
+msgstr "\"Relay port\" krävs"
+
+#: admin/views/default/_js/tor.js:53 admin/views/default/_js/tor.js:59
+msgctxt "validation message"
+msgid "Only digits are allowed"
+msgstr "Endast siffror är tillåtna"
+
+#: admin/views/default/_js/tor.js:54 admin/views/default/_js/tor.js:60
+msgctxt "validation message"
+msgid "Port {0} is not valid for usage"
+msgstr "Port {0} är inte tillåten"
+
+#: admin/views/default/_js/tor.js:55
+msgctxt "validation message"
+msgid "Port is out of range"
+msgstr "Porten är utanför tillåtet område"
+
+#: admin/views/default/_js/tor.js:58
+msgctxt "validation message"
+msgid "Directory port is required"
+msgstr "\"Directory port\" krävs"
+
+#: admin/views/default/_js/tor.js:61
+msgctxt "validation message"
+msgid "Port {0} is out of range"
+msgstr "Port {0} är utanför tillåtet område"
+
+#: admin/views/default/_js/tor.js:77
+msgid ""
+"It might take up to 20 minutes for Tor to self-test if the configuration is "
+"fully functional, please inspect the log file (Settings→Logs→tor) for "
+"verification\""
+msgstr ""
+"Det kan ta upp till 20 minuter för Tor att köra sin självtest. Vänligen se i "
+"logg-filen (settings -> logs -> Tor) för bekräftelse\""
+
+#: admin/views/default/_js/tor.js:172
+msgid ""
+"<p>Enabling Tor means that your B3 will be a part of the Tor anonymizing "
+"network. This will allow users all over the world to use your B3 to protect "
+"their privacy and reach a free and open Internet. To read more about Tor, "
+"please visit https://www.torproject.org/.</p><p>Also note that enabling this "
+"service does not make your traffic anonymous.</p><p>Before enabling Tor, it "
+"is recommended that you read the Terms of Service from your Internet Service "
+"Provider. <strong>Don't enable this service if you are hesitant</strong>.</p>"
+msgstr ""
+"<p>Att starta Tor innebär att din Excito B3 kommer att bli en del av "
+"anonymiseringsnätverket Tor. Detta låter användare över hela världen använda "
+"din Excito B3 för att skydda sitt privatliv och att nå ett fritt och öppet "
+"internet. För att läsa mer om Tor, besök https://www.torproject.org/. </"
+"p><p>Notera att denna tjänst inte gör din internettrafik anonym. </"
+"p><p>Innan du startar denna tjänst rekommenderar vi att du läser "
+"användarvillkoren från din internetleverantör. <strong>Använd inte denna "
+"tjänst om du är tveksam. </strong>.</p>"
+
+#: admin/views/default/_js/tor.js:175
+msgid "Please note"
+msgstr "Vänligen notera"
+
+#: admin/views/default/_js/wizard.js:8
+msgid "your-easyfind-name"
+msgstr "ditt-easyfind-namn"
+
+#: admin/views/default/_js/wizard.js:104
+msgid ""
+"Connection to internet is not available. Please disable easyfind, or connect "
+"to internet and try again."
+msgstr ""
+"Anslutning till internet finns inte tillgänglig. Var vänlig avaktivera "
+"easyfind, eller anslut till internet och försök igen."
+
+#: admin/views/default/_js/wizard.js:108
+msgid ""
+"The easyfind name you selected contains invalid characters. Please only "
+"include letters, numbers, or dashes ."
+msgstr ""
+"Det easyfind-namn du valt innehåller ogiltiga tecken. Vänligen välj bara "
+"bokstäver, siffror eller bindestreck."
+
+#: admin/views/default/_js/wizard.js:112
+msgid ""
+"The easyfind name you selected is already taken, please try another one."
+msgstr ""
+"Det easyfindnamn du valt är redan taget, var vänlig välj ett annat namn."
+
+#: admin/views/default/_js/wizard.js:174
+msgid "Following errors where encountered when trying to apply the changes: "
+msgstr "När inställningarna skulle sparas inträffade följande fel:"
+
+#: admin/views/default/_js/wizard.js:174
+msgid "Error applying changes"
+msgstr "Misslyckades att spara ändringarna"
+
+#: admin/views/default/_js/wizard.js:178
+msgid "Setup complete. Enjoy!"
+msgstr "Dina inställningar är nu sparade. Välkommen! "
+
+#~ msgctxt "button"
+#~ msgid "Create"
+#~ msgstr "Skapa"
+
+#~ msgctxt "button"
+#~ msgid "edit"
+#~ msgstr "Ändra"
+
+#~ msgid "Restore"
+#~ msgstr "Återställ"
+
+#~ msgid "Run now"
+#~ msgstr "Kör nu"
+
+#~ msgid "Only alphanumreric values are allowed for the name"
+#~ msgstr "Endast bokstäver och siffror är tillåtna i namnet"
+
+#~ msgid "Please enter a valid hostname or IPv4 address"
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#~ msgid "{0} is already in use"
+#~ msgstr "{0} är tyvärr upptaget"
+
+#~ msgid "Are you sure you want to run this backup job now?"
+#~ msgstr "Vill du verkligen köra detta backup-jobb nu?"
+
+#~ msgid "Run backup job now"
+#~ msgstr "Kör backupjobb nu"
+
+#~ msgid ""
+#~ "Backup job has been initialized to be executed at this particlular moment "
+#~ "in time."
+#~ msgstr "Backup-jobbet startat."
+
+#~ msgid "Restore backed up data"
+#~ msgstr "Återställ uppbackad data"
+
+#~ msgid "Restore selected files and directories"
+#~ msgstr "Återställ valda filer och kataloger"
+
+#~ msgid "Are you sure? Any existing files will be overwritten."
+#~ msgstr "Är du säker? Alla existerande filer kommer att skrivas över. "
+
+#~ msgid "Confirm restore"
+#~ msgstr "Bekräfta återställning"
+
+#~ msgid "Retrieving data for selected backup job. Please stand by"
+#~ msgstr "Hämtar data för backupjobbet. Vänligen vänta"
+
+#~ msgid "File/Directory selector"
+#~ msgstr "Fil/katalogväljare"
+
+#~ msgid ""
+#~ "Selected Easyfind identifier is not available, please select a different "
+#~ "one."
+#~ msgstr "Easyfind-namnet är upptaget, vänligen välj ett annat."
+
+#~ msgid "not a valid password"
+#~ msgstr "inte ett giltigt lösenord"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "This field is required."
+#~ msgstr "\"Relay port\" krävs"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "Please enter a valid email address."
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "Please enter a valid URL."
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "Please enter a valid date."
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "Please enter a valid date (ISO)."
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "Please enter a valid number."
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "Please enter only digits."
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "Please enter a valid credit card number."
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "Please enter the same value again."
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "Please enter a value with a valid extension."
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "Please enter at least {0} characters."
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "Please enter a value between {0} and {1} characters long."
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "Please enter a value between {0} and {1}."
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "Please enter a value less than or equal to {0}."
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#, fuzzy
+#~ msgctxt "validation message"
+#~ msgid "Please enter a value greater than or equal to {0}."
+#~ msgstr "Vänligen ange ett giltigt värdnamn eller IPv4-adress"
+
+#~ msgid "Startup wizard"
+#~ msgstr "Uppstartsguide"
