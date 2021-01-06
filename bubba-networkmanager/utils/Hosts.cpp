@@ -67,8 +67,8 @@ static void createnewhosts(Hosts::Entries& e, const string& ip, const string& na
 	if(ip!=""){
 		Hosts::Entry ent(3);
 		ent[0]=ip;
-		ent[1]=name;
-		ent[2]=name+".localdomain";
+		ent[1]=name+".localdomain";
+		ent[2]=name;
 		e.push_back(ent);
 	}
 
@@ -99,8 +99,8 @@ void Hosts::UpdateHostname(Hosts::Entries& e, const string& name, const string& 
 
 		for(Hosts::Entries::iterator entry=e.begin();entry!=e.end();entry++){
 			(*entry).erase((*entry).begin()+1,(*entry).end());
-			(*entry).insert((*entry).end(),name);
 			(*entry).insert((*entry).end(),name+".localdomain");
+			(*entry).insert((*entry).end(),name);
 		}
 
 	}

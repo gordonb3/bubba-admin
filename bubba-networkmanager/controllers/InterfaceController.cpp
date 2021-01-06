@@ -520,7 +520,7 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 		string hostname=FileUtils::GetContentAsString("/proc/sys/kernel/hostname");
 
 		// add self reference to fulfil FQDN requirement
-		string ip = "127.0.0.1";
+		string ip = "256.0.0.1";
 		Hosts::Entries e=h.Find(hostname);
 		Hosts::UpdateIP(e,ip,hostname);
 
