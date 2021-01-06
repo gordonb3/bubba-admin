@@ -59,6 +59,7 @@ public:
 
 	static bool Up(const string& ifname);
 	static bool Down(const string& ifname);
+	static bool Restart(const string& ifname);
 
 	void SetStaticCfg(const string& ifname, const Json::Value& cfg);
 	void SetDynamicCfg(const string& ifname, const Json::Value& cfg);

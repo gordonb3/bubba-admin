@@ -635,6 +635,9 @@ bool InterfaceController::Down(const string& ifname){
 	return do_call("initd=$(/sbin/rc-service -ir net."+ifname+") && ${initd} -D stop")==0;
 }
 
+bool InterfaceController::Restart(const string& ifname){
+	return do_call("initd=$(/sbin/rc-service -ir net."+ifname+") && ${initd} restart") == 0;
+}
 
 InterfaceController::~InterfaceController(){
 }

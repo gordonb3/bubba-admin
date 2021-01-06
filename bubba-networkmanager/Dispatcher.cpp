@@ -241,6 +241,7 @@ Dispatcher::Result Dispatcher::setlanif(EUtils::UnixClientSocket *con, const Jso
 		}
 
 		InterfaceController& ifc = InterfaceController::Instance();
+		cfg.Update("lanif",newif);
 
 		try{
 			auto_ptr<Interface> in = ifc.GetInterface(olf);
@@ -326,23 +327,27 @@ Dispatcher::Result Dispatcher::setlanif(EUtils::UnixClientSocket *con, const Jso
 			}
 			if(!res["status"]){
 				// Try restoring original settings
+				cfg.Update("lanif",olf);
 				in->SetConfigurations(ocfgsave);
 				InterfaceController::Up(olf);
 			}else{
 				// "Deactivate" old interface
 				InterfaceController::Instance().SetRawCfg(olf,Json::Value(Json::objectValue));
 				InterfaceController::Down(olf);
-				// Pick up new if
-				InterfaceController::Up(newif);
 
 				// If this was a move from two wlan (bridge) update rc.d
 				if(newiftype=="bridge"){
+					system("ln -s net.lo /etc/init.d/net.br0");
 					list<int> start,stop;
 					start.push_back(2);
-					Services::Enable("ifup-br0",19,start,0,stop);
+					Services::Enable("net.br0",19,start,0,stop);
 				}else{
-					Services::Disable("ifup-br0");
+					Services::Disable("net.br0");
+					system("rm /etc/init.d/net.br0");
 				}
+
+				// Pick up new if
+				InterfaceController::Restart(newif);
 
 			}
 		}catch(runtime_error& err){
@@ -475,9 +480,7 @@ Dispatcher::Result Dispatcher::ifrestart(EUtils::UnixClientSocket* con,const Jso
 
 	if(v.isMember("ifname") && v["ifname"].isString()){
 
-		if(InterfaceController::Down(v["ifname"].asString())
-				&& InterfaceController::Up(v["ifname"].asString())){
-
+		if(InterfaceController::Restart(v["ifname"].asString())){
 			res["status"]=true;
 		}else{
 			res["status"]=false;
@@ -499,6 +502,7 @@ Dispatcher::Result Dispatcher::ifrestart(EUtils::UnixClientSocket* con,const Jso
 Dispatcher::Result Dispatcher::getdefaultroute(EUtils::UnixClientSocket *con, const Json::Value & v){
 	Json::Value res(Json::objectValue);
 	res["status"]=true;
+	Route::Instance().Refresh();
 	res["gateway"]=Route::Instance().Default()["gateway"];
 	this->send_jsonvalue(con,res);
 

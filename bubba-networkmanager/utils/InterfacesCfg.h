@@ -26,7 +26,7 @@
 #define INTERFACESCFG_H_
 
 //#define IFSFILE "interfaces"
-#define IFSFILE "/etc/network/interfaces"
+#define IFSFILE "/etc/conf.d/net"
 
 #include <libeutils/json/json.h>
 
@@ -41,6 +41,7 @@ private:
 	InterfacesCfg& operator=(const InterfacesCfg& cfg);
 
 	void parse_cfg();
+	bool is_handled_interface(std::string ifname);
 public:
 	static InterfacesCfg& Instance();
 
