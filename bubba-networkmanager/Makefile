@@ -40,8 +40,8 @@ DHCPPING_SRC = dhcp-ping/main.cpp dhcp-ping/dhcp.cpp
 SOURCES = $(APP_SRC) $(DATAMODEL_SRC) $(CONTROLLER_SRC) $(UTIL_SRC)
 OBJS = $(SOURCES:%.cpp=%.o)
 
-CXXFLAGS += -g -Wall $(shell pkg-config --cflags libeutils libnl-1) -DPACKAGE_VERSION="\"$(APP_VERSION)\""
-LDFLAGS += $(shell pkg-config --libs libeutils libnl-1)
+CXXFLAGS += -g -Wall $(shell pkg-config --cflags libeutils libnl-3.0 libnl-genl-3.0) -DPACKAGE_VERSION="\"$(APP_VERSION)\""
+LDFLAGS = $(shell pkg-config --libs libeutils libnl-3.0 libnl-genl-3.0)
 
 APP_OBJS=$(APP_SRC:%.cpp=%.o)
 DATAMODEL_OBJS=$(DATAMODEL_SRC:%.cpp=%.o)

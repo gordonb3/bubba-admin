@@ -25,6 +25,7 @@
 #include <cerrno>
 
 #include <netlink/netlink.h>
+#include <netlink/socket.h>
 #include <netlink/genl/genl.h>
 #include <netlink/genl/family.h>
 #include <netlink/genl/ctrl.h>
@@ -210,7 +211,7 @@ int Nl80211::phy_lookup( std::string phy ) {
 }
 
 int Nl80211::init( std::string phy ) {
-    struct nl_handle *sock;
+    struct nl_sock *sock;
     struct nl_msg *msg;
     struct nl_cb *cb;
 
@@ -218,19 +219,19 @@ int Nl80211::init( std::string phy ) {
     int devidx = 0;
     int err = 0;
 
-    sock = nl_handle_alloc();
+    sock = nl_socket_alloc();
     if( !sock ) {
         throw std::runtime_error( "Failed to allocate netlink socket. " + std::string(strerror(ENOMEM)) );
     }
 
     if( genl_connect(sock) ) {
-        nl_handle_destroy( sock );
+        nl_socket_free( sock );
         throw std::runtime_error( "Failed to connect to generic netlink. " + std::string(strerror(ENOLINK)) );
     }
 
     family = genl_ctrl_resolve(sock, "nl80211");
     if( !family ) {
-        nl_handle_destroy( sock );
+        nl_socket_free( sock );
         throw std::runtime_error( "nl80211 not found. " + std::string(strerror(ENOENT)) );
     }
     devidx = phy_lookup( phy );
@@ -240,13 +241,13 @@ int Nl80211::init( std::string phy ) {
         throw std::runtime_error( "Failed to allocate netlink message. " + std::string(strerror(ENOMEM)) );
     }
 
-    cb = nl_cb_alloc(NL_CB_DEFAULT);
+    cb = nl_cb_alloc(NL_CB_CUSTOM);
     if( !cb ) {
         throw std::runtime_error( "Failed to allocate netlink callbacks. " + std::string(strerror(ENOMEM)) );
     }
 
-    genlmsg_put(msg, 0, 0, family, 0, NLM_F_DUMP, NL80211_CMD_GET_WIPHY, 0);
-    NLA_PUT_U32(msg, NL80211_ATTR_IFINDEX, devidx);
+    genlmsg_put(msg, 0, 0, family, 0, 0, NL80211_CMD_GET_WIPHY, 0);
+    NLA_PUT_U32(msg, NL80211_ATTR_WIPHY, devidx);
 
     nl_cb_set(cb, NL_CB_VALID, NL_CB_CUSTOM, call_valid_handler, this);
     err = nl_send_auto_complete(sock, msg);
