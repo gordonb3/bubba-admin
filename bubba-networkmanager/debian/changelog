@@ -1,0 +1,333 @@
+bubba-networkmanager (0.48) claire estelle; urgency=high
+
+  * actually Writeback
+  * use stl algo to find localhost instead of statick check of second and
+    third which might be troublesome
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 27 Apr 2010 11:21:58 +0200
+
+bubba-networkmanager (0.47) claire estelle; urgency=high
+
+  * make sure either col two or three can contain the "localhost" entry 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 26 Apr 2010 15:57:56 +0200
+
+bubba-networkmanager (0.46) claire estelle; urgency=high
+
+  * add self reference loopback on hostname for dynamic to fulfil FQDN 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 26 Apr 2010 15:35:42 +0200
+
+bubba-networkmanager (0.45) karmic; urgency=high
+
+  * only ignore 127.*.*.* address if it's the _real_ localhost 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 26 Apr 2010 14:46:36 +0200
+
+bubba-networkmanager (0.44) claire estelle; urgency=high
+
+  * remove wep_key* when it's not to be used (Closes: #1371)
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 22 Apr 2010 11:30:20 +0200
+
+bubba-networkmanager (0.43) claire estelle; urgency=low
+
+  * Dont write out lines without values to resolv.conf
+  * Fix bug in altering nameservers in resolv.conf
+
+ -- Tor Krill <tor@excito.com>  Sat, 20 Mar 2010 18:54:23 +0100
+
+bubba-networkmanager (0.42) claire estelle; urgency=low
+
+  * Set ethernet device in promisc instead of bridge if
+
+ -- Tor Krill <tor@excito.com>  Mon, 08 Feb 2010 14:36:26 +0100
+
+bubba-networkmanager (0.41) claire estelle; urgency=low
+
+  * Fix default config value for tz lookup table.
+
+ -- Tor Krill <tor@excito.com>  Mon, 08 Feb 2010 12:11:36 +0100
+
+bubba-networkmanager (0.40) claire estelle; urgency=low
+
+  * Implement set&get promisc mode on if
+  * Set promisc mode if device is bridge in set{dynamic,static,raw}
+  * This should hopefully help #1111,#1159
+
+ -- Tor Krill <tor@excito.com>  Mon, 08 Feb 2010 11:59:59 +0100
+
+bubba-networkmanager (0.39) claire estelle; urgency=low
+
+  * default to world domain of unrecognized timezone was found (i.e. UTC) 
+
+ -- Carl Fürstenberg <carl@excito.com>  Sun, 07 Feb 2010 13:09:18 +0100
+
+bubba-networkmanager (0.38) claire estelle; urgency=low
+
+  * Don't add hostname to localhost device
+
+ -- Tor Krill <tor@excito.com>  Tue, 02 Feb 2010 14:27:50 +0100
+
+bubba-networkmanager (0.37) claire estelle; urgency=low
+
+  * Remove "auto" appended on bridge interfaces.
+  * Replace auto with added rc-skript to pick up IF
+
+ -- Tor Krill <tor@excito.com>  Mon, 01 Feb 2010 13:36:57 +0100
+
+bubba-networkmanager (0.36) claire; urgency=low
+
+  * changing Hosts class to allow for any hosts file
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 29 Jan 2010 17:32:03 +0100
+
+bubba-networkmanager (0.35) claire estelle; urgency=medium
+
+  * adding hack to remove bridge_fd
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 28 Jan 2010 12:58:14 +0100
+
+bubba-networkmanager (0.34) claire estelle; urgency=low
+
+  * remove fixed auto for bridge interfaces
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 28 Jan 2010 10:41:20 +0100
+
+bubba-networkmanager (0.33) claire estelle; urgency=low
+
+  * add bridge_fd defualt 0 (solves the issue with no bridge available during
+    boot)
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 25 Jan 2010 10:36:59 +0100
+
+bubba-networkmanager (0.32) claire estelle; urgency=low
+
+  * Set sending address on broadcast socket. 
+
+ -- Tor Krill <tor@excito.com>  Tue, 19 Jan 2010 22:29:38 +0100
+
+bubba-networkmanager (0.31) claire estelle; urgency=low
+
+  * Rework dhcpping to use raw listening socket
+
+ -- Tor Krill <tor@excito.com>  Tue, 19 Jan 2010 14:01:12 +0100
+
+bubba-networkmanager (0.30) claire estelle; urgency=low
+
+  * adding force auto on dynamic bridge 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 18 Jan 2010 16:10:55 +0100
+
+bubba-networkmanager (0.29) claire estelle; urgency=low
+
+  * reworking logic for bands and HT, adding ht_capab 
+  * force auto on bridges
+  * adding socket function to enable 80211n and setting ht_capab 
+  * adding function to enable/disable broadcast of ssid 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 15 Jan 2010 18:28:40 +0100
+
+bubba-networkmanager (0.28) claire estelle; urgency=low
+
+  * Initial add of dhcpping
+
+ -- Tor Krill <tor@excito.com>  Wed, 13 Jan 2010 23:12:55 +0100
+
+bubba-networkmanager (0.27) claire estelle; urgency=low
+
+  * Make bridge arguments optional to set_static/dynamic
+  * Fix wrong cfgpath in setstatic for bridge interfaces. 
+
+ -- Tor Krill <tor@excito.com>  Mon, 11 Jan 2010 19:05:28 +0100
+
+bubba-networkmanager (0.26) claire; urgency=low
+
+  * Fixing the bug in Dispatcher relative getphybands 
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 30 Dec 2009 14:15:37 +0100
+
+bubba-networkmanager (0.25) clare; urgency=low
+
+  * initial phy band resolver (might not work)
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 29 Dec 2009 17:47:41 +0100
+
+bubba-networkmanager (0.24) jaunty; urgency=low
+
+  * Fixed calling to set[static|dynamic] cfg with wrong params
+
+ -- Tor Krill <tor@excito.com>  Mon, 14 Dec 2009 00:14:43 +0100
+
+bubba-networkmanager (0.23) claire; urgency=low
+
+  * Changed parameters for set*cfg to allow auto to be used 
+
+ -- Tor Krill <tor@excito.com>  Fri, 11 Dec 2009 17:12:47 +0100
+
+bubba-networkmanager (0.22) claire; urgency=low
+
+  * Dont erase wpa keyfile empty it instead.
+
+ -- Tor Krill <tor@excito.com>  Thu, 10 Dec 2009 15:22:08 +0100
+
+bubba-networkmanager (0.21) claire; urgency=low
+
+  * Workaround for bridgeinterface. (Use same layout as ethdevs)
+
+ -- Tor Krill <tor@excito.com>  Wed, 09 Dec 2009 15:36:58 +0100
+
+bubba-networkmanager (0.20) claire; urgency=low
+
+  * Add ifup, ifdown and ifrestart commands
+  * Include client.py in package
+
+ -- Tor Krill <tor@excito.com>  Tue, 08 Dec 2009 22:07:25 +0100
+
+bubba-networkmanager (0.19) claire; urgency=low
+
+  * Add creation of new hosts entries if missing
+
+ -- Tor Krill <tor@excito.com>  Tue, 08 Dec 2009 19:08:08 +0100
+
+bubba-networkmanager (0.18) claire; urgency=low
+
+  * Really add Hosts class to svn :( 
+
+ -- Tor Krill <tor@excito.com>  Tue, 08 Dec 2009 12:42:32 +0100
+
+bubba-networkmanager (0.17) claire; urgency=low
+
+  * Added new Hosts class to utils (Manages /etc/hosts)
+  * Update hosts file on interface update if aplicable
+  * Kill any dhclients on interface if aplicable
+  * Move get current lan/wan if impelementation to IfController
+
+ -- Tor Krill <tor@excito.com>  Tue, 08 Dec 2009 12:29:21 +0100
+
+bubba-networkmanager (0.16) claire; urgency=low
+
+  * Hopefully really solve endian issue
+
+ -- Tor Krill <tor@excito.com>  Thu, 03 Dec 2009 15:03:14 +0100
+
+bubba-networkmanager (0.15) claire; urgency=low
+
+  * Rewrote route-ip reading function to be none endian dependant
+
+ -- Tor Krill <tor@excito.com>  Thu, 03 Dec 2009 14:03:59 +0100
+
+bubba-networkmanager (0.14) claire; urgency=low
+
+  * Add dep on bridge-utils
+
+ -- Tor Krill <tor@excito.com>  Wed,  2 Dec 2009 22:35:53 +0100
+
+bubba-networkmanager (0.13) claire; urgency=low
+
+  * Dont require a hostapd service enabled to parse config
+  * .i
+
+ -- Tor Krill <tor@excito.com>  Wed,  2 Dec 2009 22:35:48 +0100
+
+bubba-networkmanager (0.12) claire; urgency=low
+
+  * Add depenedencies on crda, iw and hostapd (For wireless)
+
+ -- Tor Krill <tor@excito.com>  Tue, 01 Dec 2009 18:31:10 +0100
+
+bubba-networkmanager (0.11) jaunty; urgency=low
+
+  * Add set ap-if to bootstrap ap config when no default if used
+
+ -- Tor Krill <tor@excito.com>  Tue, 01 Dec 2009 14:14:47 +0100
+
+bubba-networkmanager (0.10) claire; urgency=low
+
+  * Addd lan policies
+  * Add get default laninterface method
+  * Add get default waninterface method
+  * Remove hardcoded interfaces from dispatcher
+
+ -- Tor Krill <tor@excito.com>  Fri, 27 Nov 2009 13:27:04 +0100
+
+bubba-networkmanager (0.9) claire; urgency=low
+
+  * Add "native" get wlan interface function 
+
+ -- Tor Krill <tor@excito.com>  Fri, 27 Nov 2009 00:39:40 +0100
+
+bubba-networkmanager (0.8) claire; urgency=low
+
+  * Add ttl option for how long daemon should idle before
+    terminating.
+  * Verify that interface really exists when returning 
+    interface configuration
+  * Add workaround for virtual devices like bridgeifs
+    to allow them to be "enumerated"
+  * Add if up and down methods to interfacecontroller
+  * Add experimental reconfig of interfaces in set lan 
+    interface
+  * Experimental implementation of set raw cfg on bridge  
+  * Do compile with debug info
+
+ -- Tor Krill <tor@excito.com>  Thu, 26 Nov 2009 10:51:20 +0100
+
+bubba-networkmanager (0.7) claire; urgency=low
+
+  * Dont fail on get addr,netmask and broadcast. 
+    Device can be up without any of them.
+
+ -- Tor Krill <tor@excito.com>  Thu, 19 Nov 2009 15:18:49 +0100
+
+bubba-networkmanager (0.6) claire; urgency=low
+
+  * Rewrote testscript to a module 
+  * Add optional type argument to getinterfaces
+    to allow fetching only fx wlan or bridgeifs
+
+ -- Tor Krill <tor@excito.com>  Wed, 18 Nov 2009 14:55:28 +0100
+
+bubba-networkmanager (0.5) claire; urgency=low
+
+  * Add methods for set and get NS config 
+  * Add more interfaces to policies
+  * Fix some typos 
+
+ -- Tor Krill <tor@excito.com>  Wed, 18 Nov 2009 10:06:17 +0100
+
+bubba-networkmanager (0.4) claire; urgency=low
+
+  * Adding minimal commandline client to get/set lan/wan if 
+  * activating check for effective uid (root lockin)
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 09 Nov 2009 16:37:13 +0100
+
+bubba-networkmanager (0.3) claire; urgency=low
+
+  * Added check if application already running. 
+
+ -- Tor Krill <tor@excito.com>  Thu, 22 Oct 2009 15:36:25 +0200
+
+bubba-networkmanager (0.2) claire; urgency=low
+
+  * Added setraw command
+  * Added wlan controller
+  * Added set wlan cfg command
+  * Fixed some more case errors in json
+  * Removed some debug prints 
+  * Added more AP methods
+  * Fixed permissions on wpa keyfile
+ 
+  * Added get interfaces method
+  * Added get wlan attached method
+  * Bugfix in policies
+  * Fixed missing constness in jsonutils 
+
+ -- Tor Krill <tor@excito.com>  Wed, 21 Oct 2009 22:37:35 +0200
+
+bubba-networkmanager (0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 16 Oct 2009 15:14:02 +0200

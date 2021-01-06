@@ -1,0 +1,5 @@
+# Internal config file for bubba-network manager. DO not edit
+wanif=eth0
+lanif=eth1
+tz_map_file=/usr/share/bubba-networkmanager/tz-lc.txt
+tz_file=/etc/timezone
