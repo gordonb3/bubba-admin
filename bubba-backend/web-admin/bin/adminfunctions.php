@@ -928,53 +928,53 @@ function get_fwsettings() {
 	$retval["allowIMAP"]=false;
 	$retval["allowTorrent"]=false;
 
-	if(isset($iptable["INPUT"]["21tcp"]))
-		if(!strcmp($iptable["INPUT"]["21tcp"]["target"],"ACCEPT")) {
-			$iptable["INPUT"]["21tcp"] = 0;
+	if(isset($iptable["Bubba_IN"]["21tcp"]))
+		if(!strcmp($iptable["Bubba_IN"]["21tcp"]["target"],"ACCEPT")) {
+			$iptable["Bubba_IN"]["21tcp"] = 0;
 			$retval["allowFTP"]=true;
 		}
 
-	if(isset($iptable["INPUT"]["22tcp"]))
-		if(!strcmp($iptable["INPUT"]["22tcp"]["target"],"ACCEPT")){
-			$iptable["INPUT"]["22tcp"] = 0;
+	if(isset($iptable["Bubba_IN"]["22tcp"]))
+		if(!strcmp($iptable["Bubba_IN"]["22tcp"]["target"],"ACCEPT")){
+			$iptable["Bubba_IN"]["22tcp"] = 0;
 			$retval["allowSSH"]=true;
 		}
 
-	if(isset($iptable["INPUT"]["80tcp"]))
-		if(!strcmp($iptable["INPUT"]["80tcp"]["target"],"ACCEPT")){
-			$iptable["INPUT"]["80tcp"] = 0;
-			$iptable["INPUT"]["443tcp"] = 0;
+	if(isset($iptable["Bubba_IN"]["80tcp"]))
+		if(!strcmp($iptable["Bubba_IN"]["80tcp"]["target"],"ACCEPT")){
+			$iptable["Bubba_IN"]["80tcp"] = 0;
+			$iptable["Bubba_IN"]["443tcp"] = 0;
 			$retval["allowWWW"]=true;
 		}
 
-	if(isset($iptable["INPUT"]["25tcp"]))
-		if(!strcmp($iptable["INPUT"]["25tcp"]["target"],"ACCEPT")){
-			$iptable["INPUT"]["25tcp"] = 0;
+	if(isset($iptable["Bubba_IN"]["25tcp"]))
+		if(!strcmp($iptable["Bubba_IN"]["25tcp"]["target"],"ACCEPT")){
+			$iptable["Bubba_IN"]["25tcp"] = 0;
 			$retval["allowMail"]=true;
 		}
 
-	if(isset($iptable["INPUT"]["143tcp"]))
-		if(!strcmp($iptable["INPUT"]["143tcp"]["target"],"ACCEPT")){
-			$iptable["INPUT"]["143tcp"] = 0;
-			$iptable["INPUT"]["993tcp"] = 0;
+	if(isset($iptable["Bubba_IN"]["143tcp"]))
+		if(!strcmp($iptable["Bubba_IN"]["143tcp"]["target"],"ACCEPT")){
+			$iptable["Bubba_IN"]["143tcp"] = 0;
+			$iptable["Bubba_IN"]["993tcp"] = 0;
 			$retval["allowIMAP"]=true;
 		}
 
-	if(isset($iptable["INPUT"]["pingicmp"]))
-		if(!strcmp($iptable["INPUT"]["pingicmp"]["target"],"ACCEPT")){
-			$iptable["INPUT"]["pingicmp"] = 0;
+	if(isset($iptable["Bubba_IN"]["pingicmp"]))
+		if(!strcmp($iptable["Bubba_IN"]["pingicmp"]["target"],"ACCEPT")){
+			$iptable["Bubba_IN"]["pingicmp"] = 0;
 			$retval["allowPing"]=true;
 		}
 
-	if(isset($iptable["INPUT"]["10000:14000tcp"]))
-		if(!strcmp($iptable["INPUT"]["10000:14000tcp"]["target"],"ACCEPT")){
-			$iptable["INPUT"]["10000:14000tcp"] = 0;
+	if(isset($iptable["Bubba_IN"]["10000:14000tcp"]))
+		if(!strcmp($iptable["Bubba_IN"]["10000:14000tcp"]["target"],"ACCEPT")){
+			$iptable["Bubba_IN"]["10000:14000tcp"] = 0;
 			$retval["allowTorrent"]=true;
 		}
 
 	$retval['fwports'] = array();
-	if(isset($iptable["INPUT"])) {
-		foreach($iptable["INPUT"] as $key => $rule) {
+	if(isset($iptable["Bubba_IN"])) {
+		foreach($iptable["Bubba_IN"] as $key => $rule) {
 			if (!strcmp($rule["target"],"ACCEPT")) {
 				$retval["fwports"][$key]=$rule;
 				if(!isset($retval["fwports"][$key]["to_ip"])) {
@@ -988,8 +988,8 @@ function get_fwsettings() {
 		}
 	}
   
-	if(isset($iptable["PREROUTING"])) {
-		foreach($iptable["PREROUTING"] as $key => $rule) {
+	if(isset($iptable["Bubba_DNAT"])) {
+		foreach($iptable["Bubba_DNAT"] as $key => $rule) {
 			//if($rule["source"]=="0.0.0.0/0") {
 			//	$rule["source"]="all";
 			//}
@@ -1030,14 +1030,14 @@ function add_portforward($portdata) {
 
 function open_port($port) {
 
-	$cmd = FIREWALL." openport $port[dport] $port[protocol] $port[source] filter INPUT";
+	$cmd = FIREWALL." openport $port[dport] $port[protocol] $port[source] filter Bubba_IN";
 	exec($cmd,$out,$ret);
 	return $out;
 }
 
 function close_port($port) {
 
-	$cmd = FIREWALL." closeport $port[dport] $port[protocol] $port[source] filter INPUT";
+	$cmd = FIREWALL." closeport $port[dport] $port[protocol] $port[source] filter Bubba_IN";
 	exec($cmd,$out,$ret);
 	return $out;
 }
@@ -1047,18 +1047,18 @@ function fw_updateservices($portlist) {
 	foreach($portlist as $port => $open) {
 		if($open) { // OPEN ports
 			if (!strcmp($port,"ping"))
-				$cmd = FIREWALL." openport 8 icmp 0 filter INPUT";
+				$cmd = FIREWALL." openport 8 icmp 0 filter Bubba_IN";
 			else 
-				$cmd = FIREWALL." openport $port tcp 0 filter INPUT";
+				$cmd = FIREWALL." openport $port tcp 0 filter Bubba_IN";
 			exec($cmd,$out,$ret);
 		  	
 			// Additional related ports (mainly encrypted traffic ports
 			if ($port == 80) {
-				$cmd = FIREWALL." openport 443 tcp 0 filter INPUT";
+				$cmd = FIREWALL." openport 443 tcp 0 filter Bubba_IN";
 				exec($cmd,$out,$ret);
 			}
 			if ($port == 143) {
-				$cmd = FIREWALL." openport 993 tcp 0 filter INPUT";
+				$cmd = FIREWALL." openport 993 tcp 0 filter Bubba_IN";
 				exec($cmd,$out,$ret);
 			}
 			unset($out); // exec seems to append to $out.
@@ -1066,16 +1066,16 @@ function fw_updateservices($portlist) {
 		} else { // Close ports
 	
 			if (!strcmp($port,"ping"))
-				$cmd = FIREWALL." closeport 8 icmp 0 filter INPUT";
+				$cmd = FIREWALL." closeport 8 icmp 0 filter Bubba_IN";
 			else 
-				$cmd = FIREWALL." closeport $port tcp 0 filter INPUT";
+				$cmd = FIREWALL." closeport $port tcp 0 filter Bubba_IN";
 			exec($cmd,$out,$ret);
 			if ($port == 80) {
-				$cmd = FIREWALL." closeport 443 tcp 0 filter INPUT";
+				$cmd = FIREWALL." closeport 443 tcp 0 filter Bubba_IN";
 				exec($cmd,$out,$ret);
 			}
 			if ($port == 143) {
-				$cmd = FIREWALL." closeport 993 tcp 0 filter INPUT";
+				$cmd = FIREWALL." closeport 993 tcp 0 filter Bubba_IN";
 				exec($cmd,$out,$ret);
 			}
 			unset($out); // exec seems to append to $out.
