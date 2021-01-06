@@ -53,7 +53,7 @@ int Process::call(char** const cmd) {
 			perror("werite failed");
 			exit(EXIT_FAILURE);
 		}
-		memset( buffer, NULL, BUFFER_SIZE );
+		memset( buffer, 0, BUFFER_SIZE );
 	}
 	close(pipes[0][1]);
 
@@ -116,14 +116,14 @@ int Process::call(char** const cmd) {
 				exit(EXIT_FAILURE);
 			}
 
-			memset( buffer, NULL, BUFFER_SIZE );
+			memset( buffer, 0, BUFFER_SIZE );
 			if( FD_ISSET( rfd, &fds ) ) {
 				len = read( rfd, &buffer, BUFFER_SIZE );
 				if( len > 0 ) {
 					pout->rdbuf()->sputn( buffer, len );
 				}
 			}
-			memset( buffer, NULL, BUFFER_SIZE );
+			memset( buffer, 0, BUFFER_SIZE );
 			if( FD_ISSET( efd, &fds ) ) {
 				len = read( efd, buffer, BUFFER_SIZE );
 				if( len > 0 ) {

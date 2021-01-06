@@ -61,7 +61,7 @@ protected:
 
 public:
 	SysvIPC(string path, int token);
-	virtual ~SysvIPC();
+	virtual ~SysvIPC() noexcept(false);
 };
 
 }

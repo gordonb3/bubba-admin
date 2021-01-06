@@ -56,7 +56,7 @@ void SysvShm::Remove(){
 	}
 }
 
-SysvShm::~SysvShm() {
+SysvShm::~SysvShm() noexcept(false) {
 	if (shmdt(data) == -1) {
 		throw IpcError("Failed to detach shm");
 	}

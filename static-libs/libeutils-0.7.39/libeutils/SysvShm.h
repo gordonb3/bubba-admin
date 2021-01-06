@@ -41,7 +41,7 @@ public:
 	void* operator*();
 	void* Value();
 	void Remove();
-	virtual ~SysvShm();
+	virtual ~SysvShm() noexcept(false);
 };
 
 }

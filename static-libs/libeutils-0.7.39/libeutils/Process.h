@@ -65,9 +65,9 @@ namespace EUtils {
 		int call(char** const cmd);
 		int call(const char** const cmd);
 
-		std::auto_ptr<std::ostringstream> pin;
-		std::auto_ptr<std::istringstream> pout;
-		std::auto_ptr<std::istringstream> perr;
+		std::unique_ptr<std::ostringstream> pin;
+		std::unique_ptr<std::istringstream> pout;
+		std::unique_ptr<std::istringstream> perr;
 
 
 	private:

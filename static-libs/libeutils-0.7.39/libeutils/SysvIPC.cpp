@@ -38,7 +38,7 @@ SysvIPC::SysvIPC(string path,int token) {
 
 }
 
-SysvIPC::~SysvIPC() {
+SysvIPC::~SysvIPC() noexcept(false) {
 }
 
 }

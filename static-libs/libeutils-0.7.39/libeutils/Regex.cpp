@@ -101,7 +101,7 @@ bool Regex::Match(const string& val, int maxmatch){
 	this->curpos=0;
 	
 	//TODO: Cache first match
-	if(regexec(&this->preg,val.c_str(),NULL,0,0)==0){
+	if(regexec(&this->preg,val.c_str(),0,0,0)==0){
 		return true;
 	}
 	
