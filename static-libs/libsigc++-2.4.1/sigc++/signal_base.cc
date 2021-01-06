@@ -138,7 +138,7 @@ void signal_impl::sweep()
 //static
 void* signal_impl::notify(void* d)
 {
-  std::auto_ptr<self_and_iter> si(static_cast<self_and_iter*>(d));
+  std::unique_ptr<self_and_iter> si(static_cast<self_and_iter*>(d));
 
   if (si->self_->exec_count_ == 0)
   {
