@@ -2032,6 +2032,13 @@ sub do_set_timezone {
 	$ret = system($cmd);
 	$cmd = "echo '$timezone' > '/etc/timezone'";
 	$ret = system($cmd);
+	$cmd="sed -e '/date\.timezone/d' -e '$a\' -i /etc/php/*/ext/bubba-admin.ini";
+	$ret = system($cmd);
+	my @filelist= `ls -1 /etc/php/*/ext/bubba-admin.ini`;
+	foreach $file (@filelist) {
+		open(my $fd, ">>$file");
+		print $fd "date.timezone=\"$timezone\"\n";
+	}
 	if($ret) {
 		print 1;
 	} else {
