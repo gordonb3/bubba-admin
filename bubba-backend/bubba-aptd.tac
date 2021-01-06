@@ -414,13 +414,13 @@ def run_hotfix(status):
 
     # Current LAN interface
     LAN = subprocess.Popen(
-        ['bubba-networkmanager-cli', 'getlanif'],
+        ['/opt/bubba/bin/bubba-networkmanager-cli', 'getlanif'],
         stdout=subprocess.PIPE
     ).communicate()[0].strip()
 
     # current WAN interface
     WAN = subprocess.Popen(
-        ['bubba-networkmanager-cli', 'getwanif'],
+        ['/opt/bubba/bin/bubba-networkmanager-cli', 'getwanif'],
         stdout=subprocess.PIPE
     ).communicate()[0].strip()
 
@@ -497,7 +497,7 @@ def run_hotfix(status):
     # Home partition mode
     disks = json.loads(
         subprocess.Popen(
-            ['diskmanager', 'disk', 'list'],
+            ['/opt/bubba/sbin/diskmanager', 'disk', 'list'],
             stdout=subprocess.PIPE
         ).communicate()[0].strip()
     )

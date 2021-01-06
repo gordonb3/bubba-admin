@@ -12,7 +12,7 @@ function print_versions() {
             tr.append(
             $("<td>").addClass("packagename").text(package_name));
             tr.append(
-            $("<td>").addClass("packageversion").text(package_version));
+            $("<td width=\"120px\">").addClass("packageversion").text(package_version));
             $("#package_versions_body").append(tr);
         })
     },

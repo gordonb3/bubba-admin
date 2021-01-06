@@ -1,7 +1,7 @@
 <?php
 
 class Disk_model extends CI_Model {
-	private $manager = "/usr/sbin/diskmanager";
+	private $manager = "/opt/bubba/sbin/diskmanager";
 	function __construct() {
 		parent::__construct();
 		$this->load->helper('bubba_socket');		
@@ -527,8 +527,8 @@ class Disk_model extends CI_Model {
 	}
 
 	function diskdaemon_is_running() {
-		if( file_exists('/tmp/bubba-disk.socket') ) {
-			exec( 'fuser -s /tmp/bubba-disk.socket', $ret, $err );
+		if( file_exists('/run/bubba-disk.socket') ) {
+			exec( 'fuser -s /run/bubba-disk.socket', $ret, $err );
 			if( $err == 0 ) {
 				return true;
 			}
@@ -617,5 +617,16 @@ class Disk_model extends CI_Model {
 		return trim($this->_raw_system( "hddtemp", "-n", $dev ));
 	}
 
+
+	function list_swap_partitions() {
+		$swap_partitions = Array();
+		$swap_on = explode("\n",$this->_raw_system( '/sbin/swapon', '--show' ) );
+		unset($swap_on[0]);
+		foreach( $swap_on as $line ) {
+			$dev = strtok(trim($line), " ");
+			$swap_partitions[$dev] = "swap";
+		}
+		return $swap_partitions;
+	}
 }
 

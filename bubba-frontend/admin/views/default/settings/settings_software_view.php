@@ -4,7 +4,7 @@
 
 <div class="ui-indent-margin">
     <div class="ui-expandable ui-div-small-header"><?=_("Detailed information")?></div>
-    <div class="ui-helper-hidden">
+<!--    <div class="ui-helper-hidden"> -->
 
         <table id="package_versions" class="ui-table-outline">
             <thead>
@@ -22,6 +22,7 @@
     </div>
 </div>
 
+<!--
 <form id="update" method="post">
 
     <table class="ui-table-outline">
@@ -43,3 +44,4 @@
     <pre id="tmp"></pre>
 </form>
 
+-->

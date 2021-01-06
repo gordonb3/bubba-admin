@@ -11,7 +11,7 @@
 |	http://www.your-site.com/
 |
 */
-$config['base_url']	= "/admin/";
+$config['base_url']	= preg_replace("|^(/[^/]*/).*$|","\\1",$_SERVER["REQUEST_URI"]);
 
 /*
 |--------------------------------------------------------------------------

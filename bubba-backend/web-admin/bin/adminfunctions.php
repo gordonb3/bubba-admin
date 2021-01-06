@@ -2,7 +2,7 @@
 # Setting the ctype locale to en_US.UTF-8, mostly to enamble escapeshellargs to function properly
 setlocale( LC_CTYPE, 'en_US.UTF-8' );
 define("DEBUG",0);
-define("BUBBA_EASYFIND_CONF","/etc/network/easyfind.conf");
+define("BUBBA_EASYFIND_CONF","/etc/bubba/easyfind.conf");
 class AdminException extends Exception {
 
 	const MYSQL_CONNECT_ERROR = 0x01;
@@ -16,7 +16,7 @@ class AdminException extends Exception {
 function _getlanif(){
 	static $lanif="";
 	if($lanif==""){
-		$lanif=shell_exec("/usr/bin/bubba-networkmanager-cli getlanif");
+		$lanif=shell_exec("/opt/bubba/bin/bubba-networkmanager-cli getlanif");
 	}
 	return rtrim($lanif);
 }
@@ -430,12 +430,12 @@ function restart_network($interface){
 
 function get_interface_info($iface){
 	$res=array();
-	exec("/sbin/ifconfig $iface",$out,$ret);
+	exec("/bin/ifconfig $iface",$out,$ret);
 	foreach($out as $line){
-		if(preg_match("/inet addr:([\d.]+)/",$line,$match)){
+		if(preg_match("/inet ([\d.]+)/",$line,$match)){
 			$res[0]=$match[1];
 		}
-		if(preg_match("/Mask:([\d.]+)/",$line,$match)){
+		if(preg_match("/netmask ([\d.]+)/",$line,$match)){
 			$res[1]=$match[1];
 		}
 	}
@@ -467,17 +467,19 @@ function get_dns(){
 	return $res;
 }
 
+/*
+	// Gordon: 2015-07-15 - does not appear to be used any more
 function _check_dhcp($iface=""){
 	if($iface=""){
 		$iface=_getlanif();
 	}
 	$cdhcp=false;
-	$netcfg=file("/etc/network/interfaces");
+	$netcfg=file("/etc/conf.d/net");
 	foreach ($netcfg as $i) {
 		$trim_line = trim($i);
-		$pieces = explode(" ",$trim_line);
+		$pieces = explode("=",$trim_line);
 		if(count($pieces)==4){
-			if($pieces[1]==$iface && $pieces[3]=="dhcp"){
+			if($pieces[1]=="config_$iface" && $pieces[3]=="\"dhcp\""){
 				$cdhcp=true;
 				break;
 			}
@@ -513,7 +515,7 @@ function get_networkconfig($iface="eth0"){
 			}			
 		}
 	} else { // default
-		exec("/sbin/ifconfig $iface",$out,$ret);
+		exec("/bin/ifconfig $iface",$out,$ret);
 		foreach($out as $line){
 			if(preg_match("/inet addr:([\d.]+)/",$line,$match)){
 				$res[0]=$match[1];
@@ -523,7 +525,7 @@ function get_networkconfig($iface="eth0"){
 			}
 		}
 	}
-	exec("/sbin/route -n",$out,$ret);
+	exec("/bin/route -n",$out,$ret);
 	$res[2]="0.0.0.0";
 	foreach($out as $line){
 		if(preg_match("/^0\.0\.0\.0\s+([\d.]+)/",$line,$match)){
@@ -543,6 +545,7 @@ function get_networkconfig($iface="eth0"){
 	return $res;	
 	
 }
+*/
 
 function set_static_netcfg($iface, $ip,$nm,$gw){
    
@@ -615,7 +618,7 @@ function remove_service($name){
 
 function query_service($name){
 
-   $res=glob("/etc/rc2.d/S??$name");
+   $res=glob("/etc/runlevels/default/$name");
    return $res?true:false;
 
 }
@@ -1231,8 +1234,8 @@ function get_package_version($package="bubba-frontend") {
 	exec($cmd,$out,$ret);
 	$versions = array();
 	foreach( $out as $line ) {
-		list( $name, $version ) = explode( ' ', $line );
-		$versions[$name] = $version;
+		list( $name, $version ) = explode( ' ', $line." null" );
+		$versions["$name"] = $version;
 	}
 
 	if( count($versions) == 1 ) {
@@ -1299,7 +1302,7 @@ function start_wizard() {
 
 function get_timezone_info() {
 	
-	$zoneinfo = '/usr/share/zoneinfo/right';
+	$zoneinfo = '/usr/share/zoneinfo';
 	if ($h_zonebase = opendir($zoneinfo)) {
 		
 		$zones = array();

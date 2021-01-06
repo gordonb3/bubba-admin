@@ -117,7 +117,7 @@ class Users extends CI_Controller{
 				) {
 					$shell = '/bin/bash';
 				} else {
-					$shell = '/usr/sbin/nologin'; 
+					$shell = '/sbin/nologin'; 
 				}
 				$group = 'users'; // Static group for em all
 	
@@ -247,7 +247,7 @@ class Users extends CI_Controller{
 					$this->update_cfg("default_sideboard", $sideboard ? "yes" : "no","admin" );
 				}
 				*/
-				if( !$error && update_user($realname,$shell?'/bin/bash':'/usr/sbin/nologin',$username)){
+				if( !$error && update_user($realname,$shell?'/bin/bash':'/sbin/nologin',$username)){
 					$error = sprintf(_("Failed to edit account for %s (%3$s) shell: %2$s"), $realname, $shell, $username);
 				}		
 			} else {
@@ -296,13 +296,15 @@ class Users extends CI_Controller{
 					if($userdata){
 						if(rm("/home/$username","root")==0){
 						}else{
-							$error = sprintf(_('Was unabler to remove the home directory for user %s'), $username);
+							$error = sprintf(_('Was unable to remove the home directory for user %s'), $username);
 						}
+/*
 						try {
 							purge_horde( $username );
 						} catch( AdminException $e ) {
 							$error = sprintf(_('Fatal error when trying to purge horde configurations for user %s'),$username);
 						}
+*/
 					}
 				}else{
 					$error = sprintf(_('Fatal error when trying to remove the user %s'), $username);

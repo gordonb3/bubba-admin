@@ -136,14 +136,14 @@ class Browscap
 	 *
 	 * @var string
 	 */
-	public $cacheFilename   = 'cache.php';
+	public $cacheFilename   = '/var/lib/bubba/cache.php';
 	
 	/**
 	 * Where to store the downloaded ini file.
 	 *
 	 * @var string
 	 */
-	public $iniFilename     = 'browscap.ini';
+	public $iniFilename     = '/var/lib/bubba/browscap.ini';
 	
 	/**
 	 * Path to the cache directory

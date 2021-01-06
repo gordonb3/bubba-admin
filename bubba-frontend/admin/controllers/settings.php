@@ -238,9 +238,9 @@ class Settings extends CI_Controller{
       $output = old_apt_query_progress();
       break;
     case 'get_versions':
-      $versions = get_package_version(array("bubba","bubba3-kernel","bubba-frontend","bubba-backend","bubba-album","filetransferdaemon","logitechmediaserver"));
+      $versions = get_package_version(array("bubba","bubba3-kernel","bubba-frontend","bubba-backend","singapore","filetransferdaemon","logitechmediaserver"));
       $this->session->set_userdata("version",$versions['bubba']);
-      $output = json_encode($versions);
+      $output = str_replace("null","not installed",json_encode($versions));
       break;
     }
     syslog( LOG_DEBUG, $output );
@@ -341,8 +341,8 @@ class Settings extends CI_Controller{
     if(!$error && !$ntp) {
       if(service_running("ntpd")) {
         // turn off ntp
-        stop_service("ntp");
-        remove_service("ntp");
+        stop_service("ntpd");
+        remove_service("ntpd");
       }
 
       // -- Set date and time
@@ -361,8 +361,8 @@ class Settings extends CI_Controller{
     } else { // use ntp
       if(!service_running("ntpd")) {
         // turn on ntp
-        start_service("ntp");
-        add_service("ntp");
+        start_service("ntpd");
+        add_service("ntpd");
       }
     }
 
@@ -493,52 +493,50 @@ class Settings extends CI_Controller{
   function logs($strip=""){
     $base_path = '/var/log/';
     # mapping of log file name and path
-    $logs = array(
-      'syslog' => 'syslog',
-      'auth.log' => 'auth.log',
-      'daemon.log' => 'daemon.log',
-      'debug' => 'debug',
-      'dmesg' => 'dmesg',
-      'dpkg.log' => 'dpkg.log',
-      'faillog' => 'faillog',
-      'kern.log' => 'kern.log',
-      'mail.log' => 'mail.log',
-      'minidlna.log' => 'minidlna.log',
-      'user.log' => 'user.log',
-      'bubba-backup.log' => 'bubba-backup.log',
-      'forked-daapd.log' => 'forked-daapd.log',
-      'fsck' => array(
-        'checkfs' => 'fsck/checkfs',
-        'checkroot' => 'fsck/checkroot',
-      ),
-      'horde' => array(
-        'horde' => 'horde/horde3.log',
-      ),
-      'samba' => array(
-        'log.all' => 'samba/log.all',
-        'log.nmbd' => 'samba/log.nmbd',
-        'log.smbd' => 'samba/log.smbd',
-      ),
-      'apache2' => array(
-        'access.log' => 'apache2/access.log',
-        'error.log' => 'apache2/error.log',
-      ),
-      'cups' => array(
-        'access_log' => 'cups/access_log',
-        'error_log' => 'cups/error_log',
-      ),
-      'proftpd' => array(
-        'controls.log' => 'proftpd/controls.log',
-        'proftpd.log' => 'proftpd/proftpd.log',
-        'xferlog' => 'proftpd/xferlog',
-        'xferreport' => 'proftpd/xferreport',
-      ),
-      'tor' => 'tor/notices.log',
-      'Logitech mediaserver' => array(
-        'server.log' => 'squeezeboxserver/server.log',
-        'perfmon.log' => 'squeezeboxserver/perfmon.log',
-      ),
-    );
+	$logs = array("messages" => "messages");
+
+	foreach (glob($base_path."*",GLOB_MARK) as $node) {
+		if (preg_match("(/$|gz$|tallylog|wtmp|messages|lastlog)",$node)) continue;
+		$nodename = substr($node,9);
+		$logs[$nodename] = $nodename;
+	}
+
+	foreach (glob($base_path."*",GLOB_ONLYDIR) as $dir) {
+		$basename = substr($dir,9);
+		switch ($basename) {
+			case "sandbox":
+				continue 2;
+				break;
+			case "logitechmediaserver":
+				$dirname = "Logitech Mediaserver";
+				break;
+			case "apache2":
+				$dirname = "Apache webserver";
+				break;
+			case "nginx":
+				$dirname = "Nginx webserver";
+				break;
+			case "cups":
+				$dirname = "Cups printserver";
+				break;
+			case "samba":
+				$dirname = "Samba fileserver";
+				break;
+			default:
+				$dirname = $basename;
+				break;
+		}
+		$logs[$dirname] = Array();
+		$path_len = strlen($dir."/");
+		$numlogfiles = 0;
+		foreach (glob($dir."/*",GLOB_MARK) as $node) {
+			if (preg_match("(/$|gz$)",$node)) continue;
+			$nodename = substr($node,$path_len);
+			$logs[$dirname][$nodename] = $basename."/".$nodename;
+			$numlogfiles++;
+		}
+		if (!$numlogfiles) unset($logs[$dirname]);
+	}
 
     function array_values_recursive($array) {
       $flat = array();
@@ -649,8 +647,7 @@ class Settings extends CI_Controller{
             $valid = $this->networkmanager->easyfind_validate($easyfind_name);
             if($valid) {
               $server_response = $this->networkmanager->easyfind_setname($easyfind_name.".".EASYFIND);
-              $this->networkmanager->enable_igd_easyfind(true);
-              if($server_response['error']) {
+              if($server_response['error'] != "false") {
                 $msg = $this->networkmanager->decode_easyfindmsg($server_response);
                 throw new Exception(sprintf(_("Easyfind failed with following error: %s"), $msg));
               }
@@ -670,7 +667,6 @@ class Settings extends CI_Controller{
           $update = true;
 
           $server_response = $this->networkmanager->easyfind_setname("");
-          $this->networkmanager->enable_igd_easyfind(false);
           if($data['easyfind']['error'] != "false") {
             $msg = $this->networkmanager->decode_easyfindmsg($data['easyfind']);
             throw new Exception(sprintf(_("Easyfind failed with following error: %s"), $msg));

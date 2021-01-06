@@ -10,7 +10,9 @@ class Downloads extends CI_Controller{
 
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);
-		require_once(IPCFUNCS);
+		if (file_exists(IPCFUNCS)){
+			require_once(IPCFUNCS);
+		}
 
 		$this->Auth_model->EnforceAuth('web_admin');
 		$this->Auth_model->DenyUser('admin');
@@ -166,6 +168,7 @@ class Downloads extends CI_Controller{
 	function index(){
 		$data["uuid"]=uniqid("ftd");
         $data['enabled'] = query_service("filetransferdaemon");
+		$data['installed'] = file_exists(IPCFUNCS);
 
 		$this->_renderfull($this->load->view(THEME.'/downloads/downloads_index_view',$data,true));
 	}	

@@ -156,27 +156,78 @@ class NetworkManager extends CI_Model {
   }
 
   public function set_hostname($name) {
-    file_put_contents('/etc/hostname', $name);
-    file_put_contents('/etc/mailname', "$name.localdomain");
-    _system('hostname', '-F', '/etc/hostname');
+    $hostname = _system('hostname','-f');
+    $oldname = strtok($hostname[0],'.');
+    $olddomain = strtok('#');
+    $newname = strtok($name,'.');
+    $newdomain = ($name=="$newname.")?"":strtok('#');
+    if (!$newdomain) {
+        $newdomain = $olddomain? $olddomain:"localdomain";
+    }
+    file_put_contents('/etc/conf.d/hostname', "hostname=\"$newname\"");
+    _system('rc-config', 'restart', 'hostname');
 
     $lanip = $this->_get_ip($this->get_lan_interface());
+    $oldhosts = _system("grep -m 1 \"^".str_replace('.','\.',$lanip)."\s\" /etc/hosts");
 
-    $hosts = file_get_contents('/usr/share/bubba-backend/hosts.in');
-    str_replace(
-      array('@LANIP@', '@NAME@'),
-      array($lanip, $name),
-      $hosts
-    );
+    $newhosts = $lanip;
+    $newhosts .= $newdomain? "\t"."$newname.$newdomain":"";
+    $newhosts .= "\t".$newname;
+
+    if ($oldhosts[0]) {
+        strtok($oldhosts[0]," \t");
+        while ($alias = strtok(" \t")) {
+            switch ($alias) {
+                case "$oldname":
+                    break;
+               	case "$oldname.$olddomain":
+                    break;
+               	default:
+                    $newhosts .= "\t".$alias;
+            }
+       	}
+        $hosts = str_replace($oldhosts[0],$newhosts,file_get_contents('/etc/hosts'));
+    } else {
+        $localhost = _system("grep -m 1 \"^127\.0\.0\.1\s\" /etc/hosts");
+       	if ($localhost[0]) {
+            $hosts = str_replace($localhost[0],$localhost[0]."\n".$newhosts,file_get_contents('/etc/hosts'));
+        } else {
+            $hosts = str_replace(
+                array('@LANIP@', '@NAME@'),
+                array($lanip, $name),
+                file_get_contents('/var/lib/bubba/hosts.in')
+            );
+
+        }
+    }
     file_put_contents('/etc/hosts', $hosts);
 
-    $dhclient = explode("\n", file_get_contents('/etc/dhcp/dhclient.conf'));
-    $dhclient = preg_grep("#send host-name#", $dhclient, PREG_GREP_INVERT);
-    $dhclient[] = "send host-name \"$name\";";
+    $webconf = _system("grep -r \"ServerAlias\s*$oldname\(\|\.$olddomain\)\(\|#.*\)\s*$\" /etc/apache2/vhosts.d/");
+    for ($i=0;$i<sizeof($webconf);$i++) {
+        $conffile = strtok($webconf[$i],":");
+        $oldcontent = strtok("\n");
+        _system("sed -i \"/^".$oldcontent."$/d\" $conffile");
+    }
 
-    file_put_contents('/etc/dhcp/dhclient.conf', implode( "\n", $dhclient));
-    $this->ifrestart($this->get_lan_interface());
-    $this->ifrestart($this->get_wan_interface());
+
+    $webconf = _system("grep -r \"ServerName\s*\($oldname\|b3\)\(\|\.$olddomain\)\(\|#.*\)\s*$\" /etc/apache2/vhosts.d/");
+    for ($i=0;$i<sizeof($webconf);$i++) {
+        $conffile = strtok($webconf[$i],':');
+        $prefix = strtok("S");
+        $oldcontent = $prefix."S".strtok('.');
+        $newcontent = preg_replace("/(".$oldname."|b3)$/",$newname,$oldcontent);
+        if ($newdomain) {
+            $newalias = str_replace("ServerName","ServerAlias",$newcontent);
+            $newcontent .= ".".$newdomain."\\\\n".$newalias;
+        }
+        $oldcontent .= ($domain=strtok("\n"))? ".".$domain:"";
+        _system("sed -i \"s/^".$oldcontent."$/$newcontent/\" $conffile");
+    }
+
+    $lancfg = $this->get_networkconfig($this->get_lan_interface());
+    if ($lancfg["dhcp"]) { $this->ifrestart($this->get_lan_interface()); }
+    $wancfg = $this->get_networkconfig($this->get_wan_interface());
+    if ($wancfg["dhcp"]) { $this->ifrestart($this->get_wan_interface()); }
 
     $proftpd = file_get_contents("/etc/proftpd/proftpd.conf");
     $proftpd = preg_replace("#ServerName\s*\"[\w-]*\"#", "ServerName\t\t\t\"$name\"", $proftpd);
@@ -392,7 +443,7 @@ class NetworkManager extends CI_Model {
 		if($gw!=Null){
 			$ret["gateway"]=$gw;
 		}
-		$ret["dhcp"]=($iface["config"]["ethernet"]["addressing"]=="dhcp")?1:0;
+		$ret["dhcp"]=($iface["config"]["ethernet"]["addressing"]!="static")?1:0;
 
 		return $ret;
 	}
@@ -413,6 +464,12 @@ class NetworkManager extends CI_Model {
 			start_service("proftpd");
 		}
 		if($interface == $this->get_lan_interface()) {
+	    if(query_service("apache2")){
+			invoke_rc_d("apache2","reload");
+	    }
+	    if(query_service("nginx")){
+			invoke_rc_d("nginx","reload");
+	    }
 	    if(query_service("samba")){
 				restart_samba();
 	    }
@@ -489,11 +546,13 @@ class NetworkManager extends CI_Model {
 	}
 
 	public function set_lanif( $if ) {
+		// Dont run routines on reload of page
+                if($if == $this->get_lan_interface()) {
+			return;
+		}
 
 		_system( FIREWALL, 'set_lanif', $if );
 		_system( BACKEND, 'set_interface', $if );
-
-        $this->igd_set_interface($if);
 
 		// TODO: Refactor into separate function
 		$dnsmasqcfg=get_dnsmasq_settings();
@@ -927,7 +986,7 @@ class NetworkManager extends CI_Model {
 		return $this->wanif = $data['wanif'];
     }
 
-    private $_igd_conf = "/etc/bubba-igd.conf";
+    private $_igd_conf = "/etc/bubba/igd.conf";
 
     private function _igd_ini_get($key) {
         $data = file_get_contents($this->_igd_conf);
@@ -1036,7 +1095,7 @@ class NetworkManager extends CI_Model {
     if($this->tor_running()) {
 			return $enabled = true;
 		} else {
-			$cmd = 'ps aux | grep "/usr/sbin/tor" | grep -v "grep"';
+			$cmd = 'ps aux | grep "/usr/bin/tor" | grep -v "grep"';
 			exec($cmd, $output);
 			if($output) {
 				return $enabled = true;
@@ -1202,7 +1261,7 @@ class NetworkManager extends CI_Model {
             "##          Any manual changes in this file might be lost when updating from web-admin.",
             "##",
             "",
-            'Log notice file /var/log/tor/notices.log',
+            'Log notice file /var/log/tor-notices.log',
             "Nickname $data[nickname]",
             "ContactInfo $data[contact]",
             "ORPort $data[relay_port]"
@@ -1334,19 +1393,19 @@ class NetworkManager extends CI_Model {
         $oldcfg = file_get_contents($cfg_file);
 
         if(preg_match("#ORPort (?P<port>\d+)#", $oldcfg, $m)) {
-            _system( FIREWALL, 'closeport', $m['port'], 'tcp', 0, 'filter', 'INPUT');
+            _system( FIREWALL, 'closeport', $m['port'], 'tcp', 0, 'filter', 'Bubba_IN');
         }
 
         if(preg_match("#DirPort (?P<port>\d+)#", $oldcfg, $m)) {
-            _system( FIREWALL, 'closeport', $m['port'], 'tcp', 0, 'filter', 'INPUT');
+            _system( FIREWALL, 'closeport', $m['port'], 'tcp', 0, 'filter', 'Bubba_IN');
         }
 
         if( $enabled ) {
             if($relay_port){
-                _system( FIREWALL, 'openport', $relay_port, 'tcp', 0, 'filter', 'INPUT');
+                _system( FIREWALL, 'openport', $relay_port, 'tcp', 0, 'filter', 'Bubba_IN');
             }
             if($dir_port){
-                _system( FIREWALL, 'openport', $dir_port, 'tcp', 0, 'filter', 'INPUT');
+                _system( FIREWALL, 'openport', $dir_port, 'tcp', 0, 'filter', 'Bubba_IN');
             }
         }
     }

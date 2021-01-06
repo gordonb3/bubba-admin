@@ -36,7 +36,7 @@ class Stat extends CI_Controller{
     }
 
     function _getprinters() {
-        $json =  _system('cups-list-printers');
+        $json =  _system('/opt/bubba/bin/cups-list-printers');
         return json_decode(implode($json),true);
     }
 

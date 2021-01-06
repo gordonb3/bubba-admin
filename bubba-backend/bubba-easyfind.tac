@@ -88,7 +88,7 @@ spec = """
 """
 
 application = service.Application("Easyfind Update Service")
-config = ConfigObj('/etc/network/easyfind.conf', configspec=spec.split("\n"))
+config = ConfigObj('/etc/bubba/easyfind.conf', configspec=spec.split("\n"))
 validator = Validator()
 config.validate(validator, copy=True)
 try:
@@ -139,7 +139,7 @@ def easyfind_set_ip(new_ip):
 
     # current WAN interface
     WAN = subprocess.Popen(
-        ['bubba-networkmanager-cli', 'getwanif'],
+        ['/opt/bubba/bin/bubba-networkmanager-cli', 'getwanif'],
         stdout=subprocess.PIPE
     ).communicate()[0].strip()
 

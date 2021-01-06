@@ -120,7 +120,7 @@ clean:
 		po4a.conf
 	rm -f po4a.stamp
 
-locale_dir=$(DESTDIR)/usr/share/web-admin/admin/locale
+locale_dir=$(DESTDIR)/opt/bubba/web-admin/admin/locale
 
 install:
 	$(foreach ll,$(basename $(notdir $(wildcard po/php/*.mo))),\

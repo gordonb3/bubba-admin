@@ -9,5 +9,5 @@ then
 else
         # Update easyfind db
         echo "Launching easyfind update script"
-        /usr/lib/web-admin/easyfind.pl
+        /opt/bubba/bin/easyfind.pl
 fi

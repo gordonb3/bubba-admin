@@ -87,15 +87,20 @@
 	?></td>
 	<td><?=isset($devices[$legend['name']]['label'])?$devices[$legend['name']]['label']:""?></td> 
 	<td><?=sizetohuman($legend['size'],1000)?>B</td> 
-	<td><?if(isset($devices[$legend['name']]['mountpath'])):?>
-		<a href="<?=site_url("filemanager/cd".$devices[$legend['name']]['mountpath'])?>"><?=$devices[$legend['name']]['mountpath']?></a>
+	<td><?if(isset($devices[$legend['name']]['mountpath'])):
+		if(substr($devices[$legend['name']]['mountpath'],0,5) != "/home"):?>
+			<font color="#aaaaaa"><?=$devices[$legend['name']]['mountpath']?></font>
+	        <?else:?>
+			<a href="<?=site_url("filemanager/cd".$devices[$legend['name']]['mountpath'])?>"><?=$devices[$legend['name']]['mountpath']?></a>
+		<?endif?>
 	<?endif?></td>
 	<td>
-		<? if( isset($devices[$legend['name']]) ):?>
+		<? if( isset($devices[$legend['name']]) && !$devices[$legend['name']]['system']):?>
 		<input type="button" rel="<?=$legend['name']?>" class="button mount <?=$devices[$legend['name']]['mounted']?'mounted':''?>" value="<?=$devices[$legend['name']]['mounted']?_("Disconnect"):_("Connect")?>" /></td>
 		<?endif?>
 </tr>
 <?endforeach?>
+<!--
 <tr>
 	<td><div class="colorcode partition-system"></div></td>
 	<td><?=_("System partitions")?></td>
@@ -103,4 +108,5 @@
 	<td />
 	<td />
 </tr>
+-->
 </table>

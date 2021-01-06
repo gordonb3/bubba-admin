@@ -1,23 +1,24 @@
 <?php
 $CI =& get_instance();
-define("BACKEND","/usr/lib/web-admin/backend.pl");
-define("BACKUP","/usr/lib/web-admin/backup.pl");
+define("SCRIPTDIR","/opt/bubba/bin");
+define("BACKEND",SCRIPTDIR."/backend.pl");
+define("BACKUP",SCRIPTDIR."/backup.pl");
 define("RESTORE_LOCKFILE","/var/lock/restore.lock");
 define("BACKUP_LOCKFILE","/var/lock/backup.lock");
 
-define("UPDATER","/usr/lib/web-admin/updater.pl");
-define("PRINTFS","/usr/lib/web-admin/print.pl");
-define("FIREWALL","/usr/lib/web-admin/firewall.pl");
-define("DISK","/usr/lib/web-admin/disk.pl");
-define("ADMINFUNCS","/usr/lib/web-admin/adminfunctions.php");
-define("IPCFUNCS","/usr/share/ftd/ipc.php");
-define("EASYFIND_CONF","/etc/network/easyfind.conf");
+define("UPDATER",SCRIPTDIR."/updater.pl");
+define("PRINTFS",SCRIPTDIR."/print.pl");
+define("FIREWALL",SCRIPTDIR."/firewall.pl");
+define("DISK",SCRIPTDIR."/disk.pl");
+define("ADMINFUNCS",SCRIPTDIR."/adminfunctions.php");
+define("IPCFUNCS","/opt/bubba/web-admin/ftd/ipc.php");
+define("EASYFIND_CONF","/etc/bubba/easyfind.conf");
 define("PWFILE","/etc/shadow");
 define("UINFOFILE","/etc/passwd");
 define("VERSION","BUBBA_VERSION");
-define("FORMPREFIX","/admin");
+define("FORMPREFIX",preg_replace("|^(/[^/]*)[/$].*$|","\\1",$_SERVER["REQUEST_URI"]));
 define("FALLBACKIP","192.168.10.1");
-define("BUBBA_VERSION","/usr/share/bubba/bubba.version");
+define("BUBBA_VERSION","/etc/bubba/bubba.version");
 define("USER_CONFIG",".bubbacfg");
 define("ADMINCONFIG","/home/admin/".USER_CONFIG);
 

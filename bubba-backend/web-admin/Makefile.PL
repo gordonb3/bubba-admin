@@ -8,7 +8,6 @@ WriteMakefile(
 	'bin/backend.pl',
 	'bin/disk.pl',
 	'bin/firewall.pl',
-	'bin/easyfind.pl',
 	'bin/backup.pl',
 	'bin/diskdaemon.pl',
 	'bin/notify-dispatcher.pl',

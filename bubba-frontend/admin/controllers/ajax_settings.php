@@ -74,14 +74,14 @@ class Ajax_Settings extends CI_Controller {
 	}
 
   function get_versions() {
-      $versions = get_package_version(array("bubba","bubba3-kernel","bubba-frontend","bubba-backend","bubba-album","filetransferdaemon","logitechmediaserver"));
+      $versions = get_package_version(array("bubba","bubba3-kernel","bubba-frontend","bubba-backend","singapore","filetransferdaemon","logitechmediaserver"));
       $this->session->set_userdata("version",$versions['bubba']);
-      $this->json_data = $versions;
-    }
+      $this->json_data = str_replace("null","not installed",$versions);
+  }
 
   function identify() {
 	  $this->json_data = true;
-	  exec("identify_box &>/dev/null &");
+	  exec("/opt/bubba/bin/identify_box &>/dev/null &");
   }
 
   function update(){

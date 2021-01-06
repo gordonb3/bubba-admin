@@ -56,9 +56,9 @@ int main( int argc, char** argv ) {
     p.AddOption( Option( "debug",'d',Option::Int,"Set debug level","value 0-7 (default is 5 and 7 is max)","5" ) );
     p.AddOption( Option( "version",'v',Option::None,"Show version","","false" ) );
     p.AddOption( Option( "ttl",'t',Option::Int,"time to live in seconds","60","60" ) );
-    p.AddOption( Option( "pidfile", '\0', Option::String, "PID file", "/var/run/bubba-networkmanager.pid", "/var/run/bubba-networkmanager.pid" ) );
-    p.AddOption( Option( "socket", '\0', Option::String, "Socket to communicate on", "/tmp/bubba-networkmanager.sock", "/tmp/bubba-networkmanager.sock" ) );
-    p.AddOption( Option( "config", '\0', Option::String, "Configuration file to read from", "/etc/bubba-networkmanager.conf", "/etc/bubba-networkmanager.conf" ) );
+    p.AddOption( Option( "pidfile", '\0', Option::String, "PID file", "/run/bubba-networkmanager.pid", "/run/bubba-networkmanager.pid" ) );
+    p.AddOption( Option( "socket", '\0', Option::String, "Socket to communicate on", "/run/bubba-networkmanager.sock", "/run/bubba-networkmanager.sock" ) );
+    p.AddOption( Option( "config", '\0', Option::String, "Configuration file to read from", "/etc/bubba/networkmanager.conf", "/etc/bubba/networkmanager.conf" ) );
 
     if ( !p.Parse( argc,argv ) ) {
         syslog( LOG_ERR,"Failed to parse arguments use %s -? for info",argv[0] );

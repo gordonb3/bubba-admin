@@ -16,7 +16,11 @@ $(document).ready(function(){
 
 <?if(!$enabled):?>
 <div class="ui-information-panel">
-    <?=_("Download service disabled")?>
+    <?if(!$installed):?>
+        <?=_("Download service not installed")?>
+    <?else:?>
+        <?=_("Download service disabled")?>
+    <?endif?>
 </div>
 <?endif?>
 

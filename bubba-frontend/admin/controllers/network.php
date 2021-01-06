@@ -472,12 +472,12 @@ class Network extends CI_Controller{
 
 			if($edit) {
 				// get current network configuration
-				$ifc=get_networkconfig($this->networkmanager->get_lan_interface());
-				$new_port["serverip"] = $ifc[0];
-				$new_port["netmask"] = $ifc[1];
+				$ifc=$this->networkmanager->get_networkconfig($this->networkmanager->get_lan_interface());
+				$new_port["serverip"] = $ifc["address"];
+				$new_port["netmask"] = $ifc["netmask"];
 
-				$mask = parse_ip($ifc[1]);
-				$ip = parse_ip($ifc[0]);
+				$mask = parse_ip($ifc["netmask"]);
+				$ip = parse_ip($ifc["address"]);
 				$port_ip = parse_ip($new_port["to_ip"]);
 				if($portforward) { // only validate IP if it is a portforward
 					$valid_ip = validate_ip($port_ip);
@@ -651,7 +651,7 @@ class Network extends CI_Controller{
 		if(!$data['dnsmasq_settings']['running']) {
 			$data["dnsmasq_settings"]["dhcpd"]=0;
 		}
-		$data["dhcpd_leases"] = get_leases();
+		$data["dhcpd_leases"] = $data['dnsmasq_settings']['dhcpd']? get_leases() : Array();
 
 		if(count($lifc)>0){
 			$data["olip"] = parse_ip( $lifc["address"] );
@@ -921,7 +921,7 @@ class Network extends CI_Controller{
 
 		// Restart hostapd to make sure we are in a consistent mode
 		if($restart){
-			invoke_rc_d( "hostapd", "restart" );
+			invoke_rc_d( "hostapd", "reload" );
 		} 
 
 		if($strip){

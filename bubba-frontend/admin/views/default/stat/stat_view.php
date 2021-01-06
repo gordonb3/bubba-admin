@@ -57,7 +57,7 @@
 				</tr>
 			</table>
 				<form action="settings/software" method="post">
-					<input type="submit" id="ui-stat-swupdate" value="<?=_("Software update")?>"/>
+					<input type="submit" id="ui-stat-swupdate" value="<?=_("Version info")?>"/>
 				</form>
 		</td>
 	</tr>

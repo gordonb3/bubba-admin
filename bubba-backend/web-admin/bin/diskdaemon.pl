@@ -25,9 +25,9 @@ use Try::Tiny;
 use POSIX ":sys_wait_h";
 use IPC::SysV qw(IPC_CREAT IPC_RMID S_IRUSR ftok);
 
-use constant SOCKNAME		=> "/tmp/bubba-disk.socket";
-use constant PIDFILE		=> '/tmp/bubba-disk.pid';
-use constant MANAGER		=> '/usr/sbin/diskmanager';
+use constant SOCKNAME		=> "/run/bubba-disk.socket";
+use constant PIDFILE		=> '/run/bubba-disk.pid';
+use constant MANAGER		=> '/opt/bubba/sbin/diskmanager';
 use constant DELAY          => 20;
 
 my $daemon = Proc::Daemon->new(

@@ -174,6 +174,7 @@ class Disk extends CI_Controller{
 			case '/dev/sda1':
 			case '/dev/sda2':
 			case '/dev/sda3':
+			case '/dev/sda4':
 				continue 2;
 			}
 
@@ -217,6 +218,7 @@ class Disk extends CI_Controller{
 		$vgs=$this->disk_model->list_vgs();
 		$mds=$this->disk_model->list_mds();
 		$fstab=$this->disk_model->list_fstab();
+		$swap=$this->disk_model->list_swap_partitions();
 
 		$cid = 0;
 		$cid_devives = array();
@@ -225,11 +227,11 @@ class Disk extends CI_Controller{
 
         if(is_array($indevices)) {
             foreach( $indevices as $dev ) {
-                switch( $dev['dev'] ) {
-                case '/dev/sda1':
-                case '/dev/sda3':
-                    continue 2;
-                }
+//                switch( $dev['dev'] ) {
+//                case '/dev/sda1':
+//                case '/dev/sda3':
+//                    continue 2;
+//                }
 
                 switch( $dev['usage'] ) {
                 case 'pv':
@@ -249,10 +251,21 @@ class Disk extends CI_Controller{
                     "mounted" => $this->disk_model->is_mounted( $dev['dev'] ),
                     "mountpath" => array_key_exists( 'mountpath', $dev ) ? $dev['mountpath'] : '',
                     "label" => array_key_exists( 'label', $dev ) ? $dev['label'] : '',
+                    "system" => false,
                 );
             }
         }
 
+		if( is_array( $fstab ) ) {
+			foreach( $fstab as $fs ) {
+				$device = $fs['device'];
+				if( isset( $devices[$device] ) ) {
+					if ( substr($fs['mount'],0,20) != "/home/storage/extern" ) {
+						$devices[$device]['mountpath'] = $fs['mount'];
+					}
+				}
+			}
+		}
 
 		$cid = 7;
 
@@ -311,14 +324,26 @@ class Disk extends CI_Controller{
                 if( array_key_exists( 'partitions', $disk ) ) {
                     $disk['partitions'] = $this->disk_model->array_sort( $disk['partitions'], 'dev' );
                     foreach( $disk['partitions'] as &$partition ) {
-                        switch( $partition['dev'] ) {
-                        case '/dev/sda1':
-                        case '/dev/sda3':
-                            $disk['formatable'] = false;
-                            $partition['system'] = true;
-                            break;
+                        if( isset($devices[$partition['dev']]) && ( substr($devices[$partition['dev']]['mountpath'],0,20) != "/home/storage/extern" ) ) {
+				$partition['mountpath'] = $devices[$partition['dev']]['mountpath'];
+			}
+                        if( isset($devices[$partition['dev']]) && isset($swap[$partition['dev']]) ) {
+				$partition['usage'] = "swap";
+				$disk['formatable'] = false;
+				$partition['mountpath'] = '<swap>';
+				$devices[$partition['dev']]['system'] = true;
+				$devices[$partition['dev']]['mountpath'] = "[swap]";
+			}
+                        switch( $partition['mountpath'] ) {
+                        case '':
+			case '/exports':
+                            $partition['cid'] =  isset($cid_devices[$partition['dev']]) ? $cid_devices[$partition['dev']] : "e";
+			    break;
                         default:
                             $partition['cid'] =  isset($cid_devices[$partition['dev']]) ? $cid_devices[$partition['dev']] : "e";
+                            $disk['formatable'] = false;
+                            $devices[$partition['dev']]['system'] = true;
+                            break;
                         }
                         switch( $partition['usage'] ) {
                         case 'pv':

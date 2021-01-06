@@ -118,44 +118,44 @@ class BubbaAptSocket extends BubbaSocket {
 class OldBubbaAptSocket extends BubbaSocket {
 	function __construct() {
 		parent::__construct( 
-			'/usr/lib/web-admin/updatebackend.pl', 
+			'/opt/bubba/bin/updatebackend.pl', 
 			array( 
 				'--mode=ithreads', 
 				'--daemonize' 
 			), 
-			'/tmp/bubba-apt.socket'
+			'/run/bubba-apt.socket'
 		);
 	}
 }
 
 class OldBubbaHotfixSocket extends BubbaSocket {
 	function __construct() {
-		parent::__construct( '/usr/lib/web-admin/hotfix.pl', array( '--mode=ithreads', '--daemonize' ), '/tmp/bubba-hotfix.socket' );
+		parent::__construct( '/opt/bubba/bin/hotfix.pl', array( '--mode=ithreads', '--daemonize' ), '/run/bubba-hotfix.socket' );
 	}
 }
 
 class BubbaNetworkManagerSocket extends BubbaSocket {
 	function __construct() {
 		parent::__construct( 
-			'/usr/sbin/bubba-networkmanager', 
+			'/opt/bubba/sbin/bubba-networkmanager', 
 			array(
-				'--socket', '/tmp/bubba-networkmanager.sock',
-				'--config', '/etc/bubba-networkmanager.conf'
+				'--socket', '/run/bubba-networkmanager.sock',
+				'--config', '/etc/bubba/networkmanager.conf'
 			),
-			'/tmp/bubba-networkmanager.sock' 
+			'/run/bubba-networkmanager.sock' 
 		);
 	}
 }
 
 class BubbaAlbumSocket extends BubbaSocket {
 	function __construct() {
-		parent::__construct( '/usr/sbin/album_import.pl', array( '--debug', '--mode=ithreads', '--daemonize' ), '/tmp/bubba-album.socket' );
+		parent::__construct( '/opt/bubba/bin/album_import.pl', array( '--debug', '--mode=ithreads', '--daemonize' ), '/run/bubba-album.socket' );
 	}
 }
 
 class BubbaDiskSocket extends BubbaSocket {
 	function __construct() {
-		parent::__construct( '/usr/lib/web-admin/diskdaemon.pl', array( '--debug', '--mode=ithreads', '--daemonize' ), '/tmp/bubba-disk.socket' );
+		parent::__construct( '/opt/bubba/bin/diskdaemon.pl', array( '--debug', '--mode=ithreads', '--daemonize' ), '/run/bubba-disk.socket' );
 	}
 }
 function apt_query_progress() {

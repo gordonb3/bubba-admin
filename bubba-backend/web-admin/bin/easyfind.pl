@@ -8,7 +8,7 @@ use JSON;
 
 use strict;
 use constant WAN_IF => "eth0";
-use constant EASYFIND_CONF => "/etc/network/easyfind.conf";
+use constant EASYFIND_CONF => "/etc/bubba/easyfind.conf";
 use constant KEY => "/etc/network/bubbakey";
 use constant BOOTARGS => "/proc/cmdline";
 

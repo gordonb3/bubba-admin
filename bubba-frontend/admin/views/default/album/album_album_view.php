@@ -413,7 +413,7 @@ $(document).ready( function() {
 	<th colspan="2" class="ui-state-default ui-widget-header"><?=_("Existing albums")?></th>
 </tr>
 <tr>
-	<td colspan="2"><div><?=_("Adding images is done using the")?> <a href="/admin/filemanager/cd/home/storage/pictures"><?=_("filemanager")?></a></div></td>
+	<td colspan="2"><div><?=_("Adding images is done using the")?> <a href="<?=FORMPREFIX?>/filemanager/cd/home/storage/pictures"><?=_("filemanager")?></a></div></td>
 </tr>
 <tr>
 	<td><div id="album_list" /></td>

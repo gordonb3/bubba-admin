@@ -32,8 +32,8 @@ function escapeshellargs( $cmd ) {
 
 function invoke_rc_d( $name, $action ) {
     $cmd = array(
-        "/usr/sbin/invoke-rc.d", 
-        "--try-anyway", 
+        "/sbin/rc-service", 
+        "-q", 
         $name, 
         $action
     );
@@ -42,31 +42,31 @@ function invoke_rc_d( $name, $action ) {
 }
 
 function update_rc_d( $name, $action="defaults", $priority=0, $runlevel=0) {
-		if( ($runlevel != 0) && ($priority != 0) ) {
-		  $cmd = array(
-		      "/usr/sbin/update-rc.d", 
-		      $name, 
-		      $action,
-		      $priority,
-		      $runlevel,
-		      "."
-		  );
-		} else {
-		  if($action == "remove") {
-			  $cmd = array(
-		      "/usr/sbin/update-rc.d", 
-		      "-f", 
-		      $name, 
-		      $action
-			  );
-		  } else {
-			  $cmd = array(
-		      "/usr/sbin/update-rc.d", 
-		      $name, 
-		      $action
-				);
-			}
-		}
+	if($action == "enable") {
+		$cmd = array(
+			"/sbin/rc-update",
+			"-q",
+			"add",
+			$name,
+			"default"
+		);
+	} elseif($action == "disable") {
+		$cmd = array(
+			"/sbin/rc-update",
+			"-q",
+			"del",
+			$name,
+			"default"
+		);
+	} else {
+		$cmd = array(
+			"/sbin/rc-update",
+			"-q",
+			$action,
+			$name,
+			"default"
+		);
+	}
 	exec( escapeshellargs( $cmd ), $output, $retval );
 	return $retval == 0;
 }

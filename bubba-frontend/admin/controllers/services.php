@@ -42,14 +42,11 @@ class Services extends CI_Controller{
 		$logitechmediaserver_installed=is_installed($logitechmediaserver_packagename);
 		$logitechmediaserver_enabled=$this->input->post('logitechmediaserver_enabled');
    
-		$print_status=query_service("cups");
+		$print_status=query_service("cupsd");
 		$print_enabled=$this->input->post('print_enabled');
 
 		$download_status=query_service("filetransferdaemon");
 		$download_enabled=$this->input->post('download_enabled');
-
-        $igd_status=$this->networkmanager->igd_port_forward_is_enabled();
-		$igd_enabled=$this->input->post('igd_enabled');
 
 		$imap_status=query_service("dovecot");
 		$imap_enabled=$this->input->post('imap_enabled');
@@ -132,12 +129,12 @@ class Services extends CI_Controller{
 			}       
 
 			if($print_status && !$print_enabled){
-				remove_service("cups");
-				stop_service("cups");
+				remove_service("cupsd");
+				stop_service("cupsd");
 				$print_status=0;
 			}else if(!$print_status && $print_enabled){
-				add_service("cups");
-				start_service("cups");
+				add_service("cupsd");
+				start_service("cupsd");
 				$print_status=1;        
 			}
 
@@ -149,14 +146,6 @@ class Services extends CI_Controller{
 				add_service("filetransferdaemon");
 				start_service("filetransferdaemon");
 				$download_status=1;        
-			}
-
-            if($igd_status && !$igd_enabled){
-                $this->networkmanager->enable_igd_port_forward(false);
-				$igd_status=0;
-			}else if(!$igd_status && $igd_enabled){
-                $this->networkmanager->enable_igd_port_forward(true);
-				$igd_status=1;        
 			}
 
 			if($fetchmail_status && !$fetchmail_enabled){
@@ -211,7 +200,6 @@ class Services extends CI_Controller{
 		$data["fetchmail_status"]=$fetchmail_status;
 		$data["print_status"]=$print_status;
 		$data["download_status"]=$download_status;
-		$data["igd_status"]=$igd_status;
 		$data["samba_status"]=$samba_status;
 
 		if($strip){

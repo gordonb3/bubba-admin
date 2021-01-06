@@ -416,13 +416,9 @@ sub del_user {
    my ($name)=@_;
    my $ret=0;
 
-   system("userdel $name");
+   system("smbpasswd -x $name &>/dev/null && userdel $name");
    $ret=$?;
    
-   if ($ret==0) {
-      system("smbpasswd -x $name");
-   }
-
    return $ret;
 }
 
@@ -532,6 +528,28 @@ sub write_hostsfile {
 
 }
 
+# Gordon : 2015-06-22 - added function to keep existing hosts entries
+sub update_hostsfile {
+
+	my ($lanip,$name) = @_;	
+	if ($lanip=="127.0.0.1") { return 0;}
+	my $oldname;
+	use File::Slurp;
+	my $hosts = read_file('/etc/hosts');
+	my @lines = split("\n", $hosts);
+	chomp(@lines);
+	foreach (@lines) {
+		if ( /^$lanip(.+)$/ ) {
+			/\s([^\s\.]+)[\s\.]/;
+			$oldname=$1;
+		}
+	}
+	$hosts =~ s/\$oldname/$lanip/g;
+	write_file( '/etc/hosts', $hosts );
+
+}
+
+
 # Change hostname
 #
 # Args   : name - New hostname  
@@ -544,14 +562,15 @@ sub change_hostname {
 	my ($name)=@_;
 
 	system("echo $name > /proc/sys/kernel/hostname");
-	system("echo $name > /etc/hostname");
-	system("echo $name.localdomain > /etc/mailname");
+	system("/bin/sed -i \"s/\s*\(hostname=\).*$/\\1\\\"$name\\\"/\"   /etc/conf.d/hostname");
+#	system("echo $name.localdomain > /etc/mailname");
 
 	%ifs = read_interfaces();
 	chomp($lan = _get_lanif);
 	$lanip = $ifs{$lan}{"options"}{"address"};
 	$lanip = '127.0.0.1' unless $lanip;
-	write_hostsfile($lanip,$name);
+#	write_hostsfile($lanip,$name);
+	update_hostsfile($lanip,$name);
 
 	if(!query_service("dnsmasq")){
 		#restart dnsmasq
@@ -564,10 +583,10 @@ sub change_hostname {
 	system("echo send host-name \\\"$name\\\"\\\; >> /etc/dhcp/dhclient.conf.new");
 	system("mv /etc/dhcp/dhclient.conf.new /etc/dhcp/dhclient.conf");
 	$lan = _get_lanif;
-	system("/sbin/ifup --force eth0 $lan");
+	system("/usr/bin/rc-config restart `rc-config list default | grep "^\s*net\."`");
 
 	if(change_ftp_servername($name)){
-		system("/etc/init.d/proftpd restart");
+		system("/usr/bin/rc-config restart proftpd");
 	}
 
 	restart_avahi();
@@ -589,7 +608,7 @@ sub change_hostname {
 sub power_off{
 	use Bubba::Info;
 	if(isB3()){
-		system("/sbin/write-magic 0xdeadbeef");
+		system("/opt/bubba/bin/write-magic 0xdeadbeef");
 		return system("/sbin/reboot");
 	}elsif(isB2()){
 		if( -e "/sys/devices/platform/bubbatwo/magic" ){
@@ -639,9 +658,9 @@ sub restart_network{
    my ($if)=@_;
    my $ret;
 
-   $ret=system("/sbin/ifdown $if");
+   $ret=system("/usr/bin/rc-config stop net.$if");
    if ($ret==0) {
-      $ret=system("/sbin/ifup $if");
+      $ret=system("/usr/bin/rc-config start net.$if");
    }
    return $ret;
 }
@@ -769,7 +788,25 @@ sub set_dynamic_netcfg{
 sub set_nameserver{
 	my ($ns)=@_;
 	
-	return system("echo -ne 'search\nnameserver $ns\n'>/etc/resolv.conf");
+#	return system("echo -ne 'search\nnameserver $ns\n'>/etc/resolv.conf");
+# Gordon : 2015-06-22 Don't delete domain information in this file
+	my $findstring="nameserver";
+	my $ret;
+        use File::Slurp;
+        my $resolvconf = read_file('/etc/resolv.conf');
+        my @lines = split("\n", resolvconf);
+        chomp(@lines);
+        foreach (@lines) {
+                if ( /^$findstring/ ) {
+                        $ret .= "nameserver $ns\n";
+			$findstring="-";
+                }else {
+			$ret .= $_"\n";
+		}
+        }
+        
+        write_file( '/etc/resolv.conf', $ret );
+
 }
 
 # Is service running?
@@ -785,13 +822,13 @@ sub service_running{
 	my $pidfile;
 	
 	if ($service eq "fetchmail"){
-		$pidfile="/var/run/fetchmail/.fetchmail";
-	} elsif ($service eq "dnsmasq") {
-		$pidfile="/var/run/dnsmasq/dnsmasq.pid";
+		$pidfile="/var/run/fetchmail/fetchmail.pid";
 	} elsif ($service eq "avahi-daemon"){
 		$pidfile="/var/run/avahi-daemon/pid";
 	} elsif ($service eq "tor"){
 		$pidfile="/var/run/tor/tor.pid";
+	} elsif ($service eq "filetransferdaemon"){
+		$pidfile="/var/run/ftd.pid";
 	} else {
 		$pidfile = "/var/run/$service.pid";
 	}
@@ -869,7 +906,7 @@ sub reload_service{
 sub add_service{
    my ($service)=@_;
    
-   return system("/usr/sbin/update-rc.d $service defaults");  
+   return system("/sbin/rc-update add $service default");
 }
 
 # Add service att specific init "level"
@@ -881,7 +918,7 @@ sub add_service{
 sub add_service_at_level{
    my ($service, $level)=@_;
 
-   return system("/usr/sbin/update-rc.d $service defaults $level");
+   return system("/sbin/rc-update add $service default");
 }
 
 # Remove service
@@ -892,7 +929,7 @@ sub add_service_at_level{
 sub remove_service{
    my ($service)=@_;
    
-   return system("/usr/sbin/update-rc.d -f $service remove");  
+   return system("/sbin/rc-update del $service default");
 }
 
 # Query service
@@ -903,7 +940,7 @@ sub remove_service{
 sub query_service{
    my ($service)=@_;
 
-   return system("ls /etc/rc2.d/S??$service 1>/dev/null 2>/dev/null");
+   return system("/bin/ls /etc/runlevels/default/$service 1>/dev/null 2>/dev/null");
 
 }
 
@@ -1064,6 +1101,11 @@ sub write_fetchmailaccounts{
 			print FILE "\tuser '".@{$line}[2]."' there with password '".@{$line}[3]."' is '".@{$line}[4]."' here ".@{$line}[5]." $keep\n";
    }
    close FILE;
+   # Gordon 2015-12-06: set correct owner and rights on fetchmailrc
+   chmod 0600, "/etc/fetchmailrc";
+   my $login, $passwd, $uid, $gid;
+   ($login,$pass,$uid,$gid) = getpwnam("fetchmail") or die "fetchmail not in passwd file";
+   chown $uid, $gid, "/etc/fetchmailrc";
 }
 
 
@@ -1366,7 +1408,7 @@ sub backup_config{
 
 	my $tempdir = tempdir( CLEANUP => 1 );
 
-	my $psettings = "/usr/share/bubba-configs/personal-setting-files.txt";
+	my $psettings = "/var/lib/bubba/personal-setting-files.txt";
 	chomp(my @psettings_data = read_file( $psettings ));
 	my $timestring = strftime "%Y-%m-%dT%H%M%S", gmtime;
 	my $filename = "$path/bubbatwo-$timestring.backup";
@@ -1401,8 +1443,8 @@ sub backup_config{
 
 	# services, boolean such if service enabled or not
 	my %services = map {
-		$_ => (defined bsd_glob "/etc/rc2.d/S??$_");
-	} qw(proftpd forked-daapd ntp filetransferdaemon cups postfix dovecot fetchmail minidlna dnsmasq logitechmediaserver hostapd netatalk ifup-br0 samba);
+		$_ => (defined -e "/etc/runlevels/default/$_");
+	} qw(proftpd forked-daapd ntpd filetransferdaemon cupsd postfix dovecot fetchmail minidlna dnsmasq logitechmediaserver hostapd netatalk net.br0 samba);
 
 	my $meta = {
 		version => $revision,
@@ -1618,8 +1660,8 @@ sub restore_config{
 			'--absolute-name'
 		);
 
-		system("/sbin/iptables-restore","/etc/network/firewall.conf");
-		system("/bin/cp","/etc/hostname","/proc/sys/kernel/hostname");
+		system("/sbin/iptables-restore","/etc/bubba/firewall.conf");
+		system("/usr/bin/rc-config","restart","hostname");
 
 		restart_network("eth0");
 		# hostapd needs to be started prior to restarting LANIF
@@ -1741,9 +1783,9 @@ sub restore_config{
 			$lan = _get_lanif;
 			restart_network($lan);
 
-			system("/sbin/iptables-restore < /etc/network/firewall.conf");
+			system("/sbin/iptables-restore < /etc/bubba/firewall.conf");
 
-			system("echo `cat /etc/hostname` > /proc/sys/kernel/hostname");
+			system("/usr/bin/rc-config","restart","hostname");
 
 			if($lines=~/proftpd/){
 				start_service("proftpd");
@@ -1795,12 +1837,12 @@ sub restore_config{
 				remove_service("fetchmail");
 			}
 
-			if($lines=~/cups/){
-				start_service("cups");
-				reload_service("cups");
+			if($lines=~/cupsd/){
+				start_service("cupsd");
+				reload_service("cupsd");
 			}else{
-				stop_service("cups");
-				remove_service("cups");
+				stop_service("cupsd");
+				remove_service("cupsd");
 			}
 
 			if($lines=~/dnsmasq/){
@@ -1872,7 +1914,7 @@ sub easyfind {
 	if (!$cmd) {
 		$cmd = "";
 	}
-	return system("/usr/lib/web-admin/easyfind.pl $cmd $name");
+	return system("/opt/bubba/bin/easyfind.pl $cmd $name");
 	
 }
 
@@ -1999,7 +2041,7 @@ sub do_set_timezone {
 }
 
 sub _get_lanif {
-	return `/usr/bin/bubba-networkmanager-cli getlanif`;
+	return `/opt/bubba/bin/bubba-networkmanager-cli getlanif`;
 }
 
 sub _notify_read_config {

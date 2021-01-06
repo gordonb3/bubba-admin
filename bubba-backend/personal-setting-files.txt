@@ -1,22 +1,23 @@
 # network related
-/etc/network/interfaces
-/etc/network/firewall.conf
-/etc/network/easyfind.conf
+/etc/conf.d/net
+/etc/bubba/firewall.conf
+/etc/bubba/easyfind.conf
 /etc/dnsmasq.d/bubba.conf
-/etc/hostname
+/etc/conf.d/hostname
 /etc/hosts
 /etc/proftpd/proftpd.conf
 /etc/samba/smb.conf
 /etc/postfix/main.cf
-/etc/dhcp/dhclient.conf
+/etc/postfix/master.cf
+/etc/dhcpcd.conf
 /etc/cups/printers.conf
 /etc/resolv.conf
 /etc/fetchmailrc
 /etc/postfix/sasl_passwd
 /etc/postfix/sasl_passwd.db
-/etc/ftd/ftdconfig.ini
+/etc/bubba/ftdconfig.ini
 /etc/hostapd/hostapd.conf
-/etc/bubba-networkmanager.conf
+/etc/bubba/networkmanager.conf
 
 /etc/minidlna.conf
 
@@ -41,8 +42,8 @@
 /etc/apache2/cacert.pem
 /etc/apache2/privkey.pem
 
-# Squeezecenter
-/var/lib/squeezeboxserver/prefs
+# LogitechMediaServer
+/etc/squeezeboxserver
 
 # Bubba diverted configs
 /etc/bubba/*

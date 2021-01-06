@@ -83,7 +83,7 @@ config = <?=json_encode(
 
 var login_dialog;
 var window_music;
-var window_pim;
+var window_webmail;
 var window_album;
 
 jQuery.validator.setDefaults({ 

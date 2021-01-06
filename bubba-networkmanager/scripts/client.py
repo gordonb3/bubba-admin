@@ -9,7 +9,7 @@ except ImportError:
 
 def request(req):
 	client = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-	client.connect("/tmp/bubba-networkmanager.sock")
+	client.connect("/run/bubba-networkmanager.sock")
 	client.send(json.dumps(req))
 	d=client.recv(16384);
 	#print "%s"%d

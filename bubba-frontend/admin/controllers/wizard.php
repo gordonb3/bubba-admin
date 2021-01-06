@@ -116,7 +116,7 @@ class wizard extends CI_Controller {
 
         try {
             if( $username && $password1 && $password1 == $password2 ) {
-                $shell = '/usr/sbin/nologin';
+                $shell = '/sbin/nologin';
                 $group = 'users'; // Static group for em all
 
                 if (
@@ -150,8 +150,7 @@ class wizard extends CI_Controller {
                 $valid = $this->networkmanager->easyfind_validate($easyfind_name);
                 if($valid) {
                   $server_response = $this->networkmanager->easyfind_setname($easyfind_name.".".EASYFIND);
-                  $this->networkmanager->enable_igd_easyfind(true);
-                  if($server_response['error']) {
+                  if($server_response['error'] != "false") {
                     $msg = $this->networkmanager->decode_easyfindmsg($server_response);
                     throw new Exception(sprintf(_("Easyfind failed with following error: %s"), $msg));
                   }
@@ -162,8 +161,7 @@ class wizard extends CI_Controller {
               }
             } else {
               $server_response = $this->networkmanager->easyfind_setname("");
-              $this->networkmanager->enable_igd_easyfind(false);
-              if($server_response['error']) {
+              if($server_response['error'] != "false") {
                 $msg = $this->networkmanager->decode_easyfindmsg($server_response);
                 throw new Exception(sprintf(_("Easyfind failed with following error: %s"), $msg));
               }
@@ -174,9 +172,9 @@ class wizard extends CI_Controller {
         }
 
         if(!empty($errors)) {
-            $this->output->set_output(json_encode(array('error' => true, 'messages' => $errors)));
+            $this->output->set_output(json_encode(array('error' => "true", 'messages' => $errors)));
         } else {
-            $this->output->set_output(json_encode(array('error' => false,)));
+            $this->output->set_output(json_encode(array('error' => "false",)));
         }
     }
 

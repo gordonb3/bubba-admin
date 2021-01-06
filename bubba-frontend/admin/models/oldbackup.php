@@ -50,7 +50,7 @@ class BackupPLException extends Exception {
 }
 
 class Oldbackup extends CI_Model {
-	private $diskmanager = "/usr/sbin/diskmanager";
+	private $diskmanager = "/opt/bubba/sbin/diskmanager";
 
     public function list_backups($job) {
         // change this to read a history file with status of each job and time

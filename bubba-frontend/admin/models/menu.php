@@ -63,14 +63,14 @@ class Menu extends CI_Model {
             ),
             array(
                 'label' => pgettext('menu',"Webmail"),
-                'id' => 'pim',
-                'uri' => '/pim',
+                'id' => 'webmail',
+                'uri' => '/webmail',
                 'auth' => false,
                 'class' => 'ui-login-menubar-a',
                 'icon' => 'default-icon',
                 'lock-icon' => array("default-icon-mail","default-icon-mail-lock"),
                 'abs_uri' => true,
-                'target' => "window_pim",
+                'target' => "window_webmail",
             ),
             array(
                 'label' => pgettext('menu',"User settings"),
@@ -250,7 +250,7 @@ class Menu extends CI_Model {
                         'alias' => array('settings/backup','settings/restore'),
                     ),
                     array(
-                        'label' => pgettext('menu',"Software update"),
+                        'label' => pgettext('menu',"Software version"),
                         'id' => 'settings-update',
                         'uri' => 'settings/software',
                     ),

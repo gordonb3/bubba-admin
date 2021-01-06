@@ -632,11 +632,11 @@ void InterfaceController::SetRawCfg(const string& ifname, const Json::Value& cfg
 }
 
 bool InterfaceController::Up(const string& ifname){
-	return do_call("/sbin/ifup "+ifname+" 2>/dev/null")==0;
+	return do_call("initd=$(/sbin/rc-service -ir net."+ifname+") && ${initd} start")==0;
 }
 
 bool InterfaceController::Down(const string& ifname){
-	return do_call("/sbin/ifdown "+ifname+" 2>/dev/null")==0;
+	return do_call("initd=$(/sbin/rc-service -ir net."+ifname+") && ${initd} -D stop")==0;
 }
 
 

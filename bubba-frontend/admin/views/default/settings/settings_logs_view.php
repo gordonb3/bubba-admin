@@ -1,3 +1,4 @@
+<?$bgwhite=true?>
 <table class="ui-table-outline">
 <thead>
     <tr><td colspan="2" class="ui-state-default ui-widget-header"><?=_('Show logs')?></td></tr>
@@ -8,13 +9,14 @@
 	<select name="log" id="settings_log">
 	<?foreach( $logs as $name => $path ):?>
 		<?if(is_array($path)):?>
-		<optgroup label="<?=$name?>">
+		<?$bgwhite=!$bgwhite?>
+		<optgroup label="<?=$name?>" style="color:red;<?if(!$bgwhite)echo "background:#eeeeee;"?>">
 		<?foreach( $path as $inner_name => $inner_path ):?>
-			<option <?if(isset($log_name)&& $log_name == $inner_path){echo "selected=\"selected\"";}?> label="<?=$inner_name?>" value="<?=$inner_path?>"> <?=$inner_name?> </option>
+			<option style="color:#333;<?if(!$bgwhite)echo "background:#eeeeee;"?>" <?if(isset($log_name)&& $log_name == $inner_path){echo "selected=\"selected\"";}?> label="<?=$inner_name?>" value="<?=$inner_path?>"> <?=$inner_name?> </option>
 		<?endforeach?>
 		</optgroup>
 		<?else:?>
-		<option <?if(isset($log_name)&& $log_name == $path){echo "selected=\"selected\"";}?> label="<?=$name?>" value="<?=$path?>"> <?=$name?> </option>
+		<option style="color:#333;" <?if(isset($log_name)&& $log_name == $path){echo "selected=\"selected\"";}?> label="<?=$name?>" value="<?=$path?>"> <?=$name?> </option>
 		<?endif?>
 	<?endforeach?>
 	</select>

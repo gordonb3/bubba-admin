@@ -30,7 +30,7 @@ use constant NCFTPPUT         => "/usr/bin/ncftpput";
 use constant NCFTPLS          => "/usr/bin/ncftpls";
 use constant MSGFILE          => "/tmp/backup.README";
 use constant SSH              => "/usr/bin/ssh";
-use constant SCRIPTNAME       => "/usr/lib/web-admin/backup.pl";
+use constant SCRIPTNAME       => "/opt/bubba/bin/backup.pl";
 use constant INCLUDEFILE      => "includeglob.list";
 use constant INCLUDE_CHILD    => "include_childglob.list";
 use constant EXCLUDEFILE      => "excludeglob.list";
@@ -38,10 +38,10 @@ use constant JOBFILE          => "jobdata";
 use constant CHECK_CHILD      => 1;
 use constant CHECK_PARENT     => 0;
 use constant CRON_FILE        => "/etc/cron.d/bubba-backup";
-use constant QUEUE_FILE       => "/etc/bubba-backup.queue";
+use constant QUEUE_FILE       => "/var/lib/bubba/bubba-backup.queue";
 use constant LOCK_FILE        => "/var/lock/backup.lock";
 use constant LOCK_RESTOREFILE => "/var/lock/restore.lock";
-use constant DISKMANAGER      => "/usr/sbin/diskmanager";
+use constant DISKMANAGER      => "/opt/bubba/sbin/diskmanager";
 
 use constant DEBUG => 0;
 

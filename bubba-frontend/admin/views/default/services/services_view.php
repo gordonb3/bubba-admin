@@ -64,10 +64,6 @@
       <td><label for=""><?=_('Up and downloads')?></label></td>
       <td ><input name="download_enabled" type="checkbox" class="slide"value="1" <?= $download_status?"checked=\"checked\"":"" ?>/></td>
    </tr>	  
-   <tr>
-      <td><label for=""><?=_('Remote access through other router')?></label></td>
-      <td ><input name="igd_enabled" type="checkbox" class="slide"value="1" <?= $igd_status?"checked=\"checked\"":"" ?>/></td>
-   </tr>	
 	<tfoot>
 	<tr><td>
 	<button class="submit" id="fn-settings-update"><?=_("Update")?></button>

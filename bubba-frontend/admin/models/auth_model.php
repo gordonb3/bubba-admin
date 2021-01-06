@@ -80,7 +80,7 @@ class Auth_model extends CI_Model{
 	private $realname = "";
 
 	private $_dom;
-	private $_xml_file = "/etc/bubba_auth.xml";
+	private $_xml_file = "/etc/bubba/auth.xml";
 	private $_lock_file = "/var/lock/bubba_auth.lock";
 
 	function Auth_model(){

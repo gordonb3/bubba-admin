@@ -20,6 +20,8 @@
 #include <string>
 #include <iostream>
 #include <libeutils/json/json.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 int main( int argc, char** argv ) {
 
@@ -32,8 +34,8 @@ int main( int argc, char** argv ) {
 		std::cerr << "Requires a command" << std::endl;
 		return 1;
 	}
-	std::string command("/usr/sbin/bubba-networkmanager --socket /tmp/bubba-networkmanager.sock --config /etc/bubba-networkmanager.conf");
-	std::string socket("/tmp/bubba-networkmanager.sock");
+	std::string command("/opt/bubba/sbin/bubba-networkmanager --socket /run/bubba-networkmanager.sock --config /etc/bubba/networkmanager.conf");
+	std::string socket("/run/bubba-networkmanager.sock");
 	EUtils::NetClient client( command, socket );
 	Json::Reader reader;
 	Json::FastWriter writer;
