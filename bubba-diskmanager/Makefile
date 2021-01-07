@@ -1,5 +1,8 @@
 .PHONY: clean all pre
 
+INCLUDEDIR ?= .
+
+
 # TODO: make nicer.
 # work out which udev we have. 
 
@@ -15,7 +18,7 @@ endif
 APP=diskmanager
 APP_SRC=parse.cpp Disks.cpp RaidDevs.cpp LVM.cpp DiskUtils.cpp CmdApp.cpp StatusNotifier.cpp Utils.cpp $(CMD_SRC)
 CMD_SRC=FsTabCmd.cpp CmdDevs.cpp UserUmount.cpp UserMount.cpp CmdMD.cpp CmdLV.cpp DiskCmd.cpp
-CXXFLAGS_EXTRA = -g -Wall -Wextra -Wold-style-cast -Woverloaded-virtual -Wsign-promo $(UDEVPRG)  $(shell pkg-config --cflags glib-2.0) -I$(CURDIR)/include
+CXXFLAGS_EXTRA = -g -Wall -Wextra -Wold-style-cast -Woverloaded-virtual -Wsign-promo $(UDEVPRG)  $(shell pkg-config --cflags glib-2.0) -I$(INCLUDEDIR)
 LDFLAGS_EXTRA+= libeutils.a libsigc-2.0.a -lpthread -lexpect $(shell pkg-config --libs libparted blkid devmapper glib-2.0)
 
 OBJS=$(APP_SRC:%.cpp=%.o)

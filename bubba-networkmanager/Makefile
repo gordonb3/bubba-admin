@@ -3,6 +3,7 @@ sbindir ?= $(prefix)/sbin
 bindir ?= $(prefix)/bin
 datadir ?= $(prefix)/share
 sysconfigdir ?= etc
+INCLUDEDIR ?= .
 
 APP=bubba-networkmanager
 APP_VERSION=0.2
@@ -40,7 +41,7 @@ DHCPPING_SRC = dhcp-ping/main.cpp dhcp-ping/dhcp.cpp
 SOURCES = $(APP_SRC) $(DATAMODEL_SRC) $(CONTROLLER_SRC) $(UTIL_SRC)
 OBJS = $(SOURCES:%.cpp=%.o)
 
-CXXFLAGS += -g -Wall -I$(CURDIR)/include $(shell pkg-config --cflags glib-2.0 libnl-3.0 libnl-genl-3.0) -DPACKAGE_VERSION="\"$(APP_VERSION)\""
+CXXFLAGS += -g -Wall -I$(INCLUDEDIR) $(shell pkg-config --cflags glib-2.0 libnl-3.0 libnl-genl-3.0) -DPACKAGE_VERSION="\"$(APP_VERSION)\""
 LDFLAGS = libeutils.a libsigc-2.0.a -lpopt -lpthread -lexpect $(shell pkg-config --libs glib-2.0 libnl-3.0 libnl-genl-3.0)
 
 APP_OBJS=$(APP_SRC:%.cpp=%.o)
