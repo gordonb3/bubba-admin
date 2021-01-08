@@ -60,9 +60,12 @@ ExternalProject_Add(diskmanager
 )
 
 set(MAKE_NETWORKMANAGER "make DESTDIR=${EXT_TARGET_DIR} INCLUDEDIR=${EXT_BUILD_DIR}/include LIBDIR=${EXT_BUILD_DIR}/lib EXPECTDIR=${LIBEXPECTPATH} LIBEXPECT=${LIBEXPECT}")
+set(REPLACE4 [=["s/datadir....APP.$/datadir)\/bubba/"]=])
+set(REPLACE5 [=["s/..APP.\//bubba\//"]=])
+set(REPLACE6 [=["s/..APP.\.conf/networkmanager.conf/"]=])
 ExternalProject_Add(networkmanager
   SOURCE_DIR        bubba-networkmanager
-  PATCH_COMMAND     eval sed -e "${REPLACE1}" -e "${REPLACE2}" -e "${REPLACE3}" -e [=["s/..APP.$/bubba/"]=] -e [=["s/..APP.\//bubba\//"]=] -i <SOURCE_DIR>/Makefile
+  PATCH_COMMAND     eval sed -e "${REPLACE1}" -e "${REPLACE2}" -e "${REPLACE3}" -e "${REPLACE4}" -e "${REPLACE5}" -e "${REPLACE6}" -i <SOURCE_DIR>/Makefile
   BUILD_IN_SOURCE   OFF
   CONFIGURE_COMMAND mkdir -p ${EXT_TARGET_DIR}${BUBBA_ADMIN_PREFIX}/sbin -p ${EXT_TARGET_DIR}${BUBBA_ADMIN_PREFIX}/bin -p ${EXT_TARGET_DIR}/etc/bubba
   BUILD_COMMAND     eval ${MAKE_NETWORKMANAGER} -C <SOURCE_DIR> 

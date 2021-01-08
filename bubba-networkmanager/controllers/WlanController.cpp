@@ -64,7 +64,7 @@ void WlanController::SetApInterface(const string& ifname){
 }
 
 void WlanController::SetApCfg(const string& ifname, const Json::Value& cfg){
-	auto_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
 
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 	if(cfgs.find(WlanAP)!=cfgs.end()){
@@ -75,7 +75,7 @@ void WlanController::SetApCfg(const string& ifname, const Json::Value& cfg){
 	}
 }
 void WlanController::SetApHTCapab(const string& ifname, const Json::Value& capab){
-	auto_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
 
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 	if(cfgs.find(WlanAP)!=cfgs.end()){
@@ -88,7 +88,7 @@ void WlanController::SetApHTCapab(const string& ifname, const Json::Value& capab
 
 void WlanController::SetApSSID(const string& ifname, const string& ssid){
 
-	auto_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
 	if(cfgs.find(WlanAP)!=cfgs.end()){
@@ -101,7 +101,7 @@ void WlanController::SetApSSID(const string& ifname, const string& ssid){
 }
 void WlanController::SetApMode(const string& ifname, const string& mode){
 
-	auto_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
 	if(cfgs.find(WlanAP)!=cfgs.end()){
@@ -115,7 +115,7 @@ void WlanController::SetApMode(const string& ifname, const string& mode){
 
 void WlanController::Enable80211n(const string& ifname, const bool enable){
 
-	auto_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
 	if(cfgs.find(WlanAP)!=cfgs.end()){
@@ -129,7 +129,7 @@ void WlanController::Enable80211n(const string& ifname, const bool enable){
 
 void WlanController::EnableAPSSIDBroadcast(const string& ifname, const bool enable){
 
-	auto_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
 	if(cfgs.find(WlanAP)!=cfgs.end()){
@@ -143,7 +143,7 @@ void WlanController::EnableAPSSIDBroadcast(const string& ifname, const bool enab
 
 void WlanController::SetAPChannel(const string& ifname, int channel){
 
-	auto_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
 	if(cfgs.find(WlanAP)!=cfgs.end()){
@@ -156,7 +156,7 @@ void WlanController::SetAPChannel(const string& ifname, int channel){
 }
 void WlanController::SetAPAuthNone(const string& ifname){
 
-	auto_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
 	if(cfgs.find(WlanAP)!=cfgs.end()){
@@ -171,7 +171,7 @@ void WlanController::SetAPAuthNone(const string& ifname){
 
 void WlanController::SetAPAuthWep(const string& ifname, const Json::Value& cfg){
 
-	auto_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
 	if(cfgs.find(WlanAP)!=cfgs.end()){
@@ -188,7 +188,7 @@ void WlanController::SetAPAuthWep(const string& ifname, const Json::Value& cfg){
 
 void WlanController::SetAPAuthWpa(const string& ifname, const Json::Value& cfg){
 
-	auto_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=InterfaceController::Instance().GetInterface(ifname);
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
 	if(cfgs.find(WlanAP)!=cfgs.end()){

@@ -43,7 +43,7 @@ protected:
 public:
 	static InterfaceController& Instance();
 
-	auto_ptr<Interface> GetInterface(const string& ifname);
+	unique_ptr<Interface> GetInterface(const string& ifname);
 	int GetMtu(const string& ifname);
 	bool SetMtu(const string& ifname, int mtu);
 

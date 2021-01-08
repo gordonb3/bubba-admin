@@ -244,7 +244,7 @@ Dispatcher::Result Dispatcher::setlanif(EUtils::UnixClientSocket *con, const Jso
 		cfg.Update("lanif",newif);
 
 		try{
-			auto_ptr<Interface> in = ifc.GetInterface(olf);
+			unique_ptr<Interface> in = ifc.GetInterface(olf);
 			map<Profile,Configuration> cfgs=in->GetConfigurations();
 
 			// save old interface
@@ -395,7 +395,7 @@ Dispatcher::Result Dispatcher::getifcfg(EUtils::UnixClientSocket *con, const Jso
 	if(v.isMember("ifname") && v["ifname"].isString()){
 		try{
 			InterfaceController& ifc = InterfaceController::Instance();
-			auto_ptr<Interface> in = ifc.GetInterface(v["ifname"].asString());
+			unique_ptr<Interface> in = ifc.GetInterface(v["ifname"].asString());
 
 			map<Profile, Configuration> bcfg = in->GetConfigurations();
 			for (map<Profile, Configuration>::iterator cIt = bcfg.begin(); cIt

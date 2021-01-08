@@ -65,7 +65,7 @@ InterfaceController & InterfaceController::Instance(){
 
 
 
-auto_ptr<NetworkManager::Interface> InterfaceController::GetInterface(const string& ifname){
+unique_ptr<NetworkManager::Interface> InterfaceController::GetInterface(const string& ifname){
 	PolicyController& pc=PolicyController::Instance();
 
 	list<string> ifs=this->GetInterfaces();
@@ -75,16 +75,16 @@ auto_ptr<NetworkManager::Interface> InterfaceController::GetInterface(const stri
 
 	string type=pc.GetInterfaceType(ifname);
 	if(type=="ether"){
-		return auto_ptr<Interface>(new EthernetInterface(ifname));
+		return unique_ptr<Interface>(new EthernetInterface(ifname));
 	}else if(type=="wlan"){
-		return auto_ptr<Interface>(new WlanInterface(ifname));
+		return unique_ptr<Interface>(new WlanInterface(ifname));
 	}else if(type=="bridge"){
-		return auto_ptr<Interface>(new BridgeInterface(ifname));
+		return unique_ptr<Interface>(new BridgeInterface(ifname));
 	}else{
 		throw std::runtime_error("Unsupported network class");
 	}
 	// Should not get here
-	return auto_ptr<Interface>(new Interface());
+	return unique_ptr<Interface>(new Interface());
 
 }
 
@@ -169,7 +169,7 @@ string InterfaceController::GetCurrentWlanInterface(){
 	list<string> ifs=this->GetInterfaces("wlan");
 
 	string lanname=SysConfig::Instance().ValueOrDefault("lanif","eth1");
-	auto_ptr<NetworkManager::Interface> lanif=this->GetInterface(lanname);
+	unique_ptr<NetworkManager::Interface> lanif=this->GetInterface(lanname);
 	map<Profile,Configuration> cfgs=lanif->GetConfigurations();
 
 	if(cfgs.find(BridgeStatic)!=cfgs.end()){
@@ -189,7 +189,7 @@ string InterfaceController::GetCurrentWlanInterface(){
 bool InterfaceController::SetMtu(const string & ifname, int mtu){
 	bool found=false;
 
-	auto_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
 
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
@@ -209,7 +209,7 @@ bool InterfaceController::SetMtu(const string & ifname, int mtu){
 
 int InterfaceController::GetMtu(const string & ifname){
 	int mtu=-1;
-	auto_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
 
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
@@ -227,7 +227,7 @@ int InterfaceController::GetMtu(const string & ifname){
 }
 
 bool InterfaceController::GetPromisc(const string& ifname){
-	auto_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
 
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 	bool promisc=false;
@@ -243,7 +243,7 @@ bool InterfaceController::GetPromisc(const string& ifname){
 bool InterfaceController::SetPromisc(const string& ifname, bool promisc){
 	bool found=false;
 
-	auto_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
 
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
@@ -315,7 +315,7 @@ static void validatebridge_andsetdefault( Json::Value& cfg){
 
 void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& acfg){
 	Json::Value cfg=acfg;
-	auto_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
 	validateether(cfg["config"]);
@@ -429,7 +429,7 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 
 void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value& acfg){
 	Json::Value cfg=acfg;
-	auto_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
 	if(cfgs.find(EthRaw)!=cfgs.end()){
@@ -538,7 +538,7 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 }
 
 void InterfaceController::SetRawCfg(const string& ifname, const Json::Value& cfg){
-	auto_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
+	unique_ptr<NetworkManager::Interface> ifc=this->GetInterface(ifname);
 	map<Profile,Configuration> cfgs=ifc->GetConfigurations();
 
 	// Set common values.
