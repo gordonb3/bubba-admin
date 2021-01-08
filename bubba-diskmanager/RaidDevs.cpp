@@ -148,7 +148,7 @@ bool RaidDevs::CreateMD(RaidDevs::types type,int ndisks, int spares, list<string
 			if(!S_ISBLK(s.GetMode())){
 				return false;
 			}
-		}catch(EUtils::EExcept::ENoent err){
+		}catch(const EUtils::EExcept::ENoent &err){
 			return false;
 		}
 	}
@@ -176,7 +176,7 @@ bool RaidDevs::CreateMD(RaidDevs::types type,int ndisks, int spares, list<string
 		{
 			std::stringstream ss;
 			std::string s;
-			ss << type;
+			ss << static_cast<int>(type);
 			s = ss.str();
 			cmd.push_back( s.c_str() );
 		}

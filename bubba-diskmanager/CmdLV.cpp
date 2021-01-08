@@ -91,7 +91,7 @@ bool CmdLV::do_pvcreate(Args& arg){
 				ret["errmsg"]="Not a blockdevice";
 				rval=false;
 			}
-		}catch(EUtils::EExcept::ENoent e){
+		}catch(const EUtils::EExcept::ENoent &e){
 			ret["errmsg"]="Not a blockdevice";
 			rval=false;
 		}
@@ -125,7 +125,7 @@ bool CmdLV::do_pvremove(Args& arg){
 				ret["errmsg"]="Not a blockdevice";
 				rval=false;
 			}
-		}catch(EUtils::EExcept::ENoent e){
+		}catch(const EUtils::EExcept::ENoent &e){
 			ret["errmsg"]="Not a blockdevice";
 			rval=false;
 		}
@@ -211,7 +211,7 @@ bool CmdLV::do_vgextend(Args& arg){
 					ret["errmsg"]="Not a blockdevice";
 					rval=false;
 				}
-			}catch(EUtils::EExcept::ENoent e){
+			}catch(const EUtils::EExcept::ENoent &e){
 				ret["errmsg"]="Not a blockdevice";
 				rval=false;
 			}

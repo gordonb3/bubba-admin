@@ -76,7 +76,7 @@ bool DiskCmd::do_extend(Args& arg){
 				ret["errmsg"]="Not a blockdevice";
 				rval=false;
 			}
-		}catch(EUtils::EExcept::ENoent e){
+		}catch(const EUtils::EExcept::ENoent &e){
 			ret["errmsg"]="Not a blockdevice";
 			rval=false;
 		}
@@ -123,7 +123,7 @@ bool DiskCmd::do_format(Args& arg){
 			ret["errmsg"]="Not a blockdevice";
 			rval=false;
 		}
-	}catch(EUtils::EExcept::ENoent e){
+	}catch(const EUtils::EExcept::ENoent &e){
 		ret["errmsg"]="Not a blockdevice";
 		rval=false;
 	}
@@ -168,7 +168,7 @@ bool DiskCmd::do_partition(Args& arg){
 			ret["errmsg"]="Not a blockdevice";
 			rval=false;
 		}
-	}catch(EUtils::EExcept::ENoent e){
+	}catch(const EUtils::EExcept::ENoent &e){
 		ret["errmsg"]="Not a blockdevice";
 		rval=false;
 	}
@@ -195,7 +195,7 @@ bool DiskCmd::do_partition(Args& arg){
 	if(rval){
 		try {
 			Disks::CreateSimplePart(arg[0],pt, label);
-		} catch( Disks::disk_error &e ) {
+		} catch(const Disks::disk_error &e) {
 			rval=false;
 			ret["errmsg"] = e.what();
 		}
@@ -230,7 +230,7 @@ bool DiskCmd::do_set_partition_type(Args& arg){
 				ret["errmsg"]="Not a blockdevice";
 				rval=false;
 			}
-		}catch(EUtils::EExcept::ENoent e){
+		}catch(const EUtils::EExcept::ENoent &e){
 			ret["errmsg"]="Not a blockdevice";
 			rval=false;
 		}
@@ -252,7 +252,7 @@ bool DiskCmd::do_set_partition_type(Args& arg){
 	if(rval){
 		try {
 			Disks::SetPartitionType(device, partition, pt);
-		} catch( Disks::disk_error &e ) {
+		} catch(const Disks::disk_error &e) {
 			rval=false;
 			ret["errmsg"] = e.what();
 		}
@@ -275,7 +275,7 @@ bool DiskCmd::do_probe(Args& arg){
 	if(rval){
 		try {
 			Disks::Probe(arg[0]);
-		} catch( Disks::disk_error &e ) {
+		} catch(const Disks::disk_error &e) {
 			rval=false;
 			ret["errmsg"] = e.what();
 		}

@@ -96,7 +96,7 @@ bool FsTabCmd::do_add(Args& arg){
 				ret["errmsg"]=arg[0]+" doesnt exist or is no block device";
 				rval=false;
 			}
-		}catch(EUtils::EExcept::ENoent e){
+		}catch(const EUtils::EExcept::ENoent &e){
 			ret["errmsg"]=arg[0]+" doesnt exist or is no block device";
 			rval=false;
 		}
@@ -153,7 +153,7 @@ bool FsTabCmd::do_add_by_uuid(Args& arg){
 				ret["errmsg"]=arg[0]+" doesnt exist or is no block device";
 				rval=false;
 			}
-		}catch(EUtils::EExcept::ENoent e){
+		}catch(const EUtils::EExcept::ENoent &e){
 			ret["errmsg"]=arg[0]+" doesnt exist or is no block device: " + e.what();
 			rval=false;
 		}

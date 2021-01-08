@@ -31,7 +31,7 @@ bool UserUmount::operator()(Args& arg){
 		stringstream cmd;
 		cmd << "/bin/umount "<<arg[0];
 		EUtils::FileUtils::ProcessRead(cmd.str());
-	}catch(std::runtime_error& e){
+	}catch(const std::runtime_error &e){
 		return false;
 	}
 	return true;

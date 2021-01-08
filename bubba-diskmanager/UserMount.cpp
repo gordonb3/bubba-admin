@@ -42,14 +42,14 @@ bool UserMount::operator()(Args& arg){
 		cmd << "/bin/mount " << fstype<<" -ogid=" ;
 		cmd << gid << ",umask=0 "<<arg[0]<<" "<<arg[1]+">/dev/null 2>/dev/null";
 		EUtils::FileUtils::ProcessRead(cmd.str());
-	}catch(std::runtime_error e){
+	}catch(const std::runtime_error &e){
 		// Failed lets try normal mount
 		try{
 			stringstream cmd;
 			cmd << "/bin/mount " << fstype;
 			cmd << " "<<arg[0]<<" "<<arg[1]+">/dev/null 2> /dev/null";
 			EUtils::FileUtils::ProcessRead(cmd.str());
-		}catch(std::runtime_error e){
+		}catch(const std::runtime_error &e){
 			return false;
 		}
 	}
