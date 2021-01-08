@@ -684,12 +684,12 @@ struct signal_emit0<T_return, nil>
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_);
         for (++it; it != slots.end(); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_);
           }
       }
       
@@ -728,12 +728,12 @@ struct signal_emit0<T_return, nil>
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_);
           }
       }
       
@@ -769,7 +769,7 @@ struct signal_emit0<void, nil>
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_);
         }
     }
 
@@ -793,7 +793,7 @@ struct signal_emit0<void, nil>
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_);
         }
     }
 };
@@ -914,12 +914,12 @@ struct signal_emit1<T_return, T_arg1, nil>
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
         for (++it; it != slots.end(); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
           }
       }
       
@@ -960,12 +960,12 @@ struct signal_emit1<T_return, T_arg1, nil>
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
           }
       }
       
@@ -1003,7 +1003,7 @@ struct signal_emit1<void, T_arg1, nil>
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
         }
     }
 
@@ -1029,7 +1029,7 @@ struct signal_emit1<void, T_arg1, nil>
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
         }
     }
 };
@@ -1154,12 +1154,12 @@ struct signal_emit2<T_return, T_arg1, T_arg2, nil>
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
         for (++it; it != slots.end(); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
           }
       }
       
@@ -1201,12 +1201,12 @@ struct signal_emit2<T_return, T_arg1, T_arg2, nil>
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
           }
       }
       
@@ -1245,7 +1245,7 @@ struct signal_emit2<void, T_arg1, T_arg2, nil>
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
         }
     }
 
@@ -1272,7 +1272,7 @@ struct signal_emit2<void, T_arg1, T_arg2, nil>
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
         }
     }
 };
@@ -1401,12 +1401,12 @@ struct signal_emit3<T_return, T_arg1, T_arg2, T_arg3, nil>
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
         for (++it; it != slots.end(); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
           }
       }
       
@@ -1449,12 +1449,12 @@ struct signal_emit3<T_return, T_arg1, T_arg2, T_arg3, nil>
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
           }
       }
       
@@ -1494,7 +1494,7 @@ struct signal_emit3<void, T_arg1, T_arg2, T_arg3, nil>
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
         }
     }
 
@@ -1522,7 +1522,7 @@ struct signal_emit3<void, T_arg1, T_arg2, T_arg3, nil>
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
         }
     }
 };
@@ -1655,12 +1655,12 @@ struct signal_emit4<T_return, T_arg1, T_arg2, T_arg3, T_arg4, nil>
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
         for (++it; it != slots.end(); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
           }
       }
       
@@ -1704,12 +1704,12 @@ struct signal_emit4<T_return, T_arg1, T_arg2, T_arg3, T_arg4, nil>
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
           }
       }
       
@@ -1750,7 +1750,7 @@ struct signal_emit4<void, T_arg1, T_arg2, T_arg3, T_arg4, nil>
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
         }
     }
 
@@ -1779,7 +1779,7 @@ struct signal_emit4<void, T_arg1, T_arg2, T_arg3, T_arg4, nil>
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
         }
     }
 };
@@ -1916,12 +1916,12 @@ struct signal_emit5<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, nil>
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
         for (++it; it != slots.end(); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
           }
       }
       
@@ -1966,12 +1966,12 @@ struct signal_emit5<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, nil>
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
           }
       }
       
@@ -2013,7 +2013,7 @@ struct signal_emit5<void, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, nil>
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
         }
     }
 
@@ -2043,7 +2043,7 @@ struct signal_emit5<void, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, nil>
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
         }
     }
 };
@@ -2184,12 +2184,12 @@ struct signal_emit6<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, ni
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
         for (++it; it != slots.end(); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
           }
       }
       
@@ -2235,12 +2235,12 @@ struct signal_emit6<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, ni
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
           }
       }
       
@@ -2283,7 +2283,7 @@ struct signal_emit6<void, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, nil>
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
         }
     }
 
@@ -2314,7 +2314,7 @@ struct signal_emit6<void, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, nil>
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
         }
     }
 };
@@ -2459,12 +2459,12 @@ struct signal_emit7<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
         for (++it; it != slots.end(); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
           }
       }
       
@@ -2511,12 +2511,12 @@ struct signal_emit7<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
           }
       }
       
@@ -2560,7 +2560,7 @@ struct signal_emit7<void, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
         }
     }
 
@@ -2592,7 +2592,7 @@ struct signal_emit7<void, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
         }
     }
 };
