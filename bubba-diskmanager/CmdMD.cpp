@@ -137,7 +137,8 @@ bool CmdMD::do_assemble(Args& arg){
 
 	if(rval){
 		list<string> devs;
-		for(int i=0;i<arg.size();i++){
+		int numargs=static_cast<int>(arg.size() & 0xFF);
+		for(int i=0;i<numargs;i++){
 			devs.push_back(arg[i]);
 		}
 		RaidDevs rd;
