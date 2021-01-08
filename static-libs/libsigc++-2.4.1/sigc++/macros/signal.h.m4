@@ -145,12 +145,12 @@ FOR(1, $1,[
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
         for (++it; it != slots.end(); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
           }
       }
       
@@ -193,12 +193,12 @@ FOR(1, $1,[
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
   
-        r_ = (reinterpret_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
+        r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
             if (it->empty() || it->blocked())
               continue;
-            r_ = (reinterpret_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
+            r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
           }
       }
       
@@ -238,7 +238,7 @@ FOR(1, $1,[
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
         }
     }
 
@@ -266,7 +266,7 @@ FOR(1, $1,[
         {
           if (it->empty() || it->blocked())
             continue;
-          (reinterpret_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
+          (bitwise_equivalent_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
         }
     }
 };
