@@ -75,9 +75,11 @@ static bool stringtoipv4(const string& src, struct in_addr *dst){
 	return inet_pton(AF_INET,src.c_str(),dst)>0;
 }
 
+/*
 static bool stringtoipv6(const string& src, struct in6_addr *dst){
 	return inet_pton(AF_INET6,src.c_str(),dst)>0;
 }
+*/
 
 static bool set_address(int sock, const string& ifname, const string& address){
 	struct ifreq req;
