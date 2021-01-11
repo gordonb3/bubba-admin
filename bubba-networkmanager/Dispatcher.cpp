@@ -337,13 +337,13 @@ Dispatcher::Result Dispatcher::setlanif(EUtils::UnixClientSocket *con, const Jso
 
 				// If this was a move from two wlan (bridge) update rc.d
 				if(newiftype=="bridge"){
-					system("ln -s net.lo /etc/init.d/net.br0");
+					(void)system("ln -s net.lo /etc/init.d/net.br0");
 					list<int> start,stop;
 					start.push_back(2);
 					Services::Enable("net.br0",19,start,0,stop);
 				}else{
 					Services::Disable("net.br0");
-					system("rm /etc/init.d/net.br0");
+					(void)system("rm /etc/init.d/net.br0");
 				}
 
 				// Pick up new if

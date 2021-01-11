@@ -91,7 +91,7 @@ int main( int argc, char** argv ) {
     setlogmask( LOG_UPTO( loglevel ) );
 
     if ( p["fg"]=="false" ) {
-        daemon( 1,0 );
+        (void)daemon( 1,0 );
         syslog( LOG_INFO,"Daemonizing" );
         ofstream pidfile( p["pidfile"].c_str() );
         pidfile<<getpid()<<endl;

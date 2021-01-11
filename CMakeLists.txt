@@ -9,7 +9,6 @@ set(BUBBA_ADMIN_PREFIX /opt/bubba)
 set(BUBBA_ADMIN_GUI_PREFIX ${BUBBA_ADMIN_PREFIX}/web-admin)
 
 
-
 # compile the individual components as External Projects
 include(ExternalProject)
 
@@ -18,24 +17,25 @@ set(EXT_BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/_tmp)
 # all External Projects deployment files in folder `_build`
 set(EXT_TARGET_DIR ${CMAKE_CURRENT_SOURCE_DIR}/_build)
 
-ExternalProject_Add(libeutils
-  SOURCE_DIR        static-libs/libeutils-0.7.39
-  CMAKE_ARGS        -DBUILD_STATIC_LIBRARIES=ON -DBUILD_SHARED_LIBRARIES=OFF -DCMAKE_INSTALL_PREFIX=${EXT_BUILD_DIR}
-  PREFIX            ${EXT_BUILD_DIR}
-)
-
 ExternalProject_Add(sigc++
   SOURCE_DIR        static-libs/libsigc++-2.4.1
-  CONFIGURE_COMMAND <SOURCE_DIR>/configure --enable-static --disable-shared --disable-documentation --prefix=${EXT_BUILD_DIR}
+  CONFIGURE_COMMAND <SOURCE_DIR>/configure --enable-static --disable-shared --disable-documentation --prefix=${EXT_TARGET_DIR}
   PREFIX            ${EXT_BUILD_DIR}
 )
 
 # sigc++ install paths are weird, tidy up for the remainder of our project
 add_custom_target(post-sigc++
-  COMMAND           ln -snf /${EXT_BUILD_DIR}/include/sigc++-2.0/sigc++ /${EXT_BUILD_DIR}/include/sigc++ && ln -snf /${EXT_BUILD_DIR}/lib/sigc++-2.0/include/sigc++config.h /${EXT_BUILD_DIR}/include/sigc++config.h
+  COMMAND           ln -snf /${EXT_TARGET_DIR}/include/sigc++-2.0/sigc++ /${EXT_TARGET_DIR}/include/sigc++ && ln -snf /${EXT_TARGET_DIR}/lib/sigc++-2.0/include/sigc++config.h /${EXT_TARGET_DIR}/include/sigc++config.h
   DEPENDS           sigc++
 )
 
+ExternalProject_Add(libeutils
+  SOURCE_DIR        static-libs/libeutils-0.7.39
+  PATCH_COMMAND     sed -e "/SIGC++/d" -i <SOURCE_DIR>/CMakeLists.txt
+  CMAKE_ARGS        -DBUILD_STATIC_LIBRARIES=ON -DBUILD_SHARED_LIBRARIES=OFF -DCMAKE_INSTALL_PREFIX=${EXT_TARGET_DIR} -DSIGC++_CFLAGS=-I${EXT_TARGET_DIR}/include
+  PREFIX            ${EXT_BUILD_DIR}
+  DEPENDS           post-sigc++
+)
 
 # tcl-expect does not supply a pkg-config so we need to locate the library manually
 file(GLOB LIBEXPECT /usr/lib*/expect*/libexpect*.so)
@@ -53,25 +53,26 @@ ExternalProject_Add(diskmanager
   PATCH_COMMAND     eval sed -e "${REPLACE1}" -e "${REPLACE2}" -e "${REPLACE3}" -i <SOURCE_DIR>/Makefile
   BUILD_IN_SOURCE   OFF
   CONFIGURE_COMMAND mkdir -p ${EXT_TARGET_DIR}${BUBBA_ADMIN_PREFIX}/sbin
-  BUILD_COMMAND     make DEBV=0 INCLUDEDIR=${EXT_BUILD_DIR}/include LIBDIR=${EXT_BUILD_DIR}/lib EXPECTDIR=${LIBEXPECTPATH} LIBEXPECT=${LIBEXPECT} -C <SOURCE_DIR> 
+  BUILD_COMMAND     make DEBV=0 INCLUDEDIR=${EXT_TARGET_DIR}/include LIBDIR=${EXT_TARGET_DIR}/lib EXPECTDIR=${LIBEXPECTPATH} LIBEXPECT=${LIBEXPECT} -C <SOURCE_DIR>
   INSTALL_COMMAND   mv <SOURCE_DIR>/diskmanager ${EXT_TARGET_DIR}${BUBBA_ADMIN_PREFIX}/sbin/
   PREFIX ${EXT_BUILD_DIR}
-  DEPENDS post-sigc++ libeutils
+  DEPENDS libeutils
 )
 
-set(MAKE_NETWORKMANAGER "make DESTDIR=${EXT_TARGET_DIR} INCLUDEDIR=${EXT_BUILD_DIR}/include LIBDIR=${EXT_BUILD_DIR}/lib EXPECTDIR=${LIBEXPECTPATH} LIBEXPECT=${LIBEXPECT}")
+set(MAKE_NETWORKMANAGER "make DESTDIR=${EXT_TARGET_DIR} INCLUDEDIR=${EXT_TARGET_DIR}/include LIBDIR=${EXT_TARGET_DIR}/lib EXPECTDIR=${LIBEXPECTPATH} LIBEXPECT=${LIBEXPECT}")
 set(REPLACE4 [=["s/datadir....APP.$/datadir)\/bubba/"]=])
 set(REPLACE5 [=["s/..APP.\//bubba\//"]=])
 set(REPLACE6 [=["s/..APP.\.conf/networkmanager.conf/"]=])
+set(REPLACE7 [=["s/\-Wall \-I/-Wall -Wno-psabi -Wno-unused-result -I/"]=])
 ExternalProject_Add(networkmanager
   SOURCE_DIR        bubba-networkmanager
-  PATCH_COMMAND     eval sed -e "${REPLACE1}" -e "${REPLACE2}" -e "${REPLACE3}" -e "${REPLACE4}" -e "${REPLACE5}" -e "${REPLACE6}" -i <SOURCE_DIR>/Makefile
+  PATCH_COMMAND     eval sed -e "${REPLACE1}" -e "${REPLACE2}" -e "${REPLACE3}" -e "${REPLACE4}" -e "${REPLACE5}" -e "${REPLACE6}" -e "${REPLACE7}" -i <SOURCE_DIR>/Makefile
   BUILD_IN_SOURCE   OFF
   CONFIGURE_COMMAND mkdir -p ${EXT_TARGET_DIR}${BUBBA_ADMIN_PREFIX}/sbin -p ${EXT_TARGET_DIR}${BUBBA_ADMIN_PREFIX}/bin -p ${EXT_TARGET_DIR}/etc/bubba
-  BUILD_COMMAND     eval ${MAKE_NETWORKMANAGER} -C <SOURCE_DIR> 
-  INSTALL_COMMAND   eval ${MAKE_NETWORKMANAGER} -C <SOURCE_DIR> prefix=${BUBBA_ADMIN_PREFIX} datadir=/var/lib sysconfigdir=etc/bubba install 
+  BUILD_COMMAND     eval ${MAKE_NETWORKMANAGER} -C <SOURCE_DIR>
+  INSTALL_COMMAND   eval ${MAKE_NETWORKMANAGER} -C <SOURCE_DIR> prefix=${BUBBA_ADMIN_PREFIX} datadir=/var/lib sysconfigdir=etc/bubba install
   PREFIX ${EXT_BUILD_DIR}
-  DEPENDS post-sigc++ libeutils
+  DEPENDS libeutils
 )
 
 ExternalProject_Add(admin-backend
@@ -81,6 +82,7 @@ ExternalProject_Add(admin-backend
   BUILD_COMMAND     make DESTDIR=${EXT_TARGET_DIR} -C <SOURCE_DIR> 
   INSTALL_COMMAND   make DESTDIR=${EXT_TARGET_DIR} -C <SOURCE_DIR>  install 
   PREFIX ${EXT_BUILD_DIR}
+  DEPENDS diskmanager networkmanager
 )
 
 if(WITH_GUI)
@@ -95,9 +97,9 @@ if(WITH_GUI)
     BUILD_COMMAND     cd <SOURCE_DIR> && eval "${PO2JSON_PREBUILD_COMMAND}" && make DESTDIR=${EXT_TARGET_DIR} -C <SOURCE_DIR> && eval "${PO2JSON_POSTBUILD_COMMAND}"
     INSTALL_COMMAND   make DESTDIR=${EXT_TARGET_DIR} -C <SOURCE_DIR>  install 
     PREFIX ${EXT_BUILD_DIR}
+    DEPENDS admin-backend
   )
 endif()
-
 
 install(DIRECTORY ${EXT_TARGET_DIR}/opt ${EXT_TARGET_DIR}/usr ${EXT_TARGET_DIR}/var ${EXT_TARGET_DIR}/etc
         DESTINATION ${CMAKE_INSTALL_PREFIX}
@@ -116,6 +118,4 @@ if(WITH_GUI)
           DESTINATION ${CMAKE_INSTALL_PREFIX}/${BUBBA_ADMIN_GUI_PREFIX}/admin/views/default/_js
          )
 endif()
-
-
 
