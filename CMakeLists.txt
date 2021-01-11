@@ -31,7 +31,7 @@ add_custom_target(post-sigc++
 
 ExternalProject_Add(libeutils
   SOURCE_DIR        static-libs/libeutils-0.7.39
-  PATCH_COMMAND     sed -e "/SIGC++/d" -i <SOURCE_DIR>/CMakeLists.txt
+  PATCH_COMMAND     sed -e "/SIGC++/cadd_definitions( -Wno-psabi )" -i <SOURCE_DIR>/CMakeLists.txt
   CMAKE_ARGS        -DBUILD_STATIC_LIBRARIES=ON -DBUILD_SHARED_LIBRARIES=OFF -DCMAKE_INSTALL_PREFIX=${EXT_TARGET_DIR} -DSIGC++_CFLAGS=-I${EXT_TARGET_DIR}/include
   PREFIX            ${EXT_BUILD_DIR}
   DEPENDS           post-sigc++
@@ -64,9 +64,10 @@ set(REPLACE4 [=["s/datadir....APP.$/datadir)\/bubba/"]=])
 set(REPLACE5 [=["s/..APP.\//bubba\//"]=])
 set(REPLACE6 [=["s/..APP.\.conf/networkmanager.conf/"]=])
 set(REPLACE7 [=["s/\-Wall \-I/-Wall -Wno-psabi -Wno-unused-result -I/"]=])
+set(REPLACE8 [=["s/install  *\-s /install /"]=])
 ExternalProject_Add(networkmanager
   SOURCE_DIR        bubba-networkmanager
-  PATCH_COMMAND     eval sed -e "${REPLACE1}" -e "${REPLACE2}" -e "${REPLACE3}" -e "${REPLACE4}" -e "${REPLACE5}" -e "${REPLACE6}" -e "${REPLACE7}" -i <SOURCE_DIR>/Makefile
+  PATCH_COMMAND     eval sed -e "${REPLACE1}" -e "${REPLACE2}" -e "${REPLACE3}" -e "${REPLACE4}" -e "${REPLACE5}" -e "${REPLACE6}" -e "${REPLACE7}" -e "${REPLACE8}" -i <SOURCE_DIR>/Makefile
   BUILD_IN_SOURCE   OFF
   CONFIGURE_COMMAND mkdir -p ${EXT_TARGET_DIR}${BUBBA_ADMIN_PREFIX}/sbin -p ${EXT_TARGET_DIR}${BUBBA_ADMIN_PREFIX}/bin -p ${EXT_TARGET_DIR}/etc/bubba
   BUILD_COMMAND     eval ${MAKE_NETWORKMANAGER} -C <SOURCE_DIR>
@@ -79,8 +80,8 @@ ExternalProject_Add(admin-backend
   SOURCE_DIR        bubba-backend
   BUILD_IN_SOURCE   OFF
   CONFIGURE_COMMAND eval "sh -c \"cd <SOURCE_DIR> && perl Makefile.PL NAME=\\\"Bubba\\\"\""
-  BUILD_COMMAND     make DESTDIR=${EXT_TARGET_DIR} -C <SOURCE_DIR> 
-  INSTALL_COMMAND   make DESTDIR=${EXT_TARGET_DIR} -C <SOURCE_DIR>  install 
+  BUILD_COMMAND     make DESTDIR=${EXT_TARGET_DIR} -C <SOURCE_DIR>
+  INSTALL_COMMAND   make DESTDIR=${EXT_TARGET_DIR} -C <SOURCE_DIR>  install
   PREFIX ${EXT_BUILD_DIR}
   DEPENDS diskmanager networkmanager
 )
@@ -95,27 +96,26 @@ if(WITH_GUI)
     BUILD_IN_SOURCE   OFF
     CONFIGURE_COMMAND ""
     BUILD_COMMAND     cd <SOURCE_DIR> && eval "${PO2JSON_PREBUILD_COMMAND}" && make DESTDIR=${EXT_TARGET_DIR} -C <SOURCE_DIR> && eval "${PO2JSON_POSTBUILD_COMMAND}"
-    INSTALL_COMMAND   make DESTDIR=${EXT_TARGET_DIR} -C <SOURCE_DIR>  install 
+    INSTALL_COMMAND   make DESTDIR=${EXT_TARGET_DIR} -C <SOURCE_DIR>  install
     PREFIX ${EXT_BUILD_DIR}
     DEPENDS admin-backend
   )
 endif()
 
 install(DIRECTORY ${EXT_TARGET_DIR}/opt ${EXT_TARGET_DIR}/usr ${EXT_TARGET_DIR}/var ${EXT_TARGET_DIR}/etc
-        DESTINATION ${CMAKE_INSTALL_PREFIX}
+        DESTINATION /
         PATTERN "*bin/*"
         PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ
        )
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/fake_dpkg/dpkg-query DESTINATION ${CMAKE_INSTALL_PREFIX}/${BUBBA_ADMIN_PREFIX}/bin
-        PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ
-       )
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/identify_box_b3/identify_box DESTINATION ${CMAKE_INSTALL_PREFIX}/${BUBBA_ADMIN_PREFIX}/bin
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/fake_dpkg/dpkg-query ${CMAKE_CURRENT_SOURCE_DIR}/contrib/identify_box_B3/identify_box
+        DESTINATION ${BUBBA_ADMIN_PREFIX}/bin
         PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ
        )
 if(WITH_GUI)
-  install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bubba-frontend/admin DESTINATION ${CMAKE_INSTALL_PREFIX}/${BUBBA_ADMIN_GUI_PREFIX})
+  install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bubba-frontend/admin
+          DESTINATION ${BUBBA_ADMIN_GUI_PREFIX})
   install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/jquery/jquery-1.4.2.js ${CMAKE_CURRENT_SOURCE_DIR}/contrib/jquery/jquery-ui.js
-          DESTINATION ${CMAKE_INSTALL_PREFIX}/${BUBBA_ADMIN_GUI_PREFIX}/admin/views/default/_js
+          DESTINATION ${BUBBA_ADMIN_GUI_PREFIX}/admin/views/default/_js
          )
 endif()
 
