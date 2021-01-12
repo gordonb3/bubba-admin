@@ -15,9 +15,7 @@ class Filemanager extends CI_Controller{
 		return ($a < $b) ? -1 : 1; 
 	}
 
-
-
-	function Filemanager(){
+	function __construct(){
 
 		parent::__construct();
 
@@ -26,6 +24,10 @@ class Filemanager extends CI_Controller{
 
 		$this->Auth_model->EnforceAuth('web_admin');
 
+	}
+
+	function Filemanager(){
+		self::__construct();
 	}
 
 	function _renderfull($content, $head=true){

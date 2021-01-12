@@ -2,13 +2,17 @@
 
 class Users extends CI_Controller{
 
-	function Users(){
+	function __construct(){
 		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);
 		$this->Auth_model->EnforceAuth('web_admin');
 
+	}
+
+	function Users(){
+		self::__construct();
 	}
 
 	private function _renderfull($content, $head = ''){

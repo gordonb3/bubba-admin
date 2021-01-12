@@ -9,7 +9,7 @@ class Disk_model extends CI_Model {
 	private function _system( /* $command, $args... */ ) {
 		$args = func_get_args();
 		$command = array_shift( $args );
-		$shell_cmd = "$command " . implode( ' ', array_map( create_function( '$i', 'return escapeshellarg( $i );' ),  $args ) );
+		$shell_cmd = "$command " . implode( ' ', array_map( function( $i ) { return escapeshellarg( $i ); },  $args ) );
 		exec( $shell_cmd , $output, $retval );
 		if( $retval == 0 ) {
 			return json_decode( implode( "\n", $output ), true );
@@ -20,7 +20,7 @@ class Disk_model extends CI_Model {
 	private function _raw_system( /* $command, $args... */ ) {
 		$args = func_get_args();
 		$command = array_shift( $args );
-		$shell_cmd = "$command " . implode( ' ', array_map( create_function( '$i', 'return escapeshellarg( $i );' ),  $args ) );
+		$shell_cmd = "$command " . implode( ' ', array_map( function($i) { return escapeshellarg( $i ); },  $args ) );
 		exec( $shell_cmd , $output, $retval );
 		if( $retval == 0 ) {
 			return implode( "\n", $output );
@@ -31,7 +31,7 @@ class Disk_model extends CI_Model {
 
 	// snagged from http://se.php.net/manual/en/function.array-multisort.php#89918
 	// _array_sort(string $field, [options, ], string $field2, [options, ], .... , $array)
-	function array_sort(&$array /*, ...*/) {
+	function array_sort($array /*, ...*/) {
 		$args  = func_get_args();
 		$array = array_shift($args);
 		if (! is_array($array)) return false;
@@ -375,7 +375,7 @@ class Disk_model extends CI_Model {
 			throw new Exception( sprintf( _("Failed to unmount %s"), $mountpath ) );
 		}
 
-		$in_fstab = count(array_filter( $this->list_fstab(), create_function('$a','return ($a["device"] == "'.quotemeta($partition).'");') )) > 0;
+		$in_fstab = count(array_filter( $this->list_fstab(), function( $a ) use ($partition) { return ( $a["device"] == quotemeta($partition) );} )) > 0;
 
 		if( $in_fstab ) {
 			$ret = $this->_system( $this->manager, 'fstab', 'remove', $mountpath );

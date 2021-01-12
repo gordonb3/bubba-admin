@@ -571,7 +571,7 @@ class Oldbackup extends CI_Model {
             if(isset($data)) {
                 $data = rtrim($data);
                 $a_data = explode("\n",$data);
-                return array_map(create_function('$str','return substr($str,2);'),$a_data);
+                return array_map(function($str) {return substr($str,2);},$a_data);
             } else {
                 return array();
             }

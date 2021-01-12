@@ -430,7 +430,7 @@ class Menu extends CI_Model {
             && isset($selected_children)
             && is_array($selected_children)
         ) {
-            $selected['children'] = &$this->_retrieve( $selected_children, $user, $current_level );
+            $selected['children'] = $this->_retrieve( $selected_children, $user, $current_level );
         }
         unset( $selected );
         unset( $selected_children );

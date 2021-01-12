@@ -823,7 +823,7 @@ class NetworkManager extends CI_Model {
 				'ifname'	=>  $interface,
 				'config'	=> array(
 					'defaultkey'	=> $defaultkey,
-					'keys'			=> array_map( create_function( '$a', 'return "\"$a\"";' ), $keys ),
+					'keys'			=> array_map( function( $a ) { return "\"$a\""; }, $keys ),
 				)
 			);
 			break;

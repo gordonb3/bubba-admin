@@ -2,7 +2,7 @@
 
 class Mail extends CI_Controller{
 
-	function Mail(){
+	function __construct(){
 		parent::__construct();
 		
 		require_once(APPPATH."/legacy/defines.php");
@@ -10,6 +10,10 @@ class Mail extends CI_Controller{
 
 		$this->Auth_model->EnforceAuth('web_admin');
 
+	}
+
+	function Mail(){
+		self::__construct();
 	}
 
 	function _renderfull($content,$head = "", $mdata){

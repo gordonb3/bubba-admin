@@ -2,7 +2,7 @@
 
 class Settings extends CI_Controller{
 
-  function Settings(){
+  function __construct(){
     parent::__construct();
 
     require_once(APPPATH."/legacy/defines.php");
@@ -12,6 +12,10 @@ class Settings extends CI_Controller{
     $this->Auth_model->enforce_policy('web_admin','administer', 'admin');
     $this->load->model('system');
 
+  }
+
+  function Settings(){
+    self::__construct();
   }
 
   function _renderfull($content,$head=null, $mdata=array()){

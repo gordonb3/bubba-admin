@@ -28,14 +28,17 @@ class CI_Session {
 
 	var $flash_key = 'flash'; // prefix for "flash" variables (eg. flash:new:message)
 
-	function CI_Session()
-	{
+	function __construct(){
 		$this->object =& get_instance();
 		log_message('debug', "Native_session Class Initialized");
 		$this->_sess_run();
 	}
 
-	/**
+	function CI_Session(){
+		self::__construct();
+	}
+
+   /**
     * Regenerates session id
     */
 	function regenerate_id()

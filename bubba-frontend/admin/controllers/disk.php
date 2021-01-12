@@ -334,15 +334,16 @@ class Disk extends CI_Controller{
 				$devices[$partition['dev']]['system'] = true;
 				$devices[$partition['dev']]['mountpath'] = "[swap]";
 			}
+                        $partition['cid'] =  isset($cid_devices[$partition['dev']]) ? $cid_devices[$partition['dev']] : "e";
                         switch( $partition['mountpath'] ) {
                         case '':
 			case '/exports':
-                            $partition['cid'] =  isset($cid_devices[$partition['dev']]) ? $cid_devices[$partition['dev']] : "e";
 			    break;
                         default:
-                            $partition['cid'] =  isset($cid_devices[$partition['dev']]) ? $cid_devices[$partition['dev']] : "e";
-                            $disk['formatable'] = false;
-                            $devices[$partition['dev']]['system'] = true;
+                            if ( substr($partition['mountpath'],0,5) != "/home" ) {
+                                $disk['formatable'] = false;
+                                $devices[$partition['dev']]['system'] = true;
+                            }
                             break;
                         }
                         switch( $partition['usage'] ) {

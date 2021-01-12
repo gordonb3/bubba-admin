@@ -96,8 +96,9 @@
 	<?endif?></td>
 	<td>
 		<? if( isset($devices[$legend['name']]) && !$devices[$legend['name']]['system']):?>
-		<input type="button" rel="<?=$legend['name']?>" class="button mount <?=$devices[$legend['name']]['mounted']?'mounted':''?>" value="<?=$devices[$legend['name']]['mounted']?_("Disconnect"):_("Connect")?>" /></td>
+		<input type="button" rel="<?=$legend['name']?>" class="button mount <?=$devices[$legend['name']]['mounted']?'mounted':''?>" value="<?=$devices[$legend['name']]['mounted']?_("Disconnect"):_("Connect")?>" />
 		<?endif?>
+	</td>
 </tr>
 <?endforeach?>
 <!--

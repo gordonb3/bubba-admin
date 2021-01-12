@@ -1,7 +1,7 @@
 <?php
 class Services extends CI_Controller{
 	
-	function Services(){
+	function __construct(){
 		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
@@ -9,6 +9,10 @@ class Services extends CI_Controller{
 
 		$this->Auth_model->enforce_policy('web_admin','administer', 'admin');
 
+	}
+
+	function Services(){
+		self::__construct();
 	}
 
 	function _renderfull($content){

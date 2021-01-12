@@ -1,7 +1,7 @@
 <?php
 class Shutdown extends CI_Controller{
 
-	function Shutdown(){
+	function __construct(){
 		parent::__construct();
 		
 		require_once(APPPATH."/legacy/defines.php");
@@ -11,6 +11,10 @@ class Shutdown extends CI_Controller{
 
 	}
 	
+	function Shutdown(){
+		self::__construct();
+	}
+
 	function index($strip=""){
 		confirm();	
 	}

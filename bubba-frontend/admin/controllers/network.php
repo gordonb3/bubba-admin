@@ -2,7 +2,7 @@
 
 class Network extends CI_Controller{
 
-	function Network(){
+	function __construct(){
 		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
@@ -14,6 +14,9 @@ class Network extends CI_Controller{
 		$this->load->model('system');
 	}
 
+	function Network(){
+		self::__construct();
+	}
 
 	function _renderfull($content, $head = '/network/network_head_view', $data = ''){
 

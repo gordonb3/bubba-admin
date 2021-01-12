@@ -2,7 +2,7 @@
 
 class Music extends CI_Controller{
 
-	function Music(){
+	function __construct(){
 		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
@@ -12,6 +12,10 @@ class Music extends CI_Controller{
 
 	}
 		
+	function Music(){
+		self::__construct();
+	}
+
 	function index($strip=""){
 		if($strip == "") {
 			$host = explode(":",$_SERVER["HTTP_HOST"]);

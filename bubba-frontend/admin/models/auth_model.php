@@ -83,12 +83,17 @@ class Auth_model extends CI_Model{
 	private $_xml_file = "/etc/bubba/auth.xml";
 	private $_lock_file = "/var/lock/bubba_auth.lock";
 
-	function Auth_model(){
+	public function __construct()
+	{
 		parent::__construct();
 		$this->_dom = new DOMDocument();
 		$this->_dom->formatOutput = true;
 		$this->_dom->preserveWhiteSpace = false;
 		$this->_dom->encoding ='utf-8';		
+	}
+
+	function Auth_model(){
+		self::__construct();
 	}
 
 	function Auth($username, $password){

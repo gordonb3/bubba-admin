@@ -2,7 +2,7 @@
 
 class Upload extends CI_Controller{
 	
-	function Upload(){
+	function __construct(){
 		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
@@ -11,6 +11,10 @@ class Upload extends CI_Controller{
 		$this->Auth_model->EnforceAuth('web_admin');
 
 	}		
+
+	function Upload(){
+		self::__construct();
+	}
 
 	function index(){
 		$data["path"]="/".join("/",array_slice($this->uri->segment_array(),2));

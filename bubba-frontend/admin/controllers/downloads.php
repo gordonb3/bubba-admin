@@ -4,8 +4,8 @@ class Downloads extends CI_Controller{
 
 	var $sorted=false;
 	var $dl=false;
-	
-	function Downloads(){
+
+	function __construct(){
 		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
@@ -16,8 +16,11 @@ class Downloads extends CI_Controller{
 
 		$this->Auth_model->EnforceAuth('web_admin');
 		$this->Auth_model->DenyUser('admin');
+	}
 
-	}		
+	function Downloads(){
+		self::__construct();
+	}
 
 	function _renderfull($content){
 		$navdata["menu"] = $this->menu->retrieve($this->session->userdata('user'),$this->uri->uri_string());
