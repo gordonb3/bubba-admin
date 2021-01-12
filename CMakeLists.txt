@@ -3,6 +3,7 @@ project( bubba-admin )
 
 # defaults
 option(WITH_GUI "Enable the web based GUI" YES)
+option(WITH_SYSTEMD "Build for systemd init" NO)
 
 
 set(BUBBA_ADMIN_PREFIX /opt/bubba)
@@ -118,5 +119,13 @@ if(WITH_GUI)
   install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/jquery/jquery-1.4.2.js ${CMAKE_CURRENT_SOURCE_DIR}/contrib/jquery/jquery-ui.js
           DESTINATION ${BUBBA_ADMIN_GUI_PREFIX}/admin/views/default/_js
          )
+endif()
+
+if(WITH_SYSTEMD)
+  set(PATCHPATH ${CMAKE_CURRENT_SOURCE_DIR}/contrib/systemd)
+  add_custom_target(systemd-patch
+    COMMAND test -e ${EXT_TEMP_DIR}/systemd-patch.completed || RESULT=`cat ${PATCHPATH}/systemctl.patch ${PATCHPATH}/gnome-NetworkManager.patch | patch -p1 > ${EXT_TEMP_DIR}/systemd-patch.completed`
+  )
+   add_dependencies(sigc++ systemd-patch)
 endif()
 
