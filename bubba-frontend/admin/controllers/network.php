@@ -684,9 +684,12 @@ class Network extends CI_Controller{
 
 	function wlan($strip="",$msg=""){
 		$conf=parse_ini_file("/home/admin/.bubbacfg");
+		$lifc=$this->networkmanager->get_networkconfig($this->networkmanager->get_lan_interface());
+		$data['dhcp'] = $lifc['dhcp'];
 		$data['wlan_configurable'] = $this->networkmanager->exists_wlan_card() 
 					&& $this->session->userdata("network_profile") != "custom"
-					&& $this->system->get_timezone() != "UTC";
+					&& $this->system->get_timezone() != "UTC"
+					&& !$lifc['dhcp'];
 		
 		if($msg == "update") {
 			$data['update'] = 1; // indicate that the user has pressed update with green status bar.

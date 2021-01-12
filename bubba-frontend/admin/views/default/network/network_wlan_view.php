@@ -1,7 +1,11 @@
 <? if(!$wlan_configurable): ?>
 	<div class="ui-network-information-panel">
 		<?=_("These settings are locked")?>&nbsp;.&nbsp;<br />
-		<?=_("Either no wireless network card is available or no valid timezone is set")?>
+		<? if($dhcp): ?>
+			<?=_("No valid LAN address is set")?>
+		<? else: ?>
+			<?=_("Either no wireless network card is available or no valid timezone is set")?>
+		<? endif ?>
 	</div>
 <? endif ?>
 <form 
