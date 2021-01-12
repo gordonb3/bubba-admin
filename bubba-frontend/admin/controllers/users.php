@@ -237,6 +237,7 @@ class Users extends CI_Controller{
 					&& $this->Auth_model->policy("userdata","disable_remote", $username)
 				) {
 					$this->update_cfg("AllowRemote",$remote ? 'yes': 'no',"admin" );
+					$this->session->set_userdata("AllowRemote",$remote ? 'yes': 'no');
 				}
 				
 				if( !$error ) {

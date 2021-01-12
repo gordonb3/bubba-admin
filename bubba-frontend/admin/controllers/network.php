@@ -32,6 +32,9 @@ class Network extends CI_Controller{
 
 	function wanupdate($strip=""){
 
+		if (!$this->input->post("update")) {
+			redirect('/network/wan');
+		}
 		if ($this->session->userdata("network_profile") == "router") {
 			$data["disable_gw"] = 0;
 		} else {
@@ -141,6 +144,9 @@ class Network extends CI_Controller{
 
 	function lanupdate($strip=""){
 
+		if (!$this->input->post("update")) {
+			redirect('/network/lan');
+		}
 		if ($this->session->userdata("network_profile") == "server") {
 			$data["disable_gw"] = 0;
 		} else {
