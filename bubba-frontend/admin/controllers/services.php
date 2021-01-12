@@ -116,8 +116,12 @@ class Services extends CI_Controller{
 			if($upnp_status && !$upnp_enabled){
 				remove_service("minidlna");
 				stop_service("minidlna");
+				unlink('/etc/sysctl.d/minidlna_inotify_watches.conf');
+				file_put_contents('/proc/sys/fs/inotify/max_user_watches', '8192');
 				$upnp_status=0;
 			}else if(!$upnp_status && $upnp_enabled){
+				file_put_contents('/etc/sysctl.d/minidlna_inotify_watches.conf', 'fs.inotify.max_user_watches = 65538');
+				file_put_contents('/proc/sys/fs/inotify/max_user_watches', '65538');
 				add_service("minidlna", 26);
 				start_service("minidlna");
 				$upnp_status=1;        
