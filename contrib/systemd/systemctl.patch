@@ -1,0 +1,347 @@
+diff -ru a/bubba-backend/web-admin/bin/diskdaemon.pl b/bubba-backend/web-admin/bin/diskdaemon.pl
+--- a/bubba-backend/web-admin/bin/diskdaemon.pl	2021-01-12 10:10:25.998316000 +0100
++++ b/bubba-backend/web-admin/bin/diskdaemon.pl	2021-01-12 10:10:07.859961000 +0100
+@@ -612,7 +612,7 @@
+             next unless -x $init_d;
+ 
+             $status{status} = "Terminating $service";
+-            system $init_d, 'stop';
++            system '/usr/bin/systemctl', 'stop', $service;
+         }
+ 
+         progress(4, $steps);
+@@ -878,7 +878,7 @@
+             my( $service, $init_d ) = @$_;
+             next unless -x $init_d;
+             $status{status} = "Restarting $service";
+-            system $init_d, 'start';
++            system '/usr/bin/systemctl', 'start', $service;
+         }
+ 
+         progress(19, $steps);
+@@ -1029,7 +1029,7 @@
+             my( $service, $init_d ) = @$_;
+             next unless -x $init_d;
+             $status{status} = "Terminating $service";
+-            system $init_d, 'stop';
++            system '/usr/bin/systemctl', 'stop', $service;
+         }
+ 
+         progress(2, $steps);
+@@ -1249,7 +1249,7 @@
+             my( $service, $init_d ) = @$_;
+             next unless -x $init_d;
+             $status{status} = "Restarting $service";
+-            system $init_d, 'start';
++            system '/usr/bin/systemctl', 'start', $service;
+         }
+ 
+         progress(13, $steps);
+diff -ru a/bubba-backend/web-admin/bin/adminfunctions.php b/bubba-backend/web-admin/bin/adminfunctions.php
+--- a/bubba-backend/web-admin/bin/adminfunctions.php	2021-01-12 10:10:25.998316000 +0100
++++ b/bubba-backend/web-admin/bin/adminfunctions.php	2021-01-12 10:10:07.859961000 +0100
+@@ -416,7 +416,7 @@
+ 		if(query_service("avahi-daemon")){
+ 			restart_service("avahi-daemon");
+ 		}
+-		if(query_service("samba")){
++		if(query_service("smbd")){
+ 			restart_samba();
+ 		}
+ 		if(query_service("forked-daapd")){
+@@ -618,9 +618,8 @@
+ 
+ function query_service($name){
+ 
+-   $res=glob("/etc/runlevels/default/$name");
+-   return $res?true:false;
+-
++   exec("/usr/bin/systemctl is-enabled $name",$res);
++   return ($res[0]=="enabled")?true:false;
+ }
+ 
+ function is_installed($package) {
+diff -ru a/bubba-backend/web-admin/lib/Bubba.pm b/bubba-backend/web-admin/lib/Bubba.pm
+--- a/bubba-backend/web-admin/lib/Bubba.pm
++++ b/bubba-backend/web-admin/lib/Bubba.pm
+@@ -485,7 +485,7 @@
+ # Return : Status of operation.
+ 
+ sub restart_avahi {
+-   system("/etc/init.d/avahi-daemon", "restart");
++   system("/usr/bin/systemctl", "restart", "avahi-daemon");
+ 
+    return $?;
+ }
+@@ -498,7 +498,7 @@
+ # Return : Status of operation.
+ 
+ sub restart_samba {
+-   system("/etc/init.d/samba restart");
++   system("/usr/bin/systemctl", "restart", "smbd");
+ 
+    return $?;
+ }
+@@ -512,7 +512,7 @@
+ # Return : Status of operation.
+ 
+ sub reload_samba {
+-   system("/etc/init.d/samba reload");
++   system("/usr/bin/systemctl", "reload", "smbd");
+ 
+    return $?;
+ }
+@@ -562,7 +562,7 @@
+ 	my ($name)=@_;
+ 
+ 	system("/bin/echo $name > /proc/sys/kernel/hostname");
+-	system("/bin/sed -i \"s/\s*\(hostname=\).*$/\\1\\\"$name\\\"/\"   /etc/conf.d/hostname");
++	system("/usr/bin/hostnamectl","set-hostname","$name");
+ #	system("echo $name.localdomain > /etc/mailname");
+ 
+ 	%ifs = read_interfaces();
+@@ -586,7 +586,7 @@
+	system("/usr/bin/rc-config restart `/usr/bin/rc-config list default | /bin/grep "^\s*net\."`");
+ 
+ 	if(change_ftp_servername($name)){
+-		system("/usr/bin/rc-config restart proftpd");
++		system("/usr/bin/systemctl restart proftpd");
+ 	}
+ 
+ 	restart_avahi();
+@@ -818,31 +816,11 @@
+ # Return :
+ sub service_running{
+ 	my ($service)=@_;
+-	my $pid;
+-	my $pidfile;
+ 	
+-	if ($service eq "fetchmail"){
+-		$pidfile="/var/run/fetchmail/fetchmail.pid";
+-	} elsif ($service eq "avahi-daemon"){
+-		$pidfile="/var/run/avahi-daemon/pid";
+-	} elsif ($service eq "tor"){
+-		$pidfile="/var/run/tor/tor.pid";
+-	} elsif ($service eq "filetransferdaemon"){
+-		$pidfile="/var/run/ftd.pid";
+-	} else {
+-		$pidfile = "/var/run/$service.pid";
+-	}
++	system("/usr/bin/systemctl is-active $service >/dev/null");
+ 
+-	if(-e $pidfile){
+-		$pid=`/bin/cat $pidfile`;
+-		my @ln=split(/ /,$pid);
+-		chomp(@ln);
+-		$pid=@ln[0];
+-		if(-e "/proc/$pid"){
+-			return 1;
+-		}else{
+-			return 0;
+-		}
++	if($? == 0){
++		return 1;
+ 	}else{
+ 		return 0;
+ 	}
+@@ -856,7 +834,7 @@
+ sub start_service{
+    my ($service)=@_;
+    
+-   return system("/etc/init.d/$service start");  
++   return system("/usr/bin/systemctl", "start", "$service");
+ }
+ 
+ sub package_is_installed{
+@@ -873,7 +851,7 @@
+ sub stop_service{
+    my ($service)=@_;
+    
+-   return system("/etc/init.d/$service stop");  
++   return system("/usr/bin/systemctl", "stop", "$service");
+ }
+ 
+ # Restart service
+@@ -884,7 +862,7 @@
+ sub restart_service{
+    my ($service)=@_;
+    
+-   return system("/etc/init.d/$service restart");  
++   return system("/usr/bin/systemctl", "restart", "$service");
+ }
+ 
+ # Reload service
+@@ -895,7 +873,7 @@
+ sub reload_service{
+    my ($service)=@_;
+    
+-   return system("/etc/init.d/$service reload");  
++   return system("/usr/bin/systemctl", "reload", "$service");
+ }
+ 
+ # Add service
+@@ -906,7 +884,7 @@
+ sub add_service{
+    my ($service)=@_;
+    
+-   return system("/sbin/rc-update add $service default");
++   return system("/usr/bin/systemctl enable $service");
+ }
+ 
+ # Add service att specific init "level"
+@@ -918,7 +896,7 @@
+ sub add_service_at_level{
+    my ($service, $level)=@_;
+ 
+-   return system("/sbin/rc-update add $service default");
++   return system("/usr/bin/systemctl enable $service");
+ }
+ 
+ # Remove service
+@@ -929,7 +907,7 @@
+ sub remove_service{
+    my ($service)=@_;
+    
+-   return system("/sbin/rc-update del $service default");
++   return system("/usr/bin/systemctl disable $service");
+ }
+ 
+ # Query service
+@@ -940,7 +918,7 @@
+ sub query_service{
+    my ($service)=@_;
+ 
+-   return system("/bin/ls /etc/runlevels/default/$service 1>/dev/null 2>/dev/null");
++   return system("/usr/bin/systemctl is-enabled $service");
+ 
+ }
+ 
+@@ -1443,8 +1421,8 @@
+ 
+ 	# services, boolean such if service enabled or not
+ 	my %services = map {
+-		$_ => (defined -e "/etc/runlevels/default/$_");
+-	} qw(proftpd forked-daapd ntpd filetransferdaemon cupsd postfix dovecot fetchmail minidlna dnsmasq logitechmediaserver hostapd netatalk net.br0 samba);
++		$_ => (system("/usr/bin/systemctl is-enabled $_")==0);
++	} qw(proftpd forked-daapd ntpd filetransferdaemon cupsd postfix dovecot fetchmail minidlna dnsmasq logitechmediaserver hostapd netatalk smbd);
+ 
+ 	my $meta = {
+ 		version => $revision,
+@@ -1560,8 +1538,9 @@
+ 		if( scalar keys %removed_users > 0 ) {
+ 			# Stop ftd so any delete of users doesn't fnuck stuff upp
+ 			system(
+-				'/etc/init.d/filetransferdaemon',
+-				'stop'
++				'/usr/bin/systemctl',
++				'stop',
++				'filetransferdaemon'
+ 			);
+ 		}
+ 
+@@ -1661,7 +1640,7 @@
+ 		);
+ 
+ 		system("/sbin/iptables-restore","/etc/bubba/firewall.conf");
+-		system("/usr/bin/rc-config","restart","hostname");
++		system("/usr/bin/hostnamectl","set-hostname","`cat /etc/hostname`");
+ 
+ 		restart_network("eth0");
+ 		# hostapd needs to be started prior to restarting LANIF
+@@ -1679,7 +1658,7 @@
+ 		}
+ 		$lan = _get_lanif;
+ 		restart_network($lan);
+-		reload_service("samba");
++		reload_service("smbd");
+ 		# Dont reload apache for now, it breaks connection with fcgi
+ 		# Resulting in an internal server error.
+ 		#reload_service("apache2");
+@@ -1785,7 +1764,7 @@
+ 
+ 			system("/sbin/iptables-restore < /etc/bubba/firewall.conf");
+ 
+-			system("/usr/bin/rc-config","restart","hostname");
++			system("/usr/bin/hostnamectl","set-hostname","`cat /etc/hostname`");
+ 
+ 			if($lines=~/proftpd/){
+ 				start_service("proftpd");
+@@ -1861,7 +1840,7 @@
+ 				remove_service("logitechmediaserver");
+ 			}
+ 
+-			reload_service("samba");
++			reload_service("smbd");
+ 
+ 			# Dont reload apache for now, it breaks connection with fcgi
+ 			# Resulting in an internal server error.
+diff -ru a/bubba-frontend/admin/helpers/exec_helper.php b/bubba-frontend/admin/helpers/exec_helper.php
+--- a/bubba-frontend/admin/helpers/exec_helper.php
++++ b/bubba-frontend/admin/helpers/exec_helper.php
+@@ -32,41 +32,22 @@
+ 
+ function invoke_rc_d( $name, $action ) {
+     $cmd = array(
+-        "/sbin/rc-service", 
+-        "-q", 
+-        $name, 
+-        $action
++        "/usr/bin/systemctl",
++        "-q",
++        $action,
++        $name
+     );
+     exec( escapeshellargs( $cmd ), $output, $retval );
+     return $retval == 0;
+ }
+ 
+-function update_rc_d( $name, $action="defaults", $priority=0, $runlevel=0) {
+-	if($action == "enable") {
+-		$cmd = array(
+-			"/sbin/rc-update",
+-			"-q",
+-			"add",
+-			$name,
+-			"default"
+-		);
+-	} elseif($action == "disable") {
+-		$cmd = array(
+-			"/sbin/rc-update",
+-			"-q",
+-			"del",
+-			$name,
+-			"default"
+-		);
+-	} else {
+-		$cmd = array(
+-			"/sbin/rc-update",
+-			"-q",
+-			$action,
+-			$name,
+-			"default"
+-		);
+-	}
++function update_rc_d( $name, $action="enable", $priority=0, $runlevel=0) {
++	$cmd = array(
++		"/usr/bin/systemctl",
++		"-q",
++		$action,
++		$name
++	);
+ 	exec( escapeshellargs( $cmd ), $output, $retval );
+ 	return $retval == 0;
+ }
+diff -ru a/bubba-frontend/admin/models/networkmanager.php b/bubba-frontend/admin/models/networkmanager.php
+--- a/bubba-frontend/admin/models/networkmanager.php
++++ b/bubba-frontend/admin/models/networkmanager.php
+@@ -164,8 +164,7 @@
+     if (!$newdomain) {
+         $newdomain = $olddomain? $olddomain:"localdomain";
+     }
+-    file_put_contents('/etc/conf.d/hostname', "hostname=\"$newname\"");
+-    _system('rc-config', 'restart', 'hostname');
++    _system('/usr/bin/hostnamectl', 'set-hostname', $newname);
+ 
+     $lanip = $this->_get_ip($this->get_lan_interface());
+     $oldhosts = _system("grep -m 1 \"^".str_replace('.','\.',$lanip)."\s\" /etc/hosts");
+
