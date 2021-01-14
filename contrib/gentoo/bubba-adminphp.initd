@@ -15,8 +15,8 @@ depend() {
 
 start() {
 	ebegin "Starting Bubba admin FCGI Process Manager"
-	if [ ! -d /var/lib/php5 ]; then
-		mkdir /var/lib/php5
+	if [ ! -d /run/bubba-adminphp ]; then
+		mkdir /run/bubba-adminphp
 	fi
 	set_phpvars
 	start-stop-daemon --start --pidfile ${PHP_FPM_PID} --exec \

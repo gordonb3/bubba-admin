@@ -116,8 +116,11 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/fake_dpkg/dpkg-query ${CMAKE_C
 if(WITH_GUI)
   install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bubba-frontend/admin
           DESTINATION ${BUBBA_ADMIN_GUI_PREFIX})
-  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/jquery/jquery-1.4.2.js ${CMAKE_CURRENT_SOURCE_DIR}/contrib/jquery/jquery-ui.js
-          DESTINATION ${BUBBA_ADMIN_GUI_PREFIX}/admin/views/default/_js
+  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/jquery/jquery-1.4.2.js
+          DESTINATION ${BUBBA_ADMIN_GUI_PREFIX}/admin/views/default/_js/jquery.js
+         )
+  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/jquery/jquery-ui-1.8.12.js
+          DESTINATION ${BUBBA_ADMIN_GUI_PREFIX}/admin/views/default/_js/jquery-ui.js
          )
 endif()
 
