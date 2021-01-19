@@ -117,17 +117,19 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/fake_dpkg/dpkg-query
         PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ
        )
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/dhcpcd_hook_scripts/bubba-fqdn.hook
-        DESTINATION /lib/dhcpcd/dhcpcd-hooks/70-bubba-fqdn
-        PERMISSIONS OWNER_READ GROUP_READ
+        DESTINATION /lib/dhcpcd/dhcpcd-hooks
+        RENAME 70-bubba-fqdn
        )
 if(WITH_GUI)
   install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bubba-frontend/admin
           DESTINATION ${BUBBA_ADMIN_GUI_PREFIX})
   install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/jquery/jquery-1.4.2.js
-          DESTINATION ${BUBBA_ADMIN_GUI_PREFIX}/admin/views/default/_js/jquery.js
+          DESTINATION ${BUBBA_ADMIN_GUI_PREFIX}/admin/views/default/_js
+          RENAME jquery.js
          )
   install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/jquery/jquery-ui-1.8.12.js
-          DESTINATION ${BUBBA_ADMIN_GUI_PREFIX}/admin/views/default/_js/jquery-ui.js
+          DESTINATION ${BUBBA_ADMIN_GUI_PREFIX}/admin/views/default/_js
+          RENAME jquery-ui.js
          )
 endif()
 
