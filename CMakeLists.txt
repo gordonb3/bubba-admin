@@ -109,9 +109,16 @@ install(DIRECTORY ${EXT_TARGET_DIR}/opt ${EXT_TARGET_DIR}/usr ${EXT_TARGET_DIR}/
         PATTERN "*bin/*"
         PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ
        )
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/fake_dpkg/dpkg-query ${CMAKE_CURRENT_SOURCE_DIR}/contrib/identify_box_B3/identify_box
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/fake_dpkg/dpkg-query
+              ${CMAKE_CURRENT_SOURCE_DIR}/contrib/identify_box_B3/identify_box
+              ${CMAKE_CURRENT_SOURCE_DIR}/bubba-backend/bubba-run-backupjobs
+              ${CMAKE_CURRENT_SOURCE_DIR}/bubba-backend/airprint-generate
         DESTINATION ${BUBBA_ADMIN_PREFIX}/bin
         PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ
+       )
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/dhcpcd_hook_scripts/bubba-fqdn.hook
+        DESTINATION /lib/dhcpcd/dhcpcd-hooks/70-bubba-fqdn
+        PERMISSIONS OWNER_READ GROUP_READ
        )
 if(WITH_GUI)
   install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bubba-frontend/admin
