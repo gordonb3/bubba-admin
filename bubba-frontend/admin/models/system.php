@@ -61,7 +61,7 @@ class System extends CI_Model {
   }
 
   public function list_printers() {
-    $json =  _system('cups-list-printers');
+    $json =  _system('/opt/bubba/bin/cups-list-printers');
     return json_decode(implode($json),true);
   }
 

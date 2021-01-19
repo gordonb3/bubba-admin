@@ -113,6 +113,7 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/contrib/fake_dpkg/dpkg-query
               ${CMAKE_CURRENT_SOURCE_DIR}/contrib/identify_box_B3/identify_box
               ${CMAKE_CURRENT_SOURCE_DIR}/bubba-backend/bubba-run-backupjobs
               ${CMAKE_CURRENT_SOURCE_DIR}/bubba-backend/airprint-generate
+              ${CMAKE_CURRENT_SOURCE_DIR}/bubba-backend/cups-list-printers
         DESTINATION ${BUBBA_ADMIN_PREFIX}/bin
         PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ
        )
