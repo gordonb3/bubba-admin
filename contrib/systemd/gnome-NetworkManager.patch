@@ -23,6 +23,20 @@ diff -ru a/bubba-backend/web-admin/lib/Bubba.pm b/bubba-backend/web-admin/lib/Bu
     return $ret;
  }
  
+diff -ru a/bubba-networkmanager/Makefile b/bubba-networkmanager/Makefile
+--- a/bubba-networkmanager/Makefile	2020-05-25 11:14:41.853373607 +0200
++++ b/bubba-networkmanager/Makefile	2020-05-25 11:16:20.606298703 +0200
+@@ -40,8 +40,8 @@
+ SOURCES = $(APP_SRC) $(DATAMODEL_SRC) $(CONTROLLER_SRC) $(UTIL_SRC)
+ OBJS = $(SOURCES:%.cpp=%.o)
+ 
+-CXXFLAGS += -g -Wall -I$(INCLUDEDIR) $(shell pkg-config --cflags glib-2.0 libnl-3.0 libnl-genl-3.0) -DPACKAGE_VERSION="\"$(APP_VERSION)\""
+-LDFLAGS = libeutils.a libsigc-2.0.a -lpopt -lpthread -lexpect $(shell pkg-config --libs glib-2.0 libnl-3.0 libnl-genl-3.0)
++CXXFLAGS += -g -Wall -I$(INCLUDEDIR) $(shell pkg-config --cflags glib-2.0 libnl-3.0 libnl-genl-3.0 libnm) -DPACKAGE_VERSION="\"$(APP_VERSION)\""
++LDFLAGS = libeutils.a libsigc-2.0.a -lpopt -lpthread -lexpect $(shell pkg-config --libs glib-2.0 libnl-3.0 libnl-genl-3.0 libnm)
+ 
+ APP_OBJS=$(APP_SRC:%.cpp=%.o)
+ DATAMODEL_OBJS=$(DATAMODEL_SRC:%.cpp=%.o)
 diff -ru a/bubba-networkmanager/controllers/InterfaceController.cpp b/bubba-networkmanager/controllers/InterfaceController.cpp
 --- a/bubba-networkmanager/controllers/InterfaceController.cpp	2021-01-12 10:10:26.001316000 +0100
 +++ b/bubba-networkmanager/controllers/InterfaceController.cpp	2021-01-12 10:10:07.862961000 +0100
