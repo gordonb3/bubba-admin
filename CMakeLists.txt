@@ -90,8 +90,8 @@ ExternalProject_Add(admin-backend
 
 if(WITH_GUI)
   # There is an issue with the msgfmt check format routine always comparing the translations to msgid_plural
-  set(PO2JSON_PREBUILD_COMMAND [=[sed -e "s/\([^\%]\)\%d /\1@NUMBER@ /g" -i `grep -a -r -m1 "\%d " po/ | cut -d: -f1`]=])
-  set(PO2JSON_POSTBUILD_COMMAND [=[sed -e "s/@NUMBER@/\%d/g" -i `grep -a -r -m1 "@NUMBER@" po/ | cut -d: -f1`]=])
+  set(PO2JSON_PREBUILD_COMMAND [=[sed -e "s/\([^\%]\)\%d /\1@NUMBER@ /g" -i `grep -a -r -m1 "\%d " po/js/ | cut -d: -f1`]=])
+  set(PO2JSON_POSTBUILD_COMMAND [=[sed -e "s/@NUMBER@/\%d/g" -i `grep -a -r -m1 "@NUMBER@" po/js/ | cut -d: -f1`]=])
 
   ExternalProject_Add(admin-frontend
     SOURCE_DIR        ${CMAKE_CURRENT_SOURCE_DIR}/bubba-frontend
