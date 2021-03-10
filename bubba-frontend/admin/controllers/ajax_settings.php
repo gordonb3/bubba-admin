@@ -12,7 +12,7 @@ class Ajax_Settings extends CI_Controller {
 	require_once(ADMINFUNCS);
 
 	$this->Auth_model->EnforceAuth('web_admin');
-	
+
 	$this->output->set_header('Last-Modified: '.gmdate('D, d M Y H:i:s', time()).' GMT');
     $this->output->set_header('Expires: '.gmdate('D, d M Y H:i:s', time()).' GMT');
     $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0");
@@ -20,13 +20,13 @@ class Ajax_Settings extends CI_Controller {
   }
 
 	function ajax_list_disks() {
-		
+
 		$this->load->model("Disk_model");
 	  $this->json_data['error'] = 0;
 	  $this->json_data['html'] = "";
-	  
+
 	  $disks = $this->Disk_model->list_disks();
-	  
+
 	  $usable_disks = array();
 	  foreach($disks as $disk) {
 	  	if(!preg_match("/\/dev\/sda/",$disk["dev"])) {
@@ -46,7 +46,7 @@ class Ajax_Settings extends CI_Controller {
 				  		$usable_disks[$disk["model"]][]=$diskdata;
 				  		//print_r($usable_disks);
 	  				} else {
-	  				
+
 	  				}
 	  			}
 	  		//array_push($usable_disks, $disk);
@@ -68,14 +68,14 @@ class Ajax_Settings extends CI_Controller {
 				}
 	  	}
 	  }
-	  
+ 
 		$this->json_data["disks"] = $usable_disks;
 		$this->json_data["nbrdisks"] = sizeof($usable_disks);
 	}
 
   function get_versions() {
-      $versions = get_package_version(array("bubba","bubba3-kernel","bubba-frontend","bubba-backend","singapore","filetransferdaemon","logitechmediaserver"));
-      $this->session->set_userdata("version",$versions['bubba']);
+      $versions = get_package_version(array("bubbagen","bubba3-kernel","bubba-admin","singapore","filetransferdaemon","logitechmediaserver"));
+      $this->session->set_userdata("version",$versions['bubbagen']);
       $this->json_data = str_replace("null","not installed",$versions);
   }
 
@@ -219,7 +219,7 @@ class Ajax_Settings extends CI_Controller {
     	echo json_encode($this->json_data);
     }
   }
-  
+
 }
 
 ?>

@@ -29,7 +29,7 @@ class Settings extends CI_Controller{
     }
 
     $this->load->view(THEME.'/main_view',$mdata);
-  }	
+  }
 
   function _datetime($data = array()) {
 
@@ -64,23 +64,23 @@ class Settings extends CI_Controller{
     $orig_workgroup=get_workgroup();
 
     $data["success"]=true;
-    $data["err_hostinvalid"]=false;		
+    $data["err_hostinvalid"]=false;
     $data["err_ip"]=false;
     $data["err_gw"]=false;
     $data["err_dns"]=false;
     $data["err_netmask"]=false;
 
     $namechange=false;
-    $restart_network=false;		
+    $restart_network=false;
 
     // Check hostname change
-    if ($hostname!=php_uname('n')) {	
+    if ($hostname!=php_uname('n')) {
       if(preg_match("/^[A-Za-z0-9-]+$/",$hostname)){
         //change_hostname($hostname);
         $namechange=true;
       }else{
         $data["err_hostinvalid"]=true;
-        $data["success"]=false;			
+        $data["success"]=false;
       }
     }
 
@@ -109,7 +109,7 @@ class Settings extends CI_Controller{
     }else{
       $this->_renderfull($this->load->view(THEME.'/settings/settings_netupdate_view',$data,true));
     }
-  }	
+  }
 
   function backup($strip = false){
 
@@ -132,7 +132,7 @@ class Settings extends CI_Controller{
         'message' => _("Failed to set up mount point for backup"),
       );
     } else {
-      set_time_limit(5*60);		
+      set_time_limit(5*60);
       if(!backup_config($path)) {
         $data['update'] = array(
           'success' => true,
@@ -151,13 +151,13 @@ class Settings extends CI_Controller{
     }
     $this->session->set_flashdata('update', $data['update']);
     redirect('/settings/backuprestore');
-  }	
+  }
 
   function restore($strip=""){
 
     $this->load->model('disk_model');
 
-    $data["success"]=false;	
+    $data["success"]=false;
     $data["err_nomedia"]=false;
     $data["err_opfailed"]=false;
 
@@ -199,7 +199,7 @@ class Settings extends CI_Controller{
     }
     $this->session->set_flashdata('update', $data['update']);
     redirect('/settings/backuprestore');
-  }	
+  }
 
   /* XXX This function can't utilize a format parameter due to clients might use current setting still during update */
   function fwupdate(){
@@ -219,7 +219,7 @@ class Settings extends CI_Controller{
             $this->output->set_output( json_encode( array( 'done' => 1, 'stop' => 0, 'statusMessage' => 'Upgrade is running' ) ) );
             return;
           }
-        } 
+        }
       } else {
         $this->output->set_output( json_encode( array( 'done' => 1, 'stop' => 0, 'statusMessage' => 'Hotfix check disabled per request' ) ) );
         return;
@@ -242,8 +242,8 @@ class Settings extends CI_Controller{
       $output = old_apt_query_progress();
       break;
     case 'get_versions':
-      $versions = get_package_version(array("bubba","bubba3-kernel","bubba-frontend","bubba-backend","singapore","filetransferdaemon","logitechmediaserver"));
-      $this->session->set_userdata("version",$versions['bubba']);
+      $versions = get_package_version(array("bubbagen","bubba3-kernel","bubba-admin","singapore","filetransferdaemon","logitechmediaserver"));
+      $this->session->set_userdata("version",$versions['bubbagen']);
       $output = str_replace("null","not installed",json_encode($versions));
       break;
     }
@@ -272,7 +272,7 @@ class Settings extends CI_Controller{
       $data['update'] = array(
         'success' => true,
         'message' => 'settings_traffic_success'
-      );			
+      );
       $dl=new Downloader;
       if(!$dl->set_download_throttle("torrent",$btdl_throttle==-1?-1:$btdl_throttle*1024)){
         /* Failed */
@@ -320,10 +320,10 @@ class Settings extends CI_Controller{
       $user_tz = $wiz_data['user_tz']; // always exists, but might be ""
       $ntp = isset($wiz_data['use_ntp'])?true:false;
       $date = isset($wiz_data['date'])?$wiz_data['date']:"";
-      $time = isset($wiz_data['time'])?$wiz_data['time']:"";		
+      $time = isset($wiz_data['time'])?$wiz_data['time']:"";
     } else {
       $ntp = $this->input->post("use_ntp");
-      $date=$this->input->post("date");	
+      $date=$this->input->post("date");
       $time=$this->input->post("time");
       $user_tz = $this->input->post("user_tz");
     }
@@ -356,7 +356,7 @@ class Settings extends CI_Controller{
         $data['update'] = array(
           'success' => false,
           'message' => sprintf(_("Failed to set date <strong>%s</strong> and time <strong>%s</strong>"), $date, $time),
-        );				
+        );
         $data['date'] = $date;
         $data['time'] = $time;
         $data['t_zone'] = $this->system->get_timezone();
@@ -388,7 +388,7 @@ class Settings extends CI_Controller{
     }else{
       $this->datetime( $strip, $data );
     }
-  }	
+  }
   function set_lang($strip=""){
     $lang = $this->input->post("lang");
     if($lang) {
@@ -448,7 +448,7 @@ class Settings extends CI_Controller{
     $data["available_languages"] = $this->gettext->get_languages();
 
     if($strip){
-      $this->load->view(THEME.'/settings/settings_datetime_view');		
+      $this->load->view(THEME.'/settings/settings_datetime_view');
     }else{
       $this->_renderfull(
         $this->load->view(THEME.'/settings/settings_datetime_view',$data,true),
@@ -474,7 +474,7 @@ class Settings extends CI_Controller{
       sort($data["disks"]);
     }
     if($strip){
-      $this->load->view(THEME.'/settings/settings_backuprestore_view',$data);		
+      $this->load->view(THEME.'/settings/settings_backuprestore_view',$data);
     }else{
       $this->_renderfull(
         $this->load->view(THEME.'/settings/settings_backuprestore_view',$data,true),
@@ -699,7 +699,7 @@ class Settings extends CI_Controller{
     }
 
     if($strip){
-      $this->load->view(THEME.'/settings/settings_identity_view',$data);		
+      $this->load->view(THEME.'/settings/settings_identity_view',$data);
     }else{
       $this->_renderfull(
         $this->load->view(THEME.'/settings/settings_identity_view',$data,true),
