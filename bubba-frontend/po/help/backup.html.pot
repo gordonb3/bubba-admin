@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Excito Electronics AB
+# This file is distributed under the same license as the bubba-frontend package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: bubba-frontend 2.3\n"
+"Report-Msgid-Bugs-To: info@excito.com\n"
+"POT-Creation-Date: 2013-03-11 13:01+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Content of: <p>
+#: admin/views/default/help/en/backup.html:2
+msgid ""
+"This backup service allows you to backup any data on your {PLATFORM} to a "
+"USB disk, to any other {PLATFORM}, or to a paid account on HiDrive (https://"
+"www.free-hidrive.com/). Also any other server supporting ssh and rsync can "
+"be used."
+msgstr ""
+
+#. type: Content of: <h3>
+#: admin/views/default/help/en/backup.html:6
+msgid "Create a backup"
+msgstr ""
+
+#. type: Content of: <p>
+#: admin/views/default/help/en/backup.html:10
+msgid "Click the button “Add new backup job” and follow the wizard"
+msgstr ""
+
+#. type: Content of: <p>
+#: admin/views/default/help/en/backup.html:14
+msgid ""
+"<em>Note: If you choose HiDrive as target you need a paid account since the "
+"free accounts does not support rsync</em>"
+msgstr ""
+
+#. type: Content of: <h3>
+#: admin/views/default/help/en/backup.html:17
+#: admin/views/default/help/en/settings_backuprestore.html:33
+msgid "Restore a backup"
+msgstr ""
+
+#. type: Content of: <p>
+#: admin/views/default/help/en/backup.html:20
+msgid ""
+"Go to “File Manager” and browse to /home/admin/ and you will find a folder "
+"there for each target device, where the target data is mounted. You can "
+"there manually copy the files from target."
+msgstr ""
+
+#. type: Content of: <h3>
+#: admin/views/default/help/en/backup.html:23
+msgid "Restore a backup not using {PLATFORM}"
+msgstr ""
+
+#. type: Content of: <p>
+#: admin/views/default/help/en/backup.html:26
+msgid ""
+"If you in the future would like to restore a backup not using {PLATFORM}, "
+"this is of course possible, you simply can log in to the target device and "
+"copy the files from there. No encryption or compression is used to make sure "
+"this is possible."
+msgstr ""
