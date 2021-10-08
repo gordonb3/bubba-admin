@@ -3,15 +3,15 @@
  *
  *       Filename:  Nl80211.cpp
  *
- *    Description:  
+ *    Description:
  *
  *        Version:  1.0
  *        Created:  12/22/2009 05:26:28 PM CET
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:   (), 
- *        Company:  
+ *         Author:   (),
+ *        Company:
  *
  * =====================================================================================
  */
@@ -112,8 +112,8 @@ int Nl80211::valid_handler(struct nl_msg *msg) {
     }
         nla_for_each_nested_cast(nl_band, tb_msg[NL80211_ATTR_WIPHY_BANDS], rem_band, nlattr*) {
         nla_parse(
-                tb_band, 
-                NL80211_BAND_ATTR_MAX, 
+                tb_band,
+                NL80211_BAND_ATTR_MAX,
                 static_cast<nlattr*>(nla_data(nl_band)),
                 nla_len(nl_band),
                 NULL
@@ -156,7 +156,7 @@ int Nl80211::valid_handler(struct nl_msg *msg) {
             }
 
             if (
-                    tb_freq[NL80211_FREQUENCY_ATTR_MAX_TX_POWER] 
+                    tb_freq[NL80211_FREQUENCY_ATTR_MAX_TX_POWER]
                     && !tb_freq[NL80211_FREQUENCY_ATTR_DISABLED]
                ) {
                 {

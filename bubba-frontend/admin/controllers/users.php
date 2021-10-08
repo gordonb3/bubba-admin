@@ -27,7 +27,7 @@ class Users extends CI_Controller{
         $mdata["content"]=$content;
 		$this->load->view(THEME.'/main_view',$mdata);
 	}
-		
+
 	private function _get_uinfo() {
 
 		$userinfo=get_userinfo();
@@ -54,7 +54,7 @@ class Users extends CI_Controller{
 		}
 		return $result;
 
-	}	
+	}
 
 	private function _dochpwd($uname,$pass1,$pass2){
 
@@ -107,7 +107,7 @@ class Users extends CI_Controller{
 			if( $this->Auth_model->policy("userdata","add")) {
 				require_once(APPPATH."/legacy/user_auth.php");
 				$error = false;
-	
+
 				$username=strtolower(trim($this->input->post('username')));
 				$realname=trim($this->input->post('realname'));
 				$password1=trim($this->input->post('password1'));
@@ -115,18 +115,18 @@ class Users extends CI_Controller{
 				$shell=$this->input->post('shell');
 				$lang=$this->input->post('lang');
 				if(
-					$this->Auth_model->policy("userdata","set:shell_access", $this->session->userdata("user")) 
-					&& $this->Auth_model->policy("userdata","shell_access", $username) 
-					&& $shell 
+					$this->Auth_model->policy("userdata","set:shell_access", $this->session->userdata("user"))
+					&& $this->Auth_model->policy("userdata","shell_access", $username)
+					&& $shell
 				) {
 					$shell = '/bin/bash';
 				} else {
-					$shell = '/sbin/nologin'; 
+					$shell = '/sbin/nologin';
 				}
 				$group = 'users'; // Static group for em all
-	
+
 				$uinfo=get_userinfo();
-	
+
 				if (
 					isset($userinfo[$username])
 					|| $username == "root"
@@ -160,7 +160,7 @@ class Users extends CI_Controller{
 			header("Content-type: application/json");
 			echo json_encode( $data );
 			return;
-			
+
 		}
 	}
 	private function set_language($username, $language){
@@ -208,7 +208,7 @@ class Users extends CI_Controller{
 							$shell = false;
 						}
 					} else {
-						$shell = false; 
+						$shell = false;
 					}
 				} else {
 					$userinfo=get_userinfo();
@@ -217,7 +217,7 @@ class Users extends CI_Controller{
 					} else {
 						// should never happen, but better to be on the safe side
 						$shell = false;
-					}		
+					}
 				}
 
 				if( isset($result_chpwd["success"]) && !$result_chpwd["success"] ) {
@@ -231,21 +231,21 @@ class Users extends CI_Controller{
 					}
 				}
 
-				if( 
-					!$error 
-					&& $this->Auth_model->policy("userdata","set:disable_remote", $this->session->userdata("user")) 
+				if(
+					!$error
+					&& $this->Auth_model->policy("userdata","set:disable_remote", $this->session->userdata("user"))
 					&& $this->Auth_model->policy("userdata","disable_remote", $username)
 				) {
 					$this->update_cfg("AllowRemote",$remote ? 'yes': 'no',"admin" );
 					$this->session->set_userdata("AllowRemote",$remote ? 'yes': 'no');
 				}
-				
+
 				if( !$error ) {
 					$this->set_language($username, $lang);
 					if($this->session->userdata("user") == $username) {
 						$data['redraw'] = true;
 					}
-					
+
 				}
 				/*
 				if( !$error && $username == 'admin' ) {
@@ -254,11 +254,11 @@ class Users extends CI_Controller{
 				*/
 				if( !$error && update_user($realname,$shell?'/bin/bash':'/sbin/nologin',$username)){
 					$error = sprintf(_("Failed to edit account for %s (%3$s) shell: %2$s"), $realname, $shell, $username);
-				}		
+				}
 			} else {
 				$error = _("Authorization failure");
 			}
-			
+
 			$data['success'] = !$error;
 			if( $error ) {
 				$data['error'] = true;
@@ -266,18 +266,18 @@ class Users extends CI_Controller{
 			}
 			if( $this->input->post('flashdata') !== false ) {
 				$this->session->set_flashdata(
-					'update', 
+					'update',
 					array(
-						'success' => $data['success'], 
+						'success' => $data['success'],
 						'message' => isset($data['html']) ? $data['html'] : _("User information updated")
-					) 
+					)
 				);
 			}
 			header("Content-type: application/json");
 			echo json_encode( $data );
 			return;
 		}
-	}	
+	}
 
 	public function delete_user_account($strip=""){
 
@@ -291,7 +291,7 @@ class Users extends CI_Controller{
 			if($this->Auth_model->policy("userdata","delete")) {
 
 				// TODO: fix this to only allow users with uid>999 to be deleted
-				if( $username == "root" || $username == "admin" ){		
+				if( $username == "root" || $username == "admin" ){
                     $error = _('Bad username');
                     echo json_encode( $data );
                     return;
@@ -326,11 +326,11 @@ class Users extends CI_Controller{
 			echo json_encode( $data );
 			return;
 		}
-	}	
+	}
 
 	public function index($strip="", $data = array()){
 		require_once(APPPATH."/legacy/user_auth.php");
-		
+
 		$update =  $this->session->flashdata('update');
 		if( $update ) {
 			$data['update'] = $update;
@@ -341,19 +341,19 @@ class Users extends CI_Controller{
 			header("Content-type: application/json");
 			echo json_encode( $data );
 		}else{
-			$data["show_adduser"] = $this->Auth_model->policy("userdata","add");	
-			$data["show_allusers"] = $this->Auth_model->policy("userdata","edit_allusers");	
-			$data["allow_delete"] = $this->Auth_model->policy("userdata","delete");	
+			$data["show_adduser"] = $this->Auth_model->policy("userdata","add");
+			$data["show_allusers"] = $this->Auth_model->policy("userdata","edit_allusers");
+			$data["allow_delete"] = $this->Auth_model->policy("userdata","delete");
 			$conf=parse_ini_file("/home/admin/".USER_CONFIG);
 
 			$data["default_sideboard"] =  (!isset($conf["default_sideboard"]) || $conf["default_sideboard"]);
-			
+
 			$languages = $this->gettext->get_languages();
 
 			$default_lang["default"]["short_name"] = "";
 			$default_lang["default"]["long_name"] = _("System default");
 			$default_lang["default"]["status"] = "official";
-			
+
 			$data["available_languages"] = array_merge($default_lang,$languages);
 			$this->_renderfull(
 				$this->load->view(THEME.'/users/user_list_view',$data,true),
@@ -362,9 +362,9 @@ class Users extends CI_Controller{
 		}
 	}
 
-	function config($strip="",$parameter,$value) {
-		if( $strip == 'json' ) {
-			$this->update_cfg($parameter,$value);
-		}
-	}
+//	function config($strip="",$parameter,$value) {
+//		if( $strip == 'json' ) {
+//			$this->update_cfg($parameter,$value);
+//		}
+//	}
 }

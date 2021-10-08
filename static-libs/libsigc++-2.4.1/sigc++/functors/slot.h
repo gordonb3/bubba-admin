@@ -1109,7 +1109,7 @@ public:
  * @ingroup slot
  */
 template <class T_return, class T_arg1 = nil, class T_arg2 = nil, class T_arg3 = nil, class T_arg4 = nil, class T_arg5 = nil, class T_arg6 = nil, class T_arg7 = nil>
-class slot 
+class slot
   : public slot7<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7>
 {
 public:

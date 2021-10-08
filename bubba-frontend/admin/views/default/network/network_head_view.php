@@ -27,14 +27,14 @@ $(document).ready(function(){
 				cursor_ready();
 			} else if( data.change ) {
 				if( data.show_alert ) {
-					$.confirm( 
-						data.alert_msg, 
+					$.confirm(
+						data.alert_msg,
 						"<?=_("Network configuration")?>", {
 
 						<?=_("Continue")?>: function() {
 								$(this).dialog('close');
 								cursor_wait();
-								$("#OTHCFG").submit(); 
+								$("#OTHCFG").submit();
 							},<?=_("Cancel")?>: function() {
 								$(this).dialog('close');
 							}
@@ -53,7 +53,7 @@ $(document).ready(function(){
 			}
 		}, 'json');
 		return false;
-	});	
+	});
 
 	// firewall scripts
 	<?if(isset($expand) && $expand):?>
@@ -66,10 +66,10 @@ $(document).ready(function(){
 		$('#content_wrapper button').attr("disabled","true");
 		$('#content_wrapper button').addClass("ui-state-disabled");
 	<?endif?>
-	
+
 	// wan + lan
-	$("#body_lan tr td:nth-child(2),#body_wan tr td:nth-child(2)").addClass("col2");	
-		
+	$("#body_lan tr td:nth-child(2),#body_wan tr td:nth-child(2)").addClass("col2");
+
 	$(".fn-network-button_submit").click( function (e) {
 		$(".fn-network-button_submit").addClass("ui-state-disabled");
 		$(this).parents("form").submit();
@@ -86,7 +86,7 @@ $(document).ready(function(){
 	<?if(isset($dhcpd) && !$dhcpd):?>
 		$("#cb_dns").attr("disabled","disabled");
 		$("#dhcpd").attr("disabled","disabled");
-	<?endif?> 
+	<?endif?>
 
 	$("#dhcpd").change(function() {
 		update_leasefields();
@@ -102,7 +102,7 @@ $(document).ready(function(){
 			update_leasefields();
 		}
 	});
-	
+
 	$(".ip").change( function() {
 
 		$("[name='dnsmasq[range_start][0]']").val($("[name='ip[0]']").val());

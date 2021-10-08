@@ -2,7 +2,7 @@
 <table class="ui-table-outline">
 	<thead>
 	<tr>
-		<th 
+		<th
 			colspan="2"
 			class="ui-state-default ui-widget-header"
 		>
@@ -51,8 +51,8 @@
 				name="useunsecure"
 				id="useunsecure"
 				value="yes"
-				<?if(!$smtp_auth):?>disabled="disabled"<?endif?> 
-				<?if($smtp_plain_auth):?>checked="checked"<?endif?> 
+				<?if(!$smtp_auth):?>disabled="disabled"<?endif?>
+				<?if($smtp_plain_auth):?>checked="checked"<?endif?>
 			/>
 		</td>
 	</tr>
@@ -96,7 +96,7 @@
 <table class="ui-table-outline">
 	<thead>
 	<tr>
-		<th 
+		<th
 			colspan="2"
 			class="ui-state-default ui-widget-header"
 		>

@@ -97,7 +97,7 @@ sub get_mdslaves{
 sub get_mds{
 	my @res;
 	my @mds=glob("/sys/block/md?");
-	
+
 	foreach my $md (@mds){
 		my %val;
 		my @el=split("/",$md);
@@ -196,7 +196,7 @@ sub get_mounts{
 			$val->{"path"}=$2;
 			push(@res,$val);
 		}
-		
+
 	}
 	close(FIL);
 	return \@res;
@@ -228,7 +228,7 @@ sub find_unusage{
 			set_disk_usage($disks,$$pv{"dev"},"pv");
 		}
 	}
-	
+
 }
 
 sub get_devices{
@@ -289,7 +289,7 @@ sub list_devices{
 			print get_mount_path(@mounts,$$dev{"dev"}).":";
 		}else{
 			print ":";
-		}	
+		}
 		print "$$dev{'model'}:";
 		print "$$dev{'vendor'}\n";
 	}

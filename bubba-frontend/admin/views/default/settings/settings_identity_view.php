@@ -6,7 +6,7 @@
 		</thead>
 		<tbody>
 		<tr>
-			
+
 			<td><?=_("Hostname")?>:</td>
 			<td>
 				<input
@@ -17,7 +17,7 @@
 			</td>
 		</tr>
 		<tr>
-			
+
 			<td><?=_("Workgroup")?>:</td>
 			<td>
 				<input
@@ -42,7 +42,7 @@
 	</table>
 	</form>
 
-	
+
 	<form action="<?=FORMPREFIX?>/settings/identity" method="post">
 	<table class="networksettings ui-table-two-col ui-table-outline" id="settings_easyfind">
 		<thead>
@@ -50,7 +50,7 @@
 		</thead>
 		<tbody>
 		<tr>
-			
+
 			<td><?=_("'Easyfind' location service")?>:</td>
 			<td>
 				<input
@@ -66,7 +66,7 @@
 
 		</tr>
 		<tr>
-			
+
 			<td><?=_('Easyfind name')?>:</td>
 			<?
 			if(isset($easyfind['name']) && $easyfind['name']) {
@@ -100,7 +100,7 @@
 		</td>
 		</tr>
 		</tfoot>
-		
+
 	</table>
 	</form>
 

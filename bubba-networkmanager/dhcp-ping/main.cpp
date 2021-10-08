@@ -43,7 +43,7 @@ public:
 		close(sock);
 		done=true;
 	}
-	
+
 	bool Ping(){
 		this->Start();
 		this->Yield();
@@ -55,14 +55,14 @@ public:
 		while(!this->done){
 			usleep(1000);
 		}
-	
+
 		return result;
 	}
-	
+
 	virtual ~DhcpPing(){
 	}
-		
-	
+
+
 };
 
 

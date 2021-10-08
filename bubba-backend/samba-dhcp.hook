@@ -20,7 +20,7 @@ netbios_setup() {
 	local serverlist
 	serverlist==""
 
-	# the destination file won't exist yet on the first run after 
+	# the destination file won't exist yet on the first run after
 	# installing samba
 	if [ -e $SAMBA_DHCP_CONF ]
 	then

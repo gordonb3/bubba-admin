@@ -5,9 +5,9 @@ Patch by Gordon Bos
 --- a/bubba-frontend/admin/views/default/_css/admin.css
 +++ b/bubba-frontend/admin/views/default/_css/admin.css
 @@ -232,6 +232,12 @@
- 	
+
  }
- 
+
 +div#gentoo-logo {
 +	position : absolute;
 +	top : 23px;

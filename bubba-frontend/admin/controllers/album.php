@@ -51,9 +51,9 @@ class Album extends CI_Controller {
 			header("Content-type: application/json");
 			echo json_encode( $data );
 		}else{
-			$data["allow_delete"] = $this->Auth_model->policy("album","delete");	
-			$data["allow_add"] = $this->Auth_model->policy("album","add");	
-			$data["allow_list"] = $this->Auth_model->policy("album","list");	
+			$data["allow_delete"] = $this->Auth_model->policy("album","delete");
+			$data["allow_add"] = $this->Auth_model->policy("album","add");
+			$data["allow_list"] = $this->Auth_model->policy("album","list");
 
 			$this->_renderfull(
 				$this->load->view(THEME.'/album/album_users_view',$data,true),
@@ -72,7 +72,7 @@ class Album extends CI_Controller {
 			echo json_encode( !$this->album_model->album_user_exists( $username ) );
 
 		}
-	}	
+	}
 	public function add_user_account($strip=""){
 		if( $strip == 'json' ) {
 			$this->load->model('album_model');
@@ -161,5 +161,5 @@ class Album extends CI_Controller {
 			return;
 		}
 	}
-	
+
 }

@@ -78,7 +78,7 @@
 		Order allow,deny
 		Allow from all
 	</Directory>
-	
+
 	<Proxy *>
 		Order deny,allow
 		Allow from all

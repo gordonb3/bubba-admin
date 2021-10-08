@@ -10,7 +10,7 @@
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  Carl Fürstenberg (carl@excito.com), 
+ *         Author:  Carl Fürstenberg (carl@excito.com),
  *        Company:  Excito
  *
  * =====================================================================================
@@ -44,12 +44,12 @@ int Process::call(char** const cmd) {
 	}
 
 	// Handle STDIN for the called program
-	// We do this early to make sure stdin is filled and closed on this side 
+	// We do this early to make sure stdin is filled and closed on this side
 	// before we fork.
-	// Though this means that we cant allow further filling of stdin after we have 
+	// Though this means that we cant allow further filling of stdin after we have
 	// begun calling.
 	while(len = pin->rdbuf()->sgetn( buffer, BUFFER_SIZE )) {
-		if( write( pipes[0][1], buffer, len ) == -1 ) { 
+		if( write( pipes[0][1], buffer, len ) == -1 ) {
 			perror("werite failed");
 			exit(EXIT_FAILURE);
 		}

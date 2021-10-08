@@ -88,11 +88,13 @@ class CI_Session {
 
 	/**
     * Reads given session attribute value
-    */    
+    */
 	function userdata($item)
 	{
 		if($item == 'session_id'){ //added for backward-compatibility
 			return session_id();
+		}else if($item == 'groups'){ //added for backward-compatibility
+			return ( ! isset($_SESSION[$item])) ? array() : $_SESSION[$item];
 		}else{
 			return ( ! isset($_SESSION[$item])) ? false : $_SESSION[$item];
 		}

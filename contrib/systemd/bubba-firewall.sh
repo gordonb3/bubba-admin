@@ -23,7 +23,7 @@ ebegin() {
 
 eend() {
 	printf '%*s' $((77-$length)) "["
-	if [ "$1" == "0" ]; then 
+	if [ "$1" == "0" ]; then
 		echo -e "\e[32mOK\e[0m]"
 	else
 		echo -e "\e[31mKO\e[0m]"

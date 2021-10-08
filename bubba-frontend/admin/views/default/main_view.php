@@ -86,7 +86,7 @@ var window_music;
 var window_webmail;
 var window_album;
 
-jQuery.validator.setDefaults({ 
+jQuery.validator.setDefaults({
 	errorPlacement: function(label, element) {
 		label.insertAfter( element );
 		label.position({
@@ -98,11 +98,11 @@ jQuery.validator.setDefaults({
 	},
 	invalidHandler: function() {
 		$(this).closest('ui-dialog').children('.ui-dialog-buttonpane').find('.ui-button').button('enable');
-	}	
+	}
 });
 
 
-	
+
 $(document).ready(function(){
 	$.each( $.browser, function( key, value ) {
 		if( value && key !== 'version' ) {
@@ -120,12 +120,12 @@ $(document).ready(function(){
 		$("#menu"),
 			"",
 			{},
-		{ 
-			autoOpen: false, 
-			dialogClass: 'ui-dialog-menu', 
+		{
+			autoOpen: false,
+			dialogClass: 'ui-dialog-menu',
 			width : '674' ,
-			position : [-800, 200], 
-			'collision': 'none' 
+			position : [-800, 200],
+			'collision': 'none'
 		}
 		);
 	$('a', menu_dialog).click(function(){menu_dialog.dialog('close')});
@@ -143,11 +143,11 @@ $(document).ready(function(){
     $('#fn-topnav-settings').click(function() {
     	window.location.href = '<?=FORMPREFIX?>/stat';
     });
-  
+
     $('#fn-menu-trigger').click(function() {
     	display_menu();
 		});
-  
+
 	  $(document).keydown(function(e) {
 		  if(e.which == 77 && ($(e.target).is(':not(:input)') && !$('.ui-dialog:not(.ui-dialog-menu)').is(':visible') || $(e.target).hasClass('ui-dialog-menu'))) {
 		  	display_menu();
@@ -155,9 +155,9 @@ $(document).ready(function(){
 		});
 
 
-  	$(".ui-login-menubar-a").mouseover(function(e) {	
+  	$(".ui-login-menubar-a").mouseover(function(e) {
 		$(this).find("div").show();
-	});	
+	});
 
 	$(".fn-login-dialog-a").click(function(e) {
 		if(login_dialog) {
@@ -183,32 +183,32 @@ $(document).ready(function(){
 
 			//return false;
 		}
-	);	
+	);
 	$(".ui-login-menubar-a").mouseout(function(e) {
 		$(this).find("div").hide();
-	});	
+	});
 
 
-	$("#fn-topnav-help").mouseover(function(e) {		$("#s-topnav-help").show();	});	
-	$("#fn-topnav-help").mouseout(function(e) {		$("#s-topnav-help").hide();	});	
-	$("#fn-topnav-settings").mouseover(function(e) {		$("#s-topnav-settings").show();	});	
-	$("#fn-topnav-settings").mouseout(function(e) {		$("#s-topnav-settings").hide();	});	
-	$("#fn-topnav-home").mouseover(function(e) {		$("#s-topnav-home").show();	});	
-	$("#fn-topnav-home").mouseout(function(e) {		$("#s-topnav-home").hide();	});	
-	$("#fn-topnav-logout").mouseover(function(e) {		$("#s-topnav-logout").show();	});	
+	$("#fn-topnav-help").mouseover(function(e) {		$("#s-topnav-help").show();	});
+	$("#fn-topnav-help").mouseout(function(e) {		$("#s-topnav-help").hide();	});
+	$("#fn-topnav-settings").mouseover(function(e) {		$("#s-topnav-settings").show();	});
+	$("#fn-topnav-settings").mouseout(function(e) {		$("#s-topnav-settings").hide();	});
+	$("#fn-topnav-home").mouseover(function(e) {		$("#s-topnav-home").show();	});
+	$("#fn-topnav-home").mouseout(function(e) {		$("#s-topnav-home").hide();	});
+	$("#fn-topnav-logout").mouseover(function(e) {		$("#s-topnav-logout").show();	});
 	$("#fn-topnav-logout").mouseout(function(e) {		$("#s-topnav-logout").hide();	});
 
-	
+
 	$('#sideboard_switch').click(function(event) {
 		if($('#sideboard_switch').hasClass("ui-icon-open")) {
 			$('#sideboard').show('slide', {duration: 600, direction: 'right', easing: 'easeInOutCubic'});
 			$('#sideboard_switch').addClass('ui-icon-close');
-			$('#sideboard_switch').removeClass('ui-icon-open');		
+			$('#sideboard_switch').removeClass('ui-icon-open');
 			$.get(config.prefix+"/users/config/json/show_sideboard/1");
 		} else {
 			$('#sideboard').hide('slide', {duration: 600, direction: 'right', easing: 'easeInOutCubic'});
 			$('#sideboard_switch').addClass('ui-icon-open');
-			$('#sideboard_switch').removeClass('ui-icon-close');		
+			$('#sideboard_switch').removeClass('ui-icon-close');
 			$.get(config.prefix+"/users/config/json/show_sideboard/0");
 		}
 	});
@@ -258,14 +258,14 @@ if(isset($head)) {
 <body id="body_<?=$this->uri->segment($this->uri->total_segments())?>">
 <div id="bg-right"></div>
 
-    <table id="wrapper">	    
-    
+    <table id="wrapper">	
+
 		<tr>
 		<td id="topnav">
 		<div id="topnav-content">
 		<div id="topnav-content-inner">
 				<span id="topnav_status">
-	
+
             <?if ($this->Auth_model->CheckAuth("web_admin")) { ?>
 	            <?=sprintf(_("Logged in as '%s'"), $this->session->userdata("realname"))?>
             <?} else {?>
@@ -279,14 +279,14 @@ if(isset($head)) {
 		</div>
 		</div>
             <a id="sideboard_switch" href="#" class="ui-icons ui-icon-open"></a>
-		</td> 	<!-- topnav --> 
+		</td> 	<!-- topnav -->
 		<td id="empty-header"></td>
-        </tr>   
-    
+        </tr>
+
 		<tr>
-		<td id="content_wrapper">	
-            <div id="header">		
-                
+		<td id="content_wrapper">
+            <div id="header">
+
                 	<?if(isB3()) :?>
                 		<div id="main-excito-logo">
 					<a href="http://www.excito.com" target="_tab" class="ui-excito-link"><img id="ex_logo" src="<?=FORMPREFIX.'/views/'.THEME?>/_img/purple-X.png" alt="<?=_("Excito")?>" /></a>
@@ -295,20 +295,20 @@ if(isset($head)) {
 		                <a href="#" id="a_logo" onclick="location.href='<?=FORMPREFIX?>'">
 				<img id="img_logo" src="<?=FORMPREFIX.'/views/'.THEME?>/_img/B3_logo.png" alt="<?=_("B3 start page")?>" title="<?=_("B3 start page")?>" />
                 		</a>
-					<?else:?>                	
+					<?else:?>
 		                <a href="#" id="a_logo" onclick="location.href='<?=FORMPREFIX?>'">
                 		<img id="img_logo" src="<?=FORMPREFIX.'/views/'.THEME?>/_img/logo.png" alt="BUBBA | 2" title="BUBBA | 2" />
                 		</a>
                 	<?endif?>
                 <?=$navbar?>
-            </div>	<!-- header -->		
+            </div>	<!-- header -->
 
             <div id="content">
             	<div id="<?=$this->uri->segment(1)?>"> 	<!-- section -->
                 	<?=$content?>
               	</div> 	<!-- section -->
             </div>	<!-- content -->
-            
+
     		<div id="update_status" class="ui-corner-all ui-state-highlight ui-helper-hidden"></div>
         </td>	<!-- content_wrapper -->
 

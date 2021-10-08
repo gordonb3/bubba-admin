@@ -1,5 +1,5 @@
 <form id="SETCLOCK" action="<?=FORMPREFIX?>/settings/setdate" method="post">
-	
+
 	<table class="ui-table-outline">
 		<thead>
 		    <tr><td colspan="2" class="ui-state-default ui-widget-header"><?=_('Date and time')?></td></tr>
@@ -25,12 +25,12 @@
 
 				</select>
 				</td>
-			</tr>		
+			</tr>
 			<tr>
 				<td><?=_('Auto adjust date and time')?></td>
 				<td>
 					<input
-						id="ntp" 
+						id="ntp"
 						type="checkbox"
 						class="slide"
 						name="use_ntp"
@@ -41,14 +41,14 @@
 			</tr>
 			<tr>
                 <td><?=_('Date')?>:</td>
-				<td><input 
-						type="text" 
-						class="timedate" 
-						name="date" 
-						value="<?=$date?>" 
+				<td><input
+						type="text"
+						class="timedate"
+						name="date"
+						value="<?=$date?>"
 						<?if(isset($use_ntp)):?>disabled="disabled"<?endif?>
 
-					/> 
+					/>
 					(<?=_("YYYYMMDD")?>)
 				</td>
 			</tr>
@@ -56,12 +56,12 @@
                 <td><?=_('Time')?>:</td>
 				<td><input
 						type="text"
-						class="timedate" 
-						name="time" 
-						value="<?=$time?>" 
+						class="timedate"
+						name="time"
+						value="<?=$time?>"
 						<?if(isset($use_ntp)):?>disabled="disabled"<?endif?>
 
-					/> 
+					/>
 					(<?=_("HHmm")?>)
 				</td>
 			</tr>
@@ -96,11 +96,11 @@
 			 		print ">";
 			 		print $lang["long_name"];
 			 		print "</option>\n";
-	   	  			
+	   	
 	   	  		}
 	   	  		if(sizeof($user_languages)) {
 					print "<optgroup label='"._("User contributed languages")."'>";
-	   	  			
+	   	
 		   	  		foreach($user_languages as $lang) {
 		   	  			if($lang['status'] != 'user') continue;
 				 		print "<option id='option_".$lang["short_name"]."' value='".$lang["short_name"]."'";
@@ -108,7 +108,7 @@
 				 		print ">";
 				 		print $lang["long_name"];
 				 		print "</option>\n";
-		   	  			
+		   	
 		   	  		}
 	   	  			print "</optgroup>";
 	   	  		}?>

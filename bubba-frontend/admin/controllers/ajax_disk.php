@@ -162,7 +162,7 @@ class Ajax_disk extends CI_Controller {
 				if( $disk['dev'] == $our_disk ) {
 					$our_md = $md['dev'];
 					continue 2;
-				}	
+				}
 			}
 		}
 		if( $our_md == null ) {

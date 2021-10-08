@@ -75,7 +75,7 @@ table#album tbody td {
 #album_list .selected {
 	background-color: #506AB2;
 }
-	
+
 div#loader {
   border: 1px solid #ccc;
   width: 300px;

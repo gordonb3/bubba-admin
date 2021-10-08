@@ -1,18 +1,18 @@
 /*
  * =====================================================================================
- * 
+ *
  *       Filename:  Process.h
- * 
+ *
  *    Description:  Handles simple calls to external processes
- * 
+ *
  *        Version:  1.0
  *        Created:  04/07/2009 04:38:33 PM CEST
  *       Revision:  none
  *       Compiler:  gcc
- * 
- *         Author:  Carl Fürstenberg (carl@excito.com), 
+ *
+ *         Author:  Carl Fürstenberg (carl@excito.com),
  *        Company:  Excito
- * 
+ *
  * =====================================================================================
  */
 
@@ -46,7 +46,7 @@ namespace EUtils {
 			pout(new std::istringstream( std::ios_base::out )),
 			perr(new std::istringstream( std::ios_base::out ))
 		{ }
-		
+
 		~Process() { }
 		/**
 		 * \brief Calls an external program
@@ -55,7 +55,7 @@ namespace EUtils {
 		 *
 		 * \return exit status from executed program
 		 *
-		 * Example: 
+		 * Example:
 		 * \code
 		 * const char* cmd[] = { "echo", "foo", NULL };
 		 * p.call(cmd);

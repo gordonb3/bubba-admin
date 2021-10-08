@@ -18,7 +18,7 @@ class Disk extends CI_Controller{
 		$mdata["head"] = $this->load->view(THEME.$head,$data,true);
 		$mdata["content"]=$content;
 		$this->load->view(THEME.'/main_view',$mdata);
-	}	
+	}
 
 	function _find_path($prefix){
 		$i=0;
@@ -29,7 +29,7 @@ class Disk extends CI_Controller{
 	}
 
 	function mount(){
-	
+
 		if(!file_exists("/home/storage/extern")){
 			md("/home/storage/extern",0777,"nobody");
 		}
@@ -301,7 +301,7 @@ class Disk extends CI_Controller{
                     }
             }
         }
-		
+
 		$cid = 14;
 
         if(is_array($mds)) {

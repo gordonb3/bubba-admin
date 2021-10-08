@@ -10,9 +10,9 @@
 # It then reads this file and uses target_* to get info on what
 # to do
 #
-# upon completion it outputs 
+# upon completion it outputs
 #	Error: "errmsg" upon failure
-#       Success created: path_created upon success 
+#       Success created: path_created upon success
 #
 
 import pexpect
@@ -27,7 +27,7 @@ cfgfile=file(sys.argv[1])
 cfg={}
 for line in cfgfile:
 	if line.startswith(';') or line.startswith('#') or line=='': pass
-	
+
 	key=line[ : line.find('=') ].strip()
 	val=line[ line.find('=') + 1 : ].strip()
 
@@ -73,7 +73,7 @@ while 1:
 		"(?i)Could not resolve hostname",
 		"(?i)command not found",
 		"exnomatch"])
-	
+
 	if i==0:
 		logg("Commmand terminated")
 		break

@@ -62,12 +62,12 @@ $(DHCPPING): $(DHCPPING_SRC:%.cpp=%.o)
 $(APP): $(OBJS)
 	$(CXX) $^ $(LDFLAGS) -o $@
 
-clean:                                                                          
+clean:
 	$(RM) $(APP) $(CLIENT) $(DHCPPING)
 	$(RM) $(OBJS) $(CLIENT_SRC:%.cpp=%.o) $(DHCPPING_SRC:%.cpp=%.o)
 	$(RM) $(SOURCES:%.cpp=%.d) $(CLIENT_SRC:%.cpp=%.d) $(DHCPPING_SRC:%.cpp=%.d)
 
-install: all 
+install: all
 	install -s $(APP) $(DESTDIR)/$(sbindir)/$(APP)
 	# install -s $(DHCPPING) $(DESTDIR)/$(sbindir)/$(DHCPPING)
 	install -s $(CLIENT) $(DESTDIR)/$(bindir)/$(CLIENT)

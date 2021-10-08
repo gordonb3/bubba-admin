@@ -11,7 +11,7 @@ class Music extends CI_Controller{
 		$this->Auth_model->EnforceAuth('web_admin');
 
 	}
-		
+
 	function Music(){
 		self::__construct();
 	}
@@ -21,10 +21,10 @@ class Music extends CI_Controller{
 			$host = explode(":",$_SERVER["HTTP_HOST"]);
 			$data["host"] = $host[0];
 			if(sizeof($host) > 1) {
-				$data["port"] = $host[1];	
+				$data["port"] = $host[1];
 			} else {
 				$data["port"] = "";
-			}	
+			}
 			$this->load->view(THEME.'/music/music_view',$data);
 		} else {
 			echo "No data available";

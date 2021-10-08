@@ -367,7 +367,7 @@ class Oldbackup extends CI_Model {
                     return array(
                         'date' => date_create($m['datetime'])->format("r"),
                         'path' => $m['path']
-                    ); 
+                    );
                 }
             }, $list));
             $ret = array_filter($ret, function($a){

@@ -159,7 +159,7 @@ void LVM::get_lvs(Device &vg){
 	}
 	for(list<string>::iterator sIt=lvs.begin();sIt!=lvs.end();sIt++){
 		list<string> vals = EUtils::StringTools::Split(*sIt,':');
-	
+
 		Hash val;
 		list<string>::iterator valIt=vals.begin();
 		val["uuid"]=*valIt++;
@@ -194,7 +194,7 @@ void LVM::get_lvs(Device &vg){
 			} else {
 				val["mountpath"] = "";
 			}
-	
+
 			string devpath( "/dev/" + val["group"] +  "/" + val["name"] );
 			const char* cmd[] = {
 				"/sbin/lvs",

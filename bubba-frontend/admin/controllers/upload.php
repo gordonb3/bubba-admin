@@ -1,7 +1,7 @@
 <?php
 
 class Upload extends CI_Controller{
-	
+
 	function __construct(){
 		parent::__construct();
 
@@ -10,7 +10,7 @@ class Upload extends CI_Controller{
 
 		$this->Auth_model->EnforceAuth('web_admin');
 
-	}		
+	}
 
 	function Upload(){
 		self::__construct();

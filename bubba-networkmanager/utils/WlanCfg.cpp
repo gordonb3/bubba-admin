@@ -691,7 +691,7 @@ bool WlanCfg::SyncAuth(){
 			cfg.Remove("wep_key1");
 			cfg.Remove("wep_key2");
 			cfg.Remove("wep_key3");
-		
+
 			switch(this->wpa_mode){
 			case WPA1:
 				cfg.Update("wpa","1");

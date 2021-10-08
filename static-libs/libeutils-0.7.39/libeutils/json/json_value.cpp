@@ -28,7 +28,7 @@ const Value::Long Value::minLong = Value::Long( ~(Value::ULong(-1)/2) );
 const Value::Long Value::maxLong = Value::Long( Value::ULong(-1)/2 );
 const Value::ULong Value::maxULong = Value::ULong(-1);
 
-// A "safe" implementation of strdup. Allow null pointer to be passed. 
+// A "safe" implementation of strdup. Allow null pointer to be passed.
 // Also avoid warning on msvc80.
 //
 //inline char *safeStringDup( const char *czstring )
@@ -77,7 +77,7 @@ public:
       releaseStringValue( memberName );
    }
 
-   virtual char *duplicateStringValue( const char *value, 
+   virtual char *duplicateStringValue( const char *value,
                                        unsigned int length = unknown )
    {
       //@todo invesgate this old optimization
@@ -107,7 +107,7 @@ static ValueAllocator *&valueAllocator()
 }
 
 static struct DummyValueAllocatorInitializer {
-   DummyValueAllocatorInitializer() 
+   DummyValueAllocatorInitializer()
    {
       valueAllocator();      // ensure valueAllocator() statics are initialized before main().
    }
@@ -151,7 +151,7 @@ Value::CommentInfo::~CommentInfo()
 }
 
 
-void 
+void
 Value::CommentInfo::setComment( const char *text )
 {
    if ( comment_ )
@@ -182,7 +182,7 @@ Value::CZString::CZString( int index )
 }
 
 Value::CZString::CZString( const char *cstr, DuplicationPolicy allocate )
-   : cstr_( allocate == duplicate ? valueAllocator()->makeMemberName(cstr) 
+   : cstr_( allocate == duplicate ? valueAllocator()->makeMemberName(cstr)
                                   : cstr )
    , index_( allocate )
 {
@@ -203,7 +203,7 @@ Value::CZString::~CZString()
       valueAllocator()->releaseMemberName( const_cast<char *>( cstr_ ) );
 }
 
-void 
+void
 Value::CZString::swap( CZString &other )
 {
    std::swap( cstr_, other.cstr_ );
@@ -218,16 +218,16 @@ Value::CZString::operator =( const CZString &other )
    return *this;
 }
 
-bool 
-Value::CZString::operator<( const CZString &other ) const 
+bool
+Value::CZString::operator<( const CZString &other ) const
 {
    if ( cstr_ )
       return strcmp( cstr_, other.cstr_ ) < 0;
    return index_ < other.index_;
 }
 
-bool 
-Value::CZString::operator==( const CZString &other ) const 
+bool
+Value::CZString::operator==( const CZString &other ) const
 {
    if ( cstr_ )
       return strcmp( cstr_, other.cstr_ ) == 0;
@@ -235,7 +235,7 @@ Value::CZString::operator==( const CZString &other ) const
 }
 
 
-int 
+int
 Value::CZString::index() const
 {
    return index_;
@@ -248,7 +248,7 @@ Value::CZString::c_str() const
    return cstr_;
 }
 
-bool 
+bool
 Value::CZString::isStaticString() const
 {
    return index_ == noDuplication;
@@ -387,7 +387,7 @@ Value::Value( const std::string &value )
    , itemIsUsed_( 0 )
 #endif
 {
-   value_.string_ = valueAllocator()->duplicateStringValue( value.c_str(), 
+   value_.string_ = valueAllocator()->duplicateStringValue( value.c_str(),
                                                             (unsigned int)value.length() );
 
 }
@@ -529,7 +529,7 @@ Value::operator=( const Value &other )
    return *this;
 }
 
-void 
+void
 Value::swap( Value &other )
 {
    ValueType temp = type_;
@@ -541,14 +541,14 @@ Value::swap( Value &other )
    other.allocated_ = temp2;
 }
 
-ValueType 
+ValueType
 Value::type() const
 {
    return type_;
 }
 
 
-int 
+int
 Value::compare( const Value &other )
 {
    /*
@@ -578,7 +578,7 @@ Value::compare( const Value &other )
    return 0;  // unreachable
 }
 
-bool 
+bool
 Value::operator <( const Value &other ) const
 {
    int typeDelta = type_ - other.type_;
@@ -602,8 +602,8 @@ Value::operator <( const Value &other ) const
       return value_.bool_ < other.value_.bool_;
    case stringValue:
       return ( value_.string_ == 0  &&  other.value_.string_ )
-             || ( other.value_.string_  
-                  &&  value_.string_  
+             || ( other.value_.string_
+                  &&  value_.string_
                   && strcmp( value_.string_, other.value_.string_ ) < 0 );
 #ifndef JSON_VALUE_USE_INTERNAL_MAP
    case arrayValue:
@@ -626,25 +626,25 @@ Value::operator <( const Value &other ) const
    return 0;  // unreachable
 }
 
-bool 
+bool
 Value::operator <=( const Value &other ) const
 {
    return !(other > *this);
 }
 
-bool 
+bool
 Value::operator >=( const Value &other ) const
 {
    return !(*this < other);
 }
 
-bool 
+bool
 Value::operator >( const Value &other ) const
 {
    return other < *this;
 }
 
-bool 
+bool
 Value::operator ==( const Value &other ) const
 {
    //if ( type_ != other.type_ )
@@ -672,8 +672,8 @@ Value::operator ==( const Value &other ) const
       return value_.bool_ == other.value_.bool_;
    case stringValue:
       return ( value_.string_ == other.value_.string_ )
-             || ( other.value_.string_  
-                  &&  value_.string_  
+             || ( other.value_.string_
+                  &&  value_.string_
                   && strcmp( value_.string_, other.value_.string_ ) == 0 );
 #ifndef JSON_VALUE_USE_INTERNAL_MAP
    case arrayValue:
@@ -692,7 +692,7 @@ Value::operator ==( const Value &other ) const
    return 0;  // unreachable
 }
 
-bool 
+bool
 Value::operator !=( const Value &other ) const
 {
    return !( *this == other );
@@ -706,7 +706,7 @@ Value::asCString() const
 }
 
 
-std::string 
+std::string
 Value::asString() const
 {
    switch ( type_ )
@@ -730,14 +730,14 @@ Value::asString() const
 }
 
 # ifdef JSON_USE_CPPTL
-CppTL::ConstString 
+CppTL::ConstString
 Value::asConstString() const
 {
    return CppTL::ConstString( asString().c_str() );
 }
 # endif
 
-Value::Int 
+Value::Int
 Value::asInt() const
 {
    switch ( type_ )
@@ -770,7 +770,7 @@ Value::asInt() const
    return 0; // unreachable;
 }
 
-Value::UInt 
+Value::UInt
 Value::asUInt() const
 {
    switch ( type_ )
@@ -866,7 +866,7 @@ Value::asULong() const
    return 0; // unreachable;
 }
 
-double 
+double
 Value::asDouble() const
 {
    switch ( type_ )
@@ -895,7 +895,7 @@ Value::asDouble() const
    return 0; // unreachable;
 }
 
-bool 
+bool
 Value::asBool() const
 {
    switch ( type_ )
@@ -924,7 +924,7 @@ Value::asBool() const
 }
 
 
-bool 
+bool
 Value::isConvertibleTo( ValueType other ) const
 {
    switch ( type_ )
@@ -1002,7 +1002,7 @@ Value::isConvertibleTo( ValueType other ) const
 
 
 /// Number of values in array or object
-Value::UInt 
+Value::UInt
 Value::size() const
 {
    switch ( type_ )
@@ -1040,7 +1040,7 @@ Value::size() const
 }
 
 
-bool 
+bool
 Value::empty() const
 {
    if ( isNull() || isArray() || isObject() )
@@ -1057,7 +1057,7 @@ Value::operator!() const
 }
 
 
-void 
+void
 Value::clear()
 {
    JSON_ASSERT( type_ == nullValue  ||  type_ == arrayValue  || type_ == objectValue );
@@ -1082,7 +1082,7 @@ Value::clear()
    }
 }
 
-void 
+void
 Value::resize( UInt newSize )
 {
    JSON_ASSERT( type_ == nullValue  ||  type_ == arrayValue );
@@ -1154,14 +1154,14 @@ Value::operator[]( const char *key )
 
 
 Value &
-Value::resolveReference( const char *key, 
+Value::resolveReference( const char *key,
                          bool isStatic )
 {
    JSON_ASSERT( type_ == nullValue  ||  type_ == objectValue );
    if ( type_ == nullValue )
       *this = Value( objectValue );
 #ifndef JSON_VALUE_USE_INTERNAL_MAP
-   CZString actualKey( key, isStatic ? CZString::noDuplication 
+   CZString actualKey( key, isStatic ? CZString::noDuplication
                                      : CZString::duplicateOnCopy );
    ObjectValues::iterator it = value_.map_->lower_bound( actualKey );
    if ( it != value_.map_->end()  &&  (*it).first == actualKey )
@@ -1177,8 +1177,8 @@ Value::resolveReference( const char *key,
 }
 
 
-Value 
-Value::get( UInt index, 
+Value
+Value::get( UInt index,
             const Value &defaultValue ) const
 {
    const Value *value = &((*this)[index]);
@@ -1186,7 +1186,7 @@ Value::get( UInt index,
 }
 
 
-bool 
+bool
 Value::isValidIndex( UInt index ) const
 {
    return index < size();
@@ -1256,8 +1256,8 @@ Value::append( const Value &value )
 }
 
 
-Value 
-Value::get( const char *key, 
+Value
+Value::get( const char *key,
             const Value &defaultValue ) const
 {
    const Value *value = &((*this)[key]);
@@ -1265,7 +1265,7 @@ Value::get( const char *key,
 }
 
 
-Value 
+Value
 Value::get( const std::string &key,
             const Value &defaultValue ) const
 {
@@ -1305,7 +1305,7 @@ Value::removeMember( const std::string &key )
 }
 
 # ifdef JSON_USE_CPPTL
-Value 
+Value
 Value::get( const CppTL::ConstString &key,
             const Value &defaultValue ) const
 {
@@ -1313,7 +1313,7 @@ Value::get( const CppTL::ConstString &key,
 }
 # endif
 
-bool 
+bool
 Value::isMember( const char *key ) const
 {
    const Value *value = &((*this)[key]);
@@ -1321,7 +1321,7 @@ Value::isMember( const char *key ) const
 }
 
 
-bool 
+bool
 Value::isMember( const std::string &key ) const
 {
    return isMember( key.c_str() );
@@ -1329,14 +1329,14 @@ Value::isMember( const std::string &key ) const
 
 
 # ifdef JSON_USE_CPPTL
-bool 
+bool
 Value::isMember( const CppTL::ConstString &key ) const
 {
    return isMember( key.c_str() );
 }
 #endif
 
-Value::Members 
+Value::Members
 Value::getMemberNames() const
 {
    JSON_ASSERT( type_ == nullValue  ||  type_ == objectValue );
@@ -1374,11 +1374,11 @@ Value::getMemberNames() const
 //}
 //
 //
-//EnumValues 
+//EnumValues
 //Value::enumValues() const
 //{
 //   if ( type_ == objectValue  ||  type_ == arrayValue )
-//      return CppTL::Enum::anyValues( *(value_.map_), 
+//      return CppTL::Enum::anyValues( *(value_.map_),
 //                                     CppTL::Type<const Value &>() );
 //   return EnumValues();
 //}
@@ -1393,86 +1393,86 @@ Value::isNull() const
 }
 
 
-bool 
+bool
 Value::isBool() const
 {
    return type_ == booleanValue;
 }
 
 
-bool 
+bool
 Value::isInt() const
 {
    return type_ == intValue;
 }
 
 
-bool 
+bool
 Value::isUInt() const
 {
    return type_ == uintValue;
 }
 
-bool 
+bool
 Value::isLong() const
 {
    return type_ == longValue;
 }
 
-bool 
+bool
 Value::isULong() const
 {
    return type_ == ulongValue;
 }
 
 
-bool 
+bool
 Value::isIntegral() const
 {
-   return type_ == intValue  
+   return type_ == intValue
           ||  type_ == uintValue
-          ||  type_ == longValue 
-          ||  type_ == ulongValue 
+          ||  type_ == longValue
+          ||  type_ == ulongValue
           ||  type_ == booleanValue;
 }
 
 
-bool 
+bool
 Value::isDouble() const
 {
    return type_ == realValue;
 }
 
 
-bool 
+bool
 Value::isNumeric() const
 {
    return isIntegral() || isDouble();
 }
 
 
-bool 
+bool
 Value::isString() const
 {
    return type_ == stringValue;
 }
 
 
-bool 
+bool
 Value::isArray() const
 {
    return type_ == nullValue  ||  type_ == arrayValue;
 }
 
 
-bool 
+bool
 Value::isObject() const
 {
    return type_ == nullValue  ||  type_ == objectValue;
 }
 
 
-void 
+void
 Value::setComment( const char *comment,
                    CommentPlacement placement )
 {
@@ -1482,7 +1482,7 @@ Value::setComment( const char *comment,
 }
 
 
-void 
+void
 Value::setComment( const std::string &comment,
                    CommentPlacement placement )
 {
@@ -1490,13 +1490,13 @@ Value::setComment( const std::string &comment,
 }
 
 
-bool 
+bool
 Value::hasComment( CommentPlacement placement ) const
 {
    return comments_ != 0  &&  comments_[placement].comment_ != 0;
 }
 
-std::string 
+std::string
 Value::getComment( CommentPlacement placement ) const
 {
    if ( hasComment(placement) )
@@ -1505,7 +1505,7 @@ Value::getComment( CommentPlacement placement ) const
 }
 
 
-std::string 
+std::string
 Value::toStyledString() const
 {
    StyledWriter writer;
@@ -1513,7 +1513,7 @@ Value::toStyledString() const
 }
 
 
-Value::const_iterator 
+Value::const_iterator
 Value::begin() const
 {
    switch ( type_ )
@@ -1548,7 +1548,7 @@ Value::begin() const
    return const_iterator();
 }
 
-Value::const_iterator 
+Value::const_iterator
 Value::end() const
 {
    switch ( type_ )
@@ -1584,7 +1584,7 @@ Value::end() const
 }
 
 
-Value::iterator 
+Value::iterator
 Value::begin()
 {
    switch ( type_ )
@@ -1619,7 +1619,7 @@ Value::begin()
    return iterator();
 }
 
-Value::iterator 
+Value::iterator
 Value::end()
 {
    switch ( type_ )
@@ -1704,7 +1704,7 @@ Path::Path( const std::string &path,
 }
 
 
-void 
+void
 Path::makePath( const std::string &path,
                 const InArgs &in )
 {
@@ -1748,10 +1748,10 @@ Path::makePath( const std::string &path,
 }
 
 
-void 
-Path::addPathInArg( const std::string &path, 
-                    const InArgs &in, 
-                    InArgs::const_iterator &itInArg, 
+void
+Path::addPathInArg( const std::string &path,
+                    const InArgs &in,
+                    InArgs::const_iterator &itInArg,
                     PathArgument::Kind kind )
 {
    if ( itInArg == in.end() )
@@ -1769,8 +1769,8 @@ Path::addPathInArg( const std::string &path,
 }
 
 
-void 
-Path::invalidPath( const std::string &path, 
+void
+Path::invalidPath( const std::string &path,
                    int location )
 {
    // Error: invalid path.
@@ -1809,8 +1809,8 @@ Path::resolve( const Value &root ) const
 }
 
 
-Value 
-Path::resolve( const Value &root, 
+Value
+Path::resolve( const Value &root,
                const Value &defaultValue ) const
 {
    const Value *node = &root;

@@ -592,7 +592,7 @@ class Settings extends CI_Controller{
     $data['easyfind'] = $current_easyfind = $this->networkmanager->get_easyfind();
 
     try {
-      if(preg_match("/(.*)\.([\d\w]+\.\w+)$/",$data['easyfind']['name'],$host)) {
+      if(isset($data['easyfind']['name']) && preg_match("/(.*)\.([\d\w]+\.\w+)$/",$data['easyfind']['name'],$host)) {
         $data['easyfind']['name'] = $host[1];
       }
 

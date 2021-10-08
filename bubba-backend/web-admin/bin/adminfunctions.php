@@ -33,24 +33,24 @@ function uptime(){
    define("MIN",60);
    define("HOUR",MIN*60);
    define("DAY",HOUR*24);
-   
+
    $upt=file("/proc/uptime");
    sscanf($upt[0],"%d",$secs_tot);
    $days=intval($secs_tot/DAY);
    $hours=intval(($secs_tot%DAY)/HOUR);
    $minutes=intval(($secs_tot%HOUR)/MIN);
    $secs=intval($secs_tot%MIN);
-   return array($days,$hours,$minutes,$secs);   
+   return array($days,$hours,$minutes,$secs);
 }
 
 function get_hdtemp($device){
 	$cmd = BACKEND." get_hdtemp $device";
 	exec($cmd,$out,$ret);
-	
+
 	return $out[0];
 }
 
-		
+
 function sizetohuman($val,$unit = 1024){
 	$ret="";   							// 1024
 	$unit_2 = $unit*$unit;	// 1048576
@@ -69,9 +69,9 @@ function sizetohuman($val,$unit = 1024){
 
 
 function set_time($time,$date) {
-	
+
 	$cmd= BACKEND." set_time \"$date\" \"$time\"";
-	exec($cmd,$res_string,$result);	
+	exec($cmd,$res_string,$result);
 
 	return $result;
 }
@@ -80,12 +80,12 @@ function rm($file,$user) {
 	// removes a file from the filesystem
 
 	$file=escapeshellarg($file);
-	
+
 	$cmd= BACKEND." rm $file \"$user\"";
 	exec($cmd,$res_string,$result);
 	return $result;
 }
-	
+
 
 function mv($srcfile,$dstfile,$user) {
 
@@ -96,7 +96,7 @@ function mv($srcfile,$dstfile,$user) {
 
 	exec($cmd,$out,$result);
 
-	return $result;	
+	return $result;
 }
 
 function cp($srcfile,$dstfile,$user) {
@@ -108,7 +108,7 @@ function cp($srcfile,$dstfile,$user) {
 
 	exec($cmd,$out,$result);
 
-	return $result;	
+	return $result;
 }
 
 function changemod($dest, $mask, $user){
@@ -119,7 +119,7 @@ function changemod($dest, $mask, $user){
 
 	exec($cmd,$out,$result);
 
-	return $result;	
+	return $result;
 }
 
 function get_filesize($file,$user){
@@ -138,23 +138,23 @@ function cat_file($file, $user) {
    $file=escapeshellarg($file);
 
 	passthru(BACKEND." cat $file \"$user\"",$ret);
-	
+
 	return $ret;
 }
 
 function get_mime($file) {
-	
+
    $file=escapeshellarg($file);
 	$cmd=BACKEND." get_mime $file";
 	exec($cmd,$out,$ret);
-	
+
 	return $out[0];
 }
 
 function stat_file($file) {
 
 	$file=escapeshellarg($file);
-	$cmd=BACKEND." get_mime $file";	
+	$cmd=BACKEND." get_mime $file";
 	exec($cmd,$out,$ret);
 
 	return $ret;
@@ -169,17 +169,17 @@ function zip_files($files, $prefix, $user){
 
    $pref2=escapeshellarg($prefix);
 
-	$cmd=BACKEND." zip_files $pref2 \"$user\"";	
+	$cmd=BACKEND." zip_files $pref2 \"$user\"";
    $process = proc_open($cmd, $descriptorspec, $pipes);
 
    if(is_resource($process)){
       foreach($files as $file){
-         $line=$file;         
+         $line=$file;
          fwrite($pipes[0],$line."\n");
       }
       fclose($pipes[0]);
-      
-      $out=fopen("php://output",'w');      
+
+      $out=fopen("php://output",'w');
       while (!feof($pipes[1])) {
         fwrite($out,fread($pipes[1], 8192));
       }
@@ -196,8 +196,8 @@ function ls($uname, $path){
 
    exec($cmd,$out,$ret);
    if($ret!=0){
-      return "\0\0";   
-   }else{   
+      return "\0\0";
+   }else{
       return $out;
    }
 }
@@ -210,7 +210,7 @@ function get_easyfind() {
 		$res['error'] = true;
 		$res['msg'] = "Error retreiving name";
 //		print_r($res);
-		return $res; 
+		return $res;
 	}
 	return json_decode($out[0],true);
 }
@@ -226,7 +226,7 @@ function set_easyfind($name) {
 	if($ret > 0) {
 		$res['error'] = true;
 		$res['msg'] = "Error retreiving name";
-		return $res; 
+		return $res;
 	} else {
 		return json_decode($out[0],true);
 	}
@@ -234,16 +234,16 @@ function set_easyfind($name) {
 
 function get_workgroup(){
 	$arr=file("/etc/samba/smb.conf");
-	$wg="";	
+	$wg="";
 	foreach($arr as $line){
 		$line=trim($line);
-		
+
 		if($line==""){
 			continue;
 		}
 		if($line[0]=='#' || $line[0]==';'){
 				continue;
-		}	
+		}
 
 		if(preg_match("/^workgroup\s*=\s*([\w-]*)$/i",$line,$matches)){
 			$wg=$matches[1];
@@ -254,10 +254,10 @@ function get_workgroup(){
 }
 
 function set_workgroup($workgroup){
-   
+
     $cmd=BACKEND." set_workgroup $workgroup";
 
-    $result=shell_exec($cmd);   
+    $result=shell_exec($cmd);
 }
 
 function set_unix_password($uname, $pwd){
@@ -280,7 +280,7 @@ function set_samba_password($uname, $pwd1, $pwd2){
 }
 
 function del_user($uname){
-	
+
 	$cmd=BACKEND." del_user $uname";
 	exec($cmd,$out,$res);
 	return $res;
@@ -317,7 +317,7 @@ function purge_horde($uname){
 	}
 
 	$result->free();
- 
+
 	$datatree_ids = implode(" OR ", $datatree_ids );
 
 	$queries[] = "DELETE FROM horde_datatree_attributes WHERE $datatree_ids";
@@ -344,29 +344,29 @@ function purge_horde($uname){
 }
 
 function update_user($realname,$shell,$uname){
-	
+
 	$cmd = BACKEND." update_user '$realname' $shell $uname";
 	exec($cmd,$out,$res);
-	
+
 	return $res;
 }
 
 function add_user($realname,$group,$shell,$pass1,$uname){
-	
+
 	$cmd = escapeshellargs(BACKEND, "add_user", $realname, $group, $shell, $pass1, $uname);
 	exec($cmd,$out,$res);
 	return $res;
 }
 
 function power_off(){
-	
+
 	$cmd = BACKEND." power_off";
 	exec($cmd,$out,$res);
 	return $res;
 }
 
 function reboot(){
-	
+
 	$cmd = BACKEND." reboot";
 	exec($cmd,$out,$res);
 	return $res;
@@ -384,13 +384,13 @@ function restart_avahi() {
 }
 
 function restart_samba(){
-	
+
 	$cmd=BACKEND." restart_samba";
 	$result=shell_exec($cmd);
 }
 
 function reload_samba(){
-	
+
 	$cmd=BACKEND." reload_samba";
 	$result=shell_exec($cmd);
 }
@@ -406,11 +406,11 @@ function dump_file($filename){
 }
 
 function restart_network($interface){
-   
+
 	$cmd=BACKEND." restart_network $interface";
 	$result=shell_exec($cmd);
 	if(query_service("proftpd")) {
-		restart_service("proftpd");	
+		restart_service("proftpd");
 	}
 	if( strcmp($interface,_getlanif()) == 0 ) {
 		if(query_service("avahi-daemon")){
@@ -421,7 +421,7 @@ function restart_network($interface){
 		}
 		if(query_service("forked-daapd")){
 			restart_service("forked-daapd");
-		}  
+		}
 		if(query_service("minidlna")){
 			restart_service("minidlna");
 		}
@@ -512,7 +512,7 @@ function get_networkconfig($iface="eth0"){
 					$res[0] = $args["addr"];
 					$res[1] = $args["mask"];
 				}
-			}			
+			}
 		}
 	} else { // default
 		exec("/bin/ifconfig $iface",$out,$ret);
@@ -535,20 +535,20 @@ function get_networkconfig($iface="eth0"){
 	}
 
 	$dns=file("/etc/resolv.conf");
-	$res[3]="0.0.0.0"; 
+	$res[3]="0.0.0.0";
 	foreach($dns as $line){
 		if(preg_match("/nameserver\s+([\d.]+)/",$line,$match)){
 			$res[3]=$match[1];
 			break;
 		}
 	}
-	return $res;	
-	
+	return $res;
+
 }
 */
 
 function set_static_netcfg($iface, $ip,$nm,$gw){
-   
+
    $cmd=BACKEND." set_static_netcfg $iface $ip $nm $gw";
    exec($cmd,$out,$ret);
    return $ret;
@@ -561,7 +561,7 @@ function set_nameserver($ns){
 }
 
 function set_dynamic_netcfg($iface){
-   
+
    $cmd=BACKEND." set_dynamic_netcfg $iface";
    exec($cmd,$out,$ret);
    // Does this succeed, do we gen an IP?
@@ -570,36 +570,36 @@ function set_dynamic_netcfg($iface){
 }
 
 function service_running($service){
-   
+
    $cmd=BACKEND." service_running $service";
 
    exec($cmd,$out,$ret);
-   return $ret == 1;   
+   return $ret == 1;
 }
 
 function restart_service($name){
-   
+
 	$cmd=BACKEND." restart_service $name";
 	return shell_exec($cmd);
-	
+
 }
 
 function start_service($name){
-   
+
 	$cmd=BACKEND." start_service $name";
 	return shell_exec($cmd);
-	
+
 }
 
 function stop_service($name){
-   
+
   	$cmd=BACKEND." stop_service $name";
 	return shell_exec($cmd);
-	
+
 }
 
 function add_service($name, $level=0){
-   
+
 	if($level==0){
 		$cmd=BACKEND." add_service $name";
 	}else{
@@ -611,7 +611,7 @@ function add_service($name, $level=0){
 
 
 function remove_service($name){
-   
+
 	$cmd=BACKEND." remove_service $name";
 	$result=shell_exec($cmd);
 }
@@ -629,9 +629,9 @@ function is_installed($package) {
 }
 
 function get_mailcfg(){
-   
+
    $cmd=BACKEND." get_mailcfg";
-   
+
    exec($cmd,$out,$ret);
    return $out;
 
@@ -642,34 +642,34 @@ function write_send_mailcfg($mailhost, $auth, $user,$passwd, $plain_auth){
 	$auth=$auth?"yes":"no";
 	$plain_auth=$plain_auth?"yes":"no";
 
-   
+
    $cmd=escapeshellargs(BACKEND, "write_send_mailcfg", $mailhost, $auth, $user, $passwd, $plain_auth);
-   
+
    exec($cmd,$out,$ret);
    return $ret;
 
 }
 
 function write_receive_mailcfg($domain){
-   
+
    $cmd=BACKEND." write_receive_mailcfg \"$domain\"";
-   
+
    exec($cmd,$out,$ret);
    return $ret;
 
 }
 
 function write_mailcfg($mailhost, $domain){
-   
+
    $cmd=BACKEND." write_mailcfg \"$mailhost\" \"$domain\"";
-   
+
    exec($cmd,$out,$ret);
    return $ret;
 
 }
 
 function get_fetchmailaccounts(){
-   
+
    $cmd=BACKEND." get_fetchmailaccounts";
    exec($cmd,$out,$ret);
    return $out;
@@ -677,42 +677,42 @@ function get_fetchmailaccounts(){
 }
 
 function add_fetchmailaccount($host, $proto, $ruser, $pwd, $luser, $ssl, $keep){
-   
+
    $cmd=BACKEND." add_fetchmailaccount $host $proto $ruser $pwd $luser $ssl $keep";
-   
+
    exec($cmd,$out,$ret);
    return $ret;
 
 }
 
 function update_fetchmailaccount($o_host, $o_proto, $o_ruser,$host, $proto, $ruser, $pwd, $luser, $ssl,$keep){
-   
+
    _system(BACKEND." update_fetchmailaccount",$o_host, $o_proto, $o_ruser, $host, $proto, $ruser, $pwd, $luser, $ssl, $keep);
    return 0;
 
 }
 
 function delete_fetchmailaccount($host, $proto, $ruser){
-   
+
    $cmd=BACKEND." delete_fetchmailaccount $host $proto $ruser";
-   
+
    exec($cmd,$out,$ret);
    return $ret;
 
 }
 
 function ftp_check_anonymous(){
-   
+
    $cmd=BACKEND." ftp_check_anonymous";
-   
+
    exec($cmd,$out,$ret);
    return $ret;
 }
 
 function ftp_set_anonymous($status){
-   
+
    $cmd=BACKEND." ftp_set_anonymous $status";
-   
+
    exec($cmd,$out,$ret);
    return $ret;
 }
@@ -756,82 +756,82 @@ function list_disks(){
 }
 */
 function get_attached_printers(){
-   
+
    $cmd=PRINTFS." get_attached_printers";
-   
+
    exec($cmd,$out,$ret);
    return $out;
 }
 
 function get_installed_printers(){
-   
+
    $cmd=PRINTFS." get_installed_printers";
-   
+
    exec($cmd,$out,$ret);
    $res=array();
    foreach( $out as $line){
 		list($name,$key,$value)=explode(" ",$line,3);
 		$res[$name][$key]=$value;
    }
-   
+
    return $res;
 }
 function add_printer($name, $url, $info, $loc){
-   
+
    $cmd=PRINTFS." add_printer \"$name\" $url \"$info\" \"$loc\"";
-   
+
    exec($cmd,$out,$ret);
-   reload_samba();   
+   reload_samba();
    return $ret;
 }
 
 function delete_printer($name){
-   
+
    $cmd=PRINTFS." delete_printer \"$name\"";
-   
+
    exec($cmd,$out,$ret);
    reload_samba();
    return $ret;
 }
 
 function set_default_printer($name){
-   
+
    $cmd=PRINTFS." set_default_printer \"$name\"";
-   
+
    exec($cmd,$out,$ret);
    return $ret;
 }
 
 function get_default_printer(){
-   
+
    $cmd=PRINTFS." get_default_printer";
-   
+
    exec($cmd,$out,$ret);
    return $out;
 }
 
 function enable_printer($name){
-   
+
    $cmd=PRINTFS." enable_printer \"$name\"";
-   
+
    exec($cmd,$out,$ret);
    return $ret;
 }
 
 function disable_printer($name){
-   
+
    $cmd=PRINTFS." disable_printer \"$name\"";
-   
+
    exec($cmd,$out,$ret);
    return $ret;
 }
 
 function backup_config($path) {
-   
+
    $path=escapeshellarg($path);
 
 	$cmd=(BACKEND." backup_config $path");
-	
+
 	exec($cmd,$out,$ret);
    	return $ret;
 }
@@ -840,7 +840,7 @@ function restore_config($path){
 
 	$path=escapeshellarg($path);
 	$cmd=BACKEND." restore_config $path";
-   
+
 	exec($cmd,$out,$ret);
 	return $ret;
 }
@@ -849,7 +849,7 @@ function mount($device, $path, $type){
 
 	$path=escapeshellarg($path);
 	$cmd=BACKEND." mount $device $path \"$type\"";
-   
+
 	exec($cmd,$out,$ret);
 	return $ret;
 }
@@ -858,7 +858,7 @@ function umount($path){
 
 	$path=escapeshellarg($path);
 	$cmd=BACKEND." umount $path";
-   
+
 	exec($cmd,$out,$ret);
 	return $ret;
 }
@@ -868,10 +868,10 @@ function md($directory,$mask,$user){
 
 	$directory=escapeshellarg($directory);
 	$cmd=BACKEND." md $directory $mask $user";
-   
+
 	exec($cmd,$out,$ret);
 	return $ret;
-}   
+}
 
 function b_enc($a,$tick=False){
    if($tick){
@@ -889,7 +889,7 @@ function get_lanclients() {
 
 	if( !file_exists($dnsmasq_leases) ) {
 		return array();
-	}	
+	}
 	$clients = array();
 	$cmd = BACKEND . " dump_file $dnsmasq_leases";
 	exec( $cmd, $out, $ret );
@@ -906,13 +906,14 @@ function get_lanclients() {
 }
 
 function get_fwsettings() {
- 
+
 	$iptable = array();
-	
+
 	$cmd = FIREWALL." listrules";
 	exec($cmd,$out,$ret);
 	foreach($out as $value) {
 		$vars = explode("\t",$value);
+		$rule=array();
 		foreach($vars as $args) {
 			list($key,$val)=explode("=",$args);
 			$rule[$key] = $val;
@@ -975,7 +976,7 @@ function get_fwsettings() {
 	$retval['fwports'] = array();
 	if(isset($iptable["Bubba_IN"])) {
 		foreach($iptable["Bubba_IN"] as $key => $rule) {
-			if (!strcmp($rule["target"],"ACCEPT")) {
+			if (is_array($rule) && !strcmp($rule["target"],"ACCEPT")) {
 				$retval["fwports"][$key]=$rule;
 				if(!isset($retval["fwports"][$key]["to_ip"])) {
 					$retval["fwports"][$key]["to_ip"] =  "B3";
@@ -987,7 +988,7 @@ function get_fwsettings() {
 			}
 		}
 	}
-  
+
 	if(isset($iptable["Bubba_DNAT"])) {
 		foreach($iptable["Bubba_DNAT"] as $key => $rule) {
 			//if($rule["source"]=="0.0.0.0/0") {
@@ -1014,7 +1015,7 @@ function rm_portforward($rule) {
 	$cmd = FIREWALL." rm_portforward $rule[dport] $rule[protocol] $rule[source] $rule[to_ip] $rule[to_port]";
 	exec($cmd,$out,$ret);
 	return $out;
-	
+
 }
 
 function add_portforward($portdata) {
@@ -1048,10 +1049,10 @@ function fw_updateservices($portlist) {
 		if($open) { // OPEN ports
 			if (!strcmp($port,"ping"))
 				$cmd = FIREWALL." openport 8 icmp 0 filter Bubba_IN";
-			else 
+			else
 				$cmd = FIREWALL." openport $port tcp 0 filter Bubba_IN";
 			exec($cmd,$out,$ret);
-		  	
+		
 			// Additional related ports (mainly encrypted traffic ports
 			if ($port == 80) {
 				$cmd = FIREWALL." openport 443 tcp 0 filter Bubba_IN";
@@ -1062,12 +1063,12 @@ function fw_updateservices($portlist) {
 				exec($cmd,$out,$ret);
 			}
 			unset($out); // exec seems to append to $out.
-	
+
 		} else { // Close ports
-	
+
 			if (!strcmp($port,"ping"))
 				$cmd = FIREWALL." closeport 8 icmp 0 filter Bubba_IN";
-			else 
+			else
 				$cmd = FIREWALL." closeport $port tcp 0 filter Bubba_IN";
 			exec($cmd,$out,$ret);
 			if ($port == 80) {
@@ -1079,11 +1080,11 @@ function fw_updateservices($portlist) {
 				exec($cmd,$out,$ret);
 			}
 			unset($out); // exec seems to append to $out.
-		}		
+		}
 	}
-			
+
 	return 1;
-	
+
 }
 
 function get_dnsmasq_settings() {
@@ -1100,7 +1101,7 @@ function get_dnsmasq_settings() {
 		$lanif=_getlanif();
 
 		$dhcpd["dhcpd"]=true; // will be changed if there is a "no-dhcp-interface" option below.
-		
+
 		foreach($arr as $line){
 			$line=trim($line);
 
@@ -1109,14 +1110,14 @@ function get_dnsmasq_settings() {
 			}
 			if($line[0]=='#' || $line[0]==';'){
 				continue;
-			}	
+			}
 
 			if(preg_match("/^\s*interface\s*=\s*(.*)$/i",$line,$matches)){
 				$dhcpd["interface"]=$matches[1];
 			}
 
 			if(preg_match("/^\s*dhcp-range\s*=\s*([\d\w\.,-]*)$/i",$line,$matches)){
-				$range_vals = explode(",",$matches[1]);				
+				$range_vals = explode(",",$matches[1]);
 
 				$range_offset=0;
 				$lease_offset=0;
@@ -1140,7 +1141,7 @@ function get_dnsmasq_settings() {
 
 		}
 	}
-	return $dhcpd;	
+	return $dhcpd;
 }
 
 function get_leases() {
@@ -1164,15 +1165,15 @@ function get_leases() {
 function configure_dnsmasq($dnsmasq) {
 	// returns an array ($retval) with "errors" with what was wrong.
 
-	$retval = array("dns" => false, "dhcpd" => false, "dhcpdrange" => false);	
-		 
+	$retval = array("dns" => false, "dhcpd" => false, "dhcpdrange" => false);
+		
 	$odnsmasq = get_dnsmasq_settings();
 	$ostart = implode(".",$odnsmasq["range_start"]);
 	$oend = implode(".",$odnsmasq["range_end"]);
 	$new_range = false;
 	$start = $ostart;
 	$end = $oend;
-	
+
 	if(isset($dnsmasq["dhcpd"])) {
 		$start = implode(".",$dnsmasq["range_start"]);
 		$end = implode(".",$dnsmasq["range_end"]);
@@ -1180,21 +1181,21 @@ function configure_dnsmasq($dnsmasq) {
 	} else {
 		$dnsmasq["dhcpd"]= false;
 	}
-	
+
 	if(!isset($dnsmasq["interface"])){
 		$dnsmasq["interface"]=$odnsmasq["interface"];
 	}
-	
+
 	if ( ( $odnsmasq["dhcpd"] != $dnsmasq["dhcpd"] )|| $odnsmasq["interface"] != $dnsmasq["interface"] || $new_range ) {
 		if($dnsmasq["dhcpd"])
 			$dhcpd_on = "1";
 		else
 			$dhcpd_on = "0";
-		
+
 		$cmd = BACKEND." dnsmasq_config $dhcpd_on $start $end ".$dnsmasq['interface'];
-		exec($cmd,$out,$ret);			
+		exec($cmd,$out,$ret);
 	}
-	
+
 	// start/remove/restart?
 	if(isset($dnsmasq["running"]) && $dnsmasq["running"]) {
 		if (service_running("dnsmasq")) {
@@ -1222,14 +1223,14 @@ function configure_dnsmasq($dnsmasq) {
 		}
 	}
 
-	return $retval;			
+	return $retval;
 }
 
 function get_package_version($package="bubba-frontend") {
 	if( !is_array( $package ) ) {
 		$package = array( $package );
 	}
-	
+
 	$cmd = BACKEND." get_version " . escapeshellarg(implode(',',$package));
 	exec($cmd,$out,$ret);
 	$versions = array();
@@ -1271,14 +1272,14 @@ function query_bubbacfg( $user, $param ) {
 
 function get_mtu(){
 	$cmd=BACKEND." get_mtu";
-   
+
 	exec($cmd,$out,$ret);
 	return $out[0];
 }
 
 function set_mtu($mtu){
 	$cmd=BACKEND." set_mtu $mtu";
-   
+
 	exec($cmd,$out,$ret);
 	return $ret;
 }
@@ -1301,10 +1302,10 @@ function start_wizard() {
 }
 
 function get_timezone_info() {
-	
+
 	$zoneinfo = '/usr/share/zoneinfo';
 	if ($h_zonebase = opendir($zoneinfo)) {
-		
+
 		$zones = array();
 		$zones['other'] = array();
 		/* This is the correct way to loop over the directory. */
@@ -1334,41 +1335,41 @@ function get_timezone_info() {
 }
 
 function get_current_tz() {
-	
+
 	$cmd=BACKEND." get_timezone";
 	exec($cmd,$out,$ret);
 	return $out[0];
 }
 function set_timezone($tz) {
-	
+
 	$cmd=BACKEND." set_timezone $tz";
 	exec($cmd,$out,$ret);
 	return $out[0];
 }
 
 function get_backupjobs($user) {
-	
+
 	$cmd = BACKUP." listjobs $user";
 	exec($cmd,$out,$ret);
 	return $out;
 }
 function get_backupsettings($user,$jobname) {
-	
+
 	$jobdata = "/home/".$user."/.backup/".$jobname."/jobdata";
 	if(file_exists($jobdata)) {
 		return parse_ini_file($jobdata);
 	} else {
 		return array();
 	}
-	
+
 }
 
 
 function write_backupsettings($user,$settings) {
 	// this should be moved to backup backend
-	
+
 	$filepath = "/home/" . $user ."/.backup/".$settings['jobname'] ."/jobdata";
-	$fh = fopen($filepath,'w'); 
+	$fh = fopen($filepath,'w');
 	fwrite($fh,"local_user = $user\n");
 	foreach($settings as $key => $value) {
 		fwrite($fh,"$key = $value\n");
@@ -1377,7 +1378,7 @@ function write_backupsettings($user,$settings) {
 }
 
 function write_backupschedule($user,$jobname,$schedule) {
-	
+
 	$cmd = BACKUP." writeschedule $user $jobname '$schedule'";
 	exec($cmd,$out,$ret);
 	if(isset($out[0])) {
@@ -1390,7 +1391,7 @@ function write_backupschedule($user,$jobname,$schedule) {
 
 
 function backup_updatesettings($user,$data) {
-	
+
 	$error = "";
 
 	// set "default schedule" to '* * * * *'
@@ -1402,7 +1403,7 @@ function backup_updatesettings($user,$data) {
 
 	// check that all required fields are present
 	$req_fields = array("current_job","target_protocol");
-		
+
 	foreach($req_fields as $field) {
 		if(!isset($_POST[$field]) || $_POST[$field] == "") {
 			$error .= "Required field" ." ". $field . " " ."is missing";
@@ -1415,7 +1416,7 @@ function backup_updatesettings($user,$data) {
 			$error .= " " . "Encryption selected, but no password entered";
 		}
 	}
-		
+
 	if(isset($_POST['target_protocol'])) {
 		if($_POST['target_protocol'] == "file") {
 			// require disk label and disk uuid
@@ -1432,7 +1433,7 @@ function backup_updatesettings($user,$data) {
 			}
 		}
 	}
-	
+
 	if(!$error) {
 		foreach($_POST as $key => $value) {
 			// filter keys
@@ -1448,17 +1449,17 @@ function backup_updatesettings($user,$data) {
 				case "target_user"       :
 				case "monthweek"         :
 
-					if(preg_match("/[^\w\_\-\/]/",$value,$chars)) {  // only allow "\w", "_", "-", "/" 
+					if(preg_match("/[^\w\_\-\/]/",$value,$chars)) {  // only allow "\w", "_", "-", "/"
 						//print "Error in $key: $value\n";
 						$error .= "Illegal character(s) '$chars[0]' in field: ";
 						switch ($key) {
-							case "target_path" : 
+							case "target_path" :
 								$error .= "'Destination directory'";
 								break;
-							case "target_user" : 
+							case "target_user" :
 								$error .= "'Remote user'";
 								break;
-							case "monthweek" : 
+							case "monthweek" :
 								$error .= "schedule settings";
 								break;
 							default:
@@ -1470,13 +1471,13 @@ function backup_updatesettings($user,$data) {
 					}
 					break;
 				case "target_host"       :
-					if(preg_match("/[^\w\.]/",$value,$chars)) {  // only allow "\w", "." 
+					if(preg_match("/[^\w\.]/",$value,$chars)) {  // only allow "\w", "."
 					  $error .= "Illegal character(s) '$chars[0]' in field: 'Target'";
 					} else {
 						$settings[$key] = $value;
 					}
 					break;
-					
+
 				case "encrypt"           :
 				case "GPG_key"           :
 					// how do we verify this?
@@ -1486,7 +1487,7 @@ function backup_updatesettings($user,$data) {
 					// or more accurate, how do we escape it.
 					$settings[$key] = $value;
 					break;
-					
+
 				case "nbr_fullbackups"   :
 					if(preg_match("/[^\d]/",$value)) {
 						$error .= "$key ";
@@ -1494,20 +1495,20 @@ function backup_updatesettings($user,$data) {
 						$settings[$key] = $value;
 					}
 					break;
-					
+
 				case "full_expiretime"   :
 					if(preg_match("/[^01DWM]/",$value)) {
 						$error .= "$key ";
-						
+
 					} else {
 						$settings[$key] = $value;
 					}
 					break;
-	
+
 				case "timeofday"   : // 0-23
 					if(preg_match("/[^\d]/",$value)) {
 						$error .= "$key ";
-						
+
 					} else {
 						$settings[$key] = $value;
 					}
@@ -1516,7 +1517,7 @@ function backup_updatesettings($user,$data) {
 				case "hourly"   :			// 1,2,6,12
 					if(preg_match("/[^\d]/",$value)) {
 						$error .= "$key ";
-						
+
 					} else {
 						$settings[$key] = $value;
 					}
@@ -1526,11 +1527,11 @@ function backup_updatesettings($user,$data) {
 						$schedule["hour"] = "*/$value";
 					}
 					break;
-	
+
 				case "dayofmonth"   : // 1-31
 					$schedule["dayofmonth"] = $value;
 					break;
-	
+
 				case "mon":
 				case "tue":
 				case "wed":
@@ -1540,16 +1541,16 @@ function backup_updatesettings($user,$data) {
 				case "sun":
 					if($key <> $value) {
 						$error .= "$key ";
-						
+
 					} else {
 						$schedule["weekday"] .= $value . ",";
 					}
 					break;
-					
+
 				case "disk_uuid":
 					$settings["disk_uuid"] = $value;
-				
-	
+
+
 			}
 			$error?$error .= " ":""; // add a space to make room for next errror;
 		}
@@ -1559,7 +1560,7 @@ function backup_updatesettings($user,$data) {
 			$schedule["weekday"] = "*";
 		}
 	}
-				
+
 	if(!$error) {
 		write_backupsettings($user,$settings);
 		if($settings["monthweek"] == "disabled") {
@@ -1585,7 +1586,7 @@ function delete_backupjob($user,$jobname) {
 }
 
 function rename_backupjob($user,$jobname) {
-	
+
 }
 
 function run_backupjob($user,$jobname) {
@@ -1593,14 +1594,14 @@ function run_backupjob($user,$jobname) {
 	$cmd = BACKUP." backup $user $jobname";
 	print $cmd;
 	exec($cmd . " > /dev/null &");
-	
+
 }
 
 function create_backupjob($user,$jobname) {
 
 	$return_val["error"] = 0;
 	$return_val["status"] = "";
-	
+
 	$jobs = get_backupjobs($user);
 	foreach ($jobs as $existingjob) {
 		if($jobname == $existingjob) {
@@ -1609,13 +1610,13 @@ function create_backupjob($user,$jobname) {
 			return $return_val;
 		}
 	}
-	
+
 	if(preg_match("/[^\w-]/",$jobname)) {
 			$return_val["error"] = 1;
 			$return_val["status"] = "Illegal characters in jobname";
 			return $return_val;
-	}		
-	
+	}
+
 	$cmd = BACKUP." createjob $user $jobname";
 	exec($cmd,$out,$ret);
 	$output = join("\n",$out);
@@ -1628,7 +1629,7 @@ function create_backupjob($user,$jobname) {
 }
 
 function read_backupfiles($file) {
-	
+
 	if(file_exists($file)) {
 		$fh = fopen($file,'r');
 		if(filesize($file)) {
@@ -1642,34 +1643,34 @@ function read_backupfiles($file) {
 		} else {
 			return array();
 		}
-	} else return array();	
+	} else return array();
 }
 
 function get_backupfiles($user,$jobname) {
-	
+
 	$files["include"] = read_backupfiles("/home/".$user."/.backup/".$jobname."/includeglob.list");
 	$files["exclude"] = read_backupfiles("/home/".$user."/.backup/".$jobname."/excludeglob.list");
-	return $files;		
+	return $files;
 }
 
 function get_backupschedule($user,$jobname) {
-	
+
 	$cmd = BACKUP." printschedule $user $jobname";
 	exec($cmd,$jobs,$ret);
 	if($jobs) {
 		foreach($jobs as $job) {
 			preg_match("/^([\w\-]+)\s(.*)/",$job,$matches);
-			
-			
+
+
 			if(preg_match("/0 \* \* \* \*/",$matches[2])) {
 				// run every hour
 				$schedule["monthweek"] = "hourly";
 				$schedule["hourly"] = 1;
-				
+
 			} elseif (preg_match("/0 \*\/(\d+) \* \* \*/",$matches[2],$time)) {
 				$schedule["monthweek"] = "hourly";
 				$schedule["hourly"] = $time[1];
-	
+
 			} elseif (preg_match("/0 (\d+) \* \* ([\w\,]+)/",$matches[2],$time)) {
 				$schedule["monthweek"] = "week";
 				$schedule["timeofday"] = $time[1];
@@ -1677,12 +1678,12 @@ function get_backupschedule($user,$jobname) {
 				foreach($days as $day) {
 					$schedule["days"][$day] = 1;
 				}
-	
+
 			} elseif (preg_match("/0 (\d+) (\d+) \* \*/",$matches[2],$time)) {
 				$schedule["monthweek"] = "month";
 				$schedule["timeofday"] = $time[1];
 				$schedule["dayofmonth"] = $time[2];
-				
+
 			} else {
 				$schedule["monthweek"] = "unknown";
 			}
@@ -1690,29 +1691,29 @@ function get_backupschedule($user,$jobname) {
 	} else {
 			$schedule["monthweek"] = "disabled";
 	}
-	
+
 	return $schedule;
-	
+
 }
 
 function backup_addfile($user,$jobname,$file) {
-	
+
 	$cmd = BACKUP." addfiles $user $jobname " . escapeshellarg( $file);
 	exec($cmd,$out,$ret);
 
 	// translate here?
 	return $out[0];  // return value is json encoded.
-	
+
 }
 
 function backup_rmfile($user,$jobname,$file) {
-	
+
 	$cmd = BACKUP." removefiles $user $jobname '$file'";
 	exec($cmd,$out,$ret);
 
 	// translate here?
 	return $out[0];  // return value is json encoded.
-	
+
 }
 
 function backup_listdates($user,$jobname) {
@@ -1724,16 +1725,16 @@ function backup_listdates($user,$jobname) {
 		foreach($files as $file) {
 			unset($matches);
 			if(preg_match("/(\d{4}-\d{2}-\d{2})-(\d{2}:\d{2}:\d{2})\.([err]*)?.*/",$file,$matches)) {
-				$fileinfo[$file]["date"] = $matches[1]; 
+				$fileinfo[$file]["date"] = $matches[1];
 				$fileinfo[$file]["time"] = $matches[2];
 				if($matches[3]) {
 					$fileinfo[$file]["status"] = "highlight";
-				} else {	
+				} else {
 					$fileinfo[$file]["status"] = "";
 				}
 			}
 		}
-		
+
 		krsort($fileinfo);
 		return $fileinfo;
 	} else {
@@ -1776,23 +1777,23 @@ function backup_printfilelist($user,$jobname,$file) {
 }
 
 function backup_restorefile($user,$jobname,$force,$time,$file) {
-	
+
 	date_default_timezone_set(get_current_tz());
 	if($time) {
 		$time = date("c",strtotime($time));
 	}
-	
+
 	$cmd = BACKUP." restorefiles $user $jobname ".escapeshellarg($force)." $time ".escapeshellarg($file);
-	exec($cmd . " > /dev/null &"); 
-	
+	exec($cmd . " > /dev/null &");
+
 	return 0;
-	
+
 }
 
 function backup_current_filelist($user,$jobname) {
-		
+
 	$cmd = BACKUP." get_currentfiles $user $jobname";
-	exec($cmd,$output); 
+	exec($cmd,$output);
 	foreach ($output as $line) {
 		if(preg_match("/^\{.*\}$/",$line)) {
 			// json found
@@ -1802,7 +1803,7 @@ function backup_current_filelist($user,$jobname) {
 		}
 	}
 	return "{'error':0,'status':''}";
-	
+
 }
 
 
@@ -1818,18 +1819,18 @@ function _lockinfo($lockfile) {
 		} else {
 			return 0;
 		}
-		
+
 	} else {
 			return 0;
-	}	
+	}
 }
 function get_restorestatus() {
-	
+
 	$lockinfo = _lockinfo(RESTORE_LOCKFILE);
 	if($lockinfo) {
 		$data["user"] = $lockinfo[0];
 		$data["jobname"] = $lockinfo[1];
-		
+
 		if(isset($lockinfo[2]) && file_exists($lockinfo[2])) {
 			$fh_log = fopen($lockinfo[2],"r");
 			$filesize = filesize($lockinfo[2]);
@@ -1874,7 +1875,7 @@ function get_restorestatus() {
 								case "30 AttributeError" :
 									$data["status"] = "Wrong encryption key supplied.";
 									break;
-								default: 
+								default:
 									$data["status"] = $matches[1];
 									break;
 							}
@@ -1883,7 +1884,7 @@ function get_restorestatus() {
 						}
 						$data["done"] = -1;
 						break;
-	
+
 					} else {
 						if (preg_match("/\.\s+Processed volume (\d+) of (\d+)/",$logline,$matches)) {
 							if(isset($matches[1])) {
@@ -1895,7 +1896,7 @@ function get_restorestatus() {
 					}
 			}
 			fclose($fh_log);
-			}			
+			}
 		} else {
 			// lockinfo exists but no log file most likely not created yet.
 			$data["done"] = 0;
@@ -1905,11 +1906,11 @@ function get_restorestatus() {
 		// no lockinformation -> restore job not running.
 		$data["done"] = 1;
 		$data["status"] = "Restore complete";
-	}	
+	}
 	// put together useful info here.
-	
+
 	return $data;
-	
+
 }
 
 function get_backupstatus() {

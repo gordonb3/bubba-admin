@@ -34,11 +34,11 @@ class BubbaSocket {
 				' ',
 				array(
 					$cmd,
-					implode( 
+					implode(
 						' ',
-						array_map( 
-							'escapeshellarg', 
-							$args 
+						array_map(
+							'escapeshellarg',
+							$args
 						)
 					)
 				)
@@ -56,10 +56,10 @@ class BubbaSocket {
 			while(!@socket_connect( $this->_SOCKET, $socket )) {
 				$error = socket_last_error();
 
-				if ( 
-					$error != SOCKET_ECONNREFUSED && 
-					$error != SOCKET_EINPROGRESS && 
-					$error != SOCKET_EALREADY && 
+				if (
+					$error != SOCKET_ECONNREFUSED &&
+					$error != SOCKET_EINPROGRESS &&
+					$error != SOCKET_EALREADY &&
 					$error !=  SOCKET_ENOENT
 				) {
 					$this->_ERROR = "Error Connecting Socket: ".socket_strerror($error);
@@ -117,12 +117,12 @@ class BubbaAptSocket extends BubbaSocket {
 
 class OldBubbaAptSocket extends BubbaSocket {
 	function __construct() {
-		parent::__construct( 
-			'/opt/bubba/bin/updatebackend.pl', 
-			array( 
-				'--mode=ithreads', 
-				'--daemonize' 
-			), 
+		parent::__construct(
+			'/opt/bubba/bin/updatebackend.pl',
+			array(
+				'--mode=ithreads',
+				'--daemonize'
+			),
 			'/run/bubba-apt.socket'
 		);
 	}
@@ -136,13 +136,13 @@ class OldBubbaHotfixSocket extends BubbaSocket {
 
 class BubbaNetworkManagerSocket extends BubbaSocket {
 	function __construct() {
-		parent::__construct( 
-			'/opt/bubba/sbin/bubba-networkmanager', 
+		parent::__construct(
+			'/opt/bubba/sbin/bubba-networkmanager',
 			array(
 				'--socket', '/run/bubba-networkmanager.sock',
 				'--config', '/etc/bubba/networkmanager.conf'
 			),
-			'/run/bubba-networkmanager.sock' 
+			'/run/bubba-networkmanager.sock'
 		);
 	}
 }

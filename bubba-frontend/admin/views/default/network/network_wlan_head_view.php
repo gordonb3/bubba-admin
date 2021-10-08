@@ -20,7 +20,7 @@ labels = {
 
 <script  type="text/javascript">
 $(document).ready( function() {
-	
+
   if( wlan_configurable ) {
       $("#wLANCFG :disabled").removeAttr("disabled");
       $("#wLANCFG .ui-icon-bubba-switch").removeClass("ui-state-disabled");
@@ -35,7 +35,7 @@ $(document).ready( function() {
 	// hide advanced settings
 	$("#wlan_adv_mark").html("+");
 	$("#wlan_adv").css("display","none");
-	
+
 
 	$.validator.addMethod('wep', function(value, element, params) {
 		return value.length == 5 || value.length == 13;
@@ -45,7 +45,7 @@ $(document).ready( function() {
 			return false;
 		}
 		return true;
-	}, "Current hardware doesn't support Greenfield mode");	
+	}, "Current hardware doesn't support Greenfield mode");
 
 	validator = $('#wLANCFG').validate({
 		rules: {
@@ -139,7 +139,7 @@ $(document).ready( function() {
 			break;
 		}
 	});
-	
+
 	$('select#encryption').trigger('change');
 	$('select#mode').trigger('change');
 });

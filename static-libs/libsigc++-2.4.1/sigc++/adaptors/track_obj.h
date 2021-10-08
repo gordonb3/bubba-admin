@@ -108,7 +108,7 @@ public:
   operator()(T_arg1 _A_arg1, T_arg2 _A_arg2)
   {
     return this->functor_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-      typename type_trait<T_arg1>::pass, 
+      typename type_trait<T_arg1>::pass,
       typename type_trait<T_arg2>::pass>
       (_A_arg1, _A_arg2);
   }
@@ -119,7 +119,7 @@ public:
   sun_forte_workaround(T_arg1 _A_arg1, T_arg2 _A_arg2)
   {
     return this->functor_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-      typename type_trait<T_arg1>::pass, 
+      typename type_trait<T_arg1>::pass,
       typename type_trait<T_arg2>::pass>
       (_A_arg1, _A_arg2);
   }
@@ -136,8 +136,8 @@ public:
   operator()(T_arg1 _A_arg1, T_arg2 _A_arg2, T_arg3 _A_arg3)
   {
     return this->functor_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-      typename type_trait<T_arg1>::pass, 
-      typename type_trait<T_arg2>::pass, 
+      typename type_trait<T_arg1>::pass,
+      typename type_trait<T_arg2>::pass,
       typename type_trait<T_arg3>::pass>
       (_A_arg1, _A_arg2, _A_arg3);
   }
@@ -148,8 +148,8 @@ public:
   sun_forte_workaround(T_arg1 _A_arg1, T_arg2 _A_arg2, T_arg3 _A_arg3)
   {
     return this->functor_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-      typename type_trait<T_arg1>::pass, 
-      typename type_trait<T_arg2>::pass, 
+      typename type_trait<T_arg1>::pass,
+      typename type_trait<T_arg2>::pass,
       typename type_trait<T_arg3>::pass>
       (_A_arg1, _A_arg2, _A_arg3);
   }
@@ -167,9 +167,9 @@ public:
   operator()(T_arg1 _A_arg1, T_arg2 _A_arg2, T_arg3 _A_arg3, T_arg4 _A_arg4)
   {
     return this->functor_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-      typename type_trait<T_arg1>::pass, 
-      typename type_trait<T_arg2>::pass, 
-      typename type_trait<T_arg3>::pass, 
+      typename type_trait<T_arg1>::pass,
+      typename type_trait<T_arg2>::pass,
+      typename type_trait<T_arg3>::pass,
       typename type_trait<T_arg4>::pass>
       (_A_arg1, _A_arg2, _A_arg3, _A_arg4);
   }
@@ -180,9 +180,9 @@ public:
   sun_forte_workaround(T_arg1 _A_arg1, T_arg2 _A_arg2, T_arg3 _A_arg3, T_arg4 _A_arg4)
   {
     return this->functor_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-      typename type_trait<T_arg1>::pass, 
-      typename type_trait<T_arg2>::pass, 
-      typename type_trait<T_arg3>::pass, 
+      typename type_trait<T_arg1>::pass,
+      typename type_trait<T_arg2>::pass,
+      typename type_trait<T_arg3>::pass,
       typename type_trait<T_arg4>::pass>
       (_A_arg1, _A_arg2, _A_arg3, _A_arg4);
   }
@@ -201,10 +201,10 @@ public:
   operator()(T_arg1 _A_arg1, T_arg2 _A_arg2, T_arg3 _A_arg3, T_arg4 _A_arg4, T_arg5 _A_arg5)
   {
     return this->functor_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-      typename type_trait<T_arg1>::pass, 
-      typename type_trait<T_arg2>::pass, 
-      typename type_trait<T_arg3>::pass, 
-      typename type_trait<T_arg4>::pass, 
+      typename type_trait<T_arg1>::pass,
+      typename type_trait<T_arg2>::pass,
+      typename type_trait<T_arg3>::pass,
+      typename type_trait<T_arg4>::pass,
       typename type_trait<T_arg5>::pass>
       (_A_arg1, _A_arg2, _A_arg3, _A_arg4, _A_arg5);
   }
@@ -215,10 +215,10 @@ public:
   sun_forte_workaround(T_arg1 _A_arg1, T_arg2 _A_arg2, T_arg3 _A_arg3, T_arg4 _A_arg4, T_arg5 _A_arg5)
   {
     return this->functor_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-      typename type_trait<T_arg1>::pass, 
-      typename type_trait<T_arg2>::pass, 
-      typename type_trait<T_arg3>::pass, 
-      typename type_trait<T_arg4>::pass, 
+      typename type_trait<T_arg1>::pass,
+      typename type_trait<T_arg2>::pass,
+      typename type_trait<T_arg3>::pass,
+      typename type_trait<T_arg4>::pass,
       typename type_trait<T_arg5>::pass>
       (_A_arg1, _A_arg2, _A_arg3, _A_arg4, _A_arg5);
   }
@@ -238,11 +238,11 @@ public:
   operator()(T_arg1 _A_arg1, T_arg2 _A_arg2, T_arg3 _A_arg3, T_arg4 _A_arg4, T_arg5 _A_arg5, T_arg6 _A_arg6)
   {
     return this->functor_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-      typename type_trait<T_arg1>::pass, 
-      typename type_trait<T_arg2>::pass, 
-      typename type_trait<T_arg3>::pass, 
-      typename type_trait<T_arg4>::pass, 
-      typename type_trait<T_arg5>::pass, 
+      typename type_trait<T_arg1>::pass,
+      typename type_trait<T_arg2>::pass,
+      typename type_trait<T_arg3>::pass,
+      typename type_trait<T_arg4>::pass,
+      typename type_trait<T_arg5>::pass,
       typename type_trait<T_arg6>::pass>
       (_A_arg1, _A_arg2, _A_arg3, _A_arg4, _A_arg5, _A_arg6);
   }
@@ -253,11 +253,11 @@ public:
   sun_forte_workaround(T_arg1 _A_arg1, T_arg2 _A_arg2, T_arg3 _A_arg3, T_arg4 _A_arg4, T_arg5 _A_arg5, T_arg6 _A_arg6)
   {
     return this->functor_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-      typename type_trait<T_arg1>::pass, 
-      typename type_trait<T_arg2>::pass, 
-      typename type_trait<T_arg3>::pass, 
-      typename type_trait<T_arg4>::pass, 
-      typename type_trait<T_arg5>::pass, 
+      typename type_trait<T_arg1>::pass,
+      typename type_trait<T_arg2>::pass,
+      typename type_trait<T_arg3>::pass,
+      typename type_trait<T_arg4>::pass,
+      typename type_trait<T_arg5>::pass,
       typename type_trait<T_arg6>::pass>
       (_A_arg1, _A_arg2, _A_arg3, _A_arg4, _A_arg5, _A_arg6);
   }
@@ -278,12 +278,12 @@ public:
   operator()(T_arg1 _A_arg1, T_arg2 _A_arg2, T_arg3 _A_arg3, T_arg4 _A_arg4, T_arg5 _A_arg5, T_arg6 _A_arg6, T_arg7 _A_arg7)
   {
     return this->functor_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-      typename type_trait<T_arg1>::pass, 
-      typename type_trait<T_arg2>::pass, 
-      typename type_trait<T_arg3>::pass, 
-      typename type_trait<T_arg4>::pass, 
-      typename type_trait<T_arg5>::pass, 
-      typename type_trait<T_arg6>::pass, 
+      typename type_trait<T_arg1>::pass,
+      typename type_trait<T_arg2>::pass,
+      typename type_trait<T_arg3>::pass,
+      typename type_trait<T_arg4>::pass,
+      typename type_trait<T_arg5>::pass,
+      typename type_trait<T_arg6>::pass,
       typename type_trait<T_arg7>::pass>
       (_A_arg1, _A_arg2, _A_arg3, _A_arg4, _A_arg5, _A_arg6, _A_arg7);
   }
@@ -294,12 +294,12 @@ public:
   sun_forte_workaround(T_arg1 _A_arg1, T_arg2 _A_arg2, T_arg3 _A_arg3, T_arg4 _A_arg4, T_arg5 _A_arg5, T_arg6 _A_arg6, T_arg7 _A_arg7)
   {
     return this->functor_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-      typename type_trait<T_arg1>::pass, 
-      typename type_trait<T_arg2>::pass, 
-      typename type_trait<T_arg3>::pass, 
-      typename type_trait<T_arg4>::pass, 
-      typename type_trait<T_arg5>::pass, 
-      typename type_trait<T_arg6>::pass, 
+      typename type_trait<T_arg1>::pass,
+      typename type_trait<T_arg2>::pass,
+      typename type_trait<T_arg3>::pass,
+      typename type_trait<T_arg4>::pass,
+      typename type_trait<T_arg5>::pass,
+      typename type_trait<T_arg6>::pass,
       typename type_trait<T_arg7>::pass>
       (_A_arg1, _A_arg2, _A_arg3, _A_arg4, _A_arg5, _A_arg6, _A_arg7);
   }

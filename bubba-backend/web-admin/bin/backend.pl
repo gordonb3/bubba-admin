@@ -9,7 +9,7 @@ use Bubba;
 # TODO
 #        - Perhaps verify input data better. Or perhaps leave that to web-admin app
 #        - Evaluate if we should use perlcc ie "perlcc -B backend.pl" to produce bytecode
- 
+
 
 #use strict;
 
@@ -92,7 +92,7 @@ my %commands=(
 	"add_fetchmailaccount"	=> [\&Bubba::add_fetchmailaccount ,7],
 	"update_fetchmailaccount"	=> [\&Bubba::update_fetchmailaccount ,10],
 	"delete_fetchmailaccount"	=> [\&Bubba::delete_fetchmailaccount ,3],
-	
+
 	"echo" 					=> [\&Bubba::do_echo,1],
 	"update_bubbacfg"		=> [\&Bubba::do_update_bubbacfg,3],
 	"get_timezone"		=> [\&Bubba::do_get_timezone,0],

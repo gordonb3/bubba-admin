@@ -59,7 +59,7 @@ typedef struct {
 typedef struct{
 	struct iphdr ip;
 	struct udphdr udp;
-	dhcp_packet dhcp;	
+	dhcp_packet dhcp;
 } __attribute__((__packed__)) ip_udp_dhcp_packet;
 
 bool read_packet(int sock,dhcp_packet* dp);

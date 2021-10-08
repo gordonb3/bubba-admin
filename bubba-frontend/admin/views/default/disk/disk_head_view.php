@@ -93,7 +93,7 @@ $(document).ready( function() {
 						$(e.target).val("<?=_("Disconnect")?>");
 					}
 				}, 'json' );
-		} 
+		}
 	});
 });
 </script>

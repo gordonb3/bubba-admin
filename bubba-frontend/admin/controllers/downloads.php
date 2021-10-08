@@ -28,18 +28,18 @@ class Downloads extends CI_Controller{
 		$mdata["dialog_menu"] = $this->load->view(THEME.'/menu_view',$this->menu->get_dialog_menu(),true);
 		$mdata["content"]=$content;
 		$this->load->view(THEME.'/main_view',$mdata);
-	}	
+	}
 
 	function _sort_status($a,$b){
 		$ssort=array(5=>6,0=>5,1=>4,2=>3,6=>2,4=>1,3=>0);
-		
+
 		$ta=$ssort[$this->sorted[$a]["status"]];
 		$tb=$ssort[$this->sorted[$b]["status"]];
 
 		if($ta==$tb){
 			return 0;
 		}
-		
+
 		return $ta < $tb?1:-1;
 
 	}
@@ -49,13 +49,13 @@ class Downloads extends CI_Controller{
 		$a_sz=$this->sorted[$a]["size"];
 		$b_dl=$this->sorted[$b]["downloaded"];
 		$b_sz=$this->sorted[$b]["size"];
-		
+
 		if($a_sz==0 && $b_sz>0){
 			return -1;
 		}
 
 		if($b_sz==0 && $a_sz>0){
-			return 1;		
+			return 1;
 		}
 
 		if($a_sz==0 && $b_sz==0){
@@ -67,20 +67,20 @@ class Downloads extends CI_Controller{
 		if($a_pr==$b_pr){
 			return 0;
 		}
-		
+
 		return $a_pr<$b_pr?1:-1;
 
 	}
 
 	function _sortdls($a,$b){
-		
+
 		// Sort by status first
-		$ret=$this->_sort_status($a,$b);		
+		$ret=$this->_sort_status($a,$b);
 		if($ret!=0){
 			return $ret;
 		}
 
-		// Sort by dlprogress		
+		// Sort by dlprogress
 		return $this->_sort_progress($a,$b);
 	}
 
@@ -88,10 +88,10 @@ class Downloads extends CI_Controller{
 		if(!$this->dl){
 			$this->dl=new Downloader;
 		}
-		
+
 		$url=$this->input->post('url');
 		$uuid=$this->input->post('uuid');
-		
+
 		$res=$this->dl->cancel_download(USER,$url,$uuid);
 
 		if($strip=="json"){
@@ -109,10 +109,10 @@ class Downloads extends CI_Controller{
 		if(!$this->dl){
 			$this->dl=new Downloader;
 		}
-	
+
 		$url=$this->input->post('url');
 		$uuid=$this->input->post('uuid');
-		
+
 		$res=false;
 		if(trim($url)!=""){
 			$res=$this->dl->add_download(USER,$url,$uuid);
@@ -130,11 +130,11 @@ class Downloads extends CI_Controller{
 
 	function getbyUUID($uuid=""){
 		$res["result"]=false;
-		
+
 		if($uuid==""){
 			$uuid=$this->input->post('uuid');
 		}
-		
+
 		if(query_service("filetransferdaemon") && $uuid){
 			if(!$this->dl){
 				$this->dl=new Downloader;
@@ -174,7 +174,7 @@ class Downloads extends CI_Controller{
 		$data['installed'] = file_exists(IPCFUNCS);
 
 		$this->_renderfull($this->load->view(THEME.'/downloads/downloads_index_view',$data,true));
-	}	
+	}
 
 }
 ?>

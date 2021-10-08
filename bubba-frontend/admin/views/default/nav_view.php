@@ -49,7 +49,7 @@ $subnav .= "\t</ul>\n";
 
 print "\n<!-- ***********  navigation bars    *********** -->\n";
 
-if( $this->Auth_model->policy("menu","show_level1") ) { 
+if( $this->Auth_model->policy("menu","show_level1") ) {
 	print "<div id='nav'>\n";
 	print $navbar;
 	print "</div>\n";

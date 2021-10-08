@@ -42,7 +42,7 @@ trackable& trackable::operator=(const trackable& src)
 {
   if(this != &src)
     notify_callbacks(); //Make sure that we have finished with existing stuff before replacing it.
-  
+
   return *this;
 }
 
@@ -77,7 +77,7 @@ internal::trackable_callback_list* trackable::callback_list() const
   return callback_list_;
 }
 
-      
+
 namespace internal
 {
 
@@ -86,7 +86,7 @@ trackable_callback_list::~trackable_callback_list()
   clearing_ = true;
 
   for (callback_list::iterator i = callbacks_.begin(); i != callbacks_.end(); ++i)
-    if ((*i).func_) 
+    if ((*i).func_)
       (*i).func_((*i).data_);
 }
 
@@ -103,7 +103,7 @@ void trackable_callback_list::clear()
   clearing_ = true;
 
   for (callback_list::iterator i = callbacks_.begin(); i != callbacks_.end(); ++i)
-    if ((*i).func_) 
+    if ((*i).func_)
       (*i).func_((*i).data_);
 
   callbacks_.clear();

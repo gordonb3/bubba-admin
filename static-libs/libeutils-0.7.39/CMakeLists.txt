@@ -6,14 +6,14 @@ include( FindPkgConfig )
 include( FindThreads )
 include( CheckIncludeFile )
 include( FeatureSummary )
-include( CMakeDetermineSystem ) 
-include( CMakeDetermineRCCompiler ) 
-include( CMakeDetermineCXXCompiler ) 
-include( CMakeDetermineCCompiler ) 
+include( CMakeDetermineSystem )
+include( CMakeDetermineRCCompiler )
+include( CMakeDetermineCXXCompiler )
+include( CMakeDetermineCCompiler )
 include( CMakeBackwardCompatibilityCXX )
 include( FindTCL )
 
-if( NOT VERSION ) 
+if( NOT VERSION )
 	set( VERSION 0.0.1 )
 endif()
 
@@ -50,7 +50,7 @@ option( BUILD_STATIC_LIBRARIES "Build static library" off )
 
 configure_file (${CMAKE_CURRENT_SOURCE_DIR}/libeutils.pc.cmake ${CMAKE_CURRENT_BINARY_DIR}/libeutils.pc @ONLY)
 configure_file (${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h @ONLY)
-add_definitions( -DHAVE_CONFIG_H ) 
+add_definitions( -DHAVE_CONFIG_H )
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libeutils.pc DESTINATION lib/pkgconfig)
 

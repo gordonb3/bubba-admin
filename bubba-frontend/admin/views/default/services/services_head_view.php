@@ -17,7 +17,7 @@ $(document).ready(function(){
 		$("#fn-settings-input-update").val("update");
 		$("#fn-settings-form").submit();
 	});
-		
+
 });
 
 </script>

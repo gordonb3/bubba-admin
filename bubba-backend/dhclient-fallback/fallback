@@ -2,13 +2,13 @@ if [ "$interface" == "eth1" ] || [ "$interface" == "br0" ]; then
 
 	echo "Enter Fallback ($reason)";
 	FALLBACK_IP="192.168.10.1";
-	if [ $reason == "PREINIT" ]; then	
+	if [ $reason == "PREINIT" ]; then
 		if [ -f "/var/run/dnsmasq/dnsmasq.pid" ]; then
 	    echo "Shutting down dnsmasq";
 	    /etc/init.d/dnsmasq stop;
 		fi
 	fi
-	
+
 	if [ $reason == "TIMEOUT" ] && [ $new_ip_address == $FALLBACK_IP ]; then
 		echo "DHCP timeout detected. Using fallback ip ($FALLBACK_IP)";
 	        start-stop-daemon --stop --oknodo --name dnsmasq

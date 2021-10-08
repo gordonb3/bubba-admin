@@ -54,13 +54,13 @@ class Album_model extends CI_Model {
 				}
 				$added[realpath($file)] = true;
 				list( $width, $height ) = getimagesize( $file );
-				$this->DB->insert( 
-					'image', 
-					array( 
-						'album' => $parent,  
+				$this->DB->insert(
+					'image',
+					array(
+						'album' => $parent,
 						'name' => $file,
-						'path' => realpath($file), 
-						'width' => $width, 
+						'path' => realpath($file),
+						'width' => $width,
 						'height' => $height
 					)
 				);
@@ -116,7 +116,7 @@ class Album_model extends CI_Model {
 			$result = $query->get()->row();
 			if( $result->public == 0 ) {
 				return array( 'child' =>  $album != $parent, 'public' =>  false, 'selfpublic' => $self_public );
-			} 
+			}
 
 			if( $result->public == 1 && $parent == $album ) {
 				$self_public = true;
@@ -160,24 +160,24 @@ class Album_model extends CI_Model {
 	function album_access_list( $album ) {
 		// This one is rather ugly, though I don't have time :(
 		$query = $this->DB->query("
-			SELECT 
+			SELECT
 				users.id AS userid,
 				users.username AS username,
 				false AS has_access
-			FROM users 
+			FROM users
 			WHERE users.id NOT IN (
-				SELECT user 
-				FROM access 
+				SELECT user
+				FROM access
 				WHERE access.album = ?
-			) 
+			)
 			UNION
-			SELECT 
-				users.id AS userid, 
-				users.username AS username, 
+			SELECT
+				users.id AS userid,
+				users.username AS username,
 				true AS has_access
 			FROM users WHERE users.id IN (
-				SELECT user 
-				FROM access 
+				SELECT user
+				FROM access
 				WHERE access.album = ?
 			)
 			ORDER BY username
@@ -185,7 +185,7 @@ class Album_model extends CI_Model {
 		return $query->result_array();
 	}
 	function modify_album_access( $album, $uids ) {
-		
+
 		$retval["error"] = "";
 		$retval["html"] = "";
 		// remove all user access from the album

@@ -1,4 +1,4 @@
-#!/usr/bin/perl 
+#!/usr/bin/perl
 
 use strict;
 use warnings;
@@ -13,7 +13,7 @@ my $LEVELS = {
 	IGN => 0, #ignored
 	ERR => 1,
 	WARN => 2,
-	INFO => 3 
+	INFO => 3
 };
 
 my $user_configs = {};

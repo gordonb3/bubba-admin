@@ -80,7 +80,7 @@ void* slot_rep::notify(void* data)
   slot_rep* self_ = reinterpret_cast<slot_rep*>(data);
 
   self_->call_ = 0; // Invalidate the slot.
-  
+
   // Make sure we are notified if disconnect() deletes self_, which is trackable.
   destroy_notify_struct notifier;
   self_->add_destroy_notify_callback(&notifier, destroy_notify_struct::notify);
@@ -96,7 +96,7 @@ void* slot_rep::notify(void* data)
 }
 
 } // namespace internal
-  
+
 slot_base::slot_base()
 : rep_(0),
   blocked_(false)

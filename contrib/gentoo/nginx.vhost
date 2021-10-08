@@ -1,7 +1,7 @@
 server {
-        listen  80; 
+        listen  80;
 
-        root /home/web; 
+        root /home/web;
         index index.html index.htm;
 
         access_log /var/log/nginx/bubba-access.log;

@@ -29,11 +29,11 @@ sub decode_response {
 	    	$resp{'msg'} = "Caught JSON error, failed to decode server answer";
 	    	return %resp;
  		};
- 		
+
  	} else {
     	$resp{'error'} = "true";
     	$resp{'msg'} = "Failed to connect to database server";
-    	print STDERR $resp{'msg'}; 
+    	print STDERR $resp{'msg'};
  	}
  	return %resp;
 }
@@ -75,7 +75,7 @@ sub read_config() {
 			$conf{'name'} = $1;
 		}
 	}
-	return %conf;	
+	return %conf;
 
 }
 
@@ -85,7 +85,7 @@ sub write_config {
 	open INFILE, "> ". EASYFIND_CONF or die "Can't open ". EASYFIND_CONF ." : $!";
 	for my $key (sort keys %$p_config) {
 		print INFILE "$key = $$p_config{$key}\n";
-	} 
+	}
 	close INFILE;
 	print STDERR ("Wrote config to file\n");
 
@@ -93,9 +93,9 @@ sub write_config {
 
 sub get_extip {
 	use LWP::Simple;
-	my $url = "https://easyfind.excito.org/extip.php"; 
+	my $url = "https://easyfind.excito.org/extip.php";
 	my $response = get($url);
-	
+
     if ($response) {
         return $response;
     } else {
@@ -131,7 +131,7 @@ sub get_key{
 
 	my $ba = parse_boot();
 
-	if($$ba{"key"}){	
+	if($$ba{"key"}){
 		return CGI::escape($$ba{"key"});
 		return ($$ba{"key"});
 	}elsif(-e KEY){
@@ -144,7 +144,7 @@ sub get_key{
 	} else {
 		print STDERR ("Error, no keyfile\n");
 		return 0;
-	}	
+	}
 }
 
 sub print_name {
@@ -168,42 +168,42 @@ sub print_name {
 sub set_name {
 	use URI::Escape;
 	require LWP::UserAgent;
-	
+
 	my $key=get_key();
 	my $mac=get_mac();
 	my ($name) = @_;
-	
+
 	my $ua = LWP::UserAgent->new;
  	$ua->timeout(2);
- 	
+
  	# set name on server.
 	my $response = $ua->post('https://easyfind.excito.org/',
-		[ 
+		[
 			'key' => get_key(),
 			'mac0' => get_mac(),
 			'newname' => uri_escape($name),
 			'oldname' => "",
-			
+
 		]
 	);
- 
+
  	return decode_response($response);
 }
 
 sub print_db_name {
 	require LWP::UserAgent;
-	
+
 	my $ua = LWP::UserAgent->new;
  	$ua->timeout(2);
- 	
+
  	# get record data from server.
 	my $response = $ua->post('https://easyfind.excito.org/',
-		[ 
+		[
 			'key' => get_key(),
 			'mac0' => get_mac(),
 		]
 	);
- 
+
  	return decode_response($response);
 }
 
@@ -218,17 +218,17 @@ if ($cmd) {
 		if($config{'enable'}) {
 			if($config{name}) {
 				%response=print_name(\%config);
-			} else {				
+			} else {
 				%response = print_db_name();
 				if($response{'error'} eq "false") {
 					$config{name} = $response{'record'}{'name'};
 					$config{ip} = $response{'record'}{'content'};
-					write_config(\%config);	
+					write_config(\%config);
 				} else {
 					#server returned failure
 					print STDERR $response{'msg'},"\n";
 				}
-				
+
 			}
 		} else {
 			# not enabled
@@ -242,7 +242,7 @@ if ($cmd) {
 			$config{name} = $response{'record'}{'name'};
 			$config{ip} = $response{'record'}{'content'};
 			$config{'enable'} = "yes";
-			write_config(\%config);	
+			write_config(\%config);
 		} else {
 			#server returned failure
 			print STDERR $response{'msg'},"\n";
@@ -253,7 +253,7 @@ if ($cmd) {
 			$config{name} = "";
 			$config{ip} = "";
 			$config{'enable'} = "no";
-			write_config(\%config);	
+			write_config(\%config);
 		} else {
 			#server returned failure
 			print STDERR $response{'msg'},"\n";
@@ -262,7 +262,7 @@ if ($cmd) {
 		print "Unknown parameter\n";
 		exit 1; # wrong parameter
 	}
-} else {	
+} else {
 	if($config{'enable'}) { # only run updates if enabled.
 		%response = print_db_name();
 		$extip = $response{'record'}{'content'};
@@ -277,5 +277,5 @@ if ($cmd) {
 		$response{'msg'} = 'Easyfind not enabled.';
 	}
 }
-print encode_json(\%response),"\n";	
+print encode_json(\%response),"\n";
 exit 0;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- Converts from simple xml iptables format to iptables-save format  
-     Copyright 2006 UfoMechanic 
-     Author: azez@ufomechanic.net 
+<!-- Converts from simple xml iptables format to iptables-save format
+     Copyright 2006 UfoMechanic
+     Author: azez@ufomechanic.net
      This code is distributed and licensed under the terms of GNU GPL v2
-     
+
      This sample usage outputs roughly want goes in
        iptables-save | iptables-xml -c | xsltproc iptables.xslt -
      -->
@@ -42,7 +42,7 @@
     <xsl:apply-templates select="*"/>
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
-  
+
   <!-- all child action nodes -->
   <xsl:template match="iptables-rules/table/chain/rule/actions//*|iptables-rules/table/chain/rule/conditions//*" priority="0">
     <xsl:if test="@invert=1"><xsl:text> !</xsl:text></xsl:if>
@@ -114,7 +114,7 @@
     <xsl:apply-templates select="node()"/>
     <xsl:text>COMMIT&#xA;# Completed&#xA;</xsl:text>
   </xsl:template>
-  
+
   <xsl:template name="counters">
     <xsl:param name="node"/>
     <xsl:text>[</xsl:text>
@@ -124,8 +124,8 @@
     <xsl:if test="string-length($node/@byte-count)"><xsl:value-of select="$node/@byte-count"/></xsl:if>
     <xsl:if test="string-length($node/@byte-count)=0">0</xsl:if>
     <xsl:text>]</xsl:text>
-  </xsl:template>  
-  
+  </xsl:template>
+
   <!-- the bit that automatically recurses for us, NOTE: we use * not node(), we don't want to copy every white space text -->
   <xsl:template match="@*|node()">
     <xsl:copy>

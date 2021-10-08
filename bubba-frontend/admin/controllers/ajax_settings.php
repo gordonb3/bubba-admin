@@ -68,7 +68,7 @@ class Ajax_Settings extends CI_Controller {
 				}
 	  	}
 	  }
- 
+
 		$this->json_data["disks"] = $usable_disks;
 		$this->json_data["nbrdisks"] = sizeof($usable_disks);
 	}

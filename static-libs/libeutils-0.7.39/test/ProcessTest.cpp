@@ -4,25 +4,25 @@
 #include <string>
 #include <algorithm>
 
-#include <tut/tut.hpp> 
+#include <tut/tut.hpp>
 
-namespace tut 
-{ 
+namespace tut
+{
    using namespace EUtils;
 
-   void TrimSpaces( std::string& str)  
-   {  
-       size_t startpos = str.find_first_not_of(" \t"); // Find the first character position after excluding leading blank spaces  
-       size_t endpos = str.find_last_not_of(" \t"); // Find the first character position from reverse af  
-       if(( std::string::npos == startpos ) || ( std::string::npos == endpos))  
-       {  
-           str = "";  
-       }  
-       else  
-           str = str.substr( startpos, endpos-startpos+1 );  
+   void TrimSpaces( std::string& str)
+   {
+       size_t startpos = str.find_first_not_of(" \t"); // Find the first character position after excluding leading blank spaces
+       size_t endpos = str.find_last_not_of(" \t"); // Find the first character position from reverse af
+       if(( std::string::npos == startpos ) || ( std::string::npos == endpos))
+       {
+           str = "";
+       }
+       else
+           str = str.substr( startpos, endpos-startpos+1 );
 
    }
-   struct process { 
+   struct process {
    };
 
    typedef test_group<process> factory;
@@ -135,5 +135,5 @@ namespace tut {
        Process p;
        const char* cmd[] = { "true", NULL };
        ensure_equals( "program returned false", p.call( cmd ), 0 );
-   }    
-}; 
+   }
+};

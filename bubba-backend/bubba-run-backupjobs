@@ -264,5 +264,5 @@ for job, schedules in local_jobs.items():
         except MountError as e:
             syslog.syslog(syslog.LOG_ERR, "Failed to mount device with {uuid} for {schedule} backup".format(uuid=job, schedule=args.schedule))
         finally:
-            os.rmdir(mountdir) 
+            os.rmdir(mountdir)
         write_status(retval, job, args.schedule, selection)

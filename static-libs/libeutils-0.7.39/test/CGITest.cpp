@@ -1,13 +1,13 @@
 #include <libeutils/ECGI.h>
 #include <stdlib.h>
 
-#include <tut/tut.hpp> 
+#include <tut/tut.hpp>
 
-namespace tut 
+namespace tut
 {
    using namespace EUtils;
 
-   struct cgi { 
+   struct cgi {
    };
 
    typedef test_group<cgi> factory;
@@ -47,6 +47,6 @@ namespace tut {
        cgi.parseCookies();
        ensure( "Existing cookie", cgi.cookie("foo") == "foo" );
        ensure_not( "Non-existing cookie", cgi.cookie("bar") == "bar" );
-   }   
+   }
 #endif
 };

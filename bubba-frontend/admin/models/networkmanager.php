@@ -1128,11 +1128,11 @@ class NetworkManager extends CI_Model {
 		}
 	}
 
-	# Read the contents of /etc/tor/torrc so that we can display the
+	# Read the contents of /etc/tor/torrc.conf so that we can display the
 	# current settings in the web interface
 	function get_tor_config() {
-		$conf = fopen('/etc/tor/torrc', 'r');
-		$content = fread($conf, filesize('/etc/tor/torrc'));
+		$conf = fopen('/etc/tor/torrc.conf', 'r');
+		$content = fread($conf, filesize('/etc/tor/torrc.conf'));
 		$c_arr = explode("\n", $content);
 		$this->get_tor_config = $c_arr;
 		return $this->get_tor_config;
@@ -1242,7 +1242,7 @@ class NetworkManager extends CI_Model {
 	}
 
     public function get_tor_type() {
-        $rcfile = file_get_contents("/etc/tor/torrc");
+        $rcfile = file_get_contents("/etc/tor/torrc.conf");
         if( preg_match("#BridgeRelay 1#", $rcfile) ) {
             $type = 'bridge';
         } elseif( preg_match("#ExitPolicy accept \*#", $rcfile) ) {
@@ -1338,7 +1338,7 @@ class NetworkManager extends CI_Model {
             break;
          }
 
-        $cfg_file = '/etc/tor/torrc';
+        $cfg_file = '/etc/tor/torrc.conf';
         file_put_contents($cfg_file, implode("\n",$cfg));
         invoke_rc_d("tor", "reload");
     }
@@ -1355,7 +1355,7 @@ class NetworkManager extends CI_Model {
         $policies =  array( 'http', 'https', 'mail', 'im', 'irc', 'misc' );
 
 
-        $cfg_file = '/etc/tor/torrc';
+        $cfg_file = '/etc/tor/torrc.conf';
         $open_ports = array();
         $current = array();
         $ret = array();
@@ -1389,7 +1389,7 @@ class NetworkManager extends CI_Model {
     }
 
     public function tor_trigger_ports($relay_port, $dir_port, $enabled) {
-        $cfg_file = '/etc/tor/torrc';
+        $cfg_file = '/etc/tor/torrc.conf';
         $oldcfg = file_get_contents($cfg_file);
 
         if(preg_match("#ORPort (?P<port>\d+)#", $oldcfg, $m)) {

@@ -61,7 +61,7 @@ struct slot_iterator
     }
 
   slot_iterator operator++(int)
-    { 
+    {
       slot_iterator __tmp(*this);
       ++i_;
       return __tmp;
@@ -127,7 +127,7 @@ struct slot_const_iterator
     }
 
   slot_const_iterator operator++(int)
-    { 
+    {
       slot_const_iterator __tmp(*this);
       ++i_;
       return __tmp;
@@ -173,7 +173,7 @@ struct slot_list
 
   typedef slot_iterator<slot_type>              iterator;
   typedef slot_const_iterator<slot_type>        const_iterator;
-  
+
   #ifndef SIGC_HAVE_SUN_REVERSE_ITERATOR
   typedef std::reverse_iterator<iterator>       reverse_iterator;
   typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
@@ -206,10 +206,10 @@ struct slot_list
   const_iterator end() const
     { return const_iterator(list_->slots_.end()); }
 
-  reverse_iterator rbegin() 
+  reverse_iterator rbegin()
     { return reverse_iterator(end()); }
 
-  const_reverse_iterator rbegin() const 
+  const_reverse_iterator rbegin() const
     { return const_reverse_iterator(end()); }
 
   reverse_iterator rend()
@@ -253,7 +253,7 @@ struct slot_list
     { erase(begin()); }
 
   void pop_back()
-    { 
+    {
       iterator tmp_ = end();
       erase(--tmp_);
     }
@@ -277,7 +277,7 @@ struct slot_iterator_buf
   typedef std::ptrdiff_t                   difference_type;
   typedef std::bidirectional_iterator_tag  iterator_category;
 
-  //These are needed just to make this a proper C++ iterator, 
+  //These are needed just to make this a proper C++ iterator,
   //that can be used with standard C++ algorithms.
   typedef T_result                         value_type;
   typedef T_result&                        reference;
@@ -313,7 +313,7 @@ struct slot_iterator_buf
     }
 
   slot_iterator_buf operator++(int)
-    { 
+    {
       slot_iterator_buf __tmp(*this);
       ++i_;
       invoked_ = false;
@@ -389,7 +389,7 @@ struct slot_iterator_buf<T_emitter, void>
     }
 
   slot_iterator_buf operator++(int)
-    { 
+    {
       slot_iterator_buf __tmp(*this);
       ++i_;
       invoked_ = false;
@@ -431,7 +431,7 @@ struct slot_reverse_iterator_buf
   typedef std::ptrdiff_t                   difference_type;
   typedef std::bidirectional_iterator_tag  iterator_category;
 
-  //These are needed just to make this a proper C++ iterator, 
+  //These are needed just to make this a proper C++ iterator,
   //that can be used with standard C++ algorithms.
   typedef T_result                         value_type;
   typedef T_result&                        reference;
@@ -469,7 +469,7 @@ struct slot_reverse_iterator_buf
     }
 
   slot_reverse_iterator_buf operator++(int)
-    { 
+    {
       slot_reverse_iterator_buf __tmp(*this);
       --i_;
       invoked_ = false;
@@ -547,7 +547,7 @@ struct slot_reverse_iterator_buf<T_emitter, void>
     }
 
   slot_reverse_iterator_buf operator++(int)
-    { 
+    {
       slot_reverse_iterator_buf __tmp(*this);
       --i_;
       invoked_ = false;
@@ -643,7 +643,7 @@ struct signal_emit0
       return accumulator(slot_reverse_iterator_buf_type(slots.end(), &self),
                          slot_reverse_iterator_buf_type(slots.begin(), &self));
     }
-  
+
 };
 
 /** Abstracts signal emission.
@@ -669,21 +669,21 @@ struct signal_emit0<T_return, nil>
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
         temp_slot_list slots(impl->slots_);
         iterator_type it = slots.begin();
         for (; it != slots.end(); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_);
         for (++it; it != slots.end(); ++it)
           {
@@ -692,7 +692,7 @@ struct signal_emit0<T_return, nil>
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_);
           }
       }
-      
+
       return r_;
     }
 
@@ -706,13 +706,13 @@ struct signal_emit0<T_return, nil>
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
 #ifndef SIGC_HAVE_SUN_REVERSE_ITERATOR
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
@@ -724,10 +724,10 @@ struct signal_emit0<T_return, nil>
         reverse_iterator_type it(slots.end());
         for (; it != reverse_iterator_type(slots.begin()); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
@@ -736,7 +736,7 @@ struct signal_emit0<T_return, nil>
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_);
           }
       }
-      
+
       return r_;
     }
 };
@@ -818,7 +818,7 @@ struct signal_emit1
    * The parameters are stored in member variables. operator()() passes
    * the values on to some slot.
    */
-  signal_emit1(typename type_trait<T_arg1>::take _A_a1) 
+  signal_emit1(typename type_trait<T_arg1>::take _A_a1)
     : _A_a1_(_A_a1) {}
 
 
@@ -870,7 +870,7 @@ struct signal_emit1
       return accumulator(slot_reverse_iterator_buf_type(slots.end(), &self),
                          slot_reverse_iterator_buf_type(slots.begin(), &self));
     }
-  
+
   typename type_trait<T_arg1>::take _A_a1_;
 };
 
@@ -899,21 +899,21 @@ struct signal_emit1<T_return, T_arg1, nil>
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
         temp_slot_list slots(impl->slots_);
         iterator_type it = slots.begin();
         for (; it != slots.end(); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
         for (++it; it != slots.end(); ++it)
           {
@@ -922,7 +922,7 @@ struct signal_emit1<T_return, T_arg1, nil>
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
           }
       }
-      
+
       return r_;
     }
 
@@ -938,13 +938,13 @@ struct signal_emit1<T_return, T_arg1, nil>
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
 #ifndef SIGC_HAVE_SUN_REVERSE_ITERATOR
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
@@ -956,10 +956,10 @@ struct signal_emit1<T_return, T_arg1, nil>
         reverse_iterator_type it(slots.end());
         for (; it != reverse_iterator_type(slots.begin()); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
@@ -968,7 +968,7 @@ struct signal_emit1<T_return, T_arg1, nil>
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1);
           }
       }
-      
+
       return r_;
     }
 };
@@ -1054,7 +1054,7 @@ struct signal_emit2
    * The parameters are stored in member variables. operator()() passes
    * the values on to some slot.
    */
-  signal_emit2(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2) 
+  signal_emit2(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2)
     : _A_a1_(_A_a1), _A_a2_(_A_a2) {}
 
 
@@ -1108,7 +1108,7 @@ struct signal_emit2
       return accumulator(slot_reverse_iterator_buf_type(slots.end(), &self),
                          slot_reverse_iterator_buf_type(slots.begin(), &self));
     }
-  
+
   typename type_trait<T_arg1>::take _A_a1_;
   typename type_trait<T_arg2>::take _A_a2_;
 };
@@ -1139,21 +1139,21 @@ struct signal_emit2<T_return, T_arg1, T_arg2, nil>
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
         temp_slot_list slots(impl->slots_);
         iterator_type it = slots.begin();
         for (; it != slots.end(); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
         for (++it; it != slots.end(); ++it)
           {
@@ -1162,7 +1162,7 @@ struct signal_emit2<T_return, T_arg1, T_arg2, nil>
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
           }
       }
-      
+
       return r_;
     }
 
@@ -1179,13 +1179,13 @@ struct signal_emit2<T_return, T_arg1, T_arg2, nil>
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
 #ifndef SIGC_HAVE_SUN_REVERSE_ITERATOR
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
@@ -1197,10 +1197,10 @@ struct signal_emit2<T_return, T_arg1, T_arg2, nil>
         reverse_iterator_type it(slots.end());
         for (; it != reverse_iterator_type(slots.begin()); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
@@ -1209,7 +1209,7 @@ struct signal_emit2<T_return, T_arg1, T_arg2, nil>
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2);
           }
       }
-      
+
       return r_;
     }
 };
@@ -1297,7 +1297,7 @@ struct signal_emit3
    * The parameters are stored in member variables. operator()() passes
    * the values on to some slot.
    */
-  signal_emit3(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3) 
+  signal_emit3(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3)
     : _A_a1_(_A_a1), _A_a2_(_A_a2), _A_a3_(_A_a3) {}
 
 
@@ -1353,7 +1353,7 @@ struct signal_emit3
       return accumulator(slot_reverse_iterator_buf_type(slots.end(), &self),
                          slot_reverse_iterator_buf_type(slots.begin(), &self));
     }
-  
+
   typename type_trait<T_arg1>::take _A_a1_;
   typename type_trait<T_arg2>::take _A_a2_;
   typename type_trait<T_arg3>::take _A_a3_;
@@ -1386,21 +1386,21 @@ struct signal_emit3<T_return, T_arg1, T_arg2, T_arg3, nil>
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
         temp_slot_list slots(impl->slots_);
         iterator_type it = slots.begin();
         for (; it != slots.end(); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
         for (++it; it != slots.end(); ++it)
           {
@@ -1409,7 +1409,7 @@ struct signal_emit3<T_return, T_arg1, T_arg2, T_arg3, nil>
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
           }
       }
-      
+
       return r_;
     }
 
@@ -1427,13 +1427,13 @@ struct signal_emit3<T_return, T_arg1, T_arg2, T_arg3, nil>
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
 #ifndef SIGC_HAVE_SUN_REVERSE_ITERATOR
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
@@ -1445,10 +1445,10 @@ struct signal_emit3<T_return, T_arg1, T_arg2, T_arg3, nil>
         reverse_iterator_type it(slots.end());
         for (; it != reverse_iterator_type(slots.begin()); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
@@ -1457,7 +1457,7 @@ struct signal_emit3<T_return, T_arg1, T_arg2, T_arg3, nil>
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3);
           }
       }
-      
+
       return r_;
     }
 };
@@ -1547,7 +1547,7 @@ struct signal_emit4
    * The parameters are stored in member variables. operator()() passes
    * the values on to some slot.
    */
-  signal_emit4(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4) 
+  signal_emit4(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4)
     : _A_a1_(_A_a1), _A_a2_(_A_a2), _A_a3_(_A_a3), _A_a4_(_A_a4) {}
 
 
@@ -1605,7 +1605,7 @@ struct signal_emit4
       return accumulator(slot_reverse_iterator_buf_type(slots.end(), &self),
                          slot_reverse_iterator_buf_type(slots.begin(), &self));
     }
-  
+
   typename type_trait<T_arg1>::take _A_a1_;
   typename type_trait<T_arg2>::take _A_a2_;
   typename type_trait<T_arg3>::take _A_a3_;
@@ -1640,21 +1640,21 @@ struct signal_emit4<T_return, T_arg1, T_arg2, T_arg3, T_arg4, nil>
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
         temp_slot_list slots(impl->slots_);
         iterator_type it = slots.begin();
         for (; it != slots.end(); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
         for (++it; it != slots.end(); ++it)
           {
@@ -1663,7 +1663,7 @@ struct signal_emit4<T_return, T_arg1, T_arg2, T_arg3, T_arg4, nil>
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
           }
       }
-      
+
       return r_;
     }
 
@@ -1682,13 +1682,13 @@ struct signal_emit4<T_return, T_arg1, T_arg2, T_arg3, T_arg4, nil>
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
 #ifndef SIGC_HAVE_SUN_REVERSE_ITERATOR
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
@@ -1700,10 +1700,10 @@ struct signal_emit4<T_return, T_arg1, T_arg2, T_arg3, T_arg4, nil>
         reverse_iterator_type it(slots.end());
         for (; it != reverse_iterator_type(slots.begin()); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
@@ -1712,7 +1712,7 @@ struct signal_emit4<T_return, T_arg1, T_arg2, T_arg3, T_arg4, nil>
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4);
           }
       }
-      
+
       return r_;
     }
 };
@@ -1804,7 +1804,7 @@ struct signal_emit5
    * The parameters are stored in member variables. operator()() passes
    * the values on to some slot.
    */
-  signal_emit5(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4, typename type_trait<T_arg5>::take _A_a5) 
+  signal_emit5(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4, typename type_trait<T_arg5>::take _A_a5)
     : _A_a1_(_A_a1), _A_a2_(_A_a2), _A_a3_(_A_a3), _A_a4_(_A_a4), _A_a5_(_A_a5) {}
 
 
@@ -1864,7 +1864,7 @@ struct signal_emit5
       return accumulator(slot_reverse_iterator_buf_type(slots.end(), &self),
                          slot_reverse_iterator_buf_type(slots.begin(), &self));
     }
-  
+
   typename type_trait<T_arg1>::take _A_a1_;
   typename type_trait<T_arg2>::take _A_a2_;
   typename type_trait<T_arg3>::take _A_a3_;
@@ -1901,21 +1901,21 @@ struct signal_emit5<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, nil>
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
         temp_slot_list slots(impl->slots_);
         iterator_type it = slots.begin();
         for (; it != slots.end(); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
         for (++it; it != slots.end(); ++it)
           {
@@ -1924,7 +1924,7 @@ struct signal_emit5<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, nil>
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
           }
       }
-      
+
       return r_;
     }
 
@@ -1944,13 +1944,13 @@ struct signal_emit5<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, nil>
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
 #ifndef SIGC_HAVE_SUN_REVERSE_ITERATOR
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
@@ -1962,10 +1962,10 @@ struct signal_emit5<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, nil>
         reverse_iterator_type it(slots.end());
         for (; it != reverse_iterator_type(slots.begin()); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
@@ -1974,7 +1974,7 @@ struct signal_emit5<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, nil>
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5);
           }
       }
-      
+
       return r_;
     }
 };
@@ -2068,7 +2068,7 @@ struct signal_emit6
    * The parameters are stored in member variables. operator()() passes
    * the values on to some slot.
    */
-  signal_emit6(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4, typename type_trait<T_arg5>::take _A_a5, typename type_trait<T_arg6>::take _A_a6) 
+  signal_emit6(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4, typename type_trait<T_arg5>::take _A_a5, typename type_trait<T_arg6>::take _A_a6)
     : _A_a1_(_A_a1), _A_a2_(_A_a2), _A_a3_(_A_a3), _A_a4_(_A_a4), _A_a5_(_A_a5), _A_a6_(_A_a6) {}
 
 
@@ -2130,7 +2130,7 @@ struct signal_emit6
       return accumulator(slot_reverse_iterator_buf_type(slots.end(), &self),
                          slot_reverse_iterator_buf_type(slots.begin(), &self));
     }
-  
+
   typename type_trait<T_arg1>::take _A_a1_;
   typename type_trait<T_arg2>::take _A_a2_;
   typename type_trait<T_arg3>::take _A_a3_;
@@ -2169,21 +2169,21 @@ struct signal_emit6<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, ni
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
         temp_slot_list slots(impl->slots_);
         iterator_type it = slots.begin();
         for (; it != slots.end(); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
         for (++it; it != slots.end(); ++it)
           {
@@ -2192,7 +2192,7 @@ struct signal_emit6<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, ni
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
           }
       }
-      
+
       return r_;
     }
 
@@ -2213,13 +2213,13 @@ struct signal_emit6<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, ni
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
 #ifndef SIGC_HAVE_SUN_REVERSE_ITERATOR
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
@@ -2231,10 +2231,10 @@ struct signal_emit6<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, ni
         reverse_iterator_type it(slots.end());
         for (; it != reverse_iterator_type(slots.begin()); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
@@ -2243,7 +2243,7 @@ struct signal_emit6<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, ni
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6);
           }
       }
-      
+
       return r_;
     }
 };
@@ -2339,7 +2339,7 @@ struct signal_emit7
    * The parameters are stored in member variables. operator()() passes
    * the values on to some slot.
    */
-  signal_emit7(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4, typename type_trait<T_arg5>::take _A_a5, typename type_trait<T_arg6>::take _A_a6, typename type_trait<T_arg7>::take _A_a7) 
+  signal_emit7(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4, typename type_trait<T_arg5>::take _A_a5, typename type_trait<T_arg6>::take _A_a6, typename type_trait<T_arg7>::take _A_a7)
     : _A_a1_(_A_a1), _A_a2_(_A_a2), _A_a3_(_A_a3), _A_a4_(_A_a4), _A_a5_(_A_a5), _A_a6_(_A_a6), _A_a7_(_A_a7) {}
 
 
@@ -2403,7 +2403,7 @@ struct signal_emit7
       return accumulator(slot_reverse_iterator_buf_type(slots.end(), &self),
                          slot_reverse_iterator_buf_type(slots.begin(), &self));
     }
-  
+
   typename type_trait<T_arg1>::take _A_a1_;
   typename type_trait<T_arg2>::take _A_a2_;
   typename type_trait<T_arg3>::take _A_a3_;
@@ -2444,21 +2444,21 @@ struct signal_emit7<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
         temp_slot_list slots(impl->slots_);
         iterator_type it = slots.begin();
         for (; it != slots.end(); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
         for (++it; it != slots.end(); ++it)
           {
@@ -2467,7 +2467,7 @@ struct signal_emit7<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
           }
       }
-      
+
       return r_;
     }
 
@@ -2489,13 +2489,13 @@ struct signal_emit7<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
 #ifndef SIGC_HAVE_SUN_REVERSE_ITERATOR
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
@@ -2507,10 +2507,10 @@ struct signal_emit7<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_
         reverse_iterator_type it(slots.end());
         for (; it != reverse_iterator_type(slots.begin()); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
@@ -2519,7 +2519,7 @@ struct signal_emit7<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(it->rep_, _A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7);
           }
       }
-      
+
       return r_;
     }
 };
@@ -3628,7 +3628,7 @@ public:
  * @ingroup signal
  */
 template <class T_return, class T_arg1 = nil, class T_arg2 = nil, class T_arg3 = nil, class T_arg4 = nil, class T_arg5 = nil, class T_arg6 = nil, class T_arg7 = nil>
-class signal 
+class signal
   : public signal7<T_return, T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7, nil>
 {
 public:
@@ -3642,7 +3642,7 @@ public:
    * executes the slot. The return value is buffered, so that in an expression
    * like @code a = (*i) * (*i); @endcode the slot is executed only once.
    * The accumulator must define its return value as @p result_type.
-   * 
+   *
    * @par Example 1:
    * This accumulator calculates the arithmetic mean value:
    * @code

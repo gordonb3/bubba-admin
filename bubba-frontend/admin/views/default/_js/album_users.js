@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-		var dialog_options = { 
+		var dialog_options = {
 			"autoOpen": false,
 			"width": 400,
 			"open": function(event,ui) {
@@ -25,7 +25,7 @@ $(document).ready(function(){
 						$('<td/>',
 							{
 								html: $('<button/>',
-									{ 
+									{
 										'class' : "submit",
 										html: _("Edit"),
 										click: function(){open_edit_dialog_callback.apply(dialog, [data])}
@@ -36,7 +36,7 @@ $(document).ready(function(){
 					);
 
 				}
-			);			
+			);
 		}
 
 		// This callback is fired each time click on "edit" is performed
@@ -73,12 +73,12 @@ $(document).ready(function(){
 							'json'
 						);
 					}
-				}, 'json' 
+				}, 'json'
 			);
 		};
 
 		// the callback when confirming update
-		var edit_dialog_button_update_callback = function(){	
+		var edit_dialog_button_update_callback = function(){
 			if( ! edit_validator.form() ) {
 				return false;
 			}
@@ -88,17 +88,17 @@ $(document).ready(function(){
 						update_status( false, data.html );
 					} else {
 						update_status( true, _("Viewer updated") );
-						$.post( 
-							config.prefix + "/album/users/json", 
+						$.post(
+							config.prefix + "/album/users/json",
 							{},
 							function(data) {
 								update_user_table( edit_dialog, data.accounts );
 								edit_dialog.dialog('close');
-							}, 
-							'json' 
+							},
+							'json'
 						);
 					}
-				}, 'json' 
+				}, 'json'
 			);
 		};
 
@@ -131,17 +131,17 @@ $(document).ready(function(){
 						update_status( false, data.html );
 					} else {
 						update_status( true, _("Viewer deleted") );
-						$.post( 
-							config.prefix + "/album/users/json", 
+						$.post(
+							config.prefix + "/album/users/json",
 							{},
 							function(data) {
 								update_user_table( edit_dialog, data.accounts );
 								confirm_dialog.dialog('close');
-							}, 
-							'json' 
+							},
+							'json'
 						);
 					}
-				}, 'json' 
+				}, 'json'
 			);
 
 		};
@@ -156,10 +156,10 @@ $(document).ready(function(){
 					'text': _("Add new viewer"),
 					'click': add_dialog_button_callback,
 					id: 'fn-users-add-dialog-button'
-				}	
+				}
 			],
-			dialog_options	
-		);		
+			dialog_options
+		);
 
 		var edit_source_edit_dialog = source_edit_dialog.clone().removeAttr('id');
 		edit_source_edit_dialog.find('input[name=password1]').addClass('fn-primary-field');
@@ -178,15 +178,15 @@ $(document).ready(function(){
 					'text': _("Delete viewer"),
 					'click': open_delete_dialog_callback,
 					id: 'fn-users-edit-dialog-delete-button'
-				}		
+				}
 			);
 		}
 
-		edit_dialog  = $.dialog( 
+		edit_dialog  = $.dialog(
 			edit_source_edit_dialog,
 			'',
 			edit_dialog_buttons,
-			dialog_options	
+			dialog_options
 		);
 
 

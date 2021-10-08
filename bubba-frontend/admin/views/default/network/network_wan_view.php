@@ -39,36 +39,36 @@
 		<td><label for=""><?=_('Default gateway')?></label>:</td>
 		<td>
 			<input
-        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?> 
+        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?>
 				value='<?=$ogw[0]?>'
 				class='ip'
 				name='gw[0]'
-				type='text' 
-				size='3' 
+				type='text'
+				size='3'
 				maxlength='3'
 				/>&nbsp;.&nbsp;<input
-        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?> 
-				value='<?=$ogw[1]?>' 
-				class='ip' 
-				name='gw[1]' 
-				type='text' 
-				size='3' 
+        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?>
+				value='<?=$ogw[1]?>'
+				class='ip'
+				name='gw[1]'
+				type='text'
+				size='3'
 				maxlength='3'
-			/>&nbsp;.&nbsp;<input 
-        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?> 
-				value='<?=$ogw[2]?>' 
-				class='ip' 
-				name='gw[2]' 
-				type='text' 
-				size='3' 
+			/>&nbsp;.&nbsp;<input
+        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?>
+				value='<?=$ogw[2]?>'
+				class='ip'
+				name='gw[2]'
+				type='text'
+				size='3'
 				maxlength='3'
-			/>&nbsp;.&nbsp;<input 
-        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?> 
-				value='<?=$ogw[3]?>' 
-				class='ip' 
-				name='gw[3]' 
-				type='text' 
-				size='3' 
+			/>&nbsp;.&nbsp;<input
+        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?>
+				value='<?=$ogw[3]?>'
+				class='ip'
+				name='gw[3]'
+				type='text'
+				size='3'
 				maxlength='3'
 			/>
 		</td>
@@ -78,37 +78,37 @@
 		<td></td>
 		<td><label for=""><?=_('Primary DNS')?></label>:</td>
 		<td>
-			<input 
-        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?> 
-				value='<?=$odns[0]?>' 
-				class='ip' 
-				name='dns[0]' 
-				type='text' 
-				size='3' 
-				maxlength='3'
-			/>&nbsp;.&nbsp;<input 
-        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?> 
-				value='<?=$odns[1]?>' 
-				class='ip' 
-				name='dns[1]' 
-				type='text' 
-				size='3' 
-				maxlength='3'
-			/>&nbsp;.&nbsp;<input
-        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?> 
-				value='<?=$odns[2]?>' 
-				class='ip' 
-				name='dns[2]' 
-				type='text' 
+			<input
+        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?>
+				value='<?=$odns[0]?>'
+				class='ip'
+				name='dns[0]'
+				type='text'
 				size='3'
 				maxlength='3'
-			/>&nbsp;.&nbsp;<input 
-        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?> 
-				value='<?=$odns[3]?>' 
-				class='ip' 
-				name='dns[3]' 
-				type='text' 
-				size='3' 
+			/>&nbsp;.&nbsp;<input
+        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?>
+				value='<?=$odns[1]?>'
+				class='ip'
+				name='dns[1]'
+				type='text'
+				size='3'
+				maxlength='3'
+			/>&nbsp;.&nbsp;<input
+        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?>
+				value='<?=$odns[2]?>'
+				class='ip'
+				name='dns[2]'
+				type='text'
+				size='3'
+				maxlength='3'
+			/>&nbsp;.&nbsp;<input
+        <?if($disable_gw || $dhcp):?>disabled="disabled"<?endif?>
+				value='<?=$odns[3]?>'
+				class='ip'
+				name='dns[3]'
+				type='text'
+				size='3'
 				maxlength='3'
 			/>
 		</td>
@@ -120,6 +120,6 @@
 			<button class="submit .fn-network-button_submit"><?=_("Update")?></button>
 		</td>
 	</tr>
-	
+
 </table>
 </form>

@@ -30,7 +30,7 @@ class Ajax_upload extends CI_Controller {
 		$uuid=$this->input->post('uuid');
 		$user=$this->session->userdata("user");
 		$res=$dl->querybyUUID($user,$uuid);
-		
+
 		if( !is_null($res) && $res["info"]["type"] == "upload" ){
 			$res["info"] = $res["info"]["name"];
 		}

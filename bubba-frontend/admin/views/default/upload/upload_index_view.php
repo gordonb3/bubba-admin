@@ -42,12 +42,12 @@ function monitorupload(){
 }
 
 function queryProgress( uuid, startdate ) {
-	$.ajax({ url:"<?=FORMPREFIX?>/ajax_upload/progress", 
-		data: { 'uuid': uuid }, 
+	$.ajax({ url:"<?=FORMPREFIX?>/ajax_upload/progress",
+		data: { 'uuid': uuid },
 		type: 'POST',
 		dataType: 'json',
 		error: function (XHR, textStatus, errorThrown) {
-			$("#pg_item").html( "Got XMLHttpRequest error \"<em>" + textStatus + "</em>\", retrying in 2 seconds..." );			
+			$("#pg_item").html( "Got XMLHttpRequest error \"<em>" + textStatus + "</em>\", retrying in 2 seconds..." );
 				if((queryProgress.FAIL_COUNT += 3) > queryProgress.MAX_FAIL_COUNT) {
 					if ( queryProgress.TIMER ){
 						clearTimeout( queryProgress.TIMER );
@@ -61,8 +61,8 @@ function queryProgress( uuid, startdate ) {
 				clearTimeout( queryProgress.TIMER );
 			}
 			if( queryProgress.STATE != queryProgress.STATE_FINISH ){
-				queryProgress.TIMER = setTimeout( function() { 
-					$("#pg_item").html( "retrying..." );			
+				queryProgress.TIMER = setTimeout( function() {
+					$("#pg_item").html( "retrying..." );
 
 					queryProgress( uuid, startdate ) } , 2000 );
 			}else{
@@ -140,18 +140,18 @@ $(document).ready( function(){
 <body>
 
 <div id="uploaddiv">
-<form action="/cgi-bin/upload.cgi" method="post" enctype="multipart/form-data" target="uploadframe"  id="uploadform"> 
+<form action="/cgi-bin/upload.cgi" method="post" enctype="multipart/form-data" target="uploadframe"  id="uploadform">
     <label><?=_('Upload to')?>: <?= $path ?></label>
 	<input type="hidden" name="uuid"  id="uuid" value="<? echo uniqid("upl");  ?>" />
 	<input type="hidden" name="uploadpath" value='<?= rawurlencode($path) ?>'/>
-	
+
 	<div id="uploads">
 		<div><input type="file" name="file1" id="file1" size="40"/></div>
 	</div>
 	<span><?=_("Maximum total upload is 2GByte.")?></span>
 	<div id="pg_adder">
 		<input type="button" id="addmore" value="<?=_('Add entry')?>"/>
-	</div>	
+	</div>
 	<input type="submit" id="submitbutton" value="<?=_('Start upload')?>" disabled="disabled"  />
 </form>
 <div id="progress"></div>

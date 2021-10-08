@@ -85,8 +85,8 @@ add_definitions( ${SIGC++_CFLAGS} ${GLIB_CFLAGS} -I${TCL_INCLUDE_PATH} )
 if( BUILD_SHARED_LIBRARIES )
 add_library(eutils_shared SHARED ${eutils_json_cpp_src} ${eutils_cpp_src})
 target_link_libraries(eutils_shared pthread expect popt ${SIGC++_LDFLAGS} ${GLIB_LDFLAGS} )
-set_target_properties(eutils_shared PROPERTIES 
-	VERSION ${libeutils_VERSION_FULL} 
+set_target_properties(eutils_shared PROPERTIES
+	VERSION ${libeutils_VERSION_FULL}
 	SOVERSION ${libeutils_VERSION_MAJOR}
 	OUTPUT_NAME eutils
 	)
@@ -96,8 +96,8 @@ endif()
 
 if( BUILD_STATIC_LIBRARIES )
 add_library(eutils_static STATIC ${eutils_json_cpp_src} ${eutils_cpp_src})
-set_target_properties(eutils_static PROPERTIES 
-	VERSION ${libeutils_VERSION_FULL} 
+set_target_properties(eutils_static PROPERTIES
+	VERSION ${libeutils_VERSION_FULL}
 	SOVERSION ${libeutils_VERSION_MAJOR}
 	OUTPUT_NAME eutils
 	)

@@ -1,24 +1,24 @@
 /*
-    
+
     libeutils - http://www.excito.com/
-    
+
     POpt.cpp - this file is part of libeutils.
-    
+
     Copyright (C) 2009 Tor Krill <tor@excito.com>
-    
+
     libeutils is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2
     as published by the Free Software Foundation.
-    
+
     libeutils is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-    
+
     You should have received a copy of the GNU General Public License
     version 2 along with libeutils; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
-    
+
     $Id$
 */
 
@@ -33,7 +33,7 @@ namespace EUtils{
 static const char* helpstr="Help options:";
 
 POpt::POpt():parse_options(NULL){
-	
+
 }
 
 POpt::POpt(list<Option> opts): parse_options(NULL){
@@ -47,17 +47,17 @@ POpt::POpt(list<Option> opts): parse_options(NULL){
 void POpt::parsecallback(poptContext con, enum poptCallbackReason reason,
 								const struct poptOption * opt, const char * arg,
 								void * data){
-	
+
 	if(!opt){
 		return;
 	}
-	
+
 	if(reason != POPT_CALLBACK_REASON_OPTION){
 		return;
 	}
-								
+
 	POpt* popt=static_cast<POpt*>(data);
-	
+
 	switch(opt->argInfo){
 	case POPT_ARG_NONE:
 		popt->options[opt->longName].value="true";
@@ -77,8 +77,8 @@ void POpt::parsecallback(poptContext con, enum poptCallbackReason reason,
 	default:
 		//ERROR
 		break;
-	}	
-	
+	}
+
 }
 
 void POpt::AddOption(const Option& opt){
@@ -86,7 +86,7 @@ void POpt::AddOption(const Option& opt){
 }
 
 static void makeopt(
-		struct poptOption* opt,const char* name=NULL,char sname=0, int arginfo=0, 
+		struct poptOption* opt,const char* name=NULL,char sname=0, int arginfo=0,
 		void* arg=NULL,int val=0, const char* desc=NULL, const char* adesc=NULL)
 {
 
@@ -143,19 +143,19 @@ bool POpt::Parse(int argc, char** argv){
 	this->buildparseopts();
 
 	poptContext optCon = poptGetContext(NULL,argc,(const char**)argv,this->parse_options,0);
-	
+
 	int rc;
 	if((rc=poptGetNextOpt(optCon))<-1){
 		poptFreeContext(optCon);
 		this->cleanparseopts();
-		return false;	
+		return false;
 	}
-	
+
 	const char *arg;
 	while((arg=poptGetArg(optCon))){
 		this->remainder.push_back(arg);
-	}	
-	
+	}
+
 	poptFreeContext(optCon);
 	this->cleanparseopts();
 	return true;

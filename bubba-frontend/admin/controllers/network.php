@@ -28,7 +28,7 @@ class Network extends CI_Controller{
         $mdata["head"] = $this->load->view(THEME.$head,$data,true);
         $mdata["content"]=$content;
 		$this->load->view(THEME.'/main_view',$mdata);
-	}	
+	}
 
 	function wanupdate($strip=""){
 
@@ -42,7 +42,7 @@ class Network extends CI_Controller{
 				$data['disable_network'] = true;
 			}
 			$data["disable_gw"] = 1;
-		}			
+		}
 
 		$ip=$this->input->post("IP");
 		$mask=$this->input->post('mask');
@@ -59,16 +59,16 @@ class Network extends CI_Controller{
 		$ifc=$this->networkmanager->get_networkconfig($this->networkmanager->get_wan_interface());
 		$data["dhcp"]=$ifc["dhcp"];
 		$oip = parse_ip( $ifc["address"] );
-		$omask = parse_ip( $ifc["netmask"] );		
-		$ogw = parse_ip( $ifc["gateway"] );		
+		$omask = parse_ip( $ifc["netmask"] );
+		$ogw = parse_ip( $ifc["gateway"] );
 		$odns = parse_ip( $ifc["dns"] );
 
-		// Has the user changed network configuration?	
+		// Has the user changed network configuration?
 		if ( $netcfg=="static" ) {
 			$err=false;
-			$data["oip"] = $ip;	
-			$data["ogw"] = $gw;	
-			$data["odns"] = $dns;	
+			$data["oip"] = $ip;
+			$data["ogw"] = $gw;
+			$data["odns"] = $dns;
 			$data["omask"] = $mask;
 			if($ip==$oip && $mask==$omask && $gw==$ogw && $dns==$odns){
 				// No change of ip
@@ -83,12 +83,12 @@ class Network extends CI_Controller{
 					$this->networkmanager->setns(array("servers"=>array("$dns[0].$dns[1].$dns[2].$dns[3]")));
 
 					$restart_network=true;
-					$data["dhcp"] = false;	
+					$data["dhcp"] = false;
 				}
 			}else{
 				// IP data changed
 
-				$data["dhcp"] = false;	
+				$data["dhcp"] = false;
 
 				if(!validate_ip($ip)){
 					$data["err_ip"]=$err=true;
@@ -114,7 +114,7 @@ class Network extends CI_Controller{
 					$restart=true;
 				}else{
 					$data["success"]=false;
-				}	
+				}
 			}
 
 		}else{
@@ -133,10 +133,10 @@ class Network extends CI_Controller{
 		$ifc=$this->networkmanager->get_networkconfig($this->networkmanager->get_wan_interface(),true); // force reread network config
 
 		$data["oip"] = parse_ip( $ifc["address"] );
-		$data["omask"] = parse_ip( $ifc["netmask"] );		
-		$data["ogw"] = parse_ip( $ifc["gateway"] );		
+		$data["omask"] = parse_ip( $ifc["netmask"] );
+		$data["ogw"] = parse_ip( $ifc["gateway"] );
 		$data["odns"] = parse_ip( $ifc["dns"] );
-		$data["dhcp"]=$ifc["dhcp"];	
+		$data["dhcp"]=$ifc["dhcp"];
 
 		$this->_renderfull($this->load->view(THEME.'/network/network_wan_view.php',$data,true));
 
@@ -156,12 +156,12 @@ class Network extends CI_Controller{
 			$data["disable_gw"] = 1;
 		}
 
-		$restart = false;		
+		$restart = false;
 		$data["success"]="success";
 		$data["err_ip"]=false;
 		$data["err_netmask"]=false;
 		$data["err_dnsmasq"]["dns"]=false;
-		$data["err_dnsmasq"]["dhcpd"]=false;		
+		$data["err_dnsmasq"]["dhcpd"]=false;
 		$data["err_dnsmasq"]["dhcpdrange"]=false;
 		$data["update"]=true;
 
@@ -220,7 +220,7 @@ class Network extends CI_Controller{
 				$data["success"]=false;
 			}else{
 				if( $lifc["dhcp"] ||
-					($ip!=$data["olip"]) || 
+					($ip!=$data["olip"]) ||
 					($mask!=$data["olmask"]) ||
 					($gw!=$data["olgw"]) ||
 					($dns!=$data["oldns"])
@@ -274,12 +274,12 @@ class Network extends CI_Controller{
 				$data["err_dnsmasq"] = configure_dnsmasq($dnsmasq);
 				$data["dnsmasq_settings"]=get_dnsmasq_settings();
 			} else {
-				if(!isset($dnsmasq["dhcpd"])) $dnsmasq["dhcpd"]="";  
+				if(!isset($dnsmasq["dhcpd"])) $dnsmasq["dhcpd"]="";
 				$data["dnsmasq_settings"] = $dnsmasq;
-			}		
-		}	
+			}
+		}
 
-		$data["olgw"] = parse_ip( $lifc["gateway"] );		
+		$data["olgw"] = parse_ip( $lifc["gateway"] );
 		$data["oldns"] = parse_ip( $lifc["dns"] );
 
 		$data["dhcpd_leases"] = get_leases();
@@ -310,123 +310,123 @@ class Network extends CI_Controller{
 
 		if($update=$this->input->post("update")) { // Updating open ports
 
-			$B2port = array(); 
+			$B2port = array();
 			//Get post
 			if($data["allowFTP"]=$this->input->post("allowFTP")) {
 				// allow FTP
-				if($current_fw["allowFTP"]) { 
+				if($current_fw["allowFTP"]) {
 					// already allowed do nothing.
-				} else { 
+				} else {
 					$B2port[21]=true;
 				}
-			} else { 
+			} else {
 				// close FTP
-				if($current_fw["allowFTP"]) { 
+				if($current_fw["allowFTP"]) {
 					// Allowed, close port
 					$B2port[21]=false;
-				} else { 
+				} else {
 					// already closed, do nothing.
 				}
 			}
 
 			if($data["allowSSH"]=$this->input->post("allowSSH")) {
 				// allow SSH
-				if($current_fw["allowSSH"]) { 
+				if($current_fw["allowSSH"]) {
 					// already allowed do nothing.
-				} else { 
+				} else {
 					$B2port[22]=true;
 				}
-			} else { 
+			} else {
 				// close SSH
-				if($current_fw["allowSSH"]) { 
+				if($current_fw["allowSSH"]) {
 					// Allowed, close port
 					$B2port[22]=false;
-				} else { 
+				} else {
 					// already closed, do nothing.
 				}
 			}
 
 			if($data["allowWWW"]=$this->input->post("allowWWW")) {
 				// allow WWW
-				if($current_fw["allowWWW"]) { 
+				if($current_fw["allowWWW"]) {
 					// already allowed do nothing.
-				} else { 
+				} else {
 					$B2port[80]=true;
 				}
-			} else { 
+			} else {
 				// close WWW
-				if($current_fw["allowWWW"]) { 
+				if($current_fw["allowWWW"]) {
 					// Allowed, close port
 					$B2port[80]=false;
-				} else { 
+				} else {
 					// already closed, do nothing.
 				}
 			}
 
 			if($data["allowPing"]=$this->input->post("allowPing")) {
 				// allow ping
-				if($current_fw["allowPing"]) { 
+				if($current_fw["allowPing"]) {
 					// already allowed do nothing.
-				} else { 
+				} else {
 					$B2port["ping"]=true;
 				}
-			} else { 
+			} else {
 				// close ping
-				if($current_fw["allowPing"]) { 
+				if($current_fw["allowPing"]) {
 					// Allowed, close port
 					$B2port["ping"]=false;
-				} else { 
+				} else {
 					// already closed, do nothing.
 				}
 			}
 
 			if($data["allowMail"]=$this->input->post("allowMail")) {
 				// allow Mail
-				if($current_fw["allowMail"]) { 
+				if($current_fw["allowMail"]) {
 					// already allowed do nothing.
-				} else { 
+				} else {
 					$B2port[25]=true;
 				}
-			} else { 
+			} else {
 				// close Mail
-				if($current_fw["allowMail"]) { 
+				if($current_fw["allowMail"]) {
 					// Allowed, close port
 					$B2port[25]=false;
-				} else { 
+				} else {
 					// already closed, do nothing.
 				}
 			}
 
 			if($data["allowIMAP"]=$this->input->post("allowIMAP")) {
 				// allow Mail
-				if($current_fw["allowIMAP"]) { 
+				if($current_fw["allowIMAP"]) {
 					// already allowed do nothing.
-				} else { 
+				} else {
 					$B2port[143]=true;
 				}
-			} else { 
+			} else {
 				// close IMAP
-				if($current_fw["allowIMAP"]) { 
+				if($current_fw["allowIMAP"]) {
 					// Allowed, close port
 					$B2port[143]=false;
-				} else { 
+				} else {
 					// already closed, do nothing.
 				}
 			}
 
 			if($data["allowTorrent"]=$this->input->post("allowTorrent")) {
 				// allow Torrentports
-				if($current_fw["allowTorrent"]) { 
+				if($current_fw["allowTorrent"]) {
 					// already allowed do nothing.
-				} else { 
+				} else {
 					$B2port["10000:14000"]=true;
 				}
-			} else { 
+			} else {
 				// close Torrentports
-				if($current_fw["allowTorrent"]) { 
+				if($current_fw["allowTorrent"]) {
 					// Allowed, close port
 					$B2port["10000:14000"]=false;
-				} else { 
+				} else {
 					// already closed, do nothing.
 				}
 			}
@@ -457,7 +457,7 @@ class Network extends CI_Controller{
 			$old_port["source"]=$this->input->post("o_source");
 			$old_port["portforward"]=$this->input->post("o_portforward");
 
-			$portforward = $this->input->post("portforward");			
+			$portforward = $this->input->post("portforward");
 
 			// detect if it is an edited port
 			$edit = true;
@@ -471,7 +471,7 @@ class Network extends CI_Controller{
 				}
 
 				if(!$edit) {
-					$errmsg["add"] = "No change in port configuration"; 
+					$errmsg["add"] = "No change in port configuration";
 				}
 			}
 
@@ -527,32 +527,32 @@ class Network extends CI_Controller{
 					$data["success"] = false;
 				} else {
 					// Update portforwards
-					if($portforward) { 
+					if($portforward) {
 						if ($old_port["dport"]) {
 							// Remove old port, otherwise it will (most likely)
 							// conflict with the new entry
 							if($rm_msg = rm_portforward($old_port)) {
 								$errmsg["rm"] = $rm_msg[0];
-							} 
+							}
 						}
 						if(!$errmsg) {  // only add if the remove succeded.
 							if($add_msg = add_portforward($new_port)) {
 								$errmsg["add"] = $add_msg[0];
-							} 
+							}
 						}
 						// Update Bubba|2 port
-					} else { 
+					} else {
 						if ($old_port["dport"]) {
 							// Remove old port, otherwise it will (most likely)
 							// conflict with the new entry
 							if($rm_msg = close_port($old_port)) {
 								$errmsg["rm"] = $rm_msg[0];
-							} 
+							}
 						}
 						if(!$errmsg) {  // only add if the remove succeded.
 							if($add_msg = open_port($new_port)) {
 								$errmsg["add"] = $add_msg[0];
-							} 
+							}
 						}
 
 					}
@@ -573,10 +573,10 @@ class Network extends CI_Controller{
 				$rm_msg = close_port($removerule);
 			} else {
 				$rm_msg = rm_portforward($removerule);
-			} 			  
+			} 			
 			if($rm_msg)
 				$errmsg["rm"] = $rm_msg[0];
-		}		
+		}
 
 		// read back settings to make sure they have taken.
 		$data = get_fwsettings();
@@ -589,7 +589,7 @@ class Network extends CI_Controller{
 		} else {
 			$data["disabled"] = "disabled=\"disabled\"";
 			$data["portforward"] = false;
-		}      
+		}
 
 		if($errmsg) {
 			//print "Error: $errmsg<br>\n";
@@ -619,13 +619,13 @@ class Network extends CI_Controller{
 				$data['disable_network'] = true;
 			}
 			$data["disable_gw"] = 1;
-		}			
+		}
 
 		$data["oip"] = parse_ip( $ifc["address"] );
-		$data["omask"] = parse_ip( $ifc["netmask"] );		
-		$data["ogw"] = parse_ip( $ifc["gateway"] );		
+		$data["omask"] = parse_ip( $ifc["netmask"] );
+		$data["ogw"] = parse_ip( $ifc["gateway"] );
 		$data["odns"] = parse_ip( $ifc["dns"] );
-		$data["dhcp"]=$ifc["dhcp"];	
+		$data["dhcp"]=$ifc["dhcp"];
 
 		$data["err_ip"] = false;
 		$data["err_gw"] = false;
@@ -673,14 +673,14 @@ class Network extends CI_Controller{
 			$data["err_iface"]=true;
 			$data["olip"]="";
 			$data["olmask"]="";
-			$data["olgw"]="";		
+			$data["olgw"]="";
 			$data["oldns"]="";
 		}
 
 		$data["update"]=0;
 		if($strip=="json"){
 			header("Content-type: application/json");
-			print json_encode($data);			
+			print json_encode($data);
 		}elseif($strip){
 			$this->load->view(THEME.'/network/network_lan_view.php',$data);
 		}else{
@@ -692,11 +692,11 @@ class Network extends CI_Controller{
 		$conf=parse_ini_file("/home/admin/.bubbacfg");
 		$lifc=$this->networkmanager->get_networkconfig($this->networkmanager->get_lan_interface());
 		$data['dhcp'] = $lifc['dhcp'];
-		$data['wlan_configurable'] = $this->networkmanager->exists_wlan_card() 
+		$data['wlan_configurable'] = $this->networkmanager->exists_wlan_card()
 					&& $this->session->userdata("network_profile") != "custom"
 					&& $this->system->get_timezone() != "UTC"
 					&& !$lifc['dhcp'];
-		
+
 		if($msg == "update") {
 			$data['update'] = 1; // indicate that the user has pressed update with green status bar.
 			$data['success'] = "success";
@@ -705,8 +705,8 @@ class Network extends CI_Controller{
 			$data['update'] = 1; // indicate that the user has pressed update with green status bar.
 			$data['success'] = "fail";
 			$data['update_msg'] = "Error in wLAN configuration.";
-		}			
-	
+		}
+
 		$data['ssid'] = $this->networkmanager->get_current_wlan_ssid();
 		$data['enabled'] = $this->networkmanager->wlan_enabled();
 		$ieee80211_mode =  $this->networkmanager->get_wlan_current_mode();
@@ -778,16 +778,16 @@ class Network extends CI_Controller{
 		$capabilities = $this->networkmanager->get_wlan_capabilities();
 
 		# Simple validation to prevent destruction
-		if( 
+		if(
 			$ssid === false
-			|| $mode === false 
-			|| $encryption === false 
+			|| $mode === false
+			|| $encryption === false
 			|| $channel === false
-			|| strlen($ssid) > 32 
+			|| strlen($ssid) > 32
 			|| $channel <= 0
-			|| ( 
-				$encryption == 'wep' 
-				&& ! in_array( strlen( $password ), array( 5, 13 ) ) 
+			|| (
+				$encryption == 'wep'
+				&& ! in_array( strlen( $password ), array( 5, 13 ) )
 			)
 			|| (
 				in_array( $encryption , array( 'wpa1', 'wpa2', 'wpa12' ) )
@@ -813,7 +813,7 @@ class Network extends CI_Controller{
 		}
 
 		$this->networkmanager->set_wlan_ssid( $this->networkmanager->get_wlan_interface(), $ssid );
-		
+
 		if( $broadcast_ssid ) {
 			$this->networkmanager->enable_wlan_broadcast_ssid();
 		} else {
@@ -917,10 +917,10 @@ class Network extends CI_Controller{
 
 		# TODO wep defaultkey
 		$this->networkmanager->set_wlan_encryption(
-			$this->networkmanager->get_wlan_interface(), 
-			$encryption, 
-			array( $password ), 
-			0 
+			$this->networkmanager->get_wlan_interface(),
+			$encryption,
+			array( $password ),
+			0
 		);
 
 		$restart = $enabled && service_running("hostapd");
@@ -934,7 +934,7 @@ class Network extends CI_Controller{
 		// Restart hostapd to make sure we are in a consistent mode
 		if($restart){
 			invoke_rc_d( "hostapd", "reload" );
-		} 
+		}
 
 		if($strip){
 			redirect("/network/wlan");
@@ -949,7 +949,7 @@ class Network extends CI_Controller{
 	function fw($strip="") {
 		$data = get_fwsettings();
 		$wan_ifc = $this->networkmanager->get_networkconfig($this->networkmanager->get_wan_interface());
-		if($wan_ifc["address"] == "0.0.0.0") {		
+		if($wan_ifc["address"] == "0.0.0.0") {
 			$data['disable_fw'] = true;
 		}
 		$data["disabled"] = "";
@@ -958,18 +958,18 @@ class Network extends CI_Controller{
 			$this->load->view(THEME.'/network/network_fw_view.php',$data);
 		}else{
 			$this->_renderfull($this->load->view(THEME.'/network/network_fw_view.php',$data,true));
-		}	
+		}
 	}
 
 	function profile($strip=""){
 
 		if(!$this->session->userdata("network_profile")) {
 			// this will happen on "old" systems that has no profile
-			$this->session->set_userdata("network_profile", "custom");      
+			$this->session->set_userdata("network_profile", "custom");
 		}
 
 		if( ($this->session->userdata("network_profile")=="router") ||
-			($this->session->userdata("network_profile")=="server") || 
+			($this->session->userdata("network_profile")=="server") ||
 			($this->session->userdata("network_profile")=="auto") )  {
 
 				$data[$this->session->userdata("network_profile")] = 'checked="checked"';
@@ -1038,7 +1038,7 @@ class Network extends CI_Controller{
 		$data['bridge_address'] = $data['type'] == 'bridge' ? $this->networkmanager->get_tor_bridge_address() : '';
 		$data['private_bridge'] = $data['type'] == 'bridge' ? !$this->networkmanager->get_tor_public_bridge() : false;
 
-		# Let the user read values from /etc/tor/torrc
+		# Let the user read values from /etc/tor/torrc.conf
 		$data['nickname'] = $this->networkmanager->get_tor_nickname();
 		$data['contact'] = $this->networkmanager->get_tor_contact();
 		$data['relay_port'] = $this->networkmanager->get_tor_relay_port();

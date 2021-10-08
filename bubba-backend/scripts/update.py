@@ -8,7 +8,7 @@ except ImportError:
 # Helpers
 
 def request(req):
-	ret=None	
+	ret=None
 	client = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
 	client.connect("/tmp/bubba-apt.socket")
 	client.send(json.dumps(req)+"\n")
@@ -16,7 +16,7 @@ def request(req):
 	#print "%s"%d
 	ret=json.loads(d)
 	client.close()
-	
+
 	return ret
 
 def docall(req, dump):

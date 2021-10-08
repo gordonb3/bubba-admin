@@ -196,4 +196,4 @@ class Ajax_album extends CI_Controller {
 	function _output($output) {
 		echo json_encode($this->json_data);
 	}
-} 
+}

@@ -93,10 +93,10 @@ $.throbber = {
 // TODO remove usage
 function cursor_wait() {
 	$.throbber.show();
-}		
+}
 function cursor_ready() {
 	$.throbber.hide();
-}		
+}
 
 function display_menu() {
     var width;
@@ -109,7 +109,7 @@ function display_menu() {
 		}
 		console.log( width );
 		var left = $(window).width()/2 - width / 2;
-		menu_dialog.parent().hide().animate( 
+		menu_dialog.parent().hide().animate(
 			{
 				'left': left,
 				'opacity': 'show'
@@ -125,7 +125,7 @@ function display_menu() {
 		if( config.ua.Browser == 'Safari' ) {
 			width = 575 + 3; // possible bug in safari
 		}
-		menu_dialog.parent().show().animate( 
+		menu_dialog.parent().show().animate(
 			{
 				'left': - width,
 				'opacity': 'hide'
@@ -143,7 +143,7 @@ function display_menu() {
 }
 
 function logout_dialog() {
-	
+
 	var buttons = [
         {
             'text': _("Logout"),
@@ -152,7 +152,7 @@ function logout_dialog() {
             'class' : 'ui-element-width-100'
 		}
 	];
-	$.confirm( 
+	$.confirm(
 			"",
 			_("Proceed with logout?"),
 			buttons
@@ -195,13 +195,13 @@ $(document).ready( function() {
 						$(this).children('span').html("+");
 					}
 					$(this).closest('fieldset').children('div').slideToggle(500);
-					
+
 				} else {
 					// change '-' sign to '+'
 					$(this).children('span').html("+");
 					$(this).closest('fieldset').children('div').slideUp(500);
 				}
-				
+
 			});
 		});
 		var iCheckbox_options = {

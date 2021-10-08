@@ -25,11 +25,11 @@
 			<input class="unitclass" type="hidden" name="unit"/>
 			<input type="submit" name="restore" value="<?=_("Restore")?>" <?if(empty($disks)):?>disabled="disabled"<?endif?>/>
 		</form>
-		
+
 <form action="<?=FORMPREFIX?>/settings/backup" method="post" id="backupform">
 			<input class="unitclass" type="hidden" name="unit"/>
 			<input type="submit" name="backup" value="<?=_("Backup")?>" <?if(empty($disks)):?>disabled="disabled"<?endif?>/>
-		</form>		
+		</form>
 	</td>
 </tr>
 </tfoot>

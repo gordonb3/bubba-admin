@@ -288,7 +288,7 @@ bool RaidDevs::DestroyMD(const string& dev){
 	// Make sure device is stopped
 	this->StopMD(dev);
 
-	
+
 	if(!remove_devices(MDCONF)){
 		return false;
 	}
@@ -301,7 +301,7 @@ bool RaidDevs::DestroyMD(const string& dev){
 }
 
 bool RaidDevs::FailDisk(const string& md, const string& disk){
-	
+
 	const char* cmd[] = {
 		MDADM,
 		"--manage",

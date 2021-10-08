@@ -1,4 +1,4 @@
-#!/usr/bin/perl 
+#!/usr/bin/perl
 
 use strict;
 use IPC::Open3;
@@ -38,7 +38,7 @@ sub d_print {
 
 	if(DEBUG) {
 		print @_;
-	}  
+	}
 }
 
 sub get_ifinfo {
@@ -86,12 +86,12 @@ sub exec_cmd { # only the command as argument.
 
 	my $cmd = shift;
 	my($wtr, $rdr, $err);
-	$err = 1; # we want to dump errors here  
+	$err = 1; # we want to dump errors here
 	my $pid = open3($wtr, $rdr, $err,$cmd);
 	my @out=<$rdr>;
 	waitpid($pid,0);
 
-	return @out;  
+	return @out;
 }
 
 
@@ -157,7 +157,7 @@ sub do_listrules{
 			if ( /^\s*$/) {
 				$state="START";
 			}
-		} 
+		}
 	}
 	return $_;
 
@@ -204,7 +204,7 @@ sub save_rules {
 
 	my $pid = open3($wtr, $rdr, $err,$cmd);
 	waitpid($pid,0);
-} 
+}
 
 
 sub check_port { # args are port,protocol,source IP,table,chain,local-ip ( source as 10.10.10.1/24)
@@ -229,7 +229,7 @@ sub check_port { # args are port,protocol,source IP,table,chain,local-ip ( sourc
 		my $h_conditions = $h_rule->{conditions};
 		my $h_actions = $h_rule->{actions};
 
-		if($source) { 
+		if($source) {
 			if(! $source eq "*") { # if "*" dont care about the source match.
 				$source_match = ($h_conditions->{match}->{s} =~ m/$source/)
 			}
@@ -262,7 +262,7 @@ sub check_port { # args are port,protocol,source IP,table,chain,local-ip ( sourc
 
 			$h_conditions->{$prot}->{$type} =~ m/(\d+):*(\d*)/;
 			$rule_startport = $1;
-			if ($2) { 
+			if ($2) {
 				$rule_endport = $2;
 			} else {
 				$rule_endport = $1;
@@ -270,7 +270,7 @@ sub check_port { # args are port,protocol,source IP,table,chain,local-ip ( sourc
 
 			$port=~ m/(\d+):*(\d*)/;
 			$startport = $1;
-			if ($2) { 
+			if ($2) {
 				$endport = $2;
 			} else {
 				$endport = $1;
@@ -282,14 +282,14 @@ sub check_port { # args are port,protocol,source IP,table,chain,local-ip ( sourc
 				$startport = $tmp;
 			}
 
-			if( ($startport >= $rule_startport && $startport <= $rule_endport) || ($endport >= $rule_startport && $endport <= $rule_endport) || ($startport<$rule_startport && $endport > $rule_endport) ) { 
+			if( ($startport >= $rule_startport && $startport <= $rule_endport) || ($endport >= $rule_startport && $endport <= $rule_endport) || ($startport<$rule_startport && $endport > $rule_endport) ) {
 				d_print "Port $port ($startport:$endport) is in use.\n";
 				push(@matched_rules,$ruleindex);
 			}
 
 		}
 		$ruleindex++;
-	} 
+	}
 	return @matched_rules;
 }
 

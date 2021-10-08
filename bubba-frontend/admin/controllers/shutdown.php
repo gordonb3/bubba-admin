@@ -3,22 +3,22 @@ class Shutdown extends CI_Controller{
 
 	function __construct(){
 		parent::__construct();
-		
+
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);
 
 		$this->Auth_model->enforce_policy('web_admin','administer', 'admin');
 
 	}
-	
+
 	function Shutdown(){
 		self::__construct();
 	}
 
 	function index($strip=""){
-		confirm();	
+		confirm();
 	}
-	
+
 	function confirm($strip=""){
 		if(!$this->input->post('action') || $this->input->post('cancel')) {
 			redirect('/stat');
@@ -41,10 +41,10 @@ class Shutdown extends CI_Controller{
 				$mdata["dialog_menu"] = $this->load->view(THEME.'/menu_view',$this->menu->get_dialog_menu(),true);
 				$mdata["content"]=$this->load->view(THEME.'/shutdown_view',$data,true);
 				$this->load->view(THEME.'/main_view',$mdata);
-	
+
 			}
 			$this->Auth_model->Logout();
 		}
 	}
-}	
+}
 ?>

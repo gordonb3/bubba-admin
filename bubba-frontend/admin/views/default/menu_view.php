@@ -1,5 +1,5 @@
 <div class="ui-helper-hidden">
-	<div id="menu">      
+	<div id="menu">
 		<?foreach($main_menu as $menuitem) {
 			print "\t$menuitem\n";
 		}?>

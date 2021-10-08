@@ -21,10 +21,10 @@ public:
 protected:
 
   virtual void on_print(int a);
-  
+
   typedef sigc::signal<void, int> type_signal_print;
   type_signal_print signal_print;
-    
+
 };
 
 Something::Something()
@@ -45,6 +45,6 @@ void Something::on_print(int a)
 
 int main()
 {
-  Something something;  
+  Something something;
   return 0;
 }

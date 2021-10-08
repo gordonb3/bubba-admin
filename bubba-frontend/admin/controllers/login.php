@@ -1,12 +1,12 @@
 <?php
 class Login extends CI_Controller{
 	function index($strip=""){
-	
+
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);
 
 		$this->load->model('networkmanager');
-	
+
 		$myuser=$this->input->post('username');
 		$mypass=$this->input->post('password');
 		$caller = $this->session->flashdata('caller');
@@ -68,7 +68,7 @@ class Login extends CI_Controller{
 			} else {
 				$data['authfail'] = true;
 			}
-			
+
 		} else { // no post or data missing.
 			if(!$myuser){
 				$data['uidmissing']=true;
@@ -78,7 +78,7 @@ class Login extends CI_Controller{
 				$data['pwdmissing']=true;
 				$data['authfail'] = true;
 			}
-			
+
 			// is there a redirect uri? Then show the login-page.
 			if($caller) {
 				$data["show_login"] = true;
@@ -94,14 +94,14 @@ class Login extends CI_Controller{
 			}
 
 			$data["show_sideboard"] = (!isset($conf["default_sideboard"]) || $conf["default_sideboard"]);
-			
+
 			if( (!isset($conf["run_wizard"]) || $conf["run_wizard"]) && ($this->networkmanager->access_interface() != $this->networkmanager->get_wan_interface()) ) {
 				$data["show_login"] = true;
 				$data["required_user"] = "admin";
                 $data["redirect_uri"] = FORMPREFIX."/stat"; // XXX Remove?
 			}
 		}
-		
+
 		/*  output data */
 		if($strip=="json"){
 			header("Content-type: application/json");
@@ -115,9 +115,9 @@ class Login extends CI_Controller{
 			$mdata["content"]=$this->load->view(THEME.'/login_view', $this->menu->get_dialog_menu(),true);
 			$this->load->view(THEME.'/main_view',$mdata);
 		}
-		
+
 	}
-	
+
 	function checkauth() {
 		if($json_data["valid_session"] = $this->Auth_model->CheckAuth("web_admin")) {
 			$json_data["user"] = $this->session->userdata('user');

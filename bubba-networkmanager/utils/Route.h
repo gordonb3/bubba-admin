@@ -38,16 +38,16 @@ private:
 	typedef map<string,string> Hash;
 	typedef list<Hash> Entries;
 	Entries entries;
-	
+
 	string iptostring(const string& ip);
 	void parse_route();
 	void dump_map(const Hash& p);
-	
+
 	Route();
 
 	Route(const Route& r);
 	Route& operator=(const Route& r);
-	
+
 public:
 
 	static Route& Instance();

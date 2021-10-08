@@ -291,7 +291,7 @@ struct lambda_group2 : public lambda_base
   struct deduce_result_type
     { typedef typename functor_type::template deduce_result_type<
           typename value1_type::template deduce_result_type<
-            typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>::type, 
+            typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>::type,
           typename value2_type::template deduce_result_type<
             typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>::type
         >::type type; };
@@ -304,10 +304,10 @@ struct lambda_group2 : public lambda_base
   typename deduce_result_type<T_arg1>::type
   operator() (T_arg1 _A_1) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1>::type, 
+          typename value1_type::template deduce_result_type<T_arg1>::type,
           typename value2_type::template deduce_result_type<T_arg1>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass>(_A_1), 
+          typename type_trait<T_arg1>::pass>(_A_1),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass>(_A_1)); }
 
@@ -316,10 +316,10 @@ struct lambda_group2 : public lambda_base
   typename deduce_result_type<T_arg1>::type
   sun_forte_workaround (T_arg1 _A_1) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1>::type, 
+          typename value1_type::template deduce_result_type<T_arg1>::type,
           typename value2_type::template deduce_result_type<T_arg1>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass>(_A_1), 
+          typename type_trait<T_arg1>::pass>(_A_1),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass>(_A_1)); }
   #endif //SIGC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
@@ -328,10 +328,10 @@ struct lambda_group2 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2>::type
   operator() (T_arg1 _A_1, T_arg2 _A_2) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2>::type,
           typename value2_type::template deduce_result_type<T_arg1,T_arg2>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2)); }
 
@@ -340,10 +340,10 @@ struct lambda_group2 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2>::type
   sun_forte_workaround (T_arg1 _A_1, T_arg2 _A_2) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2>::type,
           typename value2_type::template deduce_result_type<T_arg1,T_arg2>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2)); }
   #endif //SIGC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
@@ -352,10 +352,10 @@ struct lambda_group2 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3>::type
   operator() (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type,
           typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3)); }
 
@@ -364,10 +364,10 @@ struct lambda_group2 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3>::type
   sun_forte_workaround (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type,
           typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3)); }
   #endif //SIGC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
@@ -376,10 +376,10 @@ struct lambda_group2 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4>::type
   operator() (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type,
           typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4)); }
 
@@ -388,10 +388,10 @@ struct lambda_group2 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4>::type
   sun_forte_workaround (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type,
           typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4)); }
   #endif //SIGC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
@@ -400,10 +400,10 @@ struct lambda_group2 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5>::type
   operator() (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4, T_arg5 _A_5) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type,
           typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5)); }
 
@@ -412,10 +412,10 @@ struct lambda_group2 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5>::type
   sun_forte_workaround (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4, T_arg5 _A_5) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type,
           typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5)); }
   #endif //SIGC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
@@ -424,10 +424,10 @@ struct lambda_group2 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6>::type
   operator() (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4, T_arg5 _A_5, T_arg6 _A_6) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type,
           typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6)); }
 
@@ -436,10 +436,10 @@ struct lambda_group2 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6>::type
   sun_forte_workaround (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4, T_arg5 _A_5, T_arg6 _A_6) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type,
           typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6)); }
   #endif //SIGC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
@@ -448,10 +448,10 @@ struct lambda_group2 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7>::type
   operator() (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4, T_arg5 _A_5, T_arg6 _A_6, T_arg7 _A_7) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type,
           typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7)); }
 
@@ -460,10 +460,10 @@ struct lambda_group2 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7>::type
   sun_forte_workaround (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4, T_arg5 _A_5, T_arg6 _A_6, T_arg7 _A_7) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type,
           typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7)); }
   #endif //SIGC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
@@ -518,9 +518,9 @@ struct lambda_group3 : public lambda_base
   struct deduce_result_type
     { typedef typename functor_type::template deduce_result_type<
           typename value1_type::template deduce_result_type<
-            typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>::type, 
+            typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>::type,
           typename value2_type::template deduce_result_type<
-            typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>::type, 
+            typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>::type,
           typename value3_type::template deduce_result_type<
             typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>::type
         >::type type; };
@@ -533,13 +533,13 @@ struct lambda_group3 : public lambda_base
   typename deduce_result_type<T_arg1>::type
   operator() (T_arg1 _A_1) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1>::type, 
-          typename value2_type::template deduce_result_type<T_arg1>::type, 
+          typename value1_type::template deduce_result_type<T_arg1>::type,
+          typename value2_type::template deduce_result_type<T_arg1>::type,
           typename value3_type::template deduce_result_type<T_arg1>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass>(_A_1), 
+          typename type_trait<T_arg1>::pass>(_A_1),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass>(_A_1), 
+          typename type_trait<T_arg1>::pass>(_A_1),
         this->value3_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass>(_A_1)); }
 
@@ -548,13 +548,13 @@ struct lambda_group3 : public lambda_base
   typename deduce_result_type<T_arg1>::type
   sun_forte_workaround (T_arg1 _A_1) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1>::type, 
-          typename value2_type::template deduce_result_type<T_arg1>::type, 
+          typename value1_type::template deduce_result_type<T_arg1>::type,
+          typename value2_type::template deduce_result_type<T_arg1>::type,
           typename value3_type::template deduce_result_type<T_arg1>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass>(_A_1), 
+          typename type_trait<T_arg1>::pass>(_A_1),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass>(_A_1), 
+          typename type_trait<T_arg1>::pass>(_A_1),
         this->value3_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass>(_A_1)); }
   #endif //SIGC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
@@ -563,13 +563,13 @@ struct lambda_group3 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2>::type
   operator() (T_arg1 _A_1, T_arg2 _A_2) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2>::type, 
-          typename value2_type::template deduce_result_type<T_arg1,T_arg2>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2>::type,
+          typename value2_type::template deduce_result_type<T_arg1,T_arg2>::type,
           typename value3_type::template deduce_result_type<T_arg1,T_arg2>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2),
         this->value3_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2)); }
 
@@ -578,13 +578,13 @@ struct lambda_group3 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2>::type
   sun_forte_workaround (T_arg1 _A_1, T_arg2 _A_2) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2>::type, 
-          typename value2_type::template deduce_result_type<T_arg1,T_arg2>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2>::type,
+          typename value2_type::template deduce_result_type<T_arg1,T_arg2>::type,
           typename value3_type::template deduce_result_type<T_arg1,T_arg2>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2),
         this->value3_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass>(_A_1, _A_2)); }
   #endif //SIGC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
@@ -593,13 +593,13 @@ struct lambda_group3 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3>::type
   operator() (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type, 
-          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type,
+          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type,
           typename value3_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3),
         this->value3_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3)); }
 
@@ -608,13 +608,13 @@ struct lambda_group3 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3>::type
   sun_forte_workaround (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type, 
-          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type,
+          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type,
           typename value3_type::template deduce_result_type<T_arg1,T_arg2,T_arg3>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3),
         this->value3_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass>(_A_1, _A_2, _A_3)); }
   #endif //SIGC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
@@ -623,13 +623,13 @@ struct lambda_group3 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4>::type
   operator() (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type, 
-          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type,
+          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type,
           typename value3_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4),
         this->value3_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4)); }
 
@@ -638,13 +638,13 @@ struct lambda_group3 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4>::type
   sun_forte_workaround (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type, 
-          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type,
+          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type,
           typename value3_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4),
         this->value3_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass>(_A_1, _A_2, _A_3, _A_4)); }
   #endif //SIGC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
@@ -653,13 +653,13 @@ struct lambda_group3 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5>::type
   operator() (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4, T_arg5 _A_5) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type, 
-          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type,
+          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type,
           typename value3_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5),
         this->value3_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5)); }
 
@@ -668,13 +668,13 @@ struct lambda_group3 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5>::type
   sun_forte_workaround (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4, T_arg5 _A_5) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type, 
-          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type,
+          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type,
           typename value3_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5),
         this->value3_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5)); }
   #endif //SIGC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
@@ -683,13 +683,13 @@ struct lambda_group3 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6>::type
   operator() (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4, T_arg5 _A_5, T_arg6 _A_6) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type, 
-          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type,
+          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type,
           typename value3_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6),
         this->value3_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6)); }
 
@@ -698,13 +698,13 @@ struct lambda_group3 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6>::type
   sun_forte_workaround (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4, T_arg5 _A_5, T_arg6 _A_6) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type, 
-          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type,
+          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type,
           typename value3_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6),
         this->value3_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6)); }
   #endif //SIGC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD
@@ -713,13 +713,13 @@ struct lambda_group3 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7>::type
   operator() (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4, T_arg5 _A_5, T_arg6 _A_6, T_arg7 _A_7) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type, 
-          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type,
+          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type,
           typename value3_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7),
         this->value3_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7)); }
 
@@ -728,13 +728,13 @@ struct lambda_group3 : public lambda_base
   typename deduce_result_type<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7>::type
   sun_forte_workaround (T_arg1 _A_1, T_arg2 _A_2, T_arg3 _A_3, T_arg4 _A_4, T_arg5 _A_5, T_arg6 _A_6, T_arg7 _A_7) const
     { return this->func_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type, 
-          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type, 
+          typename value1_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type,
+          typename value2_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type,
           typename value3_type::template deduce_result_type<T_arg1,T_arg2,T_arg3,T_arg4,T_arg5,T_arg6,T_arg7>::type>(
         this->value1_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7),
         this->value2_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
-          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7), 
+          typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7),
         this->value3_.SIGC_WORKAROUND_OPERATOR_PARENTHESES<
           typename type_trait<T_arg1>::pass,typename type_trait<T_arg2>::pass,typename type_trait<T_arg3>::pass,typename type_trait<T_arg4>::pass,typename type_trait<T_arg5>::pass,typename type_trait<T_arg6>::pass,typename type_trait<T_arg7>::pass>(_A_1, _A_2, _A_3, _A_4, _A_5, _A_6, _A_7)); }
   #endif //SIGC_TEMPLATE_SPECIALIZATION_OPERATOR_OVERLOAD

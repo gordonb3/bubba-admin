@@ -1,24 +1,24 @@
 /*
-    
+
     bubba-networkmanager - http://www.excito.com/
-    
+
     InterfaceController.cpp - this file is part of bubba-networkmanager.
-    
+
     Copyright (C) 2009 Tor Krill <tor@excito.com>
-    
+
     bubba-networkmanager is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2
     as published by the Free Software Foundation.
-    
+
     bubba-networkmanager is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-    
+
     You should have received a copy of the GNU General Public License
     version 2 along with libeutils; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
-    
+
     $Id$
 */
 
@@ -365,7 +365,7 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 		c.cfg["name"]=ifname;
 		if(cfg.isMember("auto")){
 			c.cfg["auto"]=true;
-		}		
+		}
 		cfgs[BridgeStatic]=c;
 
 	}else if(cfgs.find(BridgeStatic)!=cfgs.end()){
@@ -389,7 +389,7 @@ void InterfaceController::SetStaticCfg(const string& ifname, const Json::Value& 
 		c.cfg["type"]="bridge";
 		if(cfg.isMember("auto")){
 			c.cfg["auto"]=true;
-		}				
+		}
 		cfgs[BridgeStatic]=c;
 
 	}else{
@@ -444,7 +444,7 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 		c.cfg["type"]="ethernet";
 		if(cfg.isMember("auto")){
 			c.cfg["auto"]=true;
-		}				
+		}
 		cfgs[EthDynamic]=c;
 
 	}else if(cfgs.find(EthDynamic)!=cfgs.end()){
@@ -454,7 +454,7 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 		}
 		if(cfg.isMember("auto")){
 			cfgs[EthDynamic].cfg["auto"]=true;
-		}		
+		}
 
 	}else if(cfgs.find(EthStatic)!=cfgs.end()){
 		cfgs.erase(EthStatic);
@@ -468,7 +468,7 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 		c.cfg["type"]="ethernet";
 		if(cfg.isMember("auto")){
 			c.cfg["auto"]=true;
-		}		
+		}
 		cfgs[EthDynamic]=c;
 
 	}else if(cfgs.find(BridgeDynamic)!=cfgs.end()){
@@ -477,7 +477,7 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 		cfgs[BridgeDynamic].cfg["config"]=cfg["config"];
 		if(cfg.isMember("auto")){
 			cfgs[BridgeDynamic].cfg["auto"]=true;
-		}		
+		}
 
 
 	}else if(cfgs.find(BridgeStatic)!=cfgs.end()){
@@ -492,7 +492,7 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 		c.cfg["type"]="bridge";
 		if(cfg.isMember("auto")){
 			c.cfg["auto"]=true;
-		}				
+		}
 		cfgs[BridgeDynamic]=c;
 
 	}else if(cfgs.find(BridgeRaw)!=cfgs.end()){
@@ -507,7 +507,7 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 		c.cfg["type"]="bridge";
 		if(cfg.isMember("auto")){
 			c.cfg["auto"]=true;
-		}		
+		}
 		cfgs[BridgeDynamic]=c;
 
 	}else{
@@ -525,7 +525,7 @@ void InterfaceController::SetDynamicCfg(const string& ifname, const Json::Value&
 		Hosts::UpdateIP(e,ip,hostname);
 
 		h.Delete(hostname);
-		h.Add(e);		
+		h.Add(e);
 		h.WriteBack();
 	}
 

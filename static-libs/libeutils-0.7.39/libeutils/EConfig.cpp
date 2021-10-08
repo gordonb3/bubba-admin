@@ -1,24 +1,24 @@
 /*
-    
+
     libeutils - http://www.excito.com/
-    
+
     EConfig.cpp - this file is part of libeutils.
-    
+
     Copyright (C) 2007 Tor Krill <tor@excito.com>
-    
+
     libeutils is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2
     as published by the Free Software Foundation.
-    
+
     libeutils is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-    
+
     You should have received a copy of the GNU General Public License
     version 2 along with libeutils; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
-    
+
     $Id$
 */
 
@@ -59,16 +59,16 @@ void EConfig::SigHandler(int signal){
 }
 
 EConfig::EConfig(string cfgpath){
-	
+
 	this->cfg_path=StringTools::GetPath(cfgpath);
 	this->cfg_file=cfgpath;
-	
+
 	if(stat(this->cfg_file.c_str(),&this->sbuf)<0){
 		throw std::runtime_error("Failed to stat config file");
 	}
 	this->last_stat=time(NULL);
 	this->stat_positive=true;
-	
+
 	if(EConfig::usecount++==0){
 		//std::cout << "First instance setup static vars"<<std::endl;
 		EConfig::cfglist=new list<EConfig*>();
@@ -80,7 +80,7 @@ EConfig::EConfig(string cfgpath){
 			throw std::runtime_error(string("Unable to attach to sighup")+strerror(errno));
 		}
 	}
-	
+
 	if(!(this->cfg=g_key_file_new())){
 		throw std::runtime_error("Falied to create config");
 	}
@@ -90,16 +90,16 @@ EConfig::EConfig(string cfgpath){
 	if(!load_file(this->cfg_file.c_str(),&buf,&size)){
 		throw std::runtime_error("Unable to load config from file");
 	}
-	
+
 	if(!g_key_file_load_from_data(this->cfg,buf,size,G_KEY_FILE_NONE,NULL)){
 		throw std::runtime_error("Unable to parse config from file");
 	}
 	free(buf);
-	
+
 	if((this->dnot_fd=open(this->cfg_path.c_str(),O_ASYNC))<0){
 		throw std::runtime_error(string("Unable to open dir for watch ")+strerror(errno));
 	}
-	
+
 	if(fcntl(this->dnot_fd,F_SETSIG,SIGRTMIN+3)<0){
 		throw std::runtime_error(string("Failed to alter signal")+strerror(errno));
 	}
@@ -107,8 +107,8 @@ EConfig::EConfig(string cfgpath){
 	if(fcntl(this->dnot_fd,F_NOTIFY,DN_MODIFY|DN_MULTISHOT)<0){
 		throw std::runtime_error(string("Failed to add dnotify")+strerror(errno));
 	}
-	
-	
+
+
 	// Add ourself on notify list.
 	EConfig::listlock->Lock();
 	EConfig::cfglist->push_back(this);
@@ -164,7 +164,7 @@ bool EConfig::GetBool(const string& group,const string& key){
 	this->cfg_mutex.Lock();
 	gboolean bo=g_key_file_get_boolean(this->cfg,group.c_str(),key.c_str(),&err);
 	this->cfg_mutex.Unlock();
-	
+
 	if(err==NULL){
 		return bo;
 	}else{
@@ -177,7 +177,7 @@ int EConfig::GetInteger(const string& group,const string& key){
 	this->cfg_mutex.Lock();
 	gint in=g_key_file_get_integer(this->cfg,group.c_str(),key.c_str(),&err);
 	this->cfg_mutex.Unlock();
-	
+
 	if(err==NULL){
 		return in;
 	}else{
@@ -192,7 +192,7 @@ double EConfig::GetDouble(const string& group,const string& key){
 	this->cfg_mutex.Lock();
 	gdouble db=g_key_file_get_double(this->cfg,group.c_str(),key.c_str(),&err);
 	this->cfg_mutex.Unlock();
-	
+
 	if(err==NULL){
 		return db;
 	}else{
@@ -253,11 +253,11 @@ void EConfig::SetInteger(const string& group,const string& key,const int value){
 void EConfig::WriteConfig(void){
 	gsize sz;
 	this->file_mutex.Lock();
-	
+
 	this->selfwrite=true;
-	
+
 	gchar* file=g_key_file_to_data (this->cfg,&sz,NULL);
-	
+
 	if(file){
 		// File should be up to date if we wrote it ourself
 		this->stat_positive=true;
@@ -284,11 +284,11 @@ static bool save_file(const char* name, char* buf, ssize_t size){
 	int fd;
 	int res;
 	ssize_t wr,wr_tot=0;
-	
+
 	if((fd=open(name,O_WRONLY|O_CREAT|O_TRUNC,00660))<0){
 		return false;
 	}
-	
+
 	do{
 		res=flock(fd,LOCK_EX);
 	}while(res==EINTR);
@@ -320,19 +320,19 @@ static bool load_file(const char* name, char** buf, ssize_t* size){
 	int fd;
 	int res;
 	ssize_t rd,rd_tot=0;
-	
+
 	if(stat(name,&sbuf)<0){
 		return false;
 	}
-	
+
 	if(sbuf.st_size==0){
 		return false;
 	}
-	
+
 	if((fd=open(name,O_RDONLY))<0){
 		return false;
 	}
-	
+
 	do{
 		res=flock(fd,LOCK_SH);
 	}while(res==EINTR);
@@ -341,12 +341,12 @@ static bool load_file(const char* name, char** buf, ssize_t* size){
 		close(fd);
 		return false;
 	}
-	
+
 	if((*buf=(char*)malloc(sbuf.st_size))==NULL){
 		close(fd);
 		return false;
 	}
-	
+
 	while((rd=read(fd,*buf+rd_tot,sbuf.st_size-rd_tot))>0){
 		rd_tot+=rd;
 	}
@@ -370,7 +370,7 @@ static bool load_file(const char* name, char** buf, ssize_t* size){
 
 // This method is a bit tricky. Can't use exceptions here since our destructor could be running
 // resulting in a nice deadlock.
- 
+
 void EConfig::UpdateFromDisk(bool force){
 	struct stat l_stat;
 	GError* err=NULL;
@@ -407,7 +407,7 @@ void EConfig::UpdateFromDisk(bool force){
 		if(!force){
 			this->stat_positive=true;
 		}
-	
+
 		g_key_file_free(this->cfg);
 
 		if(!(this->cfg=g_key_file_new())){
@@ -415,7 +415,7 @@ void EConfig::UpdateFromDisk(bool force){
 			//std::cerr << "Failed to create config"<<std::endl;
 			return;
 		}
-		
+
 		ssize_t size;
 		char* buf;
 		if(!load_file(this->cfg_file.c_str(),&buf,&size)){
@@ -426,7 +426,7 @@ void EConfig::UpdateFromDisk(bool force){
 				//std::cerr <<"Unable to load config from file"
 				//	<<this->cfg_file<<std::endl;
 				return;
-			}				
+			}
 		}
 		if(size>0){
 			if(!g_key_file_load_from_data(this->cfg,buf,size,G_KEY_FILE_NONE,&err)){
@@ -453,18 +453,18 @@ void EConfig::UpdateFromDisk(bool force){
 EConfig::~EConfig(void){
 	EConfig::listlock->Lock();
 	EConfig::cfglist->remove(this);
-	
+
 	close(this->dnot_fd);
-	
+
 	if(--EConfig::usecount==0){
-		EConfig::listlock->Unlock();	
+		EConfig::listlock->Unlock();
 		//std::cout<<"Last element removed"<<endl;
 		delete EConfig::cfglist;
 		delete EConfig::listlock;
 	}else{
-		EConfig::listlock->Unlock();	
-	}	
-	
+		EConfig::listlock->Unlock();
+	}
+
 	g_key_file_free(this->cfg);
 }
 }

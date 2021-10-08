@@ -830,43 +830,43 @@ bubba-frontend (2.1.33) vincent hugo; urgency=low
 
 bubba-frontend (2.1.31) vincent hugo; urgency=low
 
-  * typo in key names 
+  * typo in key names
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 11 Apr 2011 14:50:04 +0200
 
 bubba-frontend (2.1.30) vincent hugo; urgency=low
 
-  * fix ini 
+  * fix ini
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 11 Apr 2011 14:46:53 +0200
 
 bubba-frontend (2.1.29) vincent hugo; urgency=low
 
-  * put contents as well 
+  * put contents as well
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 11 Apr 2011 14:35:55 +0200
 
 bubba-frontend (2.1.28) vincent hugo; urgency=low
 
-  * more fixes 
+  * more fixes
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 11 Apr 2011 14:31:29 +0200
 
 bubba-frontend (2.1.27) vincent hugo; urgency=low
 
-  * fix errors 
+  * fix errors
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 11 Apr 2011 14:29:58 +0200
 
 bubba-frontend (2.1.26) vincent hugo; urgency=low
 
-  * config file parsing 
+  * config file parsing
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 11 Apr 2011 14:15:05 +0200
 
 bubba-frontend (2.1.25) vincent hugo; urgency=low
 
-  * Accidentally used delete instead of unset 
+  * Accidentally used delete instead of unset
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 11 Apr 2011 12:24:55 +0200
 
@@ -878,7 +878,7 @@ bubba-frontend (2.1.24) vincent hugo; urgency=low
 
 bubba-frontend (2.1.23) vincent hugo; urgency=low
 
-  * Fix some BUBBA|2 → B3 strings 
+  * Fix some BUBBA|2 → B3 strings
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 31 Mar 2011 11:34:23 +0200
 
@@ -890,7 +890,7 @@ bubba-frontend (2.1.22) vincent hugo; urgency=low
 
 bubba-frontend (2.1.21) vincent hugo; urgency=low
 
-  * Adding bubba-kernel to the list of installed packages (Closes: 1616) 
+  * Adding bubba-kernel to the list of installed packages (Closes: 1616)
   * Adding bubba package to list of installed packages, chaning session
     userdata to use that version isntead of bubba-frontend version.
 
@@ -905,14 +905,14 @@ bubba-frontend (2.1.20) vincent hugo; urgency=low
 
 bubba-frontend (2.1.19) vincent hugo; urgency=low
 
-  * Fixed typo in filemanager tooltips. RT# 3558 
+  * Fixed typo in filemanager tooltips. RT# 3558
 
  -- Tor Krill <tor@excito.com>  Fri, 26 Nov 2010 10:51:02 +0100
 
 bubba-frontend (2.1.18) vincent hugo; urgency=low
 
   * Try removing failed and detached raid disks when pressing remove
-    in UI. 
+    in UI.
 
  -- Tor Krill <tor@excito.com>  Wed, 03 Nov 2010 14:21:55 +0100
 
@@ -924,32 +924,32 @@ bubba-frontend (2.1.17) vincent hugo; urgency=low
 
 bubba-frontend (2.1.16) vincent hugo; urgency=low
 
-  * Modified help texts. 
+  * Modified help texts.
 
  -- PA Nilsson <pa@excito.com>  Tue, 02 Nov 2010 09:43:14 +0100
 
 bubba-frontend (2.1.15) vincent hugo; urgency=low
 
-  * Add json return value for lan settings 
-  * Fix help texts 
+  * Add json return value for lan settings
+  * Fix help texts
 
  -- Tor Krill <tor@excito.com>  Thu, 28 Oct 2010 15:01:32 +0200
 
 bubba-frontend (2.1.14) lucid; urgency=low
 
-  * Fixed default language to show correct lang when no default is set. (Closes: #1596) 
+  * Fixed default language to show correct lang when no default is set. (Closes: #1596)
 
  -- PA Nilsson <pa@excito.com>  Tue, 26 Oct 2010 14:28:09 +0200
 
 bubba-frontend (2.1.13) vincent hugo; urgency=low
 
-  * Use utf8 charset by default on ntfs and vfat mounts 
+  * Use utf8 charset by default on ntfs and vfat mounts
 
  -- Tor Krill <tor@excito.com>  Mon, 25 Oct 2010 16:05:00 +0200
 
 bubba-frontend (2.1.12) lucid; urgency=low
 
-  * Extended php timeout to 5min for backup/restore settings. (Closes: #1597) 
+  * Extended php timeout to 5min for backup/restore settings. (Closes: #1597)
   * Fixed error message when failure to remove user account. (Closes: 1553)
 
  -- PA Nilsson <pa@excito.com>  Fri, 22 Oct 2010 13:52:13 +0200
@@ -957,19 +957,19 @@ bubba-frontend (2.1.12) lucid; urgency=low
 bubba-frontend (2.1.11) vincent hugo; urgency=low
 
   * Fixed wizard to auto start in with language selection. (Closes: #1573)
-  * Fixed php error in easyfind section of wizard. (Closes: #1575) 
-  * Removed debug print (Closes: #1577) 
-  * Fixed wrong tooltip for english "download" button. (Closes: #1574) 
-  * Added german texts. 
-  * More texts. (Closes: #1578) 
-  * Removed language choice for admin (Closes: #1576,1582) 
-  * Fixed language choice for non-admin users. 
+  * Fixed php error in easyfind section of wizard. (Closes: #1575)
+  * Removed debug print (Closes: #1577)
+  * Fixed wrong tooltip for english "download" button. (Closes: #1574)
+  * Added german texts.
+  * More texts. (Closes: #1578)
+  * Removed language choice for admin (Closes: #1576,1582)
+  * Fixed language choice for non-admin users.
 
  -- PA Nilsson <pa@excito.com>  Fri, 22 Oct 2010 12:04:53 +0200
 
 bubba-frontend (2.1.10) lucid; urgency=low
 
-  * Updated some german help texts 
+  * Updated some german help texts
 
  -- PA Nilsson <pa@excito.com>  Thu, 14 Oct 2010 10:46:37 +0200
 
@@ -1001,18 +1001,18 @@ bubba-frontend (2.1.6) vincent hugo; urgency=low
 bubba-frontend (2.1.5) lucid; urgency=low
 
   * Added support for easyfind-pdns
-  * Added german language files 
+  * Added german language files
 
  -- PA Nilsson <pa@excito.com>  Tue, 05 Oct 2010 12:01:43 +0200
 
 bubba-frontend (2.1.4) vincent hugo; urgency=low
 
   * Initial work on multiple language support
-  * Possibility to add user defined languages. 
-  * Select default language in first wizard page. 
-  * Moved language selection to seperate wizard page. 
-  * Added possibility for user to select system default lang. 
-  * 
+  * Possibility to add user defined languages.
+  * Select default language in first wizard page.
+  * Moved language selection to seperate wizard page.
+  * Added possibility for user to select system default lang.
+  *
 
  -- PA Nilsson <pa@excito.com>  Tue, 28 Sep 2010 14:04:23 +0200
 
@@ -1024,7 +1024,7 @@ bubba-frontend (2.1.3) vincent hugo; urgency=low
 
 bubba-frontend (2.1.2) vincent hugo; urgency=low
 
-  * Don't error if print info fields are missing 
+  * Don't error if print info fields are missing
 
  -- Tor Krill <tor@excito.com>  Thu, 09 Sep 2010 17:44:38 +0200
 
@@ -1051,25 +1051,25 @@ bubba-frontend (2.1~pre19) vincent hugo; urgency=low
 
 bubba-frontend (2.1~pre18) vincent hugo; urgency=low
 
-  * Don't set errexit on postinst 
+  * Don't set errexit on postinst
 
  -- Tor Krill <tor@excito.com>  Tue, 31 Aug 2010 13:49:09 +0200
 
 bubba-frontend (2.1~pre17) vincent hugo; urgency=low
 
-  * Debug 
+  * Debug
 
  -- Tor Krill <tor@excito.com>  Tue, 31 Aug 2010 13:32:39 +0200
 
 bubba-frontend (2.1~pre16) vincent hugo; urgency=low
 
-  * Disable wlan settings if user has not set a timezone 
+  * Disable wlan settings if user has not set a timezone
 
  -- Tor Krill <tor@excito.com>  Tue, 31 Aug 2010 13:20:17 +0200
 
 bubba-frontend (2.1~pre15) hugo vincent; urgency=low
 
-  * First commit of changing Bubba to B3 
+  * First commit of changing Bubba to B3
 
  -- PA Nilsson <pa@excito.com>  Thu, 26 Aug 2010 12:53:33 +0200
 
@@ -1094,7 +1094,7 @@ bubba-frontend (2.1~pre12) vincent; urgency=low
 bubba-frontend (2.1~pre11) vincent; urgency=low
 
   * Fix bus parsing. (Closes: #1494)
-  * Fix blkid detection to bypass caches (Closes: #1493) 
+  * Fix blkid detection to bypass caches (Closes: #1493)
 
  -- Tor Krill <tor@excito.com>  Wed, 18 Aug 2010 15:29:29 +0200
 
@@ -1125,19 +1125,19 @@ bubba-frontend (2.1~pre7) vincent; urgency=low
 
 bubba-frontend (2.1~pre6) vincent; urgency=low
 
-  * remove a couple of json_decode 
+  * remove a couple of json_decode
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 15 Jul 2010 15:56:05 +0200
 
 bubba-frontend (2.1~pre5) vincent; urgency=low
 
-  * dont treat empty version as later 
+  * dont treat empty version as later
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 14 Jul 2010 15:57:52 +0200
 
 bubba-frontend (2.1~pre4) vincent; urgency=low
 
-  * actually modify xcache.ini 
+  * actually modify xcache.ini
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 21 Jun 2010 14:16:00 +0200
 
@@ -1157,37 +1157,37 @@ bubba-frontend (2.1~pre2) vincent; urgency=low
 
 bubba-frontend (2.1~pre1) vincent; urgency=low
 
-  * change version to pre-2.1-version 
+  * change version to pre-2.1-version
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 16 Jun 2010 15:05:52 +0200
 
 bubba-frontend (2.0.0.16) vincent; urgency=low
 
-  * Adding a ? to apache rewrite rule (hopefully resolve no such file error. 
+  * Adding a ? to apache rewrite rule (hopefully resolve no such file error.
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 16 Jun 2010 14:46:48 +0200
 
 bubba-frontend (2.0.0.15) lucid; urgency=low
 
-  * fix issue in browsecap and php 5.3.0 
+  * fix issue in browsecap and php 5.3.0
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 15 Jun 2010 18:25:55 +0200
 
 bubba-frontend (2.0.0.14) vincent; urgency=low
 
-  * fastcgi back 
+  * fastcgi back
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 15 Jun 2010 13:17:43 +0200
 
 bubba-frontend (2.0.0.13) vincent; urgency=low
 
-  * dump cdbs 
+  * dump cdbs
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 10 Jun 2010 12:18:41 +0200
 
 bubba-frontend (2.0.0.12) vincent; urgency=low
 
-  * drop dep to fireplay ( is included) 
+  * drop dep to fireplay ( is included)
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 09 Jun 2010 15:44:35 +0200
 
@@ -1195,7 +1195,7 @@ bubba-frontend (2.0.0.11) vincent; urgency=low
 
   * modify to work on squeeze
   * Switch to dpkg-source 3.0 (quilt) format
-  * remove convinience copy of jquery and jquery-ui 
+  * remove convinience copy of jquery and jquery-ui
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 09 Jun 2010 12:43:14 +0200
 
@@ -1210,15 +1210,15 @@ bubba-frontend (2.0.0.10) claire; urgency=low
 bubba-frontend (2.0.0.9) claire estelle; urgency=low
 
   * Remove usage of allow change, to make ieee802.11n possible for everyone
-    (Closes: #1454) 
+    (Closes: #1454)
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 31 May 2010 14:42:46 +0200
 
 bubba-frontend (2.0.0.8) claire estelle; urgency=low
 
-  * Rename all "directory" and "directories" to "folder/folders" 
+  * Rename all "directory" and "directories" to "folder/folders"
     (Closes: #1445)
-  * Rename "Imap" to "IMAP" (Closes: #1443) 
+  * Rename "Imap" to "IMAP" (Closes: #1443)
   * Fix translation of "filemanager-perm-fail-message" (Closes: #1448)
   * mark "Current restore operations" with black background (Closes: #1444)
 
@@ -1226,19 +1226,19 @@ bubba-frontend (2.0.0.8) claire estelle; urgency=low
 
 bubba-frontend (2.0.0.7) claire estelle; urgency=high
 
-  * adding admin-manager-specific favicons 
+  * adding admin-manager-specific favicons
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 23 Apr 2010 16:42:27 +0200
 
 bubba-frontend (2.0.0.6) claire estelle; urgency=emergency
 
-  * _really_ fix bug in valid shell (Closes: #1409) 
+  * _really_ fix bug in valid shell (Closes: #1409)
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 23 Apr 2010 14:33:06 +0200
 
 bubba-frontend (2.0.0.5) claire estelle; urgency=high
 
-  * fix bug in identify valid shell (Closes: #1409) 
+  * fix bug in identify valid shell (Closes: #1409)
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 23 Apr 2010 12:15:34 +0200
 
@@ -1281,7 +1281,7 @@ bubba-frontend (1.9.69) claire estelle; urgency=low
 
 bubba-frontend (1.9.68) claire estelle; urgency=low
 
-  * IE button fixes (Closes: #1398) 
+  * IE button fixes (Closes: #1398)
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 14 Apr 2010 13:28:18 +0200
 
@@ -1293,7 +1293,7 @@ bubba-frontend (1.9.67) claire estelle; urgency=low
 
 bubba-frontend (1.9.66) karmic; urgency=low
 
-  * Fixed chrome buttons for now, not good but enough... Closes #1367 
+  * Fixed chrome buttons for now, not good but enough... Closes #1367
 
  -- PA Nilsson <pa@excito.com>  Tue, 13 Apr 2010 13:48:33 +0200
 
@@ -1307,18 +1307,18 @@ bubba-frontend (1.9.65) claire estelle; urgency=low
 bubba-frontend (1.9.64) claire estelle; urgency=low
 
   [ PA Nilsson ]
-  * Update lease range when loading page, closes #1383 
+  * Update lease range when loading page, closes #1383
   * Floating buttons in IE as well, closes #1219
 
   [ Carl Fürstenberg ]
-  * fix issue with deleting or not deleting user data (Closes: #1381) 
-  * fix POST erro in backup/restore (Closes: #1386) 
+  * fix issue with deleting or not deleting user data (Closes: #1381)
+  * fix POST erro in backup/restore (Closes: #1386)
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 13 Apr 2010 12:09:11 +0200
 
 bubba-frontend (1.9.63) claire estelle; urgency=low
 
-  * some more help texts 
+  * some more help texts
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 12 Apr 2010 23:13:03 +0200
 
@@ -1327,7 +1327,7 @@ bubba-frontend (1.9.62) claire estelle; urgency=low
   * fix submit global bind
   * rework menu trigger logic to work better under IE (tested IE, FF and
     chrome) (Closes: #1392)
-  * fix minor bug from 1.9.61 related to global submit event 
+  * fix minor bug from 1.9.61 related to global submit event
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 12 Apr 2010 16:33:04 +0200
 
@@ -1341,19 +1341,19 @@ bubba-frontend (1.9.61) claire estelle; urgency=low
   * Fixed error message for "Create dir" with empty name, (Closes: #1373)
   * Fixed enable of dhcpd, (Closes: #1374)
   * Fixed server->router, (Closes: #1348)
-  * Fixed logout error on RAID page, (Closes: #1357) 
-  * Fixed chrome submit on dialogs, (Closes: #1370) 
-  * Fixed radius and height of disabled buttons, (Closes: #1367) 
+  * Fixed logout error on RAID page, (Closes: #1357)
+  * Fixed chrome submit on dialogs, (Closes: #1370)
+  * Fixed radius and height of disabled buttons, (Closes: #1367)
   * Fixed too long text in validator form, (Closes: #1378)
   * Fixed width of download section, (Closes: #700)
   * Removed lines in download section for ie7, (Closes: #1204)
 
   [ Carl Fürstenberg ]
-  * circumvent error in disk view when disk size is zero. 
-  * prevent looping of non-array in disks (Closes: #1389) 
-  * fix issue with disabling shell access (Closes: #1390) 
-  * force .zip suffix for zipnames with four or less chars (Closes: #1364) 
-  * hack style and placement for slidein menu under safari (Closes: #1377) 
+  * circumvent error in disk view when disk size is zero.
+  * prevent looping of non-array in disks (Closes: #1389)
+  * fix issue with disabling shell access (Closes: #1390)
+  * force .zip suffix for zipnames with four or less chars (Closes: #1364)
+  * hack style and placement for slidein menu under safari (Closes: #1377)
   * remove cancel buttons from RAID dialogs (Closes: #1340, #1342)
   * mark all wlan fields disabled per default
 
@@ -1361,7 +1361,7 @@ bubba-frontend (1.9.61) claire estelle; urgency=low
 
 bubba-frontend (1.9.60) claire; urgency=low
 
-  * Fixed "explain hotfix" link. 
+  * Fixed "explain hotfix" link.
 
  -- PA Nilsson <pa@excito.com>  Wed, 07 Apr 2010 13:17:10 +0200
 
@@ -1385,13 +1385,13 @@ bubba-frontend (1.9.57) claire; urgency=low
 
   [ Carl Fürstenberg ]
   * easyfind and throbbers
-  * throbbers 
+  * throbbers
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 06 Apr 2010 18:58:39 +0200
 
 bubba-frontend (1.9.56) karmic; urgency=low
 
-  * Fixed tooltips in IE8. Closes #1336. 
+  * Fixed tooltips in IE8. Closes #1336.
 
  -- PA Nilsson <pa@excito.com>  Tue, 06 Apr 2010 11:51:49 +0200
 
@@ -1415,25 +1415,25 @@ bubba-frontend (1.9.53) claire; urgency=low
 
 bubba-frontend (1.9.52) claire; urgency=low
 
-  * Changed 'disabled' fields to readonly. Closes #806 
-  * Styled "add to album" popup. Closes #1329 
+  * Changed 'disabled' fields to readonly. Closes #806
+  * Styled "add to album" popup. Closes #1329
   * Set all style to "bold" Closes #1314
   * Prohibit list of USB disk for RAID use.
-  * Styled downloads. Closes #1263 
-  * Styled helpbox. Closes #1327 
+  * Styled downloads. Closes #1263
+  * Styled helpbox. Closes #1327
 
  -- PA Nilsson <pa@excito.com>  Mon, 05 Apr 2010 21:59:47 +0200
 
 bubba-frontend (1.9.51) karmic; urgency=low
 
-  * Fixed "create folder error message" 
+  * Fixed "create folder error message"
 
  -- PA Nilsson <pa@excito.com>  Mon, 05 Apr 2010 17:15:36 +0200
 
 bubba-frontend (1.9.50) claire; urgency=low
 
   * Fixed styles in wizard. Closes #1292
-  * Fixed spacing on first page for notebooks, Closes #1308 
+  * Fixed spacing on first page for notebooks, Closes #1308
 
  -- PA Nilsson <pa@excito.com>  Mon, 05 Apr 2010 16:42:11 +0200
 
@@ -1452,14 +1452,14 @@ bubba-frontend (1.9.48) claire; urgency=low
 
 bubba-frontend (1.9.47) claire; urgency=low
 
-  * Fixed set date/time. (Closes #1317) 
-  * Do not disable navigation buttons when disable network settings. 
+  * Fixed set date/time. (Closes #1317)
+  * Do not disable navigation buttons when disable network settings.
 
  -- PA Nilsson <pa@excito.com>  Mon, 05 Apr 2010 14:42:19 +0200
 
 bubba-frontend (1.9.46) karmic; urgency=low
 
-  * Fixed rename error message. (Closes #1280) 
+  * Fixed rename error message. (Closes #1280)
 
  -- PA Nilsson <pa@excito.com>  Mon, 05 Apr 2010 14:08:45 +0200
 
@@ -1477,13 +1477,13 @@ bubba-frontend (1.9.44) claire; urgency=low
 
 bubba-frontend (1.9.43) claire; urgency=low
 
-  * Fixed small screen issue on login page. 
+  * Fixed small screen issue on login page.
 
  -- PA Nilsson <pa@excito.com>  Mon, 05 Apr 2010 11:56:08 +0200
 
 bubba-frontend (1.9.42) karmic; urgency=low
 
-  * Styling on upload, update and help. (Closes #1241, #1263, #1305). 
+  * Styling on upload, update and help. (Closes #1241, #1263, #1305).
 
  -- PA Nilsson <pa@excito.com>  Mon, 05 Apr 2010 11:06:02 +0200
 
@@ -1495,7 +1495,7 @@ bubba-frontend (1.9.41) claire; urgency=low
 
 bubba-frontend (1.9.40) karmic; urgency=low
 
-  * Easyfind fixes. (Closes #1302, #1292, 1293) 
+  * Easyfind fixes. (Closes #1302, #1292, 1293)
 
  -- PA Nilsson <pa@excito.com>  Fri, 02 Apr 2010 15:56:35 +0200
 
@@ -1507,20 +1507,20 @@ bubba-frontend (1.9.39) claire; urgency=low
 
 bubba-frontend (1.9.38) claire; urgency=low
 
-  * bind "m" to document instead of window (Closes: #1275) 
+  * bind "m" to document instead of window (Closes: #1275)
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 01 Apr 2010 18:17:29 +0200
 
 bubba-frontend (1.9.37) claire; urgency=low
 
-  * IE fixes (Closes: #1289, #1290) 
+  * IE fixes (Closes: #1289, #1290)
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 01 Apr 2010 17:54:47 +0200
 
 bubba-frontend (1.9.36) karmic; urgency=low
 
   * fix notification of user update and fix issue with lacking ssh after
-    update of user. (Closes: #1304, #1205) 
+    update of user. (Closes: #1304, #1205)
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 01 Apr 2010 16:50:51 +0200
 
@@ -1532,7 +1532,7 @@ bubba-frontend (1.9.35) claire; urgency=low
 
 bubba-frontend (1.9.34) claire; urgency=low
 
-  * fix chrome stype problems with upload dialog (Closes: #1250) 
+  * fix chrome stype problems with upload dialog (Closes: #1250)
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 01 Apr 2010 12:22:52 +0200
 
@@ -1544,32 +1544,32 @@ bubba-frontend (1.9.33) claire; urgency=low
 
 bubba-frontend (1.9.32) claire; urgency=low
 
-  * fix issues with browscaps 
+  * fix issues with browscaps
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 31 Mar 2010 23:06:09 +0200
 
 bubba-frontend (1.9.31) claire; urgency=low
 
-  * fix issues related for file download; (Closes: #1253 ) 
+  * fix issues related for file download; (Closes: #1253 )
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 31 Mar 2010 19:08:56 +0200
 
 bubba-frontend (1.9.30) claire; urgency=low
 
   * fix bugs related to buttons not working (class unstringified as key)
-    (Closes: #1270) 
+    (Closes: #1270)
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 31 Mar 2010 14:34:15 +0200
 
 bubba-frontend (1.9.29) claire; urgency=low
 
-  * fix content disposition filename encoding field 
+  * fix content disposition filename encoding field
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 30 Mar 2010 21:25:22 +0200
 
 bubba-frontend (1.9.28) claire; urgency=low
 
-  * bugfixes (Closes: #1258, #1240, #1266) 
+  * bugfixes (Closes: #1258, #1240, #1266)
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 30 Mar 2010 18:23:44 +0200
 
@@ -1577,20 +1577,20 @@ bubba-frontend (1.9.27) claire; urgency=low
 
   * use flashdata for auth data
   * make "m" menu work in webkit
-  * rewrite iCheckbox to use pubsub for message passing 
-  * fix failed login in chrome 
+  * rewrite iCheckbox to use pubsub for message passing
+  * fix failed login in chrome
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 30 Mar 2010 17:07:03 +0200
 
 bubba-frontend (1.9.26) claire; urgency=low
 
   [ Carl Fürstenberg ]
-  * fixed bug in iCheckbox which really fnucked up it all 
-  * change animation of sideboard to work as well in safari 
-  * force music to be opened in it's own window 
+  * fixed bug in iCheckbox which really fnucked up it all
+  * change animation of sideboard to work as well in safari
+  * force music to be opened in it's own window
 
   [ Tor Krill ]
-  * Fix character encoding in filename in download and download as zip 
+  * Fix character encoding in filename in download and download as zip
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 29 Mar 2010 17:18:28 +0200
 
@@ -1606,14 +1606,14 @@ bubba-frontend (1.9.25) claire; urgency=low
 
 bubba-frontend (1.9.24) claire; urgency=low
 
-  * Bump version to. (Forgott that) 
+  * Bump version to. (Forgott that)
 
  -- Tor Krill <tor@excito.com>  Fri, 26 Mar 2010 07:56:27 +0100
 
 bubba-frontend (1.9.23) claire; urgency=low
 
   [ Carl Fürstenberg ]
-  * remove the lonesome alert in the old backup add dir dialog 
+  * remove the lonesome alert in the old backup add dir dialog
 
   [ Tor Krill ]
   * Rework permissions dialog
@@ -1622,20 +1622,20 @@ bubba-frontend (1.9.23) claire; urgency=low
 
 bubba-frontend (1.9.22) claire; urgency=low
 
-  * make download as zip remember what directory it's in 
+  * make download as zip remember what directory it's in
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 25 Mar 2010 17:57:22 +0100
 
 bubba-frontend (1.9.21) claire; urgency=low
 
   *  set browser class
-  * remake main layout as table to get sidebar better placement 
+  * remake main layout as table to get sidebar better placement
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 25 Mar 2010 17:30:27 +0100
 
 bubba-frontend (1.9.20.1) claire; urgency=low
 
-  * test 96% error 
+  * test 96% error
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 24 Mar 2010 18:22:45 +0100
 
@@ -1661,26 +1661,26 @@ bubba-frontend (1.9.17) claire; urgency=low
 
 bubba-frontend (1.9.16) karmic; urgency=low
 
-  * test build 
+  * test build
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 23 Mar 2010 18:03:35 +0100
 
 bubba-frontend (1.9.15) claire; urgency=low
 
   * changed from dispabled input field when user can not edit to just print user (or printer) name.
-  * Multiple alignment and text fixes.  
+  * Multiple alignment and text fixes.
 
  -- PA Nilsson <pa@excito.com>  Mon, 22 Mar 2010 16:46:39 +0100
 
 bubba-frontend (1.9.14) claire; urgency=low
 
-  * adding samba to services 
+  * adding samba to services
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 22 Mar 2010 11:25:50 +0100
 
 bubba-frontend (1.9.13) claire; urgency=low
 
-  * close menu when clicking on link 
+  * close menu when clicking on link
   * add alias fucntionallity to menu model
   * remove bounch of obsolete images
 
@@ -1688,27 +1688,27 @@ bubba-frontend (1.9.13) claire; urgency=low
 
 bubba-frontend (1.9.12) claire; urgency=low
 
-  * fix selectables in users and mail, remove luser fields for non-admin 
-  * adding proxy_http 
-  * sortable sizes in filemanager 
+  * fix selectables in users and mail, remove luser fields for non-admin
+  * adding proxy_http
+  * sortable sizes in filemanager
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 19 Mar 2010 17:08:59 +0100
 
 bubba-frontend (1.9.11) claire; urgency=low
 
-  * adding a2enmod proxy in preinst 
+  * adding a2enmod proxy in preinst
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 19 Mar 2010 13:41:15 +0100
 
 bubba-frontend (1.9.10) claire; urgency=low
 
-  * update album user functionallity 
+  * update album user functionallity
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 18 Mar 2010 19:48:29 +0100
 
 bubba-frontend (1.9.9) karmic; urgency=low
 
-  * merge 
+  * merge
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 18 Mar 2010 12:55:20 +0100
 
@@ -1727,13 +1727,13 @@ bubba-frontend (1.9.7) vlaire; urgency=low
 
 bubba-frontend (1.9.6) karmic; urgency=low
 
-  * make progress visible 
+  * make progress visible
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 16 Mar 2010 18:53:25 +0100
 
 bubba-frontend (1.9.5) claire; urgency=low
 
-  * Fixes and fixes and fixes and fixes 
+  * Fixes and fixes and fixes and fixes
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 16 Mar 2010 18:23:50 +0100
 
@@ -1745,7 +1745,7 @@ bubba-frontend (1.9.4) claire; urgency=low
 
 bubba-frontend (1.9.3) karmic; urgency=low
 
-  * Testbuild 
+  * Testbuild
 
  -- PA Nilsson <pa@excito.com>  Tue, 16 Mar 2010 11:27:35 +0100
 
@@ -1777,12 +1777,12 @@ bubba-frontend (1.3.2) claire; urgency=low
    - Date/Time
    - Software
    - Disks
-  * Added FirePHP (default enabled at the moment) 
-  * added initial jQuery-UI support 
-  * removing old fwupdate view which hasn't been used for ages 
+  * Added FirePHP (default enabled at the moment)
+  * added initial jQuery-UI support
+  * removing old fwupdate view which hasn't been used for ages
   * converting disk lvm, disk raid, and network profile to use jQueryUI
     dialogs
-  * Moved identity/easyfind from network to settings 
+  * Moved identity/easyfind from network to settings
   * initial work on new filemanager using DataTables
 
   [ PA Nilsson ]
@@ -1792,7 +1792,7 @@ bubba-frontend (1.3.2) claire; urgency=low
 
 bubba-frontend (1.3.1) karmic; urgency=low
 
-  * menu model 
+  * menu model
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 12 Feb 2010 17:37:47 +0100
 
@@ -1809,8 +1809,8 @@ bubba-frontend (1.3.0) claire estelle; urgency=low
 
 bubba-frontend (1.2.4.81) claire estelle; urgency=low
 
-  * Remove option to have 16 characters in WEP (Closes: #1171) 
-  * removing cursor_wait on submit for wlan (Closes: #1170) 
+  * Remove option to have 16 characters in WEP (Closes: #1171)
+  * removing cursor_wait on submit for wlan (Closes: #1170)
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 09 Feb 2010 15:05:43 +0100
 
@@ -1836,49 +1836,49 @@ bubba-frontend (1.2.4.79) claire estelle; urgency=low
 
 bubba-frontend (1.2.4.78) claire estelle; urgency=low
 
-  * remove one shutdown of dnsmasq 
+  * remove one shutdown of dnsmasq
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 08 Feb 2010 16:17:49 +0100
 
 bubba-frontend (1.2.4.77) claire estelle; urgency=low
 
-  * channels 
+  * channels
 
  -- Carl Fürstenberg <carl@excito.com>  Sun, 07 Feb 2010 18:48:26 +0100
 
 bubba-frontend (1.2.4.76) claire estelle; urgency=low
 
-  * whoopsie whoopsie 
+  * whoopsie whoopsie
 
  -- Carl Fürstenberg <carl@excito.com>  Sun, 07 Feb 2010 18:40:05 +0100
 
 bubba-frontend (1.2.4.75) claire estelle; urgency=low
 
-  * admin 
+  * admin
 
  -- Carl Fürstenberg <carl@excito.com>  Sun, 07 Feb 2010 18:35:46 +0100
 
 bubba-frontend (1.2.4.74) claire estelle; urgency=low
 
-  * disabling N and A 
+  * disabling N and A
 
  -- Carl Fürstenberg <carl@excito.com>  Sun, 07 Feb 2010 18:33:06 +0100
 
 bubba-frontend (1.2.4.73) claire estelle; urgency=emergency
 
-  * disabling N 
+  * disabling N
 
  -- Carl Fürstenberg <carl@excito.com>  Sun, 07 Feb 2010 18:20:46 +0100
 
 bubba-frontend (1.2.4.72) estelle claire; urgency=low
 
-  * prevent usage on passive scanning channel as well 
+  * prevent usage on passive scanning channel as well
 
  -- Carl Fürstenberg <carl@excito.com>  Sun, 07 Feb 2010 16:31:37 +0100
 
 bubba-frontend (1.2.4.71) estelle claire; urgency=low
 
-  * change init of mediatromb to 26 from 20 (Closes: #1141) 
+  * change init of mediatromb to 26 from 20 (Closes: #1141)
 
  -- Carl Fürstenberg <carl@excito.com>  Sun, 07 Feb 2010 12:38:49 +0100
 
@@ -1898,7 +1898,7 @@ bubba-frontend (1.2.4.70) estelle claire; urgency=low
 
 bubba-frontend (1.2.4.69) estelle claire; urgency=low
 
-  * Change variable name "top" to "o_top". (Closes: #1039) 
+  * Change variable name "top" to "o_top". (Closes: #1039)
 
  -- Carl Fürstenberg <carl@excito.com>  Sat, 06 Feb 2010 20:00:21 +0100
 
@@ -1911,13 +1911,13 @@ bubba-frontend (1.2.4.68) estelle claire; urgency=low
 
 bubba-frontend (1.2.4.67) estelle; urgency=low
 
-  * updating jquery.event.drag and jquery.event.drop (Closes: #1039) 
+  * updating jquery.event.drag and jquery.event.drop (Closes: #1039)
 
  -- Carl Fürstenberg <carl@excito.com>  Sat, 06 Feb 2010 17:37:54 +0100
 
 bubba-frontend (1.2.4.66) estelle claire; urgency=low
 
-  * adding link debug option 
+  * adding link debug option
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 03 Feb 2010 14:31:09 +0100
 
@@ -1925,7 +1925,7 @@ bubba-frontend (1.2.4.65) claire estelle; urgency=low
 
   * Updated profile texts.
   * Fixed dual restart of dnsmasq, closes#1077
-  * Restarting samba when workgroup updated. 
+  * Restarting samba when workgroup updated.
 
  -- PA Nilsson <pa@excito.com>  Thu, 04 Feb 2010 15:31:22 +0100
 
@@ -1937,7 +1937,7 @@ bubba-frontend (1.2.4.64) claire estelle; urgency=low
 
 bubba-frontend (1.2.4.63) karmic; urgency=low
 
-  * Fixed "close" buttons in dialogs again. 
+  * Fixed "close" buttons in dialogs again.
 
  -- PA Nilsson <pa@excito.com>  Wed, 03 Feb 2010 14:19:16 +0100
 
@@ -1961,7 +1961,7 @@ bubba-frontend (1.2.4.60) claire estelle; urgency=low
 
 bubba-frontend (1.2.4.59) karmic; urgency=low
 
-  * Fixed red status bar, closes #1118 
+  * Fixed red status bar, closes #1118
 
  -- PA Nilsson <pa@excito.com>  Tue, 02 Feb 2010 23:40:11 +0100
 
@@ -1973,7 +1973,7 @@ bubba-frontend (1.2.4.58) estelle claire; urgency=low
 
 bubba-frontend (1.2.4.54) estelle claire; urgency=low
 
-  * adding capabilities 
+  * adding capabilities
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 02 Feb 2010 15:39:26 +0100
 
@@ -1985,7 +1985,7 @@ bubba-frontend (1.2.4.53) estelle claire; urgency=low
 
 bubba-frontend (1.2.4.52) estelle claire; urgency=low
 
-  * Fixed uninitiated variable in WAN page with no cable. 
+  * Fixed uninitiated variable in WAN page with no cable.
 
  -- PA Nilsson <pa@excito.com>  Tue, 02 Feb 2010 14:33:28 +0100
 
@@ -2015,7 +2015,7 @@ bubba-frontend (1.2.4.48) estelle claire; urgency=low
 
 bubba-frontend (1.2.4.48) karmic; urgency=low
 
-  * Updated version variable to trigger css/js reload after update. 
+  * Updated version variable to trigger css/js reload after update.
 
  -- PA Nilsson <pa@excito.com>  Mon, 01 Feb 2010 10:23:43 +0100
 
@@ -2042,7 +2042,7 @@ bubba-frontend (1.2.4.45) claire estelle; urgency=low
 
 bubba-frontend (1.2.4.44) claire estelle; urgency=low
 
-  * forgot LDPC 
+  * forgot LDPC
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 28 Jan 2010 17:29:33 +0100
 
@@ -2058,19 +2058,19 @@ bubba-frontend (1.2.4.43) claire estelle; urgency=low
 
 bubba-frontend (1.2.4.42ubuntu2) claire estelle; urgency=low
 
-  * Changed "Greenfield mode" to "N only mode" 
+  * Changed "Greenfield mode" to "N only mode"
 
  -- Tor Krill <tor@excito.com>  Thu, 28 Jan 2010 16:46:38 +0100
 
 bubba-frontend (1.2.4.42ubuntu1) karmic; urgency=low
 
-  * Added functions to start bridge during boot 
+  * Added functions to start bridge during boot
 
  -- PA Nilsson <pa@excito.com>  Thu, 28 Jan 2010 12:43:43 +0100
 
 bubba-frontend (1.2.4.42) claire estelle; urgency=low
 
-  * readding missing wlan-configurable init 
+  * readding missing wlan-configurable init
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 26 Jan 2010 16:32:04 +0100
 
@@ -2083,13 +2083,13 @@ bubba-frontend (1.2.4.41) claire estelle; urgency=low
 
 bubba-frontend (1.2.4.40) claire estelle; urgency=low
 
-  * update wlan strings 
+  * update wlan strings
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 21 Jan 2010 17:57:37 +0100
 
 bubba-frontend (1.2.4.39) claire estelle; urgency=low
 
-  * fix WEP password validation 
+  * fix WEP password validation
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 20 Jan 2010 15:48:11 +0100
 
@@ -2102,32 +2102,32 @@ bubba-frontend (1.2.4.38) claire estelle; urgency=low
 
 bubba-frontend (1.2.4.37) claire estelle; urgency=low
 
-  * new wlan interface focusin on band instead of standard 
+  * new wlan interface focusin on band instead of standard
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 18 Jan 2010 18:56:18 +0100
 
 bubba-frontend (1.2.4.36) claire estelle; urgency=low
 
-  * set auto (closes: #1088) 
-  * remove set custom profile lines from wanupdate 
+  * set auto (closes: #1088)
+  * remove set custom profile lines from wanupdate
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 15 Jan 2010 13:45:17 +0100
 
 bubba-frontend (1.2.4.35) claire estelle; urgency=low
 
-  * Only show 5GHz channels for a/n and 2.4GHz channels for b,g, and n. 
+  * Only show 5GHz channels for a/n and 2.4GHz channels for b,g, and n.
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 13 Jan 2010 18:20:44 +0100
 
 bubba-frontend (1.2.4.34) claire estelle; urgency=low
 
-  * remake wlan UI disabled mode to match generic 
+  * remake wlan UI disabled mode to match generic
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 13 Jan 2010 16:05:39 +0100
 
 bubba-frontend (1.2.4.33) claire estelle; urgency=low
 
-  * Enable/Disable wlan last in config sequence to make sure we have a 
+  * Enable/Disable wlan last in config sequence to make sure we have a
     consitent state
 
  -- Tor Krill <tor@excito.com>  Mon, 11 Jan 2010 11:28:54 +0100
@@ -2135,25 +2135,25 @@ bubba-frontend (1.2.4.33) claire estelle; urgency=low
 bubba-frontend (1.2.4.32) claire estelle; urgency=low
 
   * due to lack of DFS in ath9k disable usage of any band marked as "passive
-    scanning" 
+    scanning"
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 11 Jan 2010 09:36:42 +0100
 
 bubba-frontend (1.2.4.31) claire estelle; urgency=low
 
-  * Fix more regressions :( 
+  * Fix more regressions :(
 
  -- Tor Krill <tor@excito.com>  Mon, 11 Jan 2010 00:46:02 +0100
 
 bubba-frontend (1.2.4.30) claire estelle; urgency=low
 
-  * Only add gateway to IF config if non zero 
+  * Only add gateway to IF config if non zero
 
  -- Tor Krill <tor@excito.com>  Sun, 10 Jan 2010 23:00:19 +0100
 
 bubba-frontend (1.2.4.29) claire estelle; urgency=low
 
-  * adding versioned dependice to libxml-libxml-perl (>= 1.66-1) 
+  * adding versioned dependice to libxml-libxml-perl (>= 1.66-1)
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 08 Jan 2010 20:05:46 +0100
 
@@ -2165,7 +2165,7 @@ bubba-frontend (1.2.4.28) claire estelle; urgency=low
 
 bubba-frontend (1.2.4.27) claire estelle; urgency=low
 
-  * merge more missing channel stuff 
+  * merge more missing channel stuff
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 08 Jan 2010 19:47:11 +0100
 
@@ -2177,13 +2177,13 @@ bubba-frontend (1.2.4.26) claire estelle; urgency=low
 
 bubba-frontend (1.2.4.25) claire estelle; urgency=low
 
-  * fix lanupdate and dhcpd 
+  * fix lanupdate and dhcpd
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 08 Jan 2010 17:50:29 +0100
 
 bubba-frontend (1.2.4.24) claire estelle; urgency=low
 
-  * remove debug print_r 
+  * remove debug print_r
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 08 Jan 2010 17:31:43 +0100
 
@@ -2201,14 +2201,14 @@ bubba-frontend (1.2.4.22) claire estelle; urgency=low
 
 bubba-frontend (1.2.4.20) claire estelle; urgency=low
 
-  * only use single call to set interface 
+  * only use single call to set interface
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 05 Jan 2010 17:09:56 +0100
 
 bubba-frontend (1.2.4.19) claire estelle; urgency=low
 
   [ Carl Fürstenberg ]
-  * adding calls to interface set functions 
+  * adding calls to interface set functions
 
   [ PA Nilsson ]
   * Updated network UI with "auto" profile.
@@ -2217,34 +2217,34 @@ bubba-frontend (1.2.4.19) claire estelle; urgency=low
 
 bubba-frontend (1.2.4.18) karmic; urgency=low
 
-  * fix logic in WEP validation 
+  * fix logic in WEP validation
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 04 Jan 2010 17:23:32 +0100
 
 bubba-frontend (1.2.4.17) claire estelle; urgency=low
 
-  * Testing multiple distributions 
+  * Testing multiple distributions
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 04 Jan 2010 11:30:24 +0100
 
 bubba-frontend (1.2.4.16) claire; urgency=low
 
   * Added a restart of hostapd when reconfiguring
-  * Fixed bug in wlan_view that rendered config useless 
+  * Fixed bug in wlan_view that rendered config useless
 
  -- Tor Krill <tor@excito.com>  Sun, 03 Jan 2010 23:12:59 +0100
 
 bubba-frontend (1.2.4.15) claire; urgency=low
 
-  * Fixed read out network config when if was down. 
-  * Refactored all code to use query_service in the same way as 
-    service_running. It now returns true if service is enabled 
+  * Fixed read out network config when if was down.
+  * Refactored all code to use query_service in the same way as
+    service_running. It now returns true if service is enabled
 
  -- Tor Krill <tor@excito.com>  Sun, 03 Jan 2010 15:38:04 +0100
 
 bubba-frontend (1.2.4.14) karmic; urgency=low
 
-  * channels 
+  * channels
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 30 Dec 2009 18:51:51 +0100
 
@@ -2256,13 +2256,13 @@ bubba-frontend (1.2.4.13) claire; urgency=low
 
 bubba-frontend (1.2.4.12) claire; urgency=low
 
-  * Preconfigure ap with right if. 
+  * Preconfigure ap with right if.
 
  -- Tor Krill <tor@excito.com>  Tue, 01 Dec 2009 15:03:21 +0100
 
 bubba-frontend (1.2.4.11) claire; urgency=low
 
-  * Add dnsmasq modification and restart when changing lan if 
+  * Add dnsmasq modification and restart when changing lan if
 
  -- Tor Krill <tor@excito.com>  Mon, 30 Nov 2009 23:24:58 +0100
 
@@ -2274,7 +2274,7 @@ bubba-frontend (1.2.4.10) claire; urgency=low
 
 bubba-frontend (1.2.4.9) claire; urgency=low
 
-  * Use "native" get wlan interface method 
+  * Use "native" get wlan interface method
 
  -- Tor Krill <tor@excito.com>  Fri, 27 Nov 2009 00:44:05 +0100
 
@@ -2282,7 +2282,7 @@ bubba-frontend (1.2.4.8) claire; urgency=high
 
   * Allow disk be formatted while in "red" mode
   * rewrite the raid-detection code in model disk_model function
-    list_external_disks (Closes: #1069) 
+    list_external_disks (Closes: #1069)
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 25 Nov 2009 15:02:00 +0100
 
@@ -2302,13 +2302,13 @@ bubba-frontend (1.2.4.6) claire; urgency=low
 
 bubba-frontend (1.2.4.5) karmic; urgency=low
 
-  * dev release 
+  * dev release
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 05 Nov 2009 16:51:11 +0100
 
 bubba-frontend (1.2.4.4) claire; urgency=low
 
-  * merge from 1.2.4 branch 
+  * merge from 1.2.4 branch
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 05 Nov 2009 15:01:47 +0100
 
@@ -2320,7 +2320,7 @@ bubba-frontend (1.2.4.3) marielle estelle; urgency=emergency
 
 bubba-frontend (1.2.4.2) estelle; urgency=low
 
-  * enable close button when failed 
+  * enable close button when failed
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 03 Nov 2009 14:13:47 +0100
 
@@ -2352,10 +2352,10 @@ bubba-frontend (1.2.1.1) claire; urgency=low
 
   * Adding information regarding bus instead of "vendor" which was rather
     dumb. (Closes: #822)
-  * separating forms for network identity (Closes: #803) 
-  * avoid initalizing upload if no file choosen (Closes: #915) 
-  * make GPG key fields disabled if Encrypt data isn't choosen (Closes: #928) 
-  * über-automatic scroll for photo album maintencance (Closes: #993) 
+  * separating forms for network identity (Closes: #803)
+  * avoid initalizing upload if no file choosen (Closes: #915)
+  * make GPG key fields disabled if Encrypt data isn't choosen (Closes: #928)
+  * über-automatic scroll for photo album maintencance (Closes: #993)
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 09 Sep 2009 17:58:05 +0200
 
@@ -2381,38 +2381,38 @@ bubba-frontend (1.2.0.48) estelle claire; urgency=low
 
 bubba-frontend (1.2.0.47) jaunty; urgency=low
 
-  * Rework code to use both is_usb and is_removable 
+  * Rework code to use both is_usb and is_removable
 
  -- Tor Krill <tor@excito.com>  Thu, 03 Sep 2009 10:23:37 +0200
 
 bubba-frontend (1.2.0.46) estelle claire; urgency=low
 
   * Updated disk_model to use new "bus" attribute for detection of removable
-    disks. Closed #1042 
+    disks. Closed #1042
 
  -- PA Nilsson <pa@excito.com>  Thu,  3 Sep 2009 07:46:48 +0200
 
 bubba-frontend (1.2.0.45) estelle claire; urgency=low
 
-  * Removed plaintext fetchmail accounts password. 
+  * Removed plaintext fetchmail accounts password.
 
  -- PA Nilsson <pa@excito.com>  Wed,  2 Sep 2009 08:56:55 +0200
 
 bubba-frontend (1.2.0.44) estelle claire; urgency=low
 
-  * Added missing password argument. 
+  * Added missing password argument.
 
  -- PA Nilsson <pa@excito.com>  Tue,  1 Sep 2009 12:47:20 +0200
 
 bubba-frontend (1.2.0.43) estelle claire; urgency=low
 
-  * Updated UI for usermail. 
+  * Updated UI for usermail.
 
  -- PA Nilsson <pa@excito.com>  Tue,  1 Sep 2009 12:07:03 +0200
 
 bubba-frontend (1.2.0.42) estelle claire; urgency=low
 
-  * minor visual bugfix related to previous release 
+  * minor visual bugfix related to previous release
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 01 Sep 2009 10:51:51 +0200
 
@@ -2424,7 +2424,7 @@ bubba-frontend (1.2.0.41) estelle claire; urgency=low
 
 bubba-frontend (1.2.0.40) estelle claire; urgency=low
 
-  * changing recover raid to send disk instead of partition 
+  * changing recover raid to send disk instead of partition
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 31 Aug 2009 12:44:26 +0200
 
@@ -2438,13 +2438,13 @@ bubba-frontend (1.2.0.39) estelle claire; urgency=low
 bubba-frontend (1.2.0.38) estelle claire; urgency=low
 
   * Fixed some texts
-  * Hidden filemanager submenu if not logged in as admin 
+  * Hidden filemanager submenu if not logged in as admin
 
  -- Tor Krill <tor@excito.com>  Fri, 28 Aug 2009 09:04:08 +0200
 
 bubba-frontend (1.2.0.37) estelle claire; urgency=low
 
-  * Fixed RAID typos. 
+  * Fixed RAID typos.
 
  -- PA Nilsson <pa@excito.com>  Thu, 27 Aug 2009 09:44:30 +0200
 
@@ -2463,14 +2463,14 @@ bubba-frontend (1.2.0.36) estelle claire; urgency=low
 bubba-frontend (1.2.0.35) estelle claire; urgency=low
 
   [ PA Nilsson ]
-  * remove errorious comman in ajax call 
+  * remove errorious comman in ajax call
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 24 Aug 2009 16:23:54 +0200
 
 bubba-frontend (1.2.0.34) estelle claire; urgency=low
 
   [ Carl Fürstenberg ]
-  * remove errorious comman in ajax call 
+  * remove errorious comman in ajax call
 
   [ PA Nilsson ]
   * fixed php error in mail-section.
@@ -2480,8 +2480,8 @@ bubba-frontend (1.2.0.34) estelle claire; urgency=low
 bubba-frontend (1.2.0.33) estelle claire; urgency=low
 
   [ Carl Fürstenberg ]
-  * explicit check in disk_model that the partition index exists 
-    (Closes: #1022) 
+  * explicit check in disk_model that the partition index exists
+    (Closes: #1022)
 
   [ PA Nilsson ]
   * "Filemanager" -> "File manager", (Closes: #1003)
@@ -2498,7 +2498,7 @@ bubba-frontend (1.2.0.32) estelle claire; urgency=low
 
 bubba-frontend (1.2.0.31) estelle calire; urgency=low
 
-  * ntfs rule fix (Closes: #960) 
+  * ntfs rule fix (Closes: #960)
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 20 Aug 2009 16:02:08 +0200
 
@@ -2512,7 +2512,7 @@ bubba-frontend (1.2.0.30) estelle; urgency=low
 
 bubba-frontend (1.2.0.29) estelle; urgency=low
 
-  * fix bug preventing hotfix enabled to work (Closes: #1016) 
+  * fix bug preventing hotfix enabled to work (Closes: #1016)
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 20 Aug 2009 09:58:24 +0200
 
@@ -2525,13 +2525,13 @@ bubba-frontend (1.2.0.28) karmic; urgency=low
 bubba-frontend (1.2.0.27) estelle; urgency=low
 
   [ PA Nilsson ]
-  * Removed dual error message when RAID failed. 
+  * Removed dual error message when RAID failed.
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 19 Aug 2009 17:01:29 +0200
 
 bubba-frontend (1.2.0.26) estelle; urgency=low
 
-  * Updated RAID UI. 
+  * Updated RAID UI.
 
  -- PA Nilsson <pa@excito.com>  Wed, 19 Aug 2009 14:44:35 +0200
 
@@ -2544,27 +2544,27 @@ bubba-frontend (1.2.0.25) estelle; urgency=low
 
 bubba-frontend (1.2.0.24) estelle; urgency=low
 
-  * update stat to use /etc/bubba.version instead of previous solution. 
+  * update stat to use /etc/bubba.version instead of previous solution.
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 17 Aug 2009 17:09:22 +0200
 
 bubba-frontend (1.2.0.23) estelle; urgency=low
 
-  * wrong name of ajax attribute 
+  * wrong name of ajax attribute
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 17 Aug 2009 13:59:41 +0200
 
 bubba-frontend (1.2.0.22) estelle; urgency=low
 
-  * wrong usage of val() jQuery member function, changed into is(':checked') 
+  * wrong usage of val() jQuery member function, changed into is(':checked')
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 17 Aug 2009 13:43:40 +0200
 
 bubba-frontend (1.2.0.21) estelle; urgency=low
 
-  * enabled the hotfix enabling checkbox 
+  * enabled the hotfix enabling checkbox
   * Only show format button for disk that neither is an system disk, nor is
-    part of an RAID array or LVM hodgepot. 
+    part of an RAID array or LVM hodgepot.
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 17 Aug 2009 11:45:03 +0200
 
@@ -2588,7 +2588,7 @@ bubba-frontend (1.2.0.19) estelle; urgency=low
 
 bubba-frontend (1.2.0.18) estelle; urgency=low
 
-  * Extended RAID status 
+  * Extended RAID status
 
  -- Carl Fürstenberg <carl@excito.com>  Mon, 10 Aug 2009 15:42:05 +0200
 
@@ -2601,19 +2601,19 @@ bubba-frontend (1.2.0.17) estelle; urgency=low
 
 bubba-frontend (1.2.0.16) claire; urgency=low
 
-  * Fix LVM extend bug (regression?) 
+  * Fix LVM extend bug (regression?)
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 06 Aug 2009 17:42:44 +0200
 
 bubba-frontend (1.2.0.15) claire; urgency=low
 
-  * Format disk cleanup and custom label support 
+  * Format disk cleanup and custom label support
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 06 Aug 2009 15:11:52 +0200
 
 bubba-frontend (1.2.0.14) claire; urgency=low
 
-  * Format disk functionallity (Closes: #1004) 
+  * Format disk functionallity (Closes: #1004)
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 05 Aug 2009 18:04:36 +0200
 
@@ -2672,19 +2672,19 @@ bubba-frontend (1.2.0.11) claire; urgency=low
 
 bubba-frontend (1.2.0.10) claire; urgency=low
 
-  * minor update to hotfix system 
+  * minor update to hotfix system
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 23 Jul 2009 14:01:35 +0200
 
 bubba-frontend (1.2.0.9) claire; urgency=low
 
-  * more hotfix upgrades 
+  * more hotfix upgrades
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 23 Jul 2009 12:57:49 +0200
 
 bubba-frontend (1.2.0.8) claire; urgency=low
 
-  * hotfix support alpha 
+  * hotfix support alpha
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 22 Jul 2009 17:29:36 +0200
 
@@ -2693,12 +2693,12 @@ bubba-frontend (1.2.0.7) claire; urgency=low
   [ PA Nilsson ]
   * Updated "help" link to handle links from "segment2" if there is a
     help section defied, else fallback to use segment1 for index in
-    bubba_lang.php. (Closes: #682). 
+    bubba_lang.php. (Closes: #682).
   * Updated index for filemanager to correspond to renamed helpfile. (Closes: 977).
 
   [ Carl Fürstenberg ]
   * Resolve so UI Disk handles unpartitionated disks; Modifications also made
-    to allow mount of such devices. Similar problems fixed under LVM and RAID 
+    to allow mount of such devices. Similar problems fixed under LVM and RAID
     as well. (Closes: #999)
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 16 Jul 2009 16:46:00 +0200
@@ -2714,13 +2714,13 @@ bubba-frontend (1.2.0.6) claire; urgency=low
 
 bubba-frontend (1.2.0.5) claire; urgency=low
 
-  * use shipped message for whenever it's done 
+  * use shipped message for whenever it's done
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 15 Jul 2009 14:28:38 +0200
 
 bubba-frontend (1.2.0.4) claire; urgency=low
 
-  * fix closure for more info box 
+  * fix closure for more info box
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 15 Jul 2009 13:29:27 +0200
 
@@ -2733,26 +2733,26 @@ bubba-frontend (1.2.0.3) claire; urgency=low
 
 bubba-frontend (1.2.0.2) claire; urgency=low
 
-  * updated notifications ofr update 
+  * updated notifications ofr update
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 10 Jul 2009 15:20:03 +0200
 
 bubba-frontend (1.2.0.1) claire; urgency=low
 
-  * Fix error in bubba-adminphp init script which resulted in the strange 
+  * Fix error in bubba-adminphp init script which resulted in the strange
     "odd times fails". Fix also results in faster shutdown of php5-cgi.
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 08 Jul 2009 11:00:31 +0200
 
 bubba-frontend (1.2) estelle; urgency=low
 
-  * Bumping version to 1.2 for release 
+  * Bumping version to 1.2 for release
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 03 Jul 2009 11:48:59 +0200
 
 bubba-frontend (1.1.206) estelle; urgency=emergency
 
-  * Enable nonpersistent mount/umount of NTFS disk, closes: #960 
+  * Enable nonpersistent mount/umount of NTFS disk, closes: #960
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 03 Jul 2009 11:31:26 +0200
 
@@ -2765,7 +2765,7 @@ bubba-frontend (1.1.205) estelle; urgency=high
 
 bubba-frontend (1.1.204) estelle; urgency=emergency
 
-  * Fix regression error in mount proceedure 
+  * Fix regression error in mount proceedure
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 02 Jul 2009 16:18:03 +0200
 
@@ -2778,13 +2778,13 @@ bubba-frontend (1.1.203) estelle; urgency=low
 bubba-frontend (1.1.202) estelle; urgency=emergency
 
   * Possible regression error, manually appending a "1" to the external
-    disks. 
+    disks.
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 01 Jul 2009 16:48:48 +0200
 
 bubba-frontend (1.1.201) estelle; urgency=low
 
-  * Adding header for internal disk recover raid, closes: #941 (again) 
+  * Adding header for internal disk recover raid, closes: #941 (again)
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 01 Jul 2009 16:37:13 +0200
 
@@ -2830,13 +2830,13 @@ bubba-frontend (1.1.197) estelle; urgency=low
   * changing color immediately to green on "update_status" on an change from
     "fail" to success.
   * Removed "100%" height attribute from table row causing album to be way
-    down in IE. Closes #917 
+    down in IE. Closes #917
 
  -- PA Nilsson <pa@excito.com>  Sun, 28 Jun 2009 00:12:08 +0200
 
 bubba-frontend (1.1.196) estelle; urgency=low
 
-  * modify dragndrop to prohibit drop to child of self 
+  * modify dragndrop to prohibit drop to child of self
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 26 Jun 2009 17:22:02 +0200
 
@@ -2862,7 +2862,7 @@ bubba-frontend (1.1.195) estelle; urgency=low
 bubba-frontend (1.1.194) estelle; urgency=low
 
   [ Carl Fürstenberg ]
-  * try prevent multiclick in tree 
+  * try prevent multiclick in tree
 
   [ PA Nilsson ]
   * Removed message "Jobsettings not saved" when creating new backup
@@ -2885,11 +2885,11 @@ bubba-frontend (1.1.192) estelle; urgency=low
 
   [ Tor Krill ]
   * Fixed bug when clicking add to album without anything checked #829
-  * Fix that "Add to album" is not shown at all for admin #890 
+  * Fix that "Add to album" is not shown at all for admin #890
   * Only include head view in filemanager when actually needing it.
 
   [ Carl Fürstenberg ]
-  * make mount path in disk manager clickable, Closes: #898 
+  * make mount path in disk manager clickable, Closes: #898
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 24 Jun 2009 15:25:52 +0200
 
@@ -2949,7 +2949,7 @@ bubba-frontend (1.1.186) estelle; urgency=low
 
 bubba-frontend (1.1.185) estelle; urgency=low
 
-  * invert the smtpstatus value so true is true instead of false 
+  * invert the smtpstatus value so true is true instead of false
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 16 Jun 2009 14:53:03 +0200
 
@@ -2971,7 +2971,7 @@ bubba-frontend (1.1.183) karmic; urgency=low
 
 bubba-frontend (1.1.182) estelle; urgency=low
 
-  * Disable filemanager features when dir is not writable  
+  * Disable filemanager features when dir is not writable
 
  -- Tor Krill <tor@excito.com>  Fri, 12 Jun 2009 19:46:16 +0200
 
@@ -3000,26 +3000,26 @@ bubba-frontend (1.1.164) estelle; urgency=low
 
 bubba-frontend (1.1.163) estelle; urgency=low
 
-  * fix bug introduced in 1.1.158 
+  * fix bug introduced in 1.1.158
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 12 Jun 2009 15:14:02 +0200
 
 bubba-frontend (1.1.158) estelle; urgency=low
 
-  * Add primary check for mounted paths under /home (Closes: #854) 
+  * Add primary check for mounted paths under /home (Closes: #854)
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 12 Jun 2009 13:36:02 +0200
 
 bubba-frontend (1.1.157) estelle; urgency=low
 
-  * change sentence of the checboc for insecure auth 
+  * change sentence of the checboc for insecure auth
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 11 Jun 2009 17:43:49 +0200
 
 bubba-frontend (1.1.156) estelle; urgency=low
 
   [ Carl Fürstenberg ]
-  * Modify send mail to allow for unsecure plain text auth (Closes: #839) 
+  * Modify send mail to allow for unsecure plain text auth (Closes: #839)
 
   [ PA Nilsson ]
   * Backup settings should be part of sysbackup (Closes: #844) External
@@ -3056,7 +3056,7 @@ bubba-frontend (1.1.154) estelle; urgency=low
     (Closes: #788)
   * disable partition specific popups (Closes: #820)
   * change 'bind' to 'live' in simplemodal, to allow late close buttons
-    (Closes: #819) 
+    (Closes: #819)
 
   [ PA Nilsson ]
   * Fixat bugg med återställning av backup.pl FS: 816
@@ -3077,20 +3077,20 @@ bubba-frontend (1.1.153) estelle; urgency=low
 
 bubba-frontend (1.1.152) estelle; urgency=low
 
-  * unexpected T_VARIABLE 
+  * unexpected T_VARIABLE
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 05 Jun 2009 16:04:23 +0200
 
 bubba-frontend (1.1.151) estelle; urgency=low
 
   [ Carl Fürstenberg ]
-  * Change user modifiction under album user access from drag'n'drop to 
+  * Change user modifiction under album user access from drag'n'drop to
     checkboxes. (Closes: #790)
   * Make sure the username is retained when modifying it (Closes: #794)
   * Check for zero filesize before checking for exif type (Closes: #792)
-  * Make albums be private per default (Closes: #796) 
-  * Check, and bail out if username allready exists (Closes: #771) 
-  * Replace space with underscore for mountpath 
+  * Make albums be private per default (Closes: #796)
+  * Check, and bail out if username allready exists (Closes: #771)
+  * Replace space with underscore for mountpath
 
   [ PA Nilsson ]
   * Minor UI-fixes to photoalbum admin UI. Minor fixes to backup/restore
@@ -3118,7 +3118,7 @@ bubba-frontend (1.1.148) estelle; urgency=low
 
 bubba-frontend (1.1.147) estelle; urgency=high
 
-  * Fix back button on user change password view 
+  * Fix back button on user change password view
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 04 Jun 2009 16:15:27 +0200
 
@@ -3148,7 +3148,7 @@ bubba-frontend (1.1.143) estelle; urgency=low
 
 bubba-frontend (1.1.142) estelle; urgency=low
 
-  * chown, chgrp and chmod the mounted disk correctly 
+  * chown, chgrp and chmod the mounted disk correctly
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 04 Jun 2009 13:51:29 +0200
 
@@ -3172,31 +3172,31 @@ bubba-frontend (1.1.139) estelle; urgency=low
 
 bubba-frontend (1.1.138) estelle; urgency=low
 
-  * tyop 
+  * tyop
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 03 Jun 2009 15:12:26 +0200
 
 bubba-frontend (1.1.137) estelle; urgency=low
 
-  * prohibit removable disks for raid creation 
+  * prohibit removable disks for raid creation
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 03 Jun 2009 14:58:20 +0200
 
 bubba-frontend (1.1.136) estelle; urgency=low
 
-  * errorious return statement 
+  * errorious return statement
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 03 Jun 2009 14:34:48 +0200
 
 bubba-frontend (1.1.135) estelle; urgency=low
 
-  * umount mountpath instead of device 
+  * umount mountpath instead of device
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 03 Jun 2009 14:29:49 +0200
 
 bubba-frontend (1.1.134) estelle; urgency=low
 
-  * one level too much in continue 
+  * one level too much in continue
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 03 Jun 2009 14:24:03 +0200
 
@@ -3214,68 +3214,68 @@ bubba-frontend (1.1.132) claire; urgency=low
   * User inferface styling
 
   [Carl Fürstenberg]
-  * adding notice for recover RAID if no RAID disk found 
+  * adding notice for recover RAID if no RAID disk found
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 02 Jun 2009 13:06:34 +0200
 
 bubba-frontend (1.1.131) claire; urgency=low
 
-  * PA did some stuff, wanted new frontend 
+  * PA did some stuff, wanted new frontend
 
  -- Carl Fürstenberg <carl@excito.com>  Sat, 30 May 2009 21:25:06 +0200
 
 bubba-frontend (1.1.130) claire; urgency=low
 
-  * install default web 
+  * install default web
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 29 May 2009 17:21:26 +0200
 
 bubba-frontend (1.1.129) claire; urgency=low
 
-  * bugfix 
+  * bugfix
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 29 May 2009 15:55:16 +0200
 
 bubba-frontend (1.1.128) claire; urgency=low
 
-  * reduce option for LVM to single disk 
+  * reduce option for LVM to single disk
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 29 May 2009 15:40:03 +0200
 
 bubba-frontend (1.1.127) claire; urgency=low
 
-  * close modal beforehand 
+  * close modal beforehand
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 29 May 2009 14:46:11 +0200
 
 bubba-frontend (1.1.126) claire; urgency=low
 
-  * allow dirtree to be collapsible. 
+  * allow dirtree to be collapsible.
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 29 May 2009 14:42:12 +0200
 
 bubba-frontend (1.1.125) claire; urgency=low
 
   [PA]
-  * new style, WFIE 
+  * new style, WFIE
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 29 May 2009 14:29:47 +0200
 
 bubba-frontend (1.1.124) claire; urgency=low
 
-  * functional code for restoing broken internal raid 
+  * functional code for restoing broken internal raid
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 28 May 2009 17:49:45 +0200
 
 bubba-frontend (1.1.123) claire; urgency=low
 
-  * Progressing work for recovery of RAID 
+  * Progressing work for recovery of RAID
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 28 May 2009 14:56:34 +0200
 
 bubba-frontend (1.1.122) claire; urgency=low
 
-  * update fileselection in backup 
+  * update fileselection in backup
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 27 May 2009 11:07:12 +0200
 
@@ -3294,49 +3294,49 @@ bubba-frontend (1.1.120) claire; urgency=low
 
 bubba-frontend (1.1.119) claire; urgency=low
 
-  * final check 
+  * final check
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 14 May 2009 14:39:10 +0200
 
 bubba-frontend (1.1.118) claire; urgency=low
 
-  * and hopefully for the last time... 
+  * and hopefully for the last time...
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 14 May 2009 14:32:44 +0200
 
 bubba-frontend (1.1.117) claire; urgency=low
 
-  * and again 
+  * and again
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 14 May 2009 14:04:51 +0200
 
 bubba-frontend (1.1.116) claire; urgency=high
 
-  * bumptest3 
+  * bumptest3
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 14 May 2009 13:45:38 +0200
 
 bubba-frontend (1.1.115) claire; urgency=low
 
-  * bumptest2 
+  * bumptest2
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 14 May 2009 13:44:36 +0200
 
 bubba-frontend (1.1.114) claire; urgency=low
 
-  * bumptest 
+  * bumptest
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 14 May 2009 13:41:58 +0200
 
 bubba-frontend (1.1.113) claire; urgency=low
 
-  * fix class name for album ajax controller 
+  * fix class name for album ajax controller
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 07 May 2009 16:48:56 +0200
 
 bubba-frontend (1.1.112) claire; urgency=low
 
-  * remove album from frontend 
+  * remove album from frontend
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 06 May 2009 11:15:54 +0200
 
@@ -3348,19 +3348,19 @@ bubba-frontend (1.1.111) claire; urgency=low
 
 bubba-frontend (1.1.110) claire; urgency=low
 
-  * cleaning postinst to make it not complain on base install 
+  * cleaning postinst to make it not complain on base install
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 30 Apr 2009 15:25:00 +0200
 
 bubba-frontend (1.1.109) claire; urgency=low
 
-  * that didn't work, trying without dbc_first_version 
+  * that didn't work, trying without dbc_first_version
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 30 Apr 2009 15:17:29 +0200
 
 bubba-frontend (1.1.108) claire; urgency=low
 
-  * testing fixes for the database so it will be installed (hopefully) 
+  * testing fixes for the database so it will be installed (hopefully)
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 30 Apr 2009 15:12:14 +0200
 
@@ -3379,19 +3379,19 @@ bubba-frontend (1.1.106) claire; urgency=low
 
 bubba-frontend (1.1.105) claire; urgency=low
 
-  * fix typo in postinst (again) 
+  * fix typo in postinst (again)
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 29 Apr 2009 14:58:52 +0200
 
 bubba-frontend (1.1.104) claire; urgency=low
 
-  * fix typo in postinst 
+  * fix typo in postinst
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 29 Apr 2009 14:55:23 +0200
 
 bubba-frontend (1.1.103) claire; urgency=low
 
-  * update style of mini progress meter 
+  * update style of mini progress meter
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 29 Apr 2009 14:48:01 +0200
 
@@ -3404,13 +3404,13 @@ bubba-frontend (1.1.102) claire; urgency=low
 
 bubba-frontend (1.1.101) claire; urgency=low
 
-  * updated disk management 
+  * updated disk management
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 28 Apr 2009 16:05:33 +0200
 
 bubba-frontend (1.1.100) claire; urgency=low
 
-  * Building with UI updates. 
+  * Building with UI updates.
 
  -- PA Nilsson <pa@excito.com>  Tue, 28 Apr 2009 15:59:25 +0200
 
@@ -3421,7 +3421,7 @@ bubba-frontend (1.1.99) claire; urgency=low
   * album updates
 
   [ PA Nilsson ]
-  * Updated UI to present more information about errors. 
+  * Updated UI to present more information about errors.
 
  -- PA Nilsson <pa@excito.com>  Tue, 28 Apr 2009 15:41:52 +0200
 
@@ -3449,7 +3449,7 @@ bubba-frontend (1.1.96) claire; urgency=low
 
 bubba-frontend (1.1.95) claire; urgency=low
 
-  * remove the limit from album::album_model::get_album 
+  * remove the limit from album::album_model::get_album
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 15 Apr 2009 14:28:00 +0200
 
@@ -3463,7 +3463,7 @@ bubba-frontend (1.1.94) claire; urgency=low
 
 bubba-frontend (1.1.93) claire; urgency=low
 
-  * bump database first version 
+  * bump database first version
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 15 Apr 2009 13:43:31 +0200
 
@@ -3471,7 +3471,7 @@ bubba-frontend (1.1.92) claire; urgency=low
 
   * Added frontend restore functionality to backup system.
   	Added removal of logfiles that were associated with removed backup sets.
- 
+
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 26 Mar 2009 16:34:13 +0100
 
@@ -3485,25 +3485,25 @@ bubba-frontend (1.1.91) claire; urgency=low
 bubba-frontend (1.1.90) claire; urgency=low
 
   * Bump version not to clash with 1.1 branch.
-  * Add AFP to services 
+  * Add AFP to services
 
  -- Tor Krill <tor@excito.com>  Tue, 17 Mar 2009 13:16:48 +0100
 
 bubba-frontend (1.1.3) claire; urgency=low
 
-  * initial album support 
+  * initial album support
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 20 Feb 2009 17:12:52 +0100
 
 bubba-frontend (1.1.2) estelle; urgency=low
 
-  * Fixed incorrect error message on denied Admin WAN-login. 
+  * Fixed incorrect error message on denied Admin WAN-login.
 
  -- PA Nilsson <pa@excito.com>  Mon,  2 Feb 2009 09:14:17 +0100
 
 bubba-frontend (1.1.1) estelle; urgency=low
 
-  * Fixed license. 
+  * Fixed license.
 
  -- PA Nilsson <pa@excito.com>  Fri, 30 Jan 2009 10:31:28 +0100
 
@@ -3519,13 +3519,13 @@ bubba-frontend (1.0.29) estelle; urgency=low
   * Solving:
     FS# 668, Undefined variables in wizard.
     FS# 678, wizard 404 fel
-  * Fixed changelog syntax 
+  * Fixed changelog syntax
 
  -- PA Nilsson <pa@excito.com>  Tue, 27 Jan 2009 11:10:34 +0100
 
 bubba-frontend (1.0.28) estelle; urgency=low
 
-  * add option -x to dh_codeigniter to prevent moving config to /etc 
+  * add option -x to dh_codeigniter to prevent moving config to /etc
     (Closes: #680)
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 22 Jan 2009 22:36:10 +0100
@@ -3539,7 +3539,7 @@ bubba-frontend (1.0.27) estelle; urgency=low
 
 bubba-frontend (1.0.26-estelle1) estelle; urgency=low
 
-  * changing 3dchess to squeezecenter ftw 
+  * changing 3dchess to squeezecenter ftw
 
  -- Carl Fürstenberg <carl@excito.com>  Wed, 21 Jan 2009 10:15:51 +0100
 
@@ -3555,7 +3555,7 @@ bubba-frontend (1.0.25) jaunty; urgency=low
    * Fixed undefined variable in easyfind. (Closes: #662).
 
   [carl]
-   * Adding check for isset on $_SESSION in unset_userdata for safty 
+   * Adding check for isset on $_SESSION in unset_userdata for safty
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 16 Jan 2009 21:02:29 +0100
 
@@ -3581,54 +3581,54 @@ bubba-frontend (1.0.22) jaunty; urgency=low
 
 bubba-frontend (1.0.21) jaunty; urgency=low
 
-  * update session code to use codeigniters own session library 
+  * update session code to use codeigniters own session library
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 09 Jan 2009 16:10:58 +0100
 
 bubba-frontend (1.0.20) unstable; urgency=low
 
-  * removing manual from apache conf 
+  * removing manual from apache conf
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 09 Jan 2009 15:02:25 +0100
 
 bubba-frontend (1.0.19) unstable; urgency=low
 
-  * Trying to merge from PA 
+  * Trying to merge from PA
 
  -- Carl Fürstenberg <carl@excito.com>  Fri, 09 Jan 2009 14:43:15 +0100
 
 bubba-frontend (1.0.18) unstable; urgency=low
 
   * fix paths in views to point correctly.
-  * move index to admin/index.php 
-  * fix path to bubba_version.php 
-  * fix version in bubba_version.php 
+  * move index to admin/index.php
+  * fix path to bubba_version.php
+  * fix version in bubba_version.php
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 08 Jan 2009 21:41:10 +0100
 
 bubba-frontend (1.0.17) unstable; urgency=low
 
-  * adding default errors 
+  * adding default errors
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 08 Jan 2009 19:17:44 +0100
 
 bubba-frontend (1.0.16) unstable; urgency=low
 
-  * adding default config 
-  * renaming dirs to remove one level 
+  * adding default config
+  * renaming dirs to remove one level
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 08 Jan 2009 19:14:48 +0100
 
 bubba-frontend (1.0.15) unstable; urgency=low
 
-  * site names should be bubba, not admin 
+  * site names should be bubba, not admin
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 08 Jan 2009 19:00:49 +0100
 
 bubba-frontend (1.0.14) unstable; urgency=low
 
-  * Merging trunk 
-  * exctracting the manual 
+  * Merging trunk
+  * exctracting the manual
 
  -- Carl Fürstenberg <carl@excito.com>  Thu, 08 Jan 2009 18:45:18 +0100
 

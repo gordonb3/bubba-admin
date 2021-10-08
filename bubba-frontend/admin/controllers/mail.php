@@ -4,7 +4,7 @@ class Mail extends CI_Controller{
 
 	function __construct(){
 		parent::__construct();
-		
+
 		require_once(APPPATH."/legacy/defines.php");
 		require_once(ADMINFUNCS);
 
@@ -16,7 +16,7 @@ class Mail extends CI_Controller{
 		self::__construct();
 	}
 
-	function _renderfull($content,$head = "", $mdata){
+	function _renderfull($content,$head = "", $mdata = false){
 		if( ! $head ) {
 			$mdata["head"] = $this->load->view(THEME.'/mail/mail_head_view','',true);
 		} else {
@@ -27,7 +27,7 @@ class Mail extends CI_Controller{
 		$mdata["dialog_menu"] = $this->load->view(THEME.'/menu_view',$this->menu->get_dialog_menu(),true);
 		$mdata["content"]=$content;
 		$this->load->view(THEME.'/main_view',$mdata);
-	}	
+	}
 
 	function _parse_mailcfg($mc) {
 
@@ -44,7 +44,7 @@ class Mail extends CI_Controller{
 		$smtp["smtp_auth"]=$mc[3]=="yes";
 		$smtp["smtp_plain_auth"] = strpos( $mc[4], 'noplaintext' ) === false;
 		$smtp["smtp_user"]=$mc[5];
-		
+
 		return $smtp;
 
 	}
@@ -67,15 +67,15 @@ class Mail extends CI_Controller{
 
 		$recievedata["smtpstatus"]=$smtpstatus;
 		$recievedata["domain"]=$domain;
-		
+
 		return $recievedata;
 	}
 
 	function _getUsers(){
-		
+
 		require_once(APPPATH."/legacy/user_auth.php");
 
-		$userlist=array();		
+		$userlist=array();
 		$userinfo = get_userinfo();
 		foreach($userinfo as $user=>$info){
 			if ( ($this->session->userdata("user")=="admin")||($this->session->userdata("user")==$user) ) {
@@ -125,7 +125,7 @@ class Mail extends CI_Controller{
 			echo json_encode( $data );
 			return;
 		}
-	}	
+	}
 	function edit_fetchmail_account($strip=""){
 		if( $strip == 'json' ) {
 			$error = false;
@@ -162,7 +162,7 @@ class Mail extends CI_Controller{
 						$luser,
 						$ssl,
 						$keep
-					);	
+					);
 					if(query_service("fetchmail") && !service_running("fetchmail")){
 						start_service("fetchmail");
 					}
@@ -179,7 +179,7 @@ class Mail extends CI_Controller{
 			echo json_encode( $data );
 			return;
 		}
-	}	
+	}
 
 	function delete_fetchmail_account($strip=""){
 		if( $strip == 'json' ) {
@@ -211,7 +211,7 @@ class Mail extends CI_Controller{
 			echo json_encode( $data );
 			return;
 		}
-	}	
+	}
 
 	function mc_update($strip="") {
 
@@ -241,7 +241,7 @@ class Mail extends CI_Controller{
 	function server_update($strip=""){
 
 		$this->Auth_model->enforce_policy('web_admin','administer', 'admin');
-	
+
 		$current_mc = $this->_parse_mailcfg(get_mailcfg());
 
 		$smarthost=$this->input->post('smarthost');
@@ -279,7 +279,7 @@ class Mail extends CI_Controller{
 				$update_postfix=true;
 			}
 		}
-		
+
 		if($update_postfix){
 			if(query_service("postfix")){
 				stop_service("postfix");
@@ -287,9 +287,9 @@ class Mail extends CI_Controller{
 			}
 		}
 		$this->server_settings("",$data);
-	}	
-	
-	
+	}
+
+
 	function viewfetchmail($strip=""){
 
 		require_once(APPPATH."/legacy/user_auth.php"); // TODO here?
@@ -318,7 +318,7 @@ class Mail extends CI_Controller{
 			echo json_encode( $data );
 		} else {
 			$data["userlist"]=$this->_getUsers();
-			$data["edit_allusers"] = $this->Auth_model->policy("mail","edit_allusers");	
+			$data["edit_allusers"] = $this->Auth_model->policy("mail","edit_allusers");
 
 
 			$this->_renderfull(
@@ -328,7 +328,7 @@ class Mail extends CI_Controller{
 			);
 		}
 	}
-	
+
 	function server_settings($strip="",$data = array()){
 
 		$this->Auth_model->enforce_policy('web_admin','administer', 'admin');
@@ -348,7 +348,7 @@ class Mail extends CI_Controller{
 			);
 		}
 	}
-	
+
 	function index($strip=""){
 
 		$this->viewfetchmail();

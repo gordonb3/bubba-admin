@@ -30,7 +30,7 @@ Only users who have added their own visit_each() overloads are affected by
 the API break. Their programs will still compile, but there will be run-time
 errors, if they rely on auto-disconnection of slots.
 Updated instructions for users who implement their own adaptors are found
-in the description of sigc::adapts<>. 
+in the description of sigc::adapts<>.
 
 * Replace visit_each() overloads by struct visitor<>.
   Add the test_visit_each test case.
@@ -75,7 +75,7 @@ in the description of sigc::adapts<>.
 * Fix comma operator in libsigc++ lambda expressions.
   Andris Pavenis) Bug #342911
 * Added SIGC_FUNCTORS_DEDUCE_RESULT_TYPE_WITH_DECLTYPE.
-  This allows most uses of libsigc++'s lambda expressions to be 
+  This allows most uses of libsigc++'s lambda expressions to be
   replaced by standard C++11 lambda expressions.
   (Kjell Ahlstedt) Bug #672555.
   Thanks to Chow Loong Jin, who posted similar code on libsigc-list.
@@ -94,7 +94,7 @@ in the description of sigc::adapts<>.
 	(Kjell Ahlstedt ) Bug #564005 (Alexander Shaduri)
 * Mention visit_each() in the documentation of sigc::adapts.
   (Thomas Rydzynski)
-	
+
 2.2.9:
 
 * trackable: Avoid calling the same callback function twice, fixing some

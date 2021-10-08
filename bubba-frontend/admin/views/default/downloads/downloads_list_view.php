@@ -19,7 +19,7 @@
 					$dt=$dl["info"];
 					if($dt["state"]=="downloading"){ ?>
 			<small><b><?=_("Downloading")?></b> (<?=$dt["num_seeds"]?> <?=_("seeds")?> <?=$dt["num_peers"]?> <?=_("peers")?>)<br/>
-			DL: <?=sizetohuman($dt["download_payload_rate"])?>B/s (<?=sizetohuman($dt["total_payload_download"])?>B) UL: <?=sizetohuman($dt["upload_payload_rate"])?>B/s (<?=sizetohuman($dt["total_payload_upload"])?>B) </small>			
+			DL: <?=sizetohuman($dt["download_payload_rate"])?>B/s (<?=sizetohuman($dt["total_payload_download"])?>B) UL: <?=sizetohuman($dt["upload_payload_rate"])?>B/s (<?=sizetohuman($dt["total_payload_upload"])?>B) </small>
 		<?			}elseif($dt["state"]=="queued_for_checking"){ ?>
 			<small><b><?=_('Queued for checking')?></b></small>
 		<?			}elseif($dt["state"]=="checking_files"){ ?>

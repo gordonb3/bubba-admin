@@ -55,7 +55,7 @@ GetOptions(
 	'width:i',
 	'height:i',
 	'prefix',
-	'force!', 
+	'force!',
 	'strict!',
 	'verbose!',
 	'recursive!'

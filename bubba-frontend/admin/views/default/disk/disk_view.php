@@ -83,10 +83,10 @@
 			default:
 				print $legend['name'];
 				break;
-		}	
+		}
 	?></td>
-	<td><?=isset($devices[$legend['name']]['label'])?$devices[$legend['name']]['label']:""?></td> 
-	<td><?=sizetohuman($legend['size'],1000)?>B</td> 
+	<td><?=isset($devices[$legend['name']]['label'])?$devices[$legend['name']]['label']:""?></td>
+	<td><?=sizetohuman($legend['size'],1000)?>B</td>
 	<td><?if(isset($devices[$legend['name']]['mountpath'])):
 		if(substr($devices[$legend['name']]['mountpath'],0,5) != "/home"):?>
 			<font color="#aaaaaa"><?=$devices[$legend['name']]['mountpath']?></font>

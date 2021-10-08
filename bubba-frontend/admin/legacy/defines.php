@@ -49,7 +49,7 @@ if($CI->session->userdata("language")){
 		} else {
 			// Default, make a guess?
 			define("CURRENT_LOCALE","en_US");
-		}	
+		}
 
 	} else {
 		// Default, make a guess?
@@ -57,7 +57,7 @@ if($CI->session->userdata("language")){
         define("CURRENT_LOCALE","en_US");
 	}
 }
-				
+
 if($CI->session->userdata("theme")){
 	define("THEME",$CI->session->userdata("theme"));
 }else{

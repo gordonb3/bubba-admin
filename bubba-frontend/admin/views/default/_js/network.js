@@ -6,7 +6,7 @@ function update_leasefields() {
 		$("input[type='text'].dnsmasq").attr("disabled","true");
 	}
 }
-	
+
 function dhcp_onclick() {
 	$("input[type='text'].ip").attr("disabled","true");
 	$(".dnsmasq").attr("disabled","true");

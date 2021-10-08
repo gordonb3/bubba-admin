@@ -78,7 +78,7 @@ class Browscap
 
 	/**
 	 * Options for auto update capabilities
-	 * 
+	 *
 	 * $remoteVerUrl:   The location to use to check out if a new version of the
 	 *	                browscap.ini file is available.
 	 * $remoteIniUrl:   The location from which download the ini file.

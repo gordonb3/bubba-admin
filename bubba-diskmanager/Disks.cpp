@@ -239,7 +239,7 @@ bool Disks::CreateSimplePart(const string& dev, enum Disks::PartType parttype, c
 
 	ped_geometry_destroy( geom );
 	ped_constraint_destroy( constraint );
-	ped_disk_destroy( disk );	
+	ped_disk_destroy( disk );
 
 	if( ! ped_device_close( device ) )
 		throw disk_error("Failed to close device");
@@ -254,7 +254,7 @@ bool Disks::SetPartitionType(const string& dev, const string& partition, enum Di
 		throw disk_error("Failed to open device");
 
 	PedDisk* disk = ped_disk_new( device );
-	if( ! disk ) 
+	if( ! disk )
 		throw disk_error("Failed to open partition table");
 
 	PedPartition* part = ped_disk_get_partition( disk, atoi(partition.c_str()) );
@@ -281,7 +281,7 @@ bool Disks::SetPartitionType(const string& dev, const string& partition, enum Di
 	if (!ped_disk_commit_to_os( disk ) )
 		throw disk_error("Failed to inform the OS about the changes");
 
-	ped_disk_destroy (disk);	
+	ped_disk_destroy (disk);
 
 	if( ! ped_device_close( device ) )
 		throw disk_error("Failed to close device");
@@ -316,8 +316,8 @@ bool Disks::Probe( const string& dev ) {
 		return true;
 
 	disk = ped_disk_new( device );
-	
-	if(!disk) 
+
+	if(!disk)
 		throw disk_error("Failed to open partition table");
 
 	if (!ped_disk_commit_to_os( disk ) )
@@ -421,11 +421,11 @@ bool Disks::FormatPartition(const string& dev, const string& fstype){
 		if(wait(NULL)<0){
 			return false;
 		}
-		
+
 		const char* cmd[] = {
 			"/sbin/tune2fs",
 			"-c", "0",
-			"-i", "0", 
+			"-i", "0",
 			dev.c_str(),
 			NULL
 		};

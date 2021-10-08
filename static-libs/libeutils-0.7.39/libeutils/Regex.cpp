@@ -72,7 +72,7 @@ unsigned int Regex::NextMatch(Regex::Matches& match){
 	if(regexec(&this->preg,
 		this->curline.substr(this->curpos,string::npos).c_str(),
 		this->maxmatch,matches,0)==0){
-		
+
 		for(int i=0;i<maxmatch;i++){
 			if(matches[i].rm_so!=-1){
 				ret.push_back(pair<int,int>((this->curpos)+matches[i].rm_so,(this->curpos)+matches[i].rm_eo));
@@ -84,9 +84,9 @@ unsigned int Regex::NextMatch(Regex::Matches& match){
 		// Copy to returnvalue
 		match.insert(match.begin(),ret.begin()+1,ret.end());
 	}
-	
+
 	free(matches);
-	
+
 	return match.size();
 }
 
@@ -99,12 +99,12 @@ bool Regex::Match(const string& val, int maxmatch){
 	this->maxmatch=maxmatch;
 	this->curline=val;
 	this->curpos=0;
-	
+
 	//TODO: Cache first match
 	if(regexec(&this->preg,val.c_str(),0,0,0)==0){
 		return true;
 	}
-	
+
 	return false;
 }
 

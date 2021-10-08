@@ -121,7 +121,7 @@ CoolClock.prototype = {
 		this.canvas.style.width = this.displayRadius*2 + "px";
 		this.canvas.style.height = this.displayRadius*2 + "px";
 
-		this.renderRadius = CoolClock.config.renderRadius; 
+		this.renderRadius = CoolClock.config.renderRadius;
 
 		this.scale = this.displayRadius / this.renderRadius;
 		this.ctx = this.canvas.getContext("2d");
@@ -197,7 +197,7 @@ CoolClock.prototype = {
 
 		for (var i=0;i<60;i++)
 			this.radialLineAtAngle(i/60,skin[ i%5 ? "smallIndicator" : "largeIndicator"]);
-				
+
 		this.radialLineAtAngle((hour+min/60)/12,skin.hourHand);
 		this.radialLineAtAngle((min+sec/60)/60,skin.minuteHand);
 		if (this.showSecondHand) {

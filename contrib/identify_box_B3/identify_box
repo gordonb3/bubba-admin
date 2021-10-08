@@ -40,7 +40,7 @@ def buzzsetup():
     node.write("out")
     node.close()
 
- 
+
 
 def buzzer(status):
     node = open("/sys/class/gpio/gpio40/value", "wb")

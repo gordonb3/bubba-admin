@@ -10,7 +10,7 @@ namespace sigc {
 
 /** A hint to the compiler.
  * Functors which have all methods based on templates
- * should publicly inherit from this hint and define 
+ * should publicly inherit from this hint and define
  * a nested template class @p deduce_result_type that
  * can be used to deduce the methods' return types.
  *

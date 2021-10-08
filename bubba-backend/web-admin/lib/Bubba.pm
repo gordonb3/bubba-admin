@@ -38,7 +38,7 @@ sub su{
 		die "Could not get gid of group [$group]";
 	}
 	my $groups=getusergroups($name).$new_gid;
-	
+
 	# Save original value
 	$uid=$>;
 	$gid=$);
@@ -102,17 +102,17 @@ sub set_time{
 	$time =~ s/(\d\d)(\d\d)//;
 	#print "TIME: $time";
 	$hour = $1;
-	$min = $2;	
+	$min = $2;
 	$datecode = $month . $day . $hour . $min . $cent . $year;
 	#print "DATECODE $datecode \n";
-	if ($date or $time){ 
+	if ($date or $time){
 		print "Error in parsing data\n";
 		return 1;
 	} else {
 		system("/bin/date $datecode");
 	}
 	#print $? ."\n";
-	return $?;  
+	return $?;
 }
 # remove a file or directory from the filesystem
 sub rm{
@@ -144,7 +144,7 @@ sub changemod{
          $mask|=0001;
       }
    }
-  
+
    $res=chmod $mask, $dest;
 
    unsu();
@@ -164,7 +164,7 @@ sub md{
    $res=mkdir($dir,$mask);
    chown(-1,$gid,$dir);
    umask($umask);
-   
+
    unsu();
 
    return $res;
@@ -175,7 +175,7 @@ sub md{
 sub mv{
   my ($srcfile,$dstfile,$user) = @_;
   my $res=0;
-  
+
   su($user,"users");
   print("mv -f \"$srcfile\" \"$dstfile\"\n");
   system("/bin/mv","-f",$srcfile,$dstfile);
@@ -196,7 +196,7 @@ sub mv{
 sub cp{
   my ($srcfile,$dstfile,$user) = @_;
   my $res=0;
-  
+
   su($user,"users");
   print("cp -rf \"$srcfile\" \"$dstfile\"\n");
   system("/bin/cp","-rf",$srcfile,$dstfile);
@@ -225,10 +225,10 @@ sub get_filesize{
 # Determine the filetype
 # used by filemgr.php
 sub get_mime{
-  my ($file)=$ARGV[1]; 
+  my ($file)=$ARGV[1];
 
   system("/usr/bin/file", "-b", "-i", $file);
-  
+
   return $?;
 }
 
@@ -261,14 +261,14 @@ sub parsefilemode{
 
 sub do_ls{
 	my($path)=@_;
-	
+
 	opendir(DIR,$path) or print "\0\0\0" and die "Couldnt open dir [$path]: $!";
 	my $dir;
 	if(-w $path){
 		print "P\t1\t0\t0\n";
 	}else{
 		print "P\t0\t0\t0\n";
-	}	
+	}
 	while($dir=readdir(DIR)){
 		next if substr($dir,0,1) eq '.' or $dir eq 'lost+found';
 		my($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,
@@ -303,7 +303,7 @@ sub cat_file {
 
 # Zip files
 #
-# Args    : prefix - path to remove from archive 
+# Args    : prefix - path to remove from archive
 #           name - user that does operation
 #
 # Input   : Files to zip, one file per line.
@@ -340,8 +340,8 @@ use IPC::Open3;
    }
 
    waitpid($pid,0);
-   unsu();   
-   
+   unsu();
+
 }
 
 # Set a users unix password
@@ -377,9 +377,9 @@ sub set_workgroup {
    close(FILE);
    chomp(@data);
    my $file=join("\n",@data);
-   
+
    $file =~ s/[^#].*workgroup\s*=.*/\nworkgroup = $workgroup/g;
-   
+
    open(FILE, ">/etc/samba/smb.conf") or die "Failed to open file for writing";
    print FILE $file;
    close(FILE);
@@ -387,7 +387,7 @@ sub set_workgroup {
 
 # Alter users samba password
 #
-# Args   :  name - user name 
+# Args   :  name - user name
 #           old_pwd - users old password
 #           new_pwd - users new password
 #
@@ -418,7 +418,7 @@ sub del_user {
 
    system("/usr/bin/smbpasswd -x $name &>/dev/null && userdel $name");
    $ret=$?;
-   
+
    return $ret;
 }
 
@@ -468,7 +468,7 @@ sub add_user {
 	}
 
 	# if user existed before, make sure his directory is left accessible to new user
-	# This is however a security risk. But we trust the admin to do the right thing.   
+	# This is however a security risk. But we trust the admin to do the right thing.
 	if($ret==0){
 		$ret=system("/bin/chown -R $uname:$group /home/$uname");
 	}
@@ -478,7 +478,7 @@ sub add_user {
 
 # Restart avahi
 #
-# Args   : None  
+# Args   : None
 #
 # Outputs: nothing
 #
@@ -491,7 +491,7 @@ sub restart_avahi {
 }
 # Restart samba
 #
-# Args   : None  
+# Args   : None
 #
 # Outputs: nothing
 #
@@ -505,7 +505,7 @@ sub restart_samba {
 
 # Reload samba
 #
-# Args   : None  
+# Args   : None
 #
 # Outputs: nothing
 #
@@ -519,7 +519,7 @@ sub reload_samba {
 
 sub write_hostsfile {
 
-	my ($lanip,$name) = @_;	
+	my ($lanip,$name) = @_;
 	use File::Slurp;
 	my $hosts = read_file('/usr/share/bubba-backend/hosts.in');
 	$hosts =~ s/\@LANIP\@/$lanip/g;
@@ -531,7 +531,7 @@ sub write_hostsfile {
 # Gordon : 2015-06-22 - added function to keep existing hosts entries
 sub update_hostsfile {
 
-	my ($lanip,$name) = @_;	
+	my ($lanip,$name) = @_;
 	if ($lanip=="127.0.0.1") { return 0;}
 	my $oldname;
 	use File::Slurp;
@@ -552,7 +552,7 @@ sub update_hostsfile {
 
 # Change hostname
 #
-# Args   : name - New hostname  
+# Args   : name - New hostname
 #
 # Outputs: nothing
 #
@@ -600,7 +600,7 @@ sub change_hostname {
 }
 # Power off
 #
-# Args   : none  
+# Args   : none
 #
 # Outputs: nothing
 #
@@ -626,7 +626,7 @@ sub power_off{
 
 # Reboot system
 #
-# Args   : none  
+# Args   : none
 #
 # Outputs: nothing
 #
@@ -666,7 +666,7 @@ sub restart_network{
 }
 
 
-# Local method. 
+# Local method.
 # Reads /etc/network/interfaces and returns hash with
 # adressing="static","dhcp","loopback"
 # auto=1 if this interface should be up on boot
@@ -720,8 +720,8 @@ sub do_get_interfaces {
 sub write_interfaces{
 	my %cfg=@_;
 
-	open(FIL,">/etc/network/interfaces") or die "Could not open file for writing"; 
-	
+	open(FIL,">/etc/network/interfaces") or die "Could not open file for writing";
+
 	foreach my $iface (reverse sort keys %cfg){
 		if($cfg{$iface}{"auto"}){
 			print FIL "auto $iface\n";
@@ -746,7 +746,7 @@ sub write_interfaces{
 #
 sub set_static_netcfg{
 	my ($iface,$ip,$nm,$gw)=@_;
-	
+
 	my %ifs=read_interfaces();
 	delete $ifs{$iface};
 	$ifs{$iface}{"adressing"}="static";
@@ -756,7 +756,7 @@ sub set_static_netcfg{
 		$ifs{$iface}{"options"}{"gateway"}=$gw;
 	}
 	write_interfaces(%ifs);
-	
+
 	#if(-e "/var/run/dhclient.$iface.pid"){
 	if(service_running(dhclient.$iface)) {
 		print "KILL service";
@@ -787,7 +787,7 @@ sub set_dynamic_netcfg{
 # Args		:	ns	- Nameserver to use
 sub set_nameserver{
 	my ($ns)=@_;
-	
+
 #	return system("echo -ne 'search\nnameserver $ns\n'>/etc/resolv.conf");
 # Gordon : 2015-06-22 Don't delete domain information in this file
 	my $findstring="nameserver";
@@ -804,7 +804,7 @@ sub set_nameserver{
 			$ret .= $_"\n";
 		}
         }
-        
+
         write_file( '/etc/resolv.conf', $ret );
 
 }
@@ -820,7 +820,7 @@ sub service_running{
 	my ($service)=@_;
 	my $pid;
 	my $pidfile;
-	
+
 	if ($service eq "fetchmail"){
 		$pidfile="/var/run/fetchmail/fetchmail.pid";
 	} elsif ($service eq "avahi-daemon"){
@@ -855,8 +855,8 @@ sub service_running{
 # Return : Status of operation
 sub start_service{
    my ($service)=@_;
-   
-   return system("/etc/init.d/$service start");  
+
+   return system("/etc/init.d/$service start");
 }
 
 sub package_is_installed{
@@ -872,8 +872,8 @@ sub package_is_installed{
 # Return : Status of operation
 sub stop_service{
    my ($service)=@_;
-   
-   return system("/etc/init.d/$service stop");  
+
+   return system("/etc/init.d/$service stop");
 }
 
 # Restart service
@@ -883,8 +883,8 @@ sub stop_service{
 # Return : Status of operation
 sub restart_service{
    my ($service)=@_;
-   
-   return system("/etc/init.d/$service restart");  
+
+   return system("/etc/init.d/$service restart");
 }
 
 # Reload service
@@ -894,8 +894,8 @@ sub restart_service{
 # Return : Status of operation
 sub reload_service{
    my ($service)=@_;
-   
-   return system("/etc/init.d/$service reload");  
+
+   return system("/etc/init.d/$service reload");
 }
 
 # Add service
@@ -905,7 +905,7 @@ sub reload_service{
 # Return : Status of operation
 sub add_service{
    my ($service)=@_;
-   
+
    return system("/sbin/rc-update add $service default");
 }
 
@@ -928,7 +928,7 @@ sub add_service_at_level{
 # Return : Status of operation
 sub remove_service{
    my ($service)=@_;
-   
+
    return system("/sbin/rc-update del $service default");
 }
 
@@ -950,7 +950,7 @@ sub query_service{
 #
 # Outputs: 1 line domains to receive mail for or empty line
 #          2 line relayhost or empty line
-#          3 hostname 
+#          3 hostname
 #          4 smtp auth yes or no
 #          5 smtp user or empty line
 #
@@ -994,7 +994,7 @@ sub write_send_mailcfg{
 	my ($mailhost,$auth,$user,$passwd,$plain_auth)=@_;
 	$user =~ s/://g; # remove ':' as sasl_password have no mechanics to allow such chars
 	my $security_options = "smtp_sasl_security_options=\"noplaintext, noanonymous\"";
-	
+
 	if($auth eq "yes"){
 		open(FILE,">/etc/postfix/sasl_passwd") or die "Could not open file";
 		print FILE "$mailhost\t$user:$passwd\n";
@@ -1007,7 +1007,7 @@ sub write_send_mailcfg{
 			$security_options = "smtp_sasl_security_options=noanonymous";
 		}
 	}
-	
+
 	return system("/usr/sbin/postconf -e relayhost=\"$mailhost\" smtp_sasl_auth_enable=$auth smtp_sasl_password_maps=hash:/etc/postfix/sasl_passwd $security_options");
 }
 
@@ -1027,7 +1027,7 @@ sub write_receive_mailcfg{
 }
 
 # Read fetchmail accounts
-# 
+#
 # Helper function reads out all fetchmail accounts into an
 # array of arrays.
 #
@@ -1036,17 +1036,17 @@ sub read_fetchmailaccounts{
    my @data=<FILE>;
    close(FILE);
 
-   my @ret;   
+   my @ret;
    my $host;
    my $proto;
-   my $uidl;      
-   my $keep;      
-   my $ssl;      
-   my $password;      
+   my $uidl;
+   my $keep;
+   my $ssl;
+   my $password;
    foreach (@data){
    		$ssl = "";
    		$keep = "";
-   		
+
       if( /^poll ([^\s]*)\s*(uidl)*\s*with proto (.*)/ ){
       	$host = $1;
 				$proto=$3;
@@ -1078,7 +1078,7 @@ sub write_fetchmailaccounts{
    print FILE "set properties \"\"\n";
    print FILE "set daemon 300\n";
    print FILE "set syslog\n";
-   
+
    my $line;
    my ($host,$proto,$keep,$uidl);
 
@@ -1091,8 +1091,8 @@ sub write_fetchmailaccounts{
 			} else {
 				$keep = "";
 				$uidl = "";
-			}			
-			
+			}
+
 			if($host ne @{$line}[0] || $proto ne @{$line}[1]){
 			   $host=@{$line}[0];
 			   $proto=@{$line}[1];
@@ -1114,9 +1114,9 @@ sub write_fetchmailaccounts{
 # Args   : None
 #
 # Outputs: fetchmailacounts one line per account
-#          Syntax on line: host protocol username password local_user (optional) ssl 
+#          Syntax on line: host protocol username password local_user (optional) ssl
 #
-# Return : None   
+# Return : None
 #
 sub get_fetchmailaccounts{
 
@@ -1130,29 +1130,29 @@ sub get_fetchmailaccounts{
 
 # Add fetchmail acccount
 #
-# Args   : host 
+# Args   : host
 #          protocol
 #          remote username
 #          password
 #          local username
-#          ssl "ssl" or "NONE"  
+#          ssl "ssl" or "NONE"
 #
 # Outputs: Nothing
 #
-# Return : None   
+# Return : None
 #
 sub add_fetchmailaccount{
 	my ($host, $proto, $ruser, $pwd, $luser, $ssl,$keep)=@_;
-	
+
 	my @indata=read_fetchmailaccounts();
 	my @outdata;
 	my $found=0;
 	my $line;
-	
+
 	if ($keep eq "NONE") {
 		$keep = "";
 	}
-	
+
 	foreach $line (@indata){
 		push @outdata, [@{$line}];
 		if( !$found && @{$line}[0] eq $host && @{$line}[1] eq $proto){
@@ -1164,7 +1164,7 @@ sub add_fetchmailaccount{
 			}
 		}
 	}
-	
+
 	if (!$found){
 		if($ssl ne "NONE"){
 			push @outdata, [$host, $proto, $ruser, $pwd, $luser, $ssl , $keep];
@@ -1172,7 +1172,7 @@ sub add_fetchmailaccount{
 			push @outdata, [$host, $proto, $ruser, $pwd, $luser, $keep];
 		}
 	}
-	
+
 	write_fetchmailaccounts(@outdata);
 
 }
@@ -1181,26 +1181,26 @@ sub add_fetchmailaccount{
 #
 # Args   : old host
 #          old protocol
-#          old remote user 
-#          new host 
+#          old remote user
+#          new host
 #          new protocol
 #          new remote username
 #          new password
 #          new local username
-#          new ssl "ssl" or "NONE"  
+#          new ssl "ssl" or "NONE"
 #
 # Outputs: Nothing
 #
-# Return : None   
+# Return : None
 #
 sub update_fetchmailaccount{
-	
+
    my ($o_host, $o_proto, $o_ruser, $host, $proto, $ruser, $pwd, $luser, $ssl, $keep)=@_;
    my @indata=read_fetchmailaccounts();
    my @outdata;
    my $found=0;
    my $line;
-	 
+	
 	foreach $line (@indata){
 		if( @{$line}[0] eq $o_host && @{$line}[1] eq $o_proto && @{$line}[2] eq $o_ruser){
 		  $found=1;
@@ -1214,10 +1214,10 @@ sub update_fetchmailaccount{
 				$pwd = @{$line}[3];
 			}
 		  push @outdata, [$host, $proto, $ruser, $pwd, $luser, $ssl, $keep];
-		
+
 		}else{
 		   push @outdata, [@{$line}];
-		}  
+		}
 	}
 
 	write_fetchmailaccounts(@outdata);
@@ -1227,13 +1227,13 @@ sub update_fetchmailaccount{
 
 # Delete fetchmail acccount
 #
-# Args   : host 
+# Args   : host
 #          protocol
 #          remote username
 #
 # Outputs: Nothing
 #
-# Return : None   
+# Return : None
 #
 sub delete_fetchmailaccount{
    my ($host, $proto, $ruser)=@_;
@@ -1247,7 +1247,7 @@ sub delete_fetchmailaccount{
          # Dont add this one to outarray it should be deleted.
       }else{
          push @outdata, [@{$line}];
-      }  
+      }
   }
 
    write_fetchmailaccounts(@outdata);
@@ -1268,21 +1268,21 @@ sub change_ftp_servername{
 	if(not $name=~ /^[\w-]*$/){
 		return 0;
 	}
- 
+
 	open( CONF,"/etc/proftpd/proftpd.conf") or die "Could not open config file";
 	my @data=<CONF>;
 	close(CONF);
 
 	chomp(@data);
 	my $file=join("\n",@data)."\n";
-	
+
 	if(  $file =~ s/ServerName\s*"([\w-]*)"/ServerName\t\t\t"$name"/g){
 		open( CONF,">/etc/proftpd/proftpd.conf") or die "Could not open config file";
 		print CONF $file;
 		close CONF;
 		return 1;
 	}
-	
+
 	return 0;
 
 }
@@ -1296,7 +1296,7 @@ sub change_ftp_servername{
 # Return: 0 - No anonymous access allowed
 #         1 - Anonymous access allowed
 #        -1 - Unable to parse configuration
-sub ftp_check_anonymous{ 
+sub ftp_check_anonymous{
 	open( CONF,"/etc/proftpd/proftpd.conf") or die "Could not open config file";
 	my @data=<CONF>;
 	close(CONF);
@@ -1318,27 +1318,27 @@ sub ftp_check_anonymous{
 #
 # Args   : 1 - Enable anonymous access
 #          0 - Disable anonymous access
-# 
+#
 # Outputs:   Nothing
 #
 # Return:  1 - Operation successful
-#          0 - Operation failed   
+#          0 - Operation failed
 sub ftp_set_anonymous{
    my $val=shift;
- 
+
 	open( CONF,"/etc/proftpd/proftpd.conf") or die "Could not open config file";
    my @data=<CONF>;
    close(CONF);
 
    chomp(@data);
    my $file=join("\n",@data)."\n";
-	
+
 	my $rep;
 	if($val){
         	$rep="AllowAll";
 	}else{
 	 	$rep="DenyAll";
-	} 
+	}
 
    if(  $file =~ s/(\<Anonymous.*\n.*\<Limit LOGIN\>\n\s*)(\w*)\n/$1$rep\n/g){
       open( CONF,">/etc/proftpd/proftpd.conf") or die "Could not open config file";
@@ -1417,15 +1417,15 @@ sub backup_config{
 	# current format revision
 	my $revision = 1;
 
-	# We gather user data from /etc/shadow and /etc/passwd, we'll only remember groups which 
+	# We gather user data from /etc/shadow and /etc/passwd, we'll only remember groups which
 	# specific users belong to.
-	my @bubba_users = map { 
-		my(undef,undef,$uid,$gid,$comment,$homedir,$shell) = split ':', `/usr/bin/getent passwd $_->{username}`; 
-		$_->{uid} = $uid; 
-		$_->{gid} = $gid; 
-		$_->{comment} = $comment; 
-		$_->{homedir} = $homedir; 
-		chomp( $_->{shell} = $shell); 
+	my @bubba_users = map {
+		my(undef,undef,$uid,$gid,$comment,$homedir,$shell) = split ':', `/usr/bin/getent passwd $_->{username}`;
+		$_->{uid} = $uid;
+		$_->{gid} = $gid;
+		$_->{comment} = $comment;
+		$_->{homedir} = $homedir;
+		chomp( $_->{shell} = $shell);
 		chomp (my $groups = `/usr/bin/id -Gn $_->{username}`);
 		@{$_->{groups}} = split ' ', $groups;
 		chomp( $_->{main_group} = `/usr/bin/id -gn $_->{username}` );
@@ -1457,12 +1457,12 @@ sub backup_config{
 	write_file( "$tempdir/meta.json", to_json( $meta, {utf8 => 1, pretty => 1}));
 
 	my $ret = system(
-		"/bin/tar", 
+		"/bin/tar",
 		'--directory', '/',
-		"--create", 
-		"--file", "$tempdir/system.tar.gz", 
+		"--create",
+		"--file", "$tempdir/system.tar.gz",
 		"--gzip",
-		"--force-local", 
+		"--force-local",
 		"--ignore-failed-read",
 		"--preserve-permissions",
 		"--preserve-order",
@@ -1473,12 +1473,12 @@ sub backup_config{
 	) >> 8;
 
 	$ret |= system(
-		"/bin/tar", 
+		"/bin/tar",
 		'--directory', '/',
-		"--create", 
+		"--create",
 		"--file", "$tempdir/user.tar.gz",
 		"--gzip",
-		"--force-local", 
+		"--force-local",
 		"--ignore-failed-read",
 		"--preserve-permissions",
 		"--preserve-order",
@@ -1494,8 +1494,8 @@ sub backup_config{
 	) >> 8;
 
 	# We combine the above files into an tar file
-	$ret |= system(	
-		"/bin/tar", 
+	$ret |= system(
+		"/bin/tar",
 		"--create",
 		'--directory', $tempdir,
 		"--file", "$filename",
@@ -1527,7 +1527,7 @@ sub restore_config{
 		my $tempdir = tempdir( CLEANUP => 1 );
 
 		system(
-			'/bin/tar', 
+			'/bin/tar',
 			'--extract',
 			'--directory', $tempdir,
 			'--file', $latest_archive
@@ -1726,14 +1726,14 @@ sub restore_config{
 				'--files-from', $tempfile,
 				'--file', $old_files[-1],
 			);
-			my @bubba_users = map { 
+			my @bubba_users = map {
 				my $__=$_;
 				my @passwd = grep {$_->[0] eq $__->{username}} map { chomp; $_ } map {[split ':'] } read_file( "$tempdir/etc/passwd" );
 				print Dumper @passwd;
 				my(undef,undef,undef,undef,$comment,$homedir,$shell) = @{$passwd[0]};
-				$_->{comment} = $comment; 
-				$_->{homedir} = $homedir; 
-				chomp( $_->{shell} = $shell); 
+				$_->{comment} = $comment;
+				$_->{homedir} = $homedir;
+				chomp( $_->{shell} = $shell);
 				\%$_;
 			} map {
 				pop@$_;
@@ -1765,11 +1765,11 @@ sub restore_config{
 				"tar",
 				"--directory", "/",
 				"--extract",
-				"--gzip", 
+				"--gzip",
 				"--verbose",
 				"--file", $old_files[-1],
-				"--atime-preserve", 
-				"--preserve", 
+				"--atime-preserve",
+				"--preserve",
 				"--same-owner",
 				"--absolute-names",
 				"--exclude-from" , $tempfile
@@ -1906,7 +1906,7 @@ sub dnsmasq_config {
 }
 
 sub easyfind {
-	
+
 	my ($cmd,$name) = @_;
 	if (!$name) {
 		$name = "";
@@ -1915,7 +1915,7 @@ sub easyfind {
 		$cmd = "";
 	}
 	return system("/opt/bubba/bin/easyfind.pl $cmd $name");
-	
+
 }
 
 sub do_get_version {
@@ -1936,7 +1936,7 @@ sub do_get_version {
 sub get_link{
 	my $iface=shift;
 	my $link=0;
-		
+
 	my @lines=`/usr/sbin/ethtool $iface 2>/dev/null`;
 	foreach $line (@lines){
 		if( $line =~ /\s*Speed: (\d+)Mb\/s/){
@@ -2023,11 +2023,11 @@ sub do_get_timezone {
 }
 
 sub do_set_timezone {
-	
+
 	my ($timezone) = @_;
 	my $ret;
 	my $cmd;
-	
+
 	$cmd = "/bin/ln -sf '/usr/share/zoneinfo/$timezone' '/etc/localtime'";
 	$ret = system($cmd);
 	$cmd = "/bin/echo '$timezone' > '/etc/timezone'";
@@ -2042,7 +2042,7 @@ sub do_set_timezone {
 	if($ret) {
 		print 1;
 	} else {
-		print 0;			
+		print 0;
 	}
 	return $ret;
 }
@@ -2085,7 +2085,7 @@ sub _notify_disable {
 
 	unlink "/etc/bubba-notify/enabled/$type";
 
-	# all "plugins" have at least $type in cache, 
+	# all "plugins" have at least $type in cache,
 	# if they have more they must have the name $type\_blabla
 	unlink "/var/cache/bubba-notify/$type";
 	unlink glob("/var/cache/bubba-notify/$type\_*");
@@ -2094,7 +2094,7 @@ sub _notify_disable {
 sub _makeControl
 {
 	my ($dataorarrayref) = @_;
-	
+
 	my $str = "";
 
 	foreach my $stanza(@$dataorarrayref)
@@ -2129,7 +2129,7 @@ sub _makeControl
 
 	chomp($str);
 	return $str;
-	
+
 }
 
 sub _notify_write_spool {
@@ -2167,11 +2167,11 @@ sub notify_stop {
 
 sub notify_enable {
 	my( $type, $level ) = @_;
-	
+
 	my $conf = &_notify_read_config;
-	
+
 	$conf->{"$type\_level"} = $level;
-	
+
 	_notify_enable( $type );
 
 	&_notify_write_config( $conf );
@@ -2179,11 +2179,11 @@ sub notify_enable {
 
 sub notify_disable {
 	my( $type ) = @_;
-	
+
 	my $conf = &_notify_read_config;
-	
+
 	$conf->{"$type\_level"} = 0;
-	
+
 	_notify_disable( $type );
 
 	&_notify_write_config( $conf );

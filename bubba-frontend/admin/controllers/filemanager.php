@@ -8,11 +8,11 @@ class Filemanager extends CI_Controller{
 	function _sort_entries($ta, $tb){
 		$a=strtolower($this->sortarray[$ta][3]);
 		$b=strtolower($this->sortarray[$tb][3]);
-	
+
 		if($a == $b){
 			return 0;
 		}
-		return ($a < $b) ? -1 : 1; 
+		return ($a < $b) ? -1 : 1;
 	}
 
 	function __construct(){
@@ -40,8 +40,8 @@ class Filemanager extends CI_Controller{
 		$mdata["dialog_menu"] = $this->load->view(THEME.'/menu_view',$this->menu->get_dialog_menu(),true);
 		$mdata["content"]=$content;
 		$this->load->view(THEME.'/main_view',$mdata);
-	}	
-	
+	}
+
 	function delete($strip=""){
 
 		if( $strip == 'json' ) {
@@ -56,7 +56,7 @@ class Filemanager extends CI_Controller{
 				if(rm($file,$user)){ // true is false
 					$errors[] = $file;
 				}
-			}		
+			}
 			$data["success"]=empty($errors);
 
 			if( !empty($errors) ) {
@@ -65,7 +65,7 @@ class Filemanager extends CI_Controller{
 			}
 			header("Content-type: application/json");
 			echo json_encode( $data );
-			
+
 		} else {
 			echo "error";
 		}
@@ -95,11 +95,11 @@ class Filemanager extends CI_Controller{
 			}
 			header("Content-type: application/json");
 			echo json_encode( $data );
-			
+
 		} else {
 			echo "error";
 		}
-	}	
+	}
 
 	function album($strip=""){
 
@@ -122,7 +122,7 @@ class Filemanager extends CI_Controller{
 			}
 			header("Content-type: application/json");
 			echo json_encode( $data );
-			
+
 		} else {
 			echo "error";
 		}
@@ -149,7 +149,7 @@ class Filemanager extends CI_Controller{
 				header("Content-type: application/json");
 				echo json_encode( $data );
 
-				
+
 			} else {
 				$errors = array();
 
@@ -236,7 +236,7 @@ class Filemanager extends CI_Controller{
 			echo json_encode( $data );
 		}
 	}
-	
+
 	function move($strip=""){
 
 		if( $strip == 'json' ) {
@@ -253,7 +253,7 @@ class Filemanager extends CI_Controller{
 				if(mv($file,$target,$user)){ // true is false
 					$errors[] = $file;
 				}
-			}		
+			}
 
 			$data["success"]=empty($errors);
 
@@ -263,7 +263,7 @@ class Filemanager extends CI_Controller{
 			}
 			header("Content-type: application/json");
 			echo json_encode( $data );
-			
+
 		} else {
 			echo "error";
 		}
@@ -284,7 +284,7 @@ class Filemanager extends CI_Controller{
 				if(cp($file,$target,$user)){ // true is false
 					$errors[] = $file;
 				}
-			}		
+			}
 
 			$data["success"]=empty($errors);
 
@@ -294,7 +294,7 @@ class Filemanager extends CI_Controller{
 			}
 			header("Content-type: application/json");
 			echo json_encode( $data );
-			
+
 		} else {
 			echo "error";
 		}
@@ -306,8 +306,8 @@ class Filemanager extends CI_Controller{
 	function downloadzip(){
 		$this->load->helper('content_disposition');
 		$files = $this->input->post('files');
-		$user=$this->session->userdata("user");		
-		$prefix=$this->input->post('path')?$this->input->post('path'):"/"; 		
+		$user=$this->session->userdata("user");
+		$prefix=$this->input->post('path')?$this->input->post('path'):"/";
 
 		$zipname = "download.zip";
 
@@ -326,7 +326,7 @@ class Filemanager extends CI_Controller{
 			$file = preg_replace( $regex, '', $file );
 		}
 		unset($file);
-		
+
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 		header("Pragma: public");
 		mb_internal_encoding('UTF-8');
@@ -335,9 +335,9 @@ class Filemanager extends CI_Controller{
 		set_time_limit(3600);
 		zip_files($files,$prefix,$user);
 	}
-	
+
 	function download(){
-			
+
 		$this->load->helper('content_disposition');
 		if(!$this->input->post("path")){
 			$get_file="/".join("/",array_slice($this->uri->segment_array(),2));
@@ -346,31 +346,31 @@ class Filemanager extends CI_Controller{
 		}
 		$user=$this->session->userdata("user");
 		$mime_type=get_mime($get_file);
-		
+
 		$filename=basename($get_file);
 		$filesize = get_filesize($get_file,$user);
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 		header("Pragma: public");
 		header(content_disposition('attachment',$filename));
 		header("Content-Length: $filesize");
-		
+
 		if($mime_type) {
 			header("Content-type: $mime_type");
 		}
-		
+
 		set_time_limit(1800);
 		cat_file($get_file,$user);
-		
-	}	
-	
+
+	}
+
 	function cd($strip=""){
 		if(!$this->input->post("path")){
 			$path="/".join("/",array_slice($this->uri->segment_array(),2));
 			$this->session->set_flashdata('path', $path);
 		}
 		redirect("/filemanager");
-	}	
-	
+	}
+
 	function index($strip=""){
 		if( $strip == 'json' ) {
 
@@ -422,7 +422,7 @@ class Filemanager extends CI_Controller{
 		$user=$this->session->userdata("user");
 
 		$pos=strpos($path,"/home");
-		
+
 		if(($pos===false) || ($pos!=0)){
 			$path="/home/$user";
 		}

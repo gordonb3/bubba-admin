@@ -23,7 +23,7 @@
 				<label for="username"><?=_("Username")?>:</label><br>
 				<div id="login-dialog-required-user"><?isset($required_user)?$required_user:""?></div>
 				<input
-					type="text" 
+					type="text"
 					name="username"
 					class="ui-input-text"
 					<?=isset($authfail)?'value="'.$username.'"':''?>
@@ -34,7 +34,7 @@
 			<td>
 				<label for="password"><?=_("Password")?>:</label><br>
 				<input
-					type="password" 
+					type="password"
 					name="password"
 					class="ui-input-text"
 				/>
@@ -50,7 +50,7 @@
 		</div>
 		<div id="fn-login-error-noaccess" class="ui-state-error-text ui-helper-hidden ui-login-dialog-error ui-text-center">
 			<?=_("User isn't allowed to login to web admin.")?>
-		</div>		
+		</div>
 		<?if(isset($redirect_user) && $redirect_user):?>
 			<div id="fn-login-error-redirect" class="ui-state-error-text ui-login-dialog-error ui-text-center">
 				<?=sprintf(_("Access not granted for user '%s'."), $redirect_user)?>

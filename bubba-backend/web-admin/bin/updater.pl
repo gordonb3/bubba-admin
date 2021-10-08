@@ -23,7 +23,7 @@ use constant SERVER		=> '/usr/lib/web-admin/updatebackend.pl';
 my $debug=0;
 
 sub start_server{
-	print "Spawning new server\n" if $debug;	
+	print "Spawning new server\n" if $debug;
 	system(SERVER);
 }
 
@@ -68,14 +68,14 @@ sub update_sources{
     	$res=1;
     }
 
-	return $res;	
+	return $res;
 }
 
 sub check_updates{
 	my $sock=shift;
 	my $line;
 	my $res=0;
-	
+
 	print "Check Updates\n" if $debug;
 	syswrite $sock, "{\"action\":\"check_updates\"}\n";
 
@@ -105,7 +105,7 @@ sub check_updates{
     	$res=1;
     }
 
-	return $res;	
+	return $res;
 
 }
 
@@ -169,7 +169,7 @@ if($commands{$cmd} && $commands{$cmd}[1]==$args){
 	}
 
 	$commands{$cmd}[0]->(($sock,@ARGV[1..$args]))==0 or exit 1;
-	
+
 	close $sock;
 }else{
 	if(!$commands{$cmd}){

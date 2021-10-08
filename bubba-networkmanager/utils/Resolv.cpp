@@ -38,7 +38,7 @@ Resolv::Resolv(){
 
 Resolv& Resolv::Instance(){
 	static Resolv r;
-	
+
 	return r;
 }
 

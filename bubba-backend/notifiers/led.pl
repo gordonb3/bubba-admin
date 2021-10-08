@@ -15,7 +15,7 @@ my $LEVELS = {
 	IGN => 0, #ignored
 	ERR => 1,
 	WARN => 2,
-	INFO => 3 
+	INFO => 3
 };
 
 
@@ -64,7 +64,7 @@ foreach my $entry ( @$decoded ) {
 	unless( exists $entry->{Level} ) {
 		# required element
 		next;
-	}	
+	}
 
 	if( $entry->{Action} eq 'MSG' && $LEVELS->{$entry->{Level}} <= $conf->{led_level} ) {
 		$cache->{$entry->{UUID}} = 1;

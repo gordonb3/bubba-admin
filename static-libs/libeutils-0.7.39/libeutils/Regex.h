@@ -43,7 +43,7 @@ private:
 	bool regvalid;
 	// The regex we currently work on
 	regex_t preg;
-	
+
 	// Result set.
 	// Max results per match.
 	int maxmatch;
@@ -53,7 +53,7 @@ private:
 	string curline;
 	// Current position in string
 	regoff_t curpos;
-	
+
 	void FreeRegex();
 	string GetError(int err);
 public:
@@ -61,13 +61,13 @@ public:
 	typedef vector<RegMatch> Matches;
 	Regex():regvalid(false){};
 	Regex(const string& regex, bool caseinsens=false);
-	
+
 	bool Match(const string& val, int maxmatch=10);
-	
+
 	unsigned int NextMatch(Matches& match);
-	
+
 	void Compile(const string& regex, bool caseinsens=false);
-	
+
 	virtual ~Regex();
 };
 

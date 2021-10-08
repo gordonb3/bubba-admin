@@ -3,7 +3,7 @@
 function SubmitForm(form_to_submit) {
 	var myform = getElementByName(form_to_submit);
 	myform.submit();
-}	
+}
 
 function enable_portforward() {
   var frm=document.getElementById("PORTCFG");
@@ -19,7 +19,7 @@ function enable_portforward() {
     	break;
     }
   }
-}	
+}
 function disable_portforward() {
   var frm=document.getElementById("PORTCFG");
   var tags=frm.getElementsByTagName("input");
@@ -35,7 +35,7 @@ function disable_portforward() {
     	break;
     }
   }
-}	
+}
 
 function copy_fields(formid) {
 
@@ -60,7 +60,7 @@ function copy_fields(formid) {
              break;
           case "removerule[to_port]":
              if(frm.to_port.value) { // Portforward
-               
+
                PORTCFG.to_port.value = tgs[i].value;
                PORTCFG.o_to_port.value = tgs[i].value;
              } else {
@@ -170,7 +170,7 @@ function copy_fields(formid) {
 		<input type="hidden" value='1' name='update'/>
 	</td></tr>
 	</tfoot>
-	
+
 </table>
 
 </form>

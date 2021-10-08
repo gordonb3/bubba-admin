@@ -110,7 +110,7 @@ signal_impl::iterator_type signal_impl::erase(iterator_type i)
 
   return slots_.erase(i);
 }
-    
+
 signal_impl::iterator_type signal_impl::insert(signal_impl::iterator_type i, const slot_base& slot_)
 {
   iterator_type temp = slots_.insert(i, slot_);

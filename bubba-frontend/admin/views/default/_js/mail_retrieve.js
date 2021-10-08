@@ -1,5 +1,5 @@
 $(document).ready(function(){
-		var options = { 
+		var options = {
 			"autoOpen": false,
 			"width": 400,
 			"open": function(event,ui) {
@@ -52,11 +52,11 @@ $(document).ready(function(){
 							'json'
 						);
 					}
-				}, 'json' 
+				}, 'json'
 			);
 		}
 
-		var edit_dialog_button_update_callback = function(){	
+		var edit_dialog_button_update_callback = function(){
 			if( ! edit_validator.form() ) {
 				return false;
 			}
@@ -67,18 +67,18 @@ $(document).ready(function(){
 						update_status( false, data.html );
 					} else {
 						update_status( true, _("Email account updated") );
-						$.post( 
-							config.prefix + "/mail/viewfetchmail/json", 
+						$.post(
+							config.prefix + "/mail/viewfetchmail/json",
 							{},
 							function(data) {
 								$.throbber.hide();
 								update_mail_table( edit_dialog, data.accounts );
 								edit_dialog.dialog('close');
-							}, 
-							'json' 
+							},
+							'json'
 						);
 					}
-				}, 'json' 
+				}, 'json'
 			);
 		};
 
@@ -91,18 +91,18 @@ $(document).ready(function(){
 						update_status( false, data.html );
 					} else {
 						update_status( true, _("Successfully deleted email account") );
-						$.post( 
-							config.prefix + "/mail/viewfetchmail/json", 
+						$.post(
+							config.prefix + "/mail/viewfetchmail/json",
 							{},
 							function(data) {
 								$.throbber.hide();
 								update_mail_table( edit_dialog, data.accounts );
 								confirm_dialog.dialog('close');
-							}, 
-							'json' 
+							},
+							'json'
 						);
 					}
-				}, 'json' 
+				}, 'json'
 			);
 
 		};
@@ -145,7 +145,7 @@ $(document).ready(function(){
 						$('<td/>',
 							{
 								html: $('<button/>',
-									{ 
+									{
 										'class' : "submit",
 										html: _("Edit"),
 										click: function(){open_edit_dialog_callback.apply(dialog, [data])}
@@ -156,10 +156,10 @@ $(document).ready(function(){
 					);
 
 				}
-			);			
+			);
 		}
 		var add_source_edit_dialog = source_edit_dialog.clone().removeAttr('id');
-		add_dialog  = $.dialog( 
+		add_dialog  = $.dialog(
 			add_source_edit_dialog,
 			'',
 			[
@@ -167,12 +167,12 @@ $(document).ready(function(){
 					'text': _("Add email account"),
 					'click': add_dialog_button_callback,
 					id: 'fn-mail-add-dialog-button'
-				}	
+				}
 			],
-			options	
-		);		
+			options
+		);
 		var edit_source_edit_dialog = source_edit_dialog.clone().removeAttr('id');
-		edit_dialog  = $.dialog( 
+		edit_dialog  = $.dialog(
 			edit_source_edit_dialog,
 			'',
 			[
@@ -185,9 +185,9 @@ $(document).ready(function(){
 					'text': _("Delete"),
 					'click': edit_dialog_button_delete_callback,
 					id: 'fn-mail-edit-dialog-delete-button'
-				}		
+				}
 			],
-			options	
+			options
 		);
 		add_validator = $('form',add_source_edit_dialog).validate({
 				rules:{

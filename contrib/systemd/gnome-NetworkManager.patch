@@ -8,13 +8,13 @@ diff -ru a/bubba-backend/web-admin/lib/Bubba.pm b/bubba-backend/web-admin/lib/Bu
 -	system("/usr/bin/rc-config restart `/usr/bin/rc-config list default | /bin/grep "^\s*net\."`");
 +	system("/usr/bin/nmcli networking off");
 +	system("/usr/bin/nmcli networking on");
- 
+
  	if(change_ftp_servername($name)){
  		system("/usr/bin/systemctl restart proftpd");
 @@ -658,10 +659,7 @@
     my ($if)=@_;
     my $ret;
- 
+
 -   $ret=system("/usr/bin/rc-config stop net.$if");
 -   if ($ret==0) {
 -      $ret=system("/usr/bin/rc-config start net.$if");
@@ -22,19 +22,19 @@ diff -ru a/bubba-backend/web-admin/lib/Bubba.pm b/bubba-backend/web-admin/lib/Bu
 +   $ret=system("/usr/bin/nmcli con up ifname $if");
     return $ret;
  }
- 
+
 diff -ru a/bubba-networkmanager/Makefile b/bubba-networkmanager/Makefile
 --- a/bubba-networkmanager/Makefile	2020-05-25 11:14:41.853373607 +0200
 +++ b/bubba-networkmanager/Makefile	2020-05-25 11:16:20.606298703 +0200
 @@ -40,8 +40,8 @@
  SOURCES = $(APP_SRC) $(DATAMODEL_SRC) $(CONTROLLER_SRC) $(UTIL_SRC)
  OBJS = $(SOURCES:%.cpp=%.o)
- 
+
 -CXXFLAGS += -g -Wall -I$(INCLUDEDIR) $(shell pkg-config --cflags glib-2.0 libnl-3.0 libnl-genl-3.0) -DPACKAGE_VERSION="\"$(APP_VERSION)\""
 -LDFLAGS = libeutils.a libsigc-2.0.a -lpopt -lpthread -lexpect $(shell pkg-config --libs glib-2.0 libnl-3.0 libnl-genl-3.0)
 +CXXFLAGS += -g -Wall -I$(INCLUDEDIR) $(shell pkg-config --cflags glib-2.0 libnl-3.0 libnl-genl-3.0 libnm) -DPACKAGE_VERSION="\"$(APP_VERSION)\""
 +LDFLAGS = libeutils.a libsigc-2.0.a -lpopt -lpthread -lexpect $(shell pkg-config --libs glib-2.0 libnl-3.0 libnl-genl-3.0 libnm)
- 
+
  APP_OBJS=$(APP_SRC:%.cpp=%.o)
  DATAMODEL_OBJS=$(DATAMODEL_SRC:%.cpp=%.o)
 diff -ru a/bubba-networkmanager/controllers/InterfaceController.cpp b/bubba-networkmanager/controllers/InterfaceController.cpp
@@ -42,12 +42,12 @@ diff -ru a/bubba-networkmanager/controllers/InterfaceController.cpp b/bubba-netw
 +++ b/bubba-networkmanager/controllers/InterfaceController.cpp	2021-01-12 10:10:07.862961000 +0100
 @@ -628,15 +628,11 @@
  }
- 
+
  bool InterfaceController::Up(const string& ifname){
 -	return do_call("initd=$(/sbin/rc-service -ir net."+ifname+") && ${initd} start")==0;
 +	return do_call("/usr/bin/nmcli con up $(grep -rl \""+ifname+"$\" /etc/NetworkManager/system-connections/ | awk -F/ '{print $NF}')")==0;
  }
- 
+
  bool InterfaceController::Down(const string& ifname){
 -	return do_call("initd=$(/sbin/rc-service -ir net."+ifname+") && ${initd} -D stop")==0;
 -}
@@ -56,7 +56,7 @@ diff -ru a/bubba-networkmanager/controllers/InterfaceController.cpp b/bubba-netw
 -	return do_call("initd=$(/sbin/rc-service -ir net."+ifname+") && ${initd} restart") == 0;
 +	return do_call("/usr/bin/nmcli con down $(/usr/bin/nmcli dev | grep \"^"+ifname+" \" | awk '{print $4}')")==0;
  }
- 
+
  InterfaceController::~InterfaceController(){
 diff -ru a/bubba-networkmanager/Dispatcher.cpp b/bubba-networkmanager/Dispatcher.cpp
 --- a/bubba-networkmanager/Dispatcher.cpp	2021-01-12 10:10:26.002316000 +0100
@@ -74,7 +74,7 @@ diff -ru a/bubba-networkmanager/Dispatcher.cpp b/bubba-networkmanager/Dispatcher
  				InterfaceController::Down(olf);
 +				// Pick up new if
 +				InterfaceController::Up(newif);
- 
+
 +/*
  				// If this was a move from two wlan (bridge) update rc.d
  				if(newiftype=="bridge"){
@@ -97,9 +97,9 @@ diff -ru a/bubba-networkmanager/Dispatcher.cpp b/bubba-networkmanager/Dispatcher
  		}catch(runtime_error& err){
  			res["status"]=false;
 @@ -480,7 +477,9 @@
- 
+
  	if(v.isMember("ifname") && v["ifname"].isString()){
- 
+
 -		if(InterfaceController::Restart(v["ifname"].asString())){
 +		InterfaceController::Down(v["ifname"].asString());
 +		if(InterfaceController::Up(v["ifname"].asString())){
@@ -114,21 +114,21 @@ diff -ru a/bubba-networkmanager/Dispatcher.cpp b/bubba-networkmanager/Dispatcher
 -	Route::Instance().Refresh();
  	res["gateway"]=Route::Instance().Default()["gateway"];
  	this->send_jsonvalue(con,res);
- 
+
 diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/utils/InterfacesCfg.cpp
 --- a/bubba-networkmanager/utils/InterfacesCfg.cpp	2021-01-12 10:10:26.003316000 +0100
 +++ b/bubba-networkmanager/utils/InterfacesCfg.cpp	2021-01-12 10:10:07.863961000 +0100
 @@ -22,13 +22,19 @@
      $Id$
  */
- 
+
 -#include "include/netifrc.h"
 -
 -#include <string>
  #include <iostream>
 +#include <sstream>
  using namespace std;
- 
+
 +#include <glib.h>
 +#include <string.h>
 +#include <arpa/inet.h>
@@ -138,13 +138,13 @@ diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/u
  #include "InterfacesCfg.h"
 +#include "Sockios.h"
 +#include "../utils/SysConfig.h"
- 
+
  #include <libeutils/FileUtils.h>
  #include <libeutils/StringTools.h>
 @@ -36,145 +42,90 @@
- 
+
  namespace NetworkManager{
- 
+
 -static const std::string handledInterfaces[4] = {"eth0", "eth1", "br0", "wlan0"};
 -
 -InterfacesCfg::InterfacesCfg():cfg(Json::objectValue)
@@ -152,15 +152,15 @@ diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/u
 +InterfacesCfg::InterfacesCfg():cfg(Json::objectValue){
  	this->parse_cfg();
  }
- 
+
 -InterfacesCfg& InterfacesCfg::Instance()
 -{
 +InterfacesCfg& InterfacesCfg::Instance(){
  	static InterfacesCfg cfg;
- 
+
  	return cfg;
  }
- 
+
 -bool InterfacesCfg::is_handled_interface(std::string ifname)
 -{
 -	int i = 0;
@@ -352,7 +352,7 @@ diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/u
  	}
 +	if (client) g_object_unref (client);
  }
- 
+
 +
  Json::Value InterfacesCfg::GetCFG(){
  	return this->cfg;
@@ -360,7 +360,7 @@ diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/u
 @@ -184,248 +135,327 @@
  	return true;
  }
- 
+
 -bool InterfacesCfg::Commit()
 -{
 -	Json::Value devs = this->cfg;
@@ -376,7 +376,7 @@ diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/u
 -		devs.removeMember("eth1");
 -		devs.removeMember("wlan0");
 -	}
- 
+
 -	bool have_preup = false;
 -	for (list<std::string>::iterator fIt = fil.begin(); (!have_preup && (fIt != fil.end())); fIt++)
 -	{
@@ -401,7 +401,7 @@ diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/u
 +	g_main_loop_quit (loop);
 +}
 +
- 
+
 -	res.push_back(netifrc::config_header);
 -	res.push_back(netifrc::modules_main);
 -	if (!have_preup)
@@ -491,7 +491,7 @@ diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/u
  			}
 -			continue;
  		}
- 
+
 -		if (line[0] == '#')
 -		{
 -			if ((line.size() > 7) && (line.substr(2,5) == "setup"))
@@ -667,7 +667,7 @@ diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/u
 +				FileUtils::Write(NMCFILE,res,0644);
  			}
 +		}
- 
+
 -			if (devs[curif]["addressing"] == "dhcp")
 -                                res.push_back(netifrc::mk_config_line(curif, "dhcp"));
 -			else if (NIC["address"][i].asString()=="0.0.0.0")
@@ -678,7 +678,7 @@ diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/u
 -			}
 -			else if (NIC["address"][i].asString()!="")
 -                                res.push_back(netifrc::mk_config_line(curif, NIC["address"][i].asString(), NIC["netmask"][i].asString()));
- 
+
 -			std::vector<std::string> routes;
 -			if (NIC.isMember("routes"))
 -			{
@@ -702,7 +702,7 @@ diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/u
 -                                res.push_back(netifrc::mk_routes_line(curif, routes));
 +			devs.removeMember("br0");
 +		}
- 
+
 -			devs.removeMember(curif);
 +		// remove eth1 connection whem switching from eth1 to br0
 +		if ( (devs.isMember("br0")) && (devs.isMember("eth1")) && (devs["eth1"]["type"]=="bridge-slave") && (devs["eth1"]["con_name"]=="LAN") ){
@@ -712,7 +712,7 @@ diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/u
  		}
 -		curif="";
 -	}
- 
+
 -	Json::Value::Members opts=devs.getMemberNames();
 -	for(Json::Value::Members::iterator oIt=opts.begin();oIt!=opts.end();oIt++){
 -		if (!have_empty_line)
@@ -775,14 +775,14 @@ diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/u
 +					devs[*mIt]["con-name"] = "LAN";
 +					curif = "eth1";
 +				}
-+				g_object_set (G_OBJECT (s_con), NM_SETTING_CONNECTION_UUID, devs[*mIt]["UUID"].asString().c_str(), 
-+					NM_SETTING_CONNECTION_ID, devs[*mIt]["con-name"].asString().c_str(), 
++				g_object_set (G_OBJECT (s_con), NM_SETTING_CONNECTION_UUID, devs[*mIt]["UUID"].asString().c_str(),
++					NM_SETTING_CONNECTION_ID, devs[*mIt]["con-name"].asString().c_str(),
 +					NM_SETTING_CONNECTION_TYPE, con_type.c_str(), NM_SETTING_CONNECTION_INTERFACE_NAME, curif.c_str(), NULL);
 +				nm_connection_add_setting (connection, NM_SETTING (s_con));
 +				if (*mIt == "br0") {
 +					NMSettingBridge *s_bridge;
 +					s_bridge = (NMSettingBridge *) nm_setting_bridge_new ();
-+					g_object_set (G_OBJECT (s_bridge), NM_SETTING_BRIDGE_STP, TRUE, NM_SETTING_BRIDGE_HELLO_TIME, 10, 
++					g_object_set (G_OBJECT (s_bridge), NM_SETTING_BRIDGE_STP, TRUE, NM_SETTING_BRIDGE_HELLO_TIME, 10,
 +						NM_SETTING_BRIDGE_FORWARD_DELAY, 2, NULL);
 +					nm_connection_add_setting (connection, NM_SETTING (s_bridge));
 +				} else {
@@ -804,12 +804,12 @@ diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/u
 +			GMainLoop *loop = g_main_loop_new (NULL, FALSE);
 +			connection = nm_simple_connection_new ();
 +			s_con = (NMSettingConnection *) nm_setting_connection_new ();
-+			g_object_set (G_OBJECT (s_con), NM_SETTING_CONNECTION_UUID, nm_utils_uuid_generate (), 
-+				NM_SETTING_CONNECTION_ID, "LAN-slave-eth1", 
++			g_object_set (G_OBJECT (s_con), NM_SETTING_CONNECTION_UUID, nm_utils_uuid_generate (),
++				NM_SETTING_CONNECTION_ID, "LAN-slave-eth1",
 +				NM_SETTING_CONNECTION_TYPE, "802-3-ethernet",
 +				NM_SETTING_CONNECTION_SLAVE_TYPE, "bridge",
 +				NM_SETTING_CONNECTION_MASTER, devs["br0"]["UUID"].asString().c_str(),
-+				NM_SETTING_CONNECTION_INTERFACE_NAME, "eth1", 
++				NM_SETTING_CONNECTION_INTERFACE_NAME, "eth1",
 +				NULL);
 +			nm_connection_add_setting (connection, NM_SETTING (s_con));
 +			NMSettingBridgePort *s_bridge_port;
@@ -897,32 +897,32 @@ diff -ru a/bubba-networkmanager/utils/InterfacesCfg.cpp b/bubba-networkmanager/u
 +	if (client) g_object_unref (client);
  	return true;
  }
- 
+
 +
  InterfacesCfg::~InterfacesCfg(){
 -}
- 
+
 +}
- 
+
  }
 diff -ru a/bubba-networkmanager/utils/InterfacesCfg.h b/bubba-networkmanager/utils/InterfacesCfg.h
 --- a/bubba-networkmanager/utils/InterfacesCfg.h	2021-01-12 10:10:26.003316000 +0100
 +++ b/bubba-networkmanager/utils/InterfacesCfg.h	2021-01-12 10:10:07.864961000 +0100
 @@ -26,7 +26,8 @@
  #define INTERFACESCFG_H_
- 
+
  //#define IFSFILE "interfaces"
 -#define IFSFILE "/etc/conf.d/net"
 +#define NMCFILE "/etc/NetworkManager/NetworkManager.conf"
 +
- 
+
  #include <libeutils/json/json.h>
- 
+
 @@ -41,7 +42,6 @@
  	InterfacesCfg& operator=(const InterfacesCfg& cfg);
- 
+
  	void parse_cfg();
 -	bool is_handled_interface(std::string ifname);
  public:
  	static InterfacesCfg& Instance();
- 
+

@@ -15,7 +15,7 @@ def request(req):
 	#print "%s"%d
 	ret=json.loads(d)
 	client.close()
-	
+
 	return ret
 
 def docall(req, dump):
@@ -34,13 +34,13 @@ def docall(req, dump):
 
 def getphybands(phy, dump=False):
 	return docall({"cmd":"getphybands","phy":phy},dump)
-		
+
 def getphycap(phy, dump=False):
 	return docall({"cmd":"getphycap","phy":phy},dump)
-		
+
 def getifcfg(ifnam, dump=False):
 	return docall({"cmd":"getifcfg","ifname":ifnam},dump)
-		
+
 def getlanif(dump=False):
 	return docall({"cmd":"getlanif"},dump)
 
@@ -70,7 +70,7 @@ def getns(dump=False):
 	return docall({"cmd":"getnameservers"},dump)
 
 def setns(arg, dump=False):
-	return docall({"cmd":"setnameservers","resolv":arg},dump)	
+	return docall({"cmd":"setnameservers","resolv":arg},dump)
 
 def getmtu(ifnam, dump=False):
 	return docall({"cmd":"getmtu", "ifname":ifnam},dump)

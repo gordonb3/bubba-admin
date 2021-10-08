@@ -33,21 +33,21 @@ function validate_ports( $range ) {
 	$number_ports =  count( $ports );
 	if( $number_ports == 1 ) {
 		$port = $ports[0];
-		if( 
-			!is_numeric( $port ) || 
-			$port < 0 || 
-			$port > 65535 
+		if(
+			!is_numeric( $port ) ||
+			$port < 0 ||
+			$port > 65535
 		) {
 			return false;
 		}
 	} elseif( $number_ports == 2 ) {
 		list( $low, $high ) = $ports;
-		if( 
+		if(
 			!is_numeric( $low ) ||
 			!is_numeric( $high ) ||
 			$high < $low ||
 			$low < 0 ||
-			$high > 65535 
+			$high > 65535
 		) {
 			return false;
 		}
@@ -63,7 +63,7 @@ function validate_ip_range( $range_start, $range_end, $local_ip, $local_mask ) {
 	$local_ip = parse_ip( $local_ip );
 	$local_mask = parse_ip( $local_mask );
 
-	if( 
+	if(
 		!validate_ip( $range_start ) ||
 		!validate_ip( $range_end ) ||
 		!validate_ip( $local_ip ) ||
@@ -85,12 +85,12 @@ function validate_ip_range( $range_start, $range_end, $local_ip, $local_mask ) {
 		(int)$range_start[2] & (int)$local_mask[2],
 		(int)$range_start[3] & (int)$local_mask[3]
 	);
-	if(  
-		($local_network[0] != $wanted_network[0]) || 
-		($local_network[1] != $wanted_network[1]) || 
-		($local_network[2] != $wanted_network[2]) || 
-		($local_network[3] != $wanted_network[3]) 
-	) { 
+	if(
+		($local_network[0] != $wanted_network[0]) ||
+		($local_network[1] != $wanted_network[1]) ||
+		($local_network[2] != $wanted_network[2]) ||
+		($local_network[3] != $wanted_network[3])
+	) {
 		return false;
 	}
 
@@ -101,12 +101,12 @@ function validate_ip_range( $range_start, $range_end, $local_ip, $local_mask ) {
 		(int)$range_end[2] & (int)$local_mask[2],
 		(int)$range_end[3] & (int)$local_mask[3]
 	);
-	if( 
+	if(
 		($local_network[0] != $wanted_network[0]) ||
 		($local_network[1] != $wanted_network[1]) ||
 		($local_network[2] != $wanted_network[2]) ||
-		($local_network[3] != $wanted_network[3]) 
-	) { 
+		($local_network[3] != $wanted_network[3])
+	) {
 		return false;
 	}
 	$retval = false;

@@ -4,7 +4,7 @@ class Disk_model extends CI_Model {
 	private $manager = "/opt/bubba/sbin/diskmanager";
 	function __construct() {
 		parent::__construct();
-		$this->load->helper('bubba_socket');		
+		$this->load->helper('bubba_socket');
 	}
 	private function _system( /* $command, $args... */ ) {
 		$args = func_get_args();
@@ -70,10 +70,10 @@ class Disk_model extends CI_Model {
 			if( $prohibit_raid && isset($disk['partitions']) ) {
 				foreach( $disk['partitions'] as $partition ) {
 					if(
-						isset( $partition['usage'] ) 
-						&& $partition["usage"] == "array" 
-						&& isset( $partition["md"] ) 
-						&& $partition["md"] != "" 
+						isset( $partition['usage'] )
+						&& $partition["usage"] == "array"
+						&& isset( $partition["md"] )
+						&& $partition["md"] != ""
 					) {
 						continue 2;
 					}
@@ -231,7 +231,7 @@ class Disk_model extends CI_Model {
 			if( $label == "" ) {
 				$label = "disk";
 			}
-			
+
 			$label = str_replace( ' ', '_', $label );
 
 			for( $index = 1; 0xff ; ++$index ) {
@@ -371,7 +371,7 @@ class Disk_model extends CI_Model {
 
 		$ret = $this->_system( $this->manager, 'fstab', 'umount', $mountpath );
 
-		if( ! $ret['status'] ) { 
+		if( ! $ret['status'] ) {
 			throw new Exception( sprintf( _("Failed to unmount %s"), $mountpath ) );
 		}
 
@@ -380,7 +380,7 @@ class Disk_model extends CI_Model {
 		if( $in_fstab ) {
 			$ret = $this->_system( $this->manager, 'fstab', 'remove', $mountpath );
 
-			if( ! $ret['status'] ) { 
+			if( ! $ret['status'] ) {
 				throw new Exception( sprintf(_("Failed to remove fstab entry for %s with %s"), $partition, $mountpath) );
 			}
 		}
@@ -419,7 +419,7 @@ class Disk_model extends CI_Model {
 			throw "device not found in system";
 		}
 
-		return file_get_contents( "$sysdev/removable" ) == 1;	
+		return file_get_contents( "$sysdev/removable" ) == 1;
 	}
 
 	function add_to_lvm( $disk, $group ) {
@@ -427,13 +427,13 @@ class Disk_model extends CI_Model {
 		list( $vg, $lv ) = explode( '-', $group );
 		$sock = new BubbaDiskSocket();
 		$sock->say(
-			json_encode( 
-				array( 
+			json_encode(
+				array(
 					'action' => 'add_to_lvm',
 					'disk' => $disk,
 					'vg' => $vg,
 					'lv' => $lv
-				) 
+				)
 			)
 		);
 		$ret = $sock->getline();
@@ -444,12 +444,12 @@ class Disk_model extends CI_Model {
 	function create_raid_internal_lvm_external( $external, $level ) {
 		$sock = new BubbaDiskSocket();
 		$sock->say(
-			json_encode( 
-				array( 
+			json_encode(
+				array(
 					'action' => 'create_raid_internal_lvm_external',
 					'level' => $level,
 					'external' => $external,
-				) 
+				)
 			)
 		);
 		$ret = $sock->getline();
@@ -460,11 +460,11 @@ class Disk_model extends CI_Model {
 	function recover_raid_broken_external( $external ) {
 		$sock = new BubbaDiskSocket();
 		$sock->say(
-			json_encode( 
-				array( 
+			json_encode(
+				array(
 					'action' => 'restore_raid_broken_external',
 					'disk' => $external,
-				) 
+				)
 			)
 		);
 		$ret = $sock->getline();
@@ -481,12 +481,12 @@ class Disk_model extends CI_Model {
 			$partition = 1;
 		}
 		$sock->say(
-			json_encode( 
-				array( 
+			json_encode(
+				array(
 					'action' => 'restore_raid_broken_internal',
 					'disk' => $disk,
 					'partition' => $partition
-				) 
+				)
 			)
 		);
 		$ret = $sock->getline();
@@ -497,12 +497,12 @@ class Disk_model extends CI_Model {
 	function format_disk( $disk, $label ) {
 		$sock = new BubbaDiskSocket();
 		$sock->say(
-			json_encode( 
-				array( 
+			json_encode(
+				array(
 					'action' => 'format_disk',
 					'disk' => $disk,
 					'label' => $label,
-				) 
+				)
 			)
 		);
 		$ret = $sock->getline();
@@ -515,10 +515,10 @@ class Disk_model extends CI_Model {
 		}
 		$sock = new BubbaDiskSocket();
 		$sock->say(
-			json_encode( 
-				array( 
+			json_encode(
+				array(
 					'action' => 'shutdown'
-				) 
+				)
 			)
 		);
 		#$ret = $sock->getline();

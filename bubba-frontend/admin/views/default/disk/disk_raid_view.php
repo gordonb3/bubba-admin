@@ -87,7 +87,7 @@
     <?=_("Detailed information")?>
 </div>
 	<div class="ui-helper-hidden ui-inset">
-	
+
 		<h3><?=_("List of RAID arrays")?></h3>
 		<table class="disks">
 		<tr class="ui-header">
@@ -109,7 +109,7 @@
 		</tr>
 		<?endforeach?>
 		</table>
-		
+
 		<h3><?=_("List of RAID disks")?></h3>
 		<table class="disks">
 		<tr class="ui-header">
@@ -132,6 +132,6 @@
 			</td>
 		</tr>
 		<?endforeach?>
-		</table>		
+		</table>
 	</div>
-</div>	
+</div>

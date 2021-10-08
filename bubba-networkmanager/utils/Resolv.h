@@ -52,13 +52,13 @@ public:
 	void Refresh();
 	void Dump();
 
-	const string& Domain(); 
+	const string& Domain();
 	const string& Search();
 	const list<string>& NS();
 	void SetNS(const list<string>& nss);
 	void SetDomain(const string& domain);
 	void SetSearch(const string& search);
-	
+
 	void Write();
 
 	virtual ~Resolv();

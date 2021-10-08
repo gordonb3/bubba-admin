@@ -18,7 +18,7 @@ DiskMetaData::DiskMetaData(){
 
 DiskMetaData& DiskMetaData::Instance(){
 	static DiskMetaData dmd;
-	
+
 	return dmd;
 }
 

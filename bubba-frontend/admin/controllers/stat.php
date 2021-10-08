@@ -2,7 +2,7 @@
 
 class Stat extends CI_Controller{
 
-	function stat(){
+	function __construct(){
 		parent::__construct();
 
 		require_once(APPPATH."/legacy/defines.php");
@@ -13,6 +13,10 @@ class Stat extends CI_Controller{
 
 	}
 
+	function stat(){
+		self::__construct();
+	}
+
 	function _renderfull($content){
 		$navdata["menu"] = $this->menu->retrieve($this->session->userdata('user'),$this->uri->uri_string());
 		$mdata["navbar"]=$this->load->view(THEME.'/nav_view',$navdata,true);
@@ -20,14 +24,14 @@ class Stat extends CI_Controller{
         $mdata["dialog_menu"] = $this->load->view(THEME.'/menu_view',$this->menu->get_dialog_menu(),true);
         $mdata["content"]=$content;
 		$this->load->view(THEME.'/main_view',$mdata);
-	}	
+	}
 
 	function _getvolume($path){
 		$res=array();
 		$res["size"]=disk_total_space($path);
 		$res["free"]=disk_free_space($path);
 		return $res;
-	}	
+	}
 
 	function _getdisk($dev){
 		$res=array();

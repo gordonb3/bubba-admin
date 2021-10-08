@@ -15,7 +15,7 @@
 						}
 						?></option>
 				<?endforeach?>
-			</select> 
+			</select>
 			<?=_("with")?>
 			<select  <?=sizeof( $disks ) == 0 ? 'disabled="disabled"' : '' ?>  id="disk" class="disk">
 				<?foreach( $disks as $disk ):?>

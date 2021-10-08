@@ -7,7 +7,7 @@ $(document).ready(function(){
 			$(".timedate").attr("disabled","true");
 		} else {
 			$(".timedate").removeAttr("disabled");
-		}	
+		}
 	})
 
 });

@@ -5,7 +5,7 @@ class Logout extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 	}
-	
+
 	function Logout(){
 		self::__construct();
 	}

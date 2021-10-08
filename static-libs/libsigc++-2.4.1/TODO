@@ -10,7 +10,7 @@ Configure checks and Makefile issues:
   single Makefile.am with the new build system), you have a problem when
   you do a build where $(srcdir) != $(builddir), since in the build-tree
   the necessary subdirectories are not created. So I have to find a
-  place where to create this directories, in case they do not exist. 
+  place where to create this directories, in case they do not exist.
   This is only an issue for clean CVS checkouts, however (Andy)
 
 
@@ -36,7 +36,7 @@ basic functionality:
 
 lambda functionality (I don't understand this (Martin)):
 
-- Add support for _R to force references down into 
+- Add support for _R to force references down into
   the stack frame of lambda.  Ie.
 
   A a;
@@ -52,7 +52,7 @@ Old TODO's that should be almost finished (Martin):
 
 - Improve and expand the test suite.  There are a lot of combinations which
   should be valid but haven't been tested which are likely to result in
-  wierd compiler errors if something wasn't done consistantly.  
+  wierd compiler errors if something wasn't done consistantly.
 
 
 Old TODO's that should be finished (Martin):

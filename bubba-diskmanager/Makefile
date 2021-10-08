@@ -4,7 +4,7 @@ INCLUDEDIR ?= .
 
 
 # TODO: make nicer.
-# work out which udev we have. 
+# work out which udev we have.
 
 DEBV=$(shell cat /etc/debian_version)
 LDFLAGS_EXTRA=
@@ -37,6 +37,6 @@ pre:
 $(APP): $(OBJS)
 	$(CXX) $^ $(LDFLAGS) $(LDFLAGS_EXTRA) -o $@
 
-clean:                                                                          
+clean:
 	rm -f *~ $(APP) $(OBJS)
 	rm -rf .deps

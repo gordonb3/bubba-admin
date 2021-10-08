@@ -14,4 +14,4 @@ except:
     # we just ignore exceptions
     pass
 
-print json.dumps(printers)
+print( json.dumps(printers) )

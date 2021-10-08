@@ -7,7 +7,7 @@ $(document).ready( function() {
 		if( ! disk || ! lv ) {
 			return;
 		}
-		$.confirm( 
+		$.confirm(
 			"<?=_("<p>This will erase all the data on the new, external device. Click 'Create LVM' to continue.</p> <p>Note: Removal of the new disk from the system will require a full system reinstallation.</p>")?>",
 			"<?=_("Extend Logical Volume")?>", {
 
@@ -19,7 +19,7 @@ $(document).ready( function() {
 					$.post('<?=site_url("ajax_disk/add_to_lvm")?>',{ disk: disk, group: lv },
 						function(data) {
 							location.assign("/admin/disk/progress");
-						}, 'json' );					
+						}, 'json' );
 				}
 			}
 		);

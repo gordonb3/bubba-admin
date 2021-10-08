@@ -18,7 +18,7 @@
 		<tr>
 			<td><input type="radio" name="profile" value="auto" <?=isset($auto)?$auto:""?>/></td><td><?=_("Automatic network settings")?></td>
 		</tr>
-		
+
 
 		<tr>
 			<td><input type="radio" name="profile" value="router" <?=isset($router)?$router:""?>/></td><td><?=_("Router + Firewall + Server")?></td>
@@ -26,14 +26,14 @@
 		<tr>
 			<td><input type="radio" name="profile" value="server" <?=isset($server)?$server:""?>/></td><td><?=_("Server only")?></td>
 		</tr>
-		
-		
+
+
 		<tr>
 			<td colspan="2">
 				<input
 			                type="button"
 			                class="submit"
-			                id="networkprofile_update" 
+			                id="networkprofile_update"
 			                value='<?=_("Update")?>'
 		     />
 			</td>

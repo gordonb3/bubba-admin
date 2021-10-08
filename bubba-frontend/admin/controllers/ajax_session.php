@@ -32,7 +32,7 @@ class Ajax_session extends CI_Controller {
 		$this->json_data['realname'] = $this->session->userdata('realname');
 		$this->json_data['groups'] = $this->session->userdata('groups');
 		$this->json_data['language'] = LANGUAGE;
-		
+
 		if( !is_array($this->json_data['groups']) ) {
 			$this->json_data['groups'] = array();
 		}
@@ -70,7 +70,7 @@ class Ajax_session extends CI_Controller {
 			$this->Auth_model->set_user_password( $username, $password );
 		}
 		$this->Auth_model->set_user_realname( $username, $realname );
-		
+
 		$this->json_data['success'] = true;
 	}
 	public function add_user() {
@@ -95,7 +95,7 @@ class Ajax_session extends CI_Controller {
 			return;
 		}
 		$this->Auth_model->add_user( $username, $realname, $password, $group );
-		
+
 		$this->json_data['success'] = true;
 	}
 	public function del_user() {
@@ -117,7 +117,7 @@ class Ajax_session extends CI_Controller {
 			return;
 		}
 		$this->Auth_model->del_user( $username );
-		
+
 		$this->json_data['success'] = true;
 	}
 
@@ -137,7 +137,7 @@ class Ajax_session extends CI_Controller {
 		$group = $this->input->post('group');
 
 		$this->json_data['users'] = $this->Auth_model->get_user_list( $group );
-		
+
 		$this->json_data['success'] = true;
 	}
 
@@ -176,5 +176,5 @@ class Ajax_session extends CI_Controller {
 
 		$this->json_data['success'] = true;
 		$this->json_data['valid'] = $this->Auth_model->policy( $policy, $method );
-	}	
+	}
 }

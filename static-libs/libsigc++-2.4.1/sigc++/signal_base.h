@@ -214,7 +214,7 @@ private:
   slot_list &slots_;
   slot_list::iterator placeholder;
 };
-  
+
 } /* namespace internal */
 
 

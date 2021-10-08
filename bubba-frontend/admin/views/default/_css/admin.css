@@ -24,7 +24,7 @@ div#bg-right {
   background-attachment: fixed;
   background-image: url(../_img/background-right.png);
   background-position: top right;
-  background-repeat: repeat-y;	
+  background-repeat: repeat-y;
   position : fixed;
   z-index : -9999;
 }
@@ -138,7 +138,7 @@ select {
 	-webkit-border-radius: .3em;
 	border: .1em solid #d5d5d5;
 	padding: .2em;
-	vertical-align: text-bottom;	
+	vertical-align: text-bottom;
 	background: #fff;
 	width : 175px;
 }
@@ -229,7 +229,7 @@ span#ui-main-byExcito {
 	top : 75px;
 	width : 150px;
 	font-size : 10px;
-	
+
 }
 
 button:hover {
@@ -504,7 +504,7 @@ body {
 	left : 50px;
 }
 #login_more_info_header {
-  font-size: 14px;	
+  font-size: 14px;
 }
 #login_more_info span {
   display: block;
@@ -1063,7 +1063,7 @@ button.ui-button::-moz-focus-inner {
 	border : none;
 	line-height : 16px;
 }
-	
+
 #download-addurl {
 	width : 100%;
 }
@@ -1245,7 +1245,7 @@ div.hotfix {
 
 #settings select,#settings input[type=text] {
 	width : 200px;
-}  
+}
 
 #settings select#unitselector{
 	width : 250px;
@@ -1807,7 +1807,7 @@ table.ui-table.ui-table-list tbody tr td:last-child button,#menu li a span {
 }
 
 #settings form,#backupform input[type=submit],#restoreform input[type=submit] {
-  display: inline; 
+  display: inline;
 }
 
 

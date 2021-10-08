@@ -1,18 +1,18 @@
-dnl Copyright 2002, The libsigc++ Development Team 
-dnl 
-dnl This library is free software; you can redistribute it and/or 
-dnl modify it under the terms of the GNU Lesser General Public 
-dnl License as published by the Free Software Foundation; either 
-dnl version 2.1 of the License, or (at your option) any later version. 
-dnl 
-dnl This library is distributed in the hope that it will be useful, 
-dnl but WITHOUT ANY WARRANTY; without even the implied warranty of 
-dnl MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
-dnl Lesser General Public License for more details. 
-dnl 
-dnl You should have received a copy of the GNU Lesser General Public 
-dnl License along with this library; if not, write to the Free Software 
-dnl Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
+dnl Copyright 2002, The libsigc++ Development Team
+dnl
+dnl This library is free software; you can redistribute it and/or
+dnl modify it under the terms of the GNU Lesser General Public
+dnl License as published by the Free Software Foundation; either
+dnl version 2.1 of the License, or (at your option) any later version.
+dnl
+dnl This library is distributed in the hope that it will be useful,
+dnl but WITHOUT ANY WARRANTY; without even the implied warranty of
+dnl MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+dnl Lesser General Public License for more details.
+dnl
+dnl You should have received a copy of the GNU Lesser General Public
+dnl License along with this library; if not, write to the Free Software
+dnl Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 dnl
 divert(-1)
 
@@ -130,21 +130,21 @@ FOR(1, $1,[
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
         temp_slot_list slots(impl->slots_);
         iterator_type it = slots.begin();
         for (; it != slots.end(); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == slots.end())
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
         for (++it; it != slots.end(); ++it)
           {
@@ -153,7 +153,7 @@ FOR(1, $1,[
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
           }
       }
-      
+
       return r_;
     }
 
@@ -171,13 +171,13 @@ FOR(1, $1,[
     {
       if (!impl || impl->slots_.empty())
         return T_return();
-        
+
       signal_exec exec(impl);
-      T_return r_ = T_return(); 
-      
+      T_return r_ = T_return();
+
       //Use this scope to make sure that "slots" is destroyed before "exec" is destroyed.
       //This avoids a leak on MSVC++ - see http://bugzilla.gnome.org/show_bug.cgi?id=306249
-      { 
+      {
 #ifndef SIGC_HAVE_SUN_REVERSE_ITERATOR
         typedef std::reverse_iterator<signal_impl::iterator_type> reverse_iterator_type;
 #else
@@ -189,10 +189,10 @@ FOR(1, $1,[
         reverse_iterator_type it(slots.end());
         for (; it != reverse_iterator_type(slots.begin()); ++it)
           if (!it->empty() && !it->blocked()) break;
-          
+
         if (it == reverse_iterator_type(slots.begin()))
           return T_return(); // note that 'T_return r_();' doesn't work => define 'r_' after this line and initialize as follows:
-  
+
         r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
         for (++it; it != reverse_iterator_type(slots.begin()); ++it)
           {
@@ -201,7 +201,7 @@ FOR(1, $1,[
             r_ = (bitwise_equivalent_cast<call_type>(it->rep_->call_))(LIST(it->rep_, LOOP(_A_a%1, $1)));
           }
       }
-      
+
       return r_;
     }
 };
@@ -459,7 +459,7 @@ ifelse($1, $2,[dnl
    * executes the slot. The return value is buffered, so that in an expression
    * like @code a = (*i) * (*i); @endcode the slot is executed only once.
    * The accumulator must define its return value as @p result_type.
-   * 
+   *
    * @par Example 1:
    * This accumulator calculates the arithmetic mean value:
    * @code
@@ -579,7 +579,7 @@ struct slot_iterator
     }
 
   slot_iterator operator++(int)
-    { 
+    {
       slot_iterator __tmp(*this);
       ++i_;
       return __tmp;
@@ -645,7 +645,7 @@ struct slot_const_iterator
     }
 
   slot_const_iterator operator++(int)
-    { 
+    {
       slot_const_iterator __tmp(*this);
       ++i_;
       return __tmp;
@@ -691,7 +691,7 @@ struct slot_list
 
   typedef slot_iterator<slot_type>              iterator;
   typedef slot_const_iterator<slot_type>        const_iterator;
-  
+
   #ifndef SIGC_HAVE_SUN_REVERSE_ITERATOR
   typedef std::reverse_iterator<iterator>       reverse_iterator;
   typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
@@ -724,10 +724,10 @@ struct slot_list
   const_iterator end() const
     { return const_iterator(list_->slots_.end()); }
 
-  reverse_iterator rbegin() 
+  reverse_iterator rbegin()
     { return reverse_iterator(end()); }
 
-  const_reverse_iterator rbegin() const 
+  const_reverse_iterator rbegin() const
     { return const_reverse_iterator(end()); }
 
   reverse_iterator rend()
@@ -771,7 +771,7 @@ struct slot_list
     { erase(begin()); }
 
   void pop_back()
-    { 
+    {
       iterator tmp_ = end();
       erase(--tmp_);
     }
@@ -795,7 +795,7 @@ struct slot_iterator_buf
   typedef std::ptrdiff_t                   difference_type;
   typedef std::bidirectional_iterator_tag  iterator_category;
 
-  //These are needed just to make this a proper C++ iterator, 
+  //These are needed just to make this a proper C++ iterator,
   //that can be used with standard C++ algorithms.
   typedef T_result                         value_type;
   typedef T_result&                        reference;
@@ -831,7 +831,7 @@ struct slot_iterator_buf
     }
 
   slot_iterator_buf operator++(int)
-    { 
+    {
       slot_iterator_buf __tmp(*this);
       ++i_;
       invoked_ = false;
@@ -907,7 +907,7 @@ struct slot_iterator_buf<T_emitter, void>
     }
 
   slot_iterator_buf operator++(int)
-    { 
+    {
       slot_iterator_buf __tmp(*this);
       ++i_;
       invoked_ = false;
@@ -949,7 +949,7 @@ struct slot_reverse_iterator_buf
   typedef std::ptrdiff_t                   difference_type;
   typedef std::bidirectional_iterator_tag  iterator_category;
 
-  //These are needed just to make this a proper C++ iterator, 
+  //These are needed just to make this a proper C++ iterator,
   //that can be used with standard C++ algorithms.
   typedef T_result                         value_type;
   typedef T_result&                        reference;
@@ -987,7 +987,7 @@ struct slot_reverse_iterator_buf
     }
 
   slot_reverse_iterator_buf operator++(int)
-    { 
+    {
       slot_reverse_iterator_buf __tmp(*this);
       --i_;
       invoked_ = false;
@@ -1065,7 +1065,7 @@ struct slot_reverse_iterator_buf<T_emitter, void>
     }
 
   slot_reverse_iterator_buf operator++(int)
-    { 
+    {
       slot_reverse_iterator_buf __tmp(*this);
       --i_;
       invoked_ = false;

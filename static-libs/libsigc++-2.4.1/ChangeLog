@@ -1189,7 +1189,7 @@
 
 2008-11-13  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/website/stable.shtml: Correct the download link so it shows all 
+	* docs/website/stable.shtml: Correct the download link so it shows all
 	versions, not just 2.0.
 
 	svn path=/trunk/; revision=302
@@ -1257,7 +1257,7 @@
 
 	2008-04-06 Cedric Gustin <cedric.gustin@gmail.com>
 
-	* MSVC_Net2003/sigc-2.0.rc.in: Removed ATL/MFC header files 
+	* MSVC_Net2003/sigc-2.0.rc.in: Removed ATL/MFC header files
 	dependency as afxres.h is not part of the Microsoft Platform
 	SDK provided with Visual C++ Express 2008.
 	Bug #503933.
@@ -1283,8 +1283,8 @@
 2008-02-28  Elaine Xiong  <elaine.xiong@sun.com>
 
 	* sigc++/macros/signal.h.m4:
-	* tests/test_accum_iter.cc: Add ifdefs around uses of 
-	reverse_iterator to really fix the build with recent 
+	* tests/test_accum_iter.cc: Add ifdefs around uses of
+	reverse_iterator to really fix the build with recent
 	versions of Sun CC.
 	Bug #302098.
 
@@ -1302,8 +1302,8 @@
 
 2008-01-01  Ryan Hill  <dirtyepic@gentoo.>
 
-	* tests/test_copy_invalid_slot.cc: Include the cstdlib 
-	and cstring headers to fix the build with the gcc 4.3 
+	* tests/test_copy_invalid_slot.cc: Include the cstdlib
+	and cstring headers to fix the build with the gcc 4.3
 	pre-release. Bug #454882.
 
 	svn path=/trunk/; revision=292
@@ -1314,7 +1314,7 @@
 
 2007-08-31  Murray Cumming  <murrayc@murrayc.com>
 
-	* tests/test_copy_invalid_slot.cc: Added some includes to 
+	* tests/test_copy_invalid_slot.cc: Added some includes to
 	fix the build in some environments, such as when using Sun CC.
 	Thanks to Vladimir Marek in bug #469872.
 
@@ -1357,10 +1357,10 @@
 	* sigc++/macros/signal.h.m4:
 	* sigc++/macros/slot.h.m4:
 	* sigc++/object.h:
-	* sigc++/retype_return.h: Removed deprecated 
-	compatibility API, to probably fix the build with 
-	some compilers, such as some versions of the Sun Forte C++ 
-	CC compiler. This API has been deprecated April 2004, and 
+	* sigc++/retype_return.h: Removed deprecated
+	compatibility API, to probably fix the build with
+	some compilers, such as some versions of the Sun Forte C++
+	CC compiler. This API has been deprecated April 2004, and
 	is not widely used, so it seems safe to do this now.
 
 	* tests/Makefile.am:
@@ -1374,11 +1374,11 @@
 
 2007-07-28  Michael Elkstrand  <michael@elehack.net>
 
-	* sigc++/macros/signal.h.m4: slot_iterator_buf, 
-	slot_reverse_iterator_buf: Added typedefs for 
-	value_type, reference, and pointer, so that these 
-	iterators are more like standard C++ iterators, so they can 
-	be used with standard C++ algorithms.  
+	* sigc++/macros/signal.h.m4: slot_iterator_buf,
+	slot_reverse_iterator_buf: Added typedefs for
+	value_type, reference, and pointer, so that these
+	iterators are more like standard C++ iterators, so they can
+	be used with standard C++ algorithms.
 	* tests/Makefile.am:
 	* tests/test_accum_iter.cc: Added a test for this.
 	Bug #417926.

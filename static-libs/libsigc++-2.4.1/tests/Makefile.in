@@ -119,7 +119,7 @@ test_accum_iter_DEPENDENCIES =  \
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
-am__v_lt_1 = 
+am__v_lt_1 =
 am_test_accumulated_OBJECTS = test_accumulated.$(OBJEXT) \
 	$(am__objects_1)
 test_accumulated_OBJECTS = $(am_test_accumulated_OBJECTS)
@@ -283,12 +283,12 @@ am__v_P_1 = :
 AM_V_GEN = $(am__v_GEN_@AM_V@)
 am__v_GEN_ = $(am__v_GEN_@AM_DEFAULT_V@)
 am__v_GEN_0 = @echo "  GEN     " $@;
-am__v_GEN_1 = 
+am__v_GEN_1 =
 AM_V_at = $(am__v_at_@AM_V@)
 am__v_at_ = $(am__v_at_@AM_DEFAULT_V@)
 am__v_at_0 = @
-am__v_at_1 = 
-DEFAULT_INCLUDES = 
+am__v_at_1 =
+DEFAULT_INCLUDES =
 depcomp = $(SHELL) $(top_srcdir)/build/depcomp
 am__depfiles_maybe = depfiles
 am__mv = mv -f
@@ -301,7 +301,7 @@ LTCXXCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 AM_V_CXX = $(am__v_CXX_@AM_V@)
 am__v_CXX_ = $(am__v_CXX_@AM_DEFAULT_V@)
 am__v_CXX_0 = @echo "  CXX     " $@;
-am__v_CXX_1 = 
+am__v_CXX_1 =
 CXXLD = $(CXX)
 CXXLINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
@@ -309,7 +309,7 @@ CXXLINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
-am__v_CXXLD_1 = 
+am__v_CXXLD_1 =
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
@@ -319,7 +319,7 @@ LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 AM_V_CC = $(am__v_CC_@AM_V@)
 am__v_CC_ = $(am__v_CC_@AM_DEFAULT_V@)
 am__v_CC_0 = @echo "  CC      " $@;
-am__v_CC_1 = 
+am__v_CC_1 =
 CCLD = $(CC)
 LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
@@ -327,7 +327,7 @@ LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
-am__v_CCLD_1 = 
+am__v_CCLD_1 =
 SOURCES = $(test_accum_iter_SOURCES) $(test_accumulated_SOURCES) \
 	$(test_bind_SOURCES) $(test_bind_ref_SOURCES) \
 	$(test_bind_refptr_SOURCES) $(test_bind_return_SOURCES) \
@@ -805,119 +805,119 @@ clean-checkPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-test_accum_iter$(EXEEXT): $(test_accum_iter_OBJECTS) $(test_accum_iter_DEPENDENCIES) $(EXTRA_test_accum_iter_DEPENDENCIES) 
+test_accum_iter$(EXEEXT): $(test_accum_iter_OBJECTS) $(test_accum_iter_DEPENDENCIES) $(EXTRA_test_accum_iter_DEPENDENCIES)
 	@rm -f test_accum_iter$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_accum_iter_OBJECTS) $(test_accum_iter_LDADD) $(LIBS)
 
-test_accumulated$(EXEEXT): $(test_accumulated_OBJECTS) $(test_accumulated_DEPENDENCIES) $(EXTRA_test_accumulated_DEPENDENCIES) 
+test_accumulated$(EXEEXT): $(test_accumulated_OBJECTS) $(test_accumulated_DEPENDENCIES) $(EXTRA_test_accumulated_DEPENDENCIES)
 	@rm -f test_accumulated$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_accumulated_OBJECTS) $(test_accumulated_LDADD) $(LIBS)
 
-test_bind$(EXEEXT): $(test_bind_OBJECTS) $(test_bind_DEPENDENCIES) $(EXTRA_test_bind_DEPENDENCIES) 
+test_bind$(EXEEXT): $(test_bind_OBJECTS) $(test_bind_DEPENDENCIES) $(EXTRA_test_bind_DEPENDENCIES)
 	@rm -f test_bind$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_bind_OBJECTS) $(test_bind_LDADD) $(LIBS)
 
-test_bind_ref$(EXEEXT): $(test_bind_ref_OBJECTS) $(test_bind_ref_DEPENDENCIES) $(EXTRA_test_bind_ref_DEPENDENCIES) 
+test_bind_ref$(EXEEXT): $(test_bind_ref_OBJECTS) $(test_bind_ref_DEPENDENCIES) $(EXTRA_test_bind_ref_DEPENDENCIES)
 	@rm -f test_bind_ref$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_bind_ref_OBJECTS) $(test_bind_ref_LDADD) $(LIBS)
 
-test_bind_refptr$(EXEEXT): $(test_bind_refptr_OBJECTS) $(test_bind_refptr_DEPENDENCIES) $(EXTRA_test_bind_refptr_DEPENDENCIES) 
+test_bind_refptr$(EXEEXT): $(test_bind_refptr_OBJECTS) $(test_bind_refptr_DEPENDENCIES) $(EXTRA_test_bind_refptr_DEPENDENCIES)
 	@rm -f test_bind_refptr$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_bind_refptr_OBJECTS) $(test_bind_refptr_LDADD) $(LIBS)
 
-test_bind_return$(EXEEXT): $(test_bind_return_OBJECTS) $(test_bind_return_DEPENDENCIES) $(EXTRA_test_bind_return_DEPENDENCIES) 
+test_bind_return$(EXEEXT): $(test_bind_return_OBJECTS) $(test_bind_return_DEPENDENCIES) $(EXTRA_test_bind_return_DEPENDENCIES)
 	@rm -f test_bind_return$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_bind_return_OBJECTS) $(test_bind_return_LDADD) $(LIBS)
 
-test_compose$(EXEEXT): $(test_compose_OBJECTS) $(test_compose_DEPENDENCIES) $(EXTRA_test_compose_DEPENDENCIES) 
+test_compose$(EXEEXT): $(test_compose_OBJECTS) $(test_compose_DEPENDENCIES) $(EXTRA_test_compose_DEPENDENCIES)
 	@rm -f test_compose$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_compose_OBJECTS) $(test_compose_LDADD) $(LIBS)
 
-test_copy_invalid_slot$(EXEEXT): $(test_copy_invalid_slot_OBJECTS) $(test_copy_invalid_slot_DEPENDENCIES) $(EXTRA_test_copy_invalid_slot_DEPENDENCIES) 
+test_copy_invalid_slot$(EXEEXT): $(test_copy_invalid_slot_OBJECTS) $(test_copy_invalid_slot_DEPENDENCIES) $(EXTRA_test_copy_invalid_slot_DEPENDENCIES)
 	@rm -f test_copy_invalid_slot$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_copy_invalid_slot_OBJECTS) $(test_copy_invalid_slot_LDADD) $(LIBS)
 
-test_cpp11_lambda$(EXEEXT): $(test_cpp11_lambda_OBJECTS) $(test_cpp11_lambda_DEPENDENCIES) $(EXTRA_test_cpp11_lambda_DEPENDENCIES) 
+test_cpp11_lambda$(EXEEXT): $(test_cpp11_lambda_OBJECTS) $(test_cpp11_lambda_DEPENDENCIES) $(EXTRA_test_cpp11_lambda_DEPENDENCIES)
 	@rm -f test_cpp11_lambda$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_cpp11_lambda_OBJECTS) $(test_cpp11_lambda_LDADD) $(LIBS)
 
-test_custom$(EXEEXT): $(test_custom_OBJECTS) $(test_custom_DEPENDENCIES) $(EXTRA_test_custom_DEPENDENCIES) 
+test_custom$(EXEEXT): $(test_custom_OBJECTS) $(test_custom_DEPENDENCIES) $(EXTRA_test_custom_DEPENDENCIES)
 	@rm -f test_custom$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_custom_OBJECTS) $(test_custom_LDADD) $(LIBS)
 
-test_deduce_result_type$(EXEEXT): $(test_deduce_result_type_OBJECTS) $(test_deduce_result_type_DEPENDENCIES) $(EXTRA_test_deduce_result_type_DEPENDENCIES) 
+test_deduce_result_type$(EXEEXT): $(test_deduce_result_type_OBJECTS) $(test_deduce_result_type_DEPENDENCIES) $(EXTRA_test_deduce_result_type_DEPENDENCIES)
 	@rm -f test_deduce_result_type$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_deduce_result_type_OBJECTS) $(test_deduce_result_type_LDADD) $(LIBS)
 
-test_disconnect$(EXEEXT): $(test_disconnect_OBJECTS) $(test_disconnect_DEPENDENCIES) $(EXTRA_test_disconnect_DEPENDENCIES) 
+test_disconnect$(EXEEXT): $(test_disconnect_OBJECTS) $(test_disconnect_DEPENDENCIES) $(EXTRA_test_disconnect_DEPENDENCIES)
 	@rm -f test_disconnect$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_disconnect_OBJECTS) $(test_disconnect_LDADD) $(LIBS)
 
-test_disconnect_during_emit$(EXEEXT): $(test_disconnect_during_emit_OBJECTS) $(test_disconnect_during_emit_DEPENDENCIES) $(EXTRA_test_disconnect_during_emit_DEPENDENCIES) 
+test_disconnect_during_emit$(EXEEXT): $(test_disconnect_during_emit_OBJECTS) $(test_disconnect_during_emit_DEPENDENCIES) $(EXTRA_test_disconnect_during_emit_DEPENDENCIES)
 	@rm -f test_disconnect_during_emit$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_disconnect_during_emit_OBJECTS) $(test_disconnect_during_emit_LDADD) $(LIBS)
 
-test_exception_catch$(EXEEXT): $(test_exception_catch_OBJECTS) $(test_exception_catch_DEPENDENCIES) $(EXTRA_test_exception_catch_DEPENDENCIES) 
+test_exception_catch$(EXEEXT): $(test_exception_catch_OBJECTS) $(test_exception_catch_DEPENDENCIES) $(EXTRA_test_exception_catch_DEPENDENCIES)
 	@rm -f test_exception_catch$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_exception_catch_OBJECTS) $(test_exception_catch_LDADD) $(LIBS)
 
-test_functor_trait$(EXEEXT): $(test_functor_trait_OBJECTS) $(test_functor_trait_DEPENDENCIES) $(EXTRA_test_functor_trait_DEPENDENCIES) 
+test_functor_trait$(EXEEXT): $(test_functor_trait_OBJECTS) $(test_functor_trait_DEPENDENCIES) $(EXTRA_test_functor_trait_DEPENDENCIES)
 	@rm -f test_functor_trait$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_functor_trait_OBJECTS) $(test_functor_trait_LDADD) $(LIBS)
 
-test_hide$(EXEEXT): $(test_hide_OBJECTS) $(test_hide_DEPENDENCIES) $(EXTRA_test_hide_DEPENDENCIES) 
+test_hide$(EXEEXT): $(test_hide_OBJECTS) $(test_hide_DEPENDENCIES) $(EXTRA_test_hide_DEPENDENCIES)
 	@rm -f test_hide$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_hide_OBJECTS) $(test_hide_LDADD) $(LIBS)
 
-test_lambda$(EXEEXT): $(test_lambda_OBJECTS) $(test_lambda_DEPENDENCIES) $(EXTRA_test_lambda_DEPENDENCIES) 
+test_lambda$(EXEEXT): $(test_lambda_OBJECTS) $(test_lambda_DEPENDENCIES) $(EXTRA_test_lambda_DEPENDENCIES)
 	@rm -f test_lambda$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_lambda_OBJECTS) $(test_lambda_LDADD) $(LIBS)
 
-test_limit_reference$(EXEEXT): $(test_limit_reference_OBJECTS) $(test_limit_reference_DEPENDENCIES) $(EXTRA_test_limit_reference_DEPENDENCIES) 
+test_limit_reference$(EXEEXT): $(test_limit_reference_OBJECTS) $(test_limit_reference_DEPENDENCIES) $(EXTRA_test_limit_reference_DEPENDENCIES)
 	@rm -f test_limit_reference$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_limit_reference_OBJECTS) $(test_limit_reference_LDADD) $(LIBS)
 
-test_mem_fun$(EXEEXT): $(test_mem_fun_OBJECTS) $(test_mem_fun_DEPENDENCIES) $(EXTRA_test_mem_fun_DEPENDENCIES) 
+test_mem_fun$(EXEEXT): $(test_mem_fun_OBJECTS) $(test_mem_fun_DEPENDENCIES) $(EXTRA_test_mem_fun_DEPENDENCIES)
 	@rm -f test_mem_fun$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_mem_fun_OBJECTS) $(test_mem_fun_LDADD) $(LIBS)
 
-test_ptr_fun$(EXEEXT): $(test_ptr_fun_OBJECTS) $(test_ptr_fun_DEPENDENCIES) $(EXTRA_test_ptr_fun_DEPENDENCIES) 
+test_ptr_fun$(EXEEXT): $(test_ptr_fun_OBJECTS) $(test_ptr_fun_DEPENDENCIES) $(EXTRA_test_ptr_fun_DEPENDENCIES)
 	@rm -f test_ptr_fun$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_ptr_fun_OBJECTS) $(test_ptr_fun_LDADD) $(LIBS)
 
-test_retype$(EXEEXT): $(test_retype_OBJECTS) $(test_retype_DEPENDENCIES) $(EXTRA_test_retype_DEPENDENCIES) 
+test_retype$(EXEEXT): $(test_retype_OBJECTS) $(test_retype_DEPENDENCIES) $(EXTRA_test_retype_DEPENDENCIES)
 	@rm -f test_retype$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_retype_OBJECTS) $(test_retype_LDADD) $(LIBS)
 
-test_retype_return$(EXEEXT): $(test_retype_return_OBJECTS) $(test_retype_return_DEPENDENCIES) $(EXTRA_test_retype_return_DEPENDENCIES) 
+test_retype_return$(EXEEXT): $(test_retype_return_OBJECTS) $(test_retype_return_DEPENDENCIES) $(EXTRA_test_retype_return_DEPENDENCIES)
 	@rm -f test_retype_return$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_retype_return_OBJECTS) $(test_retype_return_LDADD) $(LIBS)
 
-test_signal$(EXEEXT): $(test_signal_OBJECTS) $(test_signal_DEPENDENCIES) $(EXTRA_test_signal_DEPENDENCIES) 
+test_signal$(EXEEXT): $(test_signal_OBJECTS) $(test_signal_DEPENDENCIES) $(EXTRA_test_signal_DEPENDENCIES)
 	@rm -f test_signal$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_signal_OBJECTS) $(test_signal_LDADD) $(LIBS)
 
-test_size$(EXEEXT): $(test_size_OBJECTS) $(test_size_DEPENDENCIES) $(EXTRA_test_size_DEPENDENCIES) 
+test_size$(EXEEXT): $(test_size_OBJECTS) $(test_size_DEPENDENCIES) $(EXTRA_test_size_DEPENDENCIES)
 	@rm -f test_size$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_size_OBJECTS) $(test_size_LDADD) $(LIBS)
 
-test_slot$(EXEEXT): $(test_slot_OBJECTS) $(test_slot_DEPENDENCIES) $(EXTRA_test_slot_DEPENDENCIES) 
+test_slot$(EXEEXT): $(test_slot_OBJECTS) $(test_slot_DEPENDENCIES) $(EXTRA_test_slot_DEPENDENCIES)
 	@rm -f test_slot$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_slot_OBJECTS) $(test_slot_LDADD) $(LIBS)
 
-test_slot_disconnect$(EXEEXT): $(test_slot_disconnect_OBJECTS) $(test_slot_disconnect_DEPENDENCIES) $(EXTRA_test_slot_disconnect_DEPENDENCIES) 
+test_slot_disconnect$(EXEEXT): $(test_slot_disconnect_OBJECTS) $(test_slot_disconnect_DEPENDENCIES) $(EXTRA_test_slot_disconnect_DEPENDENCIES)
 	@rm -f test_slot_disconnect$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_slot_disconnect_OBJECTS) $(test_slot_disconnect_LDADD) $(LIBS)
 
-test_track_obj$(EXEEXT): $(test_track_obj_OBJECTS) $(test_track_obj_DEPENDENCIES) $(EXTRA_test_track_obj_DEPENDENCIES) 
+test_track_obj$(EXEEXT): $(test_track_obj_OBJECTS) $(test_track_obj_DEPENDENCIES) $(EXTRA_test_track_obj_DEPENDENCIES)
 	@rm -f test_track_obj$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_track_obj_OBJECTS) $(test_track_obj_LDADD) $(LIBS)
 
-test_trackable$(EXEEXT): $(test_trackable_OBJECTS) $(test_trackable_DEPENDENCIES) $(EXTRA_test_trackable_DEPENDENCIES) 
+test_trackable$(EXEEXT): $(test_trackable_OBJECTS) $(test_trackable_DEPENDENCIES) $(EXTRA_test_trackable_DEPENDENCIES)
 	@rm -f test_trackable$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_trackable_OBJECTS) $(test_trackable_LDADD) $(LIBS)
 
-test_visit_each$(EXEEXT): $(test_visit_each_OBJECTS) $(test_visit_each_DEPENDENCIES) $(EXTRA_test_visit_each_DEPENDENCIES) 
+test_visit_each$(EXEEXT): $(test_visit_each_OBJECTS) $(test_visit_each_DEPENDENCIES) $(EXTRA_test_visit_each_DEPENDENCIES)
 	@rm -f test_visit_each$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_visit_each_OBJECTS) $(test_visit_each_LDADD) $(LIBS)
 

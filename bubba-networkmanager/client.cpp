@@ -3,15 +3,15 @@
  *
  *       Filename:  client.cpp
  *
- *    Description:  
+ *    Description:
  *
  *        Version:  1.0
  *        Created:  11/09/2009 02:52:13 PM CET
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:   (), 
- *        Company:  
+ *         Author:   (),
+ *        Company:
  *
  * =====================================================================================
  */

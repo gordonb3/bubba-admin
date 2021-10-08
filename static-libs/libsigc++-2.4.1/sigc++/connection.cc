@@ -83,13 +83,13 @@ void connection::disconnect()
 {
   if (slot_)
     slot_->disconnect(); // This notifies slot_'s parent.
-} 
+}
 
 connection::operator bool()
 {
   return !empty();
 }
-    
+
 void connection::set_slot(slot_base* sl)
 {
   if (slot_)

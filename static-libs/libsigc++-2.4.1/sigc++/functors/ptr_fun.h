@@ -57,7 +57,7 @@ template <class T_return>
 class pointer_functor0 : public functor_base
 {
   typedef T_return (*function_type)();
-protected: 
+protected:
   function_type func_ptr_;
 public:
   typedef T_return result_type;
@@ -73,7 +73,7 @@ public:
   /** Execute the wrapped function.
    * @return The return value of the function invocation.
    */
-  T_return operator()() const 
+  T_return operator()() const
     { return func_ptr_(); }
 };
 
@@ -90,7 +90,7 @@ template <class T_arg1, class T_return>
 class pointer_functor1 : public functor_base
 {
   typedef T_return (*function_type)(T_arg1);
-protected: 
+protected:
   function_type func_ptr_;
 public:
   typedef T_return result_type;
@@ -107,7 +107,7 @@ public:
    * @param _A_a1 Argument to be passed on to the function.
    * @return The return value of the function invocation.
    */
-  T_return operator()(typename type_trait<T_arg1>::take _A_a1) const 
+  T_return operator()(typename type_trait<T_arg1>::take _A_a1) const
     { return func_ptr_(_A_a1); }
 };
 
@@ -125,7 +125,7 @@ template <class T_arg1, class T_arg2, class T_return>
 class pointer_functor2 : public functor_base
 {
   typedef T_return (*function_type)(T_arg1, T_arg2);
-protected: 
+protected:
   function_type func_ptr_;
 public:
   typedef T_return result_type;
@@ -143,7 +143,7 @@ public:
    * @param _A_a2 Argument to be passed on to the function.
    * @return The return value of the function invocation.
    */
-  T_return operator()(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2) const 
+  T_return operator()(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2) const
     { return func_ptr_(_A_a1, _A_a2); }
 };
 
@@ -162,7 +162,7 @@ template <class T_arg1, class T_arg2, class T_arg3, class T_return>
 class pointer_functor3 : public functor_base
 {
   typedef T_return (*function_type)(T_arg1, T_arg2, T_arg3);
-protected: 
+protected:
   function_type func_ptr_;
 public:
   typedef T_return result_type;
@@ -181,7 +181,7 @@ public:
    * @param _A_a3 Argument to be passed on to the function.
    * @return The return value of the function invocation.
    */
-  T_return operator()(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3) const 
+  T_return operator()(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3) const
     { return func_ptr_(_A_a1, _A_a2, _A_a3); }
 };
 
@@ -201,7 +201,7 @@ template <class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_return
 class pointer_functor4 : public functor_base
 {
   typedef T_return (*function_type)(T_arg1, T_arg2, T_arg3, T_arg4);
-protected: 
+protected:
   function_type func_ptr_;
 public:
   typedef T_return result_type;
@@ -221,7 +221,7 @@ public:
    * @param _A_a4 Argument to be passed on to the function.
    * @return The return value of the function invocation.
    */
-  T_return operator()(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4) const 
+  T_return operator()(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4) const
     { return func_ptr_(_A_a1, _A_a2, _A_a3, _A_a4); }
 };
 
@@ -242,7 +242,7 @@ template <class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_arg5, 
 class pointer_functor5 : public functor_base
 {
   typedef T_return (*function_type)(T_arg1, T_arg2, T_arg3, T_arg4, T_arg5);
-protected: 
+protected:
   function_type func_ptr_;
 public:
   typedef T_return result_type;
@@ -263,7 +263,7 @@ public:
    * @param _A_a5 Argument to be passed on to the function.
    * @return The return value of the function invocation.
    */
-  T_return operator()(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4, typename type_trait<T_arg5>::take _A_a5) const 
+  T_return operator()(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4, typename type_trait<T_arg5>::take _A_a5) const
     { return func_ptr_(_A_a1, _A_a2, _A_a3, _A_a4, _A_a5); }
 };
 
@@ -285,7 +285,7 @@ template <class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_arg5, 
 class pointer_functor6 : public functor_base
 {
   typedef T_return (*function_type)(T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6);
-protected: 
+protected:
   function_type func_ptr_;
 public:
   typedef T_return result_type;
@@ -307,7 +307,7 @@ public:
    * @param _A_a6 Argument to be passed on to the function.
    * @return The return value of the function invocation.
    */
-  T_return operator()(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4, typename type_trait<T_arg5>::take _A_a5, typename type_trait<T_arg6>::take _A_a6) const 
+  T_return operator()(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4, typename type_trait<T_arg5>::take _A_a5, typename type_trait<T_arg6>::take _A_a6) const
     { return func_ptr_(_A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6); }
 };
 
@@ -330,7 +330,7 @@ template <class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_arg5, 
 class pointer_functor7 : public functor_base
 {
   typedef T_return (*function_type)(T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7);
-protected: 
+protected:
   function_type func_ptr_;
 public:
   typedef T_return result_type;
@@ -353,7 +353,7 @@ public:
    * @param _A_a7 Argument to be passed on to the function.
    * @return The return value of the function invocation.
    */
-  T_return operator()(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4, typename type_trait<T_arg5>::take _A_a5, typename type_trait<T_arg6>::take _A_a6, typename type_trait<T_arg7>::take _A_a7) const 
+  T_return operator()(typename type_trait<T_arg1>::take _A_a1, typename type_trait<T_arg2>::take _A_a2, typename type_trait<T_arg3>::take _A_a3, typename type_trait<T_arg4>::take _A_a4, typename type_trait<T_arg5>::take _A_a5, typename type_trait<T_arg6>::take _A_a6, typename type_trait<T_arg7>::take _A_a7) const
     { return func_ptr_(_A_a1, _A_a2, _A_a3, _A_a4, _A_a5, _A_a6, _A_a7); }
 };
 
@@ -366,7 +366,7 @@ public:
  * @ingroup ptr_fun
  */
 template <class T_return>
-inline pointer_functor0<T_return> 
+inline pointer_functor0<T_return>
 ptr_fun0(T_return (*_A_func)())
 { return pointer_functor0<T_return>(_A_func); }
 
@@ -377,7 +377,7 @@ ptr_fun0(T_return (*_A_func)())
  * @ingroup ptr_fun
  */
 template <class T_arg1, class T_return>
-inline pointer_functor1<T_arg1, T_return> 
+inline pointer_functor1<T_arg1, T_return>
 ptr_fun1(T_return (*_A_func)(T_arg1))
 { return pointer_functor1<T_arg1, T_return>(_A_func); }
 
@@ -388,7 +388,7 @@ ptr_fun1(T_return (*_A_func)(T_arg1))
  * @ingroup ptr_fun
  */
 template <class T_arg1, class T_arg2, class T_return>
-inline pointer_functor2<T_arg1, T_arg2, T_return> 
+inline pointer_functor2<T_arg1, T_arg2, T_return>
 ptr_fun2(T_return (*_A_func)(T_arg1, T_arg2))
 { return pointer_functor2<T_arg1, T_arg2, T_return>(_A_func); }
 
@@ -399,7 +399,7 @@ ptr_fun2(T_return (*_A_func)(T_arg1, T_arg2))
  * @ingroup ptr_fun
  */
 template <class T_arg1, class T_arg2, class T_arg3, class T_return>
-inline pointer_functor3<T_arg1, T_arg2, T_arg3, T_return> 
+inline pointer_functor3<T_arg1, T_arg2, T_arg3, T_return>
 ptr_fun3(T_return (*_A_func)(T_arg1, T_arg2, T_arg3))
 { return pointer_functor3<T_arg1, T_arg2, T_arg3, T_return>(_A_func); }
 
@@ -410,7 +410,7 @@ ptr_fun3(T_return (*_A_func)(T_arg1, T_arg2, T_arg3))
  * @ingroup ptr_fun
  */
 template <class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_return>
-inline pointer_functor4<T_arg1, T_arg2, T_arg3, T_arg4, T_return> 
+inline pointer_functor4<T_arg1, T_arg2, T_arg3, T_arg4, T_return>
 ptr_fun4(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4))
 { return pointer_functor4<T_arg1, T_arg2, T_arg3, T_arg4, T_return>(_A_func); }
 
@@ -421,7 +421,7 @@ ptr_fun4(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4))
  * @ingroup ptr_fun
  */
 template <class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_arg5, class T_return>
-inline pointer_functor5<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_return> 
+inline pointer_functor5<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_return>
 ptr_fun5(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4, T_arg5))
 { return pointer_functor5<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_return>(_A_func); }
 
@@ -432,7 +432,7 @@ ptr_fun5(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4, T_arg5))
  * @ingroup ptr_fun
  */
 template <class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_arg5, class T_arg6, class T_return>
-inline pointer_functor6<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_return> 
+inline pointer_functor6<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_return>
 ptr_fun6(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6))
 { return pointer_functor6<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_return>(_A_func); }
 
@@ -443,7 +443,7 @@ ptr_fun6(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6))
  * @ingroup ptr_fun
  */
 template <class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_arg5, class T_arg6, class T_arg7, class T_return>
-inline pointer_functor7<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7, T_return> 
+inline pointer_functor7<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7, T_return>
 ptr_fun7(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7))
 { return pointer_functor7<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7, T_return>(_A_func); }
 
@@ -456,7 +456,7 @@ ptr_fun7(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_a
  * @ingroup ptr_fun
  */
 template <class T_return>
-inline pointer_functor0<T_return> 
+inline pointer_functor0<T_return>
 ptr_fun(T_return (*_A_func)())
 { return pointer_functor0<T_return>(_A_func); }
 
@@ -467,7 +467,7 @@ ptr_fun(T_return (*_A_func)())
  * @ingroup ptr_fun
  */
 template <class T_arg1, class T_return>
-inline pointer_functor1<T_arg1, T_return> 
+inline pointer_functor1<T_arg1, T_return>
 ptr_fun(T_return (*_A_func)(T_arg1))
 { return pointer_functor1<T_arg1, T_return>(_A_func); }
 
@@ -478,7 +478,7 @@ ptr_fun(T_return (*_A_func)(T_arg1))
  * @ingroup ptr_fun
  */
 template <class T_arg1, class T_arg2, class T_return>
-inline pointer_functor2<T_arg1, T_arg2, T_return> 
+inline pointer_functor2<T_arg1, T_arg2, T_return>
 ptr_fun(T_return (*_A_func)(T_arg1, T_arg2))
 { return pointer_functor2<T_arg1, T_arg2, T_return>(_A_func); }
 
@@ -489,7 +489,7 @@ ptr_fun(T_return (*_A_func)(T_arg1, T_arg2))
  * @ingroup ptr_fun
  */
 template <class T_arg1, class T_arg2, class T_arg3, class T_return>
-inline pointer_functor3<T_arg1, T_arg2, T_arg3, T_return> 
+inline pointer_functor3<T_arg1, T_arg2, T_arg3, T_return>
 ptr_fun(T_return (*_A_func)(T_arg1, T_arg2, T_arg3))
 { return pointer_functor3<T_arg1, T_arg2, T_arg3, T_return>(_A_func); }
 
@@ -500,7 +500,7 @@ ptr_fun(T_return (*_A_func)(T_arg1, T_arg2, T_arg3))
  * @ingroup ptr_fun
  */
 template <class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_return>
-inline pointer_functor4<T_arg1, T_arg2, T_arg3, T_arg4, T_return> 
+inline pointer_functor4<T_arg1, T_arg2, T_arg3, T_arg4, T_return>
 ptr_fun(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4))
 { return pointer_functor4<T_arg1, T_arg2, T_arg3, T_arg4, T_return>(_A_func); }
 
@@ -511,7 +511,7 @@ ptr_fun(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4))
  * @ingroup ptr_fun
  */
 template <class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_arg5, class T_return>
-inline pointer_functor5<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_return> 
+inline pointer_functor5<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_return>
 ptr_fun(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4, T_arg5))
 { return pointer_functor5<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_return>(_A_func); }
 
@@ -522,7 +522,7 @@ ptr_fun(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4, T_arg5))
  * @ingroup ptr_fun
  */
 template <class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_arg5, class T_arg6, class T_return>
-inline pointer_functor6<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_return> 
+inline pointer_functor6<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_return>
 ptr_fun(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6))
 { return pointer_functor6<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_return>(_A_func); }
 
@@ -533,7 +533,7 @@ ptr_fun(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6))
  * @ingroup ptr_fun
  */
 template <class T_arg1, class T_arg2, class T_arg3, class T_arg4, class T_arg5, class T_arg6, class T_arg7, class T_return>
-inline pointer_functor7<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7, T_return> 
+inline pointer_functor7<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7, T_return>
 ptr_fun(T_return (*_A_func)(T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7))
 { return pointer_functor7<T_arg1, T_arg2, T_arg3, T_arg4, T_arg5, T_arg6, T_arg7, T_return>(_A_func); }
 

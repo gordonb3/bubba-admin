@@ -12,7 +12,7 @@ class Notify extends CI_Model {
 	public function ack( $UUID ) {
 		_system( BACKEND, 'notify_ack', $UUID );
 		_system( BACKEND, 'notify_flush' );
-		return 0;	
+		return 0;
 	}
 
 	private function _allowed_to_ack( $actual, $user ) {
@@ -46,22 +46,22 @@ class Notify extends CI_Model {
 
 	public function stop() {
 		_system( BACKEND, 'notify_stop' );
-		return 0;	
+		return 0;
 	}
 
 	public function start() {
 		_system( BACKEND, 'notify_start' );
-		return 0;	
+		return 0;
 	}
 
 	public function enable( $type, $level=Notify::ERR ) {
 		_system( BACKEND, 'notify_enable', $type, $level );
-		return 0;	
+		return 0;
 	}
 
 	public function disable( $type ) {
 		_system( BACKEND, 'notify_disable', $type );
-		return 0;	
+		return 0;
 	}
 
 	private function _read_cache( $user = null ) {

@@ -18,7 +18,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		
+
 	</tbody>
 </table>
 
@@ -36,7 +36,7 @@
 			<option value="r"><?=_('Read only')?></option>
         	</select>
         </td>
-	</tr>		
+	</tr>
     <tr>
         <th><?=sprintf(_("%s users"), NAME)?></th>
         <td>

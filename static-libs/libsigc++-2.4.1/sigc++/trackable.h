@@ -52,7 +52,7 @@ struct SIGC_API trackable_callback_list
   /** Add a callback function.
    * @param data Data that will be sent as a parameter to teh callback function.
    * @param func The callback function.
-   * 
+   *
    */
   void add_callback(void* data, func_destroy_notify func);
 
@@ -115,9 +115,9 @@ struct SIGC_API trackable
                                    who insist on using "trackable*" as
                                    pointer type for their own derived objects */
 
-  
+
   typedef internal::func_destroy_notify func_destroy_notify;
-  
+
   /** Add a callback that is executed (notified) when the trackable object is detroyed.
    * @param data Passed into func upon notification.
    * @param func Callback executed upon destruction of the object.

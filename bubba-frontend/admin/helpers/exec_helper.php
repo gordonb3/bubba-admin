@@ -18,11 +18,11 @@ function escapeshellargs( $cmd ) {
 		' ',
 		array(
 			$command,
-			implode( 
+			implode(
 				' ',
-				array_map( 
-					'escapeshellarg', 
-					$cmd 
+				array_map(
+					'escapeshellarg',
+					$cmd
 				)
 			)
 		)
@@ -32,9 +32,9 @@ function escapeshellargs( $cmd ) {
 
 function invoke_rc_d( $name, $action ) {
     $cmd = array(
-        "/sbin/rc-service", 
-        "-q", 
-        $name, 
+        "/sbin/rc-service",
+        "-q",
+        $name,
         $action
     );
     exec( escapeshellargs( $cmd ), $output, $retval );

@@ -1,24 +1,24 @@
 /*
-    
+
     libeutils - http://www.excito.com/
-    
+
     URL.cpp - this file is part of libeutils.
-    
+
     Copyright (C) 2007 Tor Krill <tor@excito.com>
-    
+
     libeutils is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2
     as published by the Free Software Foundation.
-    
+
     libeutils is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-    
+
     You should have received a copy of the GNU General Public License
     version 2 along with libeutils; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
-    
+
     $Id$
 */
 
@@ -72,7 +72,7 @@ void URL::SetUrl(string url){
 			m_url+="/"+m_path;
 		}
 	}
-}                                    
+}
 
 void URL::ParseScheme(){
 	int index=m_url.find(":",0);
@@ -138,7 +138,7 @@ void URL::ParsePassword(){
 }
 
 void URL::ParseHost(){
-	
+
 	// Find initial //
 	int start=m_url.find("//",0);
 	if(start<0){
@@ -208,7 +208,7 @@ void URL::ParsePath(){
 	if(start<0){
 			return;
 	}
-		
+
 	// Try to find / after host
 	int end=m_url.find("/",start+2);
 	string t;
@@ -241,8 +241,8 @@ bool URL::IsHex(unsigned char first, unsigned char sec) {
 			return true;
 		}
 	}
-	return false;                      
-}    
+	return false;
+}
 
 string URL::UrlCode(const string &s) {
 	const char* str=s.c_str();
@@ -275,7 +275,7 @@ string URL::UrlCode(const string &s) {
 			break;
 		default:
 			break;
-		}              
+		}
 		char buf[8];
 		sprintf(buf,"%%%02x",ch);
 		ret.append(buf);
@@ -289,19 +289,19 @@ string URL::UrlDecode(const string &s){
 	unsigned char ch;
 	unsigned int i=0;
 	string ret;
-	
+
 	while ( (ch=str[i++]) ) {
 		if(ch=='+'){
 			ret.push_back(' ');
 			continue;
 		}
-		
+
 		if(ch=='%' && (i+1<=s.length()) && (URL::IsHex(str[i],str[i+1]))){
 			ret.push_back(str[i]*16+str[i+1]);
 			i+=2;
 			continue;
 		}
-		
+
 		ret.push_back(ch);
 	}
 	return ret;

@@ -17,7 +17,7 @@ class Ajax_network extends CI_Controller {
 		$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0");
         $this->output->set_header("Pragma: no-cache");
 		$this->load->helper('network');
-		$this->load->model('networkmanager');        
+		$this->load->model('networkmanager');
 	}
 
 	function _output($output) {
@@ -90,7 +90,7 @@ class Ajax_network extends CI_Controller {
             // say "custom"...
             $this->json_data['alert_msg'] = _("Apply profile: '$new_profile'?");
             break;
-        }      
+        }
     }
 
     public function tor_update() {

@@ -37,9 +37,9 @@ function get_userlist() {
 
 function get_userinfo() {
 
-  $file = @fopen(UINFOFILE,"r") or 
+  $file = @fopen(UINFOFILE,"r") or
   	die ("Failed opening passwd");
-  	
+
 	while (!feof($file)) {
 		$buffer = fgets($file);
 		if($buffer){
@@ -55,7 +55,7 @@ function get_userinfo() {
 		}
 	}
 	fclose($file);
-	
+
 	return $userinfo;
 }
 
@@ -65,7 +65,7 @@ function validate_user($user,$user_pass) {
 		return false;
 	} else {
 		$userlist = get_userlist();
-			
+
 		if (isset($userlist[$user]) && ($userlist[$user] == crypt($user_pass,$userlist[$user]))) {
 			return true;
 		} else {

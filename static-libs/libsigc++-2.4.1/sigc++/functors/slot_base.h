@@ -294,7 +294,7 @@ public:
    */
   inline bool blocked() const
     { return blocked_; }
-    
+
   /** Sets the blocking state.
    * If @e should_block is @p true then the blocking state is set.
    * Subsequent calls to slot::operator()() don't invoke the functor
@@ -316,7 +316,7 @@ public:
   void disconnect();
 
 //The Tru64 and Solaris Forte 5.5 compilers needs this operator=() to be public. I'm not sure why, or why it needs to be protected usually. murrayc.
-//See bug #168265. 
+//See bug #168265.
 //protected:
   /** Overrides this slot making a copy from another slot.
    * @param src The slot from which to make a copy.
