@@ -37,10 +37,6 @@ msgctxt "bwlimit"
 msgid "&gt; 1.5 Mbps"
 msgstr ""
 
-#: admin/views/default/settings/settings_identity_view.php:54
-msgid "'Easyfind' location service"
-msgstr "Servicio de localización 'Easyfind'"
-
 #: admin/views/default/mail/mail_server_view.php:45
 msgid "(Not recommended, passwords will be sent unencrypted.)"
 msgstr "(No recomendado, las contraseñas se enviarán sin cifrar.)"
@@ -407,10 +403,6 @@ msgstr ""
 msgid "Choose backup destination (step 3 of 5)"
 msgstr ""
 
-#: admin/views/default/wizard_view.php:107
-msgid "Choose easyfind name (step 5 of 5)"
-msgstr ""
-
 #: admin/views/default/upload/upload_index_view.php:186
 msgid "Close"
 msgstr "Cerrar"
@@ -681,20 +673,6 @@ msgstr "Arrastrar y soltar para mover imágenes/álbumes"
 msgid "Each day"
 msgstr ""
 
-#: admin/controllers/settings.php:646 admin/controllers/settings.php:667
-#: admin/controllers/wizard.php:154 admin/controllers/wizard.php:166
-#, php-format
-msgid "Easyfind failed with following error: %s"
-msgstr ""
-
-#: admin/views/default/settings/settings_identity_view.php:70
-msgid "Easyfind name"
-msgstr "nombre Easyfind"
-
-#: admin/views/default/settings/settings_identity_view.php:49
-msgid "Easyfind options"
-msgstr "Opciones Easyfind"
-
 #: admin/views/default/backup/backup_view.php:405
 #: admin/views/default/backup/backup_view.php:752
 msgid "Edit backup job"
@@ -739,11 +717,6 @@ msgstr "Habilitar servicio DNS"
 #, fuzzy
 msgid "Enable Tor"
 msgstr "Habilitar jumbo frames."
-
-#: admin/views/default/wizard_view.php:116
-#, fuzzy
-msgid "Enable easyfind"
-msgstr "Easyfind"
 
 #: admin/views/default/network/network_lan_view.php:340
 msgid "Enable jumbo frames."
@@ -2180,11 +2153,6 @@ msgstr "Timezone, fecha y/o hora actualizados correctamente"
 msgid "To configure basic functionality of %s, press the button to start the setup wizard."
 msgstr "To configure basic functionality of %s, press the button to start the setup wizard."
 
-#: admin/views/default/wizard_view.php:111
-#, php-format
-msgid "To locate %s from the internet, use 'Easyfind' location service"
-msgstr "Para localizar %s desde internet, usa el servicio de localización 'Easyfind'"
-
 #: admin/views/default/shutdown_view.php:5
 #, php-format
 msgid "To restart %s, press the power button"
@@ -2229,10 +2197,6 @@ msgstr "Tipo"
 msgid "Unable to change name on server."
 msgstr ""
 
-#: admin/models/networkmanager.php:58
-msgid "Unable to disable 'easyfind' service."
-msgstr ""
-
 #: admin/models/networkmanager.php:70
 msgid "Unable to get record data from server."
 msgstr ""
@@ -2270,10 +2234,6 @@ msgstr "Subidas y descargas"
 #: admin/views/default/services/services_view.php:73
 msgid "Update"
 msgstr "Actualizar"
-
-#: admin/views/default/settings/settings_identity_view.php:97
-msgid "Update Easyfind"
-msgstr "Actualizar Easyfind"
 
 #: admin/views/default/settings/settings_identity_view.php:36
 msgid "Update hostname and workgroup"
@@ -2591,11 +2551,6 @@ msgstr "semillas"
 #: admin/views/default/disk/disk_lvm_view.php:19
 msgid "with"
 msgstr "con"
-
-#: admin/controllers/wizard.php:56
-#: admin/views/default/settings/settings_identity_view.php:75
-msgid "your-easyfind-name"
-msgstr "tu-nombre-easyfind"
 
 #~ msgid "Add disk to RAID array"
 #~ msgstr "Añade disco al grupo RAID"

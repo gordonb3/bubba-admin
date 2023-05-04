@@ -1905,19 +1905,6 @@ sub dnsmasq_config {
 	close(FILE);
 }
 
-sub easyfind {
-
-	my ($cmd,$name) = @_;
-	if (!$name) {
-		$name = "";
-	}
-	if (!$cmd) {
-		$cmd = "";
-	}
-	return system("/opt/bubba/bin/easyfind.pl $cmd $name");
-
-}
-
 sub do_get_version {
 	use IPC::Open3;
 

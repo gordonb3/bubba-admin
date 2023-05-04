@@ -898,13 +898,6 @@ body {
   width: 39px;
 }
 
-input#easyfind_name {
-	vertical-align : middle;
-}
-input[disabled]#easyfind_name {
-	background-color : #ccc;
-}
-
 #body_mail select,#body_mail option {
 	width : 83%;
 }
@@ -1810,10 +1803,6 @@ table.ui-table.ui-table-list tbody tr td:last-child button,#menu li a span {
   display: inline;
 }
 
-
-#settings_easyfind {
-  margin-top: 31px;
-}
 
 table.typetable > tbody > tr > td,table.disks > tbody > tr > td,div.text input {
   vertical-align: middle;

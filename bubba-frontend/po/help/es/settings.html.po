@@ -25,13 +25,12 @@ msgstr "Asistente de configuración"
 #: admin/views/default/help/en/settings.html:5
 msgid ""
 "Use the integrated Setup wizard to make the very first important settings on "
-"your {PLATFORM} such as language, time and date, add users and choose an "
-"Easyfind name. You can run the wizard at any time."
+"your {PLATFORM} such as time and date, language and add users. You can run "
+"the wizard at any time."
 msgstr ""
 "Utiliza el asistente de configuración integrado para establecer la "
-"configuración inicial de tu {PLATFORM} tal como idioma, hora y fecha, añadir "
-"usuarios y elegir un nombre Easyfind. Puedes ejecutar el asistente en "
-"cualquier momento."
+"configuración inicial de tu {PLATFORM} tal como hora y fecha, idioma y añadir "
+"usuarios. Puedes ejecutar el asistente en cualquier momento."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings.html:8
@@ -81,17 +80,6 @@ msgstr ""
 #: admin/views/default/help/en/settings.html:27
 msgid "<strong>Step 4 - Network setup</strong>"
 msgstr "<strong>Paso 4 - Configuración de red</strong>"
-
-#. type: Content of: <p>
-#: admin/views/default/help/en/settings.html:30
-msgid ""
-"Choose if you would like to register for a free Easyfind name. You will "
-"reach your {PLATFORM} by surfing to www.-your easyfind name-.{EASYFIND}. "
-"Click 'Next' to continue."
-msgstr ""
-"Elige si quieres register un nombre Easyfind gratuíto. Podrás acceder a "
-"{PLATFORM} navegando a www.-tu nombre easyfind-.myown{PLATFORM}.com. Haz "
-"clic en 'Siguiente' para continuar."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings.html:33

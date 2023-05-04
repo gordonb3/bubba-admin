@@ -235,12 +235,6 @@ msgstr ""
 "Hostname <strong>%s</strong> ist ungültig, nur die Zeichen <strong>A-Za-z0-9-"
 "</strong> sind gültig"
 
-#: admin/controllers/settings.php:646 admin/controllers/settings.php:667
-#: admin/controllers/wizard.php:156 admin/controllers/wizard.php:168
-#, php-format
-msgid "Easyfind failed with following error: %s"
-msgstr "Easyfind fehlgeschlagen mit folgendem Fehler: %s"
-
 #: admin/controllers/settings.php:656
 #, php-format
 msgid "Name '%s' is not valid"
@@ -321,11 +315,6 @@ msgid ""
 msgstr ""
 "Hiermit wird die Standard-Netzwerkkonfiguration wiederhergestellt und das "
 "Netzwerk auf %s neu gestartet."
-
-#: admin/controllers/wizard.php:57
-#: admin/views/default/settings/settings_identity_view.php:75
-msgid "your-easyfind-name"
-msgstr "Ihr-easyfind-Name"
 
 #: admin/controllers/wizard.php:159
 msgid "Name is not valid"
@@ -583,10 +572,6 @@ msgstr "Der Name wurde vom Server nicht akzeptiert."
 #: admin/models/networkmanager.php:55
 msgid "Name not available."
 msgstr "Name nicht verfügbar."
-
-#: admin/models/networkmanager.php:59
-msgid "Unable to disable 'easyfind' service."
-msgstr "EasyFind Service kann nicht abgeschaltet warden."
 
 #: admin/models/networkmanager.php:63
 msgid "Name is not valid."
@@ -1043,22 +1028,6 @@ msgstr "Arbeitsgruppe"
 #: admin/views/default/settings/settings_identity_view.php:36
 msgid "Update hostname and workgroup"
 msgstr "Hostname und Arbeitsgruppe aktualisieren"
-
-#: admin/views/default/settings/settings_identity_view.php:49
-msgid "Easyfind options"
-msgstr "Easyfind-Optionen"
-
-#: admin/views/default/settings/settings_identity_view.php:54
-msgid "'Easyfind' location service"
-msgstr "'Easyfind' Suchdienst"
-
-#: admin/views/default/settings/settings_identity_view.php:70
-msgid "Easyfind name"
-msgstr "Easyfind Name"
-
-#: admin/views/default/settings/settings_identity_view.php:97
-msgid "Update Easyfind"
-msgstr "Easyfind aktualisieren"
 
 #: admin/views/default/settings/settings_software_view.php:2
 msgid "Current version"
@@ -2573,20 +2542,6 @@ msgstr "Benutzername"
 #: admin/views/default/users/user_list_view.php:49
 msgid "Real name"
 msgstr "Echter Name"
-
-#: admin/views/default/wizard_view.php:107
-msgid "Choose easyfind name (step 5 of 5)"
-msgstr "Wählen Sie einen easyfind Namen (Schritt 5 von 5)"
-
-#: admin/views/default/wizard_view.php:111
-#, php-format
-msgid "To locate %s from the internet, use 'Easyfind' location service"
-msgstr ""
-"Verwenden Sie den 'Easyfind' Suchdienst, um %s über das Internet zu finden"
-
-#: admin/views/default/wizard_view.php:116
-msgid "Enable easyfind"
-msgstr "Easyfind aktivieren"
 
 #: admin/views/default/main_view.php:115
 #, php-format

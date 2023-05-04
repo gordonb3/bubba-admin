@@ -37,23 +37,3 @@ msgid ""
 "workgroup name on {PLATFORM} as on your computer."
 msgstr ""
 
-#. type: Content of: <h3>
-#: admin/views/default/help/en/settings_identity.html:11
-msgid "Easyfind options"
-msgstr ""
-
-#. type: Content of: <p>
-#: admin/views/default/help/en/settings_identity.html:14
-msgid ""
-"<strong>Use 'Easyfind' to locate your {PLATFORM}</strong> - Using our free "
-"service Easyfind you will be able to reach your {PLATFORM} wherever you are. "
-"You will be able to find your {PLATFORM} wherever you are typing www.-your "
-"easyfind name-.{EASYFIND}."
-msgstr ""
-
-#. type: Content of: <p>
-#: admin/views/default/help/en/settings_identity.html:18
-msgid ""
-"<strong>Easyfind name</strong> - Choose a name for your {PLATFORM} on the "
-"Easyfind network."
-msgstr ""

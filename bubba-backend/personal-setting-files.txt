@@ -1,7 +1,6 @@
 # network related
 /etc/conf.d/net
 /etc/bubba/firewall.conf
-/etc/bubba/easyfind.conf
 /etc/dnsmasq.d/bubba.conf
 /etc/conf.d/hostname
 /etc/hosts

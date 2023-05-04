@@ -38,7 +38,6 @@ admin/views/default/settings/settings_remote_accounts_head_view.php
 admin/views/default/settings/settings_logs_view.php
 admin/views/default/settings/settings_identity_view.php
 admin/views/default/settings/settings_software_view.php
-admin/views/default/settings/settings_identity_head_view.php
 admin/views/default/settings/settings_head_view.php
 admin/views/default/settings/settings_backuprestore_head_view.php
 admin/views/default/settings/settings_remote_accounts_view.php

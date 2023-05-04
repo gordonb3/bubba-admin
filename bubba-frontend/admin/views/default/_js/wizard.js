@@ -2,13 +2,6 @@ $.validator.addMethod('valid_username', function(value, element, params) {
     return value.length === 0 || (/^[^\-][a-z0-9 _\-]+$/.test(value) && value != 'web' && value != 'storage' && value != 'root');
 },
 jQuery.format("not a valid username"));
-$('#fn-wizard-easyfind-name').live('keyup', function() {
-    $('#fn-current-easyfind-name').text($(this).val());
-}).live('focus', function() {
-    if ($(this).val() == _("your-easyfind-name")) {
-        $(this).val("");
-    }
-});
 
 wizard = null;
 button_spec = [{
@@ -71,128 +64,9 @@ function do_run_wizard() {
                 };
 
                 wizard_element.find('.slide').iCheckbox(iCheckbox_options);
-                wizard_element.find('#fn-wizard-enable-easyfind').change(function() {
-                    if ($(this).is(':checked')) {
-                        $("#fn-wizard-easyfind-name").removeAttr('disabled');
-                    } else {
-                        $("#fn-wizard-easyfind-name").attr('disabled', 'disabled');
-                    }
-                });
 
                 wizard_dialog.bind('dialogclose', function(event, ui) {
                     wizard_dialog.remove();
-                });
-
-                wizard.formwizard({
-                    historyEnabled: !true,
-                    validationEnabled: true,
-                    formPluginEnabled: true,
-                    disableUIStyles: true,
-                    textNext: _("Next"),
-                    textBack: _("Back"),
-                    textSubmit: _("Complete"),
-                    remoteAjax : {"fn-wizard-step-5" : { // add a remote ajax call when moving next from the second step
-                      url :  config.prefix + "/wizard/validate_easyfind",
-                      dataType : 'json',
-                      type: 'POST',
-                      success : function(data){
-                        if(data.ignored) {
-                          return true;
-                        }
-                        if($('#fn-wizard-enable-easyfind').is(':checked')){
-                          if(!data.has_interwebs) {
-                            $.alert(_("Connection to internet is not available. Please disable easyfind, or connect to internet and try again."));
-                            buttons.button("enable"); // enable the dialog buttons
-                            return false; //return false to stop the wizard from going forward to the next step (this will always happen)
-                          } else if(!data.is_valid) {
-                            $.alert(_("The easyfind name you selected contains invalid characters. Please only include letters, numbers, or dashes ."));
-                            buttons.button("enable"); // enable the dialog buttons
-                            return false; //return false to stop the wizard from going forward to the next step (this will always happen)
-                          } else if(!data.is_available) {
-                            $.alert(_("The easyfind name you selected is already taken, please try another one."));
-                            buttons.button("enable"); // enable the dialog buttons
-                            return false; //return false to stop the wizard from going forward to the next step (this will always happen)
-                          }
-                        }
-                        return true; //return true to make the wizard move to the next step
-                      }
-                    }},
-                    validationOptions: {
-                        rules: {
-                            'admin_password1': {
-                                'minlength': 2
-                            },
-
-                            'admin_password2': {
-                                'equalTo': wizard_element.find('form input[name=admin_password1]')
-                            },
-                            'username': {
-                                'maxlength': 32,
-                                'minlength': 2,
-                                'valid_username': true,
-                                'remote': {
-                                    url: config.prefix + "/wizard/username_is_available",
-                                    type: "post"
-                                },
-                                'required': function() {
-                                    return $('#fn-wizard-user-password1').val().length > 0;
-                                }
-                            },
-
-                            'password1': {
-                                'minlength': 2,
-                                'required': function() {
-                                    return $('#fn-wizard-user-username').val().length > 0;
-                                }
-
-                            },
-
-                            'password2': {
-                                'equalTo': wizard_element.find('form input[name=password1]')
-                            },/*
-
-                            'easyfind_name': {
-                                'remote': {
-                                    url: config.prefix + "/wizard/validate_easyfind",
-                                    type: "post"
-                                }
-                            }*/
-
-                        }
-
-                    },
-                    formOptions: {
-                        'url': config.prefix + "/wizard/update",
-                        'type': 'post',
-                        'dataType': 'json',
-                        'reset': false,
-                        'success': function(data) {
-                            $.throbber.hide();
-                            wizard_dialog.dialog('close');
-                            if (data.error) {
-                                $.alert(
-                                _("Following errors where encountered when trying to apply the changes: ") + data.messages.join(", "), _("Error applying changes"), null, function() {
-                                    window.location.reload(true);
-                                });
-                            } else {
-                                $.alert(_("Setup complete. Enjoy!"), null, null, function() {
-                                    window.location.reload(true);
-                                });
-                            }
-                        },
-                        'beforeSubmit': function(arr, $form, options) {
-                            arr.push({
-                                'name': 'language',
-                                'value': selected_language
-                            });
-                            $.throbber.show();
-                            return true;
-                        }
-                    }
-                }).bind('step_shown', function(event, data) {
-                    if (data.currentStep == "fn-wizard-step-5") {
-                        wizard_element.find('#fn-wizard-enable-easyfind').change();
-                    }
                 });
 
                 buttons.eq(0).click(function() { // when Next is clicked

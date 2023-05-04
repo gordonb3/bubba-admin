@@ -35,9 +35,8 @@ msgstr ""
 #. type: Content of: <p>
 #: admin/views/default/help/en/user_downloads.html:8
 msgid ""
-"Surf to www.-your easyfind name-.{EASYFIND}. Of course if you already are in "
-"your home network browse to http://{DEFAULT_HOST}/admin."
-msgstr "Gå till www.-your easyfind name-.{EASYFIND}. "
+"Surf to http://{DEFAULT_HOST}/admin."
+msgstr "Gå till http://{DEFAULT_HOST}/admin. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/user_downloads.html:11
@@ -58,9 +57,8 @@ msgstr "Hur man laddar ner"
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/user_downloads.html:18
 msgid ""
-"At home browse to http://{DEFAULT_HOST}/admin or away from home www.-your "
-"easyfind name-.{EASYFIND}/admin."
-msgstr "Gå till www.-your easyfind name-.{EASYFIND}/admin."
+"Browse to http://{DEFAULT_HOST}/admin"
+msgstr "Gå till http://{DEFAULT_HOST}/admin. "
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/user_downloads.html:20

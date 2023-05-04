@@ -216,12 +216,6 @@ msgid ""
 "strong> is valid"
 msgstr ""
 
-#: admin/controllers/settings.php:646 admin/controllers/settings.php:667
-#: admin/controllers/wizard.php:156 admin/controllers/wizard.php:168
-#, php-format
-msgid "Easyfind failed with following error: %s"
-msgstr ""
-
 #: admin/controllers/settings.php:656
 #, php-format
 msgid "Name '%s' is not valid"
@@ -296,11 +290,6 @@ msgstr ""
 msgid ""
 "This will restore default network configuration aswell as restarting the "
 "network on %s."
-msgstr ""
-
-#: admin/controllers/wizard.php:57
-#: admin/views/default/settings/settings_identity_view.php:75
-msgid "your-easyfind-name"
 msgstr ""
 
 #: admin/controllers/wizard.php:159
@@ -555,10 +544,6 @@ msgstr ""
 
 #: admin/models/networkmanager.php:55
 msgid "Name not available."
-msgstr ""
-
-#: admin/models/networkmanager.php:59
-msgid "Unable to disable 'easyfind' service."
 msgstr ""
 
 #: admin/models/networkmanager.php:63
@@ -1026,22 +1011,6 @@ msgstr ""
 
 #: admin/views/default/settings/settings_identity_view.php:36
 msgid "Update hostname and workgroup"
-msgstr ""
-
-#: admin/views/default/settings/settings_identity_view.php:49
-msgid "Easyfind options"
-msgstr ""
-
-#: admin/views/default/settings/settings_identity_view.php:54
-msgid "'Easyfind' location service"
-msgstr ""
-
-#: admin/views/default/settings/settings_identity_view.php:70
-msgid "Easyfind name"
-msgstr ""
-
-#: admin/views/default/settings/settings_identity_view.php:97
-msgid "Update Easyfind"
 msgstr ""
 
 #: admin/views/default/settings/settings_software_view.php:2
@@ -2508,19 +2477,6 @@ msgstr ""
 #: admin/views/default/users/user_list_view.php:9
 #: admin/views/default/users/user_list_view.php:49
 msgid "Real name"
-msgstr ""
-
-#: admin/views/default/wizard_view.php:107
-msgid "Choose easyfind name (step 5 of 5)"
-msgstr ""
-
-#: admin/views/default/wizard_view.php:111
-#, php-format
-msgid "To locate %s from the internet, use 'Easyfind' location service"
-msgstr ""
-
-#: admin/views/default/wizard_view.php:116
-msgid "Enable easyfind"
 msgstr ""
 
 #: admin/views/default/main_view.php:115

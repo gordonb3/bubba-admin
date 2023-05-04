@@ -26,12 +26,12 @@ msgstr "Uppstartsguide"
 #: admin/views/default/help/en/settings.html:5
 msgid ""
 "Use the integrated Setup wizard to make the very first important settings on "
-"your {PLATFORM} such as language, time and date, add users and choose an "
-"Easyfind name. You can run the wizard at any time."
+"your {PLATFORM} such as time and date, language and add users. You can run "
+"the wizard at any time."
 msgstr ""
 "Använd den inbyggda uppstartsguiden för att göra de första viktiga "
-"inställningarna på din {PLATFORM}, såsom språk, användare och att välja ett "
-"Easyfind-namn. Du kan köra denna guide när som helst. "
+"inställningarna på din {PLATFORM}, såsom språk och användare. "
+"Du kan köra denna guide när som helst. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings.html:8
@@ -75,17 +75,6 @@ msgstr "Skapa en användare. Click 'Next' to continue."
 #: admin/views/default/help/en/settings.html:27
 msgid "<strong>Step 4 - Network setup</strong>"
 msgstr "<strong>Steg 4 - Nätverksinställningar</strong>"
-
-#. type: Content of: <p>
-#: admin/views/default/help/en/settings.html:30
-msgid ""
-"Choose if you would like to register for a free Easyfind name. You will "
-"reach your {PLATFORM} by surfing to www.-your easyfind name-.{EASYFIND}. "
-"Click 'Next' to continue."
-msgstr ""
-"Välj om du vill registrera ett gratis Easyfind-namn. Du kan då nå din "
-"{PLATFORM} genom att surfa till www.<ditt easyfind-namn>.{EASYFIND}. Klicka "
-"nästa för att gå vidare. "
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings.html:33

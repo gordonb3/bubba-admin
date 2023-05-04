@@ -64,7 +64,6 @@ my %commands=(
 	"set_dynamic_netcfg"	=> [\&Bubba::set_dynamic_netcfg ,1],
 	"set_nameserver"		=> [\&Bubba::set_nameserver ,1],
 	"dnsmasq_config"		=> [\&Bubba::dnsmasq_config ,4],
-	"easyfind"				=> [\&Bubba::easyfind ,2],
 	"get_interfaces"		=> [\&Bubba::do_get_interfaces,0],
 	"get_link"				=> [\&Bubba::get_link, 1],
 	"get_mtu"				=> [\&Bubba::get_mtu ,0],

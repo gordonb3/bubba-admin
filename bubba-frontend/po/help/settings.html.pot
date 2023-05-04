@@ -26,8 +26,8 @@ msgstr ""
 #: admin/views/default/help/en/settings.html:5
 msgid ""
 "Use the integrated Setup wizard to make the very first important settings on "
-"your {PLATFORM} such as language, time and date, add users and choose an "
-"Easyfind name. You can run the wizard at any time."
+"your {PLATFORM} such as time and date, language and add users. You can run "
+"the wizard at any time."
 msgstr ""
 
 #. type: Content of: <p>
@@ -69,14 +69,6 @@ msgstr ""
 #. type: Content of: <p>
 #: admin/views/default/help/en/settings.html:27
 msgid "<strong>Step 4 - Network setup</strong>"
-msgstr ""
-
-#. type: Content of: <p>
-#: admin/views/default/help/en/settings.html:30
-msgid ""
-"Choose if you would like to register for a free Easyfind name. You will "
-"reach your {PLATFORM} by surfing to www.-your easyfind name-.{EASYFIND}. "
-"Click 'Next' to continue."
 msgstr ""
 
 #. type: Content of: <p>
