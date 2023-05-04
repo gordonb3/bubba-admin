@@ -40,10 +40,6 @@ msgctxt "bwlimit"
 msgid "&gt; 1.5 Mbps"
 msgstr "%gt; 1.5 Mbps"
 
-#: admin/views/default/settings/settings_identity_view.php:54
-msgid "'Easyfind' location service"
-msgstr "'Easyfind'"
-
 #: admin/views/default/mail/mail_server_view.php:45
 msgid "(Not recommended, passwords will be sent unencrypted.)"
 msgstr "(Rekommenderas inte, lösenord kommer att skickas okrypterade.)"
@@ -414,10 +410,6 @@ msgstr "Välj ett namn för detta jobb (steg 1 av 5)"
 msgid "Choose backup destination (step 3 of 5)"
 msgstr "Välj mål för backup (steg 3 av 5)"
 
-#: admin/views/default/wizard_view.php:107
-msgid "Choose easyfind name (step 5 of 5)"
-msgstr "Välj easyfind-namn (steg 5 av 5)"
-
 #: admin/views/default/upload/upload_index_view.php:186
 msgid "Close"
 msgstr "Stäng"
@@ -690,20 +682,6 @@ msgstr "Drag och släpp för att flytta bilder/album"
 msgid "Each day"
 msgstr "Varje dag"
 
-#: admin/controllers/settings.php:646 admin/controllers/settings.php:667
-#: admin/controllers/wizard.php:154 admin/controllers/wizard.php:166
-#, php-format
-msgid "Easyfind failed with following error: %s"
-msgstr "Easyfind misslyckades med följande fel: %s"
-
-#: admin/views/default/settings/settings_identity_view.php:70
-msgid "Easyfind name"
-msgstr "Easyfind-namn"
-
-#: admin/views/default/settings/settings_identity_view.php:49
-msgid "Easyfind options"
-msgstr "Easyfind"
-
 #: admin/views/default/backup/backup_view.php:405
 #: admin/views/default/backup/backup_view.php:752
 msgid "Edit backup job"
@@ -749,10 +727,6 @@ msgstr "DNS-tjänst"
 #: admin/views/default/network/network_tor_view.php:16
 msgid "Enable Tor"
 msgstr "Tor"
-
-#: admin/views/default/wizard_view.php:116
-msgid "Enable easyfind"
-msgstr "Aktivera Easyfind"
 
 #: admin/views/default/network/network_lan_view.php:340
 msgid "Enable jumbo frames."
@@ -2236,11 +2210,6 @@ msgstr ""
 "För att ställa in de viktigaste delarna på %s, tryck på knappen för att "
 "starta Inställningsguiden."
 
-#: admin/views/default/wizard_view.php:111
-#, php-format
-msgid "To locate %s from the internet, use 'Easyfind' location service"
-msgstr "För att hitta %s på Internet, använd lokaliseringstjänsten 'Easyfind'"
-
 #: admin/views/default/shutdown_view.php:5
 #, php-format
 msgid "To restart %s, press the power button"
@@ -2289,10 +2258,6 @@ msgstr "Skriv"
 msgid "Unable to change name on server."
 msgstr "Lyckades inte ändra namnet på servern."
 
-#: admin/models/networkmanager.php:58
-msgid "Unable to disable 'easyfind' service."
-msgstr "Lyckades inte deaktivera 'Easyfind'-tjänsten."
-
 #: admin/models/networkmanager.php:70
 msgid "Unable to get record data from server."
 msgstr "Lyckades inte få data från servern."
@@ -2330,10 +2295,6 @@ msgstr "Upp- och nedladdningar"
 #: admin/views/default/services/services_view.php:73
 msgid "Update"
 msgstr "Uppdatera"
-
-#: admin/views/default/settings/settings_identity_view.php:97
-msgid "Update Easyfind"
-msgstr "Uppdatera Easyfind"
 
 #: admin/views/default/settings/settings_identity_view.php:36
 msgid "Update hostname and workgroup"
@@ -2652,11 +2613,6 @@ msgstr "källor"
 #: admin/views/default/disk/disk_lvm_view.php:19
 msgid "with"
 msgstr "med"
-
-#: admin/controllers/wizard.php:56
-#: admin/views/default/settings/settings_identity_view.php:75
-msgid "your-easyfind-name"
-msgstr "ditt-easyfind-namn"
 
 #~ msgctxt "menu"
 #~ msgid "PIM"

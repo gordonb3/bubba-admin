@@ -690,33 +690,6 @@ msgstr ""
 msgid "Please note"
 msgstr "Bitte beachten Sie"
 
-#: admin/views/default/_js/wizard.js:8
-msgid "your-easyfind-name"
-msgstr "ihr-easyfind-name"
-
-#: admin/views/default/_js/wizard.js:104
-msgid ""
-"Connection to internet is not available. Please disable easyfind, or connect "
-"to internet and try again."
-msgstr ""
-"Es ist keine Internetverbindung verfügbar. Bitte deaktivieren Sie easyfind "
-"oder stellen Sie eine Internetverbindung her und versuchen es erneut."
-
-#: admin/views/default/_js/wizard.js:108
-msgid ""
-"The easyfind name you selected contains invalid characters. Please only "
-"include letters, numbers, or dashes ."
-msgstr ""
-"Der gewünschte easyfind Name enthält ungültige Zeichen. Erlaubte Zeichen "
-"sind -, _ , A bis Z, a bis z sowie 0-9"
-
-#: admin/views/default/_js/wizard.js:112
-msgid ""
-"The easyfind name you selected is already taken, please try another one."
-msgstr ""
-"Der gewünschte easyfind Name ist bereits vergeben, bitte wählen Sie einen "
-"anderen."
-
 #: admin/views/default/_js/wizard.js:174
 msgid "Following errors where encountered when trying to apply the changes: "
 msgstr "Die folgenden Fehler traten beim Übernehmen der Änderungen auf:"
@@ -783,13 +756,6 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 
 #~ msgid "File/Directory selector"
 #~ msgstr "Datei/Verzeichnis auswahl"
-
-#~ msgid ""
-#~ "Selected Easyfind identifier is not available, please select a different "
-#~ "one."
-#~ msgstr ""
-#~ "Der gewählte Easyfindname ist nicht verfügbar, bitte wählen sie einen "
-#~ "anderen."
 
 #~ msgid "not a valid password"
 #~ msgstr "kein gültiges Passwort"
@@ -1045,10 +1011,6 @@ msgstr "Einrichten abgeschlossen. Viel Spass!"
 #, fuzzy
 #~ msgctxt "menu"
 #~ msgid "System settings"
-#~ msgstr "Einstellungen aktualisieren"
-
-#, fuzzy
-#~ msgid "Update Easyfind"
 #~ msgstr "Einstellungen aktualisieren"
 
 #, fuzzy

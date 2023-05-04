@@ -2,7 +2,6 @@
 # Setting the ctype locale to en_US.UTF-8, mostly to enamble escapeshellargs to function properly
 setlocale( LC_CTYPE, 'en_US.UTF-8' );
 define("DEBUG",0);
-define("BUBBA_EASYFIND_CONF","/etc/bubba/easyfind.conf");
 class AdminException extends Exception {
 
 	const MYSQL_CONNECT_ERROR = 0x01;
@@ -200,36 +199,6 @@ function ls($uname, $path){
    }else{
       return $out;
    }
-}
-
-function get_easyfind() {
-
-	$cmd=BACKEND." easyfind getname 0";
-	exec($cmd,$out,$ret);
-	if($ret) {
-		$res['error'] = true;
-		$res['msg'] = "Error retreiving name";
-//		print_r($res);
-		return $res;
-	}
-	return json_decode($out[0],true);
-}
-
-function set_easyfind($name) {
-
-	if($name) {
-		$cmd=BACKEND." easyfind setname $name";
-	} else {
-		$cmd=BACKEND." easyfind disable 0";
-	}
-	exec($cmd,$out,$ret);
-	if($ret > 0) {
-		$res['error'] = true;
-		$res['msg'] = "Error retreiving name";
-		return $res;
-	} else {
-		return json_decode($out[0],true);
-	}
 }
 
 function get_workgroup(){

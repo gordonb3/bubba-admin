@@ -27,65 +27,6 @@ class NetworkManager extends CI_Model {
 		}
 	}
 
-	public function decode_easyfindmsg($server_response) {
-
-		define("DBCONNECT", 0x0);
-		define("UPDATE", 0x1);
-		define("SETNAME", 0x2);
-		define("CHECKNAME", 0x4);
-		define("DISABLE", 0x8);
-		define("VALIDATE", 0x10);
-		define("CHANGENAME", 0x11);
-		define("GETRECORD", 0x12);
-
-        if(isset($server_response['opcode'])) {
-            switch ($server_response['opcode']) {
-            case DBCONNECT:
-                $msg = _("Failed to connect to database.");
-                break;
-            case UPDATE:
-                $msg = _("Unable to update IP on server.");
-                break;
-
-            case SETNAME:
-                $msg = _("Unable to set name on server.");
-                break;
-
-            case CHECKNAME:
-                $msg = _("Name not available.");
-                break;
-
-            case DISABLE:
-                $msg = _("Unable to disable 'easyfind' service.");
-                break;
-
-            case VALIDATE:
-                $msg = _("Name is not valid.");
-                break;
-
-            case CHANGENAME:
-                $msg = _("Unable to change name on server.");
-                break;
-
-            case GETRECORD:
-                $msg = _("Unable to get record data from server.");
-                break;
-            }
-        } else {
-            $msg = _("No opcode available in the response.");
-        }
-		if(isset($server_response['msg']) && $server_response['msg']) {
-			$msg .= "<br>"._("Server responded: ") . $server_response['msg'];
-		}
-
-		return $msg;
-	}
-
-	public function easyfind_validate( $name ) {
-		if(!$name) return 0;
-		return preg_match( '#^[A-Za-z0-9-]+$#', $name );
-    }
-
 
     public function get_mac($if) {
         if(file_exists("/sys/class/net/$if/address")) {
@@ -94,47 +35,6 @@ class NetworkManager extends CI_Model {
             return null;
         }
     }
-
-    public function easyfind_available( $name, $mac ) {
-        if( ! $name ) {
-            return false;
-        }
-
-        $request = new HTTP_Request2('https://easyfind.excito.org/check.php', HTTP_Request2::METHOD_GET, array('ssl_verify_peer' => false));
-        $url = $request->getUrl();
-        $url->setQueryVariables(
-            array(
-                'name' => $name.".".EASYFIND,
-                'mac' => $mac
-            )
-        );
-        $response = $request->send();
-        if ($response->getStatus() == 200) {
-            $data = json_decode($response->getBody(),true);
-            if(is_array($data)) {
-               if(isset($data['error'])) {
-                   throw new Exception("Server responded with error: {$data['error']}");
-               } elseif(isset($data['available'])) {
-                   return $data['available'];
-               } else {
-                   return false;
-               }
-            } else {
-                throw new Exception("Unknown data encountered: " + json_encode($data));
-            }
-        } else {
-            throw new Exception("Server didn't respond with a 200 OK message");
-        }
-
-    }
-
-	public function easyfind_setname( $name ) {
-		return set_easyfind($name);
-	}
-
-	public function get_easyfind() {
-		return get_easyfind();
-  }
 
   private function _get_ip($if) {
     $ip = _system('ip', '-4', '-o', 'addr', 'show', 'dev', $if);
@@ -1021,26 +921,8 @@ class NetworkManager extends CI_Model {
         }
     }
 
-    function igd_easyfind_is_enabled() {
-        return $this->_igd_ini_exists("enable-easyfind");
-    }
-
     function igd_port_forward_is_enabled() {
         return $this->_igd_ini_exists("enable-port-forward");
-    }
-
-    function enable_igd_easyfind( $enabled = true ) {
-        if( $enabled ) {
-            if( !$this->_igd_ini_exists("enable-easyfind") ) {
-                $this->_igd_ini_update("enable-easyfind", "yes");
-                invoke_rc_d("bubba-igd", "restart");
-            }
-        } else {
-            if( $this->_igd_ini_exists("enable-easyfind") ) {
-                $this->_igd_ini_update("enable-easyfind", false);
-                invoke_rc_d("bubba-igd", "restart");
-            }
-        }
     }
 
     function enable_igd_port_forward( $enabled = true ) {

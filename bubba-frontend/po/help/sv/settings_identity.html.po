@@ -42,28 +42,3 @@ msgstr ""
 "filer och skrivare med varandra. Använd samma arbetsgrupp här som du "
 "använder på dina datorer. "
 
-#. type: Content of: <h3>
-#: admin/views/default/help/en/settings_identity.html:11
-msgid "Easyfind options"
-msgstr "Easyfindinställningar"
-
-#. type: Content of: <p>
-#: admin/views/default/help/en/settings_identity.html:14
-msgid ""
-"<strong>Use 'Easyfind' to locate your {PLATFORM}</strong> - Using our free "
-"service Easyfind you will be able to reach your {PLATFORM} wherever you are. "
-"You will be able to find your {PLATFORM} wherever you are typing www.-your "
-"easyfind name-.{EASYFIND}."
-msgstr ""
-"<strong>Använd 'Easyfind' för att nå din {PLATFORM}</strong> - Du kan nå din "
-"{PLATFORM} var du än är genom att skriva www.-your easyfind name-.{EASYFIND} "
-"i en webbläsare. "
-
-#. type: Content of: <p>
-#: admin/views/default/help/en/settings_identity.html:18
-msgid ""
-"<strong>Easyfind name</strong> - Choose a name for your {PLATFORM} on the "
-"Easyfind network."
-msgstr ""
-"<strong>Easyfindnamn</strong> - Välj ett unikt namn för din {PLATFORM} för "
-"Easyfind-funktionen."

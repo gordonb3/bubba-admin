@@ -103,44 +103,4 @@
 
     </div>
 
-    <div id="fn-wizard-step-5" class="step">
-        <h3><?=_("Choose easyfind name (step 5 of 5)")?></h3>
-        <table>
-        <p>
-            <em>
-                <?=sprintf(_("To locate %s from the internet, use 'Easyfind' location service"), NAME)?>
-            </em>
-        </p>
-            <tr class="ui-header">
-                <td>
-                    <?=_("Enable easyfind")?>
-                </td>
-                <td>
-                    <input
-                    id="fn-wizard-enable-easyfind"
-                    name="enable_easyfind"
-                    type="checkbox"
-                    class="slide"
-                    <?if($enabled_easyfind):?>
-                    checked="checked"
-                    <?endif?>
-                    />
-                </td>
-            </tr>
-            <tr class="ui-header">
-                <td colspan="2">
-                    <input
-                    id="fn-wizard-easyfind-name"
-                    name="easyfind_name"
-                    type="text"
-                    value="<?=$easyfind_display_name?>"
-                    <?if(!$enabled_easyfind):?>
-                    disabled="disabled"
-                    <?endif?>
-                    /> <span>(http://<span id="fn-current-easyfind-name"><?=$easyfind_display_name?></span>.<?=EASYFIND?>)</span>
-                </tr>
-            </table>
-
-        </div>
-
     </form>

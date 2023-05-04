@@ -589,13 +589,8 @@ class Settings extends CI_Controller{
     $update = false;
     $data['workgroup'] = $current_workgroup = get_workgroup();
     $data['hostname'] = $current_hostname = php_uname('n');
-    $data['easyfind'] = $current_easyfind = $this->networkmanager->get_easyfind();
 
     try {
-      if(isset($data['easyfind']['name']) && preg_match("/(.*)\.([\d\w]+\.\w+)$/",$data['easyfind']['name'],$host)) {
-        $data['easyfind']['name'] = $host[1];
-      }
-
 
       if( $this->input->post("samba_update") ) {
         $update = true;
@@ -640,47 +635,6 @@ class Settings extends CI_Controller{
           $update = false;
         }
 
-      } elseif( $this->input->post("easyfind_update") ) {
-        $easyfind_name = $this->input->post('easyfind_name');
-        $easyfind_enable = $this->input->post('easyfind_enabled');
-        if( isset($easyfind_name) && ( $easyfind_name  != $current_easyfind['name'] ) && $easyfind_enable) {
-          # we update easyfind
-          $update = true;
-          if( $easyfind_enable ) {
-            # easyfind selected to be enabled
-            $valid = $this->networkmanager->easyfind_validate($easyfind_name);
-            if($valid) {
-              $server_response = $this->networkmanager->easyfind_setname($easyfind_name.".".EASYFIND);
-              if($server_response['error'] != "false") {
-                $msg = $this->networkmanager->decode_easyfindmsg($server_response);
-                throw new Exception(sprintf(_("Easyfind failed with following error: %s"), $msg));
-              }
-              $data['easyfind'] = $server_response['record'];
-              // strip the domain from the name
-              if(preg_match("/(.*)\.([\d\w]+\.\w+)$/",$data['easyfind']['name'],$host)) {
-                $data['easyfind']['name'] = $host[1];
-              }
-
-            } else {
-              $data['easyfind']['name'] = $easyfind_name;
-              throw new Exception(sprintf(_("Name '%s' is not valid"), $easyfind_name));
-            }
-          }
-        } elseif (!$easyfind_enable) {
-          // disable easyfind
-          $update = true;
-
-          $server_response = $this->networkmanager->easyfind_setname("");
-          if($data['easyfind']['error'] != "false") {
-            $msg = $this->networkmanager->decode_easyfindmsg($data['easyfind']);
-            throw new Exception(sprintf(_("Easyfind failed with following error: %s"), $msg));
-          }
-          $data['easyfind']['name'] = "";
-        } else {
-          # We just clicked on the update button
-          $update = false;
-        }
-
       }
       $update_msg = array(
         'success' => true,
@@ -703,7 +657,7 @@ class Settings extends CI_Controller{
     }else{
       $this->_renderfull(
         $this->load->view(THEME.'/settings/settings_identity_view',$data,true),
-        $this->load->view(THEME.'/settings/settings_identity_head_view',$data,true),
+        null,
         $data
       );
     }

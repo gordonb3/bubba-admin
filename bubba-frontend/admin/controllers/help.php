@@ -40,12 +40,10 @@ class Help extends CI_Controller{
                 $data = str_replace(
                     array(
                         '{PLATFORM}',
-                        '{EASYFIND}',
                         '{DEFAULT_HOST}',
                     ),
                     array(
                         NAME,
-                        EASYFIND,
                         DEFAULT_HOST,
                     ),
                     $data

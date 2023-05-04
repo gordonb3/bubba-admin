@@ -50,11 +50,6 @@ class wizard extends CI_Controller {
         $data['timezones'] = $this->system->list_timezones();
         $data['current_timezone'] = $this->system->get_timezone();
 
-        $current_easyfind = $this->networkmanager->get_easyfind();
-        $data['enabled_easyfind'] = isset($current_easyfind['name']) && $current_easyfind['name'];
-        $data['easyfind_name'] = str_replace( ".".EASYFIND, "", isset($current_easyfind['name']) && $current_easyfind['name'] ? $current_easyfind['name'] : "");
-
-        $data['easyfind_display_name'] = $data['easyfind_name'] ? $data['easyfind_name'] : _("your-easyfind-name");
         $this->load->view(THEME.'/wizard_view', $data);
     }
 
@@ -65,8 +60,6 @@ class wizard extends CI_Controller {
         $language = trim($this->input->post('language'));
         $admin_password1 = trim($this->input->post('admin_password1'));
         $admin_password2 = trim($this->input->post('admin_password2'));
-        $easyfind_name = $this->input->post('easyfind_name');
-        $enable_easyfind = $this->input->post('enable_easyfind');
         $password1 = trim($this->input->post('password1'));
         $password2 = trim($this->input->post('password2'));
         $realname = trim($this->input->post('realname'));
@@ -141,36 +134,6 @@ class wizard extends CI_Controller {
             $errors[] = $e->getMessage();
         }
 
-        if($this->networkmanager->has_interwebs()){
-          try {
-            // Grabbed from settings.php mostly
-            if( $enable_easyfind ) {
-              $current_easyfind = $this->networkmanager->get_easyfind();
-              if(isset($easyfind_name) && ( $easyfind_name  != $current_easyfind['name'])) {
-                $valid = $this->networkmanager->easyfind_validate($easyfind_name);
-                if($valid) {
-                  $server_response = $this->networkmanager->easyfind_setname($easyfind_name.".".EASYFIND);
-                  if($server_response['error'] != "false") {
-                    $msg = $this->networkmanager->decode_easyfindmsg($server_response);
-                    throw new Exception(sprintf(_("Easyfind failed with following error: %s"), $msg));
-                  }
-                } else {
-                  throw new Exception(_("Name is not valid"));
-                }
-
-              }
-            } else {
-              $server_response = $this->networkmanager->easyfind_setname("");
-              if($server_response['error'] != "false") {
-                $msg = $this->networkmanager->decode_easyfindmsg($server_response);
-                throw new Exception(sprintf(_("Easyfind failed with following error: %s"), $msg));
-              }
-            }
-          } catch( Exception $e ) {
-            $errors[] = $e->getMessage();
-          }
-        }
-
         if(!empty($errors)) {
             $this->output->set_output(json_encode(array('error' => "true", 'messages' => $errors)));
         } else {
@@ -178,42 +141,6 @@ class wizard extends CI_Controller {
         }
     }
 
-    public function validate_easyfind() {
-      $this->load->model('networkmanager');
-
-      $name = $this->input->post("easyfind_name");
-      $this->output->set_header('Last-Modified: '.gmdate('D, d M Y H:i:s', time()).' GMT');
-      $this->output->set_header('Expires: '.gmdate('D, d M Y H:i:s', time()).' GMT');
-      $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0");
-      $this->output->set_header("Pragma: no-cache");
-      if(!$name) {
-        $this->output->set_output(json_encode(array('ignored' => true)));
-        return;
-
-      }
-      $has_interwebs = $this->networkmanager->has_interwebs();
-      $out = array();
-
-      $out['has_interwebs'] = $has_interwebs;
-
-      if($has_interwebs) {
-
-        $is_valid =  $this->networkmanager->easyfind_validate($name);
-        $out['is_valid'] = $is_valid;
-        if($is_valid) {
-
-          $wanif = $this->networkmanager->get_wan_interface();
-          $mac = $this->networkmanager->get_mac($wanif);
-          try {
-            $available = $this->networkmanager->easyfind_available($name, $mac);
-            $out['is_available'] = $available === true;
-          } catch( Exception $e ) {
-            $out['is_available'] = false;
-          }
-        }
-      }
-      $this->output->set_output(json_encode($out));
-    }
 
     public function username_is_available() {
         $this->load->model("auth_model");

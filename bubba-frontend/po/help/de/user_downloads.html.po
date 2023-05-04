@@ -36,11 +36,9 @@ msgstr ""
 #. type: Content of: <p>
 #: admin/views/default/help/en/user_downloads.html:8
 msgid ""
-"Surf to www.-your easyfind name-.{EASYFIND}. Of course if you already are in "
-"your home network browse to http://{DEFAULT_HOST}/admin."
+"Surf to http://{DEFAULT_HOST}/admin."
 msgstr ""
-"Surfen Sie zu www.-your easyfind name-.{EASYFIND}. Wenn Sie sich bereits in "
-"Ihrem Heimnetzwerk befinden, navigieren Sie zu http://{DEFAULT_HOST}/admin."
+"Navigieren Sie zu http://{DEFAULT_HOST}/admin."
 
 #. type: Content of: <p>
 #: admin/views/default/help/en/user_downloads.html:11
@@ -62,11 +60,9 @@ msgstr "So können Sie etwas downloaden:"
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/user_downloads.html:18
 msgid ""
-"At home browse to http://{DEFAULT_HOST}/admin or away from home www.-your "
-"easyfind name-.{EASYFIND}/admin."
+"Browse to http://{DEFAULT_HOST}/admin"
 msgstr ""
-"Navigieren Sie zu http://{DEFAULT_HOST}/admin (im Heimnetzwerk) oder zu www.-"
-"your easyfind name-.{EASYFIND}/admin."
+"Navigieren Sie zu http://{DEFAULT_HOST}/admin."
 
 #. type: Content of: <ol><li>
 #: admin/views/default/help/en/user_downloads.html:20

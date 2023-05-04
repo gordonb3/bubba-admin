@@ -12,7 +12,6 @@ define("FIREWALL",SCRIPTDIR."/firewall.pl");
 define("DISK",SCRIPTDIR."/disk.pl");
 define("ADMINFUNCS",SCRIPTDIR."/adminfunctions.php");
 define("IPCFUNCS","/opt/bubba/web-admin/ftd/ipc.php");
-define("EASYFIND_CONF","/etc/bubba/easyfind.conf");
 define("PWFILE","/etc/shadow");
 define("UINFOFILE","/etc/passwd");
 define("VERSION","BUBBA_VERSION");
@@ -24,12 +23,10 @@ define("ADMINCONFIG","/home/admin/".USER_CONFIG);
 
 if(isB3()) {
 	define("NAME","B3");
-    define("EASYFIND", "myownb3.com");
-    define("DEFAULT_HOST", "b3");
+	define("DEFAULT_HOST", "b3");
 } else {
-    define("EASYFIND", "myownb2.com");
 	define("NAME","Bubba|2");
-    define("DEFAULT_HOST", "bubba");
+	define("DEFAULT_HOST", "bubba");
 }
 
 if($CI->session->userdata("language")){

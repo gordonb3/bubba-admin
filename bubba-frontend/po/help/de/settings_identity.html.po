@@ -43,28 +43,3 @@ msgstr ""
 "oder zu ihrer Internetverbindung gewähren. Verwenden Sie für {PLATFORM} den "
 "gleichen Arbeitsgruppennamen wie auf Ihrem Computer."
 
-#. type: Content of: <h3>
-#: admin/views/default/help/en/settings_identity.html:11
-msgid "Easyfind options"
-msgstr "Optionen für Easyfind"
-
-#. type: Content of: <p>
-#: admin/views/default/help/en/settings_identity.html:14
-msgid ""
-"<strong>Use 'Easyfind' to locate your {PLATFORM}</strong> - Using our free "
-"service Easyfind you will be able to reach your {PLATFORM} wherever you are. "
-"You will be able to find your {PLATFORM} wherever you are typing www.-your "
-"easyfind name-.{EASYFIND}."
-msgstr ""
-"<strong>{PLATFORM} mit 'Easyfind' lokalisieren</strong> - Mit unserem "
-"kostenlosen Easyfind-Dienst können Sie Ihr {PLATFORM} von überall erreichen, "
-"indem Sie www.-your easyfind name-.{EASYFIND} eingeben."
-
-#. type: Content of: <p>
-#: admin/views/default/help/en/settings_identity.html:18
-msgid ""
-"<strong>Easyfind name</strong> - Choose a name for your {PLATFORM} on the "
-"Easyfind network."
-msgstr ""
-"<strong>Easyfind-Name</strong> - Wählen Sie für Ihr {PLATFORM} einen Namen "
-"für das Easyfind-Netzwerk."
