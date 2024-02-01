@@ -5,9 +5,10 @@
 	<div id="sideboard-clock-digital" class="jclock"></div>
 
 	<div id="sideboard-datetime">
-		<div id="sideboard-datetime-date"><?=strftime("%d")?></div>
-        <div id="sideboard-datetime-day"><?=strftime("%A")?></div>
-		<div id="sideboard-datetime-month"><?=strftime("%B")?></div>
-		<div id="sideboard-datetime-year"><?=strftime("%Y")?></div>
+		<div id="sideboard-datetime-date"><?=date('d')?></div>
+        <div id="sideboard-datetime-day"><?=date('l')?></div>
+		<div id="sideboard-datetime-month"><?=date('F')?></div>
+		<div id="sideboard-datetime-year"><?=date('Y')?></div>
 	</div>
 </div>
+

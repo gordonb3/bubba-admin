@@ -30,7 +30,7 @@ fix_fqdn_dynamic_host()
 	if [ "x${new_ip_address}" != "x" ]; then
 		echo "bubba-fqdn: update dynamic hosts entry for my name"
 		local old_hostentry=$(grep "^${new_ip_address}\s" /etc/hosts)
-		local new_hostnames"${new_fqdn_name}\t${my_hostname}"
+		local new_hostnames="${new_fqdn_name}\t${my_hostname}"
 		if [ "x${old_hostentry}" != "x" ]; then
 			#keep alternate names if defined
 			local needle=$(echo "^${new_ip_address}\$|${my_hostname}\$|${old_fqdn_name}\$|${new_fqdn_name}\$|localhost|^\$"| sed "s/\./\\\./g")
