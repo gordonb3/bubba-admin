@@ -29,6 +29,7 @@ define('BASEPATH', str_replace("\\", "/", $system_path));
 define('FCPATH', str_replace(SELF, '', __FILE__));
 define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
 define('APPPATH', $application_folder.'/');
+define('VIEWPATH', APPPATH.'views/');
 
 require_once BASEPATH.'core/CodeIgniter.php';
 
