@@ -124,7 +124,6 @@ class Ajax_Settings extends CI_Controller {
   }
 
   private static $account_can_webdav = array(
-    'HiDrive'
   );
 
   public function new_remote_account() {

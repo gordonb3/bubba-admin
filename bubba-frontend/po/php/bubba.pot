@@ -570,11 +570,6 @@ msgstr ""
 msgid "Unable to verify credentials"
 msgstr ""
 
-#: admin/models/system.php:191
-msgid ""
-"Selected HiDrive account doesn't have the stuff required for this system"
-msgstr ""
-
 #: admin/models/system.php:214
 msgid "Account allready defined"
 msgstr ""

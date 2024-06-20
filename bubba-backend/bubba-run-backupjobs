@@ -140,7 +140,6 @@ selection_mapping = {
     'data': """\
     + /home/
     - /home/storage
-    - /home/admin/HiDrive
     - /home/admin/ssh
     - /home/.cache
     - /*
@@ -179,12 +178,10 @@ selection_mapping = {
 }
 
 hosts_mapping = {
-    'HiDrive': 'rsync.hidrive.strato.com',
     'ssh': None
 }
 
 targetdir_mapping = {
-    'HiDrive': 'users/{user}/backup_{host}_{selection}',
     'local': 'backup_{host}_{selection}',
     'ssh': 'backup_{host}_{selection}'
 }

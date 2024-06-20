@@ -57,8 +57,6 @@ $(function() {
             if (data.uuid && data.type !== 'ssh') {
               txt = (function() {
                 switch (data.type) {
-                  case 'HiDrive':
-                    return _("Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</a> to download the openssh key needed for backup. Upload it to <a target=\"_blank\" href=\"https://hidrive.strato.com/\">HiDrive</a> under Account → Settings → Account management → OpenSSH key");
                   default:
                     return _("Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</a> to download the openssh key needed for backup");
                 }
@@ -100,16 +98,6 @@ $(function() {
                 required: true
               },
               host: {
-                required: true
-              }
-            }
-          });
-        } else if (account.type === 'HiDrive') {
-          form.find('input[name=username]').attr('disabled', 'disabled').closest('tr').hide();
-          form.find('input[name=host]').attr('disabled', 'disabled').closest('tr').hide();
-          form.validate({
-            rules: {
-              password: {
                 required: true
               }
             }

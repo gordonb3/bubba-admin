@@ -232,21 +232,6 @@ msgstr "Zurück"
 msgid "Complete"
 msgstr "Fertigstellen"
 
-#: admin/views/default/_js/backup.js:336
-#: admin/views/default/_js/remote_accounts.js:62
-#, javascript-format
-msgid ""
-"Please click <a href=\"%s/ajax_settings/get_remote_account_pubkey/%s\">here</"
-"a> to download the openssh key needed for backup. Upload it to <a target="
-"\"_blank\" href=\"https://hidrive.strato.com/\">HiDrive</a> under Account → "
-"Settings → Account management → OpenSSH key"
-msgstr ""
-"Sie müssen Ihren SSH Schlüssel <a href=\"%s/ajax_settings/"
-"get_remote_account_pubkey/%s\">herunterladen</a> welcher zum erstellen von "
-"Sicherungen benötigt wird. Er kann über <a target=\"_blank\" href=\"https://"
-"hidrive.strato.com/\">HiDrive</a> unter Account → Settings → Account "
-"management → OpenSSH hochgeladen werden."
-
 #: admin/views/default/_js/backup.js:338
 #: admin/views/default/_js/remote_accounts.js:64
 #, javascript-format

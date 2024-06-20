@@ -1,5 +1,5 @@
 <?php
-require_once 'HTTP/Request2.php';
+
 class NetworkManager extends CI_Model {
 	private $htcap;
 	private $ifcfg;

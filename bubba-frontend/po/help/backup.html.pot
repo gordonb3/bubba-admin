@@ -21,8 +21,7 @@ msgstr ""
 #: admin/views/default/help/en/backup.html:2
 msgid ""
 "This backup service allows you to backup any data on your {PLATFORM} to a "
-"USB disk, to any other {PLATFORM}, or to a paid account on HiDrive (https://"
-"www.free-hidrive.com/). Also any other server supporting ssh and rsync can "
+"USB disk or to any other {PLATFORM}. Also any other server supporting ssh and rsync can "
 "be used."
 msgstr ""
 
@@ -34,13 +33,6 @@ msgstr ""
 #. type: Content of: <p>
 #: admin/views/default/help/en/backup.html:10
 msgid "Click the button “Add new backup job” and follow the wizard"
-msgstr ""
-
-#. type: Content of: <p>
-#: admin/views/default/help/en/backup.html:14
-msgid ""
-"<em>Note: If you choose HiDrive as target you need a paid account since the "
-"free accounts does not support rsync</em>"
 msgstr ""
 
 #. type: Content of: <h3>

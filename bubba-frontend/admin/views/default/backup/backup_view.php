@@ -37,7 +37,6 @@
         <tr>
           <td colspan="2">
             <select id="type" name="type">
-              <option value="HiDrive">HiDrive</option>
               <option value="ssh">Other B3 (SSH)</option>
             </select>
           </td>
