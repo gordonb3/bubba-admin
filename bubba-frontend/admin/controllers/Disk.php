@@ -1,6 +1,8 @@
 <?php
 
-class Disk extends CI_Controller{
+require_once "Mycontroller.php";
+
+class Disk extends My_CI_Controller{
 
 	function __construct(){
 		parent::__construct();

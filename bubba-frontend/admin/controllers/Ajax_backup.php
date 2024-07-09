@@ -1,5 +1,7 @@
 <?php
-class Ajax_backup extends CI_Controller {
+require_once "Mycontroller.php";
+
+class Ajax_backup extends My_CI_Controller {
   const accounts_file = '/etc/bubba/remote_accounts.yml';
   const local_jobs_file = '/etc/bubba/local_backup_jobs.yml';
   const remote_jobs_file = '/etc/bubba/remote_backup_jobs.yml';

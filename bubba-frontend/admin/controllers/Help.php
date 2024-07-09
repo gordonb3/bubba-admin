@@ -1,6 +1,8 @@
 <?php
 
-class Help extends CI_Controller{
+require_once "Mycontroller.php";
+
+class Help extends My_CI_Controller{
 
     /* A couple of pages contains the same content and/or the same help text */
     private $index_map = array(

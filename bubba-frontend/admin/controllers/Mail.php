@@ -1,6 +1,8 @@
 <?php
 
-class Mail extends CI_Controller{
+require_once "Mycontroller.php";
+
+class Mail extends My_CI_Controller{
 
 	function __construct(){
 		parent::__construct();

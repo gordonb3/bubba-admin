@@ -1,6 +1,8 @@
 <?php
 
-class Settings extends CI_Controller{
+require_once "Mycontroller.php";
+
+class Settings extends My_CI_Controller{
 
   function __construct(){
     parent::__construct();

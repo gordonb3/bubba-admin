@@ -1,6 +1,8 @@
 <?php
 
-class Downloads extends CI_Controller{
+require_once "Mycontroller.php";
+
+class Downloads extends My_CI_Controller{
 
 	var $sorted=false;
 	var $dl=false;

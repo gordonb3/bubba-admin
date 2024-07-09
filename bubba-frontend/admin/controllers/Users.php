@@ -1,6 +1,8 @@
 <?php
 
-class Users extends CI_Controller{
+require_once "Mycontroller.php";
+
+class Users extends My_CI_Controller{
 
 	function __construct(){
 		parent::__construct();

@@ -1,5 +1,7 @@
 <?php
-class Ajax_network extends CI_Controller {
+require_once "Mycontroller.php";
+
+class Ajax_network extends My_CI_Controller {
 
 	var $json_data=Array(
 		'error' => true,

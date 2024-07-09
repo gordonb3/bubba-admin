@@ -1,6 +1,8 @@
 <?php
 
-class Backup extends CI_Controller {
+require_once "Mycontroller.php";
+
+class Backup extends My_CI_Controller {
     public function __construct() {
         parent::__construct();
         require_once(APPPATH."/legacy/defines.php");

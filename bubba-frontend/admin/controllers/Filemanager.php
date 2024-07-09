@@ -1,6 +1,8 @@
 <?php
 
-class Filemanager extends CI_Controller{
+require_once "Mycontroller.php";
+
+class Filemanager extends My_CI_Controller{
 
 	var $sortarray=false;
 	var $lspath=false;

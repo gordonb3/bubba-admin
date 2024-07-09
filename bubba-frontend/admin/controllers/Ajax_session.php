@@ -1,6 +1,8 @@
 <?php
 
-class Ajax_session extends CI_Controller {
+require_once "Mycontroller.php";
+
+class Ajax_session extends My_CI_Controller {
 	public  $json_data = array();
 	public function __construct() {
 		parent::__construct();

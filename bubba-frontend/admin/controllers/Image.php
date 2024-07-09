@@ -1,5 +1,7 @@
 <?php
-class Image extends CI_Controller {
+require_once "Mycontroller.php";
+
+class Image extends My_CI_Controller {
 	function __construct() {
 		parent::__construct();
 		require_once(APPPATH."/legacy/defines.php");

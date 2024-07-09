@@ -1,6 +1,8 @@
 <?php
 
-class Music extends CI_Controller{
+require_once "Mycontroller.php";
+
+class Music extends My_CI_Controller{
 
 	function __construct(){
 		parent::__construct();

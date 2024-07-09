@@ -1,5 +1,7 @@
 <?php
-class Ajax_status extends CI_Controller {
+require_once "Mycontroller.php";
+
+class Ajax_status extends My_CI_Controller {
 
     var $json_data=Array(
         'error' => 1,
