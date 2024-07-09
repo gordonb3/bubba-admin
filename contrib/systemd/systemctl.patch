@@ -40,7 +40,7 @@ diff -ru a/bubba-backend/web-admin/bin/diskdaemon.pl b/bubba-backend/web-admin/b
 diff -ru a/bubba-backend/web-admin/bin/adminfunctions.php b/bubba-backend/web-admin/bin/adminfunctions.php
 --- a/bubba-backend/web-admin/bin/adminfunctions.php	2021-01-12 10:10:25.998316000 +0100
 +++ b/bubba-backend/web-admin/bin/adminfunctions.php	2021-01-12 10:10:07.859961000 +0100
-@@ -416,7 +416,7 @@
+@@ -385,7 +385,7 @@
  		if(query_service("avahi-daemon")){
  			restart_service("avahi-daemon");
  		}
@@ -49,7 +49,7 @@ diff -ru a/bubba-backend/web-admin/bin/adminfunctions.php b/bubba-backend/web-ad
  			restart_samba();
  		}
  		if(query_service("forked-daapd")){
-@@ -618,9 +618,8 @@
+@@ -587,9 +587,8 @@
 
  function query_service($name){
 
@@ -331,10 +331,10 @@ diff -ru a/bubba-frontend/admin/helpers/exec_helper.php b/bubba-frontend/admin/h
  	exec( escapeshellargs( $cmd ), $output, $retval );
  	return $retval == 0;
  }
-diff -ru a/bubba-frontend/admin/models/networkmanager.php b/bubba-frontend/admin/models/networkmanager.php
---- a/bubba-frontend/admin/models/networkmanager.php
-+++ b/bubba-frontend/admin/models/networkmanager.php
-@@ -164,8 +164,7 @@
+diff -ru a/bubba-frontend/admin/models/Networkmanager.php b/bubba-frontend/admin/models/Networkmanager.php
+--- a/bubba-frontend/admin/models/Networkmanager.php
++++ b/bubba-frontend/admin/models/Networkmanager.php
+@@ -64,8 +64,7 @@
      if (!$newdomain) {
          $newdomain = $olddomain? $olddomain:"localdomain";
      }
