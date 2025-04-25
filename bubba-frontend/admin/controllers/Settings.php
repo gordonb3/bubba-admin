@@ -244,7 +244,7 @@ class Settings extends My_CI_Controller{
       $output = old_apt_query_progress();
       break;
     case 'get_versions':
-      $versions = get_package_version(array("bubbagen","bubba3-kernel","bubba-admin","singapore","filetransferdaemon","logitechmediaserver"));
+      $versions = get_package_version(array("bubbagen","bubba3-kernel","bubba-admin","singapore","filetransferdaemon","lyrionmusicserver"));
       $this->session->set_userdata("version",$versions['bubbagen']);
       $output = str_replace("null","not installed",json_encode($versions));
       break;
@@ -513,8 +513,8 @@ class Settings extends My_CI_Controller{
 			case "sandbox":
 				continue 2;
 				break;
-			case "logitechmediaserver":
-				$dirname = "Logitech Mediaserver";
+			case "lyrionmusicserver":
+				$dirname = "Lyrion Music Server";
 				break;
 			case "apache2":
 				$dirname = "Apache webserver";

@@ -43,10 +43,10 @@ class Services extends My_CI_Controller{
 		$upnp_status=query_service("minidlna");
 		$upnp_enabled=$this->input->post('upnp_enabled');
 
-		$logitechmediaserver_packagename='logitechmediaserver';
-		$logitechmediaserver_status=query_service("logitechmediaserver");
-		$logitechmediaserver_installed=is_installed($logitechmediaserver_packagename);
-		$logitechmediaserver_enabled=$this->input->post('logitechmediaserver_enabled');
+		$lyrionmusicserver_packagename='lyrionmusicserver';
+		$lyrionmusicserver_status=query_service("lyrionmusicserver");
+		$lyrionmusicserver_installed=is_installed($lyrionmusicserver_packagename);
+		$lyrionmusicserver_enabled=$this->input->post('lyrionmusicserver_enabled');
 
 		$print_status=query_service("cupsd");
 		$print_enabled=$this->input->post('print_enabled');
@@ -128,14 +128,14 @@ class Services extends My_CI_Controller{
 				start_service("minidlna");
 				$upnp_status=1;
 			}
-			if($logitechmediaserver_status && !$logitechmediaserver_enabled){
-				remove_service("logitechmediaserver");
-				stop_service("logitechmediaserver");
-				$logitechmediaserver_status=0;
-			}else if(!$logitechmediaserver_status && $logitechmediaserver_enabled){
-				add_service("logitechmediaserver");
-				start_service("logitechmediaserver");
-				$logitechmediaserver_status=1;
+			if($lyrionmusicserver_status && !$lyrionmusicserver_enabled){
+				remove_service("lyrionmusicserver");
+				stop_service("lyrionmusicserver");
+				$lyrionmusicserver_status=0;
+			}else if(!$lyrionmusicserver_status && $lyrionmusicserver_enabled){
+				add_service("lyrionmusicserver");
+				start_service("lyrionmusicserver");
+				$lyrionmusicserver_status=1;
 			}
 
 			if($print_status && !$print_enabled){
@@ -201,9 +201,9 @@ class Services extends My_CI_Controller{
 		$data["anon_status"]=$anon_status;
 		$data["afp_status"]=$afp_status;
 		$data["upnp_status"]=$upnp_status;
-		$data["logitechmediaserver_status"]=$logitechmediaserver_status;
-		$data["logitechmediaserver_installed"]=$logitechmediaserver_installed;
-		$data["logitechmediaserver_packagename"]=$logitechmediaserver_packagename;
+		$data["lyrionmusicserver_status"]=$lyrionmusicserver_status;
+		$data["lyrionmusicserver_installed"]=$lyrionmusicserver_installed;
+		$data["lyrionmusicserver_packagename"]=$lyrionmusicserver_packagename;
 		$data["daap_status"]=$daap_status;
 		$data["smtp_status"]=$smtp_status;
 		$data["imap_status"]=$imap_status;

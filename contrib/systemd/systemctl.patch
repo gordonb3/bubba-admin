@@ -221,9 +221,9 @@ diff -ru a/bubba-backend/web-admin/lib/Bubba.pm b/bubba-backend/web-admin/lib/Bu
  	# services, boolean such if service enabled or not
  	my %services = map {
 -		$_ => (defined -e "/etc/runlevels/default/$_");
--	} qw(proftpd forked-daapd ntpd filetransferdaemon cupsd postfix dovecot fetchmail minidlna dnsmasq logitechmediaserver hostapd netatalk net.br0 samba);
+-	} qw(proftpd forked-daapd ntpd filetransferdaemon cupsd postfix dovecot fetchmail minidlna dnsmasq lyrionmusicserver hostapd netatalk net.br0 samba);
 +		$_ => (system("/usr/bin/systemctl is-enabled $_")==0);
-+	} qw(proftpd forked-daapd ntpd filetransferdaemon cupsd postfix dovecot fetchmail minidlna dnsmasq logitechmediaserver hostapd netatalk smbd);
++	} qw(proftpd forked-daapd ntpd filetransferdaemon cupsd postfix dovecot fetchmail minidlna dnsmasq lyrionmusicserver hostapd netatalk smbd);
 
  	my $meta = {
  		version => $revision,
@@ -267,7 +267,7 @@ diff -ru a/bubba-backend/web-admin/lib/Bubba.pm b/bubba-backend/web-admin/lib/Bu
  			if($lines=~/proftpd/){
  				start_service("proftpd");
 @@ -1861,7 +1840,7 @@
- 				remove_service("logitechmediaserver");
+ 				remove_service("lyrionmusicserver");
  			}
 
 -			reload_service("samba");

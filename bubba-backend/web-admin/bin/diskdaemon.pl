@@ -515,7 +515,7 @@ sub create_raid {
 
         my @services = (
             [ 'cron', '/etc/init.d/cron' ],
-            [ 'logitechmediaserver', '/etc/init.d/logitechmediaserver' ],
+            [ 'lyrionmusicserver', '/etc/init.d/lyrionmusicserver' ],
             [ 'forked-daapd', '/etc/init.d/forked-daapd' ],
             [ 'minidlna', '/etc/init.d/minidlna' ],
             [ 'proftpd', '/etc/init.d/proftpd' ],
@@ -983,7 +983,7 @@ sub restore_raid_broken_internal {
 
         my @services = (
             [ 'cron', '/etc/init.d/cron' ],
-            [ 'logitechmediaserver', '/etc/init.d/logitechmediaserver' ],
+            [ 'lyrionmusicserver', '/etc/init.d/lyrionmusicserver' ],
             [ 'forked-daapd', '/etc/init.d/forked-daapd' ],
             [ 'minidlna', '/etc/init.d/minidlna' ],
             [ 'proftpd', '/etc/init.d/proftpd' ],

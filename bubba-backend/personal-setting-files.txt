@@ -41,9 +41,6 @@
 /etc/apache2/cacert.pem
 /etc/apache2/privkey.pem
 
-# LogitechMediaServer
-/etc/squeezeboxserver
-
 # Bubba diverted configs
 /etc/bubba/*
 

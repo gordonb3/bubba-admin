@@ -1444,7 +1444,7 @@ sub backup_config{
 	# services, boolean such if service enabled or not
 	my %services = map {
 		$_ => (defined -e "/etc/runlevels/default/$_");
-	} qw(proftpd forked-daapd ntpd filetransferdaemon cupsd postfix dovecot fetchmail minidlna dnsmasq logitechmediaserver hostapd netatalk net.br0 samba);
+	} qw(proftpd forked-daapd ntpd filetransferdaemon cupsd postfix dovecot fetchmail minidlna dnsmasq lyrionmusicserver hostapd netatalk net.br0 samba);
 
 	my $meta = {
 		version => $revision,
@@ -1853,12 +1853,12 @@ sub restore_config{
 				remove_service("dnsmasq");
 			}
 
-			if($lines=~/logitechmediaserver/){
-				stop_service("logitechmediaserver");
-				start_service("logitechmediaserver");
+			if($lines=~/lyrionmusicserver/){
+				stop_service("lyrionmusicserver");
+				start_service("lyrionmusicserver");
 			}else{
-				stop_service("logitechmediaserver");
-				remove_service("logitechmediaserver");
+				stop_service("lyrionmusicserver");
+				remove_service("lyrionmusicserver");
 			}
 
 			reload_service("samba");

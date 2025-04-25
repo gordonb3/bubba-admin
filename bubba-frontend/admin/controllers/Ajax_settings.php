@@ -76,7 +76,7 @@ class Ajax_Settings extends My_CI_Controller {
 	}
 
   function get_versions() {
-      $versions = get_package_version(array("bubbagen","bubba3-kernel","bubba-admin","singapore","filetransferdaemon","logitechmediaserver"));
+      $versions = get_package_version(array("bubbagen","bubba3-kernel","bubba-admin","singapore","filetransferdaemon","lyrionmusicserver"));
       $this->session->set_userdata("version",$versions['bubbagen']);
       $this->json_data = str_replace("null","not installed",$versions);
   }
