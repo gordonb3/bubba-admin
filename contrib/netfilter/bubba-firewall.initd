@@ -44,9 +44,12 @@ flush_rules() {
 
 checkkernel() {
 	if [ ! -e ${nftables_proc} ] ; then
-		eerror "Your kernel lacks nftables support, please load"
-		eerror "appropriate modules and try again."
-		return 1
+		modprobe -a iptable_mangle iptable_filter iptable_nat
+		if [ ! -e ${iptables_proc} ] ; then
+			eerror "Your kernel lacks ${iptables_name} support, please load"
+			eerror "appropriate modules and try again."
+			return 1
+		fi
 	fi
 	return 0
 }

@@ -139,6 +139,6 @@ if(WITH_SYSTEMD)
   add_custom_target(systemd-patch
     COMMAND test -e ${EXT_TEMP_DIR}/systemd-patch.completed || RESULT=`cat ${PATCHPATH}/systemctl.patch ${PATCHPATH}/gnome-NetworkManager.patch | patch -p1 > ${EXT_TEMP_DIR}/systemd-patch.completed`
   )
-   add_dependencies(sigc++ systemd-patch)
+  add_dependencies(sigc++ systemd-patch)
 endif()
 

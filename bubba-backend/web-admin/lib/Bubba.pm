@@ -591,10 +591,10 @@ sub change_hostname {
 
 	restart_avahi();
 
-	if(!query_service("forked-daapd")){
-		stop_service("forked-daapd");
+	if(!query_service("owntone")){
+		stop_service("owntone");
 		sleep(1);
-		start_service("forked-daapd");
+		start_service("owntone");
 	}
 	return 0;
 }
@@ -1444,7 +1444,7 @@ sub backup_config{
 	# services, boolean such if service enabled or not
 	my %services = map {
 		$_ => (defined -e "/etc/runlevels/default/$_");
-	} qw(proftpd forked-daapd ntpd filetransferdaemon cupsd postfix dovecot fetchmail minidlna dnsmasq lyrionmusicserver hostapd netatalk net.br0 samba);
+	} qw(proftpd owntone ntpd filetransferdaemon cupsd postfix dovecot fetchmail minidlna dnsmasq lyrionmusicserver hostapd netatalk net.br0 samba);
 
 	my $meta = {
 		version => $revision,
@@ -1794,11 +1794,11 @@ sub restore_config{
 				remove_service("proftpd");
 			}
 
-			if($lines=~/forked-daapd/){
-				start_service("forked-daapd");
+			if($lines=~/owntone/){
+				start_service("owntone");
 			}else{
-				stop_service("forked-daapd");
-				remove_service("forked-daapd");
+				stop_service("owntone");
+				remove_service("owntone");
 			}
 
 			if($lines=~/minidlna/){
