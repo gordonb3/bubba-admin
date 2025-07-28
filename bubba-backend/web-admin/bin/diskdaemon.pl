@@ -516,7 +516,7 @@ sub create_raid {
         my @services = (
             [ 'cron', '/etc/init.d/cron' ],
             [ 'lyrionmusicserver', '/etc/init.d/lyrionmusicserver' ],
-            [ 'forked-daapd', '/etc/init.d/forked-daapd' ],
+            [ 'owntone', '/etc/init.d/owntone' ],
             [ 'minidlna', '/etc/init.d/minidlna' ],
             [ 'proftpd', '/etc/init.d/proftpd' ],
             [ 'netatalk', '/etc/init.d/netatalk' ],
@@ -984,7 +984,7 @@ sub restore_raid_broken_internal {
         my @services = (
             [ 'cron', '/etc/init.d/cron' ],
             [ 'lyrionmusicserver', '/etc/init.d/lyrionmusicserver' ],
-            [ 'forked-daapd', '/etc/init.d/forked-daapd' ],
+            [ 'owntone', '/etc/init.d/owntone' ],
             [ 'minidlna', '/etc/init.d/minidlna' ],
             [ 'proftpd', '/etc/init.d/proftpd' ],
             [ 'netatalk', '/etc/init.d/netatalk' ],

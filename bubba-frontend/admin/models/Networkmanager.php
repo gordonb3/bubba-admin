@@ -377,9 +377,9 @@ class NetworkManager extends CI_Model {
 	        stop_service("avahi-daemon");
 	        start_service("avahi-daemon");
 	    }
-	    if(query_service("forked-daapd")){
-	        stop_service("forked-daapd");
-	        start_service("forked-daapd");
+	    if(query_service("owntone")){
+	        stop_service("owntone");
+	        start_service("owntone");
 	    }
 	    if(query_service("minidlna")){
 		    stop_service("minidlna");

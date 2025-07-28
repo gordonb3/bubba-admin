@@ -37,7 +37,7 @@ class Services extends My_CI_Controller{
    		$afp_enabled = $this->input->post('afp_enabled');
 		$afp_status = query_service("netatalk");
 
-		$daap_status=query_service("forked-daapd");
+		$daap_status=query_service("owntone");
 		$daap_enabled=$this->input->post('daap_enabled');
 
 		$upnp_status=query_service("minidlna");
@@ -106,12 +106,12 @@ class Services extends My_CI_Controller{
 			}
 
 			if($daap_status && !$daap_enabled){
-				remove_service("forked-daapd");
-				stop_service("forked-daapd");
+				remove_service("owntone");
+				stop_service("owntone");
 				$daap_status=0;
 			}else if(!$daap_status && $daap_enabled){
-				add_service("forked-daapd");
-				start_service("forked-daapd");
+				add_service("owntone");
+				start_service("owntone");
 				$daap_status=1;
 			}
 
